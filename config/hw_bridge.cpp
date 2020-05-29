@@ -1,6 +1,6 @@
 #include "hw_bridge.h"
 
-std::string ROS_INTERFACE::ARM::ACTUATOR::stringifyActuatorID(actuatorID actuator) {
+std::string HW_BRIDGE::ARM::ACTUATOR::stringifyActuatorID(actuatorID_t actuator) {
     switch(actuator) {
         case(TURNTABLE): return "TURNTABLE";
         case(SHOULDER): return"SHOULDER";
@@ -12,7 +12,7 @@ std::string ROS_INTERFACE::ARM::ACTUATOR::stringifyActuatorID(actuatorID actuato
     }
 }
 
-std::string ROS_INTERFACE::ARM::PID::stringifyParam(parameter param) {
+std::string HW_BRIDGE::ARM::PID::stringifyParam(parameter_t param) {
     switch(param) {
         case(P): return "P";
         case(I): return "I";
