@@ -2,10 +2,9 @@
 #include <string>
 
 namespace ROVERCONFIG {
-    enum roverConfig_t {
-        ROVER_MOTOR_PWM_FREQ_HZ         = 20000, // 20 kHz
-        ROVER_DEFAULT_SERIAL_BAUD_RATE  = 115200,
-        ROVER_CANBUS_FREQUENCY          = 500000, // 500 kbps
+    constexpr uint16_t ROVER_MOTOR_PWM_FREQ_HZ = 20000; // 20 kHz
+    constexpr uint32_t ROVER_CANBUS_FREQUENCY = 500000; // 500 kbps
+    enum filtering_t {
         ROVER_CANID_FILTER_MASK         = 0xFE0,  // Use bits [5:10] for addressing and 0:7 for command/message type
         ROVER_CANID_FIRST_ERROR_TX      = 0x100,
         ROVER_CANID_FIRST_SAFETY_TX     = 0x720,
@@ -15,7 +14,7 @@ namespace ROVERCONFIG {
         ROVER_CANID_FIRST_SCIENCE_RX    = 0x760,
         ROVER_CANID_FIRST_SCIENCE_TX    = 0x770,
         ROVER_CANID_FIRST_GIMBTONOMY_RX = 0x780,
-        ROVER_CANID_FIRST_GIMBTONOMY_TX = 0x790,
+        ROVER_CANID_FIRST_GIMBTONOMY_TX = 0x790
     };
 }
 
@@ -76,13 +75,11 @@ namespace HW_BRIDGE {
             std::string stringifyActuatorID(actuatorID_t actuator);
         }
         namespace PID {
-            namespace API {
-                struct __attribute__ ((__packed__)) payload_st{
-                    float value;
-                    bool velocity;
-                    uint8_t actuatorID;
-                };
-            }
+            struct __attribute__ ((__packed__)) payload_st{
+                float value;
+                bool velocity;
+                uint8_t actuatorID;
+            };
             enum parameter_t{
                 P,
                 I,
