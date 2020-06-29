@@ -75,11 +75,11 @@ namespace HW_BRIDGE {
             std::string stringifyActuatorID(actuatorID_t actuator);
         }
         namespace PID {
-            struct __attribute__ ((__packed__)) payload_st{
+            typedef struct __attribute__ ((__packed__)) {
                 float value;
                 bool velocity;
                 uint8_t actuatorID;
-            };
+            } payload;
             enum parameter_t{
                 P,
                 I,
