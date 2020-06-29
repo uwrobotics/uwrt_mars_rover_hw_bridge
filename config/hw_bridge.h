@@ -3,7 +3,7 @@
 
 namespace ROVERCONFIG {
 constexpr uint16_t ROVER_MOTOR_PWM_FREQ_HZ = 20000;   // 20 kHz
-constexpr uint32_t ROVER_CANBUS_FREQUENCY = 500000;   // 500 kbps
+constexpr uint32_t ROVER_CANBUS_FREQUENCY  = 500000;  // 500 kbps
 enum filtering_t {
 	ROVER_CANID_FILTER_MASK         = 0xFE0,  // Use bits [5:10] for addressing and 0:7 for command/message type
 	ROVER_CANID_FIRST_ERROR_TX      = 0x100,
@@ -16,10 +16,10 @@ enum filtering_t {
 	ROVER_CANID_FIRST_GIMBTONOMY_RX = 0x780,
 	ROVER_CANID_FIRST_GIMBTONOMY_TX = 0x790
 };
-}   // namespace ROVERCONFIG
+}  // namespace ROVERCONFIG
 
 namespace CANID {
-enum  canID_t {
+enum canID_t {
   // ERROR CAN IDs
   SAFETY_ERROR = 0x100,
   ARM_ERROR,
@@ -59,7 +59,7 @@ enum  canID_t {
   SET_NEOPIXEL = 0X784,
   NEOPIXEL_ACK
 };
-}   // namespace CANID
+}  // namespace CANID
 
 namespace HW_BRIDGE {
 namespace ARM {
