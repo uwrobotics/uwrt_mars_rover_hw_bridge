@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 
+namespace HWBRIDGE {
 namespace ROVERCONFIG {
 constexpr uint16_t ROVER_MOTOR_PWM_FREQ_HZ = 20000;   // 20 kHz
 constexpr uint32_t ROVER_CANBUS_FREQUENCY  = 500000;  // 500 kbps
@@ -120,3 +121,4 @@ std::string stringifyParam(parameter_t param);
 std::string stringifyVelPos(bool vel_pos);
 }  // namespace PID
 }  // namespace ARM
+}  // namespace HWBRIDGE
