@@ -45,16 +45,16 @@ enum canHeartbeat_t {
 namespace CANID {
 enum canID_t {
   // DRIVETRAIN CAN IDs
-  TPDO1 = 0x181,
-  TPDO2 = 0x281,
-  TPDO3 = 0x381,
-  TPDO4 = 0x481,
-  RPDO1 = 0x201,
-  RPDO2 = 0x301,
-  RPDO3 = 0x401,
-  RPDO4 = 0x501,
+  TPDO1         = 0x181,
+  TPDO2         = 0x281,
+  TPDO3         = 0x381,
+  TPDO4         = 0x481,
+  RPDO1         = 0x201,
+  RPDO2         = 0x301,
+  RPDO3         = 0x401,
+  RPDO4         = 0x501,
   SDO_CMD_QUERY = 0x601,
-  SDO_RESPONSE = 0x581,
+  SDO_RESPONSE  = 0x581,
   // SAFETY CAN IDs UNIMPLEMENTED
   // ARM CAN IDs
   ARM_RESET = 0x720,
