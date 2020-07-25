@@ -1,41 +1,34 @@
 #include "hw_bridge.h"
+#include <iomanip>
+#include <sstream>
 
-std::string HWBRIDGE::ARM::ACTUATOR::stringifyActuatorID(HWBRIDGE::ARM::ACTUATOR::actuatorID_t actuator) {
-  switch (actuator) {
+std::string HWBRIDGE::ARM::PID::tuningApiPayload::str() {
+  std::string actuator;
+  switch (actuatorID) {
     case (HWBRIDGE::ARM::ACTUATOR::TURNTABLE):
-      return "TURNTABLE";
+      actuator = "TURNTABLE";
+      break;
     case (HWBRIDGE::ARM::ACTUATOR::SHOULDER):
-      return "SHOULDER";
+      actuator = "SHOULDER";
+      break;
     case (HWBRIDGE::ARM::ACTUATOR::ELBOW):
-      return "ELBOW";
+      actuator = "ELBOW";
+      break;
     case (HWBRIDGE::ARM::ACTUATOR::WRISTLEFT):
-      return "WRISTLEFT";
+      actuator = "WRISTLEFT";
+      break;
     case (HWBRIDGE::ARM::ACTUATOR::WRISTRIGHT):
-      return "WRISTRIGHT";
+      actuator = "WRISTRIGHT";
+      break;
     case (HWBRIDGE::ARM::ACTUATOR::CLAW):
-      return "CLAW";
+      actuator = "CLAW";
+      break;
     default:
-      return "ERROR";
+      return "UNDEFINED";
   }
-}
-
-std::string HWBRIDGE::ARM::PID::stringifyParam(HWBRIDGE::ARM::PID::parameter_t param) {
-  switch (param) {
-    case (HWBRIDGE::ARM::PID::P):
-      return "P";
-    case (HWBRIDGE::ARM::PID::I):
-      return "I";
-    case (HWBRIDGE::ARM::PID::D):
-      return "D";
-    case (HWBRIDGE::ARM::PID::DEADZONE):
-      return "DEADZONE";
-    case (HWBRIDGE::ARM::PID::BIAS):
-      return "BIAS";
-    default:
-      return "ERROR";
-  }
-}
-
-std::string HWBRIDGE::ARM::PID::stringifyVelPos(bool vel_pos) {
-  return vel_pos ? "velocity" : "position";
+  std::string control = velocity ? "VELOCITY" : "POSITION";
+  std::stringstream strm;
+  strm << std::fixed << std::setprecision(4) << value;
+  std::string val = strm.str();
+  return "{Value: " + val + ", Actuator: " + actuator + ", Control: " + control + "}";
 }

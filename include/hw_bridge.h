@@ -109,17 +109,15 @@ enum canID_t {
 namespace ARM {
 namespace ACTUATOR {
 enum actuatorID_t { TURNTABLE, SHOULDER, ELBOW, WRISTLEFT, WRISTRIGHT, CLAW };
-std::string stringifyActuatorID(actuatorID_t actuator);
 }  // namespace ACTUATOR
 namespace PID {
-typedef struct __attribute__((__packed__)) {
+typedef struct __attribute__((__packed__)) tuningApiPayload {
   float value;
   bool velocity;
   uint8_t actuatorID;
-} payload;
+  std::string str();
+};
 enum parameter_t { P, I, D, DEADZONE, BIAS };
-std::string stringifyParam(parameter_t param);
-std::string stringifyVelPos(bool vel_pos);
 }  // namespace PID
 }  // namespace ARM
 }  // namespace HWBRIDGE
