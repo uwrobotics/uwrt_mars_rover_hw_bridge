@@ -115,8 +115,8 @@ typedef struct __attribute__((__packed__)) tuningApiPayload {
   float value;
   bool velocity;
   uint8_t actuatorID;
-  std::string str();
 };
+const std::string str(const tuningApiPayload& payload);
 enum parameter_t { P, I, D, DEADZONE, BIAS };
 }  // namespace PID
 }  // namespace ARM

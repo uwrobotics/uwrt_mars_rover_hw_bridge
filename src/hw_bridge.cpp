@@ -2,9 +2,9 @@
 #include <iomanip>
 #include <sstream>
 
-std::string HWBRIDGE::ARM::PID::tuningApiPayload::str() {
+const std::string HWBRIDGE::ARM::PID::str(const tuningApiPayload& payload) {
   std::string actuator;
-  switch (actuatorID) {
+  switch (payload.actuatorID) {
     case (HWBRIDGE::ARM::ACTUATOR::TURNTABLE):
       actuator = "TURNTABLE";
       break;
@@ -26,9 +26,9 @@ std::string HWBRIDGE::ARM::PID::tuningApiPayload::str() {
     default:
       return "UNDEFINED";
   }
-  std::string control = velocity ? "VELOCITY" : "POSITION";
+  std::string control = payload.velocity ? "VELOCITY" : "POSITION";
   std::stringstream strm;
-  strm << std::fixed << std::setprecision(4) << value;
+  strm << std::fixed << std::setprecision(4) << payload.value;
   std::string val = strm.str();
   return "{Value: " + val + ", Actuator: " + actuator + ", Control: " + control + "}";
 }
