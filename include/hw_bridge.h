@@ -111,7 +111,7 @@ namespace ACTUATOR {
 enum actuatorID_t { TURNTABLE, SHOULDER, ELBOW, WRISTLEFT, WRISTRIGHT, CLAW };
 }  // namespace ACTUATOR
 namespace PID {
-typedef struct __attribute__((__packed__)) tuningApiPayload {
+struct __attribute__((__packed__)) tuningApiPayload {
   float value;
   bool velocity;
   uint8_t actuatorID;
