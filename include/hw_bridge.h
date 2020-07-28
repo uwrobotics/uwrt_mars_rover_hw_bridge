@@ -111,11 +111,11 @@ namespace ACTUATOR {
 enum actuatorID_t { TURNTABLE, SHOULDER, ELBOW, WRISTLEFT, WRISTRIGHT, CLAW };
 }  // namespace ACTUATOR
 namespace PID {
-struct __attribute__((__packed__)) tuningApiPayload {
+typedef struct __attribute__((__packed__)) tuningApiPayload {
   float value;
   bool velocity;
   uint8_t actuatorID;
-};
+} tuningApiPayload;
 const std::string str(const tuningApiPayload& payload);
 enum parameter_t { P, I, D, DEADZONE, BIAS };
 }  // namespace PID
