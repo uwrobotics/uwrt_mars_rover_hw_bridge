@@ -114,7 +114,7 @@ namespace PID {
 typedef struct __attribute__((__packed__)) tuningApiPayload {
   float value;
   bool velocity;
-  uint8_t actuatorID;
+  HWBRIDGE::ARM::ACTUATOR::actuatorID_t actuatorID;
 } tuningApiPayload;
 const std::string str(const tuningApiPayload& payload);
 enum parameter_t { P, I, D, DEADZONE, BIAS };
