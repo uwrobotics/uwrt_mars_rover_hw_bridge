@@ -3,7 +3,7 @@
 #include <iomanip>
 #include <sstream>
 
-const std::string HWBRIDGE::ARM::PID::str(const tuningApiPayload& payload) {
+const std::string HWBRIDGE::ARM::PID::str(const TuningApiPayload& payload) {
   std::string actuator;
   switch (payload.actuatorID) {
     case (HWBRIDGE::ARM::ACTUATOR::TURNTABLE):

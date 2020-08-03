@@ -111,7 +111,7 @@ namespace ACTUATOR {
 enum ActuatorId { TURNTABLE, SHOULDER, ELBOW, WRISTLEFT, WRISTRIGHT, CLAW };
 }  // namespace ACTUATOR
 namespace PID {
-using tuningApiPayload = struct __attribute__((__packed__)) tuningApiPayload {
+using tuningApiPayload = struct __attribute__((__packed__)) TuningApiPayload {
   float value;
   bool velocity;
   HWBRIDGE::ARM::ACTUATOR::ActuatorId actuatorID;
