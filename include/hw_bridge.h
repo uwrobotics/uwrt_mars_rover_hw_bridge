@@ -116,7 +116,7 @@ using tuningApiPayload = struct __attribute__((__packed__)) TuningApiPayload {
   bool velocity;
   HWBRIDGE::ARM::ACTUATOR::ActuatorId actuatorID;
 };
-const std::string str(const tuningApiPayload& payload);
+std::string str(const tuningApiPayload& payload);
 enum Parameter { P, I, D, DEADZONE, BIAS };
 }  // namespace PID
 }  // namespace ARM
