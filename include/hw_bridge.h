@@ -9,7 +9,7 @@ constexpr uint16_t ROVER_CANID_FILTER_MASK = 0xFE0;   // Use bits [5:10] for add
 }  // namespace ROVERCONFIG
 
 namespace CANFILTER {
-enum filtering_t {
+enum Filtering {
   ROVER_CANID_FIRST_ERROR_TX      = 0x100,
   ROVER_CANID_FIRST_ARM_RX        = 0x720,
   ROVER_CANID_FIRST_ARM_TX        = 0x758,
@@ -21,7 +21,7 @@ enum filtering_t {
 }
 
 namespace CANERROR {
-enum canError_t {
+enum CanError {
   // ERROR CAN IDs
   SAFETY_ERROR = 0x100,
   ARM_ERROR,
@@ -31,7 +31,7 @@ enum canError_t {
 }  // namespace CANERROR
 
 namespace CANHEARTBEAT {
-enum canHeartbeat_t {
+enum CanHeartbeat {
   // ERROR CAN IDs
   JETSON = 0x140,
   SAFETY,
@@ -43,7 +43,7 @@ enum canHeartbeat_t {
 }  // namespace CANHEARTBEAT
 
 namespace CANID {
-enum canID_t {
+enum CanId {
   // DRIVETRAIN CAN IDs
   TPDO1         = 0x181,
   TPDO2         = 0x281,
@@ -108,18 +108,18 @@ enum canID_t {
 
 namespace ARM {
 namespace ACTUATOR {
-enum actuatorID_t { TURNTABLE, SHOULDER, ELBOW, WRISTLEFT, WRISTRIGHT, CLAW };
-std::string stringifyActuatorID(actuatorID_t actuator);
+enum ActuatorId { TURNTABLE, SHOULDER, ELBOW, WRISTLEFT, WRISTRIGHT, CLAW };
+std::string stringifyActuatorID(ActuatorId actuator);
 }  // namespace ACTUATOR
 namespace PID {
-typedef struct __attribute__((__packed__)) {
+using tuningApiPayload = struct __attribute__((__packed__)) TuningApiPayload {
   float value;
   bool velocity;
   uint8_t actuatorID;
-} payload;
-enum parameter_t { P, I, D, DEADZONE, BIAS };
-std::string stringifyParam(parameter_t param);
-std::string stringifyVelPos(bool vel_pos);
+};
+enum Parameter { P, I, D, DEADZONE, BIAS };
+std::string stringifyParam(Parameter param);
+std::string stringifyVelPos(bool isVelocityPID);
 }  // namespace PID
 }  // namespace ARM
 }  // namespace HWBRIDGE

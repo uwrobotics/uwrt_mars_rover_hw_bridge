@@ -1,6 +1,6 @@
 #include "hw_bridge.h"
 
-std::string HWBRIDGE::ARM::ACTUATOR::stringifyActuatorID(HWBRIDGE::ARM::ACTUATOR::actuatorID_t actuator) {
+std::string HWBRIDGE::ARM::ACTUATOR::stringifyActuatorID(HWBRIDGE::ARM::ACTUATOR::ActuatorId actuator) {
   switch (actuator) {
     case (HWBRIDGE::ARM::ACTUATOR::TURNTABLE):
       return "TURNTABLE";
@@ -19,7 +19,7 @@ std::string HWBRIDGE::ARM::ACTUATOR::stringifyActuatorID(HWBRIDGE::ARM::ACTUATOR
   }
 }
 
-std::string HWBRIDGE::ARM::PID::stringifyParam(HWBRIDGE::ARM::PID::parameter_t param) {
+std::string HWBRIDGE::ARM::PID::stringifyParam(HWBRIDGE::ARM::PID::Parameter param) {
   switch (param) {
     case (HWBRIDGE::ARM::PID::P):
       return "P";
@@ -36,6 +36,6 @@ std::string HWBRIDGE::ARM::PID::stringifyParam(HWBRIDGE::ARM::PID::parameter_t p
   }
 }
 
-std::string HWBRIDGE::ARM::PID::stringifyVelPos(bool vel_pos) {
-  return vel_pos ? "velocity" : "position";
+std::string HWBRIDGE::ARM::PID::stringifyVelPos(bool isVelocityPID) {
+  return isVelocityPID ? "velocity" : "position";
 }
