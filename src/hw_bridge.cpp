@@ -27,7 +27,7 @@ std::string HWBRIDGE::ARM::PID::str(const TuningApiPayload& payload) {
     default:
       return "UNDEFINED";
   }
-  std::string control = payload.velocity ? "VELOCITY" : "POSITION";
+  std::string control = payload.isVelocityPID ? "VELOCITY" : "POSITION";
   std::stringstream strm;
   strm << std::fixed << std::setprecision(4) << payload.value;
   std::string val = strm.str();

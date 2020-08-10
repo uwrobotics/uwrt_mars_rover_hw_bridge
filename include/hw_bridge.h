@@ -113,7 +113,7 @@ enum ActuatorId { TURNTABLE, SHOULDER, ELBOW, WRISTLEFT, WRISTRIGHT, CLAW };
 namespace PID {
 using tuningApiPayload = struct __attribute__((__packed__)) TuningApiPayload {
   float value;
-  bool velocity;
+  bool isVelocityPID;
   HWBRIDGE::ARM::ACTUATOR::ActuatorId actuatorID;
 };
 std::string str(const tuningApiPayload& payload);
