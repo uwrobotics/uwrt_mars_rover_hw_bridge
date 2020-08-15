@@ -22,5 +22,3 @@ if(DEFINED CATKIN_GLOBAL_BIN_DESTINATION) # Detects if being built in a catkin c
             PATTERN ".svn" EXCLUDE
             )
 endif()
-
-
