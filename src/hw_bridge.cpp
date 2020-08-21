@@ -3,33 +3,33 @@
 #include <iomanip>
 #include <sstream>
 
-std::string HWBRIDGE::ARM::PID::str(const TuningApiPayload& payload) {
-  std::string actuator;
-  switch (payload.actuatorID) {
-    case (HWBRIDGE::ARM::ACTUATOR::TURNTABLE):
+constexpr std::string_view HWBRIDGE::ARM::PID::str(const tuningApiPayload& payload) {
+  std::string_view actuator;
+  switch (payload.ACTUATORID) {
+    case (HWBRIDGE::ARM::ACTUATORID::TURNTABLE):
       actuator = "TURNTABLE";
       break;
-    case (HWBRIDGE::ARM::ACTUATOR::SHOULDER):
+    case (HWBRIDGE::ARM::ACTUATORID::SHOULDER):
       actuator = "SHOULDER";
       break;
-    case (HWBRIDGE::ARM::ACTUATOR::ELBOW):
+    case (HWBRIDGE::ARM::ACTUATORID::ELBOW):
       actuator = "ELBOW";
       break;
-    case (HWBRIDGE::ARM::ACTUATOR::WRISTLEFT):
+    case (HWBRIDGE::ARM::ACTUATORID::WRISTLEFT):
       actuator = "WRISTLEFT";
       break;
-    case (HWBRIDGE::ARM::ACTUATOR::WRISTRIGHT):
+    case (HWBRIDGE::ARM::ACTUATORID::WRISTRIGHT):
       actuator = "WRISTRIGHT";
       break;
-    case (HWBRIDGE::ARM::ACTUATOR::CLAW):
+    case (HWBRIDGE::ARM::ACTUATORID::CLAW):
       actuator = "CLAW";
       break;
     default:
       return "UNDEFINED";
   }
-  std::string control = payload.isVelocityPID ? "VELOCITY" : "POSITION";
+  std::string_view control = payload.isVelocityPID ? "VELOCITY" : "POSITION";
   std::stringstream strm;
   strm << std::fixed << std::setprecision(4) << payload.value;
-  std::string val = strm.str();
-  return "{Value: " + val + ", Actuator: " + actuator + ", Control: " + control + "}";
+  std::string_view val = strm.str();
+  return "{Actuator: " + actuator + ", Control: " + control + ", Value: " + val + "}";
 }
