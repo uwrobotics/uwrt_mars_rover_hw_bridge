@@ -1,4 +1,4 @@
-#include "hw_bridge.h"
+#include "uwrt_mars_rover_hw_bridge/hw_bridge.h"
 
 std::string HWBRIDGE::ARM::ACTUATOR::stringifyActuatorID(HWBRIDGE::ARM::ACTUATOR::ActuatorId actuator) {
   switch (actuator) {

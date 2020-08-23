@@ -14,7 +14,7 @@ if(DEFINED CATKIN_GLOBAL_BIN_DESTINATION) # Detects if being built in a catkin c
 
     ## Mark cpp header files for installation
     install(DIRECTORY
-            include/
+            include/uwrt_mars_rover_hw_bridge/
             DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
             FILES_MATCHING
             PATTERN "*.h"
