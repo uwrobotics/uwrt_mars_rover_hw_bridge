@@ -107,7 +107,7 @@ enum CanId {
 }  // namespace CANID
 
 namespace ARM {
-enum class ACTUATORID { TURNTABLE, SHOULDER, ELBOW, WRISTLEFT, WRISTRIGHT, CLAW, ACTUATORCOUNT };
+enum class ACTUATORID { TURNTABLE, SHOULDER, ELBOW, WRISTLEFT, WRISTRIGHT, CLAW };
 namespace PID {
 using tuningApiPayload = struct __attribute__((__packed__)) TuningApiPayload {
   float value;
@@ -115,7 +115,7 @@ using tuningApiPayload = struct __attribute__((__packed__)) TuningApiPayload {
   HWBRIDGE::ARM::ACTUATORID actuatorID;
 };
 constexpr std::string_view str(const tuningApiPayload& payload);
-enum class Parameter { P, I, D, DEADZONE, BIAS, PARAMETERCOUNT };
+enum class Parameter { P, I, D, DEADZONE, BIAS };
 }  // namespace PID
 }  // namespace ARM
 }  // namespace HWBRIDGE
