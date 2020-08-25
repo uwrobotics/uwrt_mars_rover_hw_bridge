@@ -1,5 +1,5 @@
 #pragma once
-#include <string_view>
+#include <string>
 
 namespace HWBRIDGE {
 namespace ROVERCONFIG {
@@ -114,7 +114,7 @@ using tuningApiPayload = struct __attribute__((__packed__)) TuningApiPayload {
   bool isVelocityPID;
   HWBRIDGE::ARM::ACTUATORID actuatorID;
 };
-constexpr std::string_view str(const tuningApiPayload& payload);
+std::string str(const tuningApiPayload& payload);
 enum class Parameter { P, I, D, DEADZONE, BIAS };
 }  // namespace PID
 }  // namespace ARM
