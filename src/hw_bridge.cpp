@@ -5,7 +5,7 @@
 
 constexpr std::string_view HWBRIDGE::ARM::PID::str(const tuningApiPayload& payload) {
   std::string_view actuator;
-  switch (payload.ACTUATORID) {
+  switch (payload.actuatorID) {
     case (HWBRIDGE::ARM::ACTUATORID::TURNTABLE):
       actuator = "TURNTABLE";
       break;
