@@ -8,8 +8,7 @@ constexpr uint32_t ROVER_CANBUS_FREQUENCY  = 500000;  // 500 kbps
 constexpr uint16_t ROVER_CANID_FILTER_MASK = 0xFE0;   // Use bits [5:10] for addressing and 0:7 for command/message type
 }  // namespace ROVERCONFIG
 
-namespace CANFILTER {
-enum Filtering {
+enum class FILTERING {
   ROVER_CANID_FIRST_ERROR_TX      = 0x100,
   ROVER_CANID_FIRST_ARM_RX        = 0x720,
   ROVER_CANID_FIRST_ARM_TX        = 0x758,
@@ -18,20 +17,16 @@ enum Filtering {
   ROVER_CANID_FIRST_GIMBTONOMY_RX = 0x780,
   ROVER_CANID_FIRST_GIMBTONOMY_TX = 0x790
 };
-}
 
-namespace CANERROR {
-enum CanError {
+enum class CANERROR {
   // ERROR CAN IDs
   SAFETY_ERROR = 0x100,
   ARM_ERROR,
   SCIENCE_ERROR,
   GIMBTONOMY_ERROR
 };
-}  // namespace CANERROR
 
-namespace CANHEARTBEAT {
-enum CanHeartbeat {
+enum CANHEARTBEAT {
   // ERROR CAN IDs
   JETSON = 0x140,
   SAFETY,
@@ -40,10 +35,8 @@ enum CanHeartbeat {
   GIMBTONOMY,
   ROBOTEQ = 0x701
 };
-}  // namespace CANHEARTBEAT
 
-namespace CANID {
-enum CanId {
+enum class CANID {
   // DRIVETRAIN CAN IDs
   TPDO1         = 0x181,
   TPDO2         = 0x281,
@@ -104,7 +97,6 @@ enum CanId {
   NEOPIXEL_SET,
   NEOPIXEL_ACK
 };
-}  // namespace CANID
 
 namespace ARM {
 enum class ACTUATORID { TURNTABLE, SHOULDER, ELBOW, WRISTLEFT, WRISTRIGHT, CLAW };
