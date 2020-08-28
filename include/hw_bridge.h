@@ -26,7 +26,7 @@ enum class CANERROR {
   GIMBTONOMY_ERROR
 };
 
-enum CANHEARTBEAT {
+enum class CANHEARTBEAT {
   // ERROR CAN IDs
   JETSON = 0x140,
   SAFETY,
