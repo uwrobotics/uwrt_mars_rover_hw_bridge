@@ -13,7 +13,7 @@ else () #catkin_lint: skip (This else block isn't executed by catkin)
 endif ()
 
 # This needs to be here instead of in uwrt_mars_rover_hw_bridge ROS pkg because of older version of CMake included with Ubuntu 18.04
-if (CATKIN) # Detects if being built in a catkin context
+if (CATKIN)
     ## Mark libraries for installation
     install(TARGETS
             uwrt-mars-rover-hw-bridge
