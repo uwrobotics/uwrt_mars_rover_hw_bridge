@@ -8,7 +8,7 @@ constexpr uint32_t ROVER_CANBUS_FREQUENCY  = 500000;  // 500 kbps
 constexpr uint16_t ROVER_CANID_FILTER_MASK = 0xFE0;   // Use bits [5:10] for addressing and 0:7 for command/message type
 }  // namespace ROVERCONFIG
 
-enum class FILTERING {
+enum class CANFILTER {
   ROVER_CANID_FIRST_ERROR_TX      = 0x100,
   ROVER_CANID_FIRST_ARM_RX        = 0x720,
   ROVER_CANID_FIRST_ARM_TX        = 0x758,
