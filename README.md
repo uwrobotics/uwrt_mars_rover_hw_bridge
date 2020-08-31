@@ -27,7 +27,8 @@ The process is as follows:
 ```
 4. Ensure all pipelines pass and link the passing pipelines in your bridge PR.
 5. Once approved, ask one of the leads to merge it in (Only Github admins can force this merge in).
-6. Convert your SW PR to non-draft. 
-7. Change the SW repo to use the version to the **latest commit hash** of HW Bridge repo.
-8. Change the FW repo to use the version to the **latest commit hash** of HW Bridge repo.
-9. Get approvals and merge in SW and FW PRs!
+6. Change the SW repo to use the **latest commit hash** of HW Bridge repo.
+7. Convert your SW PR to non-draft. 
+8. Change the FW repo to use the **latest commit hash** of HW Bridge repo.
+9. Convert your FW PR to non-draft. 
+10. Get approvals and merge in SW and FW PRs!
