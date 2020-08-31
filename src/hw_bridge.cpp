@@ -1,4 +1,8 @@
+#ifdef CATKIN
+#include "uwrt_mars_rover_hw_bridge/hw_bridge.h"
+#else
 #include "hw_bridge.h"
+#endif
 
 #include <iomanip>
 #include <sstream>
