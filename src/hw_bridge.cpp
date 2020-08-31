@@ -1,4 +1,8 @@
+#ifdef CATKIN
+#include "uwrt_mars_rover_hw_bridge/hw_bridge.h"
+#else
 #include "hw_bridge.h"
+#endif
 
 std::string HWBRIDGE::ARM::ACTUATOR::stringifyActuatorID(HWBRIDGE::ARM::ACTUATOR::ActuatorId actuator) {
   switch (actuator) {
