@@ -18,7 +18,7 @@ enum class CANFILTER {
   ROVER_CANID_FIRST_GIMBTONOMY_TX = 0x790
 };
 
-enum class  CANERROR {
+enum class CANERROR {
   // ERROR CAN IDs
   SAFETY_ERROR = 0x100,
   ARM_ERROR,
@@ -104,7 +104,7 @@ namespace ARM {
 namespace ACTUATOR {
 enum ActuatorId { TURNTABLE, SHOULDER, ELBOW, WRISTLEFT, WRISTRIGHT, CLAW };
 std::string stringifyActuatorID(ActuatorId actuator);
-} // namespace ACTUATOR
+}  // namespace ACTUATOR
 namespace PID {
 using tuningApiPayload = struct __attribute__((__packed__)) TuningApiPayload {
   float value;
