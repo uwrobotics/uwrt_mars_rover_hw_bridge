@@ -9,10 +9,10 @@ if (CATKIN)
     target_include_directories(uwrt-mars-rover-hw-bridge PUBLIC include)
     target_compile_definitions(uwrt-mars-rover-hw-bridge PRIVATE CATKIN)
 else () #catkin_lint: skip (This else block isn't executed by catkin)
-    target_include_directories(uwrt-mars-rover-hw-bridge PUBLIC include/uwrt_mars_rover_hw_bridge)
+    target_include_directories(uwrt-mars-rover-hw-bridge PUBLIC include/uwrt_mars_rover_utils)
 endif ()
 
-# This needs to be here instead of in uwrt_mars_rover_hw_bridge ROS pkg because of older version of CMake included with Ubuntu 18.04
+# This needs to be here instead of in uwrt_mars_rover_utils ROS pkg because of older version of CMake included with Ubuntu 18.04
 if (CATKIN)
     ## Mark libraries for installation
     install(TARGETS
@@ -23,8 +23,8 @@ if (CATKIN)
             )
 
     ## Mark cpp header files for installation
-    install(DIRECTORY include/
-            DESTINATION ${CATKIN_GLOBAL_INCLUDE_DESTINATION}
+    install(DIRECTORY include/${PROJECT_NAME}/
+            DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
             FILES_MATCHING
             PATTERN "*.h"
             PATTERN "*.hpp"
