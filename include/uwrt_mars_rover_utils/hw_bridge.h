@@ -3,17 +3,18 @@
 
 namespace HWBRIDGE {
 namespace ROVERCONFIG {
-constexpr uint16_t ROVER_MOTOR_PWM_FREQ_HZ = 20000;   // 20 kHz
-constexpr uint32_t ROVER_CANBUS_FREQUENCY  = 500000;  // 500 kbps
-constexpr uint16_t ROVER_CANID_FILTER_MASK = 0xFE0;   // Use bits [5:10] for addressing and 0:7 for command/message type
+constexpr uint16_t ROVER_MOTOR_PWM_FREQ_HZ = 20000;  // 20 kHz
+constexpr uint32_t ROVER_CANBUS_FREQUENCY = 500000;  // 500 kbps
+constexpr uint16_t ROVER_CANID_FILTER_MASK =
+    0xFE0;  // Use bits [5:10] for addressing and 0:7 for command/message type
 }  // namespace ROVERCONFIG
 
 enum class CANFILTER {
-  ROVER_CANID_FIRST_ERROR_TX      = 0x100,
-  ROVER_CANID_FIRST_ARM_RX        = 0x720,
-  ROVER_CANID_FIRST_ARM_TX        = 0x758,
-  ROVER_CANID_FIRST_SCIENCE_RX    = 0x760,
-  ROVER_CANID_FIRST_SCIENCE_TX    = 0x770,
+  ROVER_CANID_FIRST_ERROR_TX = 0x100,
+  ROVER_CANID_FIRST_ARM_RX = 0x720,
+  ROVER_CANID_FIRST_ARM_TX = 0x758,
+  ROVER_CANID_FIRST_SCIENCE_RX = 0x760,
+  ROVER_CANID_FIRST_SCIENCE_TX = 0x770,
   ROVER_CANID_FIRST_GIMBTONOMY_RX = 0x780,
   ROVER_CANID_FIRST_GIMBTONOMY_TX = 0x790
 };
@@ -38,16 +39,16 @@ enum class CANHEARTBEAT {
 
 enum class CANID {
   // DRIVETRAIN CAN IDs
-  TPDO1         = 0x181,
-  TPDO2         = 0x281,
-  TPDO3         = 0x381,
-  TPDO4         = 0x481,
-  RPDO1         = 0x201,
-  RPDO2         = 0x301,
-  RPDO3         = 0x401,
-  RPDO4         = 0x501,
+  TPDO1 = 0x181,
+  TPDO2 = 0x281,
+  TPDO3 = 0x381,
+  TPDO4 = 0x481,
+  RPDO1 = 0x201,
+  RPDO2 = 0x301,
+  RPDO3 = 0x401,
+  RPDO4 = 0x501,
   SDO_CMD_QUERY = 0x601,
-  SDO_RESPONSE  = 0x581,
+  SDO_RESPONSE = 0x581,
   // SAFETY CAN IDs UNIMPLEMENTED
   // ARM CAN IDs
   ARM_RESET = 0x720,
@@ -80,7 +81,7 @@ enum class CANID {
   REPORT_CLAW_MOTION,
   FORCE_SENSOR_VALUE,
   // SCIENCE CAN IDs
-  SET_GENEVA_INDEX = 0x760,
+  SET_GENEVA_ANGLE = 0x760,
   SET_ELEVATOR_HEIGHT,
   SET_COVER_ANGLE,
   SET_SCOOPER_ANGLE,
