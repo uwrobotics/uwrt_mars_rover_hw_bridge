@@ -9,13 +9,13 @@ constexpr uint16_t ROVER_CANID_FILTER_MASK = 0xFE0;   // Use bits [5:10] for add
 }  // namespace ROVERCONFIG
 
 enum class CANFILTER {
-  ROVER_CANID_FIRST_ERROR_TX      = 0x100,
-  ROVER_CANID_FIRST_ARM_RX        = 0x740,
-  ROVER_CANID_FIRST_ARM_TX        = 0x758,
-  ROVER_CANID_FIRST_SCIENCE_RX    = 0x760,
-  ROVER_CANID_FIRST_SCIENCE_TX    = 0x770,
-  ROVER_CANID_FIRST_GIMBAL_RX = 0x780,
-  ROVER_CANID_FIRST_GIMBAL_TX = 0x790
+  ROVER_CANID_FIRST_ERROR_TX   = 0x100,
+  ROVER_CANID_FIRST_ARM_RX     = 0x740,
+  ROVER_CANID_FIRST_ARM_TX     = 0x758,
+  ROVER_CANID_FIRST_SCIENCE_RX = 0x760,
+  ROVER_CANID_FIRST_SCIENCE_TX = 0x770,
+  ROVER_CANID_FIRST_GIMBAL_RX  = 0x780,
+  ROVER_CANID_FIRST_GIMBAL_TX  = 0x790
 };
 
 enum class CANERROR {
@@ -99,7 +99,7 @@ enum class ActuatorID { TURNTABLE, SHOULDER, ELBOW, WRISTLEFT, WRISTRIGHT, CLAW 
 }
 
 namespace CONTROL {
-enum class Mode { OpenLoop, Velocity, Position, Current };
+enum class Mode { OPEN_LOOP, VELOCITY, POSITION, CURRENT };
 namespace PID {
 using TuningApiPayload = struct __attribute__((__packed__)) TuningApiPayload {
   float value;
