@@ -1,0 +1,68 @@
+uwrt_mars_rover_can_bus:
+
+  nodes: [JETSON, ARM, GIMBAL, PDB, SCIENCE]
+
+  messages:
+    - ARM_setControlMode:
+        comment: "Set control mode for arm joints"
+        id: 0 # TODO
+        size: 8 # TODO
+        senders: [JETSON]
+        receivers: [ARM]
+        frequency: 0
+        signals:
+          - ARM_turntableControlMode:
+              comment: "Arm turntable PID control mode"
+              startbit: 0
+              length: 3
+              is_signed: false
+              scale: 1.0
+              offset: 0.0
+              min: 0.0
+              max: 0.0
+              unit: ''
+              values: {0: OPEN_LOOP, 1: POSITION, 2: VELOCITY, 3: CURRENT, 7: SNA}
+
+          - ARM_shoulderControlMode:
+              comment: "Arm shoulder PID control mode"
+              startbit: 3
+              length: 3
+              is_signed: false
+              scale: 1.0
+              offset: 0.0
+              min: 0.0
+              max: 0.0
+              unit: ""
+              values: {0: OPEN_LOOP, 1: POSITION, 2: VELOCITY, 3: CURRENT, 7: SNA}
+
+    - ARM_setMotionData:
+        comment: "Set motion data for arm joints"
+        id: 1
+        size: 8
+        senders: [JETSON]
+        receivers: [ARM]
+        frequency: 100
+        signals:
+          - ARM_turntableMotionData:
+              comment: "Arm turntable motion data"
+              startbit: 0
+              length: 16
+              is_signed: false
+              scale: 0.000152587890625
+              offset: -5.0
+              min: -5.0
+              max: 5.0
+              unit: "radians" # TODO
+              values: {65535: SNA}
+
+          - ARM_shoulderMotionData:
+              comment: "Arm shoulder motion data"
+              startbit: 16
+              length: 16
+              is_signed: false
+              scale: 0.000152587890625
+              offset: -5.0
+              min: -5.0
+              max: 5.0
+              unit: "radians" # TODO
+              values: {65535: SNA}
