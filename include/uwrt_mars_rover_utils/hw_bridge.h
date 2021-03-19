@@ -50,8 +50,11 @@ enum class CANID {
   SDO_RESPONSE  = 0x581,
   // SAFETY CAN IDs UNIMPLEMENTED
   // ARM CAN IDs
-  ARM_RESET                  = 0x720,
-  SET_TURNTABLE_CONTROL_MODE = 0x740,
+  ARM_RESET                   = 0x720,
+  SET_JOINT_CURRENT_CHECK     = 0x730,
+  SET_JOINT_DEG_PER_SEC_CHECK = 0x731,
+  SET_JOINT_LIMIT_SWITCH      = 0x732,
+  SET_TURNTABLE_CONTROL_MODE  = 0x740,
   SET_SHOULDER_CONTROL_MODE,
   SET_ELBOW_CONTROL_MODE,
   SET_LEFT_WRIST_CONTROL_MODE,
@@ -99,7 +102,14 @@ enum class ActuatorID { TURNTABLE, SHOULDER, ELBOW, WRISTLEFT, WRISTRIGHT, CLAW 
 }
 
 namespace CONTROL {
-enum class Mode { OpenLoop, Velocity, Position, Current };
+enum class Mode { OPEN_LOOP, VELOCITY, POSITION, CURRENT };
+
+namespace SAFETY {
+using SafetyCheckPayload = struct __attribute__((__packed__)) SafetyCheckPayload {
+  bool check;
+  ARM::ActuatorID actuatorID;
+};
+}  // namespace SAFETY
 namespace PID {
 using TuningApiPayload = struct __attribute__((__packed__)) TuningApiPayload {
   float value;
