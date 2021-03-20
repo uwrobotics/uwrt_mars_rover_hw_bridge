@@ -33,33 +33,63 @@ NS_ :
 
 BS_:
 
-BU_: JETSON ARM GIMBAL PDB SCIENCE
+BU_: ARM GIMBAL JETSON PDB SCIENCE
 
 
 BO_ 0 ARM_setControlMode: 8 JETSON
- SG_ ARM_shoulderControlMode : 3|3@1+ (1.0,0.0) [0.0|0.0] ""  ARM
- SG_ ARM_turntableControlMode : 0|3@1+ (1.0,0.0) [0.0|0.0] ""  ARM
+ SG_ ARM_clawControlMode : 15|3@1+ (1.0,0.0) [0.0|6.0] ""  ARM
+ SG_ ARM_rightWristControlMode : 12|3@1+ (1.0,0.0) [0.0|6.0] ""  ARM
+ SG_ ARM_leftWristControlMode : 9|3@1+ (1.0,0.0) [0.0|6.0] ""  ARM
+ SG_ ARM_elbowControlMode : 6|3@1+ (1.0,0.0) [0.0|6.0] ""  ARM
+ SG_ ARM_shoulderControlMode : 3|3@1+ (1.0,0.0) [0.0|6.0] ""  ARM
+ SG_ ARM_turntableControlMode : 0|3@1+ (1.0,0.0) [0.0|6.0] ""  ARM
 
 BO_ 1 ARM_setMotionData: 8 JETSON
- SG_ ARM_shoulderMotionData : 16|16@1+ (0.000152587890625,-5.0) [-5.0|5.0] "radians"  ARM
- SG_ ARM_turntableMotionData : 0|16@1+ (0.000152587890625,-5.0) [-5.0|5.0] "radians"  ARM
+ SG_ ARM_shoulderMotionData : 16|16@1+ (0.000152587890625,-5.0) [-5.0|4.99969482421875] "radians"  ARM
+ SG_ ARM_turntableMotionData : 0|16@1+ (0.00015259254737998596,0.0) [0.0|10.0] "radians"  ARM
+
+BO_ 2 ARM_setTurntablePIDParams: 8 JETSON
+ SG_ Arm_turntablePIDD : 5|1@1+ (1.0,0.0) [0.0|0.0] ""  ARM
+ SG_ Arm_turntablePIDI : 4|1@1+ (1.0,0.0) [0.0|0.0] ""  ARM
+ SG_ Arm_turntablePIDP : 3|1@1+ (1.0,0.0) [0.0|0.0] ""  ARM
+ SG_ Arm_turntablePIDDeadzone : 2|1@1+ (1.0,0.0) [0.0|0.0] ""  ARM
+ SG_ Arm_PIDTuningMode : 0|2@1+ (1.0,0.0) [0.0|0.0] ""  ARM
 
 
 
 
 CM_ BO_ 0 "Set control mode for arm joints";
+CM_ SG_ 0 ARM_clawControlMode "Arm claw PID control mode";
+CM_ SG_ 0 ARM_rightWristControlMode "Arm right wrist PID control mode";
+CM_ SG_ 0 ARM_leftWristControlMode "Arm left wrist PID control mode";
+CM_ SG_ 0 ARM_elbowControlMode "Arm elbow PID control mode";
 CM_ SG_ 0 ARM_shoulderControlMode "Arm shoulder PID control mode";
 CM_ SG_ 0 ARM_turntableControlMode "Arm turntable PID control mode";
 CM_ BO_ 1 "Set motion data for arm joints";
 CM_ SG_ 1 ARM_shoulderMotionData "Arm shoulder motion data";
 CM_ SG_ 1 ARM_turntableMotionData "Arm turntable motion data";
+CM_ BO_ 2 "Set arm turntable PID parameters";
+CM_ SG_ 2 Arm_turntablePIDD "Arm turntable PID derivative gain";
+CM_ SG_ 2 Arm_turntablePIDI "Arm turntable PID integral gain";
+CM_ SG_ 2 Arm_turntablePIDP "Arm turntable PID proportional gain";
+CM_ SG_ 2 Arm_turntablePIDDeadzone "Arm turntable PID deadzone";
+CM_ SG_ 2 Arm_PIDTuningMode "Arm PID tuning mode";
 
 
 
+VAL_ 0 ARM_clawControlMode 0 "OPEN_LOOP" 1 "POSITION" 2 "VELOCITY" 3 "CURRENT" 7 "SNA" ;
+VAL_ 0 ARM_rightWristControlMode 0 "OPEN_LOOP" 1 "POSITION" 2 "VELOCITY" 3 "CURRENT" 7 "SNA" ;
+VAL_ 0 ARM_leftWristControlMode 0 "OPEN_LOOP" 1 "POSITION" 2 "VELOCITY" 3 "CURRENT" 7 "SNA" ;
+VAL_ 0 ARM_elbowControlMode 0 "OPEN_LOOP" 1 "POSITION" 2 "VELOCITY" 3 "CURRENT" 7 "SNA" ;
 VAL_ 0 ARM_shoulderControlMode 0 "OPEN_LOOP" 1 "POSITION" 2 "VELOCITY" 3 "CURRENT" 7 "SNA" ;
 VAL_ 0 ARM_turntableControlMode 0 "OPEN_LOOP" 1 "POSITION" 2 "VELOCITY" 3 "CURRENT" 7 "SNA" ;
 VAL_ 1 ARM_shoulderMotionData 65535 "SNA" ;
 VAL_ 1 ARM_turntableMotionData 65535 "SNA" ;
+VAL_ 2 Arm_turntablePIDD 65535 "SNA" ;
+VAL_ 2 Arm_turntablePIDI 65535 "SNA" ;
+VAL_ 2 Arm_turntablePIDP 65535 "SNA" ;
+VAL_ 2 Arm_turntablePIDDeadzone 65535 "SNA" ;
+VAL_ 2 Arm_PIDTuningMode 0 "POSITION" 1 "VELOCITY" 2 "CURRENT" 3 "SNA" ;
 
 
 

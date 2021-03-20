@@ -1,68 +1,221 @@
 uwrt_mars_rover_can_bus:
-
-  nodes: [JETSON, ARM, GIMBAL, PDB, SCIENCE]
-
+  nodes:
+  - ARM
+  - GIMBAL
+  - JETSON
+  - PDB
+  - SCIENCE
   messages:
-    - ARM_setControlMode:
-        comment: "Set control mode for arm joints"
-        id: 0 # TODO
-        size: 8 # TODO
-        senders: [JETSON]
-        receivers: [ARM]
-        frequency: 0
-        signals:
-          - ARM_turntableControlMode:
-              comment: "Arm turntable PID control mode"
-              startbit: 0
-              length: 3
-              is_signed: false
-              scale: 1.0
-              offset: 0.0
-              min: 0.0
-              max: 0.0
-              unit: ''
-              values: {0: OPEN_LOOP, 1: POSITION, 2: VELOCITY, 3: CURRENT, 7: SNA}
-
-          - ARM_shoulderControlMode:
-              comment: "Arm shoulder PID control mode"
-              startbit: 3
-              length: 3
-              is_signed: false
-              scale: 1.0
-              offset: 0.0
-              min: 0.0
-              max: 0.0
-              unit: ""
-              values: {0: OPEN_LOOP, 1: POSITION, 2: VELOCITY, 3: CURRENT, 7: SNA}
-
-    - ARM_setMotionData:
-        comment: "Set motion data for arm joints"
-        id: 1
-        size: 8
-        senders: [JETSON]
-        receivers: [ARM]
-        frequency: 100
-        signals:
-          - ARM_turntableMotionData:
-              comment: "Arm turntable motion data"
-              startbit: 0
-              length: 16
-              is_signed: false
-              scale: 0.000152587890625
-              offset: -5.0
-              min: -5.0
-              max: 5.0
-              unit: "radians" # TODO
-              values: {65535: SNA}
-
-          - ARM_shoulderMotionData:
-              comment: "Arm shoulder motion data"
-              startbit: 16
-              length: 16
-              is_signed: false
-              scale: 0.000152587890625
-              offset: -5.0
-              min: -5.0
-              max: 5.0
-              unit: "radians" # TODO
-              values: {65535: SNA}
+  - ARM_setControlMode:
+      comment: Set control mode for arm joints
+      id: 0
+      size: 8
+      senders:
+      - JETSON
+      receivers:
+      - ARM
+      frequency: 0
+      signals:
+      - ARM_turntableControlMode:
+          comment: Arm turntable PID control mode
+          startbit: 0
+          length: 3
+          is_signed: false
+          scale: 1.0
+          offset: 0.0
+          unit: ''
+          values:
+            0: OPEN_LOOP
+            1: POSITION
+            2: VELOCITY
+            3: CURRENT
+            7: SNA
+          min: 0.0
+          max: 6.0
+      - ARM_shoulderControlMode:
+          comment: Arm shoulder PID control mode
+          startbit: 3
+          length: 3
+          is_signed: false
+          scale: 1.0
+          offset: 0.0
+          unit: ''
+          values:
+            0: OPEN_LOOP
+            1: POSITION
+            2: VELOCITY
+            3: CURRENT
+            7: SNA
+          min: 0.0
+          max: 6.0
+      - ARM_elbowControlMode:
+          comment: Arm elbow PID control mode
+          startbit: 6
+          length: 3
+          is_signed: false
+          scale: 1.0
+          offset: 0.0
+          unit: ''
+          values:
+            0: OPEN_LOOP
+            1: POSITION
+            2: VELOCITY
+            3: CURRENT
+            7: SNA
+          min: 0.0
+          max: 6.0
+      - ARM_leftWristControlMode:
+          comment: Arm left wrist PID control mode
+          startbit: 9
+          length: 3
+          is_signed: false
+          scale: 1.0
+          offset: 0.0
+          unit: ''
+          values:
+            0: OPEN_LOOP
+            1: POSITION
+            2: VELOCITY
+            3: CURRENT
+            7: SNA
+          min: 0.0
+          max: 6.0
+      - ARM_rightWristControlMode:
+          comment: Arm right wrist PID control mode
+          startbit: 12
+          length: 3
+          is_signed: false
+          scale: 1.0
+          offset: 0.0
+          unit: ''
+          values:
+            0: OPEN_LOOP
+            1: POSITION
+            2: VELOCITY
+            3: CURRENT
+            7: SNA
+          min: 0.0
+          max: 6.0
+      - ARM_clawControlMode:
+          comment: Arm claw PID control mode
+          startbit: 15
+          length: 3
+          is_signed: false
+          scale: 1.0
+          offset: 0.0
+          unit: ''
+          values:
+            0: OPEN_LOOP
+            1: POSITION
+            2: VELOCITY
+            3: CURRENT
+            7: SNA
+          min: 0.0
+          max: 6.0
+  - ARM_setMotionData:
+      comment: Set motion data for arm joints
+      id: 1
+      size: 8
+      senders:
+      - JETSON
+      receivers:
+      - ARM
+      frequency: 100
+      signals:
+      - ARM_turntableMotionData:
+          comment: Arm turntable motion data
+          startbit: 0
+          length: 16
+          is_signed: false
+          scale: 0.00015259254737998596
+          offset: 0.0
+          unit: radians
+          values:
+            65535: SNA
+          min: 0.0
+          max: 10.0
+      - ARM_shoulderMotionData:
+          comment: Arm shoulder motion data
+          startbit: 16
+          length: 16
+          is_signed: false
+          scale: 0.000152587890625
+          offset: -5.0
+          unit: radians
+          values:
+            65535: SNA
+          min: -5.0
+          max: 4.99969482421875
+  - ARM_setTurntablePIDParams:
+      comment: Set arm turntable PID parameters
+      id: 2
+      size: 8
+      senders:
+      - JETSON
+      receivers:
+      - ARM
+      frequency: 0
+      signals:
+      - Arm_PIDTuningMode:
+          comment: Arm PID tuning mode
+          startbit: 0
+          length: 2
+          is_signed: false
+          scale: 1.0
+          offset: 0.0
+          min: 0.0
+          max: 0.0
+          unit: ''
+          values:
+            0: POSITION
+            1: VELOCITY
+            2: CURRENT
+            3: SNA
+      - Arm_turntablePIDDeadzone:
+          comment: Arm turntable PID deadzone
+          startbit: 2
+          length: 1
+          is_signed: false
+          scale: 1.0
+          offset: 0.0
+          min: 0.0
+          max: 0.0
+          unit: ''
+          values:
+            65535: SNA
+      - Arm_turntablePIDP:
+          comment: Arm turntable PID proportional gain
+          startbit: 3
+          length: 1
+          is_signed: false
+          scale: 1.0
+          offset: 0.0
+          min: 0.0
+          max: 0.0
+          unit: ''
+          values:
+            65535: SNA
+      - Arm_turntablePIDI:
+          comment: Arm turntable PID integral gain
+          startbit: 4
+          length: 1
+          is_signed: false
+          scale: 1.0
+          offset: 0.0
+          min: 0.0
+          max: 0.0
+          unit: ''
+          values:
+            65535: SNA
+      - Arm_turntablePIDD:
+          comment: Arm turntable PID derivative gain
+          startbit: 5
+          length: 1
+          is_signed: false
+          scale: 1.0
+          offset: 0.0
+          min: 0.0
+          max: 0.0
+          unit: ''
+          values:
+            65535: SNA
