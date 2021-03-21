@@ -1,0 +1,732 @@
+================================= Messages =================================
+
+  ------------------------------------------------------------------------
+
+  Name:       ALL_switchCANBus
+  Id:         0xe
+  Length:     1 bytes
+  Cycle time: - ms
+  Senders:    JETSON
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+     B   0 |   |   |   |   |   |   |<-----x|
+     y     +---+---+---+---+---+---+---+---+
+     t                               +-- ALL_CANBusID
+     e
+
+  Signal tree:
+
+    -- {root}
+       +-- ALL_CANBusID
+
+  Signal choices:
+
+    ALL_CANBusID
+        0 CAN1
+        1 CAN2
+        3 SNA
+
+  ------------------------------------------------------------------------
+
+  Name:       ARM_reportACK
+  Id:         0x4
+  Length:     1 bytes
+  Cycle time: - ms
+  Senders:    ARM
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+     B   0 |<-----------------------------x|
+     y     +---+---+---+---+---+---+---+---+
+     t       +-- ARM_ACK
+     e
+
+  Signal tree:
+
+    -- {root}
+       +-- ARM_ACK
+
+  Signal choices:
+
+    ARM_ACK
+        0 ARM_RESET_ACK
+        1 ARM_SET_CONTROL_MODE_ACK
+        2 ARM_SET_TURNTABLE_PID_PARAMS_ACK
+        3 ARM_SET_SHOULDER_PID_PARAMS_ACK
+        4 ARM_SET_ELBOW_PID_PARAMS_ACK
+        5 ARM_SET_LEFT_WRIST_PID_PARAMS_ACK
+        6 ARM_SET_RIGHT_WRIST_PID_PARAMS_ACK
+        7 ARM_SET_CLAW_PID_PARAMS_ACK
+        8 CAN_BUS_SWITCH_ACK
+        255 SNA
+
+  ------------------------------------------------------------------------
+
+  Name:       ARM_reportFaults
+  Id:         0x3
+  Length:     3 bytes
+  Cycle time: - ms
+  Senders:    ARM
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |<-----x|<-----x|<-----x|<-----x|
+           +---+---+---+---+---+---+---+---+
+             |       |       |       +-- ARM_turntableEncoderState
+             |       |       +-- ARM_turntableCurrentSensorState
+             |       +-- ARM_shoulderEncoderState
+             +-- ARM_shoulderCurrentSensorState
+           +---+---+---+---+---+---+---+---+
+     B   1 |<-----x|<-----x|<-----x|<-----x|
+     y     +---+---+---+---+---+---+---+---+
+     t       |       |       |       +-- ARM_elbowEncoderState
+     e       |       |       +-- ARM_elbowCurrentSensorState
+             |       +-- ARM_leftWristEncoderState
+             +-- ARM_leftWristCurrentSensorState
+           +---+---+---+---+---+---+---+---+
+         2 |<-----x|<-----x|<-----x|<-----x|
+           +---+---+---+---+---+---+---+---+
+             |       |       |       +-- ARM_rightWristEncoderState
+             |       |       +-- ARM_rightWristCurrentSensorState
+             |       +-- ARM_clawEncoderState
+             +-- ARM_clawCurrentSensorState
+
+  Signal tree:
+
+    -- {root}
+       +-- ARM_turntableEncoderState
+       +-- ARM_turntableCurrentSensorState
+       +-- ARM_shoulderEncoderState
+       +-- ARM_shoulderCurrentSensorState
+       +-- ARM_elbowEncoderState
+       +-- ARM_elbowCurrentSensorState
+       +-- ARM_leftWristEncoderState
+       +-- ARM_leftWristCurrentSensorState
+       +-- ARM_rightWristEncoderState
+       +-- ARM_rightWristCurrentSensorState
+       +-- ARM_clawEncoderState
+       +-- ARM_clawCurrentSensorState
+
+  Signal choices:
+
+    ARM_turntableEncoderState
+        0 OPERATIONAL
+        1 FAULT
+        3 SNA
+
+    ARM_turntableCurrentSensorState
+        0 OPERATIONAL
+        1 FAULT
+        3 SNA
+
+    ARM_shoulderEncoderState
+        0 OPERATIONAL
+        1 FAULT
+        3 SNA
+
+    ARM_shoulderCurrentSensorState
+        0 OPERATIONAL
+        1 FAULT
+        3 SNA
+
+    ARM_elbowEncoderState
+        0 OPERATIONAL
+        1 FAULT
+        3 SNA
+
+    ARM_elbowCurrentSensorState
+        0 OPERATIONAL
+        1 FAULT
+        3 SNA
+
+    ARM_leftWristEncoderState
+        0 OPERATIONAL
+        1 FAULT
+        3 SNA
+
+    ARM_leftWristCurrentSensorState
+        0 OPERATIONAL
+        1 FAULT
+        3 SNA
+
+    ARM_rightWristEncoderState
+        0 OPERATIONAL
+        1 FAULT
+        3 SNA
+
+    ARM_rightWristCurrentSensorState
+        0 OPERATIONAL
+        1 FAULT
+        3 SNA
+
+    ARM_clawEncoderState
+        0 OPERATIONAL
+        1 FAULT
+        3 SNA
+
+    ARM_clawCurrentSensorState
+        0 OPERATIONAL
+        1 FAULT
+        3 SNA
+
+  ------------------------------------------------------------------------
+
+  Name:       ARM_setControlMode
+  Id:         0x0
+  Length:     3 bytes
+  Cycle time: - ms
+  Senders:    JETSON
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |------x|<---------x|<---------x|
+           +---+---+---+---+---+---+---+---+
+                     |           +-- ARM_turntableControlMode
+                     +-- ARM_shoulderControlMode
+     B     +---+---+---+---+---+---+---+---+
+     y   1 |--x|<---------x|<---------x|<--|
+     t     +---+---+---+---+---+---+---+---+
+     e           |           |           +-- ARM_elbowControlMode
+                 |           +-- ARM_leftWristControlMode
+                 +-- ARM_rightWristControlMode
+           +---+---+---+---+---+---+---+---+
+         2 |   |   |   |   |   |   |<------|
+           +---+---+---+---+---+---+---+---+
+                                     +-- ARM_clawControlMode
+
+  Signal tree:
+
+    -- {root}
+       +-- ARM_turntableControlMode
+       +-- ARM_shoulderControlMode
+       +-- ARM_elbowControlMode
+       +-- ARM_leftWristControlMode
+       +-- ARM_rightWristControlMode
+       +-- ARM_clawControlMode
+
+  Signal choices:
+
+    ARM_turntableControlMode
+        0 OPEN_LOOP
+        1 POSITION
+        2 VELOCITY
+        3 CURRENT
+        7 SNA
+
+    ARM_shoulderControlMode
+        0 OPEN_LOOP
+        1 POSITION
+        2 VELOCITY
+        3 CURRENT
+        7 SNA
+
+    ARM_elbowControlMode
+        0 OPEN_LOOP
+        1 POSITION
+        2 VELOCITY
+        3 CURRENT
+        7 SNA
+
+    ARM_leftWristControlMode
+        0 OPEN_LOOP
+        1 POSITION
+        2 VELOCITY
+        3 CURRENT
+        7 SNA
+
+    ARM_rightWristControlMode
+        0 OPEN_LOOP
+        1 POSITION
+        2 VELOCITY
+        3 CURRENT
+        7 SNA
+
+    ARM_clawControlMode
+        0 OPEN_LOOP
+        1 POSITION
+        2 VELOCITY
+        3 CURRENT
+        7 SNA
+
+  ------------------------------------------------------------------------
+
+  Name:       ARM_setMotionData
+  Id:         0x1
+  Length:     8 bytes
+  Cycle time: - ms
+  Senders:    JETSON
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         1 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- ARM_turntableMotionData
+           +---+---+---+---+---+---+---+---+
+         2 |------------------------------x|
+     B     +---+---+---+---+---+---+---+---+
+     y   3 |<------------------------------|
+     t     +---+---+---+---+---+---+---+---+
+     e       +-- ARM_shoulderMotionData
+           +---+---+---+---+---+---+---+---+
+         4 |   |   |   |   |   |   |   |   |
+           +---+---+---+---+---+---+---+---+
+         5 |   |   |   |   |   |   |   |   |
+           +---+---+---+---+---+---+---+---+
+         6 |   |   |   |   |   |   |   |   |
+           +---+---+---+---+---+---+---+---+
+         7 |   |   |   |   |   |   |   |   |
+           +---+---+---+---+---+---+---+---+
+
+  Signal tree:
+
+    -- {root}
+       +-- ARM_turntableMotionData
+       +-- ARM_shoulderMotionData
+
+  Signal choices:
+
+    ARM_turntableMotionData
+        65535 SNA
+
+    ARM_shoulderMotionData
+        65535 SNA
+
+  ------------------------------------------------------------------------
+
+  Name:       ARM_setPIDParams
+  Id:         0x2
+  Length:     8 bytes
+  Cycle time: - ms
+  Senders:    JETSON
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |----------x|<-----x|<---------x|
+           +---+---+---+---+---+---+---+---+
+                         |       +-- ARM_jointID
+                         +-- ARM_PIDTuningMode
+           +---+---+---+---+---+---+---+---+
+         1 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         2 |----------x|<------------------|
+           +---+---+---+---+---+---+---+---+
+                         +-- ARM_PIDProportionalGain
+     B     +---+---+---+---+---+---+---+---+
+     y   3 |-------------------------------|
+     t     +---+---+---+---+---+---+---+---+
+     e   4 |----------x|<------------------|
+           +---+---+---+---+---+---+---+---+
+                         +-- ARM_PIDIntegralGain
+           +---+---+---+---+---+---+---+---+
+         5 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         6 |----------x|<------------------|
+           +---+---+---+---+---+---+---+---+
+                         +-- ARM_PIDDerivativeGain
+           +---+---+---+---+---+---+---+---+
+         7 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- ARM_PIDDeadzone
+
+  Signal tree:
+
+    -- {root}
+       +-- ARM_jointID
+       +-- ARM_PIDTuningMode
+       +-- ARM_PIDProportionalGain
+       +-- ARM_PIDIntegralGain
+       +-- ARM_PIDDerivativeGain
+       +-- ARM_PIDDeadzone
+
+  Signal choices:
+
+    ARM_jointID
+        0 TURNTABLE
+        1 SHOULDER
+        2 ELBOW
+        3 LEFT_WRIST
+        4 RIGHT_WRIST
+        5 CLAW
+        7 SNA
+
+    ARM_PIDTuningMode
+        0 POSITION
+        1 VELOCITY
+        2 CURRENT
+        3 SNA
+
+    ARM_PIDProportionalGain
+        4095 SNA
+
+    ARM_PIDIntegralGain
+        4095 SNA
+
+    ARM_PIDDerivativeGain
+        4095 SNA
+
+    ARM_PIDDeadzone
+        65535 SNA
+
+  ------------------------------------------------------------------------
+
+  Name:       GIMBAL_reportACK
+  Id:         0xa
+  Length:     1 bytes
+  Cycle time: - ms
+  Senders:    GIMBAL
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+     B   0 |<-----------------------------x|
+     y     +---+---+---+---+---+---+---+---+
+     t       +-- GIMBAL_ACK
+     e
+
+  Signal tree:
+
+    -- {root}
+       +-- GIMBAL_ACK
+
+  Signal choices:
+
+    GIMBAL_ACK
+        0 GIMBAL_SET_CONTROL_MODE_ACK
+        1 CAN_BUS_SWITCH_ACK
+        255 SNA
+
+  ------------------------------------------------------------------------
+
+  Name:       GIMBAL_reportFaults
+  Id:         0x9
+  Length:     1 bytes
+  Cycle time: - ms
+  Senders:    GIMBAL
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+     B   0 |   |   |   |   |   |   |<-----x|
+     y     +---+---+---+---+---+---+---+---+
+     t                               +-- GIMBAL_panEncoderState
+     e
+
+  Signal tree:
+
+    -- {root}
+       +-- GIMBAL_panEncoderState
+
+  Signal choices:
+
+    GIMBAL_panEncoderState
+        0 OPERATIONAL
+        1 FAULT
+        3 SNA
+
+  ------------------------------------------------------------------------
+
+  Name:       GIMBAL_setControlMode
+  Id:         0x8
+  Length:     1 bytes
+  Cycle time: - ms
+  Senders:    JETSON
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+     B   0 |   |   |   |   |   |   |<-----x|
+     y     +---+---+---+---+---+---+---+---+
+     t                               +-- GIMBAL_panControlMode
+     e
+
+  Signal tree:
+
+    -- {root}
+       +-- GIMBAL_panControlMode
+
+  Signal choices:
+
+    GIMBAL_panControlMode
+        0 OPEN_LOOP
+        1 POSITION
+        2 VELOCITY
+        3 SNA
+
+  ------------------------------------------------------------------------
+
+  Name:       PDB_reportACK
+  Id:         0xd
+  Length:     1 bytes
+  Cycle time: - ms
+  Senders:    PDB
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+     B   0 |<-----------------------------x|
+     y     +---+---+---+---+---+---+---+---+
+     t       +-- PDB_ACK
+     e
+
+  Signal tree:
+
+    -- {root}
+       +-- PDB_ACK
+
+  Signal choices:
+
+    PDB_ACK
+        0 PDB_SET_LED_MATRIX_ACK
+        1 CAN_BUS_SWITCH_ACK
+        255 SNA
+
+  ------------------------------------------------------------------------
+
+  Name:       PDB_reportFaults
+  Id:         0xc
+  Length:     2 bytes
+  Cycle time: - ms
+  Senders:    PDB
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |<-----x|<-----x|<-----x|<-----x|
+           +---+---+---+---+---+---+---+---+
+             |       |       |       +-- PDB_jetsonStatus
+     B       |       |       +-- PDB_armPowerStatus
+     y       |       +-- PDB_sciencePowerStatus
+     t       +-- PDB_gimbalPowerStatus
+     e     +---+---+---+---+---+---+---+---+
+         1 |   |   |<-----x|<-----x|<-----x|
+           +---+---+---+---+---+---+---+---+
+                     |       |       +-- PDB_VBATRailStatus
+                     |       +-- PDB_17VRailStatus
+                     +-- PDB_5VRailStatus
+
+  Signal tree:
+
+    -- {root}
+       +-- PDB_jetsonStatus
+       +-- PDB_armPowerStatus
+       +-- PDB_sciencePowerStatus
+       +-- PDB_gimbalPowerStatus
+       +-- PDB_VBATRailStatus
+       +-- PDB_17VRailStatus
+       +-- PDB_5VRailStatus
+
+  Signal choices:
+
+    PDB_jetsonStatus
+        0 OPERATIONAL
+        1 FAULT
+        3 SNA
+
+    PDB_armPowerStatus
+        0 OPERATIONAL
+        1 FAULT
+        3 SNA
+
+    PDB_sciencePowerStatus
+        0 OPERATIONAL
+        1 FAULT
+        3 SNA
+
+    PDB_gimbalPowerStatus
+        0 OPERATIONAL
+        1 FAULT
+        3 SNA
+
+    PDB_VBATRailStatus
+        0 OPERATIONAL
+        1 OVERVOLTAGE
+        2 UNDERVOLTAGE
+        3 SNA
+
+    PDB_17VRailStatus
+        0 OPERATIONAL
+        1 OVERVOLTAGE
+        2 UNDERVOLTAGE
+        3 SNA
+
+    PDB_5VRailStatus
+        0 OPERATIONAL
+        1 OVERVOLTAGE
+        2 UNDERVOLTAGE
+        3 SNA
+
+  ------------------------------------------------------------------------
+
+  Name:       PDB_setLEDMatrix
+  Id:         0xb
+  Length:     1 bytes
+  Cycle time: - ms
+  Senders:    JETSON
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+     B   0 |   |   |   |   |   |<---------x|
+     y     +---+---+---+---+---+---+---+---+
+     t                           +-- PDB_LEDMatrixState
+     e
+
+  Signal tree:
+
+    -- {root}
+       +-- PDB_LEDMatrixState
+
+  Signal choices:
+
+    PDB_LEDMatrixState
+        0 SOLID_RED
+        1 SOLID_BLUE
+        2 FLASHING_GREEN
+        3 False
+        7 SNA
+
+  ------------------------------------------------------------------------
+
+  Name:       SCIENCE_reportACK
+  Id:         0x7
+  Length:     1 bytes
+  Cycle time: - ms
+  Senders:    SCIENCE
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+     B   0 |<-----------------------------x|
+     y     +---+---+---+---+---+---+---+---+
+     t       +-- SCIENCE_ACK
+     e
+
+  Signal tree:
+
+    -- {root}
+       +-- SCIENCE_ACK
+
+  Signal choices:
+
+    SCIENCE_ACK
+        0 SCIENCE_SET_CONTROL_MODE_ACK
+        1 CAN_BUS_SWITCH_ACK
+        255 SNA
+
+  ------------------------------------------------------------------------
+
+  Name:       SCIENCE_reportFaults
+  Id:         0x6
+  Length:     1 bytes
+  Cycle time: - ms
+  Senders:    SCIENCE
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+     B   0 |   |   |<-----x|<-----x|<-----x|
+     y     +---+---+---+---+---+---+---+---+
+     t               |       |       +-- SCIENCE_genevaEncoderState
+     e               |       +-- SCIENCE_elevatorEncoderState
+                     +-- SCIENCE_moistureSensorState
+
+  Signal tree:
+
+    -- {root}
+       +-- SCIENCE_genevaEncoderState
+       +-- SCIENCE_elevatorEncoderState
+       +-- SCIENCE_moistureSensorState
+
+  Signal choices:
+
+    SCIENCE_genevaEncoderState
+        0 OPERATIONAL
+        1 FAULT
+        3 SNA
+
+    SCIENCE_elevatorEncoderState
+        0 OPERATIONAL
+        1 FAULT
+        3 SNA
+
+    SCIENCE_moistureSensorState
+        0 OPERATIONAL
+        1 FAULT
+        3 SNA
+
+  ------------------------------------------------------------------------
+
+  Name:       SCIENCE_setControlMode
+  Id:         0x5
+  Length:     1 bytes
+  Cycle time: - ms
+  Senders:    JETSON
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+     B   0 |   |   |   |   |<-----x|<-----x|
+     y     +---+---+---+---+---+---+---+---+
+     t                       |       +-- SCIENCE_genevaControlMode
+     e                       +-- SCIENCE_elevatorControlMode
+
+  Signal tree:
+
+    -- {root}
+       +-- SCIENCE_genevaControlMode
+       +-- SCIENCE_elevatorControlMode
+
+  Signal choices:
+
+    SCIENCE_genevaControlMode
+        0 OPEN_LOOP
+        1 POSITION
+        2 VELOCITY
+        3 SNA
+
+    SCIENCE_elevatorControlMode
+        0 OPEN_LOOP
+        1 POSITION
+        2 VELOCITY
+        3 SNA
+
+  ------------------------------------------------------------------------

@@ -14,6 +14,7 @@ CAN_FOLDER_PATH = 'can'
 GENERATED_FOLDER_NAME = 'generated'
 YAML_FILE_NAME = 'uwrt_mars_rover_can.yaml'
 DBC_FILE_NAME = 'uwrt_mars_rover_can.dbc'
+DBC_DUMP_FILE_NAME = 'uwrt_mars_rover_can_dump.txt'
 
 GENERATED_FOLDER_PATH = os.path.join(CAN_FOLDER_PATH, GENERATED_FOLDER_NAME)
 YAML_FILE_PATH = os.path.join(CAN_FOLDER_PATH, YAML_FILE_NAME)
@@ -34,7 +35,7 @@ for node in can_yaml[bus_name]['nodes']:
         cantools.database.can.Node(name=node, comment=None)
     )
 
-# sort message in alphabetical order
+# sort messages in alphabetical order
 can_yaml[bus_name]['messages'].sort(key=lambda x: list(x.keys())[0])
 
 # extract CAN messages
@@ -42,6 +43,10 @@ messages = []
 for message in can_yaml[bus_name]['messages']:
     message_name = list(message.keys())[0]
     message = message[message_name]
+
+    # sort senders and receivers
+    message['senders'].sort()
+    message['receivers'].sort()
 
     # sort signals by startbit
     message['signals'].sort(key=lambda x: x[list(x.keys())[0]]['startbit'])
@@ -159,6 +164,11 @@ os.chdir(GENERATED_FOLDER_PATH)
 # generate dbc file
 cantools.database.dump_file(can_db, DBC_FILE_NAME)
 print('Successfully generated', DBC_FILE_NAME)
+
+# generate human-readable dbc dump
+subprocess.run(
+    ['python3 -m cantools dump ' + DBC_FILE_NAME + ' > ' + DBC_DUMP_FILE_NAME], shell=True)
+print('Successfully generated', DBC_DUMP_FILE_NAME)
 
 # generate c source from dbc file
 subprocess.run(
