@@ -35,8 +35,8 @@ for node in can_yaml[bus_name]['nodes']:
         cantools.database.can.Node(name=node, comment=None)
     )
 
-# sort messages in alphabetical order
-can_yaml[bus_name]['messages'].sort(key=lambda x: list(x.keys())[0])
+# sort messages by id
+can_yaml[bus_name]['messages'].sort(key=lambda x: x[list(x.keys())[0]]['id'])
 
 # extract CAN messages
 messages = []

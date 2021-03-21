@@ -36,26 +36,6 @@ BS_:
 BU_: ARM GIMBAL JETSON PDB SCIENCE
 
 
-BO_ 14 ALL_switchCANBus: 1 JETSON
- SG_ ALL_CANBusID : 0|2@1+ (1.0,0.0) [0.0|2.0] ""  ARM,GIMBAL,PDB,SCIENCE
-
-BO_ 4 ARM_reportACK: 1 ARM
- SG_ ARM_ACK : 0|8@1+ (1.0,0.0) [0.0|254.0] ""  JETSON
-
-BO_ 3 ARM_reportFaults: 3 ARM
- SG_ ARM_clawCurrentSensorState : 22|2@1+ (1.0,0.0) [0.0|2.0] ""  JETSON
- SG_ ARM_clawEncoderState : 20|2@1+ (1.0,0.0) [0.0|2.0] ""  JETSON
- SG_ ARM_rightWristCurrentSensorState : 18|2@1+ (1.0,0.0) [0.0|2.0] ""  JETSON
- SG_ ARM_rightWristEncoderState : 16|2@1+ (1.0,0.0) [0.0|2.0] ""  JETSON
- SG_ ARM_leftWristCurrentSensorState : 14|2@1+ (1.0,0.0) [0.0|2.0] ""  JETSON
- SG_ ARM_leftWristEncoderState : 12|2@1+ (1.0,0.0) [0.0|2.0] ""  JETSON
- SG_ ARM_elbowCurrentSensorState : 10|2@1+ (1.0,0.0) [0.0|2.0] ""  JETSON
- SG_ ARM_elbowEncoderState : 8|2@1+ (1.0,0.0) [0.0|2.0] ""  JETSON
- SG_ ARM_shoulderCurrentSensorState : 6|2@1+ (1.0,0.0) [0.0|2.0] ""  JETSON
- SG_ ARM_shoulderEncoderState : 4|2@1+ (1.0,0.0) [0.0|2.0] ""  JETSON
- SG_ ARM_turntableCurrentSensorState : 2|2@1+ (1.0,0.0) [0.0|2.0] ""  JETSON
- SG_ ARM_turntableEncoderState : 0|2@1+ (1.0,0.0) [0.0|2.0] ""  JETSON
-
 BO_ 0 ARM_setControlMode: 3 JETSON
  SG_ ARM_clawControlMode : 15|3@1+ (1.0,0.0) [0.0|6.0] ""  ARM
  SG_ ARM_rightWristControlMode : 12|3@1+ (1.0,0.0) [0.0|6.0] ""  ARM
@@ -76,17 +56,46 @@ BO_ 2 ARM_setPIDParams: 8 JETSON
  SG_ ARM_PIDTuningMode : 3|2@1+ (1.0,0.0) [0.0|0.0] ""  ARM
  SG_ ARM_jointID : 0|3@1+ (1.0,0.0) [0.0|6.0] ""  ARM
 
-BO_ 10 GIMBAL_reportACK: 1 GIMBAL
- SG_ GIMBAL_ACK : 0|8@1+ (1.0,0.0) [0.0|254.0] ""  JETSON
+BO_ 3 ARM_reportFaults: 3 ARM
+ SG_ ARM_clawCurrentSensorState : 22|2@1+ (1.0,0.0) [0.0|2.0] ""  JETSON
+ SG_ ARM_clawEncoderState : 20|2@1+ (1.0,0.0) [0.0|2.0] ""  JETSON
+ SG_ ARM_rightWristCurrentSensorState : 18|2@1+ (1.0,0.0) [0.0|2.0] ""  JETSON
+ SG_ ARM_rightWristEncoderState : 16|2@1+ (1.0,0.0) [0.0|2.0] ""  JETSON
+ SG_ ARM_leftWristCurrentSensorState : 14|2@1+ (1.0,0.0) [0.0|2.0] ""  JETSON
+ SG_ ARM_leftWristEncoderState : 12|2@1+ (1.0,0.0) [0.0|2.0] ""  JETSON
+ SG_ ARM_elbowCurrentSensorState : 10|2@1+ (1.0,0.0) [0.0|2.0] ""  JETSON
+ SG_ ARM_elbowEncoderState : 8|2@1+ (1.0,0.0) [0.0|2.0] ""  JETSON
+ SG_ ARM_shoulderCurrentSensorState : 6|2@1+ (1.0,0.0) [0.0|2.0] ""  JETSON
+ SG_ ARM_shoulderEncoderState : 4|2@1+ (1.0,0.0) [0.0|2.0] ""  JETSON
+ SG_ ARM_turntableCurrentSensorState : 2|2@1+ (1.0,0.0) [0.0|2.0] ""  JETSON
+ SG_ ARM_turntableEncoderState : 0|2@1+ (1.0,0.0) [0.0|2.0] ""  JETSON
 
-BO_ 9 GIMBAL_reportFaults: 1 GIMBAL
- SG_ GIMBAL_panEncoderState : 0|2@1+ (1.0,0.0) [0.0|2.0] ""  JETSON
+BO_ 4 ARM_reportACK: 1 ARM
+ SG_ ARM_ACK : 0|8@1+ (1.0,0.0) [0.0|254.0] ""  JETSON
+
+BO_ 5 SCIENCE_setControlMode: 1 JETSON
+ SG_ SCIENCE_elevatorControlMode : 2|2@1+ (1.0,0.0) [0.0|2.0] ""  SCIENCE
+ SG_ SCIENCE_genevaControlMode : 0|2@1+ (1.0,0.0) [0.0|2.0] ""  SCIENCE
+
+BO_ 6 SCIENCE_reportFaults: 1 SCIENCE
+ SG_ SCIENCE_moistureSensorState : 4|2@1+ (1.0,0.0) [0.0|2.0] ""  JETSON
+ SG_ SCIENCE_elevatorEncoderState : 2|2@1+ (1.0,0.0) [0.0|2.0] ""  JETSON
+ SG_ SCIENCE_genevaEncoderState : 0|2@1+ (1.0,0.0) [0.0|2.0] ""  JETSON
+
+BO_ 7 SCIENCE_reportACK: 1 SCIENCE
+ SG_ SCIENCE_ACK : 0|8@1+ (1.0,0.0) [0.0|254.0] ""  JETSON
 
 BO_ 8 GIMBAL_setControlMode: 1 JETSON
  SG_ GIMBAL_panControlMode : 0|2@1+ (1.0,0.0) [0.0|2.0] ""  GIMBAL
 
-BO_ 13 PDB_reportACK: 1 PDB
- SG_ PDB_ACK : 0|8@1+ (1.0,0.0) [0.0|254.0] ""  JETSON
+BO_ 9 GIMBAL_reportFaults: 1 GIMBAL
+ SG_ GIMBAL_panEncoderState : 0|2@1+ (1.0,0.0) [0.0|2.0] ""  JETSON
+
+BO_ 10 GIMBAL_reportACK: 1 GIMBAL
+ SG_ GIMBAL_ACK : 0|8@1+ (1.0,0.0) [0.0|254.0] ""  JETSON
+
+BO_ 11 PDB_setLEDMatrix: 1 JETSON
+ SG_ PDB_LEDMatrixState : 0|3@1+ (1.0,0.0) [0.0|6.0] ""  PDB
 
 BO_ 12 PDB_reportFaults: 2 PDB
  SG_ PDB_5VRailStatus : 12|2@1+ (1.0,0.0) [0.0|2.0] ""  JETSON
@@ -97,41 +106,15 @@ BO_ 12 PDB_reportFaults: 2 PDB
  SG_ PDB_armPowerStatus : 2|2@1+ (1.0,0.0) [0.0|2.0] ""  JETSON
  SG_ PDB_jetsonStatus : 0|2@1+ (1.0,0.0) [0.0|2.0] ""  JETSON
 
-BO_ 11 PDB_setLEDMatrix: 1 JETSON
- SG_ PDB_LEDMatrixState : 0|3@1+ (1.0,0.0) [0.0|6.0] ""  PDB
+BO_ 13 PDB_reportACK: 1 PDB
+ SG_ PDB_ACK : 0|8@1+ (1.0,0.0) [0.0|254.0] ""  JETSON
 
-BO_ 7 SCIENCE_reportACK: 1 SCIENCE
- SG_ SCIENCE_ACK : 0|8@1+ (1.0,0.0) [0.0|254.0] ""  JETSON
-
-BO_ 6 SCIENCE_reportFaults: 1 SCIENCE
- SG_ SCIENCE_moistureSensorState : 4|2@1+ (1.0,0.0) [0.0|2.0] ""  JETSON
- SG_ SCIENCE_elevatorEncoderState : 2|2@1+ (1.0,0.0) [0.0|2.0] ""  JETSON
- SG_ SCIENCE_genevaEncoderState : 0|2@1+ (1.0,0.0) [0.0|2.0] ""  JETSON
-
-BO_ 5 SCIENCE_setControlMode: 1 JETSON
- SG_ SCIENCE_elevatorControlMode : 2|2@1+ (1.0,0.0) [0.0|2.0] ""  SCIENCE
- SG_ SCIENCE_genevaControlMode : 0|2@1+ (1.0,0.0) [0.0|2.0] ""  SCIENCE
+BO_ 14 ALL_switchCANBus: 1 JETSON
+ SG_ ALL_CANBusID : 0|2@1+ (1.0,0.0) [0.0|2.0] ""  ARM,GIMBAL,PDB,SCIENCE
 
 
 
 
-CM_ BO_ 14 "Notifies all boards to switch to the specified CAN bus in the dual-bus system";
-CM_ SG_ 14 ALL_CANBusID "CAN bus ID";
-CM_ BO_ 4 "Arm report ACKs to one-shot commands";
-CM_ SG_ 4 ARM_ACK "Arm ACKs";
-CM_ BO_ 3 "Arm fault conditions";
-CM_ SG_ 3 ARM_clawCurrentSensorState "Arm claw current sensor state";
-CM_ SG_ 3 ARM_clawEncoderState "Arm claw encoder state";
-CM_ SG_ 3 ARM_rightWristCurrentSensorState "Arm shoulder current sensor state";
-CM_ SG_ 3 ARM_rightWristEncoderState "Arm right wrist encoder state";
-CM_ SG_ 3 ARM_leftWristCurrentSensorState "Arm left wrist current sensor state";
-CM_ SG_ 3 ARM_leftWristEncoderState "Arm left wrist encoder state";
-CM_ SG_ 3 ARM_elbowCurrentSensorState "Arm elbow current sensor state";
-CM_ SG_ 3 ARM_elbowEncoderState "Arm elbow encoder state";
-CM_ SG_ 3 ARM_shoulderCurrentSensorState "Arm shoulder current sensor state";
-CM_ SG_ 3 ARM_shoulderEncoderState "Arm shoulder encoder state";
-CM_ SG_ 3 ARM_turntableCurrentSensorState "Arm turntable current sensor state";
-CM_ SG_ 3 ARM_turntableEncoderState "Arm turntable encoder state";
 CM_ BO_ 0 "Set control mode for arm joints";
 CM_ SG_ 0 ARM_clawControlMode "Arm claw control mode";
 CM_ SG_ 0 ARM_rightWristControlMode "Arm right wrist control mode";
@@ -149,14 +132,38 @@ CM_ SG_ 2 ARM_PIDIntegralGain "Arm PID integral gain";
 CM_ SG_ 2 ARM_PIDProportionalGain "Arm PID proportional gain";
 CM_ SG_ 2 ARM_PIDTuningMode "Arm PID tuning mode";
 CM_ SG_ 2 ARM_jointID "Arm joint ID";
-CM_ BO_ 10 "Gimbal report ACKs to one-shot commands";
-CM_ SG_ 10 GIMBAL_ACK "Gimbal ACKs";
-CM_ BO_ 9 "Gimbal fault conditions";
-CM_ SG_ 9 GIMBAL_panEncoderState "Gimbal pan encoder state";
+CM_ BO_ 3 "Arm fault conditions";
+CM_ SG_ 3 ARM_clawCurrentSensorState "Arm claw current sensor state";
+CM_ SG_ 3 ARM_clawEncoderState "Arm claw encoder state";
+CM_ SG_ 3 ARM_rightWristCurrentSensorState "Arm shoulder current sensor state";
+CM_ SG_ 3 ARM_rightWristEncoderState "Arm right wrist encoder state";
+CM_ SG_ 3 ARM_leftWristCurrentSensorState "Arm left wrist current sensor state";
+CM_ SG_ 3 ARM_leftWristEncoderState "Arm left wrist encoder state";
+CM_ SG_ 3 ARM_elbowCurrentSensorState "Arm elbow current sensor state";
+CM_ SG_ 3 ARM_elbowEncoderState "Arm elbow encoder state";
+CM_ SG_ 3 ARM_shoulderCurrentSensorState "Arm shoulder current sensor state";
+CM_ SG_ 3 ARM_shoulderEncoderState "Arm shoulder encoder state";
+CM_ SG_ 3 ARM_turntableCurrentSensorState "Arm turntable current sensor state";
+CM_ SG_ 3 ARM_turntableEncoderState "Arm turntable encoder state";
+CM_ BO_ 4 "Arm report ACKs to one-shot commands";
+CM_ SG_ 4 ARM_ACK "Arm ACKs";
+CM_ BO_ 5 "Set control mode for science joints";
+CM_ SG_ 5 SCIENCE_elevatorControlMode "Science elevator control mode";
+CM_ SG_ 5 SCIENCE_genevaControlMode "Science geneva mechanism control mode";
+CM_ BO_ 6 "Science fault conditions";
+CM_ SG_ 6 SCIENCE_moistureSensorState "Science moisture sensor state";
+CM_ SG_ 6 SCIENCE_elevatorEncoderState "Science elevator encoder state";
+CM_ SG_ 6 SCIENCE_genevaEncoderState "Science geneva mechanism encoder state";
+CM_ BO_ 7 "Science report ACKs to one-shot commands";
+CM_ SG_ 7 SCIENCE_ACK "Science ACKs";
 CM_ BO_ 8 "Set control mode for gimbal joints";
 CM_ SG_ 8 GIMBAL_panControlMode "Gimbal pan control mode";
-CM_ BO_ 13 "PDB report ACKs to one-shot commands";
-CM_ SG_ 13 PDB_ACK "PDB ACKs";
+CM_ BO_ 9 "Gimbal fault conditions";
+CM_ SG_ 9 GIMBAL_panEncoderState "Gimbal pan encoder state";
+CM_ BO_ 10 "Gimbal report ACKs to one-shot commands";
+CM_ SG_ 10 GIMBAL_ACK "Gimbal ACKs";
+CM_ BO_ 11 "PDB set LED matrix state";
+CM_ SG_ 11 PDB_LEDMatrixState "PDB LED matrix state";
 CM_ BO_ 12 "PDB report fault conditions";
 CM_ SG_ 12 PDB_5VRailStatus "PDB 5V rail status";
 CM_ SG_ 12 PDB_17VRailStatus "PDB 17V rail status";
@@ -165,34 +172,13 @@ CM_ SG_ 12 PDB_gimbalPowerStatus "PDB gmibal power status";
 CM_ SG_ 12 PDB_sciencePowerStatus "PDB science power status";
 CM_ SG_ 12 PDB_armPowerStatus "PDB arm power status";
 CM_ SG_ 12 PDB_jetsonStatus "PDB Jetson power status";
-CM_ BO_ 11 "PDB set LED matrix state";
-CM_ SG_ 11 PDB_LEDMatrixState "PDB LED matrix state";
-CM_ BO_ 7 "Science report ACKs to one-shot commands";
-CM_ SG_ 7 SCIENCE_ACK "Science ACKs";
-CM_ BO_ 6 "Science fault conditions";
-CM_ SG_ 6 SCIENCE_moistureSensorState "Science moisture sensor state";
-CM_ SG_ 6 SCIENCE_elevatorEncoderState "Science elevator encoder state";
-CM_ SG_ 6 SCIENCE_genevaEncoderState "Science geneva mechanism encoder state";
-CM_ BO_ 5 "Set control mode for science joints";
-CM_ SG_ 5 SCIENCE_elevatorControlMode "Science elevator control mode";
-CM_ SG_ 5 SCIENCE_genevaControlMode "Science geneva mechanism control mode";
+CM_ BO_ 13 "PDB report ACKs to one-shot commands";
+CM_ SG_ 13 PDB_ACK "PDB ACKs";
+CM_ BO_ 14 "Notifies all boards to switch to the specified CAN bus in the dual-bus system";
+CM_ SG_ 14 ALL_CANBusID "CAN bus ID";
 
 
 
-VAL_ 14 ALL_CANBusID 0 "CAN1" 1 "CAN2" 3 "SNA" ;
-VAL_ 4 ARM_ACK 0 "ARM_RESET_ACK" 1 "ARM_SET_CONTROL_MODE_ACK" 2 "ARM_SET_TURNTABLE_PID_PARAMS_ACK" 3 "ARM_SET_SHOULDER_PID_PARAMS_ACK" 4 "ARM_SET_ELBOW_PID_PARAMS_ACK" 5 "ARM_SET_LEFT_WRIST_PID_PARAMS_ACK" 6 "ARM_SET_RIGHT_WRIST_PID_PARAMS_ACK" 7 "ARM_SET_CLAW_PID_PARAMS_ACK" 8 "CAN_BUS_SWITCH_ACK" 255 "SNA" ;
-VAL_ 3 ARM_clawCurrentSensorState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
-VAL_ 3 ARM_clawEncoderState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
-VAL_ 3 ARM_rightWristCurrentSensorState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
-VAL_ 3 ARM_rightWristEncoderState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
-VAL_ 3 ARM_leftWristCurrentSensorState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
-VAL_ 3 ARM_leftWristEncoderState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
-VAL_ 3 ARM_elbowCurrentSensorState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
-VAL_ 3 ARM_elbowEncoderState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
-VAL_ 3 ARM_shoulderCurrentSensorState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
-VAL_ 3 ARM_shoulderEncoderState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
-VAL_ 3 ARM_turntableCurrentSensorState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
-VAL_ 3 ARM_turntableEncoderState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
 VAL_ 0 ARM_clawControlMode 0 "OPEN_LOOP" 1 "POSITION" 2 "VELOCITY" 3 "CURRENT" 7 "SNA" ;
 VAL_ 0 ARM_rightWristControlMode 0 "OPEN_LOOP" 1 "POSITION" 2 "VELOCITY" 3 "CURRENT" 7 "SNA" ;
 VAL_ 0 ARM_leftWristControlMode 0 "OPEN_LOOP" 1 "POSITION" 2 "VELOCITY" 3 "CURRENT" 7 "SNA" ;
@@ -207,10 +193,29 @@ VAL_ 2 ARM_PIDIntegralGain 4095 "SNA" ;
 VAL_ 2 ARM_PIDProportionalGain 4095 "SNA" ;
 VAL_ 2 ARM_PIDTuningMode 0 "POSITION" 1 "VELOCITY" 2 "CURRENT" 3 "SNA" ;
 VAL_ 2 ARM_jointID 0 "TURNTABLE" 1 "SHOULDER" 2 "ELBOW" 3 "LEFT_WRIST" 4 "RIGHT_WRIST" 5 "CLAW" 7 "SNA" ;
-VAL_ 10 GIMBAL_ACK 0 "GIMBAL_SET_CONTROL_MODE_ACK" 1 "CAN_BUS_SWITCH_ACK" 255 "SNA" ;
-VAL_ 9 GIMBAL_panEncoderState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
+VAL_ 3 ARM_clawCurrentSensorState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
+VAL_ 3 ARM_clawEncoderState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
+VAL_ 3 ARM_rightWristCurrentSensorState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
+VAL_ 3 ARM_rightWristEncoderState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
+VAL_ 3 ARM_leftWristCurrentSensorState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
+VAL_ 3 ARM_leftWristEncoderState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
+VAL_ 3 ARM_elbowCurrentSensorState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
+VAL_ 3 ARM_elbowEncoderState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
+VAL_ 3 ARM_shoulderCurrentSensorState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
+VAL_ 3 ARM_shoulderEncoderState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
+VAL_ 3 ARM_turntableCurrentSensorState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
+VAL_ 3 ARM_turntableEncoderState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
+VAL_ 4 ARM_ACK 0 "ARM_RESET_ACK" 1 "ARM_SET_CONTROL_MODE_ACK" 2 "ARM_SET_TURNTABLE_PID_PARAMS_ACK" 3 "ARM_SET_SHOULDER_PID_PARAMS_ACK" 4 "ARM_SET_ELBOW_PID_PARAMS_ACK" 5 "ARM_SET_LEFT_WRIST_PID_PARAMS_ACK" 6 "ARM_SET_RIGHT_WRIST_PID_PARAMS_ACK" 7 "ARM_SET_CLAW_PID_PARAMS_ACK" 8 "CAN_BUS_SWITCH_ACK" 255 "SNA" ;
+VAL_ 5 SCIENCE_elevatorControlMode 0 "OPEN_LOOP" 1 "POSITION" 2 "VELOCITY" 3 "SNA" ;
+VAL_ 5 SCIENCE_genevaControlMode 0 "OPEN_LOOP" 1 "POSITION" 2 "VELOCITY" 3 "SNA" ;
+VAL_ 6 SCIENCE_moistureSensorState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
+VAL_ 6 SCIENCE_elevatorEncoderState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
+VAL_ 6 SCIENCE_genevaEncoderState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
+VAL_ 7 SCIENCE_ACK 0 "SCIENCE_SET_CONTROL_MODE_ACK" 1 "CAN_BUS_SWITCH_ACK" 255 "SNA" ;
 VAL_ 8 GIMBAL_panControlMode 0 "OPEN_LOOP" 1 "POSITION" 2 "VELOCITY" 3 "SNA" ;
-VAL_ 13 PDB_ACK 0 "PDB_SET_LED_MATRIX_ACK" 1 "CAN_BUS_SWITCH_ACK" 255 "SNA" ;
+VAL_ 9 GIMBAL_panEncoderState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
+VAL_ 10 GIMBAL_ACK 0 "GIMBAL_SET_CONTROL_MODE_ACK" 1 "CAN_BUS_SWITCH_ACK" 255 "SNA" ;
+VAL_ 11 PDB_LEDMatrixState 0 "SOLID_RED" 1 "SOLID_BLUE" 2 "FLASHING_GREEN" 3 "False" 7 "SNA" ;
 VAL_ 12 PDB_5VRailStatus 0 "OPERATIONAL" 1 "OVERVOLTAGE" 2 "UNDERVOLTAGE" 3 "SNA" ;
 VAL_ 12 PDB_17VRailStatus 0 "OPERATIONAL" 1 "OVERVOLTAGE" 2 "UNDERVOLTAGE" 3 "SNA" ;
 VAL_ 12 PDB_VBATRailStatus 0 "OPERATIONAL" 1 "OVERVOLTAGE" 2 "UNDERVOLTAGE" 3 "SNA" ;
@@ -218,13 +223,8 @@ VAL_ 12 PDB_gimbalPowerStatus 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
 VAL_ 12 PDB_sciencePowerStatus 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
 VAL_ 12 PDB_armPowerStatus 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
 VAL_ 12 PDB_jetsonStatus 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
-VAL_ 11 PDB_LEDMatrixState 0 "SOLID_RED" 1 "SOLID_BLUE" 2 "FLASHING_GREEN" 3 "False" 7 "SNA" ;
-VAL_ 7 SCIENCE_ACK 0 "SCIENCE_SET_CONTROL_MODE_ACK" 1 "CAN_BUS_SWITCH_ACK" 255 "SNA" ;
-VAL_ 6 SCIENCE_moistureSensorState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
-VAL_ 6 SCIENCE_elevatorEncoderState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
-VAL_ 6 SCIENCE_genevaEncoderState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
-VAL_ 5 SCIENCE_elevatorControlMode 0 "OPEN_LOOP" 1 "POSITION" 2 "VELOCITY" 3 "SNA" ;
-VAL_ 5 SCIENCE_genevaControlMode 0 "OPEN_LOOP" 1 "POSITION" 2 "VELOCITY" 3 "SNA" ;
+VAL_ 13 PDB_ACK 0 "PDB_SET_LED_MATRIX_ACK" 1 "CAN_BUS_SWITCH_ACK" 255 "SNA" ;
+VAL_ 14 ALL_CANBusID 0 "CAN1" 1 "CAN2" 3 "SNA" ;
 
 
 

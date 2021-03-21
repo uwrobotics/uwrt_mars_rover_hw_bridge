@@ -6,243 +6,6 @@ uwrt_mars_rover_can_bus:
   - PDB
   - SCIENCE
   messages:
-  - ALL_switchCANBus:
-      comment: Notifies all boards to switch to the specified CAN bus in the dual-bus
-        system
-      id: 14
-      size: 1
-      senders:
-      - JETSON
-      receivers:
-      - ARM
-      - GIMBAL
-      - PDB
-      - SCIENCE
-      frequency: 0
-      signals:
-      - ALL_CANBusID:
-          comment: CAN bus ID
-          startbit: 0
-          length: 2
-          is_signed: false
-          unit: ''
-          values:
-            0: CAN1
-            1: CAN2
-            3: SNA
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 2.0
-  - ARM_reportACK:
-      comment: Arm report ACKs to one-shot commands
-      id: 4
-      size: 1
-      senders:
-      - ARM
-      receivers:
-      - JETSON
-      frequency: 0
-      signals:
-      - ARM_ACK:
-          comment: Arm ACKs
-          startbit: 0
-          length: 8
-          is_signed: false
-          unit: ''
-          values:
-            0: ARM_RESET_ACK
-            1: ARM_SET_CONTROL_MODE_ACK
-            2: ARM_SET_TURNTABLE_PID_PARAMS_ACK
-            3: ARM_SET_SHOULDER_PID_PARAMS_ACK
-            4: ARM_SET_ELBOW_PID_PARAMS_ACK
-            5: ARM_SET_LEFT_WRIST_PID_PARAMS_ACK
-            6: ARM_SET_RIGHT_WRIST_PID_PARAMS_ACK
-            7: ARM_SET_CLAW_PID_PARAMS_ACK
-            8: CAN_BUS_SWITCH_ACK
-            255: SNA
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 254.0
-  - ARM_reportFaults:
-      comment: Arm fault conditions
-      id: 3
-      size: 3
-      senders:
-      - ARM
-      receivers:
-      - JETSON
-      frequency: 100
-      signals:
-      - ARM_turntableEncoderState:
-          comment: Arm turntable encoder state
-          startbit: 0
-          length: 2
-          is_signed: false
-          unit: ''
-          values:
-            0: OPERATIONAL
-            1: FAULT
-            3: SNA
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 2.0
-      - ARM_turntableCurrentSensorState:
-          comment: Arm turntable current sensor state
-          startbit: 2
-          length: 2
-          is_signed: false
-          unit: ''
-          values:
-            0: OPERATIONAL
-            1: FAULT
-            3: SNA
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 2.0
-      - ARM_shoulderEncoderState:
-          comment: Arm shoulder encoder state
-          startbit: 4
-          length: 2
-          is_signed: false
-          unit: ''
-          values:
-            0: OPERATIONAL
-            1: FAULT
-            3: SNA
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 2.0
-      - ARM_shoulderCurrentSensorState:
-          comment: Arm shoulder current sensor state
-          startbit: 6
-          length: 2
-          is_signed: false
-          unit: ''
-          values:
-            0: OPERATIONAL
-            1: FAULT
-            3: SNA
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 2.0
-      - ARM_elbowEncoderState:
-          comment: Arm elbow encoder state
-          startbit: 8
-          length: 2
-          is_signed: false
-          unit: ''
-          values:
-            0: OPERATIONAL
-            1: FAULT
-            3: SNA
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 2.0
-      - ARM_elbowCurrentSensorState:
-          comment: Arm elbow current sensor state
-          startbit: 10
-          length: 2
-          is_signed: false
-          unit: ''
-          values:
-            0: OPERATIONAL
-            1: FAULT
-            3: SNA
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 2.0
-      - ARM_leftWristEncoderState:
-          comment: Arm left wrist encoder state
-          startbit: 12
-          length: 2
-          is_signed: false
-          unit: ''
-          values:
-            0: OPERATIONAL
-            1: FAULT
-            3: SNA
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 2.0
-      - ARM_leftWristCurrentSensorState:
-          comment: Arm left wrist current sensor state
-          startbit: 14
-          length: 2
-          is_signed: false
-          unit: ''
-          values:
-            0: OPERATIONAL
-            1: FAULT
-            3: SNA
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 2.0
-      - ARM_rightWristEncoderState:
-          comment: Arm right wrist encoder state
-          startbit: 16
-          length: 2
-          is_signed: false
-          unit: ''
-          values:
-            0: OPERATIONAL
-            1: FAULT
-            3: SNA
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 2.0
-      - ARM_rightWristCurrentSensorState:
-          comment: Arm shoulder current sensor state
-          startbit: 18
-          length: 2
-          is_signed: false
-          unit: ''
-          values:
-            0: OPERATIONAL
-            1: FAULT
-            3: SNA
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 2.0
-      - ARM_clawEncoderState:
-          comment: Arm claw encoder state
-          startbit: 20
-          length: 2
-          is_signed: false
-          unit: ''
-          values:
-            0: OPERATIONAL
-            1: FAULT
-            3: SNA
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 2.0
-      - ARM_clawCurrentSensorState:
-          comment: Arm claw current sensor state
-          startbit: 22
-          length: 2
-          is_signed: false
-          unit: ''
-          values:
-            0: OPERATIONAL
-            1: FAULT
-            3: SNA
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 2.0
   - ARM_setControlMode:
       comment: Set control mode for arm joints
       id: 0
@@ -474,42 +237,18 @@ uwrt_mars_rover_can_bus:
           max: 100.0
           scale: 0.04887585532746823
           offset: 0.0
-  - GIMBAL_reportACK:
-      comment: Gimbal report ACKs to one-shot commands
-      id: 10
-      size: 1
+  - ARM_reportFaults:
+      comment: Arm fault conditions
+      id: 3
+      size: 3
       senders:
-      - GIMBAL
-      receivers:
-      - JETSON
-      frequency: 0
-      signals:
-      - GIMBAL_ACK:
-          comment: Gimbal ACKs
-          startbit: 0
-          length: 8
-          is_signed: false
-          unit: ''
-          values:
-            0: GIMBAL_SET_CONTROL_MODE_ACK
-            1: CAN_BUS_SWITCH_ACK
-            255: SNA
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 254.0
-  - GIMBAL_reportFaults:
-      comment: Gimbal fault conditions
-      id: 9
-      size: 1
-      senders:
-      - GIMBAL
+      - ARM
       receivers:
       - JETSON
       frequency: 100
       signals:
-      - GIMBAL_panEncoderState:
-          comment: Gimbal pan encoder state
+      - ARM_turntableEncoderState:
+          comment: Arm turntable encoder state
           startbit: 0
           length: 2
           is_signed: false
@@ -522,6 +261,307 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
           min: 0.0
           max: 2.0
+      - ARM_turntableCurrentSensorState:
+          comment: Arm turntable current sensor state
+          startbit: 2
+          length: 2
+          is_signed: false
+          unit: ''
+          values:
+            0: OPERATIONAL
+            1: FAULT
+            3: SNA
+          scale: 1.0
+          offset: 0.0
+          min: 0.0
+          max: 2.0
+      - ARM_shoulderEncoderState:
+          comment: Arm shoulder encoder state
+          startbit: 4
+          length: 2
+          is_signed: false
+          unit: ''
+          values:
+            0: OPERATIONAL
+            1: FAULT
+            3: SNA
+          scale: 1.0
+          offset: 0.0
+          min: 0.0
+          max: 2.0
+      - ARM_shoulderCurrentSensorState:
+          comment: Arm shoulder current sensor state
+          startbit: 6
+          length: 2
+          is_signed: false
+          unit: ''
+          values:
+            0: OPERATIONAL
+            1: FAULT
+            3: SNA
+          scale: 1.0
+          offset: 0.0
+          min: 0.0
+          max: 2.0
+      - ARM_elbowEncoderState:
+          comment: Arm elbow encoder state
+          startbit: 8
+          length: 2
+          is_signed: false
+          unit: ''
+          values:
+            0: OPERATIONAL
+            1: FAULT
+            3: SNA
+          scale: 1.0
+          offset: 0.0
+          min: 0.0
+          max: 2.0
+      - ARM_elbowCurrentSensorState:
+          comment: Arm elbow current sensor state
+          startbit: 10
+          length: 2
+          is_signed: false
+          unit: ''
+          values:
+            0: OPERATIONAL
+            1: FAULT
+            3: SNA
+          scale: 1.0
+          offset: 0.0
+          min: 0.0
+          max: 2.0
+      - ARM_leftWristEncoderState:
+          comment: Arm left wrist encoder state
+          startbit: 12
+          length: 2
+          is_signed: false
+          unit: ''
+          values:
+            0: OPERATIONAL
+            1: FAULT
+            3: SNA
+          scale: 1.0
+          offset: 0.0
+          min: 0.0
+          max: 2.0
+      - ARM_leftWristCurrentSensorState:
+          comment: Arm left wrist current sensor state
+          startbit: 14
+          length: 2
+          is_signed: false
+          unit: ''
+          values:
+            0: OPERATIONAL
+            1: FAULT
+            3: SNA
+          scale: 1.0
+          offset: 0.0
+          min: 0.0
+          max: 2.0
+      - ARM_rightWristEncoderState:
+          comment: Arm right wrist encoder state
+          startbit: 16
+          length: 2
+          is_signed: false
+          unit: ''
+          values:
+            0: OPERATIONAL
+            1: FAULT
+            3: SNA
+          scale: 1.0
+          offset: 0.0
+          min: 0.0
+          max: 2.0
+      - ARM_rightWristCurrentSensorState:
+          comment: Arm shoulder current sensor state
+          startbit: 18
+          length: 2
+          is_signed: false
+          unit: ''
+          values:
+            0: OPERATIONAL
+            1: FAULT
+            3: SNA
+          scale: 1.0
+          offset: 0.0
+          min: 0.0
+          max: 2.0
+      - ARM_clawEncoderState:
+          comment: Arm claw encoder state
+          startbit: 20
+          length: 2
+          is_signed: false
+          unit: ''
+          values:
+            0: OPERATIONAL
+            1: FAULT
+            3: SNA
+          scale: 1.0
+          offset: 0.0
+          min: 0.0
+          max: 2.0
+      - ARM_clawCurrentSensorState:
+          comment: Arm claw current sensor state
+          startbit: 22
+          length: 2
+          is_signed: false
+          unit: ''
+          values:
+            0: OPERATIONAL
+            1: FAULT
+            3: SNA
+          scale: 1.0
+          offset: 0.0
+          min: 0.0
+          max: 2.0
+  - ARM_reportACK:
+      comment: Arm report ACKs to one-shot commands
+      id: 4
+      size: 1
+      senders:
+      - ARM
+      receivers:
+      - JETSON
+      frequency: 0
+      signals:
+      - ARM_ACK:
+          comment: Arm ACKs
+          startbit: 0
+          length: 8
+          is_signed: false
+          unit: ''
+          values:
+            0: ARM_RESET_ACK
+            1: ARM_SET_CONTROL_MODE_ACK
+            2: ARM_SET_TURNTABLE_PID_PARAMS_ACK
+            3: ARM_SET_SHOULDER_PID_PARAMS_ACK
+            4: ARM_SET_ELBOW_PID_PARAMS_ACK
+            5: ARM_SET_LEFT_WRIST_PID_PARAMS_ACK
+            6: ARM_SET_RIGHT_WRIST_PID_PARAMS_ACK
+            7: ARM_SET_CLAW_PID_PARAMS_ACK
+            8: CAN_BUS_SWITCH_ACK
+            255: SNA
+          scale: 1.0
+          offset: 0.0
+          min: 0.0
+          max: 254.0
+  - SCIENCE_setControlMode:
+      comment: Set control mode for science joints
+      id: 5
+      size: 1
+      senders:
+      - JETSON
+      receivers:
+      - SCIENCE
+      frequency: 0
+      signals:
+      - SCIENCE_genevaControlMode:
+          comment: Science geneva mechanism control mode
+          startbit: 0
+          length: 2
+          is_signed: false
+          unit: ''
+          values:
+            0: OPEN_LOOP
+            1: POSITION
+            2: VELOCITY
+            3: SNA
+          scale: 1.0
+          offset: 0.0
+          min: 0.0
+          max: 2.0
+      - SCIENCE_elevatorControlMode:
+          comment: Science elevator control mode
+          startbit: 2
+          length: 2
+          is_signed: false
+          unit: ''
+          values:
+            0: OPEN_LOOP
+            1: POSITION
+            2: VELOCITY
+            3: SNA
+          scale: 1.0
+          offset: 0.0
+          min: 0.0
+          max: 2.0
+  - SCIENCE_reportFaults:
+      comment: Science fault conditions
+      id: 6
+      size: 1
+      senders:
+      - SCIENCE
+      receivers:
+      - JETSON
+      frequency: 100
+      signals:
+      - SCIENCE_genevaEncoderState:
+          comment: Science geneva mechanism encoder state
+          startbit: 0
+          length: 2
+          is_signed: false
+          unit: ''
+          values:
+            0: OPERATIONAL
+            1: FAULT
+            3: SNA
+          scale: 1.0
+          offset: 0.0
+          min: 0.0
+          max: 2.0
+      - SCIENCE_elevatorEncoderState:
+          comment: Science elevator encoder state
+          startbit: 2
+          length: 2
+          is_signed: false
+          unit: ''
+          values:
+            0: OPERATIONAL
+            1: FAULT
+            3: SNA
+          scale: 1.0
+          offset: 0.0
+          min: 0.0
+          max: 2.0
+      - SCIENCE_moistureSensorState:
+          comment: Science moisture sensor state
+          startbit: 4
+          length: 2
+          is_signed: false
+          unit: ''
+          values:
+            0: OPERATIONAL
+            1: FAULT
+            3: SNA
+          scale: 1.0
+          offset: 0.0
+          min: 0.0
+          max: 2.0
+  - SCIENCE_reportACK:
+      comment: Science report ACKs to one-shot commands
+      id: 7
+      size: 1
+      senders:
+      - SCIENCE
+      receivers:
+      - JETSON
+      frequency: 0
+      signals:
+      - SCIENCE_ACK:
+          comment: Science ACKs
+          startbit: 0
+          length: 8
+          is_signed: false
+          unit: ''
+          values:
+            0: SCIENCE_SET_CONTROL_MODE_ACK
+            1: CAN_BUS_SWITCH_ACK
+            255: SNA
+          scale: 1.0
+          offset: 0.0
+          min: 0.0
+          max: 254.0
   - GIMBAL_setControlMode:
       comment: Set control mode for gimbal joints
       id: 8
@@ -547,30 +587,80 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
           min: 0.0
           max: 2.0
-  - PDB_reportACK:
-      comment: PDB report ACKs to one-shot commands
-      id: 13
+  - GIMBAL_reportFaults:
+      comment: Gimbal fault conditions
+      id: 9
       size: 1
       senders:
-      - PDB
+      - GIMBAL
+      receivers:
+      - JETSON
+      frequency: 100
+      signals:
+      - GIMBAL_panEncoderState:
+          comment: Gimbal pan encoder state
+          startbit: 0
+          length: 2
+          is_signed: false
+          unit: ''
+          values:
+            0: OPERATIONAL
+            1: FAULT
+            3: SNA
+          scale: 1.0
+          offset: 0.0
+          min: 0.0
+          max: 2.0
+  - GIMBAL_reportACK:
+      comment: Gimbal report ACKs to one-shot commands
+      id: 10
+      size: 1
+      senders:
+      - GIMBAL
       receivers:
       - JETSON
       frequency: 0
       signals:
-      - PDB_ACK:
-          comment: PDB ACKs
+      - GIMBAL_ACK:
+          comment: Gimbal ACKs
           startbit: 0
           length: 8
           is_signed: false
           unit: ''
           values:
-            0: PDB_SET_LED_MATRIX_ACK
+            0: GIMBAL_SET_CONTROL_MODE_ACK
             1: CAN_BUS_SWITCH_ACK
             255: SNA
           scale: 1.0
           offset: 0.0
           min: 0.0
           max: 254.0
+  - PDB_setLEDMatrix:
+      comment: PDB set LED matrix state
+      id: 11
+      size: 1
+      senders:
+      - JETSON
+      receivers:
+      - PDB
+      frequency: 0
+      signals:
+      - PDB_LEDMatrixState:
+          comment: PDB LED matrix state
+          startbit: 0
+          length: 3
+          is_signed: false
+          unit: ''
+          values:
+            0: SOLID_RED
+            1: SOLID_BLUE
+            2: FLASHING_GREEN
+            3: false
+            7: SNA
+          scale: 1.0
+          offset: 0.0
+          min: 0.0
+          max: 6.0
   - PDB_reportFaults:
       comment: PDB report fault conditions
       id: 12
@@ -682,143 +772,53 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
           min: 0.0
           max: 2.0
-  - PDB_setLEDMatrix:
-      comment: PDB set LED matrix state
-      id: 11
+  - PDB_reportACK:
+      comment: PDB report ACKs to one-shot commands
+      id: 13
       size: 1
       senders:
-      - JETSON
-      receivers:
       - PDB
-      frequency: 0
-      signals:
-      - PDB_LEDMatrixState:
-          comment: PDB LED matrix state
-          startbit: 0
-          length: 3
-          is_signed: false
-          unit: ''
-          values:
-            0: SOLID_RED
-            1: SOLID_BLUE
-            2: FLASHING_GREEN
-            3: false
-            7: SNA
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 6.0
-  - SCIENCE_reportACK:
-      comment: Science report ACKs to one-shot commands
-      id: 7
-      size: 1
-      senders:
-      - SCIENCE
       receivers:
       - JETSON
       frequency: 0
       signals:
-      - SCIENCE_ACK:
-          comment: Science ACKs
+      - PDB_ACK:
+          comment: PDB ACKs
           startbit: 0
           length: 8
           is_signed: false
           unit: ''
           values:
-            0: SCIENCE_SET_CONTROL_MODE_ACK
+            0: PDB_SET_LED_MATRIX_ACK
             1: CAN_BUS_SWITCH_ACK
             255: SNA
           scale: 1.0
           offset: 0.0
           min: 0.0
           max: 254.0
-  - SCIENCE_reportFaults:
-      comment: Science fault conditions
-      id: 6
-      size: 1
-      senders:
-      - SCIENCE
-      receivers:
-      - JETSON
-      frequency: 100
-      signals:
-      - SCIENCE_genevaEncoderState:
-          comment: Science geneva mechanism encoder state
-          startbit: 0
-          length: 2
-          is_signed: false
-          unit: ''
-          values:
-            0: OPERATIONAL
-            1: FAULT
-            3: SNA
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 2.0
-      - SCIENCE_elevatorEncoderState:
-          comment: Science elevator encoder state
-          startbit: 2
-          length: 2
-          is_signed: false
-          unit: ''
-          values:
-            0: OPERATIONAL
-            1: FAULT
-            3: SNA
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 2.0
-      - SCIENCE_moistureSensorState:
-          comment: Science moisture sensor state
-          startbit: 4
-          length: 2
-          is_signed: false
-          unit: ''
-          values:
-            0: OPERATIONAL
-            1: FAULT
-            3: SNA
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 2.0
-  - SCIENCE_setControlMode:
-      comment: Set control mode for science joints
-      id: 5
+  - ALL_switchCANBus:
+      comment: Notifies all boards to switch to the specified CAN bus in the dual-bus
+        system
+      id: 14
       size: 1
       senders:
       - JETSON
       receivers:
+      - ARM
+      - GIMBAL
+      - PDB
       - SCIENCE
       frequency: 0
       signals:
-      - SCIENCE_genevaControlMode:
-          comment: Science geneva mechanism control mode
+      - ALL_CANBusID:
+          comment: CAN bus ID
           startbit: 0
           length: 2
           is_signed: false
           unit: ''
           values:
-            0: OPEN_LOOP
-            1: POSITION
-            2: VELOCITY
-            3: SNA
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 2.0
-      - SCIENCE_elevatorControlMode:
-          comment: Science elevator control mode
-          startbit: 2
-          length: 2
-          is_signed: false
-          unit: ''
-          values:
-            0: OPEN_LOOP
-            1: POSITION
-            2: VELOCITY
+            0: CAN1
+            1: CAN2
             3: SNA
           scale: 1.0
           offset: 0.0
