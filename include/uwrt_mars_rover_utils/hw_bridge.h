@@ -1,6 +1,8 @@
 #pragma once
 #include <string>
 
+#include "uwrt_mars_rover_can.h"
+
 namespace HWBRIDGE {
 namespace ROVERCONFIG {
 constexpr uint16_t ROVER_MOTOR_PWM_FREQ_HZ = 20000;   // 20 kHz

@@ -109,8 +109,8 @@ BO_ 12 PDB_reportFaults: 2 PDB
 BO_ 13 PDB_reportACK: 1 PDB
  SG_ PDB_ACK : 0|8@1+ (1.0,0.0) [0.0|254.0] ""  JETSON
 
-BO_ 14 ALL_switchCANBus: 1 JETSON
- SG_ ALL_CANBusID : 0|2@1+ (1.0,0.0) [0.0|2.0] ""  ARM,GIMBAL,PDB,SCIENCE
+BO_ 14 COMMON_switchCANBus: 1 JETSON
+ SG_ COMMON_CANBusID : 0|2@1+ (1.0,0.0) [0.0|2.0] ""  ARM,GIMBAL,PDB,SCIENCE
 
 
 
@@ -175,7 +175,7 @@ CM_ SG_ 12 PDB_jetsonStatus "PDB Jetson power status";
 CM_ BO_ 13 "PDB report ACKs to one-shot commands";
 CM_ SG_ 13 PDB_ACK "PDB ACKs";
 CM_ BO_ 14 "Notifies all boards to switch to the specified CAN bus in the dual-bus system";
-CM_ SG_ 14 ALL_CANBusID "CAN bus ID";
+CM_ SG_ 14 COMMON_CANBusID "CAN bus ID";
 
 
 
@@ -224,7 +224,7 @@ VAL_ 12 PDB_sciencePowerStatus 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
 VAL_ 12 PDB_armPowerStatus 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
 VAL_ 12 PDB_jetsonStatus 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
 VAL_ 13 PDB_ACK 0 "PDB_SET_LED_MATRIX_ACK" 1 "CAN_BUS_SWITCH_ACK" 255 "SNA" ;
-VAL_ 14 ALL_CANBusID 0 "CAN1" 1 "CAN2" 3 "SNA" ;
+VAL_ 14 COMMON_CANBusID 0 "CAN1" 1 "CAN2" 3 "SNA" ;
 
 
 

@@ -701,7 +701,7 @@
 
   ------------------------------------------------------------------------
 
-  Name:       ALL_switchCANBus
+  Name:       COMMON_switchCANBus
   Id:         0xe
   Length:     1 bytes
   Cycle time: - ms
@@ -714,17 +714,17 @@
            +---+---+---+---+---+---+---+---+
      B   0 |   |   |   |   |   |   |<-----x|
      y     +---+---+---+---+---+---+---+---+
-     t                               +-- ALL_CANBusID
+     t                               +-- COMMON_CANBusID
      e
 
   Signal tree:
 
     -- {root}
-       +-- ALL_CANBusID
+       +-- COMMON_CANBusID
 
   Signal choices:
 
-    ALL_CANBusID
+    COMMON_CANBusID
         0 CAN1
         1 CAN2
         3 SNA

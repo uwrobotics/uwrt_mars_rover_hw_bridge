@@ -796,7 +796,7 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
           min: 0.0
           max: 254.0
-  - ALL_switchCANBus:
+  - COMMON_switchCANBus:
       comment: Notifies all boards to switch to the specified CAN bus in the dual-bus
         system
       id: 14
@@ -810,7 +810,7 @@ uwrt_mars_rover_can_bus:
       - SCIENCE
       frequency: 0
       signals:
-      - ALL_CANBusID:
+      - COMMON_CANBusID:
           comment: CAN bus ID
           startbit: 0
           length: 2
