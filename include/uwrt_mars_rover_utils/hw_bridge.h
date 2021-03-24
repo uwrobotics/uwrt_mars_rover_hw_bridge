@@ -1,14 +1,11 @@
 #pragma once
 #include <string>
 
-#include "uwrt_mars_rover_can.h"
+#include "CANAutogenWrapper.h"
+#include "CANMsgMap.h"
+#include "uwrt_mars_rover_can_common.h"
 
 namespace HWBRIDGE {
-
-typedef uint16_t CANMsgID_t;
-typedef double CANSignalValue_t;
-
-enum CANSIGNALNAME { COMMON_CAN_BUS_ID };
 
 namespace ROVERCONFIG {
 constexpr uint16_t ROVER_MOTOR_PWM_FREQ_HZ = 20000;   // 20 kHz

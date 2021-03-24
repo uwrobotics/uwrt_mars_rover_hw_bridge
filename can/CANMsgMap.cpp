@@ -1,0 +1,57 @@
+#include "CANMsgMap.h"
+
+using namespace HWBRIDGE;
+
+CANMsgMap::CANMsgMap(CANMsgMapType::iterator first, CANMsgMapType::iterator last) : m_map(first, last) {}
+
+CANMsgMap::CANMsgMap(std::initializer_list<std::pair<const CANMsgID_t, CANSignalMapType>> init) : m_map(init) {}
+
+bool CANMsgMap::getSignalValue(CANMsgID_t msgID, CANSIGNALNAME signalName, CANSignalValue_t& signalValue) const {
+  // TODO: raise error
+  if (contains(msgID, signalName)) {
+    signalValue = m_map.at(msgID).at(signalName);
+    return true;
+  }
+  return false;
+}
+
+bool CANMsgMap::setSignalValue(CANMsgID_t msgID, CANSIGNALNAME signalName, CANSignalValue_t signalValue) {
+  // TODO: raise error
+  if (contains(msgID, signalName)) {
+    m_map[msgID][signalName] = signalValue;
+    return true;
+  }
+  return false;
+}
+
+bool CANMsgMap::contains(CANMsgID_t msgID) const {
+  return (m_map.find(msgID) != m_map.end());
+}
+
+bool CANMsgMap::contains(CANMsgID_t msgID, CANSIGNALNAME signalName) const {
+  return (contains(msgID) && (m_map.at(msgID).find(signalName) != m_map.at(msgID).end()));
+}
+
+CANMsgMap::CANSignalMapType& CANMsgMap::at(CANMsgID_t msgID) {
+  return m_map.at(msgID);
+}
+
+CANMsgMap::CANMsgMapType::iterator CANMsgMap::begin() {
+  return m_map.begin();
+}
+
+CANMsgMap::CANMsgMapType::iterator CANMsgMap::end() {
+  return m_map.end();
+}
+
+const CANMsgMap::CANSignalMapType& CANMsgMap::at(CANMsgID_t msgID) const {
+  return m_map.at(msgID);
+}
+
+const CANMsgMap::CANMsgMapType::const_iterator CANMsgMap::begin() const {
+  return m_map.begin();
+}
+
+const CANMsgMap::CANMsgMapType::const_iterator CANMsgMap::end() const {
+  return m_map.end();
+}
