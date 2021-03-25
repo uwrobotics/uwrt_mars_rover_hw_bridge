@@ -1,4 +1,5 @@
 uwrt_mars_rover_can_bus:
+  bus_frequency: 1000000
   nodes:
   - ARM
   - GIMBAL

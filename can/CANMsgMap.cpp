@@ -4,10 +4,10 @@ using namespace HWBRIDGE;
 
 CANMsgMap::CANMsgMap(CANMsgMapType::iterator first, CANMsgMapType::iterator last) : m_map(first, last) {}
 
-CANMsgMap::CANMsgMap(std::initializer_list<std::pair<const CANMsgID_t, CANSignalMapType>> init) : m_map(init) {}
+CANMsgMap::CANMsgMap(std::initializer_list<std::pair<const CANID, CANSignalMapType>> init) : m_map(init) {}
 
-bool CANMsgMap::getSignalValue(CANMsgID_t msgID, CANSIGNALNAME signalName, CANSignalValue_t& signalValue) const {
-  // TODO: raise error
+bool CANMsgMap::getSignalValue(CANID msgID, CANSIGNAL signalName, CANSignalValue_t& signalValue) const {
+  // TODO: raise error?
   if (contains(msgID, signalName)) {
     signalValue = m_map.at(msgID).at(signalName);
     return true;
@@ -15,8 +15,8 @@ bool CANMsgMap::getSignalValue(CANMsgID_t msgID, CANSIGNALNAME signalName, CANSi
   return false;
 }
 
-bool CANMsgMap::setSignalValue(CANMsgID_t msgID, CANSIGNALNAME signalName, CANSignalValue_t signalValue) {
-  // TODO: raise error
+bool CANMsgMap::setSignalValue(CANID msgID, CANSIGNAL signalName, CANSignalValue_t signalValue) {
+  // TODO: raise error?
   if (contains(msgID, signalName)) {
     m_map[msgID][signalName] = signalValue;
     return true;
@@ -24,15 +24,15 @@ bool CANMsgMap::setSignalValue(CANMsgID_t msgID, CANSIGNALNAME signalName, CANSi
   return false;
 }
 
-bool CANMsgMap::contains(CANMsgID_t msgID) const {
+bool CANMsgMap::contains(CANID msgID) const {
   return (m_map.find(msgID) != m_map.end());
 }
 
-bool CANMsgMap::contains(CANMsgID_t msgID, CANSIGNALNAME signalName) const {
+bool CANMsgMap::contains(CANID msgID, CANSIGNAL signalName) const {
   return (contains(msgID) && (m_map.at(msgID).find(signalName) != m_map.at(msgID).end()));
 }
 
-CANMsgMap::CANSignalMapType& CANMsgMap::at(CANMsgID_t msgID) {
+CANMsgMap::CANSignalMapType& CANMsgMap::at(CANID msgID) {
   return m_map.at(msgID);
 }
 
@@ -44,7 +44,7 @@ CANMsgMap::CANMsgMapType::iterator CANMsgMap::end() {
   return m_map.end();
 }
 
-const CANMsgMap::CANSignalMapType& CANMsgMap::at(CANMsgID_t msgID) const {
+const CANMsgMap::CANSignalMapType& CANMsgMap::at(CANID msgID) const {
   return m_map.at(msgID);
 }
 

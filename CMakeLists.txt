@@ -7,7 +7,7 @@ target_sources(uwrt-mars-rover-hw-bridge
     PRIVATE 
     src/hw_bridge.cpp 
     can/CANMsgMap.cpp 
-    can/CANAutogenWrapper.cpp
+    can/generated/uwrt_mars_rover_can_wrapper.cpp
     can/generated/uwrt_mars_rover_can.c
     )
 

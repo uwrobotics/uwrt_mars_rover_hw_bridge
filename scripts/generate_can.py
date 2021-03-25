@@ -9,21 +9,49 @@ import os
 import cantools
 import yaml
 import shutil
+import re
 
-CAN_FOLDER_PATH = 'can'
-GENERATED_FOLDER_NAME = 'generated'
-YAML_FILE_NAME = 'uwrt_mars_rover_can.yaml'
-DBC_FILE_NAME = 'uwrt_mars_rover_can.dbc'
-DBC_DUMP_FILE_NAME = 'uwrt_mars_rover_can_dump.txt'
+import generate_can_enums
+import generate_can_wrapper
 
-GENERATED_FOLDER_PATH = os.path.join(CAN_FOLDER_PATH, GENERATED_FOLDER_NAME)
+HWBRIDGE_ROOT_PATH = os.getcwd()
+
+ROVER_CAN_NAME = 'uwrt_mars_rover_can'
+
+YAML_FILE_NAME = ROVER_CAN_NAME + '.yaml'
+DBC_FILE_NAME = ROVER_CAN_NAME + '.dbc'
+DBC_DUMP_FILE_NAME = ROVER_CAN_NAME + '_dump.txt'
+CAN_ENUMS_HEADER_FILE_NAME = ROVER_CAN_NAME + '_enums.h'
+CAN_WRAPPER_HEADER_FILE_NAME = ROVER_CAN_NAME + '_wrapper.h'
+CAN_WRAPPER_SOURCE_FILE_NAME = ROVER_CAN_NAME + '_wrapper.cpp'
+
+SCRIPT_FOLDER_PATH = os.path.join(HWBRIDGE_ROOT_PATH, 'scripts')
+CAN_FOLDER_PATH = os.path.join(HWBRIDGE_ROOT_PATH, 'can')
+GENERATED_FOLDER_PATH = os.path.join(CAN_FOLDER_PATH, 'generated')
 YAML_FILE_PATH = os.path.join(CAN_FOLDER_PATH, YAML_FILE_NAME)
+
+
+AUTOGEN_message_enums = {}
+AUTOGEN_signal_enums = []
+AUTOGEN_msg_map = {}
+AUTOGEN_original_msg_names = {}
+
+
+# https://github.com/eerimoq/cantools/blob/871581b57785fdbd79c118878f9b9c148984963c/cantools/database/can/c_source.py#L762
+def camel_to_snake_case(value):
+    value = re.sub(r'(.)([A-Z][a-z]+)', r'\1_\2', value)
+    value = re.sub(r'(_+)', '_', value)
+    value = re.sub(r'([a-z0-9])([A-Z])', r'\1_\2', value).lower()
+    value = re.sub(r'[^a-zA-Z0-9]', '_', value)
+    return value
+
 
 # load yaml file
 with open(YAML_FILE_PATH) as file:
     can_yaml = yaml.load(file, Loader=yaml.FullLoader)
 
 bus_name = list(can_yaml.keys())[0]
+bus_frequency = can_yaml[bus_name]['bus_frequency']
 
 # sort nodes in alphabetical order
 can_yaml[bus_name]['nodes'].sort()
@@ -44,6 +72,12 @@ for message in can_yaml[bus_name]['messages']:
     message_name = list(message.keys())[0]
     message = message[message_name]
 
+    # add to autogen dicts
+    msg_snake_upper = camel_to_snake_case(message_name).upper()
+    AUTOGEN_message_enums[msg_snake_upper] = message['id']
+    AUTOGEN_msg_map[msg_snake_upper] = []
+    AUTOGEN_original_msg_names[msg_snake_upper] = message_name
+
     # sort senders and receivers
     message['senders'].sort()
     message['receivers'].sort()
@@ -56,6 +90,11 @@ for message in can_yaml[bus_name]['messages']:
     for signal in message['signals']:
         signal_name = list(signal.keys())[0]
         signal = signal[signal_name]
+
+        # add to autogen signal enums list and msg map dict
+        signal_snake_upper = camel_to_snake_case(signal_name).upper()
+        AUTOGEN_signal_enums.append(signal_snake_upper)
+        AUTOGEN_msg_map[msg_snake_upper].append(signal_snake_upper)
 
         length = signal['length']
         is_signed = signal['is_signed']
@@ -173,3 +212,36 @@ print('Successfully generated', DBC_DUMP_FILE_NAME)
 # generate c source from dbc file
 subprocess.run(
     ['python3 -m cantools generate_c_source ' + DBC_FILE_NAME], shell=True)
+
+# generate CAN enums header
+vars = {
+    'canbus_frequency_value': bus_frequency,
+    'msg_enums': AUTOGEN_message_enums,
+    'cansignal_enums': AUTOGEN_signal_enums,
+}
+generate_can_enums.generate(CAN_ENUMS_HEADER_FILE_NAME, vars)
+print('Successfully generated', CAN_ENUMS_HEADER_FILE_NAME)
+
+# generate CAN wrapper header and cpp source
+vars = {
+    'rover_can_name': ROVER_CAN_NAME,
+    'enums_header_file_name': CAN_ENUMS_HEADER_FILE_NAME,
+}
+generate_can_wrapper.generate_header(CAN_WRAPPER_HEADER_FILE_NAME, vars)
+
+vars = {
+    'rover_can_name': ROVER_CAN_NAME,
+    'can_wrapper_header_file_name': CAN_WRAPPER_HEADER_FILE_NAME,
+    'msg_map': AUTOGEN_msg_map,
+    'original_msg_names': AUTOGEN_original_msg_names,
+}
+generate_can_wrapper.generate_source(CAN_WRAPPER_SOURCE_FILE_NAME, vars)
+
+print('Successfully generated', CAN_WRAPPER_HEADER_FILE_NAME,
+      'and', CAN_WRAPPER_SOURCE_FILE_NAME)
+
+# delete pycache folder
+os.chdir(HWBRIDGE_ROOT_PATH)
+PYCACHE_FOLDER_PATH = os.path.join(SCRIPT_FOLDER_PATH, '__pycache__')
+if os.path.exists(PYCACHE_FOLDER_PATH):
+    shutil.rmtree(PYCACHE_FOLDER_PATH)
