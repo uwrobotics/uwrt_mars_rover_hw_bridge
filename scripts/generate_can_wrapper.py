@@ -13,7 +13,7 @@ HEADER_TEMPLATE = '''// AUTO-GENERATED FILE. DO NOT MODIFY
 
 namespace HWBRIDGE {{
 
-    bool packCANMsg(uint8_t* raw, HWBRIDGE::CANID msgID, const HWBRIDGE::CANMsgMap* msgMap);
+    bool packCANMsg(uint8_t* raw, HWBRIDGE::CANID msgID, const HWBRIDGE::CANMsgMap* msgMap, size_t &len);
     bool unpackCANMsg(uint8_t* raw, HWBRIDGE::CANID msgID, HWBRIDGE::CANMsgMap* msgMap);
 
 }}
@@ -31,7 +31,7 @@ using namespace HWBRIDGE;
 // -- Message unpacker function prototypes ---
 {msg_unpacker_function_prototypes}
 
-bool HWBRIDGE::packCANMsg(uint8_t* raw, CANID msgID, const CANMsgMap* msgMap) {{
+bool HWBRIDGE::packCANMsg(uint8_t* raw, CANID msgID, const CANMsgMap* msgMap, size_t &len) {{
   switch (msgID) {{
     {msg_packer_switch_cases}
     default:
@@ -52,7 +52,7 @@ bool HWBRIDGE::unpackCANMsg(uint8_t* raw, CANID msgID, CANMsgMap* msgMap) {{
 
 MSG_PACKER_UNPACKER_FUNCTION_TEMPLATE = '''
 // {original_msg_name} message packer
-bool {msg_name_lower}_packer(uint8_t* raw, const CANMsgMap* msgMap) {{
+bool {msg_name_lower}_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t &len) {{
   bool success = true;
   CANID msgID  = {msg_name_upper};
   struct {rover_can_name_lower}_{msg_name_lower}_t msgStruct;
@@ -70,6 +70,7 @@ bool {msg_name_lower}_packer(uint8_t* raw, const CANMsgMap* msgMap) {{
       }}
     }}
     success &= ({rover_can_name_lower}_{msg_name_lower}_pack(raw, &msgStruct, {rover_can_name_upper}_{msg_name_upper}_LENGTH) == {rover_can_name_upper}_{msg_name_upper}_LENGTH);
+    len = {rover_can_name_upper}_{msg_name_upper}_LENGTH;
   }}
   return success;
 }}
@@ -109,7 +110,7 @@ case {signal_name_upper}:
 
 UNPACKER_SIGNAL_SWITCH_CASE_TEMPLATE = '''
 case {signal_name_upper}:
-  msgMap->setSignalValue(
+  success &= msgMap->setSignalValue(
       msgID, signalName,
       {rover_can_name_lower}_{msg_name_lower}_{signal_name_lower}_decode(msgStruct.{signal_name_lower}));
   break;
@@ -117,7 +118,7 @@ case {signal_name_upper}:
 
 
 def msg_packer_function_prototypes(msg_names):
-    return ''.join(['static bool {}_packer(uint8_t* raw, const CANMsgMap* msgMap);\n'.format(msg_name.lower()) for msg_name in msg_names])
+    return ''.join(['static bool {}_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t &len);\n'.format(msg_name.lower()) for msg_name in msg_names])
 
 
 def msg_unpacker_function_prototypes(msg_names):
@@ -125,7 +126,7 @@ def msg_unpacker_function_prototypes(msg_names):
 
 
 def packer_msg_switch_cases(msg_names):
-    return ''.join(['case {}:\n\treturn {}_packer(raw, msgMap);\n'.format(msg_name.upper(), msg_name.lower()) for msg_name in msg_names])
+    return ''.join(['case {}:\n\treturn {}_packer(raw, msgMap, len);\n'.format(msg_name.upper(), msg_name.lower()) for msg_name in msg_names])
 
 
 def unpacker_msg_switch_cases(msg_names):

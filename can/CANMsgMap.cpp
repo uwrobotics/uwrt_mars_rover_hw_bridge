@@ -7,7 +7,6 @@ CANMsgMap::CANMsgMap(CANMsgMapType::iterator first, CANMsgMapType::iterator last
 CANMsgMap::CANMsgMap(std::initializer_list<std::pair<const CANID, CANSignalMapType>> init) : m_map(init) {}
 
 bool CANMsgMap::getSignalValue(CANID msgID, CANSIGNAL signalName, CANSignalValue_t& signalValue) const {
-  // TODO: raise error?
   if (contains(msgID, signalName)) {
     signalValue = m_map.at(msgID).at(signalName);
     return true;
@@ -16,7 +15,6 @@ bool CANMsgMap::getSignalValue(CANID msgID, CANSIGNAL signalName, CANSignalValue
 }
 
 bool CANMsgMap::setSignalValue(CANID msgID, CANSIGNAL signalName, CANSignalValue_t signalValue) {
-  // TODO: raise error?
   if (contains(msgID, signalName)) {
     m_map[msgID][signalName] = signalValue;
     return true;

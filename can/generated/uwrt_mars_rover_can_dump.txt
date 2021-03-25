@@ -84,7 +84,7 @@
 
   ------------------------------------------------------------------------
 
-  Name:       ARM_setMotionData
+  Name:       ARM_setJointPosition
   Id:         0x1
   Length:     8 bytes
   Cycle time: - ms
@@ -97,42 +97,70 @@
            +---+---+---+---+---+---+---+---+
          0 |------------------------------x|
            +---+---+---+---+---+---+---+---+
-         1 |<------------------------------|
+         1 |----------------------x|<------|
            +---+---+---+---+---+---+---+---+
-             +-- ARM_turntableMotionData
+                                     +-- ARM_turntableSetPosition
            +---+---+---+---+---+---+---+---+
-         2 |------------------------------x|
+         2 |--------------x|<--------------|
+           +---+---+---+---+---+---+---+---+
+                             +-- ARM_shoulderSetPosition
+           +---+---+---+---+---+---+---+---+
+         3 |------x|<----------------------|
      B     +---+---+---+---+---+---+---+---+
-     y   3 |<------------------------------|
+     y               +-- ARM_elbowSetPosition
      t     +---+---+---+---+---+---+---+---+
-     e       +-- ARM_shoulderMotionData
+     e   4 |<------------------------------|
            +---+---+---+---+---+---+---+---+
-         4 |   |   |   |   |   |   |   |   |
+             +-- ARM_leftWristSetPosition
            +---+---+---+---+---+---+---+---+
-         5 |   |   |   |   |   |   |   |   |
+         5 |------------------------------x|
            +---+---+---+---+---+---+---+---+
-         6 |   |   |   |   |   |   |   |   |
+         6 |----------------------x|<------|
            +---+---+---+---+---+---+---+---+
-         7 |   |   |   |   |   |   |   |   |
+                                     +-- ARM_rightWristSetPosition
            +---+---+---+---+---+---+---+---+
+         7 |<-------------------------x|<--|
+           +---+---+---+---+---+---+---+---+
+             |                           +-- ARM_clawSetPosition
+             +-- ARM_toolTipSetPosition
 
   Signal tree:
 
     -- {root}
-       +-- ARM_turntableMotionData
-       +-- ARM_shoulderMotionData
+       +-- ARM_turntableSetPosition
+       +-- ARM_shoulderSetPosition
+       +-- ARM_elbowSetPosition
+       +-- ARM_leftWristSetPosition
+       +-- ARM_rightWristSetPosition
+       +-- ARM_clawSetPosition
+       +-- ARM_toolTipSetPosition
 
   Signal choices:
 
-    ARM_turntableMotionData
-        65535 SNA
+    ARM_turntableSetPosition
+        1023 SNA
 
-    ARM_shoulderMotionData
-        65535 SNA
+    ARM_shoulderSetPosition
+        1023 SNA
+
+    ARM_elbowSetPosition
+        1023 SNA
+
+    ARM_leftWristSetPosition
+        1023 SNA
+
+    ARM_rightWristSetPosition
+        1023 SNA
+
+    ARM_clawSetPosition
+        127 SNA
+
+    ARM_toolTipSetPosition
+        127 SNA
 
   ------------------------------------------------------------------------
 
-  Name:       ARM_setPIDParams
+  Name:       ARM_setJointAngularVelocity
   Id:         0x2
   Length:     8 bytes
   Cycle time: - ms
@@ -143,76 +171,760 @@
 
              7   6   5   4   3   2   1   0
            +---+---+---+---+---+---+---+---+
-         0 |----------x|<-----x|<---------x|
+         0 |------------------------------x|
            +---+---+---+---+---+---+---+---+
-                         |       +-- ARM_jointID
-                         +-- ARM_PIDTuningMode
+         1 |----------------------x|<------|
            +---+---+---+---+---+---+---+---+
-         1 |-------------------------------|
+                                     +-- ARM_setTurntableAngularVelocity
            +---+---+---+---+---+---+---+---+
-         2 |----------x|<------------------|
+         2 |--------------x|<--------------|
            +---+---+---+---+---+---+---+---+
-                         +-- ARM_PIDProportionalGain
+                             +-- ARM_setShoulderAngularVelocity
+           +---+---+---+---+---+---+---+---+
+         3 |------x|<----------------------|
      B     +---+---+---+---+---+---+---+---+
-     y   3 |-------------------------------|
+     y               +-- ARM_setElbowAngularVelocity
      t     +---+---+---+---+---+---+---+---+
-     e   4 |----------x|<------------------|
+     e   4 |<------------------------------|
            +---+---+---+---+---+---+---+---+
-                         +-- ARM_PIDIntegralGain
+             +-- ARM_setleftWristAngularVelocity
            +---+---+---+---+---+---+---+---+
-         5 |-------------------------------|
+         5 |------------------------------x|
            +---+---+---+---+---+---+---+---+
-         6 |----------x|<------------------|
+         6 |----------------------x|<------|
            +---+---+---+---+---+---+---+---+
-                         +-- ARM_PIDDerivativeGain
+                                     +-- ARM_setrightWristAngularVelocity
            +---+---+---+---+---+---+---+---+
-         7 |<------------------------------|
+         7 |   |   |   |   |<--------------|
            +---+---+---+---+---+---+---+---+
-             +-- ARM_PIDDeadzone
+                             +-- ARM_setclawAngularVelocity
 
   Signal tree:
 
     -- {root}
-       +-- ARM_jointID
-       +-- ARM_PIDTuningMode
-       +-- ARM_PIDProportionalGain
-       +-- ARM_PIDIntegralGain
-       +-- ARM_PIDDerivativeGain
-       +-- ARM_PIDDeadzone
+       +-- ARM_setTurntableAngularVelocity
+       +-- ARM_setShoulderAngularVelocity
+       +-- ARM_setElbowAngularVelocity
+       +-- ARM_setleftWristAngularVelocity
+       +-- ARM_setrightWristAngularVelocity
+       +-- ARM_setclawAngularVelocity
 
   Signal choices:
 
-    ARM_jointID
-        0 TURNTABLE
-        1 SHOULDER
-        2 ELBOW
-        3 LEFT_WRIST
-        4 RIGHT_WRIST
-        5 CLAW
-        7 SNA
+    ARM_setTurntableAngularVelocity
+        1023 SNA
 
-    ARM_PIDTuningMode
+    ARM_setShoulderAngularVelocity
+        1023 SNA
+
+    ARM_setElbowAngularVelocity
+        1023 SNA
+
+    ARM_setleftWristAngularVelocity
+        1023 SNA
+
+    ARM_setrightWristAngularVelocity
+        1023 SNA
+
+    ARM_setclawAngularVelocity
+        1023 SNA
+
+  ------------------------------------------------------------------------
+
+  Name:       ARM_setJointCurrent
+  Id:         0x3
+  Length:     8 bytes
+  Cycle time: - ms
+  Senders:    JETSON
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         1 |----------------------x|<------|
+           +---+---+---+---+---+---+---+---+
+                                     +-- ARM_setTurntableCurrent
+           +---+---+---+---+---+---+---+---+
+         2 |--------------x|<--------------|
+           +---+---+---+---+---+---+---+---+
+                             +-- ARM_setShoulderCurrent
+           +---+---+---+---+---+---+---+---+
+         3 |------x|<----------------------|
+     B     +---+---+---+---+---+---+---+---+
+     y               +-- ARM_setElbowCurrent
+     t     +---+---+---+---+---+---+---+---+
+     e   4 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- ARM_setleftWristCurrent
+           +---+---+---+---+---+---+---+---+
+         5 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         6 |----------------------x|<------|
+           +---+---+---+---+---+---+---+---+
+                                     +-- ARM_setrightWristCurrent
+           +---+---+---+---+---+---+---+---+
+         7 |   |   |   |   |<--------------|
+           +---+---+---+---+---+---+---+---+
+                             +-- ARM_setclawCurrent
+
+  Signal tree:
+
+    -- {root}
+       +-- ARM_setTurntableCurrent
+       +-- ARM_setShoulderCurrent
+       +-- ARM_setElbowCurrent
+       +-- ARM_setleftWristCurrent
+       +-- ARM_setrightWristCurrent
+       +-- ARM_setclawCurrent
+
+  Signal choices:
+
+    ARM_setTurntableCurrent
+        1023 SNA
+
+    ARM_setShoulderCurrent
+        1023 SNA
+
+    ARM_setElbowCurrent
+        1023 SNA
+
+    ARM_setleftWristCurrent
+        1023 SNA
+
+    ARM_setrightWristCurrent
+        1023 SNA
+
+    ARM_setclawCurrent
+        1023 SNA
+
+  ------------------------------------------------------------------------
+
+  Name:       ARM_setTurntablePIDParams
+  Id:         0x4
+  Length:     8 bytes
+  Cycle time: - ms
+  Senders:    JETSON
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |----------------------x|<-----x|
+           +---+---+---+---+---+---+---+---+
+                                     +-- ARM_turntablePIDTuningMode
+           +---+---+---+---+---+---+---+---+
+         1 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         2 |----------------------x|<------|
+           +---+---+---+---+---+---+---+---+
+                                     +-- ARM_turntablePIDProportionalGain
+           +---+---+---+---+---+---+---+---+
+     B   3 |-------------------------------|
+     y     +---+---+---+---+---+---+---+---+
+     t   4 |----------------------x|<------|
+     e     +---+---+---+---+---+---+---+---+
+                                     +-- ARM_turntablePIDIntegralGain
+           +---+---+---+---+---+---+---+---+
+         5 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         6 |----------------------x|<------|
+           +---+---+---+---+---+---+---+---+
+                                     +-- ARM_turntablePIDDerivativeGain
+           +---+---+---+---+---+---+---+---+
+         7 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- ARM_turntablePIDDeadzone
+
+  Signal tree:
+
+    -- {root}
+       +-- ARM_turntablePIDTuningMode
+       +-- ARM_turntablePIDProportionalGain
+       +-- ARM_turntablePIDIntegralGain
+       +-- ARM_turntablePIDDerivativeGain
+       +-- ARM_turntablePIDDeadzone
+
+  Signal choices:
+
+    ARM_turntablePIDTuningMode
         0 POSITION
         1 VELOCITY
         2 CURRENT
         3 SNA
 
-    ARM_PIDProportionalGain
-        4095 SNA
-
-    ARM_PIDIntegralGain
-        4095 SNA
-
-    ARM_PIDDerivativeGain
-        4095 SNA
-
-    ARM_PIDDeadzone
+    ARM_turntablePIDProportionalGain
         65535 SNA
+
+    ARM_turntablePIDIntegralGain
+        65535 SNA
+
+    ARM_turntablePIDDerivativeGain
+        65535 SNA
+
+    ARM_turntablePIDDeadzone
+        16383 SNA
+
+  ------------------------------------------------------------------------
+
+  Name:       ARM_setShoulderPIDParams
+  Id:         0x5
+  Length:     8 bytes
+  Cycle time: - ms
+  Senders:    JETSON
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |----------------------x|<-----x|
+           +---+---+---+---+---+---+---+---+
+                                     +-- ARM_shoulderPIDTuningMode
+           +---+---+---+---+---+---+---+---+
+         1 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         2 |----------------------x|<------|
+           +---+---+---+---+---+---+---+---+
+                                     +-- ARM_shoulderPIDProportionalGain
+           +---+---+---+---+---+---+---+---+
+     B   3 |-------------------------------|
+     y     +---+---+---+---+---+---+---+---+
+     t   4 |----------------------x|<------|
+     e     +---+---+---+---+---+---+---+---+
+                                     +-- ARM_shoulderPIDIntegralGain
+           +---+---+---+---+---+---+---+---+
+         5 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         6 |----------------------x|<------|
+           +---+---+---+---+---+---+---+---+
+                                     +-- ARM_shoulderPIDDerivativeGain
+           +---+---+---+---+---+---+---+---+
+         7 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- ARM_shoulderPIDDeadzone
+
+  Signal tree:
+
+    -- {root}
+       +-- ARM_shoulderPIDTuningMode
+       +-- ARM_shoulderPIDProportionalGain
+       +-- ARM_shoulderPIDIntegralGain
+       +-- ARM_shoulderPIDDerivativeGain
+       +-- ARM_shoulderPIDDeadzone
+
+  Signal choices:
+
+    ARM_shoulderPIDTuningMode
+        0 POSITION
+        1 VELOCITY
+        2 CURRENT
+        3 SNA
+
+    ARM_shoulderPIDProportionalGain
+        65535 SNA
+
+    ARM_shoulderPIDIntegralGain
+        65535 SNA
+
+    ARM_shoulderPIDDerivativeGain
+        65535 SNA
+
+    ARM_shoulderPIDDeadzone
+        16383 SNA
+
+  ------------------------------------------------------------------------
+
+  Name:       ARM_setElbowPIDParams
+  Id:         0x6
+  Length:     8 bytes
+  Cycle time: - ms
+  Senders:    JETSON
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |----------------------x|<-----x|
+           +---+---+---+---+---+---+---+---+
+                                     +-- ARM_elbowPIDTuningMode
+           +---+---+---+---+---+---+---+---+
+         1 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         2 |----------------------x|<------|
+           +---+---+---+---+---+---+---+---+
+                                     +-- ARM_elbowPIDProportionalGain
+           +---+---+---+---+---+---+---+---+
+     B   3 |-------------------------------|
+     y     +---+---+---+---+---+---+---+---+
+     t   4 |----------------------x|<------|
+     e     +---+---+---+---+---+---+---+---+
+                                     +-- ARM_elbowPIDIntegralGain
+           +---+---+---+---+---+---+---+---+
+         5 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         6 |----------------------x|<------|
+           +---+---+---+---+---+---+---+---+
+                                     +-- ARM_elbowPIDDerivativeGain
+           +---+---+---+---+---+---+---+---+
+         7 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- ARM_elbowPIDDeadzone
+
+  Signal tree:
+
+    -- {root}
+       +-- ARM_elbowPIDTuningMode
+       +-- ARM_elbowPIDProportionalGain
+       +-- ARM_elbowPIDIntegralGain
+       +-- ARM_elbowPIDDerivativeGain
+       +-- ARM_elbowPIDDeadzone
+
+  Signal choices:
+
+    ARM_elbowPIDTuningMode
+        0 POSITION
+        1 VELOCITY
+        2 CURRENT
+        3 SNA
+
+    ARM_elbowPIDProportionalGain
+        65535 SNA
+
+    ARM_elbowPIDIntegralGain
+        65535 SNA
+
+    ARM_elbowPIDDerivativeGain
+        65535 SNA
+
+    ARM_elbowPIDDeadzone
+        16383 SNA
+
+  ------------------------------------------------------------------------
+
+  Name:       ARM_setLeftWristPIDParams
+  Id:         0x7
+  Length:     8 bytes
+  Cycle time: - ms
+  Senders:    JETSON
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |----------------------x|<-----x|
+           +---+---+---+---+---+---+---+---+
+                                     +-- ARM_leftWristPIDTuningMode
+           +---+---+---+---+---+---+---+---+
+         1 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         2 |----------------------x|<------|
+           +---+---+---+---+---+---+---+---+
+                                     +-- ARM_leftWristPIDProportionalGain
+           +---+---+---+---+---+---+---+---+
+     B   3 |-------------------------------|
+     y     +---+---+---+---+---+---+---+---+
+     t   4 |----------------------x|<------|
+     e     +---+---+---+---+---+---+---+---+
+                                     +-- ARM_leftWristPIDIntegralGain
+           +---+---+---+---+---+---+---+---+
+         5 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         6 |----------------------x|<------|
+           +---+---+---+---+---+---+---+---+
+                                     +-- ARM_leftWristPIDDerivativeGain
+           +---+---+---+---+---+---+---+---+
+         7 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- ARM_leftWristPIDDeadzone
+
+  Signal tree:
+
+    -- {root}
+       +-- ARM_leftWristPIDTuningMode
+       +-- ARM_leftWristPIDProportionalGain
+       +-- ARM_leftWristPIDIntegralGain
+       +-- ARM_leftWristPIDDerivativeGain
+       +-- ARM_leftWristPIDDeadzone
+
+  Signal choices:
+
+    ARM_leftWristPIDTuningMode
+        0 POSITION
+        1 VELOCITY
+        2 CURRENT
+        3 SNA
+
+    ARM_leftWristPIDProportionalGain
+        65535 SNA
+
+    ARM_leftWristPIDIntegralGain
+        65535 SNA
+
+    ARM_leftWristPIDDerivativeGain
+        65535 SNA
+
+    ARM_leftWristPIDDeadzone
+        16383 SNA
+
+  ------------------------------------------------------------------------
+
+  Name:       ARM_setRightWristPIDParams
+  Id:         0x8
+  Length:     8 bytes
+  Cycle time: - ms
+  Senders:    JETSON
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |----------------------x|<-----x|
+           +---+---+---+---+---+---+---+---+
+                                     +-- ARM_rightWristPIDTuningMode
+           +---+---+---+---+---+---+---+---+
+         1 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         2 |----------------------x|<------|
+           +---+---+---+---+---+---+---+---+
+                                     +-- ARM_rightWristPIDProportionalGain
+           +---+---+---+---+---+---+---+---+
+     B   3 |-------------------------------|
+     y     +---+---+---+---+---+---+---+---+
+     t   4 |----------------------x|<------|
+     e     +---+---+---+---+---+---+---+---+
+                                     +-- ARM_rightWristPIDIntegralGain
+           +---+---+---+---+---+---+---+---+
+         5 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         6 |----------------------x|<------|
+           +---+---+---+---+---+---+---+---+
+                                     +-- ARM_rightWristPIDDerivativeGain
+           +---+---+---+---+---+---+---+---+
+         7 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- ARM_rightWristPIDDeadzone
+
+  Signal tree:
+
+    -- {root}
+       +-- ARM_rightWristPIDTuningMode
+       +-- ARM_rightWristPIDProportionalGain
+       +-- ARM_rightWristPIDIntegralGain
+       +-- ARM_rightWristPIDDerivativeGain
+       +-- ARM_rightWristPIDDeadzone
+
+  Signal choices:
+
+    ARM_rightWristPIDTuningMode
+        0 POSITION
+        1 VELOCITY
+        2 CURRENT
+        3 SNA
+
+    ARM_rightWristPIDProportionalGain
+        65535 SNA
+
+    ARM_rightWristPIDIntegralGain
+        65535 SNA
+
+    ARM_rightWristPIDDerivativeGain
+        65535 SNA
+
+    ARM_rightWristPIDDeadzone
+        16383 SNA
+
+  ------------------------------------------------------------------------
+
+  Name:       ARM_setClawPIDParams
+  Id:         0x9
+  Length:     8 bytes
+  Cycle time: - ms
+  Senders:    JETSON
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |----------------------x|<-----x|
+           +---+---+---+---+---+---+---+---+
+                                     +-- ARM_clawPIDTuningMode
+           +---+---+---+---+---+---+---+---+
+         1 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         2 |----------------------x|<------|
+           +---+---+---+---+---+---+---+---+
+                                     +-- ARM_clawPIDProportionalGain
+           +---+---+---+---+---+---+---+---+
+     B   3 |-------------------------------|
+     y     +---+---+---+---+---+---+---+---+
+     t   4 |----------------------x|<------|
+     e     +---+---+---+---+---+---+---+---+
+                                     +-- ARM_clawPIDIntegralGain
+           +---+---+---+---+---+---+---+---+
+         5 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         6 |----------------------x|<------|
+           +---+---+---+---+---+---+---+---+
+                                     +-- ARM_clawPIDDerivativeGain
+           +---+---+---+---+---+---+---+---+
+         7 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- ARM_clawPIDDeadzone
+
+  Signal tree:
+
+    -- {root}
+       +-- ARM_clawPIDTuningMode
+       +-- ARM_clawPIDProportionalGain
+       +-- ARM_clawPIDIntegralGain
+       +-- ARM_clawPIDDerivativeGain
+       +-- ARM_clawPIDDeadzone
+
+  Signal choices:
+
+    ARM_clawPIDTuningMode
+        0 POSITION
+        1 VELOCITY
+        2 CURRENT
+        3 SNA
+
+    ARM_clawPIDProportionalGain
+        65535 SNA
+
+    ARM_clawPIDIntegralGain
+        65535 SNA
+
+    ARM_clawPIDDerivativeGain
+        65535 SNA
+
+    ARM_clawPIDDeadzone
+        16383 SNA
+
+  ------------------------------------------------------------------------
+
+  Name:       ARM_reportJointPosition
+  Id:         0xa
+  Length:     8 bytes
+  Cycle time: - ms
+  Senders:    ARM
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         1 |--------------x|<--------------|
+           +---+---+---+---+---+---+---+---+
+                             +-- ARM_reportTurntablePosition
+           +---+---+---+---+---+---+---+---+
+         2 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- ARM_reportShoulderPosition
+           +---+---+---+---+---+---+---+---+
+         3 |------------------------------x|
+     B     +---+---+---+---+---+---+---+---+
+     y   4 |--------------x|<--------------|
+     t     +---+---+---+---+---+---+---+---+
+     e                       +-- ARM_reportElbowPosition
+           +---+---+---+---+---+---+---+---+
+         5 |--------------x|<--------------|
+           +---+---+---+---+---+---+---+---+
+                             +-- ARM_reportLeftWristPosition
+           +---+---+---+---+---+---+---+---+
+         6 |--------------x|<--------------|
+           +---+---+---+---+---+---+---+---+
+                             +-- ARM_reportRightWristPosition
+           +---+---+---+---+---+---+---+---+
+         7 |   |   |   |   |<--------------|
+           +---+---+---+---+---+---+---+---+
+                             +-- ARM_reportClawWristPosition
+
+  Signal tree:
+
+    -- {root}
+       +-- ARM_reportTurntablePosition
+       +-- ARM_reportShoulderPosition
+       +-- ARM_reportElbowPosition
+       +-- ARM_reportLeftWristPosition
+       +-- ARM_reportRightWristPosition
+       +-- ARM_reportClawWristPosition
+
+  Signal choices:
+
+    ARM_reportTurntablePosition
+        4095 SNA
+
+    ARM_reportShoulderPosition
+        4095 SNA
+
+    ARM_reportElbowPosition
+        4095 SNA
+
+    ARM_reportLeftWristPosition
+        255 SNA
+
+    ARM_reportRightWristPosition
+        255 SNA
+
+    ARM_reportClawWristPosition
+        255 SNA
+
+  ------------------------------------------------------------------------
+
+  Name:       ARM_reportJointAngularVelocity
+  Id:         0xb
+  Length:     8 bytes
+  Cycle time: - ms
+  Senders:    ARM
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         1 |----------------------x|<------|
+           +---+---+---+---+---+---+---+---+
+                                     +-- ARM_reportTurntableAngularVelocity
+           +---+---+---+---+---+---+---+---+
+         2 |--------------x|<--------------|
+           +---+---+---+---+---+---+---+---+
+                             +-- ARM_reportShoulderAngularVelocity
+           +---+---+---+---+---+---+---+---+
+         3 |------x|<----------------------|
+     B     +---+---+---+---+---+---+---+---+
+     y               +-- ARM_reportElbowAngularVelocity
+     t     +---+---+---+---+---+---+---+---+
+     e   4 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- ARM_reportLeftWristAngularVelocity
+           +---+---+---+---+---+---+---+---+
+         5 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         6 |----------------------x|<------|
+           +---+---+---+---+---+---+---+---+
+                                     +-- ARM_reportRightWristAngularVelocity
+           +---+---+---+---+---+---+---+---+
+         7 |   |   |   |   |<--------------|
+           +---+---+---+---+---+---+---+---+
+                             +-- ARM_reportClawAngularVelocity
+
+  Signal tree:
+
+    -- {root}
+       +-- ARM_reportTurntableAngularVelocity
+       +-- ARM_reportShoulderAngularVelocity
+       +-- ARM_reportElbowAngularVelocity
+       +-- ARM_reportLeftWristAngularVelocity
+       +-- ARM_reportRightWristAngularVelocity
+       +-- ARM_reportClawAngularVelocity
+
+  Signal choices:
+
+    ARM_reportTurntableAngularVelocity
+        1023 SNA
+
+    ARM_reportShoulderAngularVelocity
+        1023 SNA
+
+    ARM_reportElbowAngularVelocity
+        1023 SNA
+
+    ARM_reportLeftWristAngularVelocity
+        1023 SNA
+
+    ARM_reportRightWristAngularVelocity
+        1023 SNA
+
+    ARM_reportClawAngularVelocity
+        1023 SNA
+
+  ------------------------------------------------------------------------
+
+  Name:       ARM_reportJointCurrent
+  Id:         0xc
+  Length:     8 bytes
+  Cycle time: - ms
+  Senders:    ARM
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         1 |----------------------x|<------|
+           +---+---+---+---+---+---+---+---+
+                                     +-- ARM_reportTurntableCurrent
+           +---+---+---+---+---+---+---+---+
+         2 |--------------x|<--------------|
+           +---+---+---+---+---+---+---+---+
+                             +-- ARM_reportShoulderCurrent
+           +---+---+---+---+---+---+---+---+
+         3 |------x|<----------------------|
+     B     +---+---+---+---+---+---+---+---+
+     y               +-- ARM_reportElbowCurrent
+     t     +---+---+---+---+---+---+---+---+
+     e   4 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- ARM_reportLeftWristCurrent
+           +---+---+---+---+---+---+---+---+
+         5 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         6 |----------------------x|<------|
+           +---+---+---+---+---+---+---+---+
+                                     +-- ARM_reportRightWristCurrent
+           +---+---+---+---+---+---+---+---+
+         7 |   |   |   |   |<--------------|
+           +---+---+---+---+---+---+---+---+
+                             +-- ARM_reportClawCurrent
+
+  Signal tree:
+
+    -- {root}
+       +-- ARM_reportTurntableCurrent
+       +-- ARM_reportShoulderCurrent
+       +-- ARM_reportElbowCurrent
+       +-- ARM_reportLeftWristCurrent
+       +-- ARM_reportRightWristCurrent
+       +-- ARM_reportClawCurrent
+
+  Signal choices:
+
+    ARM_reportTurntableCurrent
+        1023 SNA
+
+    ARM_reportShoulderCurrent
+        1023 SNA
+
+    ARM_reportElbowCurrent
+        1023 SNA
+
+    ARM_reportLeftWristCurrent
+        1023 SNA
+
+    ARM_reportRightWristCurrent
+        1023 SNA
+
+    ARM_reportClawCurrent
+        1023 SNA
 
   ------------------------------------------------------------------------
 
   Name:       ARM_reportFaults
-  Id:         0x3
+  Id:         0xd
   Length:     3 bytes
   Cycle time: - ms
   Senders:    ARM
@@ -324,7 +1036,7 @@
   ------------------------------------------------------------------------
 
   Name:       ARM_reportACK
-  Id:         0x4
+  Id:         0xe
   Length:     1 bytes
   Cycle time: - ms
   Senders:    ARM
@@ -361,7 +1073,7 @@
   ------------------------------------------------------------------------
 
   Name:       SCIENCE_setControlMode
-  Id:         0x5
+  Id:         0xf
   Length:     1 bytes
   Cycle time: - ms
   Senders:    JETSON
@@ -399,7 +1111,7 @@
   ------------------------------------------------------------------------
 
   Name:       SCIENCE_reportFaults
-  Id:         0x6
+  Id:         0x14
   Length:     1 bytes
   Cycle time: - ms
   Senders:    SCIENCE
@@ -442,7 +1154,7 @@
   ------------------------------------------------------------------------
 
   Name:       SCIENCE_reportACK
-  Id:         0x7
+  Id:         0x15
   Length:     1 bytes
   Cycle time: - ms
   Senders:    SCIENCE
@@ -472,7 +1184,7 @@
   ------------------------------------------------------------------------
 
   Name:       GIMBAL_setControlMode
-  Id:         0x8
+  Id:         0x16
   Length:     1 bytes
   Cycle time: - ms
   Senders:    JETSON
@@ -503,7 +1215,7 @@
   ------------------------------------------------------------------------
 
   Name:       GIMBAL_reportFaults
-  Id:         0x9
+  Id:         0x1a
   Length:     1 bytes
   Cycle time: - ms
   Senders:    GIMBAL
@@ -533,7 +1245,7 @@
   ------------------------------------------------------------------------
 
   Name:       GIMBAL_reportACK
-  Id:         0xa
+  Id:         0x1b
   Length:     1 bytes
   Cycle time: - ms
   Senders:    GIMBAL
@@ -563,7 +1275,7 @@
   ------------------------------------------------------------------------
 
   Name:       PDB_setLEDMatrix
-  Id:         0xb
+  Id:         0x1c
   Length:     1 bytes
   Cycle time: - ms
   Senders:    JETSON
@@ -595,7 +1307,7 @@
   ------------------------------------------------------------------------
 
   Name:       PDB_reportFaults
-  Id:         0xc
+  Id:         0x1e
   Length:     2 bytes
   Cycle time: - ms
   Senders:    PDB
@@ -672,7 +1384,7 @@
   ------------------------------------------------------------------------
 
   Name:       PDB_reportACK
-  Id:         0xd
+  Id:         0x1f
   Length:     1 bytes
   Cycle time: - ms
   Senders:    PDB
@@ -702,7 +1414,7 @@
   ------------------------------------------------------------------------
 
   Name:       COMMON_switchCANBus
-  Id:         0xe
+  Id:         0x20
   Length:     1 bytes
   Cycle time: - ms
   Senders:    JETSON
