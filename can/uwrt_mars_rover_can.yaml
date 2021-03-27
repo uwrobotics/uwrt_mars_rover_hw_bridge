@@ -1642,3 +1642,81 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
           min: 0.0
           max: 2.0
+  - COMMON_testMessage1:
+      comment: Test CAN message for debugging or placeholder purposes
+      id: 33
+      size: 1
+      senders:
+      - ARM
+      - GIMBAL
+      - JETSON
+      - PDB
+      - SCIENCE
+      receivers:
+      - ARM
+      - GIMBAL
+      - JETSON
+      - PDB
+      - SCIENCE
+      frequency: 0
+      signals:
+      - COMMON_testSignal1:
+          comment: CAN test signal
+          startbit: 0
+          length: 8
+          is_signed: false
+          unit: ''
+          values:
+            0: TEST_VALUE_0
+            1: TEST_VALUE_1
+            2: TEST_VALUE_2
+            3: SNA
+          scale: 1.0
+          offset: 0.0
+          min: 0.0
+          max: 254.0
+  - COMMON_testMessage2:
+      comment: Test CAN message for debugging or placeholder purposes
+      id: 34
+      size: 2
+      senders:
+      - ARM
+      - GIMBAL
+      - JETSON
+      - PDB
+      - SCIENCE
+      receivers:
+      - ARM
+      - GIMBAL
+      - JETSON
+      - PDB
+      - SCIENCE
+      frequency: 0
+      signals:
+      - COMMON_testSignal2:
+          comment: CAN test signal
+          startbit: 0
+          length: 8
+          is_signed: false
+          unit: ''
+          values:
+            0: TEST_VALUE_0
+            1: TEST_VALUE_1
+            2: TEST_VALUE_2
+            255: SNA
+          scale: 1.0
+          offset: 0.0
+          min: 0.0
+          max: 254.0
+      - COMMON_testSignal3:
+          comment: CAN test signal
+          startbit: 8
+          length: 8
+          is_signed: true
+          unit: ''
+          values:
+            255: SNA
+          min: -10.0
+          max: 10.0
+          scale: 0.07874015748031496
+          offset: 0.0

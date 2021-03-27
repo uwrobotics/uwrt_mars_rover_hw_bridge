@@ -30,6 +30,8 @@ static bool pdb_set_led_matrix_packer(uint8_t* raw, const CANMsgMap* msgMap, siz
 static bool pdb_report_faults_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len);
 static bool pdb_report_ack_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len);
 static bool common_switch_can_bus_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len);
+static bool common_test_message1_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len);
+static bool common_test_message2_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len);
 
 // -- Message unpacker function prototypes ---
 static bool arm_set_control_mode_unpacker(uint8_t* raw, CANMsgMap* msgMap);
@@ -57,6 +59,8 @@ static bool pdb_set_led_matrix_unpacker(uint8_t* raw, CANMsgMap* msgMap);
 static bool pdb_report_faults_unpacker(uint8_t* raw, CANMsgMap* msgMap);
 static bool pdb_report_ack_unpacker(uint8_t* raw, CANMsgMap* msgMap);
 static bool common_switch_can_bus_unpacker(uint8_t* raw, CANMsgMap* msgMap);
+static bool common_test_message1_unpacker(uint8_t* raw, CANMsgMap* msgMap);
+static bool common_test_message2_unpacker(uint8_t* raw, CANMsgMap* msgMap);
 
 bool HWBRIDGE::packCANMsg(uint8_t* raw, CANID msgID, const CANMsgMap* msgMap, size_t& len) {
   switch (msgID) {
@@ -110,6 +114,10 @@ bool HWBRIDGE::packCANMsg(uint8_t* raw, CANID msgID, const CANMsgMap* msgMap, si
       return pdb_report_ack_packer(raw, msgMap, len);
     case COMMON_SWITCH_CAN_BUS:
       return common_switch_can_bus_packer(raw, msgMap, len);
+    case COMMON_TEST_MESSAGE1:
+      return common_test_message1_packer(raw, msgMap, len);
+    case COMMON_TEST_MESSAGE2:
+      return common_test_message2_packer(raw, msgMap, len);
 
     default:
       return false;
@@ -168,6 +176,10 @@ bool HWBRIDGE::unpackCANMsg(uint8_t* raw, CANID msgID, CANMsgMap* msgMap) {
       return pdb_report_ack_unpacker(raw, msgMap);
     case COMMON_SWITCH_CAN_BUS:
       return common_switch_can_bus_unpacker(raw, msgMap);
+    case COMMON_TEST_MESSAGE1:
+      return common_test_message1_unpacker(raw, msgMap);
+    case COMMON_TEST_MESSAGE2:
+      return common_test_message2_unpacker(raw, msgMap);
 
     default:
       return false;
@@ -2813,6 +2825,143 @@ bool common_switch_can_bus_unpacker(uint8_t* raw, CANMsgMap* msgMap) {
           success &= msgMap->setSignalValue(
               msgID, signalName,
               uwrt_mars_rover_can_common_switch_can_bus_common_can_bus_id_decode(msgStruct.common_can_bus_id));
+          break;
+
+        default:
+          success = false;
+          break;
+      }
+    }
+  }
+
+  return success;
+}
+
+// COMMON_testMessage1 message packer
+bool common_test_message1_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len) {
+  bool success = true;
+  CANID msgID  = COMMON_TEST_MESSAGE1;
+  struct uwrt_mars_rover_can_common_test_message1_t msgStruct;
+
+  if (msgMap->contains(msgID)) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName         = it->first;
+      CANSignalValue_t signalValue = it->second;
+
+      switch (signalName) {
+        case COMMON_TEST_SIGNAL1:
+          msgStruct.common_test_signal1 =
+              uwrt_mars_rover_can_common_test_message1_common_test_signal1_encode(signalValue);
+          success &=
+              uwrt_mars_rover_can_common_test_message1_common_test_signal1_is_in_range(msgStruct.common_test_signal1);
+          break;
+
+        default:
+          success = false;
+          break;
+      }
+    }
+    success &= (uwrt_mars_rover_can_common_test_message1_pack(raw, &msgStruct,
+                                                              UWRT_MARS_ROVER_CAN_COMMON_TEST_MESSAGE1_LENGTH) ==
+                UWRT_MARS_ROVER_CAN_COMMON_TEST_MESSAGE1_LENGTH);
+    len = UWRT_MARS_ROVER_CAN_COMMON_TEST_MESSAGE1_LENGTH;
+  }
+  return success;
+}
+
+// COMMON_testMessage1 message unpacker
+bool common_test_message1_unpacker(uint8_t* raw, CANMsgMap* msgMap) {
+  bool success = false;
+  CANID msgID  = COMMON_TEST_MESSAGE1;
+  struct uwrt_mars_rover_can_common_test_message1_t msgStruct;
+
+  success = (uwrt_mars_rover_can_common_test_message1_unpack(&msgStruct, raw,
+                                                             UWRT_MARS_ROVER_CAN_COMMON_TEST_MESSAGE1_LENGTH) == 0);
+
+  if (success && msgMap->contains(msgID)) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName = it->first;
+
+      switch (signalName) {
+        case COMMON_TEST_SIGNAL1:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_common_test_message1_common_test_signal1_decode(msgStruct.common_test_signal1));
+          break;
+
+        default:
+          success = false;
+          break;
+      }
+    }
+  }
+
+  return success;
+}
+
+// COMMON_testMessage2 message packer
+bool common_test_message2_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len) {
+  bool success = true;
+  CANID msgID  = COMMON_TEST_MESSAGE2;
+  struct uwrt_mars_rover_can_common_test_message2_t msgStruct;
+
+  if (msgMap->contains(msgID)) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName         = it->first;
+      CANSignalValue_t signalValue = it->second;
+
+      switch (signalName) {
+        case COMMON_TEST_SIGNAL2:
+          msgStruct.common_test_signal2 =
+              uwrt_mars_rover_can_common_test_message2_common_test_signal2_encode(signalValue);
+          success &=
+              uwrt_mars_rover_can_common_test_message2_common_test_signal2_is_in_range(msgStruct.common_test_signal2);
+          break;
+
+        case COMMON_TEST_SIGNAL3:
+          msgStruct.common_test_signal3 =
+              uwrt_mars_rover_can_common_test_message2_common_test_signal3_encode(signalValue);
+          success &=
+              uwrt_mars_rover_can_common_test_message2_common_test_signal3_is_in_range(msgStruct.common_test_signal3);
+          break;
+
+        default:
+          success = false;
+          break;
+      }
+    }
+    success &= (uwrt_mars_rover_can_common_test_message2_pack(raw, &msgStruct,
+                                                              UWRT_MARS_ROVER_CAN_COMMON_TEST_MESSAGE2_LENGTH) ==
+                UWRT_MARS_ROVER_CAN_COMMON_TEST_MESSAGE2_LENGTH);
+    len = UWRT_MARS_ROVER_CAN_COMMON_TEST_MESSAGE2_LENGTH;
+  }
+  return success;
+}
+
+// COMMON_testMessage2 message unpacker
+bool common_test_message2_unpacker(uint8_t* raw, CANMsgMap* msgMap) {
+  bool success = false;
+  CANID msgID  = COMMON_TEST_MESSAGE2;
+  struct uwrt_mars_rover_can_common_test_message2_t msgStruct;
+
+  success = (uwrt_mars_rover_can_common_test_message2_unpack(&msgStruct, raw,
+                                                             UWRT_MARS_ROVER_CAN_COMMON_TEST_MESSAGE2_LENGTH) == 0);
+
+  if (success && msgMap->contains(msgID)) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName = it->first;
+
+      switch (signalName) {
+        case COMMON_TEST_SIGNAL2:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_common_test_message2_common_test_signal2_decode(msgStruct.common_test_signal2));
+          break;
+
+        case COMMON_TEST_SIGNAL3:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_common_test_message2_common_test_signal3_decode(msgStruct.common_test_signal3));
           break;
 
         default:

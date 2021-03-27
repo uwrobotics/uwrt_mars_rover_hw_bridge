@@ -15,6 +15,7 @@ constexpr uint16_t ROVER_CANID_FILTER_MASK = 0xFE0;   // Use bits [5:10] for add
 }  // namespace ROVERCONFIG
 
 enum class CANFILTER {
+  NO_FILTER                    = 0x000,
   ROVER_CANID_FIRST_ERROR_TX   = 0x100,
   ROVER_CANID_FIRST_ARM_RX     = 0x740,
   ROVER_CANID_FIRST_ARM_TX     = 0x758,

@@ -17,6 +17,11 @@ namespace HWBRIDGE {{
         uint8_t raw[8];
     }} CANMsgData_t;
 
+    enum CANBUSID {{
+        CANBUS1,
+        CANBUS2,
+    }};
+
     enum CANID {{
         {msg_enums}
     }};

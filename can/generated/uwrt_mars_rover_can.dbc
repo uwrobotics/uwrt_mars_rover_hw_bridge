@@ -191,7 +191,15 @@ BO_ 31 PDB_reportACK: 1 PDB
 BO_ 32 COMMON_switchCANBus: 1 JETSON
  SG_ COMMON_CANBusID : 0|2@1+ (1.0,0.0) [0.0|2.0] ""  ARM,GIMBAL,PDB,SCIENCE
 
+BO_ 33 COMMON_testMessage1: 1 ARM
+ SG_ COMMON_testSignal1 : 0|8@1+ (1.0,0.0) [0.0|254.0] ""  ARM,GIMBAL,JETSON,PDB,SCIENCE
 
+BO_ 34 COMMON_testMessage2: 2 ARM
+ SG_ COMMON_testSignal3 : 8|8@1- (0.07874015748031496,0.0) [-10.0|10.0] ""  ARM,GIMBAL,JETSON,PDB,SCIENCE
+ SG_ COMMON_testSignal2 : 0|8@1+ (1.0,0.0) [0.0|254.0] ""  ARM,GIMBAL,JETSON,PDB,SCIENCE
+
+BO_TX_BU_ 33 : ARM,GIMBAL,JETSON,PDB,SCIENCE;
+BO_TX_BU_ 34 : ARM,GIMBAL,JETSON,PDB,SCIENCE;
 
 
 CM_ BO_ 0 "Set control mode for arm joints";
@@ -324,6 +332,11 @@ CM_ BO_ 31 "PDB report ACKs to one-shot commands";
 CM_ SG_ 31 PDB_ACK "PDB ACKs";
 CM_ BO_ 32 "Notifies all boards to switch to the specified CAN bus in the dual-bus system";
 CM_ SG_ 32 COMMON_CANBusID "CAN bus ID";
+CM_ BO_ 33 "Test CAN message for debugging or placeholder purposes";
+CM_ SG_ 33 COMMON_testSignal1 "CAN test signal";
+CM_ BO_ 34 "Test CAN message for debugging or placeholder purposes";
+CM_ SG_ 34 COMMON_testSignal3 "CAN test signal";
+CM_ SG_ 34 COMMON_testSignal2 "CAN test signal";
 BA_DEF_ SG_  "SystemSignalLongSymbol" STRING ;
 BA_DEF_DEF_  "SystemSignalLongSymbol" "";
 BA_ "SystemSignalLongSymbol" SG_ 8 ARM_rightWristPIDProportionalGai "ARM_rightWristPIDProportionalGain";
@@ -436,6 +449,9 @@ VAL_ 30 PDB_armPowerStatus 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
 VAL_ 30 PDB_jetsonStatus 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
 VAL_ 31 PDB_ACK 0 "PDB_SET_LED_MATRIX_ACK" 1 "CAN_BUS_SWITCH_ACK" 255 "SNA" ;
 VAL_ 32 COMMON_CANBusID 0 "CAN1" 1 "CAN2" 3 "SNA" ;
+VAL_ 33 COMMON_testSignal1 0 "TEST_VALUE_0" 1 "TEST_VALUE_1" 2 "TEST_VALUE_2" 3 "SNA" ;
+VAL_ 34 COMMON_testSignal3 255 "SNA" ;
+VAL_ 34 COMMON_testSignal2 0 "TEST_VALUE_0" 1 "TEST_VALUE_1" 2 "TEST_VALUE_2" 255 "SNA" ;
 
 
 

@@ -1442,3 +1442,72 @@
         3 SNA
 
   ------------------------------------------------------------------------
+
+  Name:       COMMON_testMessage1
+  Id:         0x21
+  Length:     1 bytes
+  Cycle time: - ms
+  Senders:    ARM, GIMBAL, JETSON, PDB and SCIENCE
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+     B   0 |<-----------------------------x|
+     y     +---+---+---+---+---+---+---+---+
+     t       +-- COMMON_testSignal1
+     e
+
+  Signal tree:
+
+    -- {root}
+       +-- COMMON_testSignal1
+
+  Signal choices:
+
+    COMMON_testSignal1
+        0 TEST_VALUE_0
+        1 TEST_VALUE_1
+        2 TEST_VALUE_2
+        3 SNA
+
+  ------------------------------------------------------------------------
+
+  Name:       COMMON_testMessage2
+  Id:         0x22
+  Length:     2 bytes
+  Cycle time: - ms
+  Senders:    ARM, GIMBAL, JETSON, PDB and SCIENCE
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |<-----------------------------x|
+     B     +---+---+---+---+---+---+---+---+
+     y       +-- COMMON_testSignal2
+     t     +---+---+---+---+---+---+---+---+
+     e   1 |<-----------------------------x|
+           +---+---+---+---+---+---+---+---+
+             +-- COMMON_testSignal3
+
+  Signal tree:
+
+    -- {root}
+       +-- COMMON_testSignal2
+       +-- COMMON_testSignal3
+
+  Signal choices:
+
+    COMMON_testSignal2
+        0 TEST_VALUE_0
+        1 TEST_VALUE_1
+        2 TEST_VALUE_2
+        255 SNA
+
+    COMMON_testSignal3
+        255 SNA
+
+  ------------------------------------------------------------------------

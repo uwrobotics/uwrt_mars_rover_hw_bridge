@@ -12,6 +12,11 @@ typedef struct {
   uint8_t raw[8];
 } CANMsgData_t;
 
+enum CANBUSID {
+  CANBUS1,
+  CANBUS2,
+};
+
 enum CANID {
   ARM_SET_CONTROL_MODE              = 0x0,
   ARM_SET_JOINT_POSITION            = 0x1,
@@ -38,6 +43,8 @@ enum CANID {
   PDB_REPORT_FAULTS                 = 0x1E,
   PDB_REPORT_ACK                    = 0x1F,
   COMMON_SWITCH_CAN_BUS             = 0x20,
+  COMMON_TEST_MESSAGE1              = 0x21,
+  COMMON_TEST_MESSAGE2              = 0x22,
 
 };
 
@@ -129,6 +136,9 @@ enum CANSIGNAL {
   ARM_TURNTABLE_PID_TUNING_MODE,
   ARM_TURNTABLE_SET_POSITION,
   COMMON_CAN_BUS_ID,
+  COMMON_TEST_SIGNAL1,
+  COMMON_TEST_SIGNAL2,
+  COMMON_TEST_SIGNAL3,
   GIMBAL_ACK,
   GIMBAL_PAN_CONTROL_MODE,
   GIMBAL_PAN_ENCODER_STATE,
