@@ -54,7 +54,7 @@ MSG_PACKER_UNPACKER_FUNCTION_TEMPLATE = '''
 // {original_msg_name} message packer
 bool {msg_name_lower}_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t &len) {{
   bool success = true;
-  CANID msgID  = {msg_name_upper};
+  CANID msgID  = CANID::{msg_name_upper};
   struct {rover_can_name_lower}_{msg_name_lower}_t msgStruct;
 
   if (msgMap->contains(msgID)) {{
@@ -78,7 +78,7 @@ bool {msg_name_lower}_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t &len)
 // {original_msg_name} message unpacker
 bool {msg_name_lower}_unpacker(uint8_t* raw, CANMsgMap* msgMap) {{
   bool success = false;
-  CANID msgID  = {msg_name_upper};
+  CANID msgID  = CANID::{msg_name_upper};
   struct {rover_can_name_lower}_{msg_name_lower}_t msgStruct;
 
   success = ({rover_can_name_lower}_{msg_name_lower}_unpack(&msgStruct, raw, {rover_can_name_upper}_{msg_name_upper}_LENGTH) == 0);
@@ -102,14 +102,14 @@ bool {msg_name_lower}_unpacker(uint8_t* raw, CANMsgMap* msgMap) {{
 '''
 
 PACKER_SIGNAL_SWITCH_CASE_TEMPLATE = '''
-case {signal_name_upper}:
+case CANSIGNAL::{signal_name_upper}:
   msgStruct.{signal_name_lower} = {rover_can_name_lower}_{msg_name_lower}_{signal_name_lower}_encode(signalValue);
   success &= {rover_can_name_lower}_{msg_name_lower}_{signal_name_lower}_is_in_range(msgStruct.{signal_name_lower});
   break;
 '''
 
 UNPACKER_SIGNAL_SWITCH_CASE_TEMPLATE = '''
-case {signal_name_upper}:
+case CANSIGNAL::{signal_name_upper}:
   success &= msgMap->setSignalValue(
       msgID, signalName,
       {rover_can_name_lower}_{msg_name_lower}_{signal_name_lower}_decode(msgStruct.{signal_name_lower}));
@@ -126,11 +126,11 @@ def msg_unpacker_function_prototypes(msg_names):
 
 
 def packer_msg_switch_cases(msg_names):
-    return ''.join(['case {}:\n\treturn {}_packer(raw, msgMap, len);\n'.format(msg_name.upper(), msg_name.lower()) for msg_name in msg_names])
+    return ''.join(['case CANID::{}:\n\treturn {}_packer(raw, msgMap, len);\n'.format(msg_name.upper(), msg_name.lower()) for msg_name in msg_names])
 
 
 def unpacker_msg_switch_cases(msg_names):
-    return ''.join(['case {}:\n\treturn {}_unpacker(raw, msgMap);\n'.format(msg_name.upper(), msg_name.lower()) for msg_name in msg_names])
+    return ''.join(['case CANID::{}:\n\treturn {}_unpacker(raw, msgMap);\n'.format(msg_name.upper(), msg_name.lower()) for msg_name in msg_names])
 
 
 def packer_signal_switch_cases(signal_names, rover_can_name, msg_name):

@@ -23,11 +23,11 @@ bool CANMsgMap::setSignalValue(CANID msgID, CANSIGNAL signalName, CANSignalValue
 }
 
 bool CANMsgMap::contains(CANID msgID) const {
-  return (m_map.find(msgID) != m_map.end());
+  return m_map.contains(msgID);
 }
 
 bool CANMsgMap::contains(CANID msgID, CANSIGNAL signalName) const {
-  return (contains(msgID) && (m_map.at(msgID).find(signalName) != m_map.at(msgID).end()));
+  return contains(msgID) && m_map.at(msgID).contains(signalName);
 }
 
 CANMsgMap::CANSignalMapType& CANMsgMap::at(CANID msgID) {
