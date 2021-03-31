@@ -104,7 +104,6 @@ enum class ActuatorID { TURNTABLE, SHOULDER, ELBOW, WRISTLEFT, WRISTRIGHT, CLAW 
 namespace CONTROL {
 enum class Mode { OPEN_LOOP, VELOCITY, POSITION, CURRENT };
 
-
 namespace SAFETY {
 using SafetyCheckPayload = struct __attribute__((__packed__)) SafetyCheckPayload {
   bool check;
@@ -121,7 +120,6 @@ using TuningApiPayload = struct __attribute__((__packed__)) TuningApiPayload {
 }  // namespace CONTROL
 
 namespace LEDMATRIX {
-enum class color { RED, GREEN, BLUE };
 enum class LEDMatrixState { SOLID_RED, SOLID_BLUE, SOLID_GREEN, FLASHING_RED, FLASHING_BLUE, FLASHING_GREEN, OFF };
 }  // namespace LEDMATRIX
 }  // namespace HWBRIDGE
