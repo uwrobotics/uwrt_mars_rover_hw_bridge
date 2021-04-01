@@ -36,7 +36,7 @@ BS_:
 BU_: ARM GIMBAL JETSON PDB SCIENCE
 
 
-BO_ 0 ARM_setControlMode: 3 JETSON
+BO_ 1569 ARM_setControlMode: 3 JETSON
  SG_ ARM_clawControlMode : 15|3@1+ (1.0,0.0) [0.0|6.0] ""  ARM
  SG_ ARM_rightWristControlMode : 12|3@1+ (1.0,0.0) [0.0|6.0] ""  ARM
  SG_ ARM_leftWristControlMode : 9|3@1+ (1.0,0.0) [0.0|6.0] ""  ARM
@@ -44,7 +44,7 @@ BO_ 0 ARM_setControlMode: 3 JETSON
  SG_ ARM_shoulderControlMode : 3|3@1+ (1.0,0.0) [0.0|6.0] ""  ARM
  SG_ ARM_turntableControlMode : 0|3@1+ (1.0,0.0) [0.0|6.0] ""  ARM
 
-BO_ 1 ARM_setJointPosition: 8 JETSON
+BO_ 1570 ARM_setJointPosition: 8 JETSON
  SG_ ARM_toolTipSetPosition : 57|7@1+ (0.02493325396825397,0) [0|3.14159] "radians"  ARM
  SG_ ARM_clawSetPosition : 50|7@1- (0.02493333333333333,0.0) [-1.5708|1.5708] "radians"  ARM
  SG_ ARM_rightWristSetPosition : 40|10@1- (0.003073972602739726,0.0) [-1.5708|1.5708] "radians"  ARM
@@ -53,7 +53,7 @@ BO_ 1 ARM_setJointPosition: 8 JETSON
  SG_ ARM_shoulderSetPosition : 10|10@1+ (0.0030739628180039137,0.0) [0.0|3.14159] "radians"  ARM
  SG_ ARM_turntableSetPosition : 0|10@1- (0.003073972602739726,0.0) [-1.5708|1.5708] "radians"  ARM
 
-BO_ 2 ARM_setJointAngularVelocity: 8 JETSON
+BO_ 1571 ARM_setJointAngularVelocity: 8 JETSON
  SG_ ARM_setclawAngularVelocity : 50|10@1- (0.05870841487279843,0.0) [-30.0|30.0] "radians per second"  ARM
  SG_ ARM_setrightWristAngularVelocity : 40|10@1- (0.013894324853228963,0.0) [-7.1|7.1] "radians per second"  ARM
  SG_ ARM_setleftWristAngularVelocity : 30|10@1- (0.013894324853228963,0.0) [-7.1|7.1] "radians per second"  ARM
@@ -61,7 +61,7 @@ BO_ 2 ARM_setJointAngularVelocity: 8 JETSON
  SG_ ARM_setShoulderAngularVelocity : 10|10@1- (9.784735812133073e-05,0.0) [-0.05|0.05] "radians per second"  ARM
  SG_ ARM_setTurntableAngularVelocity : 0|10@1- (0.0011741682974559687,0.0) [-0.6|0.6] "radians per second"  ARM
 
-BO_ 3 ARM_setJointCurrent: 8 JETSON
+BO_ 1572 ARM_setJointCurrent: 8 JETSON
  SG_ ARM_setclawCurrent : 50|10@1- (0.005870841487279843,0.0) [-3.0|3.0] "amperes"  ARM
  SG_ ARM_setrightWristCurrent : 40|10@1- (0.010763209393346379,0.0) [-5.5|5.5] "amperes"  ARM
  SG_ ARM_setleftWristCurrent : 30|10@1- (0.010763209393346379,0.0) [-5.5|5.5] "amperes"  ARM
@@ -69,49 +69,49 @@ BO_ 3 ARM_setJointCurrent: 8 JETSON
  SG_ ARM_setShoulderCurrent : 10|10@1- (0.009784735812133072,0.0) [-5.0|5.0] "amperes"  ARM
  SG_ ARM_setTurntableCurrent : 0|10@1- (0.10371819960861056,0.0) [-53.0|53.0] "amperes"  ARM
 
-BO_ 4 ARM_setTurntablePIDParams: 8 JETSON
+BO_ 1573 ARM_setTurntablePIDParams: 8 JETSON
  SG_ ARM_turntablePIDDeadzone : 50|14@1+ (0.0061042607740202665,0.0) [0.0|100.0] ""  ARM
  SG_ ARM_turntablePIDDerivativeGain : 34|16@1+ (0.15259254737998595,0.0) [0.0|10000.0] ""  ARM
  SG_ ARM_turntablePIDIntegralGain : 18|16@1+ (0.15259254737998595,0.0) [0.0|10000.0] ""  ARM
  SG_ ARM_turntablePIDProportionalGain : 2|16@1+ (0.15259254737998595,0.0) [0.0|10000.0] ""  ARM
  SG_ ARM_turntablePIDTuningMode : 0|2@1+ (1.0,0.0) [0.0|0.0] ""  ARM
 
-BO_ 5 ARM_setShoulderPIDParams: 8 JETSON
+BO_ 1574 ARM_setShoulderPIDParams: 8 JETSON
  SG_ ARM_shoulderPIDDeadzone : 50|14@1+ (0.0061042607740202665,0.0) [0.0|100.0] ""  ARM
  SG_ ARM_shoulderPIDDerivativeGain : 34|16@1+ (0.15259254737998595,0.0) [0.0|10000.0] ""  ARM
  SG_ ARM_shoulderPIDIntegralGain : 18|16@1+ (0.15259254737998595,0.0) [0.0|10000.0] ""  ARM
  SG_ ARM_shoulderPIDProportionalGain : 2|16@1+ (0.15259254737998595,0.0) [0.0|10000.0] ""  ARM
  SG_ ARM_shoulderPIDTuningMode : 0|2@1+ (1.0,0.0) [0.0|0.0] ""  ARM
 
-BO_ 6 ARM_setElbowPIDParams: 8 JETSON
+BO_ 1575 ARM_setElbowPIDParams: 8 JETSON
  SG_ ARM_elbowPIDDeadzone : 50|14@1+ (0.0061042607740202665,0.0) [0.0|100.0] ""  ARM
  SG_ ARM_elbowPIDDerivativeGain : 34|16@1+ (0.15259254737998595,0.0) [0.0|10000.0] ""  ARM
  SG_ ARM_elbowPIDIntegralGain : 18|16@1+ (0.15259254737998595,0.0) [0.0|10000.0] ""  ARM
  SG_ ARM_elbowPIDProportionalGain : 2|16@1+ (0.15259254737998595,0.0) [0.0|10000.0] ""  ARM
  SG_ ARM_elbowPIDTuningMode : 0|2@1+ (1.0,0.0) [0.0|0.0] ""  ARM
 
-BO_ 7 ARM_setLeftWristPIDParams: 8 JETSON
+BO_ 1576 ARM_setLeftWristPIDParams: 8 JETSON
  SG_ ARM_leftWristPIDDeadzone : 50|14@1+ (0.0061042607740202665,0.0) [0.0|100.0] ""  ARM
  SG_ ARM_leftWristPIDDerivativeGain : 34|16@1+ (0.15259254737998595,0.0) [0.0|10000.0] ""  ARM
  SG_ ARM_leftWristPIDIntegralGain : 18|16@1+ (0.15259254737998595,0.0) [0.0|10000.0] ""  ARM
  SG_ ARM_leftWristPIDProportionalGain : 2|16@1+ (0.15259254737998595,0.0) [0.0|10000.0] ""  ARM
  SG_ ARM_leftWristPIDTuningMode : 0|2@1+ (1.0,0.0) [0.0|0.0] ""  ARM
 
-BO_ 8 ARM_setRightWristPIDParams: 8 JETSON
+BO_ 1577 ARM_setRightWristPIDParams: 8 JETSON
  SG_ ARM_rightWristPIDDeadzone : 50|14@1+ (0.0061042607740202665,0.0) [0.0|100.0] ""  ARM
  SG_ ARM_rightWristPIDDerivativeGain : 34|16@1+ (0.15259254737998595,0.0) [0.0|10000.0] ""  ARM
  SG_ ARM_rightWristPIDIntegralGain : 18|16@1+ (0.15259254737998595,0.0) [0.0|10000.0] ""  ARM
  SG_ ARM_rightWristPIDProportionalGai : 2|16@1+ (0.15259254737998595,0.0) [0.0|10000.0] ""  ARM
  SG_ ARM_rightWristPIDTuningMode : 0|2@1+ (1.0,0.0) [0.0|0.0] ""  ARM
 
-BO_ 9 ARM_setClawPIDParams: 8 JETSON
+BO_ 1578 ARM_setClawPIDParams: 8 JETSON
  SG_ ARM_clawPIDDeadzone : 50|14@1+ (0.0061042607740202665,0.0) [0.0|100.0] ""  ARM
  SG_ ARM_clawPIDDerivativeGain : 34|16@1+ (0.15259254737998595,0.0) [0.0|10000.0] ""  ARM
  SG_ ARM_clawPIDIntegralGain : 18|16@1+ (0.15259254737998595,0.0) [0.0|10000.0] ""  ARM
  SG_ ARM_clawPIDProportionalGain : 2|16@1+ (0.15259254737998595,0.0) [0.0|10000.0] ""  ARM
  SG_ ARM_clawPIDTuningMode : 0|2@1+ (1.0,0.0) [0.0|0.0] ""  ARM
 
-BO_ 10 ARM_reportJointPosition: 8 ARM
+BO_ 1600 ARM_reportJointPosition: 8 ARM
  SG_ ARM_reportClawWristPosition : 52|8@1- (0.012368503937007874,0.0) [-1.5708|1.5708] "radians"  JETSON
  SG_ ARM_reportRightWristPosition : 44|8@1- (0.012368503937007874,0.0) [-1.5708|1.5708] "radians"  JETSON
  SG_ ARM_reportLeftWristPosition : 36|8@1- (0.012368503937007874,0.0) [-1.5708|1.5708] "radians"  JETSON
@@ -119,7 +119,7 @@ BO_ 10 ARM_reportJointPosition: 8 ARM
  SG_ ARM_reportShoulderPosition : 12|12@1+ (0.0007673644357596483,0.0) [0.0|3.14159] "radians"  JETSON
  SG_ ARM_reportTurntablePosition : 0|12@1- (0.0007673668783585735,0.0) [-1.5708|1.5708] "radians"  JETSON
 
-BO_ 11 ARM_reportJointAngularVelocity: 8 ARM
+BO_ 1601 ARM_reportJointAngularVelocity: 8 ARM
  SG_ ARM_reportClawAngularVelocity : 50|10@1- (0.05870841487279843,0.0) [-30.0|30.0] "radians"  JETSON
  SG_ ARM_reportRightWristAngularVeloc : 40|10@1- (0.013894324853228963,0.0) [-7.1|7.1] "radians"  JETSON
  SG_ ARM_reportLeftWristAngularVeloci : 30|10@1- (0.013894324853228963,0.0) [-7.1|7.1] "radians"  JETSON
@@ -127,7 +127,7 @@ BO_ 11 ARM_reportJointAngularVelocity: 8 ARM
  SG_ ARM_reportShoulderAngularVelocit : 10|10@1- (9.784735812133073e-05,0.0) [-0.05|0.05] "radians"  JETSON
  SG_ ARM_reportTurntableAngularVeloci : 0|10@1- (0.0011741682974559687,0.0) [-0.6|0.6] "radians"  JETSON
 
-BO_ 12 ARM_reportJointCurrent: 8 ARM
+BO_ 1602 ARM_reportJointCurrent: 8 ARM
  SG_ ARM_reportClawCurrent : 50|10@1- (0.005870841487279843,0.0) [-3.0|3.0] "radians"  JETSON
  SG_ ARM_reportRightWristCurrent : 40|10@1- (0.010763209393346379,0.0) [-5.5|5.5] "radians"  JETSON
  SG_ ARM_reportLeftWristCurrent : 30|10@1- (0.010763209393346379,0.0) [-5.5|5.5] "radians"  JETSON
@@ -135,7 +135,7 @@ BO_ 12 ARM_reportJointCurrent: 8 ARM
  SG_ ARM_reportShoulderCurrent : 10|10@1- (0.009784735812133072,0.0) [-5.0|5.0] "radians"  JETSON
  SG_ ARM_reportTurntableCurrent : 0|10@1- (0.10371819960861056,0.0) [-53.0|53.0] "radians"  JETSON
 
-BO_ 13 ARM_reportFaults: 3 ARM
+BO_ 1603 ARM_reportFaults: 3 ARM
  SG_ ARM_clawCurrentSensorState : 22|2@1+ (1.0,0.0) [0.0|2.0] ""  JETSON
  SG_ ARM_clawEncoderState : 20|2@1+ (1.0,0.0) [0.0|2.0] ""  JETSON
  SG_ ARM_rightWristCurrentSensorState : 18|2@1+ (1.0,0.0) [0.0|2.0] ""  JETSON
@@ -149,34 +149,72 @@ BO_ 13 ARM_reportFaults: 3 ARM
  SG_ ARM_turntableCurrentSensorState : 2|2@1+ (1.0,0.0) [0.0|2.0] ""  JETSON
  SG_ ARM_turntableEncoderState : 0|2@1+ (1.0,0.0) [0.0|2.0] ""  JETSON
 
-BO_ 14 ARM_reportACK: 1 ARM
+BO_ 1604 ARM_reportACK: 1 ARM
  SG_ ARM_ACK : 0|8@1+ (1.0,0.0) [0.0|254.0] ""  JETSON
 
-BO_ 15 SCIENCE_setControlMode: 1 JETSON
+BO_ 1632 SCIENCE_setControlMode: 1 JETSON
  SG_ SCIENCE_elevatorControlMode : 2|2@1+ (1.0,0.0) [0.0|2.0] ""  SCIENCE
  SG_ SCIENCE_genevaControlMode : 0|2@1+ (1.0,0.0) [0.0|2.0] ""  SCIENCE
 
-BO_ 20 SCIENCE_reportFaults: 1 SCIENCE
+BO_ 1633 SCIENCE_setJointPosition: 8 JETSON
+ SG_ SCIENCE_setShovelPosition : 48|16@1+ (4.793832209234901e-05,0.0) [0.0|3.14159] "radians"  SCIENCE
+ SG_ SCIENCE_setCoverPosition : 32|16@1+ (4.793832209234901e-05,0.0) [0.0|3.14159] "radians"  SCIENCE
+ SG_ SCIENCE_setElevatorPosition : 16|16@1- (0.0003051850947599719,0.0) [-10.0|10.0] "radians"  SCIENCE
+ SG_ SCIENCE_setGenevaPosition : 0|16@1- (0.0003051850947599719,0.0) [-10.0|10.0] "radians"  SCIENCE
+
+BO_ 1634 SCIENCE_setJointAngularVelocity: 4 JETSON
+ SG_ SCIENCE_setElevatorAngularVeloci : 16|16@1- (0.0003051850947599719,0.0) [-10.0|10.0] "radians per second"  SCIENCE
+ SG_ SCIENCE_setGenevaAngularVelocity : 0|16@1- (0.0003051850947599719,0.0) [-10.0|10.0] "radians per second"  SCIENCE
+
+BO_ 1664 SCIENCE_reportJointData: 8 SCIENCE
+ SG_ SCIENCE_reportElevatorAngularVel : 48|16@1- (0.0003051850947599719,0.0) [-10.0|10.0] "radians per second"  JETSON
+ SG_ SCIENCE_reportGenevaAngularVeloc : 32|16@1- (0.0003051850947599719,0.0) [-10.0|10.0] "radians per second"  JETSON
+ SG_ SCIENCE_reportElevatorPosition : 16|16@1- (0.0003051850947599719,0.0) [-10.0|10.0] "radians"  JETSON
+ SG_ SCIENCE_reportGenevaPosition : 0|16@1- (0.0003051850947599719,0.0) [-10.0|10.0] "radians"  JETSON
+
+BO_ 1665 SCIENCE_reportSensorData: 32 SCIENCE
+ SG_ SCIENCE_temperatureData : 16|16@1- (0.0022888882106997894,25.0) [-50.0|100.0] "Celsius"  JETSON
+ SG_ SCIENCE_moistureData : 0|16@1+ (0.0015259254737998596,0.0) [0.0|100.0] ""  JETSON
+
+BO_ 1666 SCIENCE_reportFaults: 1 SCIENCE
  SG_ SCIENCE_moistureSensorState : 4|2@1+ (1.0,0.0) [0.0|2.0] ""  JETSON
  SG_ SCIENCE_elevatorEncoderState : 2|2@1+ (1.0,0.0) [0.0|2.0] ""  JETSON
  SG_ SCIENCE_genevaEncoderState : 0|2@1+ (1.0,0.0) [0.0|2.0] ""  JETSON
 
-BO_ 21 SCIENCE_reportACK: 1 SCIENCE
+BO_ 1667 SCIENCE_reportACK: 1 SCIENCE
  SG_ SCIENCE_ACK : 0|8@1+ (1.0,0.0) [0.0|254.0] ""  JETSON
 
-BO_ 22 GIMBAL_setControlMode: 1 JETSON
+BO_ 1696 GIMBAL_setControlMode: 1 JETSON
  SG_ GIMBAL_panControlMode : 0|2@1+ (1.0,0.0) [0.0|2.0] ""  GIMBAL
 
-BO_ 26 GIMBAL_reportFaults: 1 GIMBAL
+BO_ 1697 GIMBAL_setJointPosition: 6 JETSON
+ SG_ GIMBAL_setRollPosition : 32|16@1+ (4.793832209234901e-05,0.0) [0.0|3.14159] "radians"  GIMBAL
+ SG_ GIMBAL_setPitchPosition : 16|16@1+ (4.793832209234901e-05,0.0) [0.0|3.14159] "radians"  GIMBAL
+ SG_ GIMBAL_setPanPosition : 0|16@1- (0.0003662221137119663,0.0) [-12.0|12.0] "radians"  GIMBAL
+
+BO_ 1698 GIMBAL_setJointAngularVelocity: 2 JETSON
+ SG_ GIMBAL_setPanAngularVelocity : 0|16@1- (0.00018311105685598315,0.0) [-6.0|6.0] "radians per second"  GIMBAL
+
+BO_ 1728 GIMBAL_reportJointData: 4 GIMBAL
+ SG_ GIMBAL_reportPanAngularVelocity : 16|16@1- (0.00018311105685598315,0.0) [-6.0|6.0] "radians per second"  JETSON
+ SG_ GIMBAL_reportPanPosition : 0|16@1- (0.0003662221137119663,0.0) [-12.0|12.0] "radians"  JETSON
+
+BO_ 1729 GIMBAL_reportFaults: 1 GIMBAL
  SG_ GIMBAL_panEncoderState : 0|2@1+ (1.0,0.0) [0.0|2.0] ""  JETSON
 
-BO_ 27 GIMBAL_reportACK: 1 GIMBAL
+BO_ 1730 GIMBAL_reportACK: 1 GIMBAL
  SG_ GIMBAL_ACK : 0|8@1+ (1.0,0.0) [0.0|254.0] ""  JETSON
 
-BO_ 28 PDB_setLEDMatrix: 1 JETSON
+BO_ 1760 PDB_setLEDMatrix: 1 JETSON
  SG_ PDB_LEDMatrixState : 0|3@1+ (1.0,0.0) [0.0|6.0] ""  PDB
 
-BO_ 30 PDB_reportFaults: 2 PDB
+BO_ 1792 PDB_reportSensorData: 8 PDB
+ SG_ PDB_ultrasonicSensor4Data : 48|16@1+ (0.007629627368999298,0.0) [0.0|500.0] "meters"  JETSON
+ SG_ PDB_ultrasonicSensor3Data : 32|16@1+ (0.007629627368999298,0.0) [0.0|500.0] "meters"  JETSON
+ SG_ PDB_ultrasonicSensor2Data : 16|16@1+ (0.007629627368999298,0.0) [0.0|500.0] "meters"  JETSON
+ SG_ PDB_ultrasonicSensor1Data : 0|16@1+ (0.007629627368999298,0.0) [0.0|500.0] "meters"  JETSON
+
+BO_ 1793 PDB_reportFaults: 2 PDB
  SG_ PDB_5VRailStatus : 12|2@1+ (1.0,0.0) [0.0|2.0] ""  JETSON
  SG_ PDB_17VRailStatus : 10|2@1+ (1.0,0.0) [0.0|2.0] ""  JETSON
  SG_ PDB_VBATRailStatus : 8|2@1+ (1.0,0.0) [0.0|2.0] ""  JETSON
@@ -185,273 +223,328 @@ BO_ 30 PDB_reportFaults: 2 PDB
  SG_ PDB_armPowerStatus : 2|2@1+ (1.0,0.0) [0.0|2.0] ""  JETSON
  SG_ PDB_jetsonStatus : 0|2@1+ (1.0,0.0) [0.0|2.0] ""  JETSON
 
-BO_ 31 PDB_reportACK: 1 PDB
+BO_ 1794 PDB_reportACK: 1 PDB
  SG_ PDB_ACK : 0|8@1+ (1.0,0.0) [0.0|254.0] ""  JETSON
 
-BO_ 32 COMMON_switchCANBus: 1 JETSON
+BO_ 1824 COMMON_switchCANBus: 1 JETSON
  SG_ COMMON_CANBusID : 0|2@1+ (1.0,0.0) [0.0|2.0] ""  ARM,GIMBAL,PDB,SCIENCE
 
-BO_ 33 COMMON_testMessage1: 1 ARM
+BO_ 1825 COMMON_testMessage1: 1 ARM
  SG_ COMMON_testSignal1 : 0|8@1+ (1.0,0.0) [0.0|254.0] ""  ARM,GIMBAL,JETSON,PDB,SCIENCE
 
-BO_ 34 COMMON_testMessage2: 2 ARM
+BO_ 1826 COMMON_testMessage2: 2 ARM
  SG_ COMMON_testSignal3 : 8|8@1- (0.07874015748031496,0.0) [-10.0|10.0] ""  ARM,GIMBAL,JETSON,PDB,SCIENCE
  SG_ COMMON_testSignal2 : 0|8@1+ (1.0,0.0) [0.0|254.0] ""  ARM,GIMBAL,JETSON,PDB,SCIENCE
 
-BO_TX_BU_ 33 : ARM,GIMBAL,JETSON,PDB,SCIENCE;
-BO_TX_BU_ 34 : ARM,GIMBAL,JETSON,PDB,SCIENCE;
+BO_TX_BU_ 1825 : ARM,GIMBAL,JETSON,PDB,SCIENCE;
+BO_TX_BU_ 1826 : ARM,GIMBAL,JETSON,PDB,SCIENCE;
 
 
-CM_ BO_ 0 "Set control mode for arm joints";
-CM_ SG_ 0 ARM_clawControlMode "Arm claw control mode";
-CM_ SG_ 0 ARM_rightWristControlMode "Arm right wrist control mode";
-CM_ SG_ 0 ARM_leftWristControlMode "Arm left wrist control mode";
-CM_ SG_ 0 ARM_elbowControlMode "Arm elbow control mode";
-CM_ SG_ 0 ARM_shoulderControlMode "Arm shoulder control mode";
-CM_ SG_ 0 ARM_turntableControlMode "Arm turntable control mode";
-CM_ BO_ 1 "Set position data for arm joints";
-CM_ SG_ 1 ARM_toolTipSetPosition "Arm set tool tip position data";
-CM_ SG_ 1 ARM_clawSetPosition "Arm set claw position data";
-CM_ SG_ 1 ARM_rightWristSetPosition "Arm set right wrist position data";
-CM_ SG_ 1 ARM_leftWristSetPosition "Arm set left wrist position data";
-CM_ SG_ 1 ARM_elbowSetPosition "Arm set elbow position data";
-CM_ SG_ 1 ARM_shoulderSetPosition "Arm set shoulder position data";
-CM_ SG_ 1 ARM_turntableSetPosition "Arm set turntable position data";
-CM_ BO_ 2 "Set velocity data for arm joints";
-CM_ SG_ 2 ARM_setclawAngularVelocity "Arm set claw angular velocity";
-CM_ SG_ 2 ARM_setrightWristAngularVelocity "Arm set right wrist angular velocity";
-CM_ SG_ 2 ARM_setleftWristAngularVelocity "Arm set left wrist angular velocity";
-CM_ SG_ 2 ARM_setElbowAngularVelocity "Arm set elbow angular velocity";
-CM_ SG_ 2 ARM_setShoulderAngularVelocity "Arm set shoulder angular velocity";
-CM_ SG_ 2 ARM_setTurntableAngularVelocity "Arm set turntable angular velocity";
-CM_ BO_ 3 "Set current data for arm joints";
-CM_ SG_ 3 ARM_setclawCurrent "Arm set claw current";
-CM_ SG_ 3 ARM_setrightWristCurrent "Arm set right wrist current";
-CM_ SG_ 3 ARM_setleftWristCurrent "Arm set left wrist current";
-CM_ SG_ 3 ARM_setElbowCurrent "Arm set elbow current";
-CM_ SG_ 3 ARM_setShoulderCurrent "Arm set shoulder current";
-CM_ SG_ 3 ARM_setTurntableCurrent "Arm set turntable current";
-CM_ BO_ 4 "Set arm turntable PID parameters";
-CM_ SG_ 4 ARM_turntablePIDDeadzone "Arm turntable PID deadzone";
-CM_ SG_ 4 ARM_turntablePIDDerivativeGain "Arm turntable PID derivative gain";
-CM_ SG_ 4 ARM_turntablePIDIntegralGain "Arm turntable PID integral gain";
-CM_ SG_ 4 ARM_turntablePIDProportionalGain "Arm turntable PID proportional gain";
-CM_ SG_ 4 ARM_turntablePIDTuningMode "Arm turntable PID tuning mode";
-CM_ BO_ 5 "Set arm shoulder PID parameters";
-CM_ SG_ 5 ARM_shoulderPIDDeadzone "Arm shoulder PID deadzone";
-CM_ SG_ 5 ARM_shoulderPIDDerivativeGain "Arm shoulder PID derivative gain";
-CM_ SG_ 5 ARM_shoulderPIDIntegralGain "Arm shoulder PID integral gain";
-CM_ SG_ 5 ARM_shoulderPIDProportionalGain "Arm shoulder PID proportional gain";
-CM_ SG_ 5 ARM_shoulderPIDTuningMode "Arm shoulder PID tuning mode";
-CM_ BO_ 6 "Set arm elbow PID parameters";
-CM_ SG_ 6 ARM_elbowPIDDeadzone "Arm elbow PID deadzone";
-CM_ SG_ 6 ARM_elbowPIDDerivativeGain "Arm elbow PID derivative gain";
-CM_ SG_ 6 ARM_elbowPIDIntegralGain "Arm elbow PID integral gain";
-CM_ SG_ 6 ARM_elbowPIDProportionalGain "Arm elbow PID proportional gain";
-CM_ SG_ 6 ARM_elbowPIDTuningMode "Arm elbow PID tuning mode";
-CM_ BO_ 7 "Set arm left wrist PID parameters";
-CM_ SG_ 7 ARM_leftWristPIDDeadzone "Arm left wrist PID deadzone";
-CM_ SG_ 7 ARM_leftWristPIDDerivativeGain "Arm left wrist PID derivative gain";
-CM_ SG_ 7 ARM_leftWristPIDIntegralGain "Arm left wrist PID integral gain";
-CM_ SG_ 7 ARM_leftWristPIDProportionalGain "Arm left wrist PID proportional gain";
-CM_ SG_ 7 ARM_leftWristPIDTuningMode "Arm left wrist PID tuning mode";
-CM_ BO_ 8 "Set arm right wrist PID parameters";
-CM_ SG_ 8 ARM_rightWristPIDDeadzone "Arm right wrist PID deadzone";
-CM_ SG_ 8 ARM_rightWristPIDDerivativeGain "Arm right wrist PID derivative gain";
-CM_ SG_ 8 ARM_rightWristPIDIntegralGain "Arm right wrist PID integral gain";
-CM_ SG_ 8 ARM_rightWristPIDProportionalGai "Arm right wrist PID proportional gain";
-CM_ SG_ 8 ARM_rightWristPIDTuningMode "Arm right wrist PID tuning mode";
-CM_ BO_ 9 "Set arm claw PID parameters";
-CM_ SG_ 9 ARM_clawPIDDeadzone "Arm claw PID deadzone";
-CM_ SG_ 9 ARM_clawPIDDerivativeGain "Arm claw PID derivative gain";
-CM_ SG_ 9 ARM_clawPIDIntegralGain "Arm claw PID integral gain";
-CM_ SG_ 9 ARM_clawPIDProportionalGain "Arm claw PID proportional gain";
-CM_ SG_ 9 ARM_clawPIDTuningMode "Arm claw PID tuning mode";
-CM_ BO_ 10 "Arm report joint position data";
-CM_ SG_ 10 ARM_reportClawWristPosition "Arm claw wrist position";
-CM_ SG_ 10 ARM_reportRightWristPosition "Arm right wrist position";
-CM_ SG_ 10 ARM_reportLeftWristPosition "Arm left wrist position";
-CM_ SG_ 10 ARM_reportElbowPosition "Arm elbow position";
-CM_ SG_ 10 ARM_reportShoulderPosition "Arm shoulder position";
-CM_ SG_ 10 ARM_reportTurntablePosition "Arm turntable position";
-CM_ BO_ 11 "Arm report joint angular velocity data";
-CM_ SG_ 11 ARM_reportClawAngularVelocity "Arm claw angular velocity";
-CM_ SG_ 11 ARM_reportRightWristAngularVeloc "Arm right wrist angular velocity";
-CM_ SG_ 11 ARM_reportLeftWristAngularVeloci "Arm left wrist angular velocity";
-CM_ SG_ 11 ARM_reportElbowAngularVelocity "Arm elbow angular velocity";
-CM_ SG_ 11 ARM_reportShoulderAngularVelocit "Arm shoulder angular velocity";
-CM_ SG_ 11 ARM_reportTurntableAngularVeloci "Arm turntable angular velocity";
-CM_ BO_ 12 "Arm report joint angular current";
-CM_ SG_ 12 ARM_reportClawCurrent "Arm claw current";
-CM_ SG_ 12 ARM_reportRightWristCurrent "Arm right wrist current";
-CM_ SG_ 12 ARM_reportLeftWristCurrent "Arm left wrist current";
-CM_ SG_ 12 ARM_reportElbowCurrent "Arm elbow current";
-CM_ SG_ 12 ARM_reportShoulderCurrent "Arm shoulder current";
-CM_ SG_ 12 ARM_reportTurntableCurrent "Arm turntable current";
-CM_ BO_ 13 "Arm fault conditions";
-CM_ SG_ 13 ARM_clawCurrentSensorState "Arm claw current sensor state";
-CM_ SG_ 13 ARM_clawEncoderState "Arm claw encoder state";
-CM_ SG_ 13 ARM_rightWristCurrentSensorState "Arm shoulder current sensor state";
-CM_ SG_ 13 ARM_rightWristEncoderState "Arm right wrist encoder state";
-CM_ SG_ 13 ARM_leftWristCurrentSensorState "Arm left wrist current sensor state";
-CM_ SG_ 13 ARM_leftWristEncoderState "Arm left wrist encoder state";
-CM_ SG_ 13 ARM_elbowCurrentSensorState "Arm elbow current sensor state";
-CM_ SG_ 13 ARM_elbowEncoderState "Arm elbow encoder state";
-CM_ SG_ 13 ARM_shoulderCurrentSensorState "Arm shoulder current sensor state";
-CM_ SG_ 13 ARM_shoulderEncoderState "Arm shoulder encoder state";
-CM_ SG_ 13 ARM_turntableCurrentSensorState "Arm turntable current sensor state";
-CM_ SG_ 13 ARM_turntableEncoderState "Arm turntable encoder state";
-CM_ BO_ 14 "Arm report ACKs to one-shot commands";
-CM_ SG_ 14 ARM_ACK "Arm ACKs";
-CM_ BO_ 15 "Set control mode for science joints";
-CM_ SG_ 15 SCIENCE_elevatorControlMode "Science elevator control mode";
-CM_ SG_ 15 SCIENCE_genevaControlMode "Science geneva mechanism control mode";
-CM_ BO_ 20 "Science fault conditions";
-CM_ SG_ 20 SCIENCE_moistureSensorState "Science moisture sensor state";
-CM_ SG_ 20 SCIENCE_elevatorEncoderState "Science elevator encoder state";
-CM_ SG_ 20 SCIENCE_genevaEncoderState "Science geneva mechanism encoder state";
-CM_ BO_ 21 "Science report ACKs to one-shot commands";
-CM_ SG_ 21 SCIENCE_ACK "Science ACKs";
-CM_ BO_ 22 "Set control mode for gimbal joints";
-CM_ SG_ 22 GIMBAL_panControlMode "Gimbal pan control mode";
-CM_ BO_ 26 "Gimbal fault conditions";
-CM_ SG_ 26 GIMBAL_panEncoderState "Gimbal pan encoder state";
-CM_ BO_ 27 "Gimbal report ACKs to one-shot commands";
-CM_ SG_ 27 GIMBAL_ACK "Gimbal ACKs";
-CM_ BO_ 28 "PDB set LED matrix state";
-CM_ SG_ 28 PDB_LEDMatrixState "PDB LED matrix state";
-CM_ BO_ 30 "PDB report fault conditions";
-CM_ SG_ 30 PDB_5VRailStatus "PDB 5V rail status";
-CM_ SG_ 30 PDB_17VRailStatus "PDB 17V rail status";
-CM_ SG_ 30 PDB_VBATRailStatus "PDB VBAT rail status";
-CM_ SG_ 30 PDB_gimbalPowerStatus "PDB gmibal power status";
-CM_ SG_ 30 PDB_sciencePowerStatus "PDB science power status";
-CM_ SG_ 30 PDB_armPowerStatus "PDB arm power status";
-CM_ SG_ 30 PDB_jetsonStatus "PDB Jetson power status";
-CM_ BO_ 31 "PDB report ACKs to one-shot commands";
-CM_ SG_ 31 PDB_ACK "PDB ACKs";
-CM_ BO_ 32 "Notifies all boards to switch to the specified CAN bus in the dual-bus system";
-CM_ SG_ 32 COMMON_CANBusID "CAN bus ID";
-CM_ BO_ 33 "Test CAN message for debugging or placeholder purposes";
-CM_ SG_ 33 COMMON_testSignal1 "CAN test signal";
-CM_ BO_ 34 "Test CAN message for debugging or placeholder purposes";
-CM_ SG_ 34 COMMON_testSignal3 "CAN test signal";
-CM_ SG_ 34 COMMON_testSignal2 "CAN test signal";
+CM_ BO_ 1569 "Set control mode for arm joints";
+CM_ SG_ 1569 ARM_clawControlMode "Arm claw control mode";
+CM_ SG_ 1569 ARM_rightWristControlMode "Arm right wrist control mode";
+CM_ SG_ 1569 ARM_leftWristControlMode "Arm left wrist control mode";
+CM_ SG_ 1569 ARM_elbowControlMode "Arm elbow control mode";
+CM_ SG_ 1569 ARM_shoulderControlMode "Arm shoulder control mode";
+CM_ SG_ 1569 ARM_turntableControlMode "Arm turntable control mode";
+CM_ BO_ 1570 "Set position data for arm joints";
+CM_ SG_ 1570 ARM_toolTipSetPosition "Arm set tool tip position data";
+CM_ SG_ 1570 ARM_clawSetPosition "Arm set claw position data";
+CM_ SG_ 1570 ARM_rightWristSetPosition "Arm set right wrist position data";
+CM_ SG_ 1570 ARM_leftWristSetPosition "Arm set left wrist position data";
+CM_ SG_ 1570 ARM_elbowSetPosition "Arm set elbow position data";
+CM_ SG_ 1570 ARM_shoulderSetPosition "Arm set shoulder position data";
+CM_ SG_ 1570 ARM_turntableSetPosition "Arm set turntable position data";
+CM_ BO_ 1571 "Set velocity data for arm joints";
+CM_ SG_ 1571 ARM_setclawAngularVelocity "Arm set claw angular velocity";
+CM_ SG_ 1571 ARM_setrightWristAngularVelocity "Arm set right wrist angular velocity";
+CM_ SG_ 1571 ARM_setleftWristAngularVelocity "Arm set left wrist angular velocity";
+CM_ SG_ 1571 ARM_setElbowAngularVelocity "Arm set elbow angular velocity";
+CM_ SG_ 1571 ARM_setShoulderAngularVelocity "Arm set shoulder angular velocity";
+CM_ SG_ 1571 ARM_setTurntableAngularVelocity "Arm set turntable angular velocity";
+CM_ BO_ 1572 "Set current data for arm joints";
+CM_ SG_ 1572 ARM_setclawCurrent "Arm set claw current";
+CM_ SG_ 1572 ARM_setrightWristCurrent "Arm set right wrist current";
+CM_ SG_ 1572 ARM_setleftWristCurrent "Arm set left wrist current";
+CM_ SG_ 1572 ARM_setElbowCurrent "Arm set elbow current";
+CM_ SG_ 1572 ARM_setShoulderCurrent "Arm set shoulder current";
+CM_ SG_ 1572 ARM_setTurntableCurrent "Arm set turntable current";
+CM_ BO_ 1573 "Set arm turntable PID parameters";
+CM_ SG_ 1573 ARM_turntablePIDDeadzone "Arm turntable PID deadzone";
+CM_ SG_ 1573 ARM_turntablePIDDerivativeGain "Arm turntable PID derivative gain";
+CM_ SG_ 1573 ARM_turntablePIDIntegralGain "Arm turntable PID integral gain";
+CM_ SG_ 1573 ARM_turntablePIDProportionalGain "Arm turntable PID proportional gain";
+CM_ SG_ 1573 ARM_turntablePIDTuningMode "Arm turntable PID tuning mode";
+CM_ BO_ 1574 "Set arm shoulder PID parameters";
+CM_ SG_ 1574 ARM_shoulderPIDDeadzone "Arm shoulder PID deadzone";
+CM_ SG_ 1574 ARM_shoulderPIDDerivativeGain "Arm shoulder PID derivative gain";
+CM_ SG_ 1574 ARM_shoulderPIDIntegralGain "Arm shoulder PID integral gain";
+CM_ SG_ 1574 ARM_shoulderPIDProportionalGain "Arm shoulder PID proportional gain";
+CM_ SG_ 1574 ARM_shoulderPIDTuningMode "Arm shoulder PID tuning mode";
+CM_ BO_ 1575 "Set arm elbow PID parameters";
+CM_ SG_ 1575 ARM_elbowPIDDeadzone "Arm elbow PID deadzone";
+CM_ SG_ 1575 ARM_elbowPIDDerivativeGain "Arm elbow PID derivative gain";
+CM_ SG_ 1575 ARM_elbowPIDIntegralGain "Arm elbow PID integral gain";
+CM_ SG_ 1575 ARM_elbowPIDProportionalGain "Arm elbow PID proportional gain";
+CM_ SG_ 1575 ARM_elbowPIDTuningMode "Arm elbow PID tuning mode";
+CM_ BO_ 1576 "Set arm left wrist PID parameters";
+CM_ SG_ 1576 ARM_leftWristPIDDeadzone "Arm left wrist PID deadzone";
+CM_ SG_ 1576 ARM_leftWristPIDDerivativeGain "Arm left wrist PID derivative gain";
+CM_ SG_ 1576 ARM_leftWristPIDIntegralGain "Arm left wrist PID integral gain";
+CM_ SG_ 1576 ARM_leftWristPIDProportionalGain "Arm left wrist PID proportional gain";
+CM_ SG_ 1576 ARM_leftWristPIDTuningMode "Arm left wrist PID tuning mode";
+CM_ BO_ 1577 "Set arm right wrist PID parameters";
+CM_ SG_ 1577 ARM_rightWristPIDDeadzone "Arm right wrist PID deadzone";
+CM_ SG_ 1577 ARM_rightWristPIDDerivativeGain "Arm right wrist PID derivative gain";
+CM_ SG_ 1577 ARM_rightWristPIDIntegralGain "Arm right wrist PID integral gain";
+CM_ SG_ 1577 ARM_rightWristPIDProportionalGai "Arm right wrist PID proportional gain";
+CM_ SG_ 1577 ARM_rightWristPIDTuningMode "Arm right wrist PID tuning mode";
+CM_ BO_ 1578 "Set arm claw PID parameters";
+CM_ SG_ 1578 ARM_clawPIDDeadzone "Arm claw PID deadzone";
+CM_ SG_ 1578 ARM_clawPIDDerivativeGain "Arm claw PID derivative gain";
+CM_ SG_ 1578 ARM_clawPIDIntegralGain "Arm claw PID integral gain";
+CM_ SG_ 1578 ARM_clawPIDProportionalGain "Arm claw PID proportional gain";
+CM_ SG_ 1578 ARM_clawPIDTuningMode "Arm claw PID tuning mode";
+CM_ BO_ 1600 "Arm report joint position data";
+CM_ SG_ 1600 ARM_reportClawWristPosition "Arm claw wrist position";
+CM_ SG_ 1600 ARM_reportRightWristPosition "Arm right wrist position";
+CM_ SG_ 1600 ARM_reportLeftWristPosition "Arm left wrist position";
+CM_ SG_ 1600 ARM_reportElbowPosition "Arm elbow position";
+CM_ SG_ 1600 ARM_reportShoulderPosition "Arm shoulder position";
+CM_ SG_ 1600 ARM_reportTurntablePosition "Arm turntable position";
+CM_ BO_ 1601 "Arm report joint angular velocity data";
+CM_ SG_ 1601 ARM_reportClawAngularVelocity "Arm claw angular velocity";
+CM_ SG_ 1601 ARM_reportRightWristAngularVeloc "Arm right wrist angular velocity";
+CM_ SG_ 1601 ARM_reportLeftWristAngularVeloci "Arm left wrist angular velocity";
+CM_ SG_ 1601 ARM_reportElbowAngularVelocity "Arm elbow angular velocity";
+CM_ SG_ 1601 ARM_reportShoulderAngularVelocit "Arm shoulder angular velocity";
+CM_ SG_ 1601 ARM_reportTurntableAngularVeloci "Arm turntable angular velocity";
+CM_ BO_ 1602 "Arm report joint angular current";
+CM_ SG_ 1602 ARM_reportClawCurrent "Arm claw current";
+CM_ SG_ 1602 ARM_reportRightWristCurrent "Arm right wrist current";
+CM_ SG_ 1602 ARM_reportLeftWristCurrent "Arm left wrist current";
+CM_ SG_ 1602 ARM_reportElbowCurrent "Arm elbow current";
+CM_ SG_ 1602 ARM_reportShoulderCurrent "Arm shoulder current";
+CM_ SG_ 1602 ARM_reportTurntableCurrent "Arm turntable current";
+CM_ BO_ 1603 "Arm fault conditions";
+CM_ SG_ 1603 ARM_clawCurrentSensorState "Arm claw current sensor state";
+CM_ SG_ 1603 ARM_clawEncoderState "Arm claw encoder state";
+CM_ SG_ 1603 ARM_rightWristCurrentSensorState "Arm shoulder current sensor state";
+CM_ SG_ 1603 ARM_rightWristEncoderState "Arm right wrist encoder state";
+CM_ SG_ 1603 ARM_leftWristCurrentSensorState "Arm left wrist current sensor state";
+CM_ SG_ 1603 ARM_leftWristEncoderState "Arm left wrist encoder state";
+CM_ SG_ 1603 ARM_elbowCurrentSensorState "Arm elbow current sensor state";
+CM_ SG_ 1603 ARM_elbowEncoderState "Arm elbow encoder state";
+CM_ SG_ 1603 ARM_shoulderCurrentSensorState "Arm shoulder current sensor state";
+CM_ SG_ 1603 ARM_shoulderEncoderState "Arm shoulder encoder state";
+CM_ SG_ 1603 ARM_turntableCurrentSensorState "Arm turntable current sensor state";
+CM_ SG_ 1603 ARM_turntableEncoderState "Arm turntable encoder state";
+CM_ BO_ 1604 "Arm report ACKs to one-shot commands";
+CM_ SG_ 1604 ARM_ACK "Arm ACKs";
+CM_ BO_ 1632 "Set control mode for science joints";
+CM_ SG_ 1632 SCIENCE_elevatorControlMode "Science elevator control mode";
+CM_ SG_ 1632 SCIENCE_genevaControlMode "Science geneva mechanism control mode";
+CM_ BO_ 1633 "Science set joint position";
+CM_ SG_ 1633 SCIENCE_setShovelPosition "Set science shovel position";
+CM_ SG_ 1633 SCIENCE_setCoverPosition "Set science cover position";
+CM_ SG_ 1633 SCIENCE_setElevatorPosition "Set science elevator position";
+CM_ SG_ 1633 SCIENCE_setGenevaPosition "Set science geneva mechanism position";
+CM_ BO_ 1634 "Science set joint angular velocity";
+CM_ SG_ 1634 SCIENCE_setElevatorAngularVeloci "Science set elevator angular velocity";
+CM_ SG_ 1634 SCIENCE_setGenevaAngularVelocity "Science set geneva mechanism angular velocity";
+CM_ BO_ 1664 "Science report joint positions and angular velocities";
+CM_ SG_ 1664 SCIENCE_reportElevatorAngularVel "Science report elevator angular velocity";
+CM_ SG_ 1664 SCIENCE_reportGenevaAngularVeloc "Science report geneva mechanism angular velocity";
+CM_ SG_ 1664 SCIENCE_reportElevatorPosition "Science report elevator position";
+CM_ SG_ 1664 SCIENCE_reportGenevaPosition "Science report geneva mechanism position";
+CM_ BO_ 1665 "Science report sensor data";
+CM_ SG_ 1665 SCIENCE_temperatureData "Science temperature sensor data";
+CM_ SG_ 1665 SCIENCE_moistureData "Science moisture sensor data";
+CM_ BO_ 1666 "Science fault conditions";
+CM_ SG_ 1666 SCIENCE_moistureSensorState "Science moisture sensor state";
+CM_ SG_ 1666 SCIENCE_elevatorEncoderState "Science elevator encoder state";
+CM_ SG_ 1666 SCIENCE_genevaEncoderState "Science geneva mechanism encoder state";
+CM_ BO_ 1667 "Science report ACKs to one-shot commands";
+CM_ SG_ 1667 SCIENCE_ACK "Science ACKs";
+CM_ BO_ 1696 "Set control mode for gimbal joints";
+CM_ SG_ 1696 GIMBAL_panControlMode "Gimbal pan control mode";
+CM_ BO_ 1697 "Gimbal set joint position";
+CM_ SG_ 1697 GIMBAL_setRollPosition "Gimbal set roll position";
+CM_ SG_ 1697 GIMBAL_setPitchPosition "Gimbal set pitch position";
+CM_ SG_ 1697 GIMBAL_setPanPosition "Gimbal set pan position";
+CM_ BO_ 1698 "Gimbal set joint angular velocity";
+CM_ SG_ 1698 GIMBAL_setPanAngularVelocity "Gimbal set pan angular velocity";
+CM_ BO_ 1728 "Gimbal report joint data";
+CM_ SG_ 1728 GIMBAL_reportPanAngularVelocity "Gimbal report pan angular velocity";
+CM_ SG_ 1728 GIMBAL_reportPanPosition "Gimbal report pan position";
+CM_ BO_ 1729 "Gimbal fault conditions";
+CM_ SG_ 1729 GIMBAL_panEncoderState "Gimbal pan encoder state";
+CM_ BO_ 1730 "Gimbal report ACKs to one-shot commands";
+CM_ SG_ 1730 GIMBAL_ACK "Gimbal ACKs";
+CM_ BO_ 1760 "PDB set LED matrix state";
+CM_ SG_ 1760 PDB_LEDMatrixState "PDB LED matrix state";
+CM_ BO_ 1792 "PDB report sensor data";
+CM_ SG_ 1792 PDB_ultrasonicSensor4Data "PDB ultrasonic sensor 4 data";
+CM_ SG_ 1792 PDB_ultrasonicSensor3Data "PDB ultrasonic sensor 3 data";
+CM_ SG_ 1792 PDB_ultrasonicSensor2Data "PDB ultrasonic sensor 2 data";
+CM_ SG_ 1792 PDB_ultrasonicSensor1Data "PDB ultrasonic sensor 1 data";
+CM_ BO_ 1793 "PDB report fault conditions";
+CM_ SG_ 1793 PDB_5VRailStatus "PDB 5V rail status";
+CM_ SG_ 1793 PDB_17VRailStatus "PDB 17V rail status";
+CM_ SG_ 1793 PDB_VBATRailStatus "PDB VBAT rail status";
+CM_ SG_ 1793 PDB_gimbalPowerStatus "PDB gmibal power status";
+CM_ SG_ 1793 PDB_sciencePowerStatus "PDB science power status";
+CM_ SG_ 1793 PDB_armPowerStatus "PDB arm power status";
+CM_ SG_ 1793 PDB_jetsonStatus "PDB Jetson power status";
+CM_ BO_ 1794 "PDB report ACKs to one-shot commands";
+CM_ SG_ 1794 PDB_ACK "PDB ACKs";
+CM_ BO_ 1824 "Notifies all boards to switch to the specified CAN bus in the dual-bus system";
+CM_ SG_ 1824 COMMON_CANBusID "CAN bus ID";
+CM_ BO_ 1825 "Test CAN message for debugging or placeholder purposes";
+CM_ SG_ 1825 COMMON_testSignal1 "CAN test signal";
+CM_ BO_ 1826 "Test CAN message for debugging or placeholder purposes";
+CM_ SG_ 1826 COMMON_testSignal3 "CAN test signal";
+CM_ SG_ 1826 COMMON_testSignal2 "CAN test signal";
 BA_DEF_ SG_  "SystemSignalLongSymbol" STRING ;
 BA_DEF_DEF_  "SystemSignalLongSymbol" "";
-BA_ "SystemSignalLongSymbol" SG_ 8 ARM_rightWristPIDProportionalGai "ARM_rightWristPIDProportionalGain";
-BA_ "SystemSignalLongSymbol" SG_ 11 ARM_reportRightWristAngularVeloc "ARM_reportRightWristAngularVelocity";
-BA_ "SystemSignalLongSymbol" SG_ 11 ARM_reportLeftWristAngularVeloci "ARM_reportLeftWristAngularVelocity";
-BA_ "SystemSignalLongSymbol" SG_ 11 ARM_reportShoulderAngularVelocit "ARM_reportShoulderAngularVelocity";
-BA_ "SystemSignalLongSymbol" SG_ 11 ARM_reportTurntableAngularVeloci "ARM_reportTurntableAngularVelocity";
-VAL_ 0 ARM_clawControlMode 0 "OPEN_LOOP" 1 "POSITION" 2 "VELOCITY" 3 "CURRENT" 7 "SNA" ;
-VAL_ 0 ARM_rightWristControlMode 0 "OPEN_LOOP" 1 "POSITION" 2 "VELOCITY" 3 "CURRENT" 7 "SNA" ;
-VAL_ 0 ARM_leftWristControlMode 0 "OPEN_LOOP" 1 "POSITION" 2 "VELOCITY" 3 "CURRENT" 7 "SNA" ;
-VAL_ 0 ARM_elbowControlMode 0 "OPEN_LOOP" 1 "POSITION" 2 "VELOCITY" 3 "CURRENT" 7 "SNA" ;
-VAL_ 0 ARM_shoulderControlMode 0 "OPEN_LOOP" 1 "POSITION" 2 "VELOCITY" 3 "CURRENT" 7 "SNA" ;
-VAL_ 0 ARM_turntableControlMode 0 "OPEN_LOOP" 1 "POSITION" 2 "VELOCITY" 3 "CURRENT" 7 "SNA" ;
-VAL_ 1 ARM_toolTipSetPosition 127 "SNA" ;
-VAL_ 1 ARM_clawSetPosition 127 "SNA" ;
-VAL_ 1 ARM_rightWristSetPosition 1023 "SNA" ;
-VAL_ 1 ARM_leftWristSetPosition 1023 "SNA" ;
-VAL_ 1 ARM_elbowSetPosition 1023 "SNA" ;
-VAL_ 1 ARM_shoulderSetPosition 1023 "SNA" ;
-VAL_ 1 ARM_turntableSetPosition 1023 "SNA" ;
-VAL_ 2 ARM_setclawAngularVelocity 1023 "SNA" ;
-VAL_ 2 ARM_setrightWristAngularVelocity 1023 "SNA" ;
-VAL_ 2 ARM_setleftWristAngularVelocity 1023 "SNA" ;
-VAL_ 2 ARM_setElbowAngularVelocity 1023 "SNA" ;
-VAL_ 2 ARM_setShoulderAngularVelocity 1023 "SNA" ;
-VAL_ 2 ARM_setTurntableAngularVelocity 1023 "SNA" ;
-VAL_ 3 ARM_setclawCurrent 1023 "SNA" ;
-VAL_ 3 ARM_setrightWristCurrent 1023 "SNA" ;
-VAL_ 3 ARM_setleftWristCurrent 1023 "SNA" ;
-VAL_ 3 ARM_setElbowCurrent 1023 "SNA" ;
-VAL_ 3 ARM_setShoulderCurrent 1023 "SNA" ;
-VAL_ 3 ARM_setTurntableCurrent 1023 "SNA" ;
-VAL_ 4 ARM_turntablePIDDeadzone 16383 "SNA" ;
-VAL_ 4 ARM_turntablePIDDerivativeGain 65535 "SNA" ;
-VAL_ 4 ARM_turntablePIDIntegralGain 65535 "SNA" ;
-VAL_ 4 ARM_turntablePIDProportionalGain 65535 "SNA" ;
-VAL_ 4 ARM_turntablePIDTuningMode 0 "POSITION" 1 "VELOCITY" 2 "CURRENT" 3 "SNA" ;
-VAL_ 5 ARM_shoulderPIDDeadzone 16383 "SNA" ;
-VAL_ 5 ARM_shoulderPIDDerivativeGain 65535 "SNA" ;
-VAL_ 5 ARM_shoulderPIDIntegralGain 65535 "SNA" ;
-VAL_ 5 ARM_shoulderPIDProportionalGain 65535 "SNA" ;
-VAL_ 5 ARM_shoulderPIDTuningMode 0 "POSITION" 1 "VELOCITY" 2 "CURRENT" 3 "SNA" ;
-VAL_ 6 ARM_elbowPIDDeadzone 16383 "SNA" ;
-VAL_ 6 ARM_elbowPIDDerivativeGain 65535 "SNA" ;
-VAL_ 6 ARM_elbowPIDIntegralGain 65535 "SNA" ;
-VAL_ 6 ARM_elbowPIDProportionalGain 65535 "SNA" ;
-VAL_ 6 ARM_elbowPIDTuningMode 0 "POSITION" 1 "VELOCITY" 2 "CURRENT" 3 "SNA" ;
-VAL_ 7 ARM_leftWristPIDDeadzone 16383 "SNA" ;
-VAL_ 7 ARM_leftWristPIDDerivativeGain 65535 "SNA" ;
-VAL_ 7 ARM_leftWristPIDIntegralGain 65535 "SNA" ;
-VAL_ 7 ARM_leftWristPIDProportionalGain 65535 "SNA" ;
-VAL_ 7 ARM_leftWristPIDTuningMode 0 "POSITION" 1 "VELOCITY" 2 "CURRENT" 3 "SNA" ;
-VAL_ 8 ARM_rightWristPIDDeadzone 16383 "SNA" ;
-VAL_ 8 ARM_rightWristPIDDerivativeGain 65535 "SNA" ;
-VAL_ 8 ARM_rightWristPIDIntegralGain 65535 "SNA" ;
-VAL_ 8 ARM_rightWristPIDProportionalGai 65535 "SNA" ;
-VAL_ 8 ARM_rightWristPIDTuningMode 0 "POSITION" 1 "VELOCITY" 2 "CURRENT" 3 "SNA" ;
-VAL_ 9 ARM_clawPIDDeadzone 16383 "SNA" ;
-VAL_ 9 ARM_clawPIDDerivativeGain 65535 "SNA" ;
-VAL_ 9 ARM_clawPIDIntegralGain 65535 "SNA" ;
-VAL_ 9 ARM_clawPIDProportionalGain 65535 "SNA" ;
-VAL_ 9 ARM_clawPIDTuningMode 0 "POSITION" 1 "VELOCITY" 2 "CURRENT" 3 "SNA" ;
-VAL_ 10 ARM_reportClawWristPosition 255 "SNA" ;
-VAL_ 10 ARM_reportRightWristPosition 255 "SNA" ;
-VAL_ 10 ARM_reportLeftWristPosition 255 "SNA" ;
-VAL_ 10 ARM_reportElbowPosition 4095 "SNA" ;
-VAL_ 10 ARM_reportShoulderPosition 4095 "SNA" ;
-VAL_ 10 ARM_reportTurntablePosition 4095 "SNA" ;
-VAL_ 11 ARM_reportClawAngularVelocity 1023 "SNA" ;
-VAL_ 11 ARM_reportRightWristAngularVeloc 1023 "SNA" ;
-VAL_ 11 ARM_reportLeftWristAngularVeloci 1023 "SNA" ;
-VAL_ 11 ARM_reportElbowAngularVelocity 1023 "SNA" ;
-VAL_ 11 ARM_reportShoulderAngularVelocit 1023 "SNA" ;
-VAL_ 11 ARM_reportTurntableAngularVeloci 1023 "SNA" ;
-VAL_ 12 ARM_reportClawCurrent 1023 "SNA" ;
-VAL_ 12 ARM_reportRightWristCurrent 1023 "SNA" ;
-VAL_ 12 ARM_reportLeftWristCurrent 1023 "SNA" ;
-VAL_ 12 ARM_reportElbowCurrent 1023 "SNA" ;
-VAL_ 12 ARM_reportShoulderCurrent 1023 "SNA" ;
-VAL_ 12 ARM_reportTurntableCurrent 1023 "SNA" ;
-VAL_ 13 ARM_clawCurrentSensorState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
-VAL_ 13 ARM_clawEncoderState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
-VAL_ 13 ARM_rightWristCurrentSensorState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
-VAL_ 13 ARM_rightWristEncoderState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
-VAL_ 13 ARM_leftWristCurrentSensorState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
-VAL_ 13 ARM_leftWristEncoderState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
-VAL_ 13 ARM_elbowCurrentSensorState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
-VAL_ 13 ARM_elbowEncoderState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
-VAL_ 13 ARM_shoulderCurrentSensorState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
-VAL_ 13 ARM_shoulderEncoderState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
-VAL_ 13 ARM_turntableCurrentSensorState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
-VAL_ 13 ARM_turntableEncoderState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
-VAL_ 14 ARM_ACK 0 "ARM_RESET_ACK" 1 "ARM_SET_CONTROL_MODE_ACK" 2 "ARM_SET_TURNTABLE_PID_PARAMS_ACK" 3 "ARM_SET_SHOULDER_PID_PARAMS_ACK" 4 "ARM_SET_ELBOW_PID_PARAMS_ACK" 5 "ARM_SET_LEFT_WRIST_PID_PARAMS_ACK" 6 "ARM_SET_RIGHT_WRIST_PID_PARAMS_ACK" 7 "ARM_SET_CLAW_PID_PARAMS_ACK" 8 "CAN_BUS_SWITCH_ACK" 255 "SNA" ;
-VAL_ 15 SCIENCE_elevatorControlMode 0 "OPEN_LOOP" 1 "POSITION" 2 "VELOCITY" 3 "SNA" ;
-VAL_ 15 SCIENCE_genevaControlMode 0 "OPEN_LOOP" 1 "POSITION" 2 "VELOCITY" 3 "SNA" ;
-VAL_ 20 SCIENCE_moistureSensorState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
-VAL_ 20 SCIENCE_elevatorEncoderState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
-VAL_ 20 SCIENCE_genevaEncoderState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
-VAL_ 21 SCIENCE_ACK 0 "SCIENCE_SET_CONTROL_MODE_ACK" 1 "CAN_BUS_SWITCH_ACK" 255 "SNA" ;
-VAL_ 22 GIMBAL_panControlMode 0 "OPEN_LOOP" 1 "POSITION" 2 "VELOCITY" 3 "SNA" ;
-VAL_ 26 GIMBAL_panEncoderState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
-VAL_ 27 GIMBAL_ACK 0 "GIMBAL_SET_CONTROL_MODE_ACK" 1 "CAN_BUS_SWITCH_ACK" 255 "SNA" ;
-VAL_ 28 PDB_LEDMatrixState 0 "SOLID_RED" 1 "SOLID_BLUE" 2 "FLASHING_GREEN" 3 "False" 7 "SNA" ;
-VAL_ 30 PDB_5VRailStatus 0 "OPERATIONAL" 1 "OVERVOLTAGE" 2 "UNDERVOLTAGE" 3 "SNA" ;
-VAL_ 30 PDB_17VRailStatus 0 "OPERATIONAL" 1 "OVERVOLTAGE" 2 "UNDERVOLTAGE" 3 "SNA" ;
-VAL_ 30 PDB_VBATRailStatus 0 "OPERATIONAL" 1 "OVERVOLTAGE" 2 "UNDERVOLTAGE" 3 "SNA" ;
-VAL_ 30 PDB_gimbalPowerStatus 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
-VAL_ 30 PDB_sciencePowerStatus 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
-VAL_ 30 PDB_armPowerStatus 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
-VAL_ 30 PDB_jetsonStatus 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
-VAL_ 31 PDB_ACK 0 "PDB_SET_LED_MATRIX_ACK" 1 "CAN_BUS_SWITCH_ACK" 255 "SNA" ;
-VAL_ 32 COMMON_CANBusID 0 "CAN1" 1 "CAN2" 3 "SNA" ;
-VAL_ 33 COMMON_testSignal1 0 "TEST_VALUE_0" 1 "TEST_VALUE_1" 2 "TEST_VALUE_2" 3 "SNA" ;
-VAL_ 34 COMMON_testSignal3 255 "SNA" ;
-VAL_ 34 COMMON_testSignal2 0 "TEST_VALUE_0" 1 "TEST_VALUE_1" 2 "TEST_VALUE_2" 255 "SNA" ;
+BA_ "SystemSignalLongSymbol" SG_ 1577 ARM_rightWristPIDProportionalGai "ARM_rightWristPIDProportionalGain";
+BA_ "SystemSignalLongSymbol" SG_ 1601 ARM_reportRightWristAngularVeloc "ARM_reportRightWristAngularVelocity";
+BA_ "SystemSignalLongSymbol" SG_ 1601 ARM_reportLeftWristAngularVeloci "ARM_reportLeftWristAngularVelocity";
+BA_ "SystemSignalLongSymbol" SG_ 1601 ARM_reportShoulderAngularVelocit "ARM_reportShoulderAngularVelocity";
+BA_ "SystemSignalLongSymbol" SG_ 1601 ARM_reportTurntableAngularVeloci "ARM_reportTurntableAngularVelocity";
+BA_ "SystemSignalLongSymbol" SG_ 1634 SCIENCE_setElevatorAngularVeloci "SCIENCE_setElevatorAngularVelocity";
+BA_ "SystemSignalLongSymbol" SG_ 1664 SCIENCE_reportElevatorAngularVel "SCIENCE_reportElevatorAngularVelocity";
+BA_ "SystemSignalLongSymbol" SG_ 1664 SCIENCE_reportGenevaAngularVeloc "SCIENCE_reportGenevaAngularVelocity";
+VAL_ 1569 ARM_clawControlMode 0 "OPEN_LOOP" 1 "POSITION" 2 "VELOCITY" 3 "CURRENT" 7 "SNA" ;
+VAL_ 1569 ARM_rightWristControlMode 0 "OPEN_LOOP" 1 "POSITION" 2 "VELOCITY" 3 "CURRENT" 7 "SNA" ;
+VAL_ 1569 ARM_leftWristControlMode 0 "OPEN_LOOP" 1 "POSITION" 2 "VELOCITY" 3 "CURRENT" 7 "SNA" ;
+VAL_ 1569 ARM_elbowControlMode 0 "OPEN_LOOP" 1 "POSITION" 2 "VELOCITY" 3 "CURRENT" 7 "SNA" ;
+VAL_ 1569 ARM_shoulderControlMode 0 "OPEN_LOOP" 1 "POSITION" 2 "VELOCITY" 3 "CURRENT" 7 "SNA" ;
+VAL_ 1569 ARM_turntableControlMode 0 "OPEN_LOOP" 1 "POSITION" 2 "VELOCITY" 3 "CURRENT" 7 "SNA" ;
+VAL_ 1570 ARM_toolTipSetPosition 127 "SNA" ;
+VAL_ 1570 ARM_clawSetPosition 127 "SNA" ;
+VAL_ 1570 ARM_rightWristSetPosition 1023 "SNA" ;
+VAL_ 1570 ARM_leftWristSetPosition 1023 "SNA" ;
+VAL_ 1570 ARM_elbowSetPosition 1023 "SNA" ;
+VAL_ 1570 ARM_shoulderSetPosition 1023 "SNA" ;
+VAL_ 1570 ARM_turntableSetPosition 1023 "SNA" ;
+VAL_ 1571 ARM_setclawAngularVelocity 1023 "SNA" ;
+VAL_ 1571 ARM_setrightWristAngularVelocity 1023 "SNA" ;
+VAL_ 1571 ARM_setleftWristAngularVelocity 1023 "SNA" ;
+VAL_ 1571 ARM_setElbowAngularVelocity 1023 "SNA" ;
+VAL_ 1571 ARM_setShoulderAngularVelocity 1023 "SNA" ;
+VAL_ 1571 ARM_setTurntableAngularVelocity 1023 "SNA" ;
+VAL_ 1572 ARM_setclawCurrent 1023 "SNA" ;
+VAL_ 1572 ARM_setrightWristCurrent 1023 "SNA" ;
+VAL_ 1572 ARM_setleftWristCurrent 1023 "SNA" ;
+VAL_ 1572 ARM_setElbowCurrent 1023 "SNA" ;
+VAL_ 1572 ARM_setShoulderCurrent 1023 "SNA" ;
+VAL_ 1572 ARM_setTurntableCurrent 1023 "SNA" ;
+VAL_ 1573 ARM_turntablePIDDeadzone 16383 "SNA" ;
+VAL_ 1573 ARM_turntablePIDDerivativeGain 65535 "SNA" ;
+VAL_ 1573 ARM_turntablePIDIntegralGain 65535 "SNA" ;
+VAL_ 1573 ARM_turntablePIDProportionalGain 65535 "SNA" ;
+VAL_ 1573 ARM_turntablePIDTuningMode 0 "POSITION" 1 "VELOCITY" 2 "CURRENT" 3 "SNA" ;
+VAL_ 1574 ARM_shoulderPIDDeadzone 16383 "SNA" ;
+VAL_ 1574 ARM_shoulderPIDDerivativeGain 65535 "SNA" ;
+VAL_ 1574 ARM_shoulderPIDIntegralGain 65535 "SNA" ;
+VAL_ 1574 ARM_shoulderPIDProportionalGain 65535 "SNA" ;
+VAL_ 1574 ARM_shoulderPIDTuningMode 0 "POSITION" 1 "VELOCITY" 2 "CURRENT" 3 "SNA" ;
+VAL_ 1575 ARM_elbowPIDDeadzone 16383 "SNA" ;
+VAL_ 1575 ARM_elbowPIDDerivativeGain 65535 "SNA" ;
+VAL_ 1575 ARM_elbowPIDIntegralGain 65535 "SNA" ;
+VAL_ 1575 ARM_elbowPIDProportionalGain 65535 "SNA" ;
+VAL_ 1575 ARM_elbowPIDTuningMode 0 "POSITION" 1 "VELOCITY" 2 "CURRENT" 3 "SNA" ;
+VAL_ 1576 ARM_leftWristPIDDeadzone 16383 "SNA" ;
+VAL_ 1576 ARM_leftWristPIDDerivativeGain 65535 "SNA" ;
+VAL_ 1576 ARM_leftWristPIDIntegralGain 65535 "SNA" ;
+VAL_ 1576 ARM_leftWristPIDProportionalGain 65535 "SNA" ;
+VAL_ 1576 ARM_leftWristPIDTuningMode 0 "POSITION" 1 "VELOCITY" 2 "CURRENT" 3 "SNA" ;
+VAL_ 1577 ARM_rightWristPIDDeadzone 16383 "SNA" ;
+VAL_ 1577 ARM_rightWristPIDDerivativeGain 65535 "SNA" ;
+VAL_ 1577 ARM_rightWristPIDIntegralGain 65535 "SNA" ;
+VAL_ 1577 ARM_rightWristPIDProportionalGai 65535 "SNA" ;
+VAL_ 1577 ARM_rightWristPIDTuningMode 0 "POSITION" 1 "VELOCITY" 2 "CURRENT" 3 "SNA" ;
+VAL_ 1578 ARM_clawPIDDeadzone 16383 "SNA" ;
+VAL_ 1578 ARM_clawPIDDerivativeGain 65535 "SNA" ;
+VAL_ 1578 ARM_clawPIDIntegralGain 65535 "SNA" ;
+VAL_ 1578 ARM_clawPIDProportionalGain 65535 "SNA" ;
+VAL_ 1578 ARM_clawPIDTuningMode 0 "POSITION" 1 "VELOCITY" 2 "CURRENT" 3 "SNA" ;
+VAL_ 1600 ARM_reportClawWristPosition 255 "SNA" ;
+VAL_ 1600 ARM_reportRightWristPosition 255 "SNA" ;
+VAL_ 1600 ARM_reportLeftWristPosition 255 "SNA" ;
+VAL_ 1600 ARM_reportElbowPosition 4095 "SNA" ;
+VAL_ 1600 ARM_reportShoulderPosition 4095 "SNA" ;
+VAL_ 1600 ARM_reportTurntablePosition 4095 "SNA" ;
+VAL_ 1601 ARM_reportClawAngularVelocity 1023 "SNA" ;
+VAL_ 1601 ARM_reportRightWristAngularVeloc 1023 "SNA" ;
+VAL_ 1601 ARM_reportLeftWristAngularVeloci 1023 "SNA" ;
+VAL_ 1601 ARM_reportElbowAngularVelocity 1023 "SNA" ;
+VAL_ 1601 ARM_reportShoulderAngularVelocit 1023 "SNA" ;
+VAL_ 1601 ARM_reportTurntableAngularVeloci 1023 "SNA" ;
+VAL_ 1602 ARM_reportClawCurrent 1023 "SNA" ;
+VAL_ 1602 ARM_reportRightWristCurrent 1023 "SNA" ;
+VAL_ 1602 ARM_reportLeftWristCurrent 1023 "SNA" ;
+VAL_ 1602 ARM_reportElbowCurrent 1023 "SNA" ;
+VAL_ 1602 ARM_reportShoulderCurrent 1023 "SNA" ;
+VAL_ 1602 ARM_reportTurntableCurrent 1023 "SNA" ;
+VAL_ 1603 ARM_clawCurrentSensorState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
+VAL_ 1603 ARM_clawEncoderState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
+VAL_ 1603 ARM_rightWristCurrentSensorState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
+VAL_ 1603 ARM_rightWristEncoderState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
+VAL_ 1603 ARM_leftWristCurrentSensorState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
+VAL_ 1603 ARM_leftWristEncoderState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
+VAL_ 1603 ARM_elbowCurrentSensorState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
+VAL_ 1603 ARM_elbowEncoderState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
+VAL_ 1603 ARM_shoulderCurrentSensorState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
+VAL_ 1603 ARM_shoulderEncoderState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
+VAL_ 1603 ARM_turntableCurrentSensorState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
+VAL_ 1603 ARM_turntableEncoderState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
+VAL_ 1604 ARM_ACK 0 "ARM_RESET_ACK" 1 "ARM_SET_CONTROL_MODE_ACK" 2 "ARM_SET_TURNTABLE_PID_PARAMS_ACK" 3 "ARM_SET_SHOULDER_PID_PARAMS_ACK" 4 "ARM_SET_ELBOW_PID_PARAMS_ACK" 5 "ARM_SET_LEFT_WRIST_PID_PARAMS_ACK" 6 "ARM_SET_RIGHT_WRIST_PID_PARAMS_ACK" 7 "ARM_SET_CLAW_PID_PARAMS_ACK" 8 "CAN_BUS_SWITCH_ACK" 255 "SNA" ;
+VAL_ 1632 SCIENCE_elevatorControlMode 0 "OPEN_LOOP" 1 "POSITION" 2 "VELOCITY" 3 "SNA" ;
+VAL_ 1632 SCIENCE_genevaControlMode 0 "OPEN_LOOP" 1 "POSITION" 2 "VELOCITY" 3 "SNA" ;
+VAL_ 1633 SCIENCE_setShovelPosition 65535 "SNA" ;
+VAL_ 1633 SCIENCE_setCoverPosition 65535 "SNA" ;
+VAL_ 1633 SCIENCE_setElevatorPosition 32767 "SNA" ;
+VAL_ 1633 SCIENCE_setGenevaPosition 32767 "SNA" ;
+VAL_ 1634 SCIENCE_setElevatorAngularVeloci 32767 "SNA" ;
+VAL_ 1634 SCIENCE_setGenevaAngularVelocity 32767 "SNA" ;
+VAL_ 1664 SCIENCE_reportElevatorAngularVel 32767 "SNA" ;
+VAL_ 1664 SCIENCE_reportGenevaAngularVeloc 32767 "SNA" ;
+VAL_ 1664 SCIENCE_reportElevatorPosition 32767 "SNA" ;
+VAL_ 1664 SCIENCE_reportGenevaPosition 32767 "SNA" ;
+VAL_ 1665 SCIENCE_temperatureData 32767 "SNA" ;
+VAL_ 1665 SCIENCE_moistureData 65535 "SNA" ;
+VAL_ 1666 SCIENCE_moistureSensorState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
+VAL_ 1666 SCIENCE_elevatorEncoderState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
+VAL_ 1666 SCIENCE_genevaEncoderState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
+VAL_ 1667 SCIENCE_ACK 0 "SCIENCE_SET_CONTROL_MODE_ACK" 1 "CAN_BUS_SWITCH_ACK" 255 "SNA" ;
+VAL_ 1696 GIMBAL_panControlMode 0 "OPEN_LOOP" 1 "POSITION" 2 "VELOCITY" 3 "SNA" ;
+VAL_ 1697 GIMBAL_setRollPosition 65535 "SNA" ;
+VAL_ 1697 GIMBAL_setPitchPosition 65535 "SNA" ;
+VAL_ 1697 GIMBAL_setPanPosition 32767 "SNA" ;
+VAL_ 1698 GIMBAL_setPanAngularVelocity 32767 "SNA" ;
+VAL_ 1728 GIMBAL_reportPanAngularVelocity 32767 "SNA" ;
+VAL_ 1728 GIMBAL_reportPanPosition 32767 "SNA" ;
+VAL_ 1729 GIMBAL_panEncoderState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
+VAL_ 1730 GIMBAL_ACK 0 "GIMBAL_SET_CONTROL_MODE_ACK" 1 "CAN_BUS_SWITCH_ACK" 255 "SNA" ;
+VAL_ 1760 PDB_LEDMatrixState 0 "SOLID_RED" 1 "SOLID_BLUE" 2 "FLASHING_GREEN" 3 "False" 7 "SNA" ;
+VAL_ 1792 PDB_ultrasonicSensor4Data 65535 "SNA" ;
+VAL_ 1792 PDB_ultrasonicSensor3Data 65535 "SNA" ;
+VAL_ 1792 PDB_ultrasonicSensor2Data 65535 "SNA" ;
+VAL_ 1792 PDB_ultrasonicSensor1Data 65535 "SNA" ;
+VAL_ 1793 PDB_5VRailStatus 0 "OPERATIONAL" 1 "OVERVOLTAGE" 2 "UNDERVOLTAGE" 3 "SNA" ;
+VAL_ 1793 PDB_17VRailStatus 0 "OPERATIONAL" 1 "OVERVOLTAGE" 2 "UNDERVOLTAGE" 3 "SNA" ;
+VAL_ 1793 PDB_VBATRailStatus 0 "OPERATIONAL" 1 "OVERVOLTAGE" 2 "UNDERVOLTAGE" 3 "SNA" ;
+VAL_ 1793 PDB_gimbalPowerStatus 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
+VAL_ 1793 PDB_sciencePowerStatus 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
+VAL_ 1793 PDB_armPowerStatus 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
+VAL_ 1793 PDB_jetsonStatus 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
+VAL_ 1794 PDB_ACK 0 "PDB_SET_LED_MATRIX_ACK" 1 "CAN_BUS_SWITCH_ACK" 255 "SNA" ;
+VAL_ 1824 COMMON_CANBusID 0 "CAN1" 1 "CAN2" 3 "SNA" ;
+VAL_ 1825 COMMON_testSignal1 0 "TEST_VALUE_0" 1 "TEST_VALUE_1" 2 "TEST_VALUE_2" 3 "SNA" ;
+VAL_ 1826 COMMON_testSignal3 255 "SNA" ;
+VAL_ 1826 COMMON_testSignal2 0 "TEST_VALUE_0" 1 "TEST_VALUE_1" 2 "TEST_VALUE_2" 255 "SNA" ;
 
 
 

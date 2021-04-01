@@ -1,15 +1,38 @@
 uwrt_mars_rover_can_bus:
   bus_frequency: 1000000
+  canid_filter_mask: 2016
+  canid_filters:
+    0: NO_FILTER
+    1568: ARM_RX_FILTER
+    1600: ARM_TX_FILTER
+    1632: SCIENCE_RX_FILTER
+    1664: SCIENCE_TX_FILTER
+    1696: GIMBAL_RX_FILTER
+    1728: GIMBAL_TX_FILTER
+    1760: PDB_RX_FILTER
+    1792: PDB_TX_FILTER
+    1824: COMMON_FILTER
   nodes:
   - ARM
   - GIMBAL
   - JETSON
   - PDB
   - SCIENCE
+  roboteq_canids:
+    385: TPDO1
+    641: TPDO2
+    897: TPDO3
+    1153: TPDO4
+    513: RPDO1
+    769: RPDO2
+    1025: RPDO3
+    1281: RPDO4
+    1537: SDO_CMD_QUERY
+    1409: SDO_RESPONSE
   messages:
   - ARM_setControlMode:
       comment: Set control mode for arm joints
-      id: 0
+      id: 1569
       size: 3
       senders:
       - JETSON
@@ -115,7 +138,7 @@ uwrt_mars_rover_can_bus:
           max: 6.0
   - ARM_setJointPosition:
       comment: Set position data for arm joints
-      id: 1
+      id: 1570
       size: 8
       senders:
       - JETSON
@@ -209,7 +232,7 @@ uwrt_mars_rover_can_bus:
           offset: 0
   - ARM_setJointAngularVelocity:
       comment: Set velocity data for arm joints
-      id: 2
+      id: 1571
       size: 8
       senders:
       - JETSON
@@ -291,7 +314,7 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
   - ARM_setJointCurrent:
       comment: Set current data for arm joints
-      id: 3
+      id: 1572
       size: 8
       senders:
       - JETSON
@@ -373,7 +396,7 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
   - ARM_setTurntablePIDParams:
       comment: Set arm turntable PID parameters
-      id: 4
+      id: 1573
       size: 8
       senders:
       - JETSON
@@ -446,7 +469,7 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
   - ARM_setShoulderPIDParams:
       comment: Set arm shoulder PID parameters
-      id: 5
+      id: 1574
       size: 8
       senders:
       - JETSON
@@ -519,7 +542,7 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
   - ARM_setElbowPIDParams:
       comment: Set arm elbow PID parameters
-      id: 6
+      id: 1575
       size: 8
       senders:
       - JETSON
@@ -592,7 +615,7 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
   - ARM_setLeftWristPIDParams:
       comment: Set arm left wrist PID parameters
-      id: 7
+      id: 1576
       size: 8
       senders:
       - JETSON
@@ -665,7 +688,7 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
   - ARM_setRightWristPIDParams:
       comment: Set arm right wrist PID parameters
-      id: 8
+      id: 1577
       size: 8
       senders:
       - JETSON
@@ -738,7 +761,7 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
   - ARM_setClawPIDParams:
       comment: Set arm claw PID parameters
-      id: 9
+      id: 1578
       size: 8
       senders:
       - JETSON
@@ -811,7 +834,7 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
   - ARM_reportJointPosition:
       comment: Arm report joint position data
-      id: 10
+      id: 1600
       size: 8
       senders:
       - ARM
@@ -893,7 +916,7 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
   - ARM_reportJointAngularVelocity:
       comment: Arm report joint angular velocity data
-      id: 11
+      id: 1601
       size: 8
       senders:
       - ARM
@@ -975,7 +998,7 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
   - ARM_reportJointCurrent:
       comment: Arm report joint angular current
-      id: 12
+      id: 1602
       size: 8
       senders:
       - ARM
@@ -1057,7 +1080,7 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
   - ARM_reportFaults:
       comment: Arm fault conditions
-      id: 13
+      id: 1603
       size: 3
       senders:
       - ARM
@@ -1235,7 +1258,7 @@ uwrt_mars_rover_can_bus:
           max: 2.0
   - ARM_reportACK:
       comment: Arm report ACKs to one-shot commands
-      id: 14
+      id: 1604
       size: 1
       senders:
       - ARM
@@ -1266,7 +1289,7 @@ uwrt_mars_rover_can_bus:
           max: 254.0
   - SCIENCE_setControlMode:
       comment: Set control mode for science joints
-      id: 15
+      id: 1632
       size: 1
       senders:
       - JETSON
@@ -1304,9 +1327,193 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
           min: 0.0
           max: 2.0
+  - SCIENCE_setJointPosition:
+      comment: Science set joint position
+      id: 1633
+      size: 8
+      senders:
+      - JETSON
+      receivers:
+      - SCIENCE
+      frequency: 100
+      signals:
+      - SCIENCE_setGenevaPosition:
+          comment: Set science geneva mechanism position
+          startbit: 0
+          length: 16
+          is_signed: true
+          unit: radians
+          values:
+            32767: SNA
+          min: -10.0
+          max: 10.0
+          scale: 0.0003051850947599719
+          offset: 0.0
+      - SCIENCE_setElevatorPosition:
+          comment: Set science elevator position
+          startbit: 16
+          length: 16
+          is_signed: true
+          unit: radians
+          values:
+            32767: SNA
+          min: -10.0
+          max: 10.0
+          scale: 0.0003051850947599719
+          offset: 0.0
+      - SCIENCE_setCoverPosition:
+          comment: Set science cover position
+          startbit: 32
+          length: 16
+          is_signed: false
+          unit: radians
+          values:
+            65535: SNA
+          min: 0.0
+          max: 3.14159
+          scale: 4.793832209234901e-05
+          offset: 0.0
+      - SCIENCE_setShovelPosition:
+          comment: Set science shovel position
+          startbit: 48
+          length: 16
+          is_signed: false
+          unit: radians
+          values:
+            65535: SNA
+          min: 0.0
+          max: 3.14159
+          scale: 4.793832209234901e-05
+          offset: 0.0
+  - SCIENCE_setJointAngularVelocity:
+      comment: Science set joint angular velocity
+      id: 1634
+      size: 4
+      senders:
+      - JETSON
+      receivers:
+      - SCIENCE
+      frequency: 100
+      signals:
+      - SCIENCE_setGenevaAngularVelocity:
+          comment: Science set geneva mechanism angular velocity
+          startbit: 0
+          length: 16
+          is_signed: true
+          unit: radians per second
+          values:
+            32767: SNA
+          min: -10.0
+          max: 10.0
+          scale: 0.0003051850947599719
+          offset: 0.0
+      - SCIENCE_setElevatorAngularVelocity:
+          comment: Science set elevator angular velocity
+          startbit: 16
+          length: 16
+          is_signed: true
+          unit: radians per second
+          values:
+            32767: SNA
+          min: -10.0
+          max: 10.0
+          scale: 0.0003051850947599719
+          offset: 0.0
+  - SCIENCE_reportJointData:
+      comment: Science report joint positions and angular velocities
+      id: 1664
+      size: 8
+      senders:
+      - SCIENCE
+      receivers:
+      - JETSON
+      frequency: 100
+      signals:
+      - SCIENCE_reportGenevaPosition:
+          comment: Science report geneva mechanism position
+          startbit: 0
+          length: 16
+          is_signed: true
+          unit: radians
+          values:
+            32767: SNA
+          min: -10.0
+          max: 10.0
+          scale: 0.0003051850947599719
+          offset: 0.0
+      - SCIENCE_reportElevatorPosition:
+          comment: Science report elevator position
+          startbit: 16
+          length: 16
+          is_signed: true
+          unit: radians
+          values:
+            32767: SNA
+          min: -10.0
+          max: 10.0
+          scale: 0.0003051850947599719
+          offset: 0.0
+      - SCIENCE_reportGenevaAngularVelocity:
+          comment: Science report geneva mechanism angular velocity
+          startbit: 32
+          length: 16
+          is_signed: true
+          unit: radians per second
+          values:
+            32767: SNA
+          min: -10.0
+          max: 10.0
+          scale: 0.0003051850947599719
+          offset: 0.0
+      - SCIENCE_reportElevatorAngularVelocity:
+          comment: Science report elevator angular velocity
+          startbit: 48
+          length: 16
+          is_signed: true
+          unit: radians per second
+          values:
+            32767: SNA
+          min: -10.0
+          max: 10.0
+          scale: 0.0003051850947599719
+          offset: 0.0
+  - SCIENCE_reportSensorData:
+      comment: Science report sensor data
+      id: 1665
+      size: 32
+      senders:
+      - SCIENCE
+      receivers:
+      - JETSON
+      frequency: 100
+      signals:
+      - SCIENCE_moistureData:
+          comment: Science moisture sensor data
+          startbit: 0
+          length: 16
+          is_signed: false
+          unit: ''
+          values:
+            65535: SNA
+          min: 0.0
+          max: 100.0
+          scale: 0.0015259254737998596
+          offset: 0.0
+      - SCIENCE_temperatureData:
+          comment: Science temperature sensor data
+          startbit: 16
+          length: 16
+          is_signed: true
+          unit: Celsius
+          values:
+            32767: SNA
+          min: -50.0
+          max: 100.0
+          scale: 0.0022888882106997894
+          offset: 25.0
   - SCIENCE_reportFaults:
       comment: Science fault conditions
-      id: 20
+      id: 1666
       size: 1
       senders:
       - SCIENCE
@@ -1358,7 +1565,7 @@ uwrt_mars_rover_can_bus:
           max: 2.0
   - SCIENCE_reportACK:
       comment: Science report ACKs to one-shot commands
-      id: 21
+      id: 1667
       size: 1
       senders:
       - SCIENCE
@@ -1382,7 +1589,7 @@ uwrt_mars_rover_can_bus:
           max: 254.0
   - GIMBAL_setControlMode:
       comment: Set control mode for gimbal joints
-      id: 22
+      id: 1696
       size: 1
       senders:
       - JETSON
@@ -1405,9 +1612,111 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
           min: 0.0
           max: 2.0
+  - GIMBAL_setJointPosition:
+      comment: Gimbal set joint position
+      id: 1697
+      size: 6
+      senders:
+      - JETSON
+      receivers:
+      - GIMBAL
+      frequency: 100
+      signals:
+      - GIMBAL_setPanPosition:
+          comment: Gimbal set pan position
+          startbit: 0
+          length: 16
+          is_signed: true
+          unit: radians
+          values:
+            32767: SNA
+          min: -12.0
+          max: 12.0
+          scale: 0.0003662221137119663
+          offset: 0.0
+      - GIMBAL_setPitchPosition:
+          comment: Gimbal set pitch position
+          startbit: 16
+          length: 16
+          is_signed: false
+          unit: radians
+          values:
+            65535: SNA
+          min: 0.0
+          max: 3.14159
+          scale: 4.793832209234901e-05
+          offset: 0.0
+      - GIMBAL_setRollPosition:
+          comment: Gimbal set roll position
+          startbit: 32
+          length: 16
+          is_signed: false
+          unit: radians
+          values:
+            65535: SNA
+          min: 0.0
+          max: 3.14159
+          scale: 4.793832209234901e-05
+          offset: 0.0
+  - GIMBAL_setJointAngularVelocity:
+      comment: Gimbal set joint angular velocity
+      id: 1698
+      size: 2
+      senders:
+      - JETSON
+      receivers:
+      - GIMBAL
+      frequency: 100
+      signals:
+      - GIMBAL_setPanAngularVelocity:
+          comment: Gimbal set pan angular velocity
+          startbit: 0
+          length: 16
+          is_signed: true
+          unit: radians per second
+          values:
+            32767: SNA
+          min: -6.0
+          max: 6.0
+          scale: 0.00018311105685598315
+          offset: 0.0
+  - GIMBAL_reportJointData:
+      comment: Gimbal report joint data
+      id: 1728
+      size: 4
+      senders:
+      - GIMBAL
+      receivers:
+      - JETSON
+      frequency: 100
+      signals:
+      - GIMBAL_reportPanPosition:
+          comment: Gimbal report pan position
+          startbit: 0
+          length: 16
+          is_signed: true
+          unit: radians
+          values:
+            32767: SNA
+          min: -12.0
+          max: 12.0
+          scale: 0.0003662221137119663
+          offset: 0.0
+      - GIMBAL_reportPanAngularVelocity:
+          comment: Gimbal report pan angular velocity
+          startbit: 16
+          length: 16
+          is_signed: true
+          unit: radians per second
+          values:
+            32767: SNA
+          min: -6.0
+          max: 6.0
+          scale: 0.00018311105685598315
+          offset: 0.0
   - GIMBAL_reportFaults:
       comment: Gimbal fault conditions
-      id: 26
+      id: 1729
       size: 1
       senders:
       - GIMBAL
@@ -1431,7 +1740,7 @@ uwrt_mars_rover_can_bus:
           max: 2.0
   - GIMBAL_reportACK:
       comment: Gimbal report ACKs to one-shot commands
-      id: 27
+      id: 1730
       size: 1
       senders:
       - GIMBAL
@@ -1455,7 +1764,7 @@ uwrt_mars_rover_can_bus:
           max: 254.0
   - PDB_setLEDMatrix:
       comment: PDB set LED matrix state
-      id: 28
+      id: 1760
       size: 1
       senders:
       - JETSON
@@ -1479,9 +1788,67 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
           min: 0.0
           max: 6.0
+  - PDB_reportSensorData:
+      comment: PDB report sensor data
+      id: 1792
+      size: 8
+      senders:
+      - PDB
+      receivers:
+      - JETSON
+      frequency: 100
+      signals:
+      - PDB_ultrasonicSensor1Data:
+          comment: PDB ultrasonic sensor 1 data
+          startbit: 0
+          length: 16
+          is_signed: false
+          unit: meters
+          values:
+            65535: SNA
+          min: 0.0
+          max: 500.0
+          scale: 0.007629627368999298
+          offset: 0.0
+      - PDB_ultrasonicSensor2Data:
+          comment: PDB ultrasonic sensor 2 data
+          startbit: 16
+          length: 16
+          is_signed: false
+          unit: meters
+          values:
+            65535: SNA
+          min: 0.0
+          max: 500.0
+          scale: 0.007629627368999298
+          offset: 0.0
+      - PDB_ultrasonicSensor3Data:
+          comment: PDB ultrasonic sensor 3 data
+          startbit: 32
+          length: 16
+          is_signed: false
+          unit: meters
+          values:
+            65535: SNA
+          min: 0.0
+          max: 500.0
+          scale: 0.007629627368999298
+          offset: 0.0
+      - PDB_ultrasonicSensor4Data:
+          comment: PDB ultrasonic sensor 4 data
+          startbit: 48
+          length: 16
+          is_signed: false
+          unit: meters
+          values:
+            65535: SNA
+          min: 0.0
+          max: 500.0
+          scale: 0.007629627368999298
+          offset: 0.0
   - PDB_reportFaults:
       comment: PDB report fault conditions
-      id: 30
+      id: 1793
       size: 2
       senders:
       - PDB
@@ -1592,7 +1959,7 @@ uwrt_mars_rover_can_bus:
           max: 2.0
   - PDB_reportACK:
       comment: PDB report ACKs to one-shot commands
-      id: 31
+      id: 1794
       size: 1
       senders:
       - PDB
@@ -1617,7 +1984,7 @@ uwrt_mars_rover_can_bus:
   - COMMON_switchCANBus:
       comment: Notifies all boards to switch to the specified CAN bus in the dual-bus
         system
-      id: 32
+      id: 1824
       size: 1
       senders:
       - JETSON
@@ -1644,7 +2011,7 @@ uwrt_mars_rover_can_bus:
           max: 2.0
   - COMMON_testMessage1:
       comment: Test CAN message for debugging or placeholder purposes
-      id: 33
+      id: 1825
       size: 1
       senders:
       - ARM
@@ -1677,7 +2044,7 @@ uwrt_mars_rover_can_bus:
           max: 254.0
   - COMMON_testMessage2:
       comment: Test CAN message for debugging or placeholder purposes
-      id: 34
+      id: 1826
       size: 2
       senders:
       - ARM

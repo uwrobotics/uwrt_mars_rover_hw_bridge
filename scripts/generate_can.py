@@ -52,9 +52,13 @@ with open(YAML_FILE_PATH) as file:
 
 bus_name = list(can_yaml.keys())[0]
 bus_frequency = can_yaml[bus_name]['bus_frequency']
+canid_filter_mask = can_yaml[bus_name]['canid_filter_mask']
+canid_filters = can_yaml[bus_name]['canid_filters']
 
 # sort nodes in alphabetical order
 can_yaml[bus_name]['nodes'].sort()
+
+roboteq_enums = can_yaml[bus_name]['roboteq_canids']
 
 # extract CAN nodes
 nodes = []
@@ -216,6 +220,9 @@ subprocess.run(
 # generate CAN enums header
 vars = {
     'canbus_frequency_value': bus_frequency,
+    'canid_filter_mask': canid_filter_mask,
+    'canid_filters': canid_filters,
+    'roboteq_enums': roboteq_enums,
     'msg_enums': AUTOGEN_message_enums,
     'cansignal_enums': AUTOGEN_signal_enum_choices.keys(),
     'cansignal_enum_choices': AUTOGEN_signal_enum_choices,

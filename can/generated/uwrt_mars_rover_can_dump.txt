@@ -3,7 +3,7 @@
   ------------------------------------------------------------------------
 
   Name:       ARM_setControlMode
-  Id:         0x0
+  Id:         0x621
   Length:     3 bytes
   Cycle time: - ms
   Senders:    JETSON
@@ -85,7 +85,7 @@
   ------------------------------------------------------------------------
 
   Name:       ARM_setJointPosition
-  Id:         0x1
+  Id:         0x622
   Length:     8 bytes
   Cycle time: - ms
   Senders:    JETSON
@@ -161,7 +161,7 @@
   ------------------------------------------------------------------------
 
   Name:       ARM_setJointAngularVelocity
-  Id:         0x2
+  Id:         0x623
   Length:     8 bytes
   Cycle time: - ms
   Senders:    JETSON
@@ -232,7 +232,7 @@
   ------------------------------------------------------------------------
 
   Name:       ARM_setJointCurrent
-  Id:         0x3
+  Id:         0x624
   Length:     8 bytes
   Cycle time: - ms
   Senders:    JETSON
@@ -303,7 +303,7 @@
   ------------------------------------------------------------------------
 
   Name:       ARM_setTurntablePIDParams
-  Id:         0x4
+  Id:         0x625
   Length:     8 bytes
   Cycle time: - ms
   Senders:    JETSON
@@ -371,7 +371,7 @@
   ------------------------------------------------------------------------
 
   Name:       ARM_setShoulderPIDParams
-  Id:         0x5
+  Id:         0x626
   Length:     8 bytes
   Cycle time: - ms
   Senders:    JETSON
@@ -439,7 +439,7 @@
   ------------------------------------------------------------------------
 
   Name:       ARM_setElbowPIDParams
-  Id:         0x6
+  Id:         0x627
   Length:     8 bytes
   Cycle time: - ms
   Senders:    JETSON
@@ -507,7 +507,7 @@
   ------------------------------------------------------------------------
 
   Name:       ARM_setLeftWristPIDParams
-  Id:         0x7
+  Id:         0x628
   Length:     8 bytes
   Cycle time: - ms
   Senders:    JETSON
@@ -575,7 +575,7 @@
   ------------------------------------------------------------------------
 
   Name:       ARM_setRightWristPIDParams
-  Id:         0x8
+  Id:         0x629
   Length:     8 bytes
   Cycle time: - ms
   Senders:    JETSON
@@ -643,7 +643,7 @@
   ------------------------------------------------------------------------
 
   Name:       ARM_setClawPIDParams
-  Id:         0x9
+  Id:         0x62a
   Length:     8 bytes
   Cycle time: - ms
   Senders:    JETSON
@@ -711,7 +711,7 @@
   ------------------------------------------------------------------------
 
   Name:       ARM_reportJointPosition
-  Id:         0xa
+  Id:         0x640
   Length:     8 bytes
   Cycle time: - ms
   Senders:    ARM
@@ -782,7 +782,7 @@
   ------------------------------------------------------------------------
 
   Name:       ARM_reportJointAngularVelocity
-  Id:         0xb
+  Id:         0x641
   Length:     8 bytes
   Cycle time: - ms
   Senders:    ARM
@@ -853,7 +853,7 @@
   ------------------------------------------------------------------------
 
   Name:       ARM_reportJointCurrent
-  Id:         0xc
+  Id:         0x642
   Length:     8 bytes
   Cycle time: - ms
   Senders:    ARM
@@ -924,7 +924,7 @@
   ------------------------------------------------------------------------
 
   Name:       ARM_reportFaults
-  Id:         0xd
+  Id:         0x643
   Length:     3 bytes
   Cycle time: - ms
   Senders:    ARM
@@ -1036,7 +1036,7 @@
   ------------------------------------------------------------------------
 
   Name:       ARM_reportACK
-  Id:         0xe
+  Id:         0x644
   Length:     1 bytes
   Cycle time: - ms
   Senders:    ARM
@@ -1073,7 +1073,7 @@
   ------------------------------------------------------------------------
 
   Name:       SCIENCE_setControlMode
-  Id:         0xf
+  Id:         0x660
   Length:     1 bytes
   Cycle time: - ms
   Senders:    JETSON
@@ -1110,8 +1110,261 @@
 
   ------------------------------------------------------------------------
 
+  Name:       SCIENCE_setJointPosition
+  Id:         0x661
+  Length:     8 bytes
+  Cycle time: - ms
+  Senders:    JETSON
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         1 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- SCIENCE_setGenevaPosition
+           +---+---+---+---+---+---+---+---+
+         2 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         3 |<------------------------------|
+     B     +---+---+---+---+---+---+---+---+
+     y       +-- SCIENCE_setElevatorPosition
+     t     +---+---+---+---+---+---+---+---+
+     e   4 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         5 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- SCIENCE_setCoverPosition
+           +---+---+---+---+---+---+---+---+
+         6 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         7 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- SCIENCE_setShovelPosition
+
+  Signal tree:
+
+    -- {root}
+       +-- SCIENCE_setGenevaPosition
+       +-- SCIENCE_setElevatorPosition
+       +-- SCIENCE_setCoverPosition
+       +-- SCIENCE_setShovelPosition
+
+  Signal choices:
+
+    SCIENCE_setGenevaPosition
+        32767 SNA
+
+    SCIENCE_setElevatorPosition
+        32767 SNA
+
+    SCIENCE_setCoverPosition
+        65535 SNA
+
+    SCIENCE_setShovelPosition
+        65535 SNA
+
+  ------------------------------------------------------------------------
+
+  Name:       SCIENCE_setJointAngularVelocity
+  Id:         0x662
+  Length:     4 bytes
+  Cycle time: - ms
+  Senders:    JETSON
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         1 |<------------------------------|
+     B     +---+---+---+---+---+---+---+---+
+     y       +-- SCIENCE_setGenevaAngularVelocity
+     t     +---+---+---+---+---+---+---+---+
+     e   2 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         3 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- SCIENCE_setElevatorAngularVelocity
+
+  Signal tree:
+
+    -- {root}
+       +-- SCIENCE_setGenevaAngularVelocity
+       +-- SCIENCE_setElevatorAngularVelocity
+
+  Signal choices:
+
+    SCIENCE_setGenevaAngularVelocity
+        32767 SNA
+
+    SCIENCE_setElevatorAngularVelocity
+        32767 SNA
+
+  ------------------------------------------------------------------------
+
+  Name:       SCIENCE_reportJointData
+  Id:         0x680
+  Length:     8 bytes
+  Cycle time: - ms
+  Senders:    SCIENCE
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         1 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- SCIENCE_reportGenevaPosition
+           +---+---+---+---+---+---+---+---+
+         2 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         3 |<------------------------------|
+     B     +---+---+---+---+---+---+---+---+
+     y       +-- SCIENCE_reportElevatorPosition
+     t     +---+---+---+---+---+---+---+---+
+     e   4 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         5 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- SCIENCE_reportGenevaAngularVelocity
+           +---+---+---+---+---+---+---+---+
+         6 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         7 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- SCIENCE_reportElevatorAngularVelocity
+
+  Signal tree:
+
+    -- {root}
+       +-- SCIENCE_reportGenevaPosition
+       +-- SCIENCE_reportElevatorPosition
+       +-- SCIENCE_reportGenevaAngularVelocity
+       +-- SCIENCE_reportElevatorAngularVelocity
+
+  Signal choices:
+
+    SCIENCE_reportGenevaPosition
+        32767 SNA
+
+    SCIENCE_reportElevatorPosition
+        32767 SNA
+
+    SCIENCE_reportGenevaAngularVelocity
+        32767 SNA
+
+    SCIENCE_reportElevatorAngularVelocity
+        32767 SNA
+
+  ------------------------------------------------------------------------
+
+  Name:       SCIENCE_reportSensorData
+  Id:         0x681
+  Length:     32 bytes
+  Cycle time: - ms
+  Senders:    SCIENCE
+  Layout:
+
+                           Bit
+
+              7   6   5   4   3   2   1   0
+            +---+---+---+---+---+---+---+---+
+          0 |------------------------------x|
+            +---+---+---+---+---+---+---+---+
+          1 |<------------------------------|
+            +---+---+---+---+---+---+---+---+
+              +-- SCIENCE_moistureData
+            +---+---+---+---+---+---+---+---+
+          2 |------------------------------x|
+            +---+---+---+---+---+---+---+---+
+          3 |<------------------------------|
+            +---+---+---+---+---+---+---+---+
+              +-- SCIENCE_temperatureData
+            +---+---+---+---+---+---+---+---+
+          4 |   |   |   |   |   |   |   |   |
+            +---+---+---+---+---+---+---+---+
+          5 |   |   |   |   |   |   |   |   |
+            +---+---+---+---+---+---+---+---+
+          6 |   |   |   |   |   |   |   |   |
+            +---+---+---+---+---+---+---+---+
+          7 |   |   |   |   |   |   |   |   |
+            +---+---+---+---+---+---+---+---+
+          8 |   |   |   |   |   |   |   |   |
+            +---+---+---+---+---+---+---+---+
+          9 |   |   |   |   |   |   |   |   |
+            +---+---+---+---+---+---+---+---+
+         10 |   |   |   |   |   |   |   |   |
+            +---+---+---+---+---+---+---+---+
+         11 |   |   |   |   |   |   |   |   |
+            +---+---+---+---+---+---+---+---+
+         12 |   |   |   |   |   |   |   |   |
+            +---+---+---+---+---+---+---+---+
+         13 |   |   |   |   |   |   |   |   |
+     B      +---+---+---+---+---+---+---+---+
+     y   14 |   |   |   |   |   |   |   |   |
+     t      +---+---+---+---+---+---+---+---+
+     e   15 |   |   |   |   |   |   |   |   |
+            +---+---+---+---+---+---+---+---+
+         16 |   |   |   |   |   |   |   |   |
+            +---+---+---+---+---+---+---+---+
+         17 |   |   |   |   |   |   |   |   |
+            +---+---+---+---+---+---+---+---+
+         18 |   |   |   |   |   |   |   |   |
+            +---+---+---+---+---+---+---+---+
+         19 |   |   |   |   |   |   |   |   |
+            +---+---+---+---+---+---+---+---+
+         20 |   |   |   |   |   |   |   |   |
+            +---+---+---+---+---+---+---+---+
+         21 |   |   |   |   |   |   |   |   |
+            +---+---+---+---+---+---+---+---+
+         22 |   |   |   |   |   |   |   |   |
+            +---+---+---+---+---+---+---+---+
+         23 |   |   |   |   |   |   |   |   |
+            +---+---+---+---+---+---+---+---+
+         24 |   |   |   |   |   |   |   |   |
+            +---+---+---+---+---+---+---+---+
+         25 |   |   |   |   |   |   |   |   |
+            +---+---+---+---+---+---+---+---+
+         26 |   |   |   |   |   |   |   |   |
+            +---+---+---+---+---+---+---+---+
+         27 |   |   |   |   |   |   |   |   |
+            +---+---+---+---+---+---+---+---+
+         28 |   |   |   |   |   |   |   |   |
+            +---+---+---+---+---+---+---+---+
+         29 |   |   |   |   |   |   |   |   |
+            +---+---+---+---+---+---+---+---+
+         30 |   |   |   |   |   |   |   |   |
+            +---+---+---+---+---+---+---+---+
+         31 |   |   |   |   |   |   |   |   |
+            +---+---+---+---+---+---+---+---+
+
+  Signal tree:
+
+    -- {root}
+       +-- SCIENCE_moistureData
+       +-- SCIENCE_temperatureData
+
+  Signal choices:
+
+    SCIENCE_moistureData
+        65535 SNA
+
+    SCIENCE_temperatureData
+        32767 SNA
+
+  ------------------------------------------------------------------------
+
   Name:       SCIENCE_reportFaults
-  Id:         0x14
+  Id:         0x682
   Length:     1 bytes
   Cycle time: - ms
   Senders:    SCIENCE
@@ -1154,7 +1407,7 @@
   ------------------------------------------------------------------------
 
   Name:       SCIENCE_reportACK
-  Id:         0x15
+  Id:         0x683
   Length:     1 bytes
   Cycle time: - ms
   Senders:    SCIENCE
@@ -1184,7 +1437,7 @@
   ------------------------------------------------------------------------
 
   Name:       GIMBAL_setControlMode
-  Id:         0x16
+  Id:         0x6a0
   Length:     1 bytes
   Cycle time: - ms
   Senders:    JETSON
@@ -1214,8 +1467,125 @@
 
   ------------------------------------------------------------------------
 
+  Name:       GIMBAL_setJointPosition
+  Id:         0x6a1
+  Length:     6 bytes
+  Cycle time: - ms
+  Senders:    JETSON
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         1 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- GIMBAL_setPanPosition
+           +---+---+---+---+---+---+---+---+
+     B   2 |------------------------------x|
+     y     +---+---+---+---+---+---+---+---+
+     t   3 |<------------------------------|
+     e     +---+---+---+---+---+---+---+---+
+             +-- GIMBAL_setPitchPosition
+           +---+---+---+---+---+---+---+---+
+         4 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         5 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- GIMBAL_setRollPosition
+
+  Signal tree:
+
+    -- {root}
+       +-- GIMBAL_setPanPosition
+       +-- GIMBAL_setPitchPosition
+       +-- GIMBAL_setRollPosition
+
+  Signal choices:
+
+    GIMBAL_setPanPosition
+        32767 SNA
+
+    GIMBAL_setPitchPosition
+        65535 SNA
+
+    GIMBAL_setRollPosition
+        65535 SNA
+
+  ------------------------------------------------------------------------
+
+  Name:       GIMBAL_setJointAngularVelocity
+  Id:         0x6a2
+  Length:     2 bytes
+  Cycle time: - ms
+  Senders:    JETSON
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+     B   0 |------------------------------x|
+     y     +---+---+---+---+---+---+---+---+
+     t   1 |<------------------------------|
+     e     +---+---+---+---+---+---+---+---+
+             +-- GIMBAL_setPanAngularVelocity
+
+  Signal tree:
+
+    -- {root}
+       +-- GIMBAL_setPanAngularVelocity
+
+  Signal choices:
+
+    GIMBAL_setPanAngularVelocity
+        32767 SNA
+
+  ------------------------------------------------------------------------
+
+  Name:       GIMBAL_reportJointData
+  Id:         0x6c0
+  Length:     4 bytes
+  Cycle time: - ms
+  Senders:    GIMBAL
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         1 |<------------------------------|
+     B     +---+---+---+---+---+---+---+---+
+     y       +-- GIMBAL_reportPanPosition
+     t     +---+---+---+---+---+---+---+---+
+     e   2 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         3 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- GIMBAL_reportPanAngularVelocity
+
+  Signal tree:
+
+    -- {root}
+       +-- GIMBAL_reportPanPosition
+       +-- GIMBAL_reportPanAngularVelocity
+
+  Signal choices:
+
+    GIMBAL_reportPanPosition
+        32767 SNA
+
+    GIMBAL_reportPanAngularVelocity
+        32767 SNA
+
+  ------------------------------------------------------------------------
+
   Name:       GIMBAL_reportFaults
-  Id:         0x1a
+  Id:         0x6c1
   Length:     1 bytes
   Cycle time: - ms
   Senders:    GIMBAL
@@ -1245,7 +1615,7 @@
   ------------------------------------------------------------------------
 
   Name:       GIMBAL_reportACK
-  Id:         0x1b
+  Id:         0x6c2
   Length:     1 bytes
   Cycle time: - ms
   Senders:    GIMBAL
@@ -1275,7 +1645,7 @@
   ------------------------------------------------------------------------
 
   Name:       PDB_setLEDMatrix
-  Id:         0x1c
+  Id:         0x6e0
   Length:     1 bytes
   Cycle time: - ms
   Senders:    JETSON
@@ -1306,8 +1676,67 @@
 
   ------------------------------------------------------------------------
 
+  Name:       PDB_reportSensorData
+  Id:         0x700
+  Length:     8 bytes
+  Cycle time: - ms
+  Senders:    PDB
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         1 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- PDB_ultrasonicSensor1Data
+           +---+---+---+---+---+---+---+---+
+         2 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         3 |<------------------------------|
+     B     +---+---+---+---+---+---+---+---+
+     y       +-- PDB_ultrasonicSensor2Data
+     t     +---+---+---+---+---+---+---+---+
+     e   4 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         5 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- PDB_ultrasonicSensor3Data
+           +---+---+---+---+---+---+---+---+
+         6 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         7 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- PDB_ultrasonicSensor4Data
+
+  Signal tree:
+
+    -- {root}
+       +-- PDB_ultrasonicSensor1Data
+       +-- PDB_ultrasonicSensor2Data
+       +-- PDB_ultrasonicSensor3Data
+       +-- PDB_ultrasonicSensor4Data
+
+  Signal choices:
+
+    PDB_ultrasonicSensor1Data
+        65535 SNA
+
+    PDB_ultrasonicSensor2Data
+        65535 SNA
+
+    PDB_ultrasonicSensor3Data
+        65535 SNA
+
+    PDB_ultrasonicSensor4Data
+        65535 SNA
+
+  ------------------------------------------------------------------------
+
   Name:       PDB_reportFaults
-  Id:         0x1e
+  Id:         0x701
   Length:     2 bytes
   Cycle time: - ms
   Senders:    PDB
@@ -1384,7 +1813,7 @@
   ------------------------------------------------------------------------
 
   Name:       PDB_reportACK
-  Id:         0x1f
+  Id:         0x702
   Length:     1 bytes
   Cycle time: - ms
   Senders:    PDB
@@ -1414,7 +1843,7 @@
   ------------------------------------------------------------------------
 
   Name:       COMMON_switchCANBus
-  Id:         0x20
+  Id:         0x720
   Length:     1 bytes
   Cycle time: - ms
   Senders:    JETSON
@@ -1444,7 +1873,7 @@
   ------------------------------------------------------------------------
 
   Name:       COMMON_testMessage1
-  Id:         0x21
+  Id:         0x721
   Length:     1 bytes
   Cycle time: - ms
   Senders:    ARM, GIMBAL, JETSON, PDB and SCIENCE
@@ -1475,7 +1904,7 @@
   ------------------------------------------------------------------------
 
   Name:       COMMON_testMessage2
-  Id:         0x22
+  Id:         0x722
   Length:     2 bytes
   Cycle time: - ms
   Senders:    ARM, GIMBAL, JETSON, PDB and SCIENCE

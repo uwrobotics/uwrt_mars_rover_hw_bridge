@@ -9,6 +9,7 @@ namespace HWBRIDGE {
 
 class CANMsgMap {
  private:
+  // Enum-typed keys require a custom hasher
   // https://stackoverflow.com/questions/18837857/cant-use-enum-class-as-unordered-map-key
   struct enumHasher {
     template <typename T>
