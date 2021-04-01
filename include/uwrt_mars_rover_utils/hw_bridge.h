@@ -104,7 +104,6 @@ enum class ActuatorID { TURNTABLE, SHOULDER, ELBOW, WRISTLEFT, WRISTRIGHT, CLAW 
 namespace CONTROL {
 enum class Mode { OPEN_LOOP, VELOCITY, POSITION, CURRENT };
 
-
 namespace SAFETY {
 using SafetyCheckPayload = struct __attribute__((__packed__)) SafetyCheckPayload {
   bool check;
