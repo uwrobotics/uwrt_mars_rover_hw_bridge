@@ -9,12 +9,7 @@ static bool arm_set_control_mode_packer(uint8_t* raw, const CANMsgMap* msgMap, s
 static bool arm_set_joint_position_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len);
 static bool arm_set_joint_angular_velocity_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len);
 static bool arm_set_joint_current_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len);
-static bool arm_set_turntable_pid_params_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len);
-static bool arm_set_shoulder_pid_params_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len);
-static bool arm_set_elbow_pid_params_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len);
-static bool arm_set_left_wrist_pid_params_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len);
-static bool arm_set_right_wrist_pid_params_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len);
-static bool arm_set_claw_pid_params_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len);
+static bool arm_set_joint_pid_params_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len);
 static bool arm_report_joint_position_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len);
 static bool arm_report_joint_angular_velocity_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len);
 static bool arm_report_joint_current_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len);
@@ -46,12 +41,7 @@ static bool arm_set_control_mode_unpacker(uint8_t* raw, CANMsgMap* msgMap);
 static bool arm_set_joint_position_unpacker(uint8_t* raw, CANMsgMap* msgMap);
 static bool arm_set_joint_angular_velocity_unpacker(uint8_t* raw, CANMsgMap* msgMap);
 static bool arm_set_joint_current_unpacker(uint8_t* raw, CANMsgMap* msgMap);
-static bool arm_set_turntable_pid_params_unpacker(uint8_t* raw, CANMsgMap* msgMap);
-static bool arm_set_shoulder_pid_params_unpacker(uint8_t* raw, CANMsgMap* msgMap);
-static bool arm_set_elbow_pid_params_unpacker(uint8_t* raw, CANMsgMap* msgMap);
-static bool arm_set_left_wrist_pid_params_unpacker(uint8_t* raw, CANMsgMap* msgMap);
-static bool arm_set_right_wrist_pid_params_unpacker(uint8_t* raw, CANMsgMap* msgMap);
-static bool arm_set_claw_pid_params_unpacker(uint8_t* raw, CANMsgMap* msgMap);
+static bool arm_set_joint_pid_params_unpacker(uint8_t* raw, CANMsgMap* msgMap);
 static bool arm_report_joint_position_unpacker(uint8_t* raw, CANMsgMap* msgMap);
 static bool arm_report_joint_angular_velocity_unpacker(uint8_t* raw, CANMsgMap* msgMap);
 static bool arm_report_joint_current_unpacker(uint8_t* raw, CANMsgMap* msgMap);
@@ -88,18 +78,8 @@ bool HWBRIDGE::packCANMsg(uint8_t* raw, CANID msgID, const CANMsgMap* msgMap, si
       return arm_set_joint_angular_velocity_packer(raw, msgMap, len);
     case CANID::ARM_SET_JOINT_CURRENT:
       return arm_set_joint_current_packer(raw, msgMap, len);
-    case CANID::ARM_SET_TURNTABLE_PID_PARAMS:
-      return arm_set_turntable_pid_params_packer(raw, msgMap, len);
-    case CANID::ARM_SET_SHOULDER_PID_PARAMS:
-      return arm_set_shoulder_pid_params_packer(raw, msgMap, len);
-    case CANID::ARM_SET_ELBOW_PID_PARAMS:
-      return arm_set_elbow_pid_params_packer(raw, msgMap, len);
-    case CANID::ARM_SET_LEFT_WRIST_PID_PARAMS:
-      return arm_set_left_wrist_pid_params_packer(raw, msgMap, len);
-    case CANID::ARM_SET_RIGHT_WRIST_PID_PARAMS:
-      return arm_set_right_wrist_pid_params_packer(raw, msgMap, len);
-    case CANID::ARM_SET_CLAW_PID_PARAMS:
-      return arm_set_claw_pid_params_packer(raw, msgMap, len);
+    case CANID::ARM_SET_JOINT_PID_PARAMS:
+      return arm_set_joint_pid_params_packer(raw, msgMap, len);
     case CANID::ARM_REPORT_JOINT_POSITION:
       return arm_report_joint_position_packer(raw, msgMap, len);
     case CANID::ARM_REPORT_JOINT_ANGULAR_VELOCITY:
@@ -166,18 +146,8 @@ bool HWBRIDGE::unpackCANMsg(uint8_t* raw, CANID msgID, CANMsgMap* msgMap) {
       return arm_set_joint_angular_velocity_unpacker(raw, msgMap);
     case CANID::ARM_SET_JOINT_CURRENT:
       return arm_set_joint_current_unpacker(raw, msgMap);
-    case CANID::ARM_SET_TURNTABLE_PID_PARAMS:
-      return arm_set_turntable_pid_params_unpacker(raw, msgMap);
-    case CANID::ARM_SET_SHOULDER_PID_PARAMS:
-      return arm_set_shoulder_pid_params_unpacker(raw, msgMap);
-    case CANID::ARM_SET_ELBOW_PID_PARAMS:
-      return arm_set_elbow_pid_params_unpacker(raw, msgMap);
-    case CANID::ARM_SET_LEFT_WRIST_PID_PARAMS:
-      return arm_set_left_wrist_pid_params_unpacker(raw, msgMap);
-    case CANID::ARM_SET_RIGHT_WRIST_PID_PARAMS:
-      return arm_set_right_wrist_pid_params_unpacker(raw, msgMap);
-    case CANID::ARM_SET_CLAW_PID_PARAMS:
-      return arm_set_claw_pid_params_unpacker(raw, msgMap);
+    case CANID::ARM_SET_JOINT_PID_PARAMS:
+      return arm_set_joint_pid_params_unpacker(raw, msgMap);
     case CANID::ARM_REPORT_JOINT_POSITION:
       return arm_report_joint_position_unpacker(raw, msgMap);
     case CANID::ARM_REPORT_JOINT_ANGULAR_VELOCITY:
@@ -374,53 +344,53 @@ bool arm_set_joint_position_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t
       CANSignalValue_t signalValue = it->second;
 
       switch (signalName) {
-        case CANSIGNAL::ARM_TURNTABLE_SET_POSITION:
-          msgStruct.arm_turntable_set_position =
-              uwrt_mars_rover_can_arm_set_joint_position_arm_turntable_set_position_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_set_joint_position_arm_turntable_set_position_is_in_range(
-              msgStruct.arm_turntable_set_position);
+        case CANSIGNAL::ARM_SET_TURNTABLE_POSITION:
+          msgStruct.arm_set_turntable_position =
+              uwrt_mars_rover_can_arm_set_joint_position_arm_set_turntable_position_encode(signalValue);
+          success &= uwrt_mars_rover_can_arm_set_joint_position_arm_set_turntable_position_is_in_range(
+              msgStruct.arm_set_turntable_position);
           break;
 
-        case CANSIGNAL::ARM_SHOULDER_SET_POSITION:
-          msgStruct.arm_shoulder_set_position =
-              uwrt_mars_rover_can_arm_set_joint_position_arm_shoulder_set_position_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_set_joint_position_arm_shoulder_set_position_is_in_range(
-              msgStruct.arm_shoulder_set_position);
+        case CANSIGNAL::ARM_SET_SHOULDER_POSITION:
+          msgStruct.arm_set_shoulder_position =
+              uwrt_mars_rover_can_arm_set_joint_position_arm_set_shoulder_position_encode(signalValue);
+          success &= uwrt_mars_rover_can_arm_set_joint_position_arm_set_shoulder_position_is_in_range(
+              msgStruct.arm_set_shoulder_position);
           break;
 
-        case CANSIGNAL::ARM_ELBOW_SET_POSITION:
-          msgStruct.arm_elbow_set_position =
-              uwrt_mars_rover_can_arm_set_joint_position_arm_elbow_set_position_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_set_joint_position_arm_elbow_set_position_is_in_range(
-              msgStruct.arm_elbow_set_position);
+        case CANSIGNAL::ARM_SET_ELBOW_POSITION:
+          msgStruct.arm_set_elbow_position =
+              uwrt_mars_rover_can_arm_set_joint_position_arm_set_elbow_position_encode(signalValue);
+          success &= uwrt_mars_rover_can_arm_set_joint_position_arm_set_elbow_position_is_in_range(
+              msgStruct.arm_set_elbow_position);
           break;
 
-        case CANSIGNAL::ARM_LEFT_WRIST_SET_POSITION:
-          msgStruct.arm_left_wrist_set_position =
-              uwrt_mars_rover_can_arm_set_joint_position_arm_left_wrist_set_position_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_set_joint_position_arm_left_wrist_set_position_is_in_range(
-              msgStruct.arm_left_wrist_set_position);
+        case CANSIGNAL::ARM_SET_LEFT_WRIST_POSITION:
+          msgStruct.arm_set_left_wrist_position =
+              uwrt_mars_rover_can_arm_set_joint_position_arm_set_left_wrist_position_encode(signalValue);
+          success &= uwrt_mars_rover_can_arm_set_joint_position_arm_set_left_wrist_position_is_in_range(
+              msgStruct.arm_set_left_wrist_position);
           break;
 
-        case CANSIGNAL::ARM_RIGHT_WRIST_SET_POSITION:
-          msgStruct.arm_right_wrist_set_position =
-              uwrt_mars_rover_can_arm_set_joint_position_arm_right_wrist_set_position_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_set_joint_position_arm_right_wrist_set_position_is_in_range(
-              msgStruct.arm_right_wrist_set_position);
+        case CANSIGNAL::ARM_SET_RIGHT_WRIST_POSITION:
+          msgStruct.arm_set_right_wrist_position =
+              uwrt_mars_rover_can_arm_set_joint_position_arm_set_right_wrist_position_encode(signalValue);
+          success &= uwrt_mars_rover_can_arm_set_joint_position_arm_set_right_wrist_position_is_in_range(
+              msgStruct.arm_set_right_wrist_position);
           break;
 
-        case CANSIGNAL::ARM_CLAW_SET_POSITION:
-          msgStruct.arm_claw_set_position =
-              uwrt_mars_rover_can_arm_set_joint_position_arm_claw_set_position_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_set_joint_position_arm_claw_set_position_is_in_range(
-              msgStruct.arm_claw_set_position);
+        case CANSIGNAL::ARM_SET_CLAW_POSITION:
+          msgStruct.arm_set_claw_position =
+              uwrt_mars_rover_can_arm_set_joint_position_arm_set_claw_position_encode(signalValue);
+          success &= uwrt_mars_rover_can_arm_set_joint_position_arm_set_claw_position_is_in_range(
+              msgStruct.arm_set_claw_position);
           break;
 
-        case CANSIGNAL::ARM_TOOL_TIP_SET_POSITION:
-          msgStruct.arm_tool_tip_set_position =
-              uwrt_mars_rover_can_arm_set_joint_position_arm_tool_tip_set_position_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_set_joint_position_arm_tool_tip_set_position_is_in_range(
-              msgStruct.arm_tool_tip_set_position);
+        case CANSIGNAL::ARM_SET_TOOL_TIP_POSITION:
+          msgStruct.arm_set_tool_tip_position =
+              uwrt_mars_rover_can_arm_set_joint_position_arm_set_tool_tip_position_encode(signalValue);
+          success &= uwrt_mars_rover_can_arm_set_joint_position_arm_set_tool_tip_position_is_in_range(
+              msgStruct.arm_set_tool_tip_position);
           break;
 
         default:
@@ -450,49 +420,49 @@ bool arm_set_joint_position_unpacker(uint8_t* raw, CANMsgMap* msgMap) {
       CANSIGNAL signalName = it->first;
 
       switch (signalName) {
-        case CANSIGNAL::ARM_TURNTABLE_SET_POSITION:
+        case CANSIGNAL::ARM_SET_TURNTABLE_POSITION:
           success &=
               msgMap->setSignalValue(msgID, signalName,
-                                     uwrt_mars_rover_can_arm_set_joint_position_arm_turntable_set_position_decode(
-                                         msgStruct.arm_turntable_set_position));
+                                     uwrt_mars_rover_can_arm_set_joint_position_arm_set_turntable_position_decode(
+                                         msgStruct.arm_set_turntable_position));
           break;
 
-        case CANSIGNAL::ARM_SHOULDER_SET_POSITION:
+        case CANSIGNAL::ARM_SET_SHOULDER_POSITION:
           success &= msgMap->setSignalValue(msgID, signalName,
-                                            uwrt_mars_rover_can_arm_set_joint_position_arm_shoulder_set_position_decode(
-                                                msgStruct.arm_shoulder_set_position));
+                                            uwrt_mars_rover_can_arm_set_joint_position_arm_set_shoulder_position_decode(
+                                                msgStruct.arm_set_shoulder_position));
           break;
 
-        case CANSIGNAL::ARM_ELBOW_SET_POSITION:
+        case CANSIGNAL::ARM_SET_ELBOW_POSITION:
           success &= msgMap->setSignalValue(msgID, signalName,
-                                            uwrt_mars_rover_can_arm_set_joint_position_arm_elbow_set_position_decode(
-                                                msgStruct.arm_elbow_set_position));
+                                            uwrt_mars_rover_can_arm_set_joint_position_arm_set_elbow_position_decode(
+                                                msgStruct.arm_set_elbow_position));
           break;
 
-        case CANSIGNAL::ARM_LEFT_WRIST_SET_POSITION:
+        case CANSIGNAL::ARM_SET_LEFT_WRIST_POSITION:
           success &=
               msgMap->setSignalValue(msgID, signalName,
-                                     uwrt_mars_rover_can_arm_set_joint_position_arm_left_wrist_set_position_decode(
-                                         msgStruct.arm_left_wrist_set_position));
+                                     uwrt_mars_rover_can_arm_set_joint_position_arm_set_left_wrist_position_decode(
+                                         msgStruct.arm_set_left_wrist_position));
           break;
 
-        case CANSIGNAL::ARM_RIGHT_WRIST_SET_POSITION:
+        case CANSIGNAL::ARM_SET_RIGHT_WRIST_POSITION:
           success &=
               msgMap->setSignalValue(msgID, signalName,
-                                     uwrt_mars_rover_can_arm_set_joint_position_arm_right_wrist_set_position_decode(
-                                         msgStruct.arm_right_wrist_set_position));
+                                     uwrt_mars_rover_can_arm_set_joint_position_arm_set_right_wrist_position_decode(
+                                         msgStruct.arm_set_right_wrist_position));
           break;
 
-        case CANSIGNAL::ARM_CLAW_SET_POSITION:
+        case CANSIGNAL::ARM_SET_CLAW_POSITION:
           success &= msgMap->setSignalValue(
               msgID, signalName,
-              uwrt_mars_rover_can_arm_set_joint_position_arm_claw_set_position_decode(msgStruct.arm_claw_set_position));
+              uwrt_mars_rover_can_arm_set_joint_position_arm_set_claw_position_decode(msgStruct.arm_set_claw_position));
           break;
 
-        case CANSIGNAL::ARM_TOOL_TIP_SET_POSITION:
+        case CANSIGNAL::ARM_SET_TOOL_TIP_POSITION:
           success &= msgMap->setSignalValue(msgID, signalName,
-                                            uwrt_mars_rover_can_arm_set_joint_position_arm_tool_tip_set_position_decode(
-                                                msgStruct.arm_tool_tip_set_position));
+                                            uwrt_mars_rover_can_arm_set_joint_position_arm_set_tool_tip_position_decode(
+                                                msgStruct.arm_set_tool_tip_position));
           break;
 
         default:
@@ -538,26 +508,28 @@ bool arm_set_joint_angular_velocity_packer(uint8_t* raw, const CANMsgMap* msgMap
               msgStruct.arm_set_elbow_angular_velocity);
           break;
 
-        case CANSIGNAL::ARM_SETLEFT_WRIST_ANGULAR_VELOCITY:
-          msgStruct.arm_setleft_wrist_angular_velocity =
-              uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_setleft_wrist_angular_velocity_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_setleft_wrist_angular_velocity_is_in_range(
-              msgStruct.arm_setleft_wrist_angular_velocity);
-          break;
-
-        case CANSIGNAL::ARM_SETRIGHT_WRIST_ANGULAR_VELOCITY:
-          msgStruct.arm_setright_wrist_angular_velocity =
-              uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_setright_wrist_angular_velocity_encode(
+        case CANSIGNAL::ARM_SET_LEFT_WRIST_ANGULAR_VELOCITY:
+          msgStruct.arm_set_left_wrist_angular_velocity =
+              uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_set_left_wrist_angular_velocity_encode(
                   signalValue);
-          success &= uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_setright_wrist_angular_velocity_is_in_range(
-              msgStruct.arm_setright_wrist_angular_velocity);
+          success &= uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_set_left_wrist_angular_velocity_is_in_range(
+              msgStruct.arm_set_left_wrist_angular_velocity);
           break;
 
-        case CANSIGNAL::ARM_SETCLAW_ANGULAR_VELOCITY:
-          msgStruct.arm_setclaw_angular_velocity =
-              uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_setclaw_angular_velocity_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_setclaw_angular_velocity_is_in_range(
-              msgStruct.arm_setclaw_angular_velocity);
+        case CANSIGNAL::ARM_SET_RIGHT_WRIST_ANGULAR_VELOCITY:
+          msgStruct.arm_set_right_wrist_angular_velocity =
+              uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_set_right_wrist_angular_velocity_encode(
+                  signalValue);
+          success &=
+              uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_set_right_wrist_angular_velocity_is_in_range(
+                  msgStruct.arm_set_right_wrist_angular_velocity);
+          break;
+
+        case CANSIGNAL::ARM_SET_CLAW_ANGULAR_VELOCITY:
+          msgStruct.arm_set_claw_angular_velocity =
+              uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_set_claw_angular_velocity_encode(signalValue);
+          success &= uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_set_claw_angular_velocity_is_in_range(
+              msgStruct.arm_set_claw_angular_velocity);
           break;
 
         default:
@@ -608,25 +580,25 @@ bool arm_set_joint_angular_velocity_unpacker(uint8_t* raw, CANMsgMap* msgMap) {
                   msgStruct.arm_set_elbow_angular_velocity));
           break;
 
-        case CANSIGNAL::ARM_SETLEFT_WRIST_ANGULAR_VELOCITY:
+        case CANSIGNAL::ARM_SET_LEFT_WRIST_ANGULAR_VELOCITY:
           success &= msgMap->setSignalValue(
               msgID, signalName,
-              uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_setleft_wrist_angular_velocity_decode(
-                  msgStruct.arm_setleft_wrist_angular_velocity));
+              uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_set_left_wrist_angular_velocity_decode(
+                  msgStruct.arm_set_left_wrist_angular_velocity));
           break;
 
-        case CANSIGNAL::ARM_SETRIGHT_WRIST_ANGULAR_VELOCITY:
+        case CANSIGNAL::ARM_SET_RIGHT_WRIST_ANGULAR_VELOCITY:
           success &= msgMap->setSignalValue(
               msgID, signalName,
-              uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_setright_wrist_angular_velocity_decode(
-                  msgStruct.arm_setright_wrist_angular_velocity));
+              uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_set_right_wrist_angular_velocity_decode(
+                  msgStruct.arm_set_right_wrist_angular_velocity));
           break;
 
-        case CANSIGNAL::ARM_SETCLAW_ANGULAR_VELOCITY:
+        case CANSIGNAL::ARM_SET_CLAW_ANGULAR_VELOCITY:
           success &= msgMap->setSignalValue(
               msgID, signalName,
-              uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_setclaw_angular_velocity_decode(
-                  msgStruct.arm_setclaw_angular_velocity));
+              uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_set_claw_angular_velocity_decode(
+                  msgStruct.arm_set_claw_angular_velocity));
           break;
 
         default:
@@ -672,25 +644,25 @@ bool arm_set_joint_current_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t&
               msgStruct.arm_set_elbow_current);
           break;
 
-        case CANSIGNAL::ARM_SETLEFT_WRIST_CURRENT:
-          msgStruct.arm_setleft_wrist_current =
-              uwrt_mars_rover_can_arm_set_joint_current_arm_setleft_wrist_current_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_set_joint_current_arm_setleft_wrist_current_is_in_range(
-              msgStruct.arm_setleft_wrist_current);
+        case CANSIGNAL::ARM_SET_LEFT_WRIST_CURRENT:
+          msgStruct.arm_set_left_wrist_current =
+              uwrt_mars_rover_can_arm_set_joint_current_arm_set_left_wrist_current_encode(signalValue);
+          success &= uwrt_mars_rover_can_arm_set_joint_current_arm_set_left_wrist_current_is_in_range(
+              msgStruct.arm_set_left_wrist_current);
           break;
 
-        case CANSIGNAL::ARM_SETRIGHT_WRIST_CURRENT:
-          msgStruct.arm_setright_wrist_current =
-              uwrt_mars_rover_can_arm_set_joint_current_arm_setright_wrist_current_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_set_joint_current_arm_setright_wrist_current_is_in_range(
-              msgStruct.arm_setright_wrist_current);
+        case CANSIGNAL::ARM_SET_RIGHT_WRIST_CURRENT:
+          msgStruct.arm_set_right_wrist_current =
+              uwrt_mars_rover_can_arm_set_joint_current_arm_set_right_wrist_current_encode(signalValue);
+          success &= uwrt_mars_rover_can_arm_set_joint_current_arm_set_right_wrist_current_is_in_range(
+              msgStruct.arm_set_right_wrist_current);
           break;
 
-        case CANSIGNAL::ARM_SETCLAW_CURRENT:
-          msgStruct.arm_setclaw_current =
-              uwrt_mars_rover_can_arm_set_joint_current_arm_setclaw_current_encode(signalValue);
-          success &=
-              uwrt_mars_rover_can_arm_set_joint_current_arm_setclaw_current_is_in_range(msgStruct.arm_setclaw_current);
+        case CANSIGNAL::ARM_SET_CLAW_CURRENT:
+          msgStruct.arm_set_claw_current =
+              uwrt_mars_rover_can_arm_set_joint_current_arm_set_claw_current_encode(signalValue);
+          success &= uwrt_mars_rover_can_arm_set_joint_current_arm_set_claw_current_is_in_range(
+              msgStruct.arm_set_claw_current);
           break;
 
         default:
@@ -738,737 +710,139 @@ bool arm_set_joint_current_unpacker(uint8_t* raw, CANMsgMap* msgMap) {
               uwrt_mars_rover_can_arm_set_joint_current_arm_set_elbow_current_decode(msgStruct.arm_set_elbow_current));
           break;
 
-        case CANSIGNAL::ARM_SETLEFT_WRIST_CURRENT:
+        case CANSIGNAL::ARM_SET_LEFT_WRIST_CURRENT:
           success &= msgMap->setSignalValue(msgID, signalName,
-                                            uwrt_mars_rover_can_arm_set_joint_current_arm_setleft_wrist_current_decode(
-                                                msgStruct.arm_setleft_wrist_current));
+                                            uwrt_mars_rover_can_arm_set_joint_current_arm_set_left_wrist_current_decode(
+                                                msgStruct.arm_set_left_wrist_current));
           break;
 
-        case CANSIGNAL::ARM_SETRIGHT_WRIST_CURRENT:
+        case CANSIGNAL::ARM_SET_RIGHT_WRIST_CURRENT:
+          success &=
+              msgMap->setSignalValue(msgID, signalName,
+                                     uwrt_mars_rover_can_arm_set_joint_current_arm_set_right_wrist_current_decode(
+                                         msgStruct.arm_set_right_wrist_current));
+          break;
+
+        case CANSIGNAL::ARM_SET_CLAW_CURRENT:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_arm_set_joint_current_arm_set_claw_current_decode(msgStruct.arm_set_claw_current));
+          break;
+
+        default:
+          success = false;
+          break;
+      }
+    }
+  }
+
+  return success;
+}
+
+// ARM_setJointPIDParams message packer
+bool arm_set_joint_pid_params_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len) {
+  bool success = true;
+  CANID msgID  = CANID::ARM_SET_JOINT_PID_PARAMS;
+  struct uwrt_mars_rover_can_arm_set_joint_pid_params_t msgStruct;
+
+  if (msgMap->contains(msgID)) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName         = it->first;
+      CANSignalValue_t signalValue = it->second;
+
+      switch (signalName) {
+        case CANSIGNAL::ARM_JOINT_PIDID:
+          msgStruct.arm_joint_pidid = uwrt_mars_rover_can_arm_set_joint_pid_params_arm_joint_pidid_encode(signalValue);
+          success &=
+              uwrt_mars_rover_can_arm_set_joint_pid_params_arm_joint_pidid_is_in_range(msgStruct.arm_joint_pidid);
+          break;
+
+        case CANSIGNAL::ARM_JOINT_PID_PROPORTIONAL_GAIN:
+          msgStruct.arm_joint_pid_proportional_gain =
+              uwrt_mars_rover_can_arm_set_joint_pid_params_arm_joint_pid_proportional_gain_encode(signalValue);
+          success &= uwrt_mars_rover_can_arm_set_joint_pid_params_arm_joint_pid_proportional_gain_is_in_range(
+              msgStruct.arm_joint_pid_proportional_gain);
+          break;
+
+        case CANSIGNAL::ARM_JOINT_PID_INTEGRAL_GAIN:
+          msgStruct.arm_joint_pid_integral_gain =
+              uwrt_mars_rover_can_arm_set_joint_pid_params_arm_joint_pid_integral_gain_encode(signalValue);
+          success &= uwrt_mars_rover_can_arm_set_joint_pid_params_arm_joint_pid_integral_gain_is_in_range(
+              msgStruct.arm_joint_pid_integral_gain);
+          break;
+
+        case CANSIGNAL::ARM_JOINT_PID_DERIVATIVE_GAIN:
+          msgStruct.arm_joint_pid_derivative_gain =
+              uwrt_mars_rover_can_arm_set_joint_pid_params_arm_joint_pid_derivative_gain_encode(signalValue);
+          success &= uwrt_mars_rover_can_arm_set_joint_pid_params_arm_joint_pid_derivative_gain_is_in_range(
+              msgStruct.arm_joint_pid_derivative_gain);
+          break;
+
+        case CANSIGNAL::ARM_JOINT_PID_DEADZONE:
+          msgStruct.arm_joint_pid_deadzone =
+              uwrt_mars_rover_can_arm_set_joint_pid_params_arm_joint_pid_deadzone_encode(signalValue);
+          success &= uwrt_mars_rover_can_arm_set_joint_pid_params_arm_joint_pid_deadzone_is_in_range(
+              msgStruct.arm_joint_pid_deadzone);
+          break;
+
+        default:
+          success = false;
+          break;
+      }
+    }
+    success &= (uwrt_mars_rover_can_arm_set_joint_pid_params_pack(
+                    raw, &msgStruct, UWRT_MARS_ROVER_CAN_ARM_SET_JOINT_PID_PARAMS_LENGTH) ==
+                UWRT_MARS_ROVER_CAN_ARM_SET_JOINT_PID_PARAMS_LENGTH);
+    len = UWRT_MARS_ROVER_CAN_ARM_SET_JOINT_PID_PARAMS_LENGTH;
+  }
+  return success;
+}
+
+// ARM_setJointPIDParams message unpacker
+bool arm_set_joint_pid_params_unpacker(uint8_t* raw, CANMsgMap* msgMap) {
+  bool success = false;
+  CANID msgID  = CANID::ARM_SET_JOINT_PID_PARAMS;
+  struct uwrt_mars_rover_can_arm_set_joint_pid_params_t msgStruct;
+
+  success = (uwrt_mars_rover_can_arm_set_joint_pid_params_unpack(
+                 &msgStruct, raw, UWRT_MARS_ROVER_CAN_ARM_SET_JOINT_PID_PARAMS_LENGTH) == 0);
+
+  if (success && msgMap->contains(msgID)) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName = it->first;
+
+      switch (signalName) {
+        case CANSIGNAL::ARM_JOINT_PIDID:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_arm_set_joint_pid_params_arm_joint_pidid_decode(msgStruct.arm_joint_pidid));
+          break;
+
+        case CANSIGNAL::ARM_JOINT_PID_PROPORTIONAL_GAIN:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_arm_set_joint_pid_params_arm_joint_pid_proportional_gain_decode(
+                  msgStruct.arm_joint_pid_proportional_gain));
+          break;
+
+        case CANSIGNAL::ARM_JOINT_PID_INTEGRAL_GAIN:
+          success &=
+              msgMap->setSignalValue(msgID, signalName,
+                                     uwrt_mars_rover_can_arm_set_joint_pid_params_arm_joint_pid_integral_gain_decode(
+                                         msgStruct.arm_joint_pid_integral_gain));
+          break;
+
+        case CANSIGNAL::ARM_JOINT_PID_DERIVATIVE_GAIN:
+          success &=
+              msgMap->setSignalValue(msgID, signalName,
+                                     uwrt_mars_rover_can_arm_set_joint_pid_params_arm_joint_pid_derivative_gain_decode(
+                                         msgStruct.arm_joint_pid_derivative_gain));
+          break;
+
+        case CANSIGNAL::ARM_JOINT_PID_DEADZONE:
           success &= msgMap->setSignalValue(msgID, signalName,
-                                            uwrt_mars_rover_can_arm_set_joint_current_arm_setright_wrist_current_decode(
-                                                msgStruct.arm_setright_wrist_current));
-          break;
-
-        case CANSIGNAL::ARM_SETCLAW_CURRENT:
-          success &= msgMap->setSignalValue(
-              msgID, signalName,
-              uwrt_mars_rover_can_arm_set_joint_current_arm_setclaw_current_decode(msgStruct.arm_setclaw_current));
-          break;
-
-        default:
-          success = false;
-          break;
-      }
-    }
-  }
-
-  return success;
-}
-
-// ARM_setTurntablePIDParams message packer
-bool arm_set_turntable_pid_params_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len) {
-  bool success = true;
-  CANID msgID  = CANID::ARM_SET_TURNTABLE_PID_PARAMS;
-  struct uwrt_mars_rover_can_arm_set_turntable_pid_params_t msgStruct;
-
-  if (msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
-      CANSIGNAL signalName         = it->first;
-      CANSignalValue_t signalValue = it->second;
-
-      switch (signalName) {
-        case CANSIGNAL::ARM_TURNTABLE_PID_TUNING_MODE:
-          msgStruct.arm_turntable_pid_tuning_mode =
-              uwrt_mars_rover_can_arm_set_turntable_pid_params_arm_turntable_pid_tuning_mode_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_set_turntable_pid_params_arm_turntable_pid_tuning_mode_is_in_range(
-              msgStruct.arm_turntable_pid_tuning_mode);
-          break;
-
-        case CANSIGNAL::ARM_TURNTABLE_PID_PROPORTIONAL_GAIN:
-          msgStruct.arm_turntable_pid_proportional_gain =
-              uwrt_mars_rover_can_arm_set_turntable_pid_params_arm_turntable_pid_proportional_gain_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_set_turntable_pid_params_arm_turntable_pid_proportional_gain_is_in_range(
-              msgStruct.arm_turntable_pid_proportional_gain);
-          break;
-
-        case CANSIGNAL::ARM_TURNTABLE_PID_INTEGRAL_GAIN:
-          msgStruct.arm_turntable_pid_integral_gain =
-              uwrt_mars_rover_can_arm_set_turntable_pid_params_arm_turntable_pid_integral_gain_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_set_turntable_pid_params_arm_turntable_pid_integral_gain_is_in_range(
-              msgStruct.arm_turntable_pid_integral_gain);
-          break;
-
-        case CANSIGNAL::ARM_TURNTABLE_PID_DERIVATIVE_GAIN:
-          msgStruct.arm_turntable_pid_derivative_gain =
-              uwrt_mars_rover_can_arm_set_turntable_pid_params_arm_turntable_pid_derivative_gain_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_set_turntable_pid_params_arm_turntable_pid_derivative_gain_is_in_range(
-              msgStruct.arm_turntable_pid_derivative_gain);
-          break;
-
-        case CANSIGNAL::ARM_TURNTABLE_PID_DEADZONE:
-          msgStruct.arm_turntable_pid_deadzone =
-              uwrt_mars_rover_can_arm_set_turntable_pid_params_arm_turntable_pid_deadzone_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_set_turntable_pid_params_arm_turntable_pid_deadzone_is_in_range(
-              msgStruct.arm_turntable_pid_deadzone);
-          break;
-
-        default:
-          success = false;
-          break;
-      }
-    }
-    success &= (uwrt_mars_rover_can_arm_set_turntable_pid_params_pack(
-                    raw, &msgStruct, UWRT_MARS_ROVER_CAN_ARM_SET_TURNTABLE_PID_PARAMS_LENGTH) ==
-                UWRT_MARS_ROVER_CAN_ARM_SET_TURNTABLE_PID_PARAMS_LENGTH);
-    len = UWRT_MARS_ROVER_CAN_ARM_SET_TURNTABLE_PID_PARAMS_LENGTH;
-  }
-  return success;
-}
-
-// ARM_setTurntablePIDParams message unpacker
-bool arm_set_turntable_pid_params_unpacker(uint8_t* raw, CANMsgMap* msgMap) {
-  bool success = false;
-  CANID msgID  = CANID::ARM_SET_TURNTABLE_PID_PARAMS;
-  struct uwrt_mars_rover_can_arm_set_turntable_pid_params_t msgStruct;
-
-  success = (uwrt_mars_rover_can_arm_set_turntable_pid_params_unpack(
-                 &msgStruct, raw, UWRT_MARS_ROVER_CAN_ARM_SET_TURNTABLE_PID_PARAMS_LENGTH) == 0);
-
-  if (success && msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
-      CANSIGNAL signalName = it->first;
-
-      switch (signalName) {
-        case CANSIGNAL::ARM_TURNTABLE_PID_TUNING_MODE:
-          success &= msgMap->setSignalValue(
-              msgID, signalName,
-              uwrt_mars_rover_can_arm_set_turntable_pid_params_arm_turntable_pid_tuning_mode_decode(
-                  msgStruct.arm_turntable_pid_tuning_mode));
-          break;
-
-        case CANSIGNAL::ARM_TURNTABLE_PID_PROPORTIONAL_GAIN:
-          success &= msgMap->setSignalValue(
-              msgID, signalName,
-              uwrt_mars_rover_can_arm_set_turntable_pid_params_arm_turntable_pid_proportional_gain_decode(
-                  msgStruct.arm_turntable_pid_proportional_gain));
-          break;
-
-        case CANSIGNAL::ARM_TURNTABLE_PID_INTEGRAL_GAIN:
-          success &= msgMap->setSignalValue(
-              msgID, signalName,
-              uwrt_mars_rover_can_arm_set_turntable_pid_params_arm_turntable_pid_integral_gain_decode(
-                  msgStruct.arm_turntable_pid_integral_gain));
-          break;
-
-        case CANSIGNAL::ARM_TURNTABLE_PID_DERIVATIVE_GAIN:
-          success &= msgMap->setSignalValue(
-              msgID, signalName,
-              uwrt_mars_rover_can_arm_set_turntable_pid_params_arm_turntable_pid_derivative_gain_decode(
-                  msgStruct.arm_turntable_pid_derivative_gain));
-          break;
-
-        case CANSIGNAL::ARM_TURNTABLE_PID_DEADZONE:
-          success &=
-              msgMap->setSignalValue(msgID, signalName,
-                                     uwrt_mars_rover_can_arm_set_turntable_pid_params_arm_turntable_pid_deadzone_decode(
-                                         msgStruct.arm_turntable_pid_deadzone));
-          break;
-
-        default:
-          success = false;
-          break;
-      }
-    }
-  }
-
-  return success;
-}
-
-// ARM_setShoulderPIDParams message packer
-bool arm_set_shoulder_pid_params_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len) {
-  bool success = true;
-  CANID msgID  = CANID::ARM_SET_SHOULDER_PID_PARAMS;
-  struct uwrt_mars_rover_can_arm_set_shoulder_pid_params_t msgStruct;
-
-  if (msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
-      CANSIGNAL signalName         = it->first;
-      CANSignalValue_t signalValue = it->second;
-
-      switch (signalName) {
-        case CANSIGNAL::ARM_SHOULDER_PID_TUNING_MODE:
-          msgStruct.arm_shoulder_pid_tuning_mode =
-              uwrt_mars_rover_can_arm_set_shoulder_pid_params_arm_shoulder_pid_tuning_mode_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_set_shoulder_pid_params_arm_shoulder_pid_tuning_mode_is_in_range(
-              msgStruct.arm_shoulder_pid_tuning_mode);
-          break;
-
-        case CANSIGNAL::ARM_SHOULDER_PID_PROPORTIONAL_GAIN:
-          msgStruct.arm_shoulder_pid_proportional_gain =
-              uwrt_mars_rover_can_arm_set_shoulder_pid_params_arm_shoulder_pid_proportional_gain_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_set_shoulder_pid_params_arm_shoulder_pid_proportional_gain_is_in_range(
-              msgStruct.arm_shoulder_pid_proportional_gain);
-          break;
-
-        case CANSIGNAL::ARM_SHOULDER_PID_INTEGRAL_GAIN:
-          msgStruct.arm_shoulder_pid_integral_gain =
-              uwrt_mars_rover_can_arm_set_shoulder_pid_params_arm_shoulder_pid_integral_gain_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_set_shoulder_pid_params_arm_shoulder_pid_integral_gain_is_in_range(
-              msgStruct.arm_shoulder_pid_integral_gain);
-          break;
-
-        case CANSIGNAL::ARM_SHOULDER_PID_DERIVATIVE_GAIN:
-          msgStruct.arm_shoulder_pid_derivative_gain =
-              uwrt_mars_rover_can_arm_set_shoulder_pid_params_arm_shoulder_pid_derivative_gain_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_set_shoulder_pid_params_arm_shoulder_pid_derivative_gain_is_in_range(
-              msgStruct.arm_shoulder_pid_derivative_gain);
-          break;
-
-        case CANSIGNAL::ARM_SHOULDER_PID_DEADZONE:
-          msgStruct.arm_shoulder_pid_deadzone =
-              uwrt_mars_rover_can_arm_set_shoulder_pid_params_arm_shoulder_pid_deadzone_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_set_shoulder_pid_params_arm_shoulder_pid_deadzone_is_in_range(
-              msgStruct.arm_shoulder_pid_deadzone);
-          break;
-
-        default:
-          success = false;
-          break;
-      }
-    }
-    success &= (uwrt_mars_rover_can_arm_set_shoulder_pid_params_pack(
-                    raw, &msgStruct, UWRT_MARS_ROVER_CAN_ARM_SET_SHOULDER_PID_PARAMS_LENGTH) ==
-                UWRT_MARS_ROVER_CAN_ARM_SET_SHOULDER_PID_PARAMS_LENGTH);
-    len = UWRT_MARS_ROVER_CAN_ARM_SET_SHOULDER_PID_PARAMS_LENGTH;
-  }
-  return success;
-}
-
-// ARM_setShoulderPIDParams message unpacker
-bool arm_set_shoulder_pid_params_unpacker(uint8_t* raw, CANMsgMap* msgMap) {
-  bool success = false;
-  CANID msgID  = CANID::ARM_SET_SHOULDER_PID_PARAMS;
-  struct uwrt_mars_rover_can_arm_set_shoulder_pid_params_t msgStruct;
-
-  success = (uwrt_mars_rover_can_arm_set_shoulder_pid_params_unpack(
-                 &msgStruct, raw, UWRT_MARS_ROVER_CAN_ARM_SET_SHOULDER_PID_PARAMS_LENGTH) == 0);
-
-  if (success && msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
-      CANSIGNAL signalName = it->first;
-
-      switch (signalName) {
-        case CANSIGNAL::ARM_SHOULDER_PID_TUNING_MODE:
-          success &= msgMap->setSignalValue(
-              msgID, signalName,
-              uwrt_mars_rover_can_arm_set_shoulder_pid_params_arm_shoulder_pid_tuning_mode_decode(
-                  msgStruct.arm_shoulder_pid_tuning_mode));
-          break;
-
-        case CANSIGNAL::ARM_SHOULDER_PID_PROPORTIONAL_GAIN:
-          success &= msgMap->setSignalValue(
-              msgID, signalName,
-              uwrt_mars_rover_can_arm_set_shoulder_pid_params_arm_shoulder_pid_proportional_gain_decode(
-                  msgStruct.arm_shoulder_pid_proportional_gain));
-          break;
-
-        case CANSIGNAL::ARM_SHOULDER_PID_INTEGRAL_GAIN:
-          success &= msgMap->setSignalValue(
-              msgID, signalName,
-              uwrt_mars_rover_can_arm_set_shoulder_pid_params_arm_shoulder_pid_integral_gain_decode(
-                  msgStruct.arm_shoulder_pid_integral_gain));
-          break;
-
-        case CANSIGNAL::ARM_SHOULDER_PID_DERIVATIVE_GAIN:
-          success &= msgMap->setSignalValue(
-              msgID, signalName,
-              uwrt_mars_rover_can_arm_set_shoulder_pid_params_arm_shoulder_pid_derivative_gain_decode(
-                  msgStruct.arm_shoulder_pid_derivative_gain));
-          break;
-
-        case CANSIGNAL::ARM_SHOULDER_PID_DEADZONE:
-          success &=
-              msgMap->setSignalValue(msgID, signalName,
-                                     uwrt_mars_rover_can_arm_set_shoulder_pid_params_arm_shoulder_pid_deadzone_decode(
-                                         msgStruct.arm_shoulder_pid_deadzone));
-          break;
-
-        default:
-          success = false;
-          break;
-      }
-    }
-  }
-
-  return success;
-}
-
-// ARM_setElbowPIDParams message packer
-bool arm_set_elbow_pid_params_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len) {
-  bool success = true;
-  CANID msgID  = CANID::ARM_SET_ELBOW_PID_PARAMS;
-  struct uwrt_mars_rover_can_arm_set_elbow_pid_params_t msgStruct;
-
-  if (msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
-      CANSIGNAL signalName         = it->first;
-      CANSignalValue_t signalValue = it->second;
-
-      switch (signalName) {
-        case CANSIGNAL::ARM_ELBOW_PID_TUNING_MODE:
-          msgStruct.arm_elbow_pid_tuning_mode =
-              uwrt_mars_rover_can_arm_set_elbow_pid_params_arm_elbow_pid_tuning_mode_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_set_elbow_pid_params_arm_elbow_pid_tuning_mode_is_in_range(
-              msgStruct.arm_elbow_pid_tuning_mode);
-          break;
-
-        case CANSIGNAL::ARM_ELBOW_PID_PROPORTIONAL_GAIN:
-          msgStruct.arm_elbow_pid_proportional_gain =
-              uwrt_mars_rover_can_arm_set_elbow_pid_params_arm_elbow_pid_proportional_gain_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_set_elbow_pid_params_arm_elbow_pid_proportional_gain_is_in_range(
-              msgStruct.arm_elbow_pid_proportional_gain);
-          break;
-
-        case CANSIGNAL::ARM_ELBOW_PID_INTEGRAL_GAIN:
-          msgStruct.arm_elbow_pid_integral_gain =
-              uwrt_mars_rover_can_arm_set_elbow_pid_params_arm_elbow_pid_integral_gain_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_set_elbow_pid_params_arm_elbow_pid_integral_gain_is_in_range(
-              msgStruct.arm_elbow_pid_integral_gain);
-          break;
-
-        case CANSIGNAL::ARM_ELBOW_PID_DERIVATIVE_GAIN:
-          msgStruct.arm_elbow_pid_derivative_gain =
-              uwrt_mars_rover_can_arm_set_elbow_pid_params_arm_elbow_pid_derivative_gain_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_set_elbow_pid_params_arm_elbow_pid_derivative_gain_is_in_range(
-              msgStruct.arm_elbow_pid_derivative_gain);
-          break;
-
-        case CANSIGNAL::ARM_ELBOW_PID_DEADZONE:
-          msgStruct.arm_elbow_pid_deadzone =
-              uwrt_mars_rover_can_arm_set_elbow_pid_params_arm_elbow_pid_deadzone_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_set_elbow_pid_params_arm_elbow_pid_deadzone_is_in_range(
-              msgStruct.arm_elbow_pid_deadzone);
-          break;
-
-        default:
-          success = false;
-          break;
-      }
-    }
-    success &= (uwrt_mars_rover_can_arm_set_elbow_pid_params_pack(
-                    raw, &msgStruct, UWRT_MARS_ROVER_CAN_ARM_SET_ELBOW_PID_PARAMS_LENGTH) ==
-                UWRT_MARS_ROVER_CAN_ARM_SET_ELBOW_PID_PARAMS_LENGTH);
-    len = UWRT_MARS_ROVER_CAN_ARM_SET_ELBOW_PID_PARAMS_LENGTH;
-  }
-  return success;
-}
-
-// ARM_setElbowPIDParams message unpacker
-bool arm_set_elbow_pid_params_unpacker(uint8_t* raw, CANMsgMap* msgMap) {
-  bool success = false;
-  CANID msgID  = CANID::ARM_SET_ELBOW_PID_PARAMS;
-  struct uwrt_mars_rover_can_arm_set_elbow_pid_params_t msgStruct;
-
-  success = (uwrt_mars_rover_can_arm_set_elbow_pid_params_unpack(
-                 &msgStruct, raw, UWRT_MARS_ROVER_CAN_ARM_SET_ELBOW_PID_PARAMS_LENGTH) == 0);
-
-  if (success && msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
-      CANSIGNAL signalName = it->first;
-
-      switch (signalName) {
-        case CANSIGNAL::ARM_ELBOW_PID_TUNING_MODE:
-          success &=
-              msgMap->setSignalValue(msgID, signalName,
-                                     uwrt_mars_rover_can_arm_set_elbow_pid_params_arm_elbow_pid_tuning_mode_decode(
-                                         msgStruct.arm_elbow_pid_tuning_mode));
-          break;
-
-        case CANSIGNAL::ARM_ELBOW_PID_PROPORTIONAL_GAIN:
-          success &= msgMap->setSignalValue(
-              msgID, signalName,
-              uwrt_mars_rover_can_arm_set_elbow_pid_params_arm_elbow_pid_proportional_gain_decode(
-                  msgStruct.arm_elbow_pid_proportional_gain));
-          break;
-
-        case CANSIGNAL::ARM_ELBOW_PID_INTEGRAL_GAIN:
-          success &=
-              msgMap->setSignalValue(msgID, signalName,
-                                     uwrt_mars_rover_can_arm_set_elbow_pid_params_arm_elbow_pid_integral_gain_decode(
-                                         msgStruct.arm_elbow_pid_integral_gain));
-          break;
-
-        case CANSIGNAL::ARM_ELBOW_PID_DERIVATIVE_GAIN:
-          success &=
-              msgMap->setSignalValue(msgID, signalName,
-                                     uwrt_mars_rover_can_arm_set_elbow_pid_params_arm_elbow_pid_derivative_gain_decode(
-                                         msgStruct.arm_elbow_pid_derivative_gain));
-          break;
-
-        case CANSIGNAL::ARM_ELBOW_PID_DEADZONE:
-          success &= msgMap->setSignalValue(msgID, signalName,
-                                            uwrt_mars_rover_can_arm_set_elbow_pid_params_arm_elbow_pid_deadzone_decode(
-                                                msgStruct.arm_elbow_pid_deadzone));
-          break;
-
-        default:
-          success = false;
-          break;
-      }
-    }
-  }
-
-  return success;
-}
-
-// ARM_setLeftWristPIDParams message packer
-bool arm_set_left_wrist_pid_params_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len) {
-  bool success = true;
-  CANID msgID  = CANID::ARM_SET_LEFT_WRIST_PID_PARAMS;
-  struct uwrt_mars_rover_can_arm_set_left_wrist_pid_params_t msgStruct;
-
-  if (msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
-      CANSIGNAL signalName         = it->first;
-      CANSignalValue_t signalValue = it->second;
-
-      switch (signalName) {
-        case CANSIGNAL::ARM_LEFT_WRIST_PID_TUNING_MODE:
-          msgStruct.arm_left_wrist_pid_tuning_mode =
-              uwrt_mars_rover_can_arm_set_left_wrist_pid_params_arm_left_wrist_pid_tuning_mode_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_set_left_wrist_pid_params_arm_left_wrist_pid_tuning_mode_is_in_range(
-              msgStruct.arm_left_wrist_pid_tuning_mode);
-          break;
-
-        case CANSIGNAL::ARM_LEFT_WRIST_PID_PROPORTIONAL_GAIN:
-          msgStruct.arm_left_wrist_pid_proportional_gain =
-              uwrt_mars_rover_can_arm_set_left_wrist_pid_params_arm_left_wrist_pid_proportional_gain_encode(
-                  signalValue);
-          success &= uwrt_mars_rover_can_arm_set_left_wrist_pid_params_arm_left_wrist_pid_proportional_gain_is_in_range(
-              msgStruct.arm_left_wrist_pid_proportional_gain);
-          break;
-
-        case CANSIGNAL::ARM_LEFT_WRIST_PID_INTEGRAL_GAIN:
-          msgStruct.arm_left_wrist_pid_integral_gain =
-              uwrt_mars_rover_can_arm_set_left_wrist_pid_params_arm_left_wrist_pid_integral_gain_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_set_left_wrist_pid_params_arm_left_wrist_pid_integral_gain_is_in_range(
-              msgStruct.arm_left_wrist_pid_integral_gain);
-          break;
-
-        case CANSIGNAL::ARM_LEFT_WRIST_PID_DERIVATIVE_GAIN:
-          msgStruct.arm_left_wrist_pid_derivative_gain =
-              uwrt_mars_rover_can_arm_set_left_wrist_pid_params_arm_left_wrist_pid_derivative_gain_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_set_left_wrist_pid_params_arm_left_wrist_pid_derivative_gain_is_in_range(
-              msgStruct.arm_left_wrist_pid_derivative_gain);
-          break;
-
-        case CANSIGNAL::ARM_LEFT_WRIST_PID_DEADZONE:
-          msgStruct.arm_left_wrist_pid_deadzone =
-              uwrt_mars_rover_can_arm_set_left_wrist_pid_params_arm_left_wrist_pid_deadzone_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_set_left_wrist_pid_params_arm_left_wrist_pid_deadzone_is_in_range(
-              msgStruct.arm_left_wrist_pid_deadzone);
-          break;
-
-        default:
-          success = false;
-          break;
-      }
-    }
-    success &= (uwrt_mars_rover_can_arm_set_left_wrist_pid_params_pack(
-                    raw, &msgStruct, UWRT_MARS_ROVER_CAN_ARM_SET_LEFT_WRIST_PID_PARAMS_LENGTH) ==
-                UWRT_MARS_ROVER_CAN_ARM_SET_LEFT_WRIST_PID_PARAMS_LENGTH);
-    len = UWRT_MARS_ROVER_CAN_ARM_SET_LEFT_WRIST_PID_PARAMS_LENGTH;
-  }
-  return success;
-}
-
-// ARM_setLeftWristPIDParams message unpacker
-bool arm_set_left_wrist_pid_params_unpacker(uint8_t* raw, CANMsgMap* msgMap) {
-  bool success = false;
-  CANID msgID  = CANID::ARM_SET_LEFT_WRIST_PID_PARAMS;
-  struct uwrt_mars_rover_can_arm_set_left_wrist_pid_params_t msgStruct;
-
-  success = (uwrt_mars_rover_can_arm_set_left_wrist_pid_params_unpack(
-                 &msgStruct, raw, UWRT_MARS_ROVER_CAN_ARM_SET_LEFT_WRIST_PID_PARAMS_LENGTH) == 0);
-
-  if (success && msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
-      CANSIGNAL signalName = it->first;
-
-      switch (signalName) {
-        case CANSIGNAL::ARM_LEFT_WRIST_PID_TUNING_MODE:
-          success &= msgMap->setSignalValue(
-              msgID, signalName,
-              uwrt_mars_rover_can_arm_set_left_wrist_pid_params_arm_left_wrist_pid_tuning_mode_decode(
-                  msgStruct.arm_left_wrist_pid_tuning_mode));
-          break;
-
-        case CANSIGNAL::ARM_LEFT_WRIST_PID_PROPORTIONAL_GAIN:
-          success &= msgMap->setSignalValue(
-              msgID, signalName,
-              uwrt_mars_rover_can_arm_set_left_wrist_pid_params_arm_left_wrist_pid_proportional_gain_decode(
-                  msgStruct.arm_left_wrist_pid_proportional_gain));
-          break;
-
-        case CANSIGNAL::ARM_LEFT_WRIST_PID_INTEGRAL_GAIN:
-          success &= msgMap->setSignalValue(
-              msgID, signalName,
-              uwrt_mars_rover_can_arm_set_left_wrist_pid_params_arm_left_wrist_pid_integral_gain_decode(
-                  msgStruct.arm_left_wrist_pid_integral_gain));
-          break;
-
-        case CANSIGNAL::ARM_LEFT_WRIST_PID_DERIVATIVE_GAIN:
-          success &= msgMap->setSignalValue(
-              msgID, signalName,
-              uwrt_mars_rover_can_arm_set_left_wrist_pid_params_arm_left_wrist_pid_derivative_gain_decode(
-                  msgStruct.arm_left_wrist_pid_derivative_gain));
-          break;
-
-        case CANSIGNAL::ARM_LEFT_WRIST_PID_DEADZONE:
-          success &= msgMap->setSignalValue(
-              msgID, signalName,
-              uwrt_mars_rover_can_arm_set_left_wrist_pid_params_arm_left_wrist_pid_deadzone_decode(
-                  msgStruct.arm_left_wrist_pid_deadzone));
-          break;
-
-        default:
-          success = false;
-          break;
-      }
-    }
-  }
-
-  return success;
-}
-
-// ARM_setRightWristPIDParams message packer
-bool arm_set_right_wrist_pid_params_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len) {
-  bool success = true;
-  CANID msgID  = CANID::ARM_SET_RIGHT_WRIST_PID_PARAMS;
-  struct uwrt_mars_rover_can_arm_set_right_wrist_pid_params_t msgStruct;
-
-  if (msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
-      CANSIGNAL signalName         = it->first;
-      CANSignalValue_t signalValue = it->second;
-
-      switch (signalName) {
-        case CANSIGNAL::ARM_RIGHT_WRIST_PID_TUNING_MODE:
-          msgStruct.arm_right_wrist_pid_tuning_mode =
-              uwrt_mars_rover_can_arm_set_right_wrist_pid_params_arm_right_wrist_pid_tuning_mode_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_set_right_wrist_pid_params_arm_right_wrist_pid_tuning_mode_is_in_range(
-              msgStruct.arm_right_wrist_pid_tuning_mode);
-          break;
-
-        case CANSIGNAL::ARM_RIGHT_WRIST_PID_PROPORTIONAL_GAIN:
-          msgStruct.arm_right_wrist_pid_proportional_gain =
-              uwrt_mars_rover_can_arm_set_right_wrist_pid_params_arm_right_wrist_pid_proportional_gain_encode(
-                  signalValue);
-          success &=
-              uwrt_mars_rover_can_arm_set_right_wrist_pid_params_arm_right_wrist_pid_proportional_gain_is_in_range(
-                  msgStruct.arm_right_wrist_pid_proportional_gain);
-          break;
-
-        case CANSIGNAL::ARM_RIGHT_WRIST_PID_INTEGRAL_GAIN:
-          msgStruct.arm_right_wrist_pid_integral_gain =
-              uwrt_mars_rover_can_arm_set_right_wrist_pid_params_arm_right_wrist_pid_integral_gain_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_set_right_wrist_pid_params_arm_right_wrist_pid_integral_gain_is_in_range(
-              msgStruct.arm_right_wrist_pid_integral_gain);
-          break;
-
-        case CANSIGNAL::ARM_RIGHT_WRIST_PID_DERIVATIVE_GAIN:
-          msgStruct.arm_right_wrist_pid_derivative_gain =
-              uwrt_mars_rover_can_arm_set_right_wrist_pid_params_arm_right_wrist_pid_derivative_gain_encode(
-                  signalValue);
-          success &= uwrt_mars_rover_can_arm_set_right_wrist_pid_params_arm_right_wrist_pid_derivative_gain_is_in_range(
-              msgStruct.arm_right_wrist_pid_derivative_gain);
-          break;
-
-        case CANSIGNAL::ARM_RIGHT_WRIST_PID_DEADZONE:
-          msgStruct.arm_right_wrist_pid_deadzone =
-              uwrt_mars_rover_can_arm_set_right_wrist_pid_params_arm_right_wrist_pid_deadzone_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_set_right_wrist_pid_params_arm_right_wrist_pid_deadzone_is_in_range(
-              msgStruct.arm_right_wrist_pid_deadzone);
-          break;
-
-        default:
-          success = false;
-          break;
-      }
-    }
-    success &= (uwrt_mars_rover_can_arm_set_right_wrist_pid_params_pack(
-                    raw, &msgStruct, UWRT_MARS_ROVER_CAN_ARM_SET_RIGHT_WRIST_PID_PARAMS_LENGTH) ==
-                UWRT_MARS_ROVER_CAN_ARM_SET_RIGHT_WRIST_PID_PARAMS_LENGTH);
-    len = UWRT_MARS_ROVER_CAN_ARM_SET_RIGHT_WRIST_PID_PARAMS_LENGTH;
-  }
-  return success;
-}
-
-// ARM_setRightWristPIDParams message unpacker
-bool arm_set_right_wrist_pid_params_unpacker(uint8_t* raw, CANMsgMap* msgMap) {
-  bool success = false;
-  CANID msgID  = CANID::ARM_SET_RIGHT_WRIST_PID_PARAMS;
-  struct uwrt_mars_rover_can_arm_set_right_wrist_pid_params_t msgStruct;
-
-  success = (uwrt_mars_rover_can_arm_set_right_wrist_pid_params_unpack(
-                 &msgStruct, raw, UWRT_MARS_ROVER_CAN_ARM_SET_RIGHT_WRIST_PID_PARAMS_LENGTH) == 0);
-
-  if (success && msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
-      CANSIGNAL signalName = it->first;
-
-      switch (signalName) {
-        case CANSIGNAL::ARM_RIGHT_WRIST_PID_TUNING_MODE:
-          success &= msgMap->setSignalValue(
-              msgID, signalName,
-              uwrt_mars_rover_can_arm_set_right_wrist_pid_params_arm_right_wrist_pid_tuning_mode_decode(
-                  msgStruct.arm_right_wrist_pid_tuning_mode));
-          break;
-
-        case CANSIGNAL::ARM_RIGHT_WRIST_PID_PROPORTIONAL_GAIN:
-          success &= msgMap->setSignalValue(
-              msgID, signalName,
-              uwrt_mars_rover_can_arm_set_right_wrist_pid_params_arm_right_wrist_pid_proportional_gain_decode(
-                  msgStruct.arm_right_wrist_pid_proportional_gain));
-          break;
-
-        case CANSIGNAL::ARM_RIGHT_WRIST_PID_INTEGRAL_GAIN:
-          success &= msgMap->setSignalValue(
-              msgID, signalName,
-              uwrt_mars_rover_can_arm_set_right_wrist_pid_params_arm_right_wrist_pid_integral_gain_decode(
-                  msgStruct.arm_right_wrist_pid_integral_gain));
-          break;
-
-        case CANSIGNAL::ARM_RIGHT_WRIST_PID_DERIVATIVE_GAIN:
-          success &= msgMap->setSignalValue(
-              msgID, signalName,
-              uwrt_mars_rover_can_arm_set_right_wrist_pid_params_arm_right_wrist_pid_derivative_gain_decode(
-                  msgStruct.arm_right_wrist_pid_derivative_gain));
-          break;
-
-        case CANSIGNAL::ARM_RIGHT_WRIST_PID_DEADZONE:
-          success &= msgMap->setSignalValue(
-              msgID, signalName,
-              uwrt_mars_rover_can_arm_set_right_wrist_pid_params_arm_right_wrist_pid_deadzone_decode(
-                  msgStruct.arm_right_wrist_pid_deadzone));
-          break;
-
-        default:
-          success = false;
-          break;
-      }
-    }
-  }
-
-  return success;
-}
-
-// ARM_setClawPIDParams message packer
-bool arm_set_claw_pid_params_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len) {
-  bool success = true;
-  CANID msgID  = CANID::ARM_SET_CLAW_PID_PARAMS;
-  struct uwrt_mars_rover_can_arm_set_claw_pid_params_t msgStruct;
-
-  if (msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
-      CANSIGNAL signalName         = it->first;
-      CANSignalValue_t signalValue = it->second;
-
-      switch (signalName) {
-        case CANSIGNAL::ARM_CLAW_PID_TUNING_MODE:
-          msgStruct.arm_claw_pid_tuning_mode =
-              uwrt_mars_rover_can_arm_set_claw_pid_params_arm_claw_pid_tuning_mode_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_set_claw_pid_params_arm_claw_pid_tuning_mode_is_in_range(
-              msgStruct.arm_claw_pid_tuning_mode);
-          break;
-
-        case CANSIGNAL::ARM_CLAW_PID_PROPORTIONAL_GAIN:
-          msgStruct.arm_claw_pid_proportional_gain =
-              uwrt_mars_rover_can_arm_set_claw_pid_params_arm_claw_pid_proportional_gain_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_set_claw_pid_params_arm_claw_pid_proportional_gain_is_in_range(
-              msgStruct.arm_claw_pid_proportional_gain);
-          break;
-
-        case CANSIGNAL::ARM_CLAW_PID_INTEGRAL_GAIN:
-          msgStruct.arm_claw_pid_integral_gain =
-              uwrt_mars_rover_can_arm_set_claw_pid_params_arm_claw_pid_integral_gain_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_set_claw_pid_params_arm_claw_pid_integral_gain_is_in_range(
-              msgStruct.arm_claw_pid_integral_gain);
-          break;
-
-        case CANSIGNAL::ARM_CLAW_PID_DERIVATIVE_GAIN:
-          msgStruct.arm_claw_pid_derivative_gain =
-              uwrt_mars_rover_can_arm_set_claw_pid_params_arm_claw_pid_derivative_gain_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_set_claw_pid_params_arm_claw_pid_derivative_gain_is_in_range(
-              msgStruct.arm_claw_pid_derivative_gain);
-          break;
-
-        case CANSIGNAL::ARM_CLAW_PID_DEADZONE:
-          msgStruct.arm_claw_pid_deadzone =
-              uwrt_mars_rover_can_arm_set_claw_pid_params_arm_claw_pid_deadzone_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_set_claw_pid_params_arm_claw_pid_deadzone_is_in_range(
-              msgStruct.arm_claw_pid_deadzone);
-          break;
-
-        default:
-          success = false;
-          break;
-      }
-    }
-    success &= (uwrt_mars_rover_can_arm_set_claw_pid_params_pack(raw, &msgStruct,
-                                                                 UWRT_MARS_ROVER_CAN_ARM_SET_CLAW_PID_PARAMS_LENGTH) ==
-                UWRT_MARS_ROVER_CAN_ARM_SET_CLAW_PID_PARAMS_LENGTH);
-    len = UWRT_MARS_ROVER_CAN_ARM_SET_CLAW_PID_PARAMS_LENGTH;
-  }
-  return success;
-}
-
-// ARM_setClawPIDParams message unpacker
-bool arm_set_claw_pid_params_unpacker(uint8_t* raw, CANMsgMap* msgMap) {
-  bool success = false;
-  CANID msgID  = CANID::ARM_SET_CLAW_PID_PARAMS;
-  struct uwrt_mars_rover_can_arm_set_claw_pid_params_t msgStruct;
-
-  success = (uwrt_mars_rover_can_arm_set_claw_pid_params_unpack(
-                 &msgStruct, raw, UWRT_MARS_ROVER_CAN_ARM_SET_CLAW_PID_PARAMS_LENGTH) == 0);
-
-  if (success && msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
-      CANSIGNAL signalName = it->first;
-
-      switch (signalName) {
-        case CANSIGNAL::ARM_CLAW_PID_TUNING_MODE:
-          success &= msgMap->setSignalValue(msgID, signalName,
-                                            uwrt_mars_rover_can_arm_set_claw_pid_params_arm_claw_pid_tuning_mode_decode(
-                                                msgStruct.arm_claw_pid_tuning_mode));
-          break;
-
-        case CANSIGNAL::ARM_CLAW_PID_PROPORTIONAL_GAIN:
-          success &=
-              msgMap->setSignalValue(msgID, signalName,
-                                     uwrt_mars_rover_can_arm_set_claw_pid_params_arm_claw_pid_proportional_gain_decode(
-                                         msgStruct.arm_claw_pid_proportional_gain));
-          break;
-
-        case CANSIGNAL::ARM_CLAW_PID_INTEGRAL_GAIN:
-          success &=
-              msgMap->setSignalValue(msgID, signalName,
-                                     uwrt_mars_rover_can_arm_set_claw_pid_params_arm_claw_pid_integral_gain_decode(
-                                         msgStruct.arm_claw_pid_integral_gain));
-          break;
-
-        case CANSIGNAL::ARM_CLAW_PID_DERIVATIVE_GAIN:
-          success &=
-              msgMap->setSignalValue(msgID, signalName,
-                                     uwrt_mars_rover_can_arm_set_claw_pid_params_arm_claw_pid_derivative_gain_decode(
-                                         msgStruct.arm_claw_pid_derivative_gain));
-          break;
-
-        case CANSIGNAL::ARM_CLAW_PID_DEADZONE:
-          success &= msgMap->setSignalValue(msgID, signalName,
-                                            uwrt_mars_rover_can_arm_set_claw_pid_params_arm_claw_pid_deadzone_decode(
-                                                msgStruct.arm_claw_pid_deadzone));
+                                            uwrt_mars_rover_can_arm_set_joint_pid_params_arm_joint_pid_deadzone_decode(
+                                                msgStruct.arm_joint_pid_deadzone));
           break;
 
         default:
@@ -1528,11 +902,11 @@ bool arm_report_joint_position_packer(uint8_t* raw, const CANMsgMap* msgMap, siz
               msgStruct.arm_report_right_wrist_position);
           break;
 
-        case CANSIGNAL::ARM_REPORT_CLAW_WRIST_POSITION:
-          msgStruct.arm_report_claw_wrist_position =
-              uwrt_mars_rover_can_arm_report_joint_position_arm_report_claw_wrist_position_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_report_joint_position_arm_report_claw_wrist_position_is_in_range(
-              msgStruct.arm_report_claw_wrist_position);
+        case CANSIGNAL::ARM_REPORT_CLAW_POSITION:
+          msgStruct.arm_report_claw_position =
+              uwrt_mars_rover_can_arm_report_joint_position_arm_report_claw_position_encode(signalValue);
+          success &= uwrt_mars_rover_can_arm_report_joint_position_arm_report_claw_position_is_in_range(
+              msgStruct.arm_report_claw_position);
           break;
 
         default:
@@ -1597,11 +971,11 @@ bool arm_report_joint_position_unpacker(uint8_t* raw, CANMsgMap* msgMap) {
                   msgStruct.arm_report_right_wrist_position));
           break;
 
-        case CANSIGNAL::ARM_REPORT_CLAW_WRIST_POSITION:
-          success &= msgMap->setSignalValue(
-              msgID, signalName,
-              uwrt_mars_rover_can_arm_report_joint_position_arm_report_claw_wrist_position_decode(
-                  msgStruct.arm_report_claw_wrist_position));
+        case CANSIGNAL::ARM_REPORT_CLAW_POSITION:
+          success &=
+              msgMap->setSignalValue(msgID, signalName,
+                                     uwrt_mars_rover_can_arm_report_joint_position_arm_report_claw_position_decode(
+                                         msgStruct.arm_report_claw_position));
           break;
 
         default:

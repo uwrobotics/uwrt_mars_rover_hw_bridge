@@ -146,7 +146,7 @@ uwrt_mars_rover_can_bus:
       - ARM
       frequency: 100
       signals:
-      - ARM_turntableSetPosition:
+      - ARM_setTurntablePosition:
           comment: Arm set turntable position data
           startbit: 0
           length: 10
@@ -158,7 +158,7 @@ uwrt_mars_rover_can_bus:
           max: 1.5708
           scale: 0.003073972602739726
           offset: 0.0
-      - ARM_shoulderSetPosition:
+      - ARM_setShoulderPosition:
           comment: Arm set shoulder position data
           startbit: 10
           length: 10
@@ -170,7 +170,7 @@ uwrt_mars_rover_can_bus:
           max: 3.14159
           scale: 0.0030739628180039137
           offset: 0.0
-      - ARM_elbowSetPosition:
+      - ARM_setElbowPosition:
           comment: Arm set elbow position data
           startbit: 20
           length: 10
@@ -182,7 +182,7 @@ uwrt_mars_rover_can_bus:
           max: 1.5708
           scale: 0.003073972602739726
           offset: 0.0
-      - ARM_leftWristSetPosition:
+      - ARM_setLeftWristPosition:
           comment: Arm set left wrist position data
           startbit: 30
           length: 10
@@ -194,7 +194,7 @@ uwrt_mars_rover_can_bus:
           max: 1.5708
           scale: 0.003073972602739726
           offset: 0.0
-      - ARM_rightWristSetPosition:
+      - ARM_setRightWristPosition:
           comment: Arm set right wrist position data
           startbit: 40
           length: 10
@@ -206,7 +206,7 @@ uwrt_mars_rover_can_bus:
           max: 1.5708
           scale: 0.003073972602739726
           offset: 0.0
-      - ARM_clawSetPosition:
+      - ARM_setClawPosition:
           comment: Arm set claw position data
           startbit: 50
           length: 7
@@ -218,7 +218,7 @@ uwrt_mars_rover_can_bus:
           max: 1.5708
           scale: 0.02493333333333333
           offset: 0.0
-      - ARM_toolTipSetPosition:
+      - ARM_setToolTipPosition:
           comment: Arm set tool tip position data
           startbit: 57
           length: 7
@@ -276,7 +276,7 @@ uwrt_mars_rover_can_bus:
           max: 1.8
           scale: 0.0035225048923679062
           offset: 0.0
-      - ARM_setleftWristAngularVelocity:
+      - ARM_setLeftWristAngularVelocity:
           comment: Arm set left wrist angular velocity
           startbit: 30
           length: 10
@@ -288,7 +288,7 @@ uwrt_mars_rover_can_bus:
           max: 7.1
           scale: 0.013894324853228963
           offset: 0.0
-      - ARM_setrightWristAngularVelocity:
+      - ARM_setRightWristAngularVelocity:
           comment: Arm set right wrist angular velocity
           startbit: 40
           length: 10
@@ -300,7 +300,7 @@ uwrt_mars_rover_can_bus:
           max: 7.1
           scale: 0.013894324853228963
           offset: 0.0
-      - ARM_setclawAngularVelocity:
+      - ARM_setClawAngularVelocity:
           comment: Arm set claw angular velocity
           startbit: 50
           length: 10
@@ -358,7 +358,7 @@ uwrt_mars_rover_can_bus:
           max: 25.0
           scale: 0.04892367906066536
           offset: 0.0
-      - ARM_setleftWristCurrent:
+      - ARM_setLeftWristCurrent:
           comment: Arm set left wrist current
           startbit: 30
           length: 10
@@ -370,7 +370,7 @@ uwrt_mars_rover_can_bus:
           max: 5.5
           scale: 0.010763209393346379
           offset: 0.0
-      - ARM_setrightWristCurrent:
+      - ARM_setRightWristCurrent:
           comment: Arm set right wrist current
           startbit: 40
           length: 10
@@ -382,7 +382,7 @@ uwrt_mars_rover_can_bus:
           max: 5.5
           scale: 0.010763209393346379
           offset: 0.0
-      - ARM_setclawCurrent:
+      - ARM_setClawCurrent:
           comment: Arm set claw current
           startbit: 50
           length: 10
@@ -394,8 +394,8 @@ uwrt_mars_rover_can_bus:
           max: 3.0
           scale: 0.005870841487279843
           offset: 0.0
-  - ARM_setTurntablePIDParams:
-      comment: Set arm turntable PID parameters
+  - ARM_setJointPIDParams:
+      comment: Set arm joint PID parameters
       id: 1573
       size: 8
       senders:
@@ -404,24 +404,27 @@ uwrt_mars_rover_can_bus:
       - ARM
       frequency: 0
       signals:
-      - ARM_turntablePIDTuningMode:
-          comment: Arm turntable PID tuning mode
+      - ARM_jointPIDID:
+          comment: Arm joint ID
           startbit: 0
-          length: 2
+          length: 3
           is_signed: false
+          unit: ''
+          values:
+            0: TURNTABLE
+            1: SHOULDER
+            2: ELBOW
+            3: LEFT_WRIST
+            4: RIGHT_WRIST
+            5: CLAW
+            7: SNA
           scale: 1.0
           offset: 0.0
           min: 0.0
-          max: 0.0
-          unit: ''
-          values:
-            0: POSITION
-            1: VELOCITY
-            2: CURRENT
-            3: SNA
-      - ARM_turntablePIDProportionalGain:
-          comment: Arm turntable PID proportional gain
-          startbit: 2
+          max: 6.0
+      - ARM_jointPIDProportionalGain:
+          comment: Arm joint PID proportional gain
+          startbit: 3
           length: 16
           is_signed: false
           unit: ''
@@ -431,9 +434,9 @@ uwrt_mars_rover_can_bus:
           max: 10000.0
           scale: 0.15259254737998595
           offset: 0.0
-      - ARM_turntablePIDIntegralGain:
-          comment: Arm turntable PID integral gain
-          startbit: 18
+      - ARM_jointPIDIntegralGain:
+          comment: Arm joint PID integral gain
+          startbit: 19
           length: 16
           is_signed: false
           unit: ''
@@ -443,9 +446,9 @@ uwrt_mars_rover_can_bus:
           max: 10000.0
           scale: 0.15259254737998595
           offset: 0.0
-      - ARM_turntablePIDDerivativeGain:
-          comment: Arm turntable PID derivative gain
-          startbit: 34
+      - ARM_jointPIDDerivativeGain:
+          comment: Arm joint PID derivative gain
+          startbit: 35
           length: 16
           is_signed: false
           unit: ''
@@ -455,382 +458,17 @@ uwrt_mars_rover_can_bus:
           max: 10000.0
           scale: 0.15259254737998595
           offset: 0.0
-      - ARM_turntablePIDDeadzone:
-          comment: Arm turntable PID deadzone
-          startbit: 50
-          length: 14
+      - ARM_jointPIDDeadzone:
+          comment: Arm joint PID deadzone
+          startbit: 51
+          length: 13
           is_signed: false
           unit: ''
           values:
-            16383: SNA
+            8191: SNA
           min: 0.0
           max: 100.0
-          scale: 0.0061042607740202665
-          offset: 0.0
-  - ARM_setShoulderPIDParams:
-      comment: Set arm shoulder PID parameters
-      id: 1574
-      size: 8
-      senders:
-      - JETSON
-      receivers:
-      - ARM
-      frequency: 0
-      signals:
-      - ARM_shoulderPIDTuningMode:
-          comment: Arm shoulder PID tuning mode
-          startbit: 0
-          length: 2
-          is_signed: false
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 0.0
-          unit: ''
-          values:
-            0: POSITION
-            1: VELOCITY
-            2: CURRENT
-            3: SNA
-      - ARM_shoulderPIDProportionalGain:
-          comment: Arm shoulder PID proportional gain
-          startbit: 2
-          length: 16
-          is_signed: false
-          unit: ''
-          values:
-            65535: SNA
-          min: 0.0
-          max: 10000.0
-          scale: 0.15259254737998595
-          offset: 0.0
-      - ARM_shoulderPIDIntegralGain:
-          comment: Arm shoulder PID integral gain
-          startbit: 18
-          length: 16
-          is_signed: false
-          unit: ''
-          values:
-            65535: SNA
-          min: 0.0
-          max: 10000.0
-          scale: 0.15259254737998595
-          offset: 0.0
-      - ARM_shoulderPIDDerivativeGain:
-          comment: Arm shoulder PID derivative gain
-          startbit: 34
-          length: 16
-          is_signed: false
-          unit: ''
-          values:
-            65535: SNA
-          min: 0.0
-          max: 10000.0
-          scale: 0.15259254737998595
-          offset: 0.0
-      - ARM_shoulderPIDDeadzone:
-          comment: Arm shoulder PID deadzone
-          startbit: 50
-          length: 14
-          is_signed: false
-          unit: ''
-          values:
-            16383: SNA
-          min: 0.0
-          max: 100.0
-          scale: 0.0061042607740202665
-          offset: 0.0
-  - ARM_setElbowPIDParams:
-      comment: Set arm elbow PID parameters
-      id: 1575
-      size: 8
-      senders:
-      - JETSON
-      receivers:
-      - ARM
-      frequency: 0
-      signals:
-      - ARM_elbowPIDTuningMode:
-          comment: Arm elbow PID tuning mode
-          startbit: 0
-          length: 2
-          is_signed: false
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 0.0
-          unit: ''
-          values:
-            0: POSITION
-            1: VELOCITY
-            2: CURRENT
-            3: SNA
-      - ARM_elbowPIDProportionalGain:
-          comment: Arm elbow PID proportional gain
-          startbit: 2
-          length: 16
-          is_signed: false
-          unit: ''
-          values:
-            65535: SNA
-          min: 0.0
-          max: 10000.0
-          scale: 0.15259254737998595
-          offset: 0.0
-      - ARM_elbowPIDIntegralGain:
-          comment: Arm elbow PID integral gain
-          startbit: 18
-          length: 16
-          is_signed: false
-          unit: ''
-          values:
-            65535: SNA
-          min: 0.0
-          max: 10000.0
-          scale: 0.15259254737998595
-          offset: 0.0
-      - ARM_elbowPIDDerivativeGain:
-          comment: Arm elbow PID derivative gain
-          startbit: 34
-          length: 16
-          is_signed: false
-          unit: ''
-          values:
-            65535: SNA
-          min: 0.0
-          max: 10000.0
-          scale: 0.15259254737998595
-          offset: 0.0
-      - ARM_elbowPIDDeadzone:
-          comment: Arm elbow PID deadzone
-          startbit: 50
-          length: 14
-          is_signed: false
-          unit: ''
-          values:
-            16383: SNA
-          min: 0.0
-          max: 100.0
-          scale: 0.0061042607740202665
-          offset: 0.0
-  - ARM_setLeftWristPIDParams:
-      comment: Set arm left wrist PID parameters
-      id: 1576
-      size: 8
-      senders:
-      - JETSON
-      receivers:
-      - ARM
-      frequency: 0
-      signals:
-      - ARM_leftWristPIDTuningMode:
-          comment: Arm left wrist PID tuning mode
-          startbit: 0
-          length: 2
-          is_signed: false
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 0.0
-          unit: ''
-          values:
-            0: POSITION
-            1: VELOCITY
-            2: CURRENT
-            3: SNA
-      - ARM_leftWristPIDProportionalGain:
-          comment: Arm left wrist PID proportional gain
-          startbit: 2
-          length: 16
-          is_signed: false
-          unit: ''
-          values:
-            65535: SNA
-          min: 0.0
-          max: 10000.0
-          scale: 0.15259254737998595
-          offset: 0.0
-      - ARM_leftWristPIDIntegralGain:
-          comment: Arm left wrist PID integral gain
-          startbit: 18
-          length: 16
-          is_signed: false
-          unit: ''
-          values:
-            65535: SNA
-          min: 0.0
-          max: 10000.0
-          scale: 0.15259254737998595
-          offset: 0.0
-      - ARM_leftWristPIDDerivativeGain:
-          comment: Arm left wrist PID derivative gain
-          startbit: 34
-          length: 16
-          is_signed: false
-          unit: ''
-          values:
-            65535: SNA
-          min: 0.0
-          max: 10000.0
-          scale: 0.15259254737998595
-          offset: 0.0
-      - ARM_leftWristPIDDeadzone:
-          comment: Arm left wrist PID deadzone
-          startbit: 50
-          length: 14
-          is_signed: false
-          unit: ''
-          values:
-            16383: SNA
-          min: 0.0
-          max: 100.0
-          scale: 0.0061042607740202665
-          offset: 0.0
-  - ARM_setRightWristPIDParams:
-      comment: Set arm right wrist PID parameters
-      id: 1577
-      size: 8
-      senders:
-      - JETSON
-      receivers:
-      - ARM
-      frequency: 0
-      signals:
-      - ARM_rightWristPIDTuningMode:
-          comment: Arm right wrist PID tuning mode
-          startbit: 0
-          length: 2
-          is_signed: false
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 0.0
-          unit: ''
-          values:
-            0: POSITION
-            1: VELOCITY
-            2: CURRENT
-            3: SNA
-      - ARM_rightWristPIDProportionalGain:
-          comment: Arm right wrist PID proportional gain
-          startbit: 2
-          length: 16
-          is_signed: false
-          unit: ''
-          values:
-            65535: SNA
-          min: 0.0
-          max: 10000.0
-          scale: 0.15259254737998595
-          offset: 0.0
-      - ARM_rightWristPIDIntegralGain:
-          comment: Arm right wrist PID integral gain
-          startbit: 18
-          length: 16
-          is_signed: false
-          unit: ''
-          values:
-            65535: SNA
-          min: 0.0
-          max: 10000.0
-          scale: 0.15259254737998595
-          offset: 0.0
-      - ARM_rightWristPIDDerivativeGain:
-          comment: Arm right wrist PID derivative gain
-          startbit: 34
-          length: 16
-          is_signed: false
-          unit: ''
-          values:
-            65535: SNA
-          min: 0.0
-          max: 10000.0
-          scale: 0.15259254737998595
-          offset: 0.0
-      - ARM_rightWristPIDDeadzone:
-          comment: Arm right wrist PID deadzone
-          startbit: 50
-          length: 14
-          is_signed: false
-          unit: ''
-          values:
-            16383: SNA
-          min: 0.0
-          max: 100.0
-          scale: 0.0061042607740202665
-          offset: 0.0
-  - ARM_setClawPIDParams:
-      comment: Set arm claw PID parameters
-      id: 1578
-      size: 8
-      senders:
-      - JETSON
-      receivers:
-      - ARM
-      frequency: 0
-      signals:
-      - ARM_clawPIDTuningMode:
-          comment: Arm claw PID tuning mode
-          startbit: 0
-          length: 2
-          is_signed: false
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 0.0
-          unit: ''
-          values:
-            0: POSITION
-            1: VELOCITY
-            2: CURRENT
-            3: SNA
-      - ARM_clawPIDProportionalGain:
-          comment: Arm claw PID proportional gain
-          startbit: 2
-          length: 16
-          is_signed: false
-          unit: ''
-          values:
-            65535: SNA
-          min: 0.0
-          max: 10000.0
-          scale: 0.15259254737998595
-          offset: 0.0
-      - ARM_clawPIDIntegralGain:
-          comment: Arm claw PID integral gain
-          startbit: 18
-          length: 16
-          is_signed: false
-          unit: ''
-          values:
-            65535: SNA
-          min: 0.0
-          max: 10000.0
-          scale: 0.15259254737998595
-          offset: 0.0
-      - ARM_clawPIDDerivativeGain:
-          comment: Arm claw PID derivative gain
-          startbit: 34
-          length: 16
-          is_signed: false
-          unit: ''
-          values:
-            65535: SNA
-          min: 0.0
-          max: 10000.0
-          scale: 0.15259254737998595
-          offset: 0.0
-      - ARM_clawPIDDeadzone:
-          comment: Arm claw PID deadzone
-          startbit: 50
-          length: 14
-          is_signed: false
-          unit: ''
-          values:
-            16383: SNA
-          min: 0.0
-          max: 100.0
-          scale: 0.0061042607740202665
+          scale: 0.01221001221001221
           offset: 0.0
   - ARM_reportJointPosition:
       comment: Arm report joint position data
@@ -902,8 +540,8 @@ uwrt_mars_rover_can_bus:
           max: 1.5708
           scale: 0.012368503937007874
           offset: 0.0
-      - ARM_reportClawWristPosition:
-          comment: Arm claw wrist position
+      - ARM_reportClawPosition:
+          comment: Arm claw position
           startbit: 52
           length: 8
           is_signed: true
@@ -1275,13 +913,8 @@ uwrt_mars_rover_can_bus:
           values:
             0: ARM_RESET_ACK
             1: ARM_SET_CONTROL_MODE_ACK
-            2: ARM_SET_TURNTABLE_PID_PARAMS_ACK
-            3: ARM_SET_SHOULDER_PID_PARAMS_ACK
-            4: ARM_SET_ELBOW_PID_PARAMS_ACK
-            5: ARM_SET_LEFT_WRIST_PID_PARAMS_ACK
-            6: ARM_SET_RIGHT_WRIST_PID_PARAMS_ACK
-            7: ARM_SET_CLAW_PID_PARAMS_ACK
-            8: CAN_BUS_SWITCH_ACK
+            2: ARM_SET_JOINT_PID_PARAMS_ACK
+            3: CAN_BUS_SWITCH_ACK
             255: SNA
           scale: 1.0
           offset: 0.0
