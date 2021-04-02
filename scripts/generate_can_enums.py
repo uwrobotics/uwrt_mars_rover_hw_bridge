@@ -67,7 +67,10 @@ def signal_enums_formatted(signal_enums):
 
 
 def signal_enum_choices_formatted(signal_name, signal_enum_choices):
-    return ''.join(['\t{signal_name}_{choice_name} = {choice_value},\n'.format(signal_name=signal_name, choice_name=choice_name, choice_value=choice_value) for choice_value, choice_name in sorted(signal_enum_choices.items())])
+    if signal_enum_choices is not None:
+        return ''.join(['\t{signal_name}_{choice_name} = {choice_value},\n'.format(signal_name=signal_name, choice_name=choice_name, choice_value=choice_value) for choice_value, choice_name in sorted(signal_enum_choices.items())])
+    else:
+        return ''
 
 
 def signal_enum_choices_all_formatted(signal_enum_choices_all):

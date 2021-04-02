@@ -2009,9 +2009,37 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
           min: 0.0
           max: 2.0
-  - COMMON_testMessage1:
-      comment: Test CAN message for debugging or placeholder purposes
+  - COMMON_debugMessage1:
+      comment: CAN message for debugging or placeholder purposes
       id: 1825
+      size: 8
+      senders:
+      - ARM
+      - GIMBAL
+      - JETSON
+      - PDB
+      - SCIENCE
+      receivers:
+      - ARM
+      - GIMBAL
+      - JETSON
+      - PDB
+      - SCIENCE
+      frequency: 0
+      signals:
+      - COMMON_debugSignal1:
+          comment: CAN debug signal
+          startbit: 0
+          length: 64
+          is_signed: false
+          unit: ''
+          scale: 1.0
+          offset: 0.0
+          min: 0.0
+          max: 1.8446744073709552e+19
+  - COMMON_debugMessage2:
+      comment: CAN message for debugging or placeholder purposes
+      id: 1826
       size: 1
       senders:
       - ARM
@@ -2027,63 +2055,23 @@ uwrt_mars_rover_can_bus:
       - SCIENCE
       frequency: 0
       signals:
-      - COMMON_testSignal1:
-          comment: CAN test signal
+      - COMMON_debugSignal2:
+          comment: CAN debug signal
           startbit: 0
           length: 8
           is_signed: false
           unit: ''
           values:
-            0: TEST_VALUE_0
-            1: TEST_VALUE_1
-            2: TEST_VALUE_2
-            3: SNA
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 254.0
-  - COMMON_testMessage2:
-      comment: Test CAN message for debugging or placeholder purposes
-      id: 1826
-      size: 2
-      senders:
-      - ARM
-      - GIMBAL
-      - JETSON
-      - PDB
-      - SCIENCE
-      receivers:
-      - ARM
-      - GIMBAL
-      - JETSON
-      - PDB
-      - SCIENCE
-      frequency: 0
-      signals:
-      - COMMON_testSignal2:
-          comment: CAN test signal
-          startbit: 0
-          length: 8
-          is_signed: false
-          unit: ''
-          values:
-            0: TEST_VALUE_0
-            1: TEST_VALUE_1
-            2: TEST_VALUE_2
+            0: DEBUG_VALUE_0
+            1: DEBUG_VALUE_1
+            2: DEBUG_VALUE_2
+            3: DEBUG_VALUE_3
+            4: DEBUG_VALUE_4
+            5: DEBUG_VALUE_5
+            6: DEBUG_VALUE_6
+            7: DEBUG_VALUE_7
             255: SNA
           scale: 1.0
           offset: 0.0
           min: 0.0
           max: 254.0
-      - COMMON_testSignal3:
-          comment: CAN test signal
-          startbit: 8
-          length: 8
-          is_signed: true
-          unit: ''
-          values:
-            255: SNA
-          min: -10.0
-          max: 10.0
-          scale: 0.07874015748031496
-          offset: 0.0

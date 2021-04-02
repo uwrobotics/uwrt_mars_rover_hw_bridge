@@ -1872,8 +1872,44 @@
 
   ------------------------------------------------------------------------
 
-  Name:       COMMON_testMessage1
+  Name:       COMMON_debugMessage1
   Id:         0x721
+  Length:     8 bytes
+  Cycle time: - ms
+  Senders:    ARM, GIMBAL, JETSON, PDB and SCIENCE
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         1 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         2 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+     B   3 |-------------------------------|
+     y     +---+---+---+---+---+---+---+---+
+     t   4 |-------------------------------|
+     e     +---+---+---+---+---+---+---+---+
+         5 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         6 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         7 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- COMMON_debugSignal1
+
+  Signal tree:
+
+    -- {root}
+       +-- COMMON_debugSignal1
+
+  ------------------------------------------------------------------------
+
+  Name:       COMMON_debugMessage2
+  Id:         0x722
   Length:     1 bytes
   Cycle time: - ms
   Senders:    ARM, GIMBAL, JETSON, PDB and SCIENCE
@@ -1885,58 +1921,25 @@
            +---+---+---+---+---+---+---+---+
      B   0 |<-----------------------------x|
      y     +---+---+---+---+---+---+---+---+
-     t       +-- COMMON_testSignal1
+     t       +-- COMMON_debugSignal2
      e
 
   Signal tree:
 
     -- {root}
-       +-- COMMON_testSignal1
+       +-- COMMON_debugSignal2
 
   Signal choices:
 
-    COMMON_testSignal1
-        0 TEST_VALUE_0
-        1 TEST_VALUE_1
-        2 TEST_VALUE_2
-        3 SNA
-
-  ------------------------------------------------------------------------
-
-  Name:       COMMON_testMessage2
-  Id:         0x722
-  Length:     2 bytes
-  Cycle time: - ms
-  Senders:    ARM, GIMBAL, JETSON, PDB and SCIENCE
-  Layout:
-
-                          Bit
-
-             7   6   5   4   3   2   1   0
-           +---+---+---+---+---+---+---+---+
-         0 |<-----------------------------x|
-     B     +---+---+---+---+---+---+---+---+
-     y       +-- COMMON_testSignal2
-     t     +---+---+---+---+---+---+---+---+
-     e   1 |<-----------------------------x|
-           +---+---+---+---+---+---+---+---+
-             +-- COMMON_testSignal3
-
-  Signal tree:
-
-    -- {root}
-       +-- COMMON_testSignal2
-       +-- COMMON_testSignal3
-
-  Signal choices:
-
-    COMMON_testSignal2
-        0 TEST_VALUE_0
-        1 TEST_VALUE_1
-        2 TEST_VALUE_2
-        255 SNA
-
-    COMMON_testSignal3
+    COMMON_debugSignal2
+        0 DEBUG_VALUE_0
+        1 DEBUG_VALUE_1
+        2 DEBUG_VALUE_2
+        3 DEBUG_VALUE_3
+        4 DEBUG_VALUE_4
+        5 DEBUG_VALUE_5
+        6 DEBUG_VALUE_6
+        7 DEBUG_VALUE_7
         255 SNA
 
   ------------------------------------------------------------------------

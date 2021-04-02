@@ -32,6 +32,7 @@ YAML_FILE_PATH = os.path.join(CAN_FOLDER_PATH, YAML_FILE_NAME)
 
 
 AUTOGEN_message_enums = {}
+AUTOGEN_signal_enums = []
 AUTOGEN_signal_enum_choices = {}
 AUTOGEN_msg_map = {}
 AUTOGEN_original_msg_names = {}
@@ -97,7 +98,9 @@ for message in can_yaml[bus_name]['messages']:
 
         # add to autogen signal enums list and msg map dict
         signal_snake_upper = camel_to_snake_case(signal_name).upper()
-        AUTOGEN_signal_enum_choices[signal_snake_upper] = signal['values']
+        if 'values' in signal and signal['values'] is not None:
+            AUTOGEN_signal_enum_choices[signal_snake_upper] = signal['values']
+        AUTOGEN_signal_enums.append(signal_snake_upper)
         AUTOGEN_msg_map[msg_snake_upper].append(signal_snake_upper)
 
         length = signal['length']
@@ -158,7 +161,7 @@ for message in can_yaml[bus_name]['messages']:
                 minimum=signal['min'],
                 maximum=signal['max'],
                 unit=signal['unit'],
-                choices=signal['values'],
+                choices=signal['values'] if 'values' in signal else None,
                 comment=signal['comment'],
                 receivers=message['receivers']
             )
@@ -224,7 +227,7 @@ vars = {
     'canid_filters': canid_filters,
     'roboteq_enums': roboteq_enums,
     'msg_enums': AUTOGEN_message_enums,
-    'cansignal_enums': AUTOGEN_signal_enum_choices.keys(),
+    'cansignal_enums': AUTOGEN_signal_enums,
     'cansignal_enum_choices': AUTOGEN_signal_enum_choices,
 }
 generate_can_enums.generate(CAN_ENUMS_HEADER_FILE_NAME, vars)
