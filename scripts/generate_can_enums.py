@@ -12,7 +12,7 @@ namespace HWBRIDGE {{
     constexpr uint32_t ROVER_CANBUS_FREQUENCY_HZ = {canbus_frequency_value};
     constexpr uint16_t ROVER_CANID_FILTER_MASK = {canid_filter_mask}; // Use bits 5:10 for addressing, bits 0:4 for message type
 
-    typedef double CANSignalValue_t;
+    typedef double CANSignalValue_t; // Generalize all signal values as double
 
     typedef struct {{
         uint8_t raw[8];

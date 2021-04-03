@@ -131,6 +131,13 @@ BO_ 1634 SCIENCE_setJointAngularVelocity: 4 JETSON
  SG_ SCIENCE_setElevatorAngularVeloci : 16|16@1- (0.0003051850947599719,0.0) [-10.0|10.0] "radians per second"  SCIENCE
  SG_ SCIENCE_setGenevaAngularVelocity : 0|16@1- (0.0003051850947599719,0.0) [-10.0|10.0] "radians per second"  SCIENCE
 
+BO_ 1635 SCIENCE_setJointPIDParams: 8 JETSON
+ SG_ SCIENCE_jointPIDDeadzone : 51|13@1+ (0.01221001221001221,0.0) [0.0|100.0] ""  SCIENCE
+ SG_ SCIENCE_jointPIDDerivativeGain : 35|16@1+ (0.15259254737998595,0.0) [0.0|10000.0] ""  SCIENCE
+ SG_ SCIENCE_jointPIDIntegralGain : 19|16@1+ (0.15259254737998595,0.0) [0.0|10000.0] ""  SCIENCE
+ SG_ SCIENCE_jointPIDProportionalGain : 3|16@1+ (0.15259254737998595,0.0) [0.0|10000.0] ""  SCIENCE
+ SG_ SCIENCE_jointPIDID : 0|3@1+ (1.0,0.0) [0.0|6.0] ""  SCIENCE
+
 BO_ 1664 SCIENCE_reportJointData: 8 SCIENCE
  SG_ SCIENCE_reportElevatorAngularVel : 48|16@1- (0.0003051850947599719,0.0) [-10.0|10.0] "radians per second"  JETSON
  SG_ SCIENCE_reportGenevaAngularVeloc : 32|16@1- (0.0003051850947599719,0.0) [-10.0|10.0] "radians per second"  JETSON
@@ -159,6 +166,13 @@ BO_ 1697 GIMBAL_setJointPosition: 6 JETSON
 
 BO_ 1698 GIMBAL_setJointAngularVelocity: 2 JETSON
  SG_ GIMBAL_setPanAngularVelocity : 0|16@1- (0.00018311105685598315,0.0) [-6.0|6.0] "radians per second"  GIMBAL
+
+BO_ 1699 GIMBAL_setJointPIDParams: 8 JETSON
+ SG_ GIMBAL_jointPIDDeadzone : 51|13@1+ (0.01221001221001221,0.0) [0.0|100.0] ""  GIMBAL
+ SG_ GIMBAL_jointPIDDerivativeGain : 35|16@1+ (0.15259254737998595,0.0) [0.0|10000.0] ""  GIMBAL
+ SG_ GIMBAL_jointPIDIntegralGain : 19|16@1+ (0.15259254737998595,0.0) [0.0|10000.0] ""  GIMBAL
+ SG_ GIMBAL_jointPIDProportionalGain : 3|16@1+ (0.15259254737998595,0.0) [0.0|10000.0] ""  GIMBAL
+ SG_ GIMBAL_jointPIDID : 0|3@1+ (1.0,0.0) [0.0|6.0] ""  GIMBAL
 
 BO_ 1728 GIMBAL_reportJointData: 4 GIMBAL
  SG_ GIMBAL_reportPanAngularVelocity : 16|16@1- (0.00018311105685598315,0.0) [-6.0|6.0] "radians per second"  JETSON
@@ -286,6 +300,12 @@ CM_ SG_ 1633 SCIENCE_setGenevaPosition "Set science geneva mechanism position";
 CM_ BO_ 1634 "Science set joint angular velocity";
 CM_ SG_ 1634 SCIENCE_setElevatorAngularVeloci "Science set elevator angular velocity";
 CM_ SG_ 1634 SCIENCE_setGenevaAngularVelocity "Science set geneva mechanism angular velocity";
+CM_ BO_ 1635 "Set science joint PID parameters";
+CM_ SG_ 1635 SCIENCE_jointPIDDeadzone "Science joint PID deadzone";
+CM_ SG_ 1635 SCIENCE_jointPIDDerivativeGain "Science joint PID derivative gain";
+CM_ SG_ 1635 SCIENCE_jointPIDIntegralGain "Science joint PID integral gain";
+CM_ SG_ 1635 SCIENCE_jointPIDProportionalGain "Science joint PID proportional gain";
+CM_ SG_ 1635 SCIENCE_jointPIDID "Science joint ID";
 CM_ BO_ 1664 "Science report joint positions and angular velocities";
 CM_ SG_ 1664 SCIENCE_reportElevatorAngularVel "Science report elevator angular velocity";
 CM_ SG_ 1664 SCIENCE_reportGenevaAngularVeloc "Science report geneva mechanism angular velocity";
@@ -308,6 +328,12 @@ CM_ SG_ 1697 GIMBAL_setPitchPosition "Gimbal set pitch position";
 CM_ SG_ 1697 GIMBAL_setPanPosition "Gimbal set pan position";
 CM_ BO_ 1698 "Gimbal set joint angular velocity";
 CM_ SG_ 1698 GIMBAL_setPanAngularVelocity "Gimbal set pan angular velocity";
+CM_ BO_ 1699 "Set gimbal joint PID parameters";
+CM_ SG_ 1699 GIMBAL_jointPIDDeadzone "Gimbal joint PID deadzone";
+CM_ SG_ 1699 GIMBAL_jointPIDDerivativeGain "Gimbal joint PID derivative gain";
+CM_ SG_ 1699 GIMBAL_jointPIDIntegralGain "Gimbal joint PID integral gain";
+CM_ SG_ 1699 GIMBAL_jointPIDProportionalGain "Gimbal joint PID proportional gain";
+CM_ SG_ 1699 GIMBAL_jointPIDID "Gimbal joint ID";
 CM_ BO_ 1728 "Gimbal report joint data";
 CM_ SG_ 1728 GIMBAL_reportPanAngularVelocity "Gimbal report pan angular velocity";
 CM_ SG_ 1728 GIMBAL_reportPanPosition "Gimbal report pan position";
@@ -416,6 +442,11 @@ VAL_ 1633 SCIENCE_setElevatorPosition 32767 "SNA" ;
 VAL_ 1633 SCIENCE_setGenevaPosition 32767 "SNA" ;
 VAL_ 1634 SCIENCE_setElevatorAngularVeloci 32767 "SNA" ;
 VAL_ 1634 SCIENCE_setGenevaAngularVelocity 32767 "SNA" ;
+VAL_ 1635 SCIENCE_jointPIDDeadzone 8191 "SNA" ;
+VAL_ 1635 SCIENCE_jointPIDDerivativeGain 65535 "SNA" ;
+VAL_ 1635 SCIENCE_jointPIDIntegralGain 65535 "SNA" ;
+VAL_ 1635 SCIENCE_jointPIDProportionalGain 65535 "SNA" ;
+VAL_ 1635 SCIENCE_jointPIDID 0 "GENEVA" 1 "ELEVATOR" 7 "SNA" ;
 VAL_ 1664 SCIENCE_reportElevatorAngularVel 32767 "SNA" ;
 VAL_ 1664 SCIENCE_reportGenevaAngularVeloc 32767 "SNA" ;
 VAL_ 1664 SCIENCE_reportElevatorPosition 32767 "SNA" ;
@@ -425,16 +456,21 @@ VAL_ 1665 SCIENCE_moistureData 65535 "SNA" ;
 VAL_ 1666 SCIENCE_moistureSensorState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
 VAL_ 1666 SCIENCE_elevatorEncoderState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
 VAL_ 1666 SCIENCE_genevaEncoderState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
-VAL_ 1667 SCIENCE_ACK 0 "SCIENCE_SET_CONTROL_MODE_ACK" 1 "CAN_BUS_SWITCH_ACK" 255 "SNA" ;
+VAL_ 1667 SCIENCE_ACK 0 "SCIENCE_SET_CONTROL_MODE_ACK" 1 "SCIENCE_SET_JOINT_PID_PARAMS_ACK" 2 "CAN_BUS_SWITCH_ACK" 255 "SNA" ;
 VAL_ 1696 GIMBAL_panControlMode 0 "OPEN_LOOP" 1 "POSITION" 2 "VELOCITY" 3 "SNA" ;
 VAL_ 1697 GIMBAL_setRollPosition 65535 "SNA" ;
 VAL_ 1697 GIMBAL_setPitchPosition 65535 "SNA" ;
 VAL_ 1697 GIMBAL_setPanPosition 32767 "SNA" ;
 VAL_ 1698 GIMBAL_setPanAngularVelocity 32767 "SNA" ;
+VAL_ 1699 GIMBAL_jointPIDDeadzone 8191 "SNA" ;
+VAL_ 1699 GIMBAL_jointPIDDerivativeGain 65535 "SNA" ;
+VAL_ 1699 GIMBAL_jointPIDIntegralGain 65535 "SNA" ;
+VAL_ 1699 GIMBAL_jointPIDProportionalGain 65535 "SNA" ;
+VAL_ 1699 GIMBAL_jointPIDID 0 "PAN" 7 "SNA" ;
 VAL_ 1728 GIMBAL_reportPanAngularVelocity 32767 "SNA" ;
 VAL_ 1728 GIMBAL_reportPanPosition 32767 "SNA" ;
 VAL_ 1729 GIMBAL_panEncoderState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
-VAL_ 1730 GIMBAL_ACK 0 "GIMBAL_SET_CONTROL_MODE_ACK" 1 "CAN_BUS_SWITCH_ACK" 255 "SNA" ;
+VAL_ 1730 GIMBAL_ACK 0 "GIMBAL_SET_CONTROL_MODE_ACK" 1 "GIMBAL_SET_JOINT_PID_PARAMS_ACK" 2 "CAN_BUS_SWITCH_ACK" 255 "SNA" ;
 VAL_ 1760 PDB_LEDMatrixState 0 "SOLID_RED" 1 "SOLID_BLUE" 2 "FLASHING_GREEN" 3 "False" 7 "SNA" ;
 VAL_ 1792 PDB_ultrasonicSensor4Data 65535 "SNA" ;
 VAL_ 1792 PDB_ultrasonicSensor3Data 65535 "SNA" ;

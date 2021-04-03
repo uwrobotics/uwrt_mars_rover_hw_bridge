@@ -1052,6 +1052,78 @@ uwrt_mars_rover_can_bus:
           max: 10.0
           scale: 0.0003051850947599719
           offset: 0.0
+  - SCIENCE_setJointPIDParams:
+      comment: Set science joint PID parameters
+      id: 1635
+      size: 8
+      senders:
+      - JETSON
+      receivers:
+      - SCIENCE
+      frequency: 0
+      signals:
+      - SCIENCE_jointPIDID:
+          comment: Science joint ID
+          startbit: 0
+          length: 3
+          is_signed: false
+          unit: ''
+          values:
+            0: GENEVA
+            1: ELEVATOR
+            7: SNA
+          scale: 1.0
+          offset: 0.0
+          min: 0.0
+          max: 6.0
+      - SCIENCE_jointPIDProportionalGain:
+          comment: Science joint PID proportional gain
+          startbit: 3
+          length: 16
+          is_signed: false
+          unit: ''
+          values:
+            65535: SNA
+          min: 0.0
+          max: 10000.0
+          scale: 0.15259254737998595
+          offset: 0.0
+      - SCIENCE_jointPIDIntegralGain:
+          comment: Science joint PID integral gain
+          startbit: 19
+          length: 16
+          is_signed: false
+          unit: ''
+          values:
+            65535: SNA
+          min: 0.0
+          max: 10000.0
+          scale: 0.15259254737998595
+          offset: 0.0
+      - SCIENCE_jointPIDDerivativeGain:
+          comment: Science joint PID derivative gain
+          startbit: 35
+          length: 16
+          is_signed: false
+          unit: ''
+          values:
+            65535: SNA
+          min: 0.0
+          max: 10000.0
+          scale: 0.15259254737998595
+          offset: 0.0
+      - SCIENCE_jointPIDDeadzone:
+          comment: Science joint PID deadzone
+          startbit: 51
+          length: 13
+          is_signed: false
+          unit: ''
+          values:
+            8191: SNA
+          min: 0.0
+          max: 100.0
+          scale: 0.01221001221001221
+          offset: 0.0
   - SCIENCE_reportJointData:
       comment: Science report joint positions and angular velocities
       id: 1664
@@ -1214,7 +1286,8 @@ uwrt_mars_rover_can_bus:
           unit: ''
           values:
             0: SCIENCE_SET_CONTROL_MODE_ACK
-            1: CAN_BUS_SWITCH_ACK
+            1: SCIENCE_SET_JOINT_PID_PARAMS_ACK
+            2: CAN_BUS_SWITCH_ACK
             255: SNA
           scale: 1.0
           offset: 0.0
@@ -1313,6 +1386,77 @@ uwrt_mars_rover_can_bus:
           max: 6.0
           scale: 0.00018311105685598315
           offset: 0.0
+  - GIMBAL_setJointPIDParams:
+      comment: Set gimbal joint PID parameters
+      id: 1699
+      size: 8
+      senders:
+      - JETSON
+      receivers:
+      - GIMBAL
+      frequency: 0
+      signals:
+      - GIMBAL_jointPIDID:
+          comment: Gimbal joint ID
+          startbit: 0
+          length: 3
+          is_signed: false
+          unit: ''
+          values:
+            0: PAN
+            7: SNA
+          scale: 1.0
+          offset: 0.0
+          min: 0.0
+          max: 6.0
+      - GIMBAL_jointPIDProportionalGain:
+          comment: Gimbal joint PID proportional gain
+          startbit: 3
+          length: 16
+          is_signed: false
+          unit: ''
+          values:
+            65535: SNA
+          min: 0.0
+          max: 10000.0
+          scale: 0.15259254737998595
+          offset: 0.0
+      - GIMBAL_jointPIDIntegralGain:
+          comment: Gimbal joint PID integral gain
+          startbit: 19
+          length: 16
+          is_signed: false
+          unit: ''
+          values:
+            65535: SNA
+          min: 0.0
+          max: 10000.0
+          scale: 0.15259254737998595
+          offset: 0.0
+      - GIMBAL_jointPIDDerivativeGain:
+          comment: Gimbal joint PID derivative gain
+          startbit: 35
+          length: 16
+          is_signed: false
+          unit: ''
+          values:
+            65535: SNA
+          min: 0.0
+          max: 10000.0
+          scale: 0.15259254737998595
+          offset: 0.0
+      - GIMBAL_jointPIDDeadzone:
+          comment: Gimbal joint PID deadzone
+          startbit: 51
+          length: 13
+          is_signed: false
+          unit: ''
+          values:
+            8191: SNA
+          min: 0.0
+          max: 100.0
+          scale: 0.01221001221001221
+          offset: 0.0
   - GIMBAL_reportJointData:
       comment: Gimbal report joint data
       id: 1728
@@ -1389,7 +1533,8 @@ uwrt_mars_rover_can_bus:
           unit: ''
           values:
             0: GIMBAL_SET_CONTROL_MODE_ACK
-            1: CAN_BUS_SWITCH_ACK
+            1: GIMBAL_SET_JOINT_PID_PARAMS_ACK
+            2: CAN_BUS_SWITCH_ACK
             255: SNA
           scale: 1.0
           offset: 0.0

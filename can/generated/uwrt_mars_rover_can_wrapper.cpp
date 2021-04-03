@@ -18,6 +18,7 @@ static bool arm_report_ack_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t&
 static bool science_set_control_mode_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len);
 static bool science_set_joint_position_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len);
 static bool science_set_joint_angular_velocity_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len);
+static bool science_set_joint_pid_params_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len);
 static bool science_report_joint_data_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len);
 static bool science_report_sensor_data_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len);
 static bool science_report_faults_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len);
@@ -25,6 +26,7 @@ static bool science_report_ack_packer(uint8_t* raw, const CANMsgMap* msgMap, siz
 static bool gimbal_set_control_mode_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len);
 static bool gimbal_set_joint_position_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len);
 static bool gimbal_set_joint_angular_velocity_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len);
+static bool gimbal_set_joint_pid_params_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len);
 static bool gimbal_report_joint_data_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len);
 static bool gimbal_report_faults_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len);
 static bool gimbal_report_ack_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len);
@@ -50,6 +52,7 @@ static bool arm_report_ack_unpacker(uint8_t* raw, CANMsgMap* msgMap);
 static bool science_set_control_mode_unpacker(uint8_t* raw, CANMsgMap* msgMap);
 static bool science_set_joint_position_unpacker(uint8_t* raw, CANMsgMap* msgMap);
 static bool science_set_joint_angular_velocity_unpacker(uint8_t* raw, CANMsgMap* msgMap);
+static bool science_set_joint_pid_params_unpacker(uint8_t* raw, CANMsgMap* msgMap);
 static bool science_report_joint_data_unpacker(uint8_t* raw, CANMsgMap* msgMap);
 static bool science_report_sensor_data_unpacker(uint8_t* raw, CANMsgMap* msgMap);
 static bool science_report_faults_unpacker(uint8_t* raw, CANMsgMap* msgMap);
@@ -57,6 +60,7 @@ static bool science_report_ack_unpacker(uint8_t* raw, CANMsgMap* msgMap);
 static bool gimbal_set_control_mode_unpacker(uint8_t* raw, CANMsgMap* msgMap);
 static bool gimbal_set_joint_position_unpacker(uint8_t* raw, CANMsgMap* msgMap);
 static bool gimbal_set_joint_angular_velocity_unpacker(uint8_t* raw, CANMsgMap* msgMap);
+static bool gimbal_set_joint_pid_params_unpacker(uint8_t* raw, CANMsgMap* msgMap);
 static bool gimbal_report_joint_data_unpacker(uint8_t* raw, CANMsgMap* msgMap);
 static bool gimbal_report_faults_unpacker(uint8_t* raw, CANMsgMap* msgMap);
 static bool gimbal_report_ack_unpacker(uint8_t* raw, CANMsgMap* msgMap);
@@ -96,6 +100,8 @@ bool HWBRIDGE::packCANMsg(uint8_t* raw, CANID msgID, const CANMsgMap* msgMap, si
       return science_set_joint_position_packer(raw, msgMap, len);
     case CANID::SCIENCE_SET_JOINT_ANGULAR_VELOCITY:
       return science_set_joint_angular_velocity_packer(raw, msgMap, len);
+    case CANID::SCIENCE_SET_JOINT_PID_PARAMS:
+      return science_set_joint_pid_params_packer(raw, msgMap, len);
     case CANID::SCIENCE_REPORT_JOINT_DATA:
       return science_report_joint_data_packer(raw, msgMap, len);
     case CANID::SCIENCE_REPORT_SENSOR_DATA:
@@ -110,6 +116,8 @@ bool HWBRIDGE::packCANMsg(uint8_t* raw, CANID msgID, const CANMsgMap* msgMap, si
       return gimbal_set_joint_position_packer(raw, msgMap, len);
     case CANID::GIMBAL_SET_JOINT_ANGULAR_VELOCITY:
       return gimbal_set_joint_angular_velocity_packer(raw, msgMap, len);
+    case CANID::GIMBAL_SET_JOINT_PID_PARAMS:
+      return gimbal_set_joint_pid_params_packer(raw, msgMap, len);
     case CANID::GIMBAL_REPORT_JOINT_DATA:
       return gimbal_report_joint_data_packer(raw, msgMap, len);
     case CANID::GIMBAL_REPORT_FAULTS:
@@ -164,6 +172,8 @@ bool HWBRIDGE::unpackCANMsg(uint8_t* raw, CANID msgID, CANMsgMap* msgMap) {
       return science_set_joint_position_unpacker(raw, msgMap);
     case CANID::SCIENCE_SET_JOINT_ANGULAR_VELOCITY:
       return science_set_joint_angular_velocity_unpacker(raw, msgMap);
+    case CANID::SCIENCE_SET_JOINT_PID_PARAMS:
+      return science_set_joint_pid_params_unpacker(raw, msgMap);
     case CANID::SCIENCE_REPORT_JOINT_DATA:
       return science_report_joint_data_unpacker(raw, msgMap);
     case CANID::SCIENCE_REPORT_SENSOR_DATA:
@@ -178,6 +188,8 @@ bool HWBRIDGE::unpackCANMsg(uint8_t* raw, CANID msgID, CANMsgMap* msgMap) {
       return gimbal_set_joint_position_unpacker(raw, msgMap);
     case CANID::GIMBAL_SET_JOINT_ANGULAR_VELOCITY:
       return gimbal_set_joint_angular_velocity_unpacker(raw, msgMap);
+    case CANID::GIMBAL_SET_JOINT_PID_PARAMS:
+      return gimbal_set_joint_pid_params_unpacker(raw, msgMap);
     case CANID::GIMBAL_REPORT_JOINT_DATA:
       return gimbal_report_joint_data_unpacker(raw, msgMap);
     case CANID::GIMBAL_REPORT_FAULTS:
@@ -1794,6 +1806,124 @@ bool science_set_joint_angular_velocity_unpacker(uint8_t* raw, CANMsgMap* msgMap
   return success;
 }
 
+// SCIENCE_setJointPIDParams message packer
+bool science_set_joint_pid_params_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len) {
+  bool success = true;
+  CANID msgID  = CANID::SCIENCE_SET_JOINT_PID_PARAMS;
+  struct uwrt_mars_rover_can_science_set_joint_pid_params_t msgStruct;
+
+  if (msgMap->contains(msgID)) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName         = it->first;
+      CANSignalValue_t signalValue = it->second;
+
+      switch (signalName) {
+        case CANSIGNAL::SCIENCE_JOINT_PIDID:
+          msgStruct.science_joint_pidid =
+              uwrt_mars_rover_can_science_set_joint_pid_params_science_joint_pidid_encode(signalValue);
+          success &= uwrt_mars_rover_can_science_set_joint_pid_params_science_joint_pidid_is_in_range(
+              msgStruct.science_joint_pidid);
+          break;
+
+        case CANSIGNAL::SCIENCE_JOINT_PID_PROPORTIONAL_GAIN:
+          msgStruct.science_joint_pid_proportional_gain =
+              uwrt_mars_rover_can_science_set_joint_pid_params_science_joint_pid_proportional_gain_encode(signalValue);
+          success &= uwrt_mars_rover_can_science_set_joint_pid_params_science_joint_pid_proportional_gain_is_in_range(
+              msgStruct.science_joint_pid_proportional_gain);
+          break;
+
+        case CANSIGNAL::SCIENCE_JOINT_PID_INTEGRAL_GAIN:
+          msgStruct.science_joint_pid_integral_gain =
+              uwrt_mars_rover_can_science_set_joint_pid_params_science_joint_pid_integral_gain_encode(signalValue);
+          success &= uwrt_mars_rover_can_science_set_joint_pid_params_science_joint_pid_integral_gain_is_in_range(
+              msgStruct.science_joint_pid_integral_gain);
+          break;
+
+        case CANSIGNAL::SCIENCE_JOINT_PID_DERIVATIVE_GAIN:
+          msgStruct.science_joint_pid_derivative_gain =
+              uwrt_mars_rover_can_science_set_joint_pid_params_science_joint_pid_derivative_gain_encode(signalValue);
+          success &= uwrt_mars_rover_can_science_set_joint_pid_params_science_joint_pid_derivative_gain_is_in_range(
+              msgStruct.science_joint_pid_derivative_gain);
+          break;
+
+        case CANSIGNAL::SCIENCE_JOINT_PID_DEADZONE:
+          msgStruct.science_joint_pid_deadzone =
+              uwrt_mars_rover_can_science_set_joint_pid_params_science_joint_pid_deadzone_encode(signalValue);
+          success &= uwrt_mars_rover_can_science_set_joint_pid_params_science_joint_pid_deadzone_is_in_range(
+              msgStruct.science_joint_pid_deadzone);
+          break;
+
+        default:
+          success = false;
+          break;
+      }
+    }
+    success &= (uwrt_mars_rover_can_science_set_joint_pid_params_pack(
+                    raw, &msgStruct, UWRT_MARS_ROVER_CAN_SCIENCE_SET_JOINT_PID_PARAMS_LENGTH) ==
+                UWRT_MARS_ROVER_CAN_SCIENCE_SET_JOINT_PID_PARAMS_LENGTH);
+    len = UWRT_MARS_ROVER_CAN_SCIENCE_SET_JOINT_PID_PARAMS_LENGTH;
+  }
+  return success;
+}
+
+// SCIENCE_setJointPIDParams message unpacker
+bool science_set_joint_pid_params_unpacker(uint8_t* raw, CANMsgMap* msgMap) {
+  bool success = false;
+  CANID msgID  = CANID::SCIENCE_SET_JOINT_PID_PARAMS;
+  struct uwrt_mars_rover_can_science_set_joint_pid_params_t msgStruct;
+
+  success = (uwrt_mars_rover_can_science_set_joint_pid_params_unpack(
+                 &msgStruct, raw, UWRT_MARS_ROVER_CAN_SCIENCE_SET_JOINT_PID_PARAMS_LENGTH) == 0);
+
+  if (success && msgMap->contains(msgID)) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName = it->first;
+
+      switch (signalName) {
+        case CANSIGNAL::SCIENCE_JOINT_PIDID:
+          success &= msgMap->setSignalValue(msgID, signalName,
+                                            uwrt_mars_rover_can_science_set_joint_pid_params_science_joint_pidid_decode(
+                                                msgStruct.science_joint_pidid));
+          break;
+
+        case CANSIGNAL::SCIENCE_JOINT_PID_PROPORTIONAL_GAIN:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_science_set_joint_pid_params_science_joint_pid_proportional_gain_decode(
+                  msgStruct.science_joint_pid_proportional_gain));
+          break;
+
+        case CANSIGNAL::SCIENCE_JOINT_PID_INTEGRAL_GAIN:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_science_set_joint_pid_params_science_joint_pid_integral_gain_decode(
+                  msgStruct.science_joint_pid_integral_gain));
+          break;
+
+        case CANSIGNAL::SCIENCE_JOINT_PID_DERIVATIVE_GAIN:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_science_set_joint_pid_params_science_joint_pid_derivative_gain_decode(
+                  msgStruct.science_joint_pid_derivative_gain));
+          break;
+
+        case CANSIGNAL::SCIENCE_JOINT_PID_DEADZONE:
+          success &=
+              msgMap->setSignalValue(msgID, signalName,
+                                     uwrt_mars_rover_can_science_set_joint_pid_params_science_joint_pid_deadzone_decode(
+                                         msgStruct.science_joint_pid_deadzone));
+          break;
+
+        default:
+          success = false;
+          break;
+      }
+    }
+  }
+
+  return success;
+}
+
 // SCIENCE_reportJointData message packer
 bool science_report_joint_data_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len) {
   bool success = true;
@@ -2330,6 +2460,124 @@ bool gimbal_set_joint_angular_velocity_unpacker(uint8_t* raw, CANMsgMap* msgMap)
               msgID, signalName,
               uwrt_mars_rover_can_gimbal_set_joint_angular_velocity_gimbal_set_pan_angular_velocity_decode(
                   msgStruct.gimbal_set_pan_angular_velocity));
+          break;
+
+        default:
+          success = false;
+          break;
+      }
+    }
+  }
+
+  return success;
+}
+
+// GIMBAL_setJointPIDParams message packer
+bool gimbal_set_joint_pid_params_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len) {
+  bool success = true;
+  CANID msgID  = CANID::GIMBAL_SET_JOINT_PID_PARAMS;
+  struct uwrt_mars_rover_can_gimbal_set_joint_pid_params_t msgStruct;
+
+  if (msgMap->contains(msgID)) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName         = it->first;
+      CANSignalValue_t signalValue = it->second;
+
+      switch (signalName) {
+        case CANSIGNAL::GIMBAL_JOINT_PIDID:
+          msgStruct.gimbal_joint_pidid =
+              uwrt_mars_rover_can_gimbal_set_joint_pid_params_gimbal_joint_pidid_encode(signalValue);
+          success &= uwrt_mars_rover_can_gimbal_set_joint_pid_params_gimbal_joint_pidid_is_in_range(
+              msgStruct.gimbal_joint_pidid);
+          break;
+
+        case CANSIGNAL::GIMBAL_JOINT_PID_PROPORTIONAL_GAIN:
+          msgStruct.gimbal_joint_pid_proportional_gain =
+              uwrt_mars_rover_can_gimbal_set_joint_pid_params_gimbal_joint_pid_proportional_gain_encode(signalValue);
+          success &= uwrt_mars_rover_can_gimbal_set_joint_pid_params_gimbal_joint_pid_proportional_gain_is_in_range(
+              msgStruct.gimbal_joint_pid_proportional_gain);
+          break;
+
+        case CANSIGNAL::GIMBAL_JOINT_PID_INTEGRAL_GAIN:
+          msgStruct.gimbal_joint_pid_integral_gain =
+              uwrt_mars_rover_can_gimbal_set_joint_pid_params_gimbal_joint_pid_integral_gain_encode(signalValue);
+          success &= uwrt_mars_rover_can_gimbal_set_joint_pid_params_gimbal_joint_pid_integral_gain_is_in_range(
+              msgStruct.gimbal_joint_pid_integral_gain);
+          break;
+
+        case CANSIGNAL::GIMBAL_JOINT_PID_DERIVATIVE_GAIN:
+          msgStruct.gimbal_joint_pid_derivative_gain =
+              uwrt_mars_rover_can_gimbal_set_joint_pid_params_gimbal_joint_pid_derivative_gain_encode(signalValue);
+          success &= uwrt_mars_rover_can_gimbal_set_joint_pid_params_gimbal_joint_pid_derivative_gain_is_in_range(
+              msgStruct.gimbal_joint_pid_derivative_gain);
+          break;
+
+        case CANSIGNAL::GIMBAL_JOINT_PID_DEADZONE:
+          msgStruct.gimbal_joint_pid_deadzone =
+              uwrt_mars_rover_can_gimbal_set_joint_pid_params_gimbal_joint_pid_deadzone_encode(signalValue);
+          success &= uwrt_mars_rover_can_gimbal_set_joint_pid_params_gimbal_joint_pid_deadzone_is_in_range(
+              msgStruct.gimbal_joint_pid_deadzone);
+          break;
+
+        default:
+          success = false;
+          break;
+      }
+    }
+    success &= (uwrt_mars_rover_can_gimbal_set_joint_pid_params_pack(
+                    raw, &msgStruct, UWRT_MARS_ROVER_CAN_GIMBAL_SET_JOINT_PID_PARAMS_LENGTH) ==
+                UWRT_MARS_ROVER_CAN_GIMBAL_SET_JOINT_PID_PARAMS_LENGTH);
+    len = UWRT_MARS_ROVER_CAN_GIMBAL_SET_JOINT_PID_PARAMS_LENGTH;
+  }
+  return success;
+}
+
+// GIMBAL_setJointPIDParams message unpacker
+bool gimbal_set_joint_pid_params_unpacker(uint8_t* raw, CANMsgMap* msgMap) {
+  bool success = false;
+  CANID msgID  = CANID::GIMBAL_SET_JOINT_PID_PARAMS;
+  struct uwrt_mars_rover_can_gimbal_set_joint_pid_params_t msgStruct;
+
+  success = (uwrt_mars_rover_can_gimbal_set_joint_pid_params_unpack(
+                 &msgStruct, raw, UWRT_MARS_ROVER_CAN_GIMBAL_SET_JOINT_PID_PARAMS_LENGTH) == 0);
+
+  if (success && msgMap->contains(msgID)) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName = it->first;
+
+      switch (signalName) {
+        case CANSIGNAL::GIMBAL_JOINT_PIDID:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_gimbal_set_joint_pid_params_gimbal_joint_pidid_decode(msgStruct.gimbal_joint_pidid));
+          break;
+
+        case CANSIGNAL::GIMBAL_JOINT_PID_PROPORTIONAL_GAIN:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_gimbal_set_joint_pid_params_gimbal_joint_pid_proportional_gain_decode(
+                  msgStruct.gimbal_joint_pid_proportional_gain));
+          break;
+
+        case CANSIGNAL::GIMBAL_JOINT_PID_INTEGRAL_GAIN:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_gimbal_set_joint_pid_params_gimbal_joint_pid_integral_gain_decode(
+                  msgStruct.gimbal_joint_pid_integral_gain));
+          break;
+
+        case CANSIGNAL::GIMBAL_JOINT_PID_DERIVATIVE_GAIN:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_gimbal_set_joint_pid_params_gimbal_joint_pid_derivative_gain_decode(
+                  msgStruct.gimbal_joint_pid_derivative_gain));
+          break;
+
+        case CANSIGNAL::GIMBAL_JOINT_PID_DEADZONE:
+          success &=
+              msgMap->setSignalValue(msgID, signalName,
+                                     uwrt_mars_rover_can_gimbal_set_joint_pid_params_gimbal_joint_pid_deadzone_decode(
+                                         msgStruct.gimbal_joint_pid_deadzone));
           break;
 
         default:

@@ -866,6 +866,73 @@
 
   ------------------------------------------------------------------------
 
+  Name:       SCIENCE_setJointPIDParams
+  Id:         0x663
+  Length:     8 bytes
+  Cycle time: - ms
+  Senders:    JETSON
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |------------------x|<---------x|
+           +---+---+---+---+---+---+---+---+
+                                 +-- SCIENCE_jointPIDID
+           +---+---+---+---+---+---+---+---+
+         1 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         2 |------------------x|<----------|
+           +---+---+---+---+---+---+---+---+
+                                 +-- SCIENCE_jointPIDProportionalGain
+           +---+---+---+---+---+---+---+---+
+     B   3 |-------------------------------|
+     y     +---+---+---+---+---+---+---+---+
+     t   4 |------------------x|<----------|
+     e     +---+---+---+---+---+---+---+---+
+                                 +-- SCIENCE_jointPIDIntegralGain
+           +---+---+---+---+---+---+---+---+
+         5 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         6 |------------------x|<----------|
+           +---+---+---+---+---+---+---+---+
+                                 +-- SCIENCE_jointPIDDerivativeGain
+           +---+---+---+---+---+---+---+---+
+         7 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- SCIENCE_jointPIDDeadzone
+
+  Signal tree:
+
+    -- {root}
+       +-- SCIENCE_jointPIDID
+       +-- SCIENCE_jointPIDProportionalGain
+       +-- SCIENCE_jointPIDIntegralGain
+       +-- SCIENCE_jointPIDDerivativeGain
+       +-- SCIENCE_jointPIDDeadzone
+
+  Signal choices:
+
+    SCIENCE_jointPIDID
+        0 GENEVA
+        1 ELEVATOR
+        7 SNA
+
+    SCIENCE_jointPIDProportionalGain
+        65535 SNA
+
+    SCIENCE_jointPIDIntegralGain
+        65535 SNA
+
+    SCIENCE_jointPIDDerivativeGain
+        65535 SNA
+
+    SCIENCE_jointPIDDeadzone
+        8191 SNA
+
+  ------------------------------------------------------------------------
+
   Name:       SCIENCE_reportJointData
   Id:         0x680
   Length:     8 bytes
@@ -1089,7 +1156,8 @@
 
     SCIENCE_ACK
         0 SCIENCE_SET_CONTROL_MODE_ACK
-        1 CAN_BUS_SWITCH_ACK
+        1 SCIENCE_SET_JOINT_PID_PARAMS_ACK
+        2 CAN_BUS_SWITCH_ACK
         255 SNA
 
   ------------------------------------------------------------------------
@@ -1203,6 +1271,72 @@
 
   ------------------------------------------------------------------------
 
+  Name:       GIMBAL_setJointPIDParams
+  Id:         0x6a3
+  Length:     8 bytes
+  Cycle time: - ms
+  Senders:    JETSON
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |------------------x|<---------x|
+           +---+---+---+---+---+---+---+---+
+                                 +-- GIMBAL_jointPIDID
+           +---+---+---+---+---+---+---+---+
+         1 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         2 |------------------x|<----------|
+           +---+---+---+---+---+---+---+---+
+                                 +-- GIMBAL_jointPIDProportionalGain
+           +---+---+---+---+---+---+---+---+
+     B   3 |-------------------------------|
+     y     +---+---+---+---+---+---+---+---+
+     t   4 |------------------x|<----------|
+     e     +---+---+---+---+---+---+---+---+
+                                 +-- GIMBAL_jointPIDIntegralGain
+           +---+---+---+---+---+---+---+---+
+         5 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         6 |------------------x|<----------|
+           +---+---+---+---+---+---+---+---+
+                                 +-- GIMBAL_jointPIDDerivativeGain
+           +---+---+---+---+---+---+---+---+
+         7 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- GIMBAL_jointPIDDeadzone
+
+  Signal tree:
+
+    -- {root}
+       +-- GIMBAL_jointPIDID
+       +-- GIMBAL_jointPIDProportionalGain
+       +-- GIMBAL_jointPIDIntegralGain
+       +-- GIMBAL_jointPIDDerivativeGain
+       +-- GIMBAL_jointPIDDeadzone
+
+  Signal choices:
+
+    GIMBAL_jointPIDID
+        0 PAN
+        7 SNA
+
+    GIMBAL_jointPIDProportionalGain
+        65535 SNA
+
+    GIMBAL_jointPIDIntegralGain
+        65535 SNA
+
+    GIMBAL_jointPIDDerivativeGain
+        65535 SNA
+
+    GIMBAL_jointPIDDeadzone
+        8191 SNA
+
+  ------------------------------------------------------------------------
+
   Name:       GIMBAL_reportJointData
   Id:         0x6c0
   Length:     4 bytes
@@ -1297,7 +1431,8 @@
 
     GIMBAL_ACK
         0 GIMBAL_SET_CONTROL_MODE_ACK
-        1 CAN_BUS_SWITCH_ACK
+        1 GIMBAL_SET_JOINT_PID_PARAMS_ACK
+        2 CAN_BUS_SWITCH_ACK
         255 SNA
 
   ------------------------------------------------------------------------

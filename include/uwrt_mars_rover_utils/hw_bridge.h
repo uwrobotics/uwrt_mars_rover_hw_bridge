@@ -23,12 +23,6 @@ using SafetyCheckPayload = struct __attribute__((__packed__)) SafetyCheckPayload
 };
 }  // namespace SAFETY
 
-namespace PID {
-using TuningApiPayload = struct __attribute__((__packed__)) TuningApiPayload {
-  float value;
-  ARM::ActuatorID actuatorID;
-};
-}  // namespace PID
 }  // namespace CONTROL
 
 namespace LEDMATRIX {
