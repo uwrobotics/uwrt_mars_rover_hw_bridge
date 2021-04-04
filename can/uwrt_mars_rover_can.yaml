@@ -920,6 +920,26 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
           min: 0.0
           max: 254.0
+  - ARM_reportDiagnostics:
+      comment: Arm report diagnostic information
+      id: 1605
+      size: 4
+      senders:
+      - ARM
+      receivers:
+      - JETSON
+      frequency: 100
+      signals:
+      - ARM_reportCANStats:
+          comment: Arm CAN statistics
+          startbit: 0
+          length: 32
+          is_signed: false
+          unit: ''
+          scale: 1.0
+          offset: 0.0
+          min: 0.0
+          max: 4294967294.0
   - SCIENCE_setControlMode:
       comment: Set control mode for science joints
       id: 1632
@@ -1293,6 +1313,26 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
           min: 0.0
           max: 254.0
+  - SCIENCE_reportDiagnostics:
+      comment: Science report diagnostic information
+      id: 1668
+      size: 4
+      senders:
+      - SCIENCE
+      receivers:
+      - JETSON
+      frequency: 100
+      signals:
+      - SCIENCE_reportCANStats:
+          comment: Science CAN statistics
+          startbit: 0
+          length: 32
+          is_signed: false
+          unit: ''
+          scale: 1.0
+          offset: 0.0
+          min: 0.0
+          max: 4294967294.0
   - GIMBAL_setControlMode:
       comment: Set control mode for gimbal joints
       id: 1696
@@ -1540,6 +1580,26 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
           min: 0.0
           max: 254.0
+  - GIMBAL_reportDiagnostics:
+      comment: Gimbal report diagnostic information
+      id: 1731
+      size: 4
+      senders:
+      - GIMBAL
+      receivers:
+      - JETSON
+      frequency: 100
+      signals:
+      - GIMBAL_reportCANStats:
+          comment: Gimbal CAN statistics
+          startbit: 0
+          length: 32
+          is_signed: false
+          unit: ''
+          scale: 1.0
+          offset: 0.0
+          min: 0.0
+          max: 4294967294.0
   - PDB_setLEDMatrix:
       comment: PDB set LED matrix state
       id: 1760
@@ -1759,6 +1819,26 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
           min: 0.0
           max: 254.0
+  - PDB_reportDiagnostics:
+      comment: PDB report diagnostic information
+      id: 1795
+      size: 4
+      senders:
+      - PDB
+      receivers:
+      - JETSON
+      frequency: 100
+      signals:
+      - PDB_reportCANStats:
+          comment: PDB CAN statistics
+          startbit: 0
+          length: 32
+          is_signed: false
+          unit: ''
+          scale: 1.0
+          offset: 0.0
+          min: 0.0
+          max: 4294967294.0
   - COMMON_switchCANBus:
       comment: Notifies all boards to switch to the specified CAN bus in the dual-bus
         system

@@ -15,6 +15,7 @@ static bool arm_report_joint_angular_velocity_packer(uint8_t* raw, const CANMsgM
 static bool arm_report_joint_current_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len);
 static bool arm_report_faults_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len);
 static bool arm_report_ack_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len);
+static bool arm_report_diagnostics_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len);
 static bool science_set_control_mode_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len);
 static bool science_set_joint_position_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len);
 static bool science_set_joint_angular_velocity_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len);
@@ -23,6 +24,7 @@ static bool science_report_joint_data_packer(uint8_t* raw, const CANMsgMap* msgM
 static bool science_report_sensor_data_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len);
 static bool science_report_faults_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len);
 static bool science_report_ack_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len);
+static bool science_report_diagnostics_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len);
 static bool gimbal_set_control_mode_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len);
 static bool gimbal_set_joint_position_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len);
 static bool gimbal_set_joint_angular_velocity_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len);
@@ -30,10 +32,12 @@ static bool gimbal_set_joint_pid_params_packer(uint8_t* raw, const CANMsgMap* ms
 static bool gimbal_report_joint_data_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len);
 static bool gimbal_report_faults_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len);
 static bool gimbal_report_ack_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len);
+static bool gimbal_report_diagnostics_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len);
 static bool pdb_set_led_matrix_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len);
 static bool pdb_report_sensor_data_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len);
 static bool pdb_report_faults_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len);
 static bool pdb_report_ack_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len);
+static bool pdb_report_diagnostics_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len);
 static bool common_switch_can_bus_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len);
 static bool common_debug_message1_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len);
 static bool common_debug_message2_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len);
@@ -50,6 +54,7 @@ static bool arm_report_joint_angular_velocity_unpacker(uint8_t* raw, CANMsgMap* 
 static bool arm_report_joint_current_unpacker(uint8_t* raw, CANMsgMap* msgMap);
 static bool arm_report_faults_unpacker(uint8_t* raw, CANMsgMap* msgMap);
 static bool arm_report_ack_unpacker(uint8_t* raw, CANMsgMap* msgMap);
+static bool arm_report_diagnostics_unpacker(uint8_t* raw, CANMsgMap* msgMap);
 static bool science_set_control_mode_unpacker(uint8_t* raw, CANMsgMap* msgMap);
 static bool science_set_joint_position_unpacker(uint8_t* raw, CANMsgMap* msgMap);
 static bool science_set_joint_angular_velocity_unpacker(uint8_t* raw, CANMsgMap* msgMap);
@@ -58,6 +63,7 @@ static bool science_report_joint_data_unpacker(uint8_t* raw, CANMsgMap* msgMap);
 static bool science_report_sensor_data_unpacker(uint8_t* raw, CANMsgMap* msgMap);
 static bool science_report_faults_unpacker(uint8_t* raw, CANMsgMap* msgMap);
 static bool science_report_ack_unpacker(uint8_t* raw, CANMsgMap* msgMap);
+static bool science_report_diagnostics_unpacker(uint8_t* raw, CANMsgMap* msgMap);
 static bool gimbal_set_control_mode_unpacker(uint8_t* raw, CANMsgMap* msgMap);
 static bool gimbal_set_joint_position_unpacker(uint8_t* raw, CANMsgMap* msgMap);
 static bool gimbal_set_joint_angular_velocity_unpacker(uint8_t* raw, CANMsgMap* msgMap);
@@ -65,10 +71,12 @@ static bool gimbal_set_joint_pid_params_unpacker(uint8_t* raw, CANMsgMap* msgMap
 static bool gimbal_report_joint_data_unpacker(uint8_t* raw, CANMsgMap* msgMap);
 static bool gimbal_report_faults_unpacker(uint8_t* raw, CANMsgMap* msgMap);
 static bool gimbal_report_ack_unpacker(uint8_t* raw, CANMsgMap* msgMap);
+static bool gimbal_report_diagnostics_unpacker(uint8_t* raw, CANMsgMap* msgMap);
 static bool pdb_set_led_matrix_unpacker(uint8_t* raw, CANMsgMap* msgMap);
 static bool pdb_report_sensor_data_unpacker(uint8_t* raw, CANMsgMap* msgMap);
 static bool pdb_report_faults_unpacker(uint8_t* raw, CANMsgMap* msgMap);
 static bool pdb_report_ack_unpacker(uint8_t* raw, CANMsgMap* msgMap);
+static bool pdb_report_diagnostics_unpacker(uint8_t* raw, CANMsgMap* msgMap);
 static bool common_switch_can_bus_unpacker(uint8_t* raw, CANMsgMap* msgMap);
 static bool common_debug_message1_unpacker(uint8_t* raw, CANMsgMap* msgMap);
 static bool common_debug_message2_unpacker(uint8_t* raw, CANMsgMap* msgMap);
@@ -96,6 +104,8 @@ bool HWBRIDGE::packCANMsg(uint8_t* raw, CANID msgID, const CANMsgMap* msgMap, si
       return arm_report_faults_packer(raw, msgMap, len);
     case CANID::ARM_REPORT_ACK:
       return arm_report_ack_packer(raw, msgMap, len);
+    case CANID::ARM_REPORT_DIAGNOSTICS:
+      return arm_report_diagnostics_packer(raw, msgMap, len);
     case CANID::SCIENCE_SET_CONTROL_MODE:
       return science_set_control_mode_packer(raw, msgMap, len);
     case CANID::SCIENCE_SET_JOINT_POSITION:
@@ -112,6 +122,8 @@ bool HWBRIDGE::packCANMsg(uint8_t* raw, CANID msgID, const CANMsgMap* msgMap, si
       return science_report_faults_packer(raw, msgMap, len);
     case CANID::SCIENCE_REPORT_ACK:
       return science_report_ack_packer(raw, msgMap, len);
+    case CANID::SCIENCE_REPORT_DIAGNOSTICS:
+      return science_report_diagnostics_packer(raw, msgMap, len);
     case CANID::GIMBAL_SET_CONTROL_MODE:
       return gimbal_set_control_mode_packer(raw, msgMap, len);
     case CANID::GIMBAL_SET_JOINT_POSITION:
@@ -126,6 +138,8 @@ bool HWBRIDGE::packCANMsg(uint8_t* raw, CANID msgID, const CANMsgMap* msgMap, si
       return gimbal_report_faults_packer(raw, msgMap, len);
     case CANID::GIMBAL_REPORT_ACK:
       return gimbal_report_ack_packer(raw, msgMap, len);
+    case CANID::GIMBAL_REPORT_DIAGNOSTICS:
+      return gimbal_report_diagnostics_packer(raw, msgMap, len);
     case CANID::PDB_SET_LED_MATRIX:
       return pdb_set_led_matrix_packer(raw, msgMap, len);
     case CANID::PDB_REPORT_SENSOR_DATA:
@@ -134,6 +148,8 @@ bool HWBRIDGE::packCANMsg(uint8_t* raw, CANID msgID, const CANMsgMap* msgMap, si
       return pdb_report_faults_packer(raw, msgMap, len);
     case CANID::PDB_REPORT_ACK:
       return pdb_report_ack_packer(raw, msgMap, len);
+    case CANID::PDB_REPORT_DIAGNOSTICS:
+      return pdb_report_diagnostics_packer(raw, msgMap, len);
     case CANID::COMMON_SWITCH_CAN_BUS:
       return common_switch_can_bus_packer(raw, msgMap, len);
     case CANID::COMMON_DEBUG_MESSAGE1:
@@ -170,6 +186,8 @@ bool HWBRIDGE::unpackCANMsg(uint8_t* raw, CANID msgID, CANMsgMap* msgMap) {
       return arm_report_faults_unpacker(raw, msgMap);
     case CANID::ARM_REPORT_ACK:
       return arm_report_ack_unpacker(raw, msgMap);
+    case CANID::ARM_REPORT_DIAGNOSTICS:
+      return arm_report_diagnostics_unpacker(raw, msgMap);
     case CANID::SCIENCE_SET_CONTROL_MODE:
       return science_set_control_mode_unpacker(raw, msgMap);
     case CANID::SCIENCE_SET_JOINT_POSITION:
@@ -186,6 +204,8 @@ bool HWBRIDGE::unpackCANMsg(uint8_t* raw, CANID msgID, CANMsgMap* msgMap) {
       return science_report_faults_unpacker(raw, msgMap);
     case CANID::SCIENCE_REPORT_ACK:
       return science_report_ack_unpacker(raw, msgMap);
+    case CANID::SCIENCE_REPORT_DIAGNOSTICS:
+      return science_report_diagnostics_unpacker(raw, msgMap);
     case CANID::GIMBAL_SET_CONTROL_MODE:
       return gimbal_set_control_mode_unpacker(raw, msgMap);
     case CANID::GIMBAL_SET_JOINT_POSITION:
@@ -200,6 +220,8 @@ bool HWBRIDGE::unpackCANMsg(uint8_t* raw, CANID msgID, CANMsgMap* msgMap) {
       return gimbal_report_faults_unpacker(raw, msgMap);
     case CANID::GIMBAL_REPORT_ACK:
       return gimbal_report_ack_unpacker(raw, msgMap);
+    case CANID::GIMBAL_REPORT_DIAGNOSTICS:
+      return gimbal_report_diagnostics_unpacker(raw, msgMap);
     case CANID::PDB_SET_LED_MATRIX:
       return pdb_set_led_matrix_unpacker(raw, msgMap);
     case CANID::PDB_REPORT_SENSOR_DATA:
@@ -208,6 +230,8 @@ bool HWBRIDGE::unpackCANMsg(uint8_t* raw, CANID msgID, CANMsgMap* msgMap) {
       return pdb_report_faults_unpacker(raw, msgMap);
     case CANID::PDB_REPORT_ACK:
       return pdb_report_ack_unpacker(raw, msgMap);
+    case CANID::PDB_REPORT_DIAGNOSTICS:
+      return pdb_report_diagnostics_unpacker(raw, msgMap);
     case CANID::COMMON_SWITCH_CAN_BUS:
       return common_switch_can_bus_unpacker(raw, msgMap);
     case CANID::COMMON_DEBUG_MESSAGE1:
@@ -1549,6 +1573,68 @@ bool arm_report_ack_unpacker(uint8_t* raw, CANMsgMap* msgMap) {
   return success;
 }
 
+// ARM_reportDiagnostics message packer
+bool arm_report_diagnostics_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len) {
+  bool success = true;
+  CANID msgID  = CANID::ARM_REPORT_DIAGNOSTICS;
+  struct uwrt_mars_rover_can_arm_report_diagnostics_t msgStruct;
+
+  if (msgMap->contains(msgID)) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName         = it->first;
+      CANSignalValue_t signalValue = it->second;
+
+      switch (signalName) {
+        case CANSIGNAL::ARM_REPORT_CAN_STATS:
+          msgStruct.arm_report_can_stats =
+              uwrt_mars_rover_can_arm_report_diagnostics_arm_report_can_stats_encode(signalValue);
+          success &= uwrt_mars_rover_can_arm_report_diagnostics_arm_report_can_stats_is_in_range(
+              msgStruct.arm_report_can_stats);
+          break;
+
+        default:
+          success = false;
+          break;
+      }
+    }
+    success &= (uwrt_mars_rover_can_arm_report_diagnostics_pack(raw, &msgStruct,
+                                                                UWRT_MARS_ROVER_CAN_ARM_REPORT_DIAGNOSTICS_LENGTH) ==
+                UWRT_MARS_ROVER_CAN_ARM_REPORT_DIAGNOSTICS_LENGTH);
+    len = UWRT_MARS_ROVER_CAN_ARM_REPORT_DIAGNOSTICS_LENGTH;
+  }
+  return success;
+}
+
+// ARM_reportDiagnostics message unpacker
+bool arm_report_diagnostics_unpacker(uint8_t* raw, CANMsgMap* msgMap) {
+  bool success = false;
+  CANID msgID  = CANID::ARM_REPORT_DIAGNOSTICS;
+  struct uwrt_mars_rover_can_arm_report_diagnostics_t msgStruct;
+
+  success = (uwrt_mars_rover_can_arm_report_diagnostics_unpack(&msgStruct, raw,
+                                                               UWRT_MARS_ROVER_CAN_ARM_REPORT_DIAGNOSTICS_LENGTH) == 0);
+
+  if (success && msgMap->contains(msgID)) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName = it->first;
+
+      switch (signalName) {
+        case CANSIGNAL::ARM_REPORT_CAN_STATS:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_arm_report_diagnostics_arm_report_can_stats_decode(msgStruct.arm_report_can_stats));
+          break;
+
+        default:
+          success = false;
+          break;
+      }
+    }
+  }
+
+  return success;
+}
+
 // SCIENCE_setControlMode message packer
 bool science_set_control_mode_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len) {
   bool success = true;
@@ -2262,6 +2348,69 @@ bool science_report_ack_unpacker(uint8_t* raw, CANMsgMap* msgMap) {
   return success;
 }
 
+// SCIENCE_reportDiagnostics message packer
+bool science_report_diagnostics_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len) {
+  bool success = true;
+  CANID msgID  = CANID::SCIENCE_REPORT_DIAGNOSTICS;
+  struct uwrt_mars_rover_can_science_report_diagnostics_t msgStruct;
+
+  if (msgMap->contains(msgID)) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName         = it->first;
+      CANSignalValue_t signalValue = it->second;
+
+      switch (signalName) {
+        case CANSIGNAL::SCIENCE_REPORT_CAN_STATS:
+          msgStruct.science_report_can_stats =
+              uwrt_mars_rover_can_science_report_diagnostics_science_report_can_stats_encode(signalValue);
+          success &= uwrt_mars_rover_can_science_report_diagnostics_science_report_can_stats_is_in_range(
+              msgStruct.science_report_can_stats);
+          break;
+
+        default:
+          success = false;
+          break;
+      }
+    }
+    success &= (uwrt_mars_rover_can_science_report_diagnostics_pack(
+                    raw, &msgStruct, UWRT_MARS_ROVER_CAN_SCIENCE_REPORT_DIAGNOSTICS_LENGTH) ==
+                UWRT_MARS_ROVER_CAN_SCIENCE_REPORT_DIAGNOSTICS_LENGTH);
+    len = UWRT_MARS_ROVER_CAN_SCIENCE_REPORT_DIAGNOSTICS_LENGTH;
+  }
+  return success;
+}
+
+// SCIENCE_reportDiagnostics message unpacker
+bool science_report_diagnostics_unpacker(uint8_t* raw, CANMsgMap* msgMap) {
+  bool success = false;
+  CANID msgID  = CANID::SCIENCE_REPORT_DIAGNOSTICS;
+  struct uwrt_mars_rover_can_science_report_diagnostics_t msgStruct;
+
+  success = (uwrt_mars_rover_can_science_report_diagnostics_unpack(
+                 &msgStruct, raw, UWRT_MARS_ROVER_CAN_SCIENCE_REPORT_DIAGNOSTICS_LENGTH) == 0);
+
+  if (success && msgMap->contains(msgID)) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName = it->first;
+
+      switch (signalName) {
+        case CANSIGNAL::SCIENCE_REPORT_CAN_STATS:
+          success &=
+              msgMap->setSignalValue(msgID, signalName,
+                                     uwrt_mars_rover_can_science_report_diagnostics_science_report_can_stats_decode(
+                                         msgStruct.science_report_can_stats));
+          break;
+
+        default:
+          success = false;
+          break;
+      }
+    }
+  }
+
+  return success;
+}
+
 // GIMBAL_setControlMode message packer
 bool gimbal_set_control_mode_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len) {
   bool success = true;
@@ -2794,6 +2943,69 @@ bool gimbal_report_ack_unpacker(uint8_t* raw, CANMsgMap* msgMap) {
   return success;
 }
 
+// GIMBAL_reportDiagnostics message packer
+bool gimbal_report_diagnostics_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len) {
+  bool success = true;
+  CANID msgID  = CANID::GIMBAL_REPORT_DIAGNOSTICS;
+  struct uwrt_mars_rover_can_gimbal_report_diagnostics_t msgStruct;
+
+  if (msgMap->contains(msgID)) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName         = it->first;
+      CANSignalValue_t signalValue = it->second;
+
+      switch (signalName) {
+        case CANSIGNAL::GIMBAL_REPORT_CAN_STATS:
+          msgStruct.gimbal_report_can_stats =
+              uwrt_mars_rover_can_gimbal_report_diagnostics_gimbal_report_can_stats_encode(signalValue);
+          success &= uwrt_mars_rover_can_gimbal_report_diagnostics_gimbal_report_can_stats_is_in_range(
+              msgStruct.gimbal_report_can_stats);
+          break;
+
+        default:
+          success = false;
+          break;
+      }
+    }
+    success &= (uwrt_mars_rover_can_gimbal_report_diagnostics_pack(
+                    raw, &msgStruct, UWRT_MARS_ROVER_CAN_GIMBAL_REPORT_DIAGNOSTICS_LENGTH) ==
+                UWRT_MARS_ROVER_CAN_GIMBAL_REPORT_DIAGNOSTICS_LENGTH);
+    len = UWRT_MARS_ROVER_CAN_GIMBAL_REPORT_DIAGNOSTICS_LENGTH;
+  }
+  return success;
+}
+
+// GIMBAL_reportDiagnostics message unpacker
+bool gimbal_report_diagnostics_unpacker(uint8_t* raw, CANMsgMap* msgMap) {
+  bool success = false;
+  CANID msgID  = CANID::GIMBAL_REPORT_DIAGNOSTICS;
+  struct uwrt_mars_rover_can_gimbal_report_diagnostics_t msgStruct;
+
+  success = (uwrt_mars_rover_can_gimbal_report_diagnostics_unpack(
+                 &msgStruct, raw, UWRT_MARS_ROVER_CAN_GIMBAL_REPORT_DIAGNOSTICS_LENGTH) == 0);
+
+  if (success && msgMap->contains(msgID)) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName = it->first;
+
+      switch (signalName) {
+        case CANSIGNAL::GIMBAL_REPORT_CAN_STATS:
+          success &=
+              msgMap->setSignalValue(msgID, signalName,
+                                     uwrt_mars_rover_can_gimbal_report_diagnostics_gimbal_report_can_stats_decode(
+                                         msgStruct.gimbal_report_can_stats));
+          break;
+
+        default:
+          success = false;
+          break;
+      }
+    }
+  }
+
+  return success;
+}
+
 // PDB_setLEDMatrix message packer
 bool pdb_set_led_matrix_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len) {
   bool success = true;
@@ -3144,6 +3356,68 @@ bool pdb_report_ack_unpacker(uint8_t* raw, CANMsgMap* msgMap) {
         case CANSIGNAL::PDB_ACK:
           success &= msgMap->setSignalValue(msgID, signalName,
                                             uwrt_mars_rover_can_pdb_report_ack_pdb_ack_decode(msgStruct.pdb_ack));
+          break;
+
+        default:
+          success = false;
+          break;
+      }
+    }
+  }
+
+  return success;
+}
+
+// PDB_reportDiagnostics message packer
+bool pdb_report_diagnostics_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len) {
+  bool success = true;
+  CANID msgID  = CANID::PDB_REPORT_DIAGNOSTICS;
+  struct uwrt_mars_rover_can_pdb_report_diagnostics_t msgStruct;
+
+  if (msgMap->contains(msgID)) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName         = it->first;
+      CANSignalValue_t signalValue = it->second;
+
+      switch (signalName) {
+        case CANSIGNAL::PDB_REPORT_CAN_STATS:
+          msgStruct.pdb_report_can_stats =
+              uwrt_mars_rover_can_pdb_report_diagnostics_pdb_report_can_stats_encode(signalValue);
+          success &= uwrt_mars_rover_can_pdb_report_diagnostics_pdb_report_can_stats_is_in_range(
+              msgStruct.pdb_report_can_stats);
+          break;
+
+        default:
+          success = false;
+          break;
+      }
+    }
+    success &= (uwrt_mars_rover_can_pdb_report_diagnostics_pack(raw, &msgStruct,
+                                                                UWRT_MARS_ROVER_CAN_PDB_REPORT_DIAGNOSTICS_LENGTH) ==
+                UWRT_MARS_ROVER_CAN_PDB_REPORT_DIAGNOSTICS_LENGTH);
+    len = UWRT_MARS_ROVER_CAN_PDB_REPORT_DIAGNOSTICS_LENGTH;
+  }
+  return success;
+}
+
+// PDB_reportDiagnostics message unpacker
+bool pdb_report_diagnostics_unpacker(uint8_t* raw, CANMsgMap* msgMap) {
+  bool success = false;
+  CANID msgID  = CANID::PDB_REPORT_DIAGNOSTICS;
+  struct uwrt_mars_rover_can_pdb_report_diagnostics_t msgStruct;
+
+  success = (uwrt_mars_rover_can_pdb_report_diagnostics_unpack(&msgStruct, raw,
+                                                               UWRT_MARS_ROVER_CAN_PDB_REPORT_DIAGNOSTICS_LENGTH) == 0);
+
+  if (success && msgMap->contains(msgID)) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName = it->first;
+
+      switch (signalName) {
+        case CANSIGNAL::PDB_REPORT_CAN_STATS:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_pdb_report_diagnostics_pdb_report_can_stats_decode(msgStruct.pdb_report_can_stats));
           break;
 
         default:

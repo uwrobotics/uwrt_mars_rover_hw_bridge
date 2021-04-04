@@ -117,6 +117,9 @@ BO_ 1603 ARM_reportFaults: 3 ARM
 BO_ 1604 ARM_reportACK: 1 ARM
  SG_ ARM_ACK : 0|8@1+ (1.0,0.0) [0.0|254.0] ""  JETSON
 
+BO_ 1605 ARM_reportDiagnostics: 4 ARM
+ SG_ ARM_reportCANStats : 0|32@1+ (1.0,0.0) [0.0|4294967294.0] ""  JETSON
+
 BO_ 1632 SCIENCE_setControlMode: 1 JETSON
  SG_ SCIENCE_elevatorControlMode : 2|2@1+ (1.0,0.0) [0.0|2.0] ""  SCIENCE
  SG_ SCIENCE_genevaControlMode : 0|2@1+ (1.0,0.0) [0.0|2.0] ""  SCIENCE
@@ -156,6 +159,9 @@ BO_ 1666 SCIENCE_reportFaults: 1 SCIENCE
 BO_ 1667 SCIENCE_reportACK: 1 SCIENCE
  SG_ SCIENCE_ACK : 0|8@1+ (1.0,0.0) [0.0|254.0] ""  JETSON
 
+BO_ 1668 SCIENCE_reportDiagnostics: 4 SCIENCE
+ SG_ SCIENCE_reportCANStats : 0|32@1+ (1.0,0.0) [0.0|4294967294.0] ""  JETSON
+
 BO_ 1696 GIMBAL_setControlMode: 1 JETSON
  SG_ GIMBAL_panControlMode : 0|2@1+ (1.0,0.0) [0.0|2.0] ""  GIMBAL
 
@@ -184,6 +190,9 @@ BO_ 1729 GIMBAL_reportFaults: 1 GIMBAL
 BO_ 1730 GIMBAL_reportACK: 1 GIMBAL
  SG_ GIMBAL_ACK : 0|8@1+ (1.0,0.0) [0.0|254.0] ""  JETSON
 
+BO_ 1731 GIMBAL_reportDiagnostics: 4 GIMBAL
+ SG_ GIMBAL_reportCANStats : 0|32@1+ (1.0,0.0) [0.0|4294967294.0] ""  JETSON
+
 BO_ 1760 PDB_setLEDMatrix: 1 JETSON
  SG_ PDB_LEDMatrixState : 0|3@1+ (1.0,0.0) [0.0|6.0] ""  PDB
 
@@ -204,6 +213,9 @@ BO_ 1793 PDB_reportFaults: 2 PDB
 
 BO_ 1794 PDB_reportACK: 1 PDB
  SG_ PDB_ACK : 0|8@1+ (1.0,0.0) [0.0|254.0] ""  JETSON
+
+BO_ 1795 PDB_reportDiagnostics: 4 PDB
+ SG_ PDB_reportCANStats : 0|32@1+ (1.0,0.0) [0.0|4294967294.0] ""  JETSON
 
 BO_ 1824 COMMON_switchCANBus: 1 JETSON
  SG_ COMMON_CANBusID : 0|2@1+ (1.0,0.0) [0.0|2.0] ""  ARM,GIMBAL,PDB,SCIENCE
@@ -293,6 +305,8 @@ CM_ SG_ 1603 ARM_turntableCurrentSensorState "Arm turntable current sensor state
 CM_ SG_ 1603 ARM_turntableEncoderState "Arm turntable encoder state";
 CM_ BO_ 1604 "Arm report ACKs to one-shot commands";
 CM_ SG_ 1604 ARM_ACK "Arm ACKs";
+CM_ BO_ 1605 "Arm report diagnostic information";
+CM_ SG_ 1605 ARM_reportCANStats "Arm CAN statistics";
 CM_ BO_ 1632 "Set control mode for science joints";
 CM_ SG_ 1632 SCIENCE_elevatorControlMode "Science elevator control mode";
 CM_ SG_ 1632 SCIENCE_genevaControlMode "Science geneva mechanism control mode";
@@ -324,6 +338,8 @@ CM_ SG_ 1666 SCIENCE_elevatorEncoderState "Science elevator encoder state";
 CM_ SG_ 1666 SCIENCE_genevaEncoderState "Science geneva mechanism encoder state";
 CM_ BO_ 1667 "Science report ACKs to one-shot commands";
 CM_ SG_ 1667 SCIENCE_ACK "Science ACKs";
+CM_ BO_ 1668 "Science report diagnostic information";
+CM_ SG_ 1668 SCIENCE_reportCANStats "Science CAN statistics";
 CM_ BO_ 1696 "Set control mode for gimbal joints";
 CM_ SG_ 1696 GIMBAL_panControlMode "Gimbal pan control mode";
 CM_ BO_ 1697 "Gimbal set joint position";
@@ -345,6 +361,8 @@ CM_ BO_ 1729 "Gimbal fault conditions";
 CM_ SG_ 1729 GIMBAL_panEncoderState "Gimbal pan encoder state";
 CM_ BO_ 1730 "Gimbal report ACKs to one-shot commands";
 CM_ SG_ 1730 GIMBAL_ACK "Gimbal ACKs";
+CM_ BO_ 1731 "Gimbal report diagnostic information";
+CM_ SG_ 1731 GIMBAL_reportCANStats "Gimbal CAN statistics";
 CM_ BO_ 1760 "PDB set LED matrix state";
 CM_ SG_ 1760 PDB_LEDMatrixState "PDB LED matrix state";
 CM_ BO_ 1792 "PDB report sensor data";
@@ -362,6 +380,8 @@ CM_ SG_ 1793 PDB_armPowerStatus "PDB arm power status";
 CM_ SG_ 1793 PDB_jetsonStatus "PDB Jetson power status";
 CM_ BO_ 1794 "PDB report ACKs to one-shot commands";
 CM_ SG_ 1794 PDB_ACK "PDB ACKs";
+CM_ BO_ 1795 "PDB report diagnostic information";
+CM_ SG_ 1795 PDB_reportCANStats "PDB CAN statistics";
 CM_ BO_ 1824 "Notifies all boards to switch to the specified CAN bus in the dual-bus system";
 CM_ SG_ 1824 COMMON_CANBusID "CAN bus ID";
 CM_ BO_ 1825 "CAN message for debugging or placeholder purposes";
