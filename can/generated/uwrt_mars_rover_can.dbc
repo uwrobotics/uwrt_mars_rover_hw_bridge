@@ -208,14 +208,18 @@ BO_ 1794 PDB_reportACK: 1 PDB
 BO_ 1824 COMMON_switchCANBus: 1 JETSON
  SG_ COMMON_CANBusID : 0|2@1+ (1.0,0.0) [0.0|2.0] ""  ARM,GIMBAL,PDB,SCIENCE
 
-BO_ 1825 COMMON_debugMessage1: 8 ARM
- SG_ COMMON_debugSignal1 : 0|64@1+ (1.0,0.0) [0.0|1.8446744073709552e+19] ""  ARM,GIMBAL,JETSON,PDB,SCIENCE
+BO_ 1825 COMMON_debugMessage1: 4 ARM
+ SG_ COMMON_debugSignal1 : 0|32@1+ (1.0,0.0) [0.0|4294967294.0] ""  ARM,GIMBAL,JETSON,PDB,SCIENCE
 
 BO_ 1826 COMMON_debugMessage2: 1 ARM
  SG_ COMMON_debugSignal2 : 0|8@1+ (1.0,0.0) [0.0|254.0] ""  ARM,GIMBAL,JETSON,PDB,SCIENCE
 
+BO_ 1827 COMMON_debugMessage3: 1 ARM
+ SG_ COMMON_debugSignal3 : 0|8@1+ (1.0,0.0) [0.0|254.0] ""  ARM,GIMBAL,JETSON,PDB,SCIENCE
+
 BO_TX_BU_ 1825 : ARM,GIMBAL,JETSON,PDB,SCIENCE;
 BO_TX_BU_ 1826 : ARM,GIMBAL,JETSON,PDB,SCIENCE;
+BO_TX_BU_ 1827 : ARM,GIMBAL,JETSON,PDB,SCIENCE;
 
 
 CM_ BO_ 1569 "Set control mode for arm joints";
@@ -364,6 +368,8 @@ CM_ BO_ 1825 "CAN message for debugging or placeholder purposes";
 CM_ SG_ 1825 COMMON_debugSignal1 "CAN debug signal";
 CM_ BO_ 1826 "CAN message for debugging or placeholder purposes";
 CM_ SG_ 1826 COMMON_debugSignal2 "CAN debug signal";
+CM_ BO_ 1827 "CAN message for debugging or placeholder purposes";
+CM_ SG_ 1827 COMMON_debugSignal3 "CAN debug signal";
 BA_DEF_ SG_  "SystemSignalLongSymbol" STRING ;
 BA_DEF_DEF_  "SystemSignalLongSymbol" "";
 BA_ "SystemSignalLongSymbol" SG_ 1601 ARM_reportRightWristAngularVeloc "ARM_reportRightWristAngularVelocity";
@@ -485,7 +491,7 @@ VAL_ 1793 PDB_armPowerStatus 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
 VAL_ 1793 PDB_jetsonStatus 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
 VAL_ 1794 PDB_ACK 0 "PDB_SET_LED_MATRIX_ACK" 1 "CAN_BUS_SWITCH_ACK" 255 "SNA" ;
 VAL_ 1824 COMMON_CANBusID 0 "CAN1" 1 "CAN2" 3 "SNA" ;
-VAL_ 1826 COMMON_debugSignal2 0 "DEBUG_VALUE_0" 1 "DEBUG_VALUE_1" 2 "DEBUG_VALUE_2" 3 "DEBUG_VALUE_3" 4 "DEBUG_VALUE_4" 5 "DEBUG_VALUE_5" 6 "DEBUG_VALUE_6" 7 "DEBUG_VALUE_7" 255 "SNA" ;
+VAL_ 1827 COMMON_debugSignal3 0 "DEBUG_VALUE_0" 1 "DEBUG_VALUE_1" 2 "DEBUG_VALUE_2" 3 "DEBUG_VALUE_3" 4 "DEBUG_VALUE_4" 5 "DEBUG_VALUE_5" 6 "DEBUG_VALUE_6" 7 "DEBUG_VALUE_7" 255 "SNA" ;
 
 
 

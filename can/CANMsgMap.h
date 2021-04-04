@@ -8,19 +8,9 @@
 namespace HWBRIDGE {
 
 class CANMsgMap {
- private:
-  // Enum-typed keys require a custom hasher
-  // https://stackoverflow.com/questions/18837857/cant-use-enum-class-as-unordered-map-key
-  struct enumHasher {
-    template <typename T>
-    std::size_t operator()(T t) const {
-      return static_cast<std::size_t>(t);
-    }
-  };
-
  public:
-  using CANSignalMapType = std::unordered_map<const CANSIGNAL, CANSignalValue_t, enumHasher>;
-  using CANMsgMapType    = std::unordered_map<const CANID, CANSignalMapType, enumHasher>;
+  using CANSignalMapType = std::unordered_map<const CANSIGNAL, CANSignalValue_t>;
+  using CANMsgMapType    = std::unordered_map<const CANID, CANSignalMapType>;
 
   CANMsgMap() = delete;
 
