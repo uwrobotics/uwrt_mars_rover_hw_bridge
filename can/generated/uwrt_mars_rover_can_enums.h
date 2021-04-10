@@ -19,7 +19,6 @@ enum class CANBUSID {
 };
 
 enum class CANFILTER {
-  NO_FILTER         = 0x0,
   ARM_RX_FILTER     = 0x620,
   ARM_TX_FILTER     = 0x640,
   SCIENCE_RX_FILTER = 0x660,
@@ -29,6 +28,7 @@ enum class CANFILTER {
   PDB_RX_FILTER     = 0x6E0,
   PDB_TX_FILTER     = 0x700,
   COMMON_FILTER     = 0x720,
+  NO_MESSAGES       = 0x7E0,
 
 };
 

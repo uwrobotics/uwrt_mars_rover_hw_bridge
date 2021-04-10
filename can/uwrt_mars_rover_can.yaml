@@ -2,7 +2,6 @@ uwrt_mars_rover_can_bus:
   bus_frequency: 1000000
   canid_filter_mask: 2016
   canid_filters:
-    0: NO_FILTER
     1568: ARM_RX_FILTER
     1600: ARM_TX_FILTER
     1632: SCIENCE_RX_FILTER
@@ -12,6 +11,7 @@ uwrt_mars_rover_can_bus:
     1760: PDB_RX_FILTER
     1792: PDB_TX_FILTER
     1824: COMMON_FILTER
+    2016: NO_MESSAGES
   nodes:
   - ARM
   - GIMBAL
