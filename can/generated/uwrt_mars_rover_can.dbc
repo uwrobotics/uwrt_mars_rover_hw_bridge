@@ -117,8 +117,9 @@ BO_ 1603 ARM_reportFaults: 3 ARM
 BO_ 1604 ARM_reportACK: 1 ARM
  SG_ ARM_ACK : 0|8@1+ (1.0,0.0) [0.0|254.0] ""  JETSON
 
-BO_ 1605 ARM_reportDiagnostics: 4 ARM
- SG_ ARM_reportCANStats : 0|32@1+ (1.0,0.0) [0.0|4294967294.0] ""  JETSON
+BO_ 1605 ARM_reportDiagnostics: 8 ARM
+ SG_ ARM_reportNumOneShotMsgsReceived : 32|32@1+ (1.0,0.0) [0.0|4294967294.0] ""  JETSON
+ SG_ ARM_reportNumStreamedMsgsReceive : 0|32@1+ (1.0,0.0) [0.0|4294967294.0] ""  JETSON
 
 BO_ 1632 SCIENCE_setControlMode: 1 JETSON
  SG_ SCIENCE_elevatorControlMode : 2|2@1+ (1.0,0.0) [0.0|2.0] ""  SCIENCE
@@ -159,8 +160,9 @@ BO_ 1666 SCIENCE_reportFaults: 1 SCIENCE
 BO_ 1667 SCIENCE_reportACK: 1 SCIENCE
  SG_ SCIENCE_ACK : 0|8@1+ (1.0,0.0) [0.0|254.0] ""  JETSON
 
-BO_ 1668 SCIENCE_reportDiagnostics: 4 SCIENCE
- SG_ SCIENCE_reportCANStats : 0|32@1+ (1.0,0.0) [0.0|4294967294.0] ""  JETSON
+BO_ 1668 SCIENCE_reportDiagnostics: 8 SCIENCE
+ SG_ SCIENCE_reportNumOneShotMsgsRece : 32|32@1+ (1.0,0.0) [0.0|4294967294.0] ""  JETSON
+ SG_ SCIENCE_reportNumStreamedMsgsRec : 0|32@1+ (1.0,0.0) [0.0|4294967294.0] ""  JETSON
 
 BO_ 1696 GIMBAL_setControlMode: 1 JETSON
  SG_ GIMBAL_panControlMode : 0|2@1+ (1.0,0.0) [0.0|2.0] ""  GIMBAL
@@ -190,8 +192,9 @@ BO_ 1729 GIMBAL_reportFaults: 1 GIMBAL
 BO_ 1730 GIMBAL_reportACK: 1 GIMBAL
  SG_ GIMBAL_ACK : 0|8@1+ (1.0,0.0) [0.0|254.0] ""  JETSON
 
-BO_ 1731 GIMBAL_reportDiagnostics: 4 GIMBAL
- SG_ GIMBAL_reportCANStats : 0|32@1+ (1.0,0.0) [0.0|4294967294.0] ""  JETSON
+BO_ 1731 GIMBAL_reportDiagnostics: 8 GIMBAL
+ SG_ GIMBAL_reportNumOneShotMsgsRecei : 32|32@1+ (1.0,0.0) [0.0|4294967294.0] ""  JETSON
+ SG_ GIMBAL_reportNumStreamedMsgsRece : 0|32@1+ (1.0,0.0) [0.0|4294967294.0] ""  JETSON
 
 BO_ 1760 PDB_setLEDMatrix: 1 JETSON
  SG_ PDB_LEDMatrixState : 0|3@1+ (1.0,0.0) [0.0|6.0] ""  PDB
@@ -214,8 +217,9 @@ BO_ 1793 PDB_reportFaults: 2 PDB
 BO_ 1794 PDB_reportACK: 1 PDB
  SG_ PDB_ACK : 0|8@1+ (1.0,0.0) [0.0|254.0] ""  JETSON
 
-BO_ 1795 PDB_reportDiagnostics: 4 PDB
- SG_ PDB_reportCANStats : 0|32@1+ (1.0,0.0) [0.0|4294967294.0] ""  JETSON
+BO_ 1795 PDB_reportDiagnostics: 8 PDB
+ SG_ PDB_reportNumOneShotMsgsReceived : 32|32@1+ (1.0,0.0) [0.0|4294967294.0] ""  JETSON
+ SG_ PDB_reportNumStreamedMsgsReceive : 0|32@1+ (1.0,0.0) [0.0|4294967294.0] ""  JETSON
 
 BO_ 1824 COMMON_switchCANBus: 1 JETSON
  SG_ COMMON_CANBusID : 0|2@1+ (1.0,0.0) [0.0|2.0] ""  ARM,GIMBAL,PDB,SCIENCE
@@ -306,7 +310,8 @@ CM_ SG_ 1603 ARM_turntableEncoderState "Arm turntable encoder state";
 CM_ BO_ 1604 "Arm report ACKs to one-shot commands";
 CM_ SG_ 1604 ARM_ACK "Arm ACKs";
 CM_ BO_ 1605 "Arm report diagnostic information";
-CM_ SG_ 1605 ARM_reportCANStats "Arm CAN statistics";
+CM_ SG_ 1605 ARM_reportNumOneShotMsgsReceived "Arm report number of one-shot CAN messages received";
+CM_ SG_ 1605 ARM_reportNumStreamedMsgsReceive "Arm report number of streamed CAN messages received";
 CM_ BO_ 1632 "Set control mode for science joints";
 CM_ SG_ 1632 SCIENCE_elevatorControlMode "Science elevator control mode";
 CM_ SG_ 1632 SCIENCE_genevaControlMode "Science geneva mechanism control mode";
@@ -339,7 +344,8 @@ CM_ SG_ 1666 SCIENCE_genevaEncoderState "Science geneva mechanism encoder state"
 CM_ BO_ 1667 "Science report ACKs to one-shot commands";
 CM_ SG_ 1667 SCIENCE_ACK "Science ACKs";
 CM_ BO_ 1668 "Science report diagnostic information";
-CM_ SG_ 1668 SCIENCE_reportCANStats "Science CAN statistics";
+CM_ SG_ 1668 SCIENCE_reportNumOneShotMsgsRece "Science report number of one-shot CAN messages received";
+CM_ SG_ 1668 SCIENCE_reportNumStreamedMsgsRec "Science report number of streamed CAN messages received";
 CM_ BO_ 1696 "Set control mode for gimbal joints";
 CM_ SG_ 1696 GIMBAL_panControlMode "Gimbal pan control mode";
 CM_ BO_ 1697 "Gimbal set joint position";
@@ -362,7 +368,8 @@ CM_ SG_ 1729 GIMBAL_panEncoderState "Gimbal pan encoder state";
 CM_ BO_ 1730 "Gimbal report ACKs to one-shot commands";
 CM_ SG_ 1730 GIMBAL_ACK "Gimbal ACKs";
 CM_ BO_ 1731 "Gimbal report diagnostic information";
-CM_ SG_ 1731 GIMBAL_reportCANStats "Gimbal CAN statistics";
+CM_ SG_ 1731 GIMBAL_reportNumOneShotMsgsRecei "Gimbal report number of one-shot CAN messages received";
+CM_ SG_ 1731 GIMBAL_reportNumStreamedMsgsRece "Gimbal report number of streamed CAN messages received";
 CM_ BO_ 1760 "PDB set LED matrix state";
 CM_ SG_ 1760 PDB_LEDMatrixState "PDB LED matrix state";
 CM_ BO_ 1792 "PDB report sensor data";
@@ -381,7 +388,8 @@ CM_ SG_ 1793 PDB_jetsonStatus "PDB Jetson power status";
 CM_ BO_ 1794 "PDB report ACKs to one-shot commands";
 CM_ SG_ 1794 PDB_ACK "PDB ACKs";
 CM_ BO_ 1795 "PDB report diagnostic information";
-CM_ SG_ 1795 PDB_reportCANStats "PDB CAN statistics";
+CM_ SG_ 1795 PDB_reportNumOneShotMsgsReceived "PDB report number of one-shot CAN messages received";
+CM_ SG_ 1795 PDB_reportNumStreamedMsgsReceive "PDB report number of streamed CAN messages received";
 CM_ BO_ 1824 "Notifies all boards to switch to the specified CAN bus in the dual-bus system";
 CM_ SG_ 1824 COMMON_CANBusID "CAN bus ID";
 CM_ BO_ 1825 "CAN message for debugging or placeholder purposes";
@@ -396,9 +404,15 @@ BA_ "SystemSignalLongSymbol" SG_ 1601 ARM_reportRightWristAngularVeloc "ARM_repo
 BA_ "SystemSignalLongSymbol" SG_ 1601 ARM_reportLeftWristAngularVeloci "ARM_reportLeftWristAngularVelocity";
 BA_ "SystemSignalLongSymbol" SG_ 1601 ARM_reportShoulderAngularVelocit "ARM_reportShoulderAngularVelocity";
 BA_ "SystemSignalLongSymbol" SG_ 1601 ARM_reportTurntableAngularVeloci "ARM_reportTurntableAngularVelocity";
+BA_ "SystemSignalLongSymbol" SG_ 1605 ARM_reportNumStreamedMsgsReceive "ARM_reportNumStreamedMsgsReceived";
 BA_ "SystemSignalLongSymbol" SG_ 1634 SCIENCE_setElevatorAngularVeloci "SCIENCE_setElevatorAngularVelocity";
 BA_ "SystemSignalLongSymbol" SG_ 1664 SCIENCE_reportElevatorAngularVel "SCIENCE_reportElevatorAngularVelocity";
 BA_ "SystemSignalLongSymbol" SG_ 1664 SCIENCE_reportGenevaAngularVeloc "SCIENCE_reportGenevaAngularVelocity";
+BA_ "SystemSignalLongSymbol" SG_ 1668 SCIENCE_reportNumOneShotMsgsRece "SCIENCE_reportNumOneShotMsgsReceived";
+BA_ "SystemSignalLongSymbol" SG_ 1668 SCIENCE_reportNumStreamedMsgsRec "SCIENCE_reportNumStreamedMsgsReceived";
+BA_ "SystemSignalLongSymbol" SG_ 1731 GIMBAL_reportNumOneShotMsgsRecei "GIMBAL_reportNumOneShotMsgsReceived";
+BA_ "SystemSignalLongSymbol" SG_ 1731 GIMBAL_reportNumStreamedMsgsRece "GIMBAL_reportNumStreamedMsgsReceived";
+BA_ "SystemSignalLongSymbol" SG_ 1795 PDB_reportNumStreamedMsgsReceive "PDB_reportNumStreamedMsgsReceived";
 VAL_ 1569 ARM_clawControlMode 0 "OPEN_LOOP" 1 "POSITION" 2 "VELOCITY" 3 "CURRENT" 7 "SNA" ;
 VAL_ 1569 ARM_rightWristControlMode 0 "OPEN_LOOP" 1 "POSITION" 2 "VELOCITY" 3 "CURRENT" 7 "SNA" ;
 VAL_ 1569 ARM_leftWristControlMode 0 "OPEN_LOOP" 1 "POSITION" 2 "VELOCITY" 3 "CURRENT" 7 "SNA" ;

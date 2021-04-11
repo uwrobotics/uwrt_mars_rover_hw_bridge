@@ -1585,11 +1585,18 @@ bool arm_report_diagnostics_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t
       CANSignalValue_t signalValue = it->second;
 
       switch (signalName) {
-        case CANSIGNAL::ARM_REPORT_CAN_STATS:
-          msgStruct.arm_report_can_stats =
-              uwrt_mars_rover_can_arm_report_diagnostics_arm_report_can_stats_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_report_diagnostics_arm_report_can_stats_is_in_range(
-              msgStruct.arm_report_can_stats);
+        case CANSIGNAL::ARM_REPORT_NUM_STREAMED_MSGS_RECEIVED:
+          msgStruct.arm_report_num_streamed_msgs_received =
+              uwrt_mars_rover_can_arm_report_diagnostics_arm_report_num_streamed_msgs_received_encode(signalValue);
+          success &= uwrt_mars_rover_can_arm_report_diagnostics_arm_report_num_streamed_msgs_received_is_in_range(
+              msgStruct.arm_report_num_streamed_msgs_received);
+          break;
+
+        case CANSIGNAL::ARM_REPORT_NUM_ONE_SHOT_MSGS_RECEIVED:
+          msgStruct.arm_report_num_one_shot_msgs_received =
+              uwrt_mars_rover_can_arm_report_diagnostics_arm_report_num_one_shot_msgs_received_encode(signalValue);
+          success &= uwrt_mars_rover_can_arm_report_diagnostics_arm_report_num_one_shot_msgs_received_is_in_range(
+              msgStruct.arm_report_num_one_shot_msgs_received);
           break;
 
         default:
@@ -1619,10 +1626,18 @@ bool arm_report_diagnostics_unpacker(uint8_t* raw, CANMsgMap* msgMap) {
       CANSIGNAL signalName = it->first;
 
       switch (signalName) {
-        case CANSIGNAL::ARM_REPORT_CAN_STATS:
+        case CANSIGNAL::ARM_REPORT_NUM_STREAMED_MSGS_RECEIVED:
           success &= msgMap->setSignalValue(
               msgID, signalName,
-              uwrt_mars_rover_can_arm_report_diagnostics_arm_report_can_stats_decode(msgStruct.arm_report_can_stats));
+              uwrt_mars_rover_can_arm_report_diagnostics_arm_report_num_streamed_msgs_received_decode(
+                  msgStruct.arm_report_num_streamed_msgs_received));
+          break;
+
+        case CANSIGNAL::ARM_REPORT_NUM_ONE_SHOT_MSGS_RECEIVED:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_arm_report_diagnostics_arm_report_num_one_shot_msgs_received_decode(
+                  msgStruct.arm_report_num_one_shot_msgs_received));
           break;
 
         default:
@@ -2360,11 +2375,22 @@ bool science_report_diagnostics_packer(uint8_t* raw, const CANMsgMap* msgMap, si
       CANSignalValue_t signalValue = it->second;
 
       switch (signalName) {
-        case CANSIGNAL::SCIENCE_REPORT_CAN_STATS:
-          msgStruct.science_report_can_stats =
-              uwrt_mars_rover_can_science_report_diagnostics_science_report_can_stats_encode(signalValue);
-          success &= uwrt_mars_rover_can_science_report_diagnostics_science_report_can_stats_is_in_range(
-              msgStruct.science_report_can_stats);
+        case CANSIGNAL::SCIENCE_REPORT_NUM_STREAMED_MSGS_RECEIVED:
+          msgStruct.science_report_num_streamed_msgs_received =
+              uwrt_mars_rover_can_science_report_diagnostics_science_report_num_streamed_msgs_received_encode(
+                  signalValue);
+          success &=
+              uwrt_mars_rover_can_science_report_diagnostics_science_report_num_streamed_msgs_received_is_in_range(
+                  msgStruct.science_report_num_streamed_msgs_received);
+          break;
+
+        case CANSIGNAL::SCIENCE_REPORT_NUM_ONE_SHOT_MSGS_RECEIVED:
+          msgStruct.science_report_num_one_shot_msgs_received =
+              uwrt_mars_rover_can_science_report_diagnostics_science_report_num_one_shot_msgs_received_encode(
+                  signalValue);
+          success &=
+              uwrt_mars_rover_can_science_report_diagnostics_science_report_num_one_shot_msgs_received_is_in_range(
+                  msgStruct.science_report_num_one_shot_msgs_received);
           break;
 
         default:
@@ -2394,11 +2420,18 @@ bool science_report_diagnostics_unpacker(uint8_t* raw, CANMsgMap* msgMap) {
       CANSIGNAL signalName = it->first;
 
       switch (signalName) {
-        case CANSIGNAL::SCIENCE_REPORT_CAN_STATS:
-          success &=
-              msgMap->setSignalValue(msgID, signalName,
-                                     uwrt_mars_rover_can_science_report_diagnostics_science_report_can_stats_decode(
-                                         msgStruct.science_report_can_stats));
+        case CANSIGNAL::SCIENCE_REPORT_NUM_STREAMED_MSGS_RECEIVED:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_science_report_diagnostics_science_report_num_streamed_msgs_received_decode(
+                  msgStruct.science_report_num_streamed_msgs_received));
+          break;
+
+        case CANSIGNAL::SCIENCE_REPORT_NUM_ONE_SHOT_MSGS_RECEIVED:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_science_report_diagnostics_science_report_num_one_shot_msgs_received_decode(
+                  msgStruct.science_report_num_one_shot_msgs_received));
           break;
 
         default:
@@ -2955,11 +2988,20 @@ bool gimbal_report_diagnostics_packer(uint8_t* raw, const CANMsgMap* msgMap, siz
       CANSignalValue_t signalValue = it->second;
 
       switch (signalName) {
-        case CANSIGNAL::GIMBAL_REPORT_CAN_STATS:
-          msgStruct.gimbal_report_can_stats =
-              uwrt_mars_rover_can_gimbal_report_diagnostics_gimbal_report_can_stats_encode(signalValue);
-          success &= uwrt_mars_rover_can_gimbal_report_diagnostics_gimbal_report_can_stats_is_in_range(
-              msgStruct.gimbal_report_can_stats);
+        case CANSIGNAL::GIMBAL_REPORT_NUM_STREAMED_MSGS_RECEIVED:
+          msgStruct.gimbal_report_num_streamed_msgs_received =
+              uwrt_mars_rover_can_gimbal_report_diagnostics_gimbal_report_num_streamed_msgs_received_encode(
+                  signalValue);
+          success &= uwrt_mars_rover_can_gimbal_report_diagnostics_gimbal_report_num_streamed_msgs_received_is_in_range(
+              msgStruct.gimbal_report_num_streamed_msgs_received);
+          break;
+
+        case CANSIGNAL::GIMBAL_REPORT_NUM_ONE_SHOT_MSGS_RECEIVED:
+          msgStruct.gimbal_report_num_one_shot_msgs_received =
+              uwrt_mars_rover_can_gimbal_report_diagnostics_gimbal_report_num_one_shot_msgs_received_encode(
+                  signalValue);
+          success &= uwrt_mars_rover_can_gimbal_report_diagnostics_gimbal_report_num_one_shot_msgs_received_is_in_range(
+              msgStruct.gimbal_report_num_one_shot_msgs_received);
           break;
 
         default:
@@ -2989,11 +3031,18 @@ bool gimbal_report_diagnostics_unpacker(uint8_t* raw, CANMsgMap* msgMap) {
       CANSIGNAL signalName = it->first;
 
       switch (signalName) {
-        case CANSIGNAL::GIMBAL_REPORT_CAN_STATS:
-          success &=
-              msgMap->setSignalValue(msgID, signalName,
-                                     uwrt_mars_rover_can_gimbal_report_diagnostics_gimbal_report_can_stats_decode(
-                                         msgStruct.gimbal_report_can_stats));
+        case CANSIGNAL::GIMBAL_REPORT_NUM_STREAMED_MSGS_RECEIVED:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_gimbal_report_diagnostics_gimbal_report_num_streamed_msgs_received_decode(
+                  msgStruct.gimbal_report_num_streamed_msgs_received));
+          break;
+
+        case CANSIGNAL::GIMBAL_REPORT_NUM_ONE_SHOT_MSGS_RECEIVED:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_gimbal_report_diagnostics_gimbal_report_num_one_shot_msgs_received_decode(
+                  msgStruct.gimbal_report_num_one_shot_msgs_received));
           break;
 
         default:
@@ -3380,11 +3429,18 @@ bool pdb_report_diagnostics_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t
       CANSignalValue_t signalValue = it->second;
 
       switch (signalName) {
-        case CANSIGNAL::PDB_REPORT_CAN_STATS:
-          msgStruct.pdb_report_can_stats =
-              uwrt_mars_rover_can_pdb_report_diagnostics_pdb_report_can_stats_encode(signalValue);
-          success &= uwrt_mars_rover_can_pdb_report_diagnostics_pdb_report_can_stats_is_in_range(
-              msgStruct.pdb_report_can_stats);
+        case CANSIGNAL::PDB_REPORT_NUM_STREAMED_MSGS_RECEIVED:
+          msgStruct.pdb_report_num_streamed_msgs_received =
+              uwrt_mars_rover_can_pdb_report_diagnostics_pdb_report_num_streamed_msgs_received_encode(signalValue);
+          success &= uwrt_mars_rover_can_pdb_report_diagnostics_pdb_report_num_streamed_msgs_received_is_in_range(
+              msgStruct.pdb_report_num_streamed_msgs_received);
+          break;
+
+        case CANSIGNAL::PDB_REPORT_NUM_ONE_SHOT_MSGS_RECEIVED:
+          msgStruct.pdb_report_num_one_shot_msgs_received =
+              uwrt_mars_rover_can_pdb_report_diagnostics_pdb_report_num_one_shot_msgs_received_encode(signalValue);
+          success &= uwrt_mars_rover_can_pdb_report_diagnostics_pdb_report_num_one_shot_msgs_received_is_in_range(
+              msgStruct.pdb_report_num_one_shot_msgs_received);
           break;
 
         default:
@@ -3414,10 +3470,18 @@ bool pdb_report_diagnostics_unpacker(uint8_t* raw, CANMsgMap* msgMap) {
       CANSIGNAL signalName = it->first;
 
       switch (signalName) {
-        case CANSIGNAL::PDB_REPORT_CAN_STATS:
+        case CANSIGNAL::PDB_REPORT_NUM_STREAMED_MSGS_RECEIVED:
           success &= msgMap->setSignalValue(
               msgID, signalName,
-              uwrt_mars_rover_can_pdb_report_diagnostics_pdb_report_can_stats_decode(msgStruct.pdb_report_can_stats));
+              uwrt_mars_rover_can_pdb_report_diagnostics_pdb_report_num_streamed_msgs_received_decode(
+                  msgStruct.pdb_report_num_streamed_msgs_received));
+          break;
+
+        case CANSIGNAL::PDB_REPORT_NUM_ONE_SHOT_MSGS_RECEIVED:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_pdb_report_diagnostics_pdb_report_num_one_shot_msgs_received_decode(
+                  msgStruct.pdb_report_num_one_shot_msgs_received));
           break;
 
         default:

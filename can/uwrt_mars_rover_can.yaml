@@ -923,16 +923,26 @@ uwrt_mars_rover_can_bus:
   - ARM_reportDiagnostics:
       comment: Arm report diagnostic information
       id: 1605
-      size: 4
+      size: 8
       senders:
       - ARM
       receivers:
       - JETSON
       frequency: 100
       signals:
-      - ARM_reportCANStats:
-          comment: Arm CAN statistics
+      - ARM_reportNumStreamedMsgsReceived:
+          comment: Arm report number of streamed CAN messages received
           startbit: 0
+          length: 32
+          is_signed: false
+          unit: ''
+          scale: 1.0
+          offset: 0.0
+          min: 0.0
+          max: 4294967294.0
+      - ARM_reportNumOneShotMsgsReceived:
+          comment: Arm report number of one-shot CAN messages received
+          startbit: 32
           length: 32
           is_signed: false
           unit: ''
@@ -1316,16 +1326,26 @@ uwrt_mars_rover_can_bus:
   - SCIENCE_reportDiagnostics:
       comment: Science report diagnostic information
       id: 1668
-      size: 4
+      size: 8
       senders:
       - SCIENCE
       receivers:
       - JETSON
       frequency: 100
       signals:
-      - SCIENCE_reportCANStats:
-          comment: Science CAN statistics
+      - SCIENCE_reportNumStreamedMsgsReceived:
+          comment: Science report number of streamed CAN messages received
           startbit: 0
+          length: 32
+          is_signed: false
+          unit: ''
+          scale: 1.0
+          offset: 0.0
+          min: 0.0
+          max: 4294967294.0
+      - SCIENCE_reportNumOneShotMsgsReceived:
+          comment: Science report number of one-shot CAN messages received
+          startbit: 32
           length: 32
           is_signed: false
           unit: ''
@@ -1583,16 +1603,26 @@ uwrt_mars_rover_can_bus:
   - GIMBAL_reportDiagnostics:
       comment: Gimbal report diagnostic information
       id: 1731
-      size: 4
+      size: 8
       senders:
       - GIMBAL
       receivers:
       - JETSON
       frequency: 100
       signals:
-      - GIMBAL_reportCANStats:
-          comment: Gimbal CAN statistics
+      - GIMBAL_reportNumStreamedMsgsReceived:
+          comment: Gimbal report number of streamed CAN messages received
           startbit: 0
+          length: 32
+          is_signed: false
+          unit: ''
+          scale: 1.0
+          offset: 0.0
+          min: 0.0
+          max: 4294967294.0
+      - GIMBAL_reportNumOneShotMsgsReceived:
+          comment: Gimbal report number of one-shot CAN messages received
+          startbit: 32
           length: 32
           is_signed: false
           unit: ''
@@ -1822,16 +1852,26 @@ uwrt_mars_rover_can_bus:
   - PDB_reportDiagnostics:
       comment: PDB report diagnostic information
       id: 1795
-      size: 4
+      size: 8
       senders:
       - PDB
       receivers:
       - JETSON
       frequency: 100
       signals:
-      - PDB_reportCANStats:
-          comment: PDB CAN statistics
+      - PDB_reportNumStreamedMsgsReceived:
+          comment: PDB report number of streamed CAN messages received
           startbit: 0
+          length: 32
+          is_signed: false
+          unit: ''
+          scale: 1.0
+          offset: 0.0
+          min: 0.0
+          max: 4294967294.0
+      - PDB_reportNumOneShotMsgsReceived:
+          comment: PDB report number of one-shot CAN messages received
+          startbit: 32
           length: 32
           is_signed: false
           unit: ''
