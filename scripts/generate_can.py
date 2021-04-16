@@ -87,8 +87,8 @@ for message in can_yaml[bus_name]['messages']:
     message['senders'].sort()
     message['receivers'].sort()
 
-    # sort signals by startbit
-    message['signals'].sort(key=lambda x: x[list(x.keys())[0]]['startbit'])
+    # track start bit for each signal
+    startbit = 0
 
     # extract message signals
     signals = []
@@ -152,7 +152,7 @@ for message in can_yaml[bus_name]['messages']:
         signals.append(
             cantools.database.can.Signal(
                 name=signal_name,
-                start=signal['startbit'],
+                start=startbit,
                 length=signal['length'],
                 byte_order='little_endian',
                 is_signed=signal['is_signed'],
@@ -166,6 +166,8 @@ for message in can_yaml[bus_name]['messages']:
                 receivers=message['receivers']
             )
         )
+
+        startbit += signal['length']
 
     messages.append(
         cantools.database.can.Message(

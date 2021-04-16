@@ -42,7 +42,6 @@ uwrt_mars_rover_can_bus:
       signals:
       - ARM_turntableControlMode:
           comment: Arm turntable control mode
-          startbit: 0
           length: 3
           is_signed: false
           unit: ''
@@ -58,7 +57,6 @@ uwrt_mars_rover_can_bus:
           max: 6.0
       - ARM_shoulderControlMode:
           comment: Arm shoulder control mode
-          startbit: 3
           length: 3
           is_signed: false
           unit: ''
@@ -74,7 +72,6 @@ uwrt_mars_rover_can_bus:
           max: 6.0
       - ARM_elbowControlMode:
           comment: Arm elbow control mode
-          startbit: 6
           length: 3
           is_signed: false
           unit: ''
@@ -90,7 +87,6 @@ uwrt_mars_rover_can_bus:
           max: 6.0
       - ARM_leftWristControlMode:
           comment: Arm left wrist control mode
-          startbit: 9
           length: 3
           is_signed: false
           unit: ''
@@ -106,7 +102,6 @@ uwrt_mars_rover_can_bus:
           max: 6.0
       - ARM_rightWristControlMode:
           comment: Arm right wrist control mode
-          startbit: 12
           length: 3
           is_signed: false
           unit: ''
@@ -122,7 +117,6 @@ uwrt_mars_rover_can_bus:
           max: 6.0
       - ARM_clawControlMode:
           comment: Arm claw control mode
-          startbit: 15
           length: 3
           is_signed: false
           unit: ''
@@ -148,10 +142,9 @@ uwrt_mars_rover_can_bus:
       signals:
       - ARM_setTurntablePosition:
           comment: Arm set turntable position data
-          startbit: 0
           length: 10
           is_signed: true
-          unit: radians
+          unit: rad
           values:
             1023: SNA
           min: -1.5708
@@ -160,10 +153,9 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
       - ARM_setShoulderPosition:
           comment: Arm set shoulder position data
-          startbit: 10
           length: 10
           is_signed: false
-          unit: radians
+          unit: rad
           values:
             1023: SNA
           min: 0.0
@@ -172,10 +164,9 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
       - ARM_setElbowPosition:
           comment: Arm set elbow position data
-          startbit: 20
           length: 10
           is_signed: true
-          unit: radians
+          unit: rad
           values:
             1023: SNA
           min: -1.5708
@@ -184,10 +175,9 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
       - ARM_setLeftWristPosition:
           comment: Arm set left wrist position data
-          startbit: 30
           length: 10
           is_signed: true
-          unit: radians
+          unit: rad
           values:
             1023: SNA
           min: -1.5708
@@ -196,10 +186,9 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
       - ARM_setRightWristPosition:
           comment: Arm set right wrist position data
-          startbit: 40
           length: 10
           is_signed: true
-          unit: radians
+          unit: rad
           values:
             1023: SNA
           min: -1.5708
@@ -208,10 +197,9 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
       - ARM_setClawPosition:
           comment: Arm set claw position data
-          startbit: 50
           length: 7
           is_signed: true
-          unit: radians
+          unit: rad
           values:
             127: SNA
           min: -1.5708
@@ -220,10 +208,9 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
       - ARM_setToolTipPosition:
           comment: Arm set tool tip position data
-          startbit: 57
           length: 7
           is_signed: false
-          unit: radians
+          unit: rad
           values:
             127: SNA
           min: 0
@@ -242,10 +229,9 @@ uwrt_mars_rover_can_bus:
       signals:
       - ARM_setTurntableAngularVelocity:
           comment: Arm set turntable angular velocity
-          startbit: 0
           length: 10
           is_signed: true
-          unit: radians per second
+          unit: rad/s
           values:
             1023: SNA
           min: -0.6
@@ -254,10 +240,9 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
       - ARM_setShoulderAngularVelocity:
           comment: Arm set shoulder angular velocity
-          startbit: 10
           length: 10
           is_signed: true
-          unit: radians per second
+          unit: rad/s
           values:
             1023: SNA
           min: -0.05
@@ -266,10 +251,9 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
       - ARM_setElbowAngularVelocity:
           comment: Arm set elbow angular velocity
-          startbit: 20
           length: 10
           is_signed: true
-          unit: radians per second
+          unit: rad/s
           values:
             1023: SNA
           min: -1.8
@@ -278,10 +262,9 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
       - ARM_setLeftWristAngularVelocity:
           comment: Arm set left wrist angular velocity
-          startbit: 30
           length: 10
           is_signed: true
-          unit: radians per second
+          unit: rad/s
           values:
             1023: SNA
           min: -7.1
@@ -290,10 +273,9 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
       - ARM_setRightWristAngularVelocity:
           comment: Arm set right wrist angular velocity
-          startbit: 40
           length: 10
           is_signed: true
-          unit: radians per second
+          unit: rad/s
           values:
             1023: SNA
           min: -7.1
@@ -302,10 +284,9 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
       - ARM_setClawAngularVelocity:
           comment: Arm set claw angular velocity
-          startbit: 50
           length: 10
           is_signed: true
-          unit: radians per second
+          unit: rad/s
           values:
             1023: SNA
           min: -30.0
@@ -324,10 +305,9 @@ uwrt_mars_rover_can_bus:
       signals:
       - ARM_setTurntableCurrent:
           comment: Arm set turntable current
-          startbit: 0
           length: 10
           is_signed: true
-          unit: amperes
+          unit: A
           values:
             1023: SNA
           min: -53.0
@@ -336,10 +316,9 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
       - ARM_setShoulderCurrent:
           comment: Arm set shoulder current
-          startbit: 10
           length: 10
           is_signed: true
-          unit: amperes
+          unit: A
           values:
             1023: SNA
           min: -5.0
@@ -348,10 +327,9 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
       - ARM_setElbowCurrent:
           comment: Arm set elbow current
-          startbit: 20
           length: 10
           is_signed: true
-          unit: amperes
+          unit: A
           values:
             1023: SNA
           min: -25.0
@@ -360,10 +338,9 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
       - ARM_setLeftWristCurrent:
           comment: Arm set left wrist current
-          startbit: 30
           length: 10
           is_signed: true
-          unit: amperes
+          unit: A
           values:
             1023: SNA
           min: -5.5
@@ -372,10 +349,9 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
       - ARM_setRightWristCurrent:
           comment: Arm set right wrist current
-          startbit: 40
           length: 10
           is_signed: true
-          unit: amperes
+          unit: A
           values:
             1023: SNA
           min: -5.5
@@ -384,10 +360,9 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
       - ARM_setClawCurrent:
           comment: Arm set claw current
-          startbit: 50
           length: 10
           is_signed: true
-          unit: amperes
+          unit: A
           values:
             1023: SNA
           min: -3.0
@@ -406,7 +381,6 @@ uwrt_mars_rover_can_bus:
       signals:
       - ARM_jointPIDID:
           comment: Arm joint ID
-          startbit: 0
           length: 3
           is_signed: false
           unit: ''
@@ -424,7 +398,6 @@ uwrt_mars_rover_can_bus:
           max: 6.0
       - ARM_jointPIDProportionalGain:
           comment: Arm joint PID proportional gain
-          startbit: 3
           length: 16
           is_signed: false
           unit: ''
@@ -436,7 +409,6 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
       - ARM_jointPIDIntegralGain:
           comment: Arm joint PID integral gain
-          startbit: 19
           length: 16
           is_signed: false
           unit: ''
@@ -448,7 +420,6 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
       - ARM_jointPIDDerivativeGain:
           comment: Arm joint PID derivative gain
-          startbit: 35
           length: 16
           is_signed: false
           unit: ''
@@ -460,7 +431,6 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
       - ARM_jointPIDDeadzone:
           comment: Arm joint PID deadzone
-          startbit: 51
           length: 13
           is_signed: false
           unit: ''
@@ -482,10 +452,9 @@ uwrt_mars_rover_can_bus:
       signals:
       - ARM_reportTurntablePosition:
           comment: Arm turntable position
-          startbit: 0
           length: 12
           is_signed: true
-          unit: radians
+          unit: rad
           values:
             4095: SNA
           min: -1.5708
@@ -494,10 +463,9 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
       - ARM_reportShoulderPosition:
           comment: Arm shoulder position
-          startbit: 12
           length: 12
           is_signed: false
-          unit: radians
+          unit: rad
           values:
             4095: SNA
           min: 0.0
@@ -506,10 +474,9 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
       - ARM_reportElbowPosition:
           comment: Arm elbow position
-          startbit: 24
           length: 12
           is_signed: true
-          unit: radians
+          unit: rad
           values:
             4095: SNA
           min: -1.5708
@@ -518,10 +485,9 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
       - ARM_reportLeftWristPosition:
           comment: Arm left wrist position
-          startbit: 36
           length: 8
           is_signed: true
-          unit: radians
+          unit: rad
           values:
             255: SNA
           min: -1.5708
@@ -530,10 +496,9 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
       - ARM_reportRightWristPosition:
           comment: Arm right wrist position
-          startbit: 44
           length: 8
           is_signed: true
-          unit: radians
+          unit: rad
           values:
             255: SNA
           min: -1.5708
@@ -542,10 +507,9 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
       - ARM_reportClawPosition:
           comment: Arm claw position
-          startbit: 52
           length: 8
           is_signed: true
-          unit: radians
+          unit: rad
           values:
             255: SNA
           min: -1.5708
@@ -564,10 +528,9 @@ uwrt_mars_rover_can_bus:
       signals:
       - ARM_reportTurntableAngularVelocity:
           comment: Arm turntable angular velocity
-          startbit: 0
           length: 10
           is_signed: true
-          unit: radians
+          unit: rad
           values:
             1023: SNA
           min: -0.6
@@ -576,10 +539,9 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
       - ARM_reportShoulderAngularVelocity:
           comment: Arm shoulder angular velocity
-          startbit: 10
           length: 10
           is_signed: true
-          unit: radians
+          unit: rad
           values:
             1023: SNA
           min: -0.05
@@ -588,10 +550,9 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
       - ARM_reportElbowAngularVelocity:
           comment: Arm elbow angular velocity
-          startbit: 20
           length: 10
           is_signed: true
-          unit: radians
+          unit: rad
           values:
             1023: SNA
           min: -1.8
@@ -600,10 +561,9 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
       - ARM_reportLeftWristAngularVelocity:
           comment: Arm left wrist angular velocity
-          startbit: 30
           length: 10
           is_signed: true
-          unit: radians
+          unit: rad
           values:
             1023: SNA
           min: -7.1
@@ -612,10 +572,9 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
       - ARM_reportRightWristAngularVelocity:
           comment: Arm right wrist angular velocity
-          startbit: 40
           length: 10
           is_signed: true
-          unit: radians
+          unit: rad
           values:
             1023: SNA
           min: -7.1
@@ -624,10 +583,9 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
       - ARM_reportClawAngularVelocity:
           comment: Arm claw angular velocity
-          startbit: 50
           length: 10
           is_signed: true
-          unit: radians
+          unit: rad
           values:
             1023: SNA
           min: -30.0
@@ -646,10 +604,9 @@ uwrt_mars_rover_can_bus:
       signals:
       - ARM_reportTurntableCurrent:
           comment: Arm turntable current
-          startbit: 0
           length: 10
           is_signed: true
-          unit: radians
+          unit: rad
           values:
             1023: SNA
           min: -53.0
@@ -658,10 +615,9 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
       - ARM_reportShoulderCurrent:
           comment: Arm shoulder current
-          startbit: 10
           length: 10
           is_signed: true
-          unit: radians
+          unit: rad
           values:
             1023: SNA
           min: -5.0
@@ -670,10 +626,9 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
       - ARM_reportElbowCurrent:
           comment: Arm elbow current
-          startbit: 20
           length: 10
           is_signed: true
-          unit: radians
+          unit: rad
           values:
             1023: SNA
           min: -25.0
@@ -682,10 +637,9 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
       - ARM_reportLeftWristCurrent:
           comment: Arm left wrist current
-          startbit: 30
           length: 10
           is_signed: true
-          unit: radians
+          unit: rad
           values:
             1023: SNA
           min: -5.5
@@ -694,10 +648,9 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
       - ARM_reportRightWristCurrent:
           comment: Arm right wrist current
-          startbit: 40
           length: 10
           is_signed: true
-          unit: radians
+          unit: rad
           values:
             1023: SNA
           min: -5.5
@@ -706,10 +659,9 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
       - ARM_reportClawCurrent:
           comment: Arm claw current
-          startbit: 50
           length: 10
           is_signed: true
-          unit: radians
+          unit: rad
           values:
             1023: SNA
           min: -3.0
@@ -728,7 +680,6 @@ uwrt_mars_rover_can_bus:
       signals:
       - ARM_turntableEncoderState:
           comment: Arm turntable encoder state
-          startbit: 0
           length: 2
           is_signed: false
           unit: ''
@@ -742,7 +693,6 @@ uwrt_mars_rover_can_bus:
           max: 2.0
       - ARM_turntableCurrentSensorState:
           comment: Arm turntable current sensor state
-          startbit: 2
           length: 2
           is_signed: false
           unit: ''
@@ -756,7 +706,6 @@ uwrt_mars_rover_can_bus:
           max: 2.0
       - ARM_shoulderEncoderState:
           comment: Arm shoulder encoder state
-          startbit: 4
           length: 2
           is_signed: false
           unit: ''
@@ -770,7 +719,6 @@ uwrt_mars_rover_can_bus:
           max: 2.0
       - ARM_shoulderCurrentSensorState:
           comment: Arm shoulder current sensor state
-          startbit: 6
           length: 2
           is_signed: false
           unit: ''
@@ -784,7 +732,6 @@ uwrt_mars_rover_can_bus:
           max: 2.0
       - ARM_elbowEncoderState:
           comment: Arm elbow encoder state
-          startbit: 8
           length: 2
           is_signed: false
           unit: ''
@@ -798,7 +745,6 @@ uwrt_mars_rover_can_bus:
           max: 2.0
       - ARM_elbowCurrentSensorState:
           comment: Arm elbow current sensor state
-          startbit: 10
           length: 2
           is_signed: false
           unit: ''
@@ -812,7 +758,6 @@ uwrt_mars_rover_can_bus:
           max: 2.0
       - ARM_leftWristEncoderState:
           comment: Arm left wrist encoder state
-          startbit: 12
           length: 2
           is_signed: false
           unit: ''
@@ -826,7 +771,6 @@ uwrt_mars_rover_can_bus:
           max: 2.0
       - ARM_leftWristCurrentSensorState:
           comment: Arm left wrist current sensor state
-          startbit: 14
           length: 2
           is_signed: false
           unit: ''
@@ -840,7 +784,6 @@ uwrt_mars_rover_can_bus:
           max: 2.0
       - ARM_rightWristEncoderState:
           comment: Arm right wrist encoder state
-          startbit: 16
           length: 2
           is_signed: false
           unit: ''
@@ -854,7 +797,6 @@ uwrt_mars_rover_can_bus:
           max: 2.0
       - ARM_rightWristCurrentSensorState:
           comment: Arm shoulder current sensor state
-          startbit: 18
           length: 2
           is_signed: false
           unit: ''
@@ -868,7 +810,6 @@ uwrt_mars_rover_can_bus:
           max: 2.0
       - ARM_clawEncoderState:
           comment: Arm claw encoder state
-          startbit: 20
           length: 2
           is_signed: false
           unit: ''
@@ -882,7 +823,6 @@ uwrt_mars_rover_can_bus:
           max: 2.0
       - ARM_clawCurrentSensorState:
           comment: Arm claw current sensor state
-          startbit: 22
           length: 2
           is_signed: false
           unit: ''
@@ -906,7 +846,6 @@ uwrt_mars_rover_can_bus:
       signals:
       - ARM_ACK:
           comment: Arm ACKs
-          startbit: 0
           length: 8
           is_signed: false
           unit: ''
@@ -932,7 +871,6 @@ uwrt_mars_rover_can_bus:
       signals:
       - ARM_reportNumStreamedMsgsReceived:
           comment: Arm report number of streamed CAN messages received
-          startbit: 0
           length: 32
           is_signed: false
           unit: ''
@@ -942,7 +880,6 @@ uwrt_mars_rover_can_bus:
           max: 4294967294.0
       - ARM_reportNumOneShotMsgsReceived:
           comment: Arm report number of one-shot CAN messages received
-          startbit: 32
           length: 32
           is_signed: false
           unit: ''
@@ -962,7 +899,6 @@ uwrt_mars_rover_can_bus:
       signals:
       - SCIENCE_genevaControlMode:
           comment: Science geneva mechanism control mode
-          startbit: 0
           length: 2
           is_signed: false
           unit: ''
@@ -977,7 +913,6 @@ uwrt_mars_rover_can_bus:
           max: 2.0
       - SCIENCE_elevatorControlMode:
           comment: Science elevator control mode
-          startbit: 2
           length: 2
           is_signed: false
           unit: ''
@@ -1002,10 +937,9 @@ uwrt_mars_rover_can_bus:
       signals:
       - SCIENCE_setGenevaPosition:
           comment: Set science geneva mechanism position
-          startbit: 0
           length: 16
           is_signed: true
-          unit: radians
+          unit: rad
           values:
             32767: SNA
           min: -10.0
@@ -1014,10 +948,9 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
       - SCIENCE_setElevatorPosition:
           comment: Set science elevator position
-          startbit: 16
           length: 16
           is_signed: true
-          unit: radians
+          unit: rad
           values:
             32767: SNA
           min: -10.0
@@ -1026,10 +959,9 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
       - SCIENCE_setCoverPosition:
           comment: Set science cover position
-          startbit: 32
           length: 16
           is_signed: false
-          unit: radians
+          unit: rad
           values:
             65535: SNA
           min: 0.0
@@ -1038,10 +970,9 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
       - SCIENCE_setShovelPosition:
           comment: Set science shovel position
-          startbit: 48
           length: 16
           is_signed: false
-          unit: radians
+          unit: rad
           values:
             65535: SNA
           min: 0.0
@@ -1060,10 +991,9 @@ uwrt_mars_rover_can_bus:
       signals:
       - SCIENCE_setGenevaAngularVelocity:
           comment: Science set geneva mechanism angular velocity
-          startbit: 0
           length: 16
           is_signed: true
-          unit: radians per second
+          unit: rad/s
           values:
             32767: SNA
           min: -10.0
@@ -1072,10 +1002,9 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
       - SCIENCE_setElevatorAngularVelocity:
           comment: Science set elevator angular velocity
-          startbit: 16
           length: 16
           is_signed: true
-          unit: radians per second
+          unit: rad/s
           values:
             32767: SNA
           min: -10.0
@@ -1094,7 +1023,6 @@ uwrt_mars_rover_can_bus:
       signals:
       - SCIENCE_jointPIDID:
           comment: Science joint ID
-          startbit: 0
           length: 3
           is_signed: false
           unit: ''
@@ -1108,7 +1036,6 @@ uwrt_mars_rover_can_bus:
           max: 6.0
       - SCIENCE_jointPIDProportionalGain:
           comment: Science joint PID proportional gain
-          startbit: 3
           length: 16
           is_signed: false
           unit: ''
@@ -1120,7 +1047,6 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
       - SCIENCE_jointPIDIntegralGain:
           comment: Science joint PID integral gain
-          startbit: 19
           length: 16
           is_signed: false
           unit: ''
@@ -1132,7 +1058,6 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
       - SCIENCE_jointPIDDerivativeGain:
           comment: Science joint PID derivative gain
-          startbit: 35
           length: 16
           is_signed: false
           unit: ''
@@ -1144,7 +1069,6 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
       - SCIENCE_jointPIDDeadzone:
           comment: Science joint PID deadzone
-          startbit: 51
           length: 13
           is_signed: false
           unit: ''
@@ -1166,10 +1090,9 @@ uwrt_mars_rover_can_bus:
       signals:
       - SCIENCE_reportGenevaPosition:
           comment: Science report geneva mechanism position
-          startbit: 0
           length: 16
           is_signed: true
-          unit: radians
+          unit: rad
           values:
             32767: SNA
           min: -10.0
@@ -1178,10 +1101,9 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
       - SCIENCE_reportElevatorPosition:
           comment: Science report elevator position
-          startbit: 16
           length: 16
           is_signed: true
-          unit: radians
+          unit: rad
           values:
             32767: SNA
           min: -10.0
@@ -1190,10 +1112,9 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
       - SCIENCE_reportGenevaAngularVelocity:
           comment: Science report geneva mechanism angular velocity
-          startbit: 32
           length: 16
           is_signed: true
-          unit: radians per second
+          unit: rad/s
           values:
             32767: SNA
           min: -10.0
@@ -1202,10 +1123,9 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
       - SCIENCE_reportElevatorAngularVelocity:
           comment: Science report elevator angular velocity
-          startbit: 48
           length: 16
           is_signed: true
-          unit: radians per second
+          unit: rad/s
           values:
             32767: SNA
           min: -10.0
@@ -1224,7 +1144,6 @@ uwrt_mars_rover_can_bus:
       signals:
       - SCIENCE_moistureData:
           comment: Science moisture sensor data
-          startbit: 0
           length: 16
           is_signed: false
           unit: ''
@@ -1236,7 +1155,6 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
       - SCIENCE_temperatureData:
           comment: Science temperature sensor data
-          startbit: 16
           length: 16
           is_signed: true
           unit: Celsius
@@ -1258,7 +1176,6 @@ uwrt_mars_rover_can_bus:
       signals:
       - SCIENCE_genevaEncoderState:
           comment: Science geneva mechanism encoder state
-          startbit: 0
           length: 2
           is_signed: false
           unit: ''
@@ -1272,7 +1189,6 @@ uwrt_mars_rover_can_bus:
           max: 2.0
       - SCIENCE_elevatorEncoderState:
           comment: Science elevator encoder state
-          startbit: 2
           length: 2
           is_signed: false
           unit: ''
@@ -1286,7 +1202,6 @@ uwrt_mars_rover_can_bus:
           max: 2.0
       - SCIENCE_moistureSensorState:
           comment: Science moisture sensor state
-          startbit: 4
           length: 2
           is_signed: false
           unit: ''
@@ -1310,7 +1225,6 @@ uwrt_mars_rover_can_bus:
       signals:
       - SCIENCE_ACK:
           comment: Science ACKs
-          startbit: 0
           length: 8
           is_signed: false
           unit: ''
@@ -1335,7 +1249,6 @@ uwrt_mars_rover_can_bus:
       signals:
       - SCIENCE_reportNumStreamedMsgsReceived:
           comment: Science report number of streamed CAN messages received
-          startbit: 0
           length: 32
           is_signed: false
           unit: ''
@@ -1345,7 +1258,6 @@ uwrt_mars_rover_can_bus:
           max: 4294967294.0
       - SCIENCE_reportNumOneShotMsgsReceived:
           comment: Science report number of one-shot CAN messages received
-          startbit: 32
           length: 32
           is_signed: false
           unit: ''
@@ -1365,7 +1277,6 @@ uwrt_mars_rover_can_bus:
       signals:
       - GIMBAL_panControlMode:
           comment: Gimbal pan control mode
-          startbit: 0
           length: 2
           is_signed: false
           unit: ''
@@ -1390,10 +1301,9 @@ uwrt_mars_rover_can_bus:
       signals:
       - GIMBAL_setPanPosition:
           comment: Gimbal set pan position
-          startbit: 0
           length: 16
           is_signed: true
-          unit: radians
+          unit: rad
           values:
             32767: SNA
           min: -12.0
@@ -1402,10 +1312,9 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
       - GIMBAL_setPitchPosition:
           comment: Gimbal set pitch position
-          startbit: 16
           length: 16
           is_signed: false
-          unit: radians
+          unit: rad
           values:
             65535: SNA
           min: 0.0
@@ -1414,10 +1323,9 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
       - GIMBAL_setRollPosition:
           comment: Gimbal set roll position
-          startbit: 32
           length: 16
           is_signed: false
-          unit: radians
+          unit: rad
           values:
             65535: SNA
           min: 0.0
@@ -1436,10 +1344,9 @@ uwrt_mars_rover_can_bus:
       signals:
       - GIMBAL_setPanAngularVelocity:
           comment: Gimbal set pan angular velocity
-          startbit: 0
           length: 16
           is_signed: true
-          unit: radians per second
+          unit: rad/s
           values:
             32767: SNA
           min: -6.0
@@ -1458,7 +1365,6 @@ uwrt_mars_rover_can_bus:
       signals:
       - GIMBAL_jointPIDID:
           comment: Gimbal joint ID
-          startbit: 0
           length: 3
           is_signed: false
           unit: ''
@@ -1471,7 +1377,6 @@ uwrt_mars_rover_can_bus:
           max: 6.0
       - GIMBAL_jointPIDProportionalGain:
           comment: Gimbal joint PID proportional gain
-          startbit: 3
           length: 16
           is_signed: false
           unit: ''
@@ -1483,7 +1388,6 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
       - GIMBAL_jointPIDIntegralGain:
           comment: Gimbal joint PID integral gain
-          startbit: 19
           length: 16
           is_signed: false
           unit: ''
@@ -1495,7 +1399,6 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
       - GIMBAL_jointPIDDerivativeGain:
           comment: Gimbal joint PID derivative gain
-          startbit: 35
           length: 16
           is_signed: false
           unit: ''
@@ -1507,7 +1410,6 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
       - GIMBAL_jointPIDDeadzone:
           comment: Gimbal joint PID deadzone
-          startbit: 51
           length: 13
           is_signed: false
           unit: ''
@@ -1529,10 +1431,9 @@ uwrt_mars_rover_can_bus:
       signals:
       - GIMBAL_reportPanPosition:
           comment: Gimbal report pan position
-          startbit: 0
           length: 16
           is_signed: true
-          unit: radians
+          unit: rad
           values:
             32767: SNA
           min: -12.0
@@ -1541,10 +1442,9 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
       - GIMBAL_reportPanAngularVelocity:
           comment: Gimbal report pan angular velocity
-          startbit: 16
           length: 16
           is_signed: true
-          unit: radians per second
+          unit: rad/s
           values:
             32767: SNA
           min: -6.0
@@ -1563,7 +1463,6 @@ uwrt_mars_rover_can_bus:
       signals:
       - GIMBAL_panEncoderState:
           comment: Gimbal pan encoder state
-          startbit: 0
           length: 2
           is_signed: false
           unit: ''
@@ -1587,7 +1486,6 @@ uwrt_mars_rover_can_bus:
       signals:
       - GIMBAL_ACK:
           comment: Gimbal ACKs
-          startbit: 0
           length: 8
           is_signed: false
           unit: ''
@@ -1612,7 +1510,6 @@ uwrt_mars_rover_can_bus:
       signals:
       - GIMBAL_reportNumStreamedMsgsReceived:
           comment: Gimbal report number of streamed CAN messages received
-          startbit: 0
           length: 32
           is_signed: false
           unit: ''
@@ -1622,7 +1519,6 @@ uwrt_mars_rover_can_bus:
           max: 4294967294.0
       - GIMBAL_reportNumOneShotMsgsReceived:
           comment: Gimbal report number of one-shot CAN messages received
-          startbit: 32
           length: 32
           is_signed: false
           unit: ''
@@ -1642,7 +1538,6 @@ uwrt_mars_rover_can_bus:
       signals:
       - PDB_LEDMatrixState:
           comment: PDB LED matrix state
-          startbit: 0
           length: 3
           is_signed: false
           unit: ''
@@ -1668,10 +1563,9 @@ uwrt_mars_rover_can_bus:
       signals:
       - PDB_ultrasonicSensor1Data:
           comment: PDB ultrasonic sensor 1 data
-          startbit: 0
           length: 16
           is_signed: false
-          unit: meters
+          unit: m
           values:
             65535: SNA
           min: 0.0
@@ -1680,10 +1574,9 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
       - PDB_ultrasonicSensor2Data:
           comment: PDB ultrasonic sensor 2 data
-          startbit: 16
           length: 16
           is_signed: false
-          unit: meters
+          unit: m
           values:
             65535: SNA
           min: 0.0
@@ -1692,10 +1585,9 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
       - PDB_ultrasonicSensor3Data:
           comment: PDB ultrasonic sensor 3 data
-          startbit: 32
           length: 16
           is_signed: false
-          unit: meters
+          unit: m
           values:
             65535: SNA
           min: 0.0
@@ -1704,10 +1596,9 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
       - PDB_ultrasonicSensor4Data:
           comment: PDB ultrasonic sensor 4 data
-          startbit: 48
           length: 16
           is_signed: false
-          unit: meters
+          unit: m
           values:
             65535: SNA
           min: 0.0
@@ -1726,7 +1617,6 @@ uwrt_mars_rover_can_bus:
       signals:
       - PDB_jetsonStatus:
           comment: PDB Jetson power status
-          startbit: 0
           length: 2
           is_signed: false
           unit: ''
@@ -1740,7 +1630,6 @@ uwrt_mars_rover_can_bus:
           max: 2.0
       - PDB_armPowerStatus:
           comment: PDB arm power status
-          startbit: 2
           length: 2
           is_signed: false
           unit: ''
@@ -1754,7 +1643,6 @@ uwrt_mars_rover_can_bus:
           max: 2.0
       - PDB_sciencePowerStatus:
           comment: PDB science power status
-          startbit: 4
           length: 2
           is_signed: false
           unit: ''
@@ -1768,7 +1656,6 @@ uwrt_mars_rover_can_bus:
           max: 2.0
       - PDB_gimbalPowerStatus:
           comment: PDB gmibal power status
-          startbit: 6
           length: 2
           is_signed: false
           unit: ''
@@ -1782,7 +1669,6 @@ uwrt_mars_rover_can_bus:
           max: 2.0
       - PDB_VBATRailStatus:
           comment: PDB VBAT rail status
-          startbit: 8
           length: 2
           is_signed: false
           unit: ''
@@ -1797,7 +1683,6 @@ uwrt_mars_rover_can_bus:
           max: 2.0
       - PDB_17VRailStatus:
           comment: PDB 17V rail status
-          startbit: 10
           length: 2
           is_signed: false
           unit: ''
@@ -1812,7 +1697,6 @@ uwrt_mars_rover_can_bus:
           max: 2.0
       - PDB_5VRailStatus:
           comment: PDB 5V rail status
-          startbit: 12
           length: 2
           is_signed: false
           unit: ''
@@ -1837,7 +1721,6 @@ uwrt_mars_rover_can_bus:
       signals:
       - PDB_ACK:
           comment: PDB ACKs
-          startbit: 0
           length: 8
           is_signed: false
           unit: ''
@@ -1861,7 +1744,6 @@ uwrt_mars_rover_can_bus:
       signals:
       - PDB_reportNumStreamedMsgsReceived:
           comment: PDB report number of streamed CAN messages received
-          startbit: 0
           length: 32
           is_signed: false
           unit: ''
@@ -1871,7 +1753,6 @@ uwrt_mars_rover_can_bus:
           max: 4294967294.0
       - PDB_reportNumOneShotMsgsReceived:
           comment: PDB report number of one-shot CAN messages received
-          startbit: 32
           length: 32
           is_signed: false
           unit: ''
@@ -1895,7 +1776,6 @@ uwrt_mars_rover_can_bus:
       signals:
       - COMMON_CANBusID:
           comment: CAN bus ID
-          startbit: 0
           length: 2
           is_signed: false
           unit: ''
@@ -1927,7 +1807,6 @@ uwrt_mars_rover_can_bus:
       signals:
       - COMMON_debugSignal1:
           comment: CAN debug signal
-          startbit: 0
           length: 32
           is_signed: false
           unit: ''
@@ -1955,7 +1834,6 @@ uwrt_mars_rover_can_bus:
       signals:
       - COMMON_debugSignal2:
           comment: CAN debug signal
-          startbit: 0
           length: 8
           is_signed: false
           unit: ''
@@ -1983,7 +1861,6 @@ uwrt_mars_rover_can_bus:
       signals:
       - COMMON_debugSignal3:
           comment: CAN debug signal
-          startbit: 0
           length: 8
           is_signed: false
           unit: ''
