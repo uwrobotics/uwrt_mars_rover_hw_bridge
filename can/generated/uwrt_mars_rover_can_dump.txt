@@ -588,7 +588,7 @@
 
   Name:       ARM_reportFaults
   Id:         0x643
-  Length:     3 bytes
+  Length:     7 bytes
   Cycle time: - ms
   Senders:    ARM
   Layout:
@@ -604,19 +604,31 @@
              |       +-- ARM_shoulderEncoderState
              +-- ARM_shoulderCurrentSensorState
            +---+---+---+---+---+---+---+---+
-     B   1 |<-----x|<-----x|<-----x|<-----x|
-     y     +---+---+---+---+---+---+---+---+
-     t       |       |       |       +-- ARM_elbowEncoderState
-     e       |       |       +-- ARM_elbowCurrentSensorState
+         1 |<-----x|<-----x|<-----x|<-----x|
+           +---+---+---+---+---+---+---+---+
+             |       |       |       +-- ARM_elbowEncoderState
+             |       |       +-- ARM_elbowCurrentSensorState
              |       +-- ARM_leftWristEncoderState
              +-- ARM_leftWristCurrentSensorState
-           +---+---+---+---+---+---+---+---+
-         2 |<-----x|<-----x|<-----x|<-----x|
-           +---+---+---+---+---+---+---+---+
-             |       |       |       +-- ARM_rightWristEncoderState
+     B     +---+---+---+---+---+---+---+---+
+     y   2 |<-----x|<-----x|<-----x|<-----x|
+     t     +---+---+---+---+---+---+---+---+
+     e       |       |       |       +-- ARM_rightWristEncoderState
              |       |       +-- ARM_rightWristCurrentSensorState
              |       +-- ARM_clawEncoderState
              +-- ARM_clawCurrentSensorState
+           +---+---+---+---+---+---+---+---+
+         3 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         4 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- ARM_numCANRXFaults
+           +---+---+---+---+---+---+---+---+
+         5 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         6 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- ARM_numCANTXFaults
 
   Signal tree:
 
@@ -633,6 +645,8 @@
        +-- ARM_rightWristCurrentSensorState
        +-- ARM_clawEncoderState
        +-- ARM_clawCurrentSensorState
+       +-- ARM_numCANRXFaults
+       +-- ARM_numCANTXFaults
 
   Signal choices:
 
@@ -1129,7 +1143,7 @@
 
   Name:       SCIENCE_reportFaults
   Id:         0x682
-  Length:     1 bytes
+  Length:     5 bytes
   Cycle time: - ms
   Senders:    SCIENCE
   Layout:
@@ -1138,11 +1152,23 @@
 
              7   6   5   4   3   2   1   0
            +---+---+---+---+---+---+---+---+
-     B   0 |   |   |<-----x|<-----x|<-----x|
-     y     +---+---+---+---+---+---+---+---+
-     t               |       |       +-- SCIENCE_genevaEncoderState
-     e               |       +-- SCIENCE_elevatorEncoderState
+         0 |------x|<-----x|<-----x|<-----x|
+           +---+---+---+---+---+---+---+---+
+                     |       |       +-- SCIENCE_genevaEncoderState
+                     |       +-- SCIENCE_elevatorEncoderState
                      +-- SCIENCE_moistureSensorState
+           +---+---+---+---+---+---+---+---+
+     B   1 |-------------------------------|
+     y     +---+---+---+---+---+---+---+---+
+     t   2 |------x|<----------------------|
+     e     +---+---+---+---+---+---+---+---+
+                     +-- SCIENCE_numCANRXFaults
+           +---+---+---+---+---+---+---+---+
+         3 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         4 |   |   |<----------------------|
+           +---+---+---+---+---+---+---+---+
+                     +-- SCIENCE_numCANTXFaults
 
   Signal tree:
 
@@ -1150,6 +1176,8 @@
        +-- SCIENCE_genevaEncoderState
        +-- SCIENCE_elevatorEncoderState
        +-- SCIENCE_moistureSensorState
+       +-- SCIENCE_numCANRXFaults
+       +-- SCIENCE_numCANTXFaults
 
   Signal choices:
 
@@ -1456,7 +1484,7 @@
 
   Name:       GIMBAL_reportFaults
   Id:         0x6c1
-  Length:     1 bytes
+  Length:     5 bytes
   Cycle time: - ms
   Senders:    GIMBAL
   Layout:
@@ -1465,15 +1493,28 @@
 
              7   6   5   4   3   2   1   0
            +---+---+---+---+---+---+---+---+
-     B   0 |   |   |   |   |   |   |<-----x|
-     y     +---+---+---+---+---+---+---+---+
-     t                               +-- GIMBAL_panEncoderState
-     e
+         0 |----------------------x|<-----x|
+           +---+---+---+---+---+---+---+---+
+                                     +-- GIMBAL_panEncoderState
+           +---+---+---+---+---+---+---+---+
+         1 |-------------------------------|
+     B     +---+---+---+---+---+---+---+---+
+     y   2 |----------------------x|<------|
+     t     +---+---+---+---+---+---+---+---+
+     e                               +-- GIMBAL_numCANRXFaults
+           +---+---+---+---+---+---+---+---+
+         3 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         4 |   |   |   |   |   |   |<------|
+           +---+---+---+---+---+---+---+---+
+                                     +-- GIMBAL_numCANTXFaults
 
   Signal tree:
 
     -- {root}
        +-- GIMBAL_panEncoderState
+       +-- GIMBAL_numCANRXFaults
+       +-- GIMBAL_numCANTXFaults
 
   Signal choices:
 
@@ -1647,7 +1688,7 @@
 
   Name:       PDB_reportFaults
   Id:         0x701
-  Length:     2 bytes
+  Length:     6 bytes
   Cycle time: - ms
   Senders:    PDB
   Layout:
@@ -1659,15 +1700,27 @@
          0 |<-----x|<-----x|<-----x|<-----x|
            +---+---+---+---+---+---+---+---+
              |       |       |       +-- PDB_jetsonStatus
-     B       |       |       +-- PDB_armPowerStatus
-     y       |       +-- PDB_sciencePowerStatus
-     t       +-- PDB_gimbalPowerStatus
-     e     +---+---+---+---+---+---+---+---+
-         1 |   |   |<-----x|<-----x|<-----x|
+             |       |       +-- PDB_armPowerStatus
+             |       +-- PDB_sciencePowerStatus
+             +-- PDB_gimbalPowerStatus
            +---+---+---+---+---+---+---+---+
-                     |       |       +-- PDB_VBATRailStatus
-                     |       +-- PDB_17VRailStatus
-                     +-- PDB_5VRailStatus
+         1 |------x|<-----x|<-----x|<-----x|
+           +---+---+---+---+---+---+---+---+
+     B               |       |       +-- PDB_VBATRailStatus
+     y               |       +-- PDB_17VRailStatus
+     t               +-- PDB_5VRailStatus
+     e     +---+---+---+---+---+---+---+---+
+         2 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         3 |------x|<----------------------|
+           +---+---+---+---+---+---+---+---+
+                     +-- PDB_numCANRXFaults
+           +---+---+---+---+---+---+---+---+
+         4 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         5 |   |   |<----------------------|
+           +---+---+---+---+---+---+---+---+
+                     +-- PDB_numCANTXFaults
 
   Signal tree:
 
@@ -1679,6 +1732,8 @@
        +-- PDB_VBATRailStatus
        +-- PDB_17VRailStatus
        +-- PDB_5VRailStatus
+       +-- PDB_numCANRXFaults
+       +-- PDB_numCANTXFaults
 
   Signal choices:
 

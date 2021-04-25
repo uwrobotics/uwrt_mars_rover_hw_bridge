@@ -261,43 +261,31 @@ bool arm_set_control_mode_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& 
         case CANSIGNAL::ARM_TURNTABLE_CONTROL_MODE:
           msgStruct.arm_turntable_control_mode =
               uwrt_mars_rover_can_arm_set_control_mode_arm_turntable_control_mode_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_set_control_mode_arm_turntable_control_mode_is_in_range(
-              msgStruct.arm_turntable_control_mode);
           break;
 
         case CANSIGNAL::ARM_SHOULDER_CONTROL_MODE:
           msgStruct.arm_shoulder_control_mode =
               uwrt_mars_rover_can_arm_set_control_mode_arm_shoulder_control_mode_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_set_control_mode_arm_shoulder_control_mode_is_in_range(
-              msgStruct.arm_shoulder_control_mode);
           break;
 
         case CANSIGNAL::ARM_ELBOW_CONTROL_MODE:
           msgStruct.arm_elbow_control_mode =
               uwrt_mars_rover_can_arm_set_control_mode_arm_elbow_control_mode_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_set_control_mode_arm_elbow_control_mode_is_in_range(
-              msgStruct.arm_elbow_control_mode);
           break;
 
         case CANSIGNAL::ARM_LEFT_WRIST_CONTROL_MODE:
           msgStruct.arm_left_wrist_control_mode =
               uwrt_mars_rover_can_arm_set_control_mode_arm_left_wrist_control_mode_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_set_control_mode_arm_left_wrist_control_mode_is_in_range(
-              msgStruct.arm_left_wrist_control_mode);
           break;
 
         case CANSIGNAL::ARM_RIGHT_WRIST_CONTROL_MODE:
           msgStruct.arm_right_wrist_control_mode =
               uwrt_mars_rover_can_arm_set_control_mode_arm_right_wrist_control_mode_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_set_control_mode_arm_right_wrist_control_mode_is_in_range(
-              msgStruct.arm_right_wrist_control_mode);
           break;
 
         case CANSIGNAL::ARM_CLAW_CONTROL_MODE:
           msgStruct.arm_claw_control_mode =
               uwrt_mars_rover_can_arm_set_control_mode_arm_claw_control_mode_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_set_control_mode_arm_claw_control_mode_is_in_range(
-              msgStruct.arm_claw_control_mode);
           break;
 
         default:
@@ -389,50 +377,36 @@ bool arm_set_joint_position_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t
         case CANSIGNAL::ARM_SET_TURNTABLE_POSITION:
           msgStruct.arm_set_turntable_position =
               uwrt_mars_rover_can_arm_set_joint_position_arm_set_turntable_position_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_set_joint_position_arm_set_turntable_position_is_in_range(
-              msgStruct.arm_set_turntable_position);
           break;
 
         case CANSIGNAL::ARM_SET_SHOULDER_POSITION:
           msgStruct.arm_set_shoulder_position =
               uwrt_mars_rover_can_arm_set_joint_position_arm_set_shoulder_position_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_set_joint_position_arm_set_shoulder_position_is_in_range(
-              msgStruct.arm_set_shoulder_position);
           break;
 
         case CANSIGNAL::ARM_SET_ELBOW_POSITION:
           msgStruct.arm_set_elbow_position =
               uwrt_mars_rover_can_arm_set_joint_position_arm_set_elbow_position_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_set_joint_position_arm_set_elbow_position_is_in_range(
-              msgStruct.arm_set_elbow_position);
           break;
 
         case CANSIGNAL::ARM_SET_LEFT_WRIST_POSITION:
           msgStruct.arm_set_left_wrist_position =
               uwrt_mars_rover_can_arm_set_joint_position_arm_set_left_wrist_position_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_set_joint_position_arm_set_left_wrist_position_is_in_range(
-              msgStruct.arm_set_left_wrist_position);
           break;
 
         case CANSIGNAL::ARM_SET_RIGHT_WRIST_POSITION:
           msgStruct.arm_set_right_wrist_position =
               uwrt_mars_rover_can_arm_set_joint_position_arm_set_right_wrist_position_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_set_joint_position_arm_set_right_wrist_position_is_in_range(
-              msgStruct.arm_set_right_wrist_position);
           break;
 
         case CANSIGNAL::ARM_SET_CLAW_POSITION:
           msgStruct.arm_set_claw_position =
               uwrt_mars_rover_can_arm_set_joint_position_arm_set_claw_position_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_set_joint_position_arm_set_claw_position_is_in_range(
-              msgStruct.arm_set_claw_position);
           break;
 
         case CANSIGNAL::ARM_SET_TOOL_TIP_POSITION:
           msgStruct.arm_set_tool_tip_position =
               uwrt_mars_rover_can_arm_set_joint_position_arm_set_tool_tip_position_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_set_joint_position_arm_set_tool_tip_position_is_in_range(
-              msgStruct.arm_set_tool_tip_position);
           break;
 
         default:
@@ -532,46 +506,33 @@ bool arm_set_joint_angular_velocity_packer(uint8_t* raw, const CANMsgMap* msgMap
         case CANSIGNAL::ARM_SET_TURNTABLE_ANGULAR_VELOCITY:
           msgStruct.arm_set_turntable_angular_velocity =
               uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_set_turntable_angular_velocity_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_set_turntable_angular_velocity_is_in_range(
-              msgStruct.arm_set_turntable_angular_velocity);
           break;
 
         case CANSIGNAL::ARM_SET_SHOULDER_ANGULAR_VELOCITY:
           msgStruct.arm_set_shoulder_angular_velocity =
               uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_set_shoulder_angular_velocity_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_set_shoulder_angular_velocity_is_in_range(
-              msgStruct.arm_set_shoulder_angular_velocity);
           break;
 
         case CANSIGNAL::ARM_SET_ELBOW_ANGULAR_VELOCITY:
           msgStruct.arm_set_elbow_angular_velocity =
               uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_set_elbow_angular_velocity_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_set_elbow_angular_velocity_is_in_range(
-              msgStruct.arm_set_elbow_angular_velocity);
           break;
 
         case CANSIGNAL::ARM_SET_LEFT_WRIST_ANGULAR_VELOCITY:
           msgStruct.arm_set_left_wrist_angular_velocity =
               uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_set_left_wrist_angular_velocity_encode(
                   signalValue);
-          success &= uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_set_left_wrist_angular_velocity_is_in_range(
-              msgStruct.arm_set_left_wrist_angular_velocity);
           break;
 
         case CANSIGNAL::ARM_SET_RIGHT_WRIST_ANGULAR_VELOCITY:
           msgStruct.arm_set_right_wrist_angular_velocity =
               uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_set_right_wrist_angular_velocity_encode(
                   signalValue);
-          success &=
-              uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_set_right_wrist_angular_velocity_is_in_range(
-                  msgStruct.arm_set_right_wrist_angular_velocity);
           break;
 
         case CANSIGNAL::ARM_SET_CLAW_ANGULAR_VELOCITY:
           msgStruct.arm_set_claw_angular_velocity =
               uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_set_claw_angular_velocity_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_set_claw_angular_velocity_is_in_range(
-              msgStruct.arm_set_claw_angular_velocity);
           break;
 
         default:
@@ -668,43 +629,31 @@ bool arm_set_joint_current_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t&
         case CANSIGNAL::ARM_SET_TURNTABLE_CURRENT:
           msgStruct.arm_set_turntable_current =
               uwrt_mars_rover_can_arm_set_joint_current_arm_set_turntable_current_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_set_joint_current_arm_set_turntable_current_is_in_range(
-              msgStruct.arm_set_turntable_current);
           break;
 
         case CANSIGNAL::ARM_SET_SHOULDER_CURRENT:
           msgStruct.arm_set_shoulder_current =
               uwrt_mars_rover_can_arm_set_joint_current_arm_set_shoulder_current_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_set_joint_current_arm_set_shoulder_current_is_in_range(
-              msgStruct.arm_set_shoulder_current);
           break;
 
         case CANSIGNAL::ARM_SET_ELBOW_CURRENT:
           msgStruct.arm_set_elbow_current =
               uwrt_mars_rover_can_arm_set_joint_current_arm_set_elbow_current_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_set_joint_current_arm_set_elbow_current_is_in_range(
-              msgStruct.arm_set_elbow_current);
           break;
 
         case CANSIGNAL::ARM_SET_LEFT_WRIST_CURRENT:
           msgStruct.arm_set_left_wrist_current =
               uwrt_mars_rover_can_arm_set_joint_current_arm_set_left_wrist_current_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_set_joint_current_arm_set_left_wrist_current_is_in_range(
-              msgStruct.arm_set_left_wrist_current);
           break;
 
         case CANSIGNAL::ARM_SET_RIGHT_WRIST_CURRENT:
           msgStruct.arm_set_right_wrist_current =
               uwrt_mars_rover_can_arm_set_joint_current_arm_set_right_wrist_current_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_set_joint_current_arm_set_right_wrist_current_is_in_range(
-              msgStruct.arm_set_right_wrist_current);
           break;
 
         case CANSIGNAL::ARM_SET_CLAW_CURRENT:
           msgStruct.arm_set_claw_current =
               uwrt_mars_rover_can_arm_set_joint_current_arm_set_claw_current_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_set_joint_current_arm_set_claw_current_is_in_range(
-              msgStruct.arm_set_claw_current);
           break;
 
         default:
@@ -795,36 +744,26 @@ bool arm_set_joint_pid_params_packer(uint8_t* raw, const CANMsgMap* msgMap, size
       switch (signalName) {
         case CANSIGNAL::ARM_JOINT_PIDID:
           msgStruct.arm_joint_pidid = uwrt_mars_rover_can_arm_set_joint_pid_params_arm_joint_pidid_encode(signalValue);
-          success &=
-              uwrt_mars_rover_can_arm_set_joint_pid_params_arm_joint_pidid_is_in_range(msgStruct.arm_joint_pidid);
           break;
 
         case CANSIGNAL::ARM_JOINT_PID_PROPORTIONAL_GAIN:
           msgStruct.arm_joint_pid_proportional_gain =
               uwrt_mars_rover_can_arm_set_joint_pid_params_arm_joint_pid_proportional_gain_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_set_joint_pid_params_arm_joint_pid_proportional_gain_is_in_range(
-              msgStruct.arm_joint_pid_proportional_gain);
           break;
 
         case CANSIGNAL::ARM_JOINT_PID_INTEGRAL_GAIN:
           msgStruct.arm_joint_pid_integral_gain =
               uwrt_mars_rover_can_arm_set_joint_pid_params_arm_joint_pid_integral_gain_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_set_joint_pid_params_arm_joint_pid_integral_gain_is_in_range(
-              msgStruct.arm_joint_pid_integral_gain);
           break;
 
         case CANSIGNAL::ARM_JOINT_PID_DERIVATIVE_GAIN:
           msgStruct.arm_joint_pid_derivative_gain =
               uwrt_mars_rover_can_arm_set_joint_pid_params_arm_joint_pid_derivative_gain_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_set_joint_pid_params_arm_joint_pid_derivative_gain_is_in_range(
-              msgStruct.arm_joint_pid_derivative_gain);
           break;
 
         case CANSIGNAL::ARM_JOINT_PID_DEADZONE:
           msgStruct.arm_joint_pid_deadzone =
               uwrt_mars_rover_can_arm_set_joint_pid_params_arm_joint_pid_deadzone_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_set_joint_pid_params_arm_joint_pid_deadzone_is_in_range(
-              msgStruct.arm_joint_pid_deadzone);
           break;
 
         default:
@@ -912,43 +851,31 @@ bool arm_report_joint_position_packer(uint8_t* raw, const CANMsgMap* msgMap, siz
         case CANSIGNAL::ARM_REPORT_TURNTABLE_POSITION:
           msgStruct.arm_report_turntable_position =
               uwrt_mars_rover_can_arm_report_joint_position_arm_report_turntable_position_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_report_joint_position_arm_report_turntable_position_is_in_range(
-              msgStruct.arm_report_turntable_position);
           break;
 
         case CANSIGNAL::ARM_REPORT_SHOULDER_POSITION:
           msgStruct.arm_report_shoulder_position =
               uwrt_mars_rover_can_arm_report_joint_position_arm_report_shoulder_position_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_report_joint_position_arm_report_shoulder_position_is_in_range(
-              msgStruct.arm_report_shoulder_position);
           break;
 
         case CANSIGNAL::ARM_REPORT_ELBOW_POSITION:
           msgStruct.arm_report_elbow_position =
               uwrt_mars_rover_can_arm_report_joint_position_arm_report_elbow_position_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_report_joint_position_arm_report_elbow_position_is_in_range(
-              msgStruct.arm_report_elbow_position);
           break;
 
         case CANSIGNAL::ARM_REPORT_LEFT_WRIST_POSITION:
           msgStruct.arm_report_left_wrist_position =
               uwrt_mars_rover_can_arm_report_joint_position_arm_report_left_wrist_position_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_report_joint_position_arm_report_left_wrist_position_is_in_range(
-              msgStruct.arm_report_left_wrist_position);
           break;
 
         case CANSIGNAL::ARM_REPORT_RIGHT_WRIST_POSITION:
           msgStruct.arm_report_right_wrist_position =
               uwrt_mars_rover_can_arm_report_joint_position_arm_report_right_wrist_position_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_report_joint_position_arm_report_right_wrist_position_is_in_range(
-              msgStruct.arm_report_right_wrist_position);
           break;
 
         case CANSIGNAL::ARM_REPORT_CLAW_POSITION:
           msgStruct.arm_report_claw_position =
               uwrt_mars_rover_can_arm_report_joint_position_arm_report_claw_position_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_report_joint_position_arm_report_claw_position_is_in_range(
-              msgStruct.arm_report_claw_position);
           break;
 
         default:
@@ -1046,53 +973,36 @@ bool arm_report_joint_angular_velocity_packer(uint8_t* raw, const CANMsgMap* msg
           msgStruct.arm_report_turntable_angular_velocity =
               uwrt_mars_rover_can_arm_report_joint_angular_velocity_arm_report_turntable_angular_velocity_encode(
                   signalValue);
-          success &=
-              uwrt_mars_rover_can_arm_report_joint_angular_velocity_arm_report_turntable_angular_velocity_is_in_range(
-                  msgStruct.arm_report_turntable_angular_velocity);
           break;
 
         case CANSIGNAL::ARM_REPORT_SHOULDER_ANGULAR_VELOCITY:
           msgStruct.arm_report_shoulder_angular_velocity =
               uwrt_mars_rover_can_arm_report_joint_angular_velocity_arm_report_shoulder_angular_velocity_encode(
                   signalValue);
-          success &=
-              uwrt_mars_rover_can_arm_report_joint_angular_velocity_arm_report_shoulder_angular_velocity_is_in_range(
-                  msgStruct.arm_report_shoulder_angular_velocity);
           break;
 
         case CANSIGNAL::ARM_REPORT_ELBOW_ANGULAR_VELOCITY:
           msgStruct.arm_report_elbow_angular_velocity =
               uwrt_mars_rover_can_arm_report_joint_angular_velocity_arm_report_elbow_angular_velocity_encode(
                   signalValue);
-          success &=
-              uwrt_mars_rover_can_arm_report_joint_angular_velocity_arm_report_elbow_angular_velocity_is_in_range(
-                  msgStruct.arm_report_elbow_angular_velocity);
           break;
 
         case CANSIGNAL::ARM_REPORT_LEFT_WRIST_ANGULAR_VELOCITY:
           msgStruct.arm_report_left_wrist_angular_velocity =
               uwrt_mars_rover_can_arm_report_joint_angular_velocity_arm_report_left_wrist_angular_velocity_encode(
                   signalValue);
-          success &=
-              uwrt_mars_rover_can_arm_report_joint_angular_velocity_arm_report_left_wrist_angular_velocity_is_in_range(
-                  msgStruct.arm_report_left_wrist_angular_velocity);
           break;
 
         case CANSIGNAL::ARM_REPORT_RIGHT_WRIST_ANGULAR_VELOCITY:
           msgStruct.arm_report_right_wrist_angular_velocity =
               uwrt_mars_rover_can_arm_report_joint_angular_velocity_arm_report_right_wrist_angular_velocity_encode(
                   signalValue);
-          success &=
-              uwrt_mars_rover_can_arm_report_joint_angular_velocity_arm_report_right_wrist_angular_velocity_is_in_range(
-                  msgStruct.arm_report_right_wrist_angular_velocity);
           break;
 
         case CANSIGNAL::ARM_REPORT_CLAW_ANGULAR_VELOCITY:
           msgStruct.arm_report_claw_angular_velocity =
               uwrt_mars_rover_can_arm_report_joint_angular_velocity_arm_report_claw_angular_velocity_encode(
                   signalValue);
-          success &= uwrt_mars_rover_can_arm_report_joint_angular_velocity_arm_report_claw_angular_velocity_is_in_range(
-              msgStruct.arm_report_claw_angular_velocity);
           break;
 
         default:
@@ -1189,43 +1099,31 @@ bool arm_report_joint_current_packer(uint8_t* raw, const CANMsgMap* msgMap, size
         case CANSIGNAL::ARM_REPORT_TURNTABLE_CURRENT:
           msgStruct.arm_report_turntable_current =
               uwrt_mars_rover_can_arm_report_joint_current_arm_report_turntable_current_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_report_joint_current_arm_report_turntable_current_is_in_range(
-              msgStruct.arm_report_turntable_current);
           break;
 
         case CANSIGNAL::ARM_REPORT_SHOULDER_CURRENT:
           msgStruct.arm_report_shoulder_current =
               uwrt_mars_rover_can_arm_report_joint_current_arm_report_shoulder_current_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_report_joint_current_arm_report_shoulder_current_is_in_range(
-              msgStruct.arm_report_shoulder_current);
           break;
 
         case CANSIGNAL::ARM_REPORT_ELBOW_CURRENT:
           msgStruct.arm_report_elbow_current =
               uwrt_mars_rover_can_arm_report_joint_current_arm_report_elbow_current_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_report_joint_current_arm_report_elbow_current_is_in_range(
-              msgStruct.arm_report_elbow_current);
           break;
 
         case CANSIGNAL::ARM_REPORT_LEFT_WRIST_CURRENT:
           msgStruct.arm_report_left_wrist_current =
               uwrt_mars_rover_can_arm_report_joint_current_arm_report_left_wrist_current_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_report_joint_current_arm_report_left_wrist_current_is_in_range(
-              msgStruct.arm_report_left_wrist_current);
           break;
 
         case CANSIGNAL::ARM_REPORT_RIGHT_WRIST_CURRENT:
           msgStruct.arm_report_right_wrist_current =
               uwrt_mars_rover_can_arm_report_joint_current_arm_report_right_wrist_current_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_report_joint_current_arm_report_right_wrist_current_is_in_range(
-              msgStruct.arm_report_right_wrist_current);
           break;
 
         case CANSIGNAL::ARM_REPORT_CLAW_CURRENT:
           msgStruct.arm_report_claw_current =
               uwrt_mars_rover_can_arm_report_joint_current_arm_report_claw_current_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_report_joint_current_arm_report_claw_current_is_in_range(
-              msgStruct.arm_report_claw_current);
           break;
 
         default:
@@ -1321,85 +1219,71 @@ bool arm_report_faults_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len
         case CANSIGNAL::ARM_TURNTABLE_ENCODER_STATE:
           msgStruct.arm_turntable_encoder_state =
               uwrt_mars_rover_can_arm_report_faults_arm_turntable_encoder_state_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_report_faults_arm_turntable_encoder_state_is_in_range(
-              msgStruct.arm_turntable_encoder_state);
           break;
 
         case CANSIGNAL::ARM_TURNTABLE_CURRENT_SENSOR_STATE:
           msgStruct.arm_turntable_current_sensor_state =
               uwrt_mars_rover_can_arm_report_faults_arm_turntable_current_sensor_state_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_report_faults_arm_turntable_current_sensor_state_is_in_range(
-              msgStruct.arm_turntable_current_sensor_state);
           break;
 
         case CANSIGNAL::ARM_SHOULDER_ENCODER_STATE:
           msgStruct.arm_shoulder_encoder_state =
               uwrt_mars_rover_can_arm_report_faults_arm_shoulder_encoder_state_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_report_faults_arm_shoulder_encoder_state_is_in_range(
-              msgStruct.arm_shoulder_encoder_state);
           break;
 
         case CANSIGNAL::ARM_SHOULDER_CURRENT_SENSOR_STATE:
           msgStruct.arm_shoulder_current_sensor_state =
               uwrt_mars_rover_can_arm_report_faults_arm_shoulder_current_sensor_state_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_report_faults_arm_shoulder_current_sensor_state_is_in_range(
-              msgStruct.arm_shoulder_current_sensor_state);
           break;
 
         case CANSIGNAL::ARM_ELBOW_ENCODER_STATE:
           msgStruct.arm_elbow_encoder_state =
               uwrt_mars_rover_can_arm_report_faults_arm_elbow_encoder_state_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_report_faults_arm_elbow_encoder_state_is_in_range(
-              msgStruct.arm_elbow_encoder_state);
           break;
 
         case CANSIGNAL::ARM_ELBOW_CURRENT_SENSOR_STATE:
           msgStruct.arm_elbow_current_sensor_state =
               uwrt_mars_rover_can_arm_report_faults_arm_elbow_current_sensor_state_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_report_faults_arm_elbow_current_sensor_state_is_in_range(
-              msgStruct.arm_elbow_current_sensor_state);
           break;
 
         case CANSIGNAL::ARM_LEFT_WRIST_ENCODER_STATE:
           msgStruct.arm_left_wrist_encoder_state =
               uwrt_mars_rover_can_arm_report_faults_arm_left_wrist_encoder_state_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_report_faults_arm_left_wrist_encoder_state_is_in_range(
-              msgStruct.arm_left_wrist_encoder_state);
           break;
 
         case CANSIGNAL::ARM_LEFT_WRIST_CURRENT_SENSOR_STATE:
           msgStruct.arm_left_wrist_current_sensor_state =
               uwrt_mars_rover_can_arm_report_faults_arm_left_wrist_current_sensor_state_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_report_faults_arm_left_wrist_current_sensor_state_is_in_range(
-              msgStruct.arm_left_wrist_current_sensor_state);
           break;
 
         case CANSIGNAL::ARM_RIGHT_WRIST_ENCODER_STATE:
           msgStruct.arm_right_wrist_encoder_state =
               uwrt_mars_rover_can_arm_report_faults_arm_right_wrist_encoder_state_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_report_faults_arm_right_wrist_encoder_state_is_in_range(
-              msgStruct.arm_right_wrist_encoder_state);
           break;
 
         case CANSIGNAL::ARM_RIGHT_WRIST_CURRENT_SENSOR_STATE:
           msgStruct.arm_right_wrist_current_sensor_state =
               uwrt_mars_rover_can_arm_report_faults_arm_right_wrist_current_sensor_state_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_report_faults_arm_right_wrist_current_sensor_state_is_in_range(
-              msgStruct.arm_right_wrist_current_sensor_state);
           break;
 
         case CANSIGNAL::ARM_CLAW_ENCODER_STATE:
           msgStruct.arm_claw_encoder_state =
               uwrt_mars_rover_can_arm_report_faults_arm_claw_encoder_state_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_report_faults_arm_claw_encoder_state_is_in_range(
-              msgStruct.arm_claw_encoder_state);
           break;
 
         case CANSIGNAL::ARM_CLAW_CURRENT_SENSOR_STATE:
           msgStruct.arm_claw_current_sensor_state =
               uwrt_mars_rover_can_arm_report_faults_arm_claw_current_sensor_state_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_report_faults_arm_claw_current_sensor_state_is_in_range(
-              msgStruct.arm_claw_current_sensor_state);
+          break;
+
+        case CANSIGNAL::ARM_NUM_CANRX_FAULTS:
+          msgStruct.arm_num_canrx_faults =
+              uwrt_mars_rover_can_arm_report_faults_arm_num_canrx_faults_encode(signalValue);
+          break;
+
+        case CANSIGNAL::ARM_NUM_CANTX_FAULTS:
+          msgStruct.arm_num_cantx_faults =
+              uwrt_mars_rover_can_arm_report_faults_arm_num_cantx_faults_encode(signalValue);
           break;
 
         default:
@@ -1505,6 +1389,18 @@ bool arm_report_faults_unpacker(uint8_t* raw, CANMsgMap* msgMap) {
                                                 msgStruct.arm_claw_current_sensor_state));
           break;
 
+        case CANSIGNAL::ARM_NUM_CANRX_FAULTS:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_arm_report_faults_arm_num_canrx_faults_decode(msgStruct.arm_num_canrx_faults));
+          break;
+
+        case CANSIGNAL::ARM_NUM_CANTX_FAULTS:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_arm_report_faults_arm_num_cantx_faults_decode(msgStruct.arm_num_cantx_faults));
+          break;
+
         default:
           success = false;
           break;
@@ -1529,7 +1425,6 @@ bool arm_report_ack_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len) {
       switch (signalName) {
         case CANSIGNAL::ARM_ACK:
           msgStruct.arm_ack = uwrt_mars_rover_can_arm_report_ack_arm_ack_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_report_ack_arm_ack_is_in_range(msgStruct.arm_ack);
           break;
 
         default:
@@ -1588,15 +1483,11 @@ bool arm_report_diagnostics_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t
         case CANSIGNAL::ARM_REPORT_NUM_STREAMED_MSGS_RECEIVED:
           msgStruct.arm_report_num_streamed_msgs_received =
               uwrt_mars_rover_can_arm_report_diagnostics_arm_report_num_streamed_msgs_received_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_report_diagnostics_arm_report_num_streamed_msgs_received_is_in_range(
-              msgStruct.arm_report_num_streamed_msgs_received);
           break;
 
         case CANSIGNAL::ARM_REPORT_NUM_ONE_SHOT_MSGS_RECEIVED:
           msgStruct.arm_report_num_one_shot_msgs_received =
               uwrt_mars_rover_can_arm_report_diagnostics_arm_report_num_one_shot_msgs_received_encode(signalValue);
-          success &= uwrt_mars_rover_can_arm_report_diagnostics_arm_report_num_one_shot_msgs_received_is_in_range(
-              msgStruct.arm_report_num_one_shot_msgs_received);
           break;
 
         default:
@@ -1665,15 +1556,11 @@ bool science_set_control_mode_packer(uint8_t* raw, const CANMsgMap* msgMap, size
         case CANSIGNAL::SCIENCE_GENEVA_CONTROL_MODE:
           msgStruct.science_geneva_control_mode =
               uwrt_mars_rover_can_science_set_control_mode_science_geneva_control_mode_encode(signalValue);
-          success &= uwrt_mars_rover_can_science_set_control_mode_science_geneva_control_mode_is_in_range(
-              msgStruct.science_geneva_control_mode);
           break;
 
         case CANSIGNAL::SCIENCE_ELEVATOR_CONTROL_MODE:
           msgStruct.science_elevator_control_mode =
               uwrt_mars_rover_can_science_set_control_mode_science_elevator_control_mode_encode(signalValue);
-          success &= uwrt_mars_rover_can_science_set_control_mode_science_elevator_control_mode_is_in_range(
-              msgStruct.science_elevator_control_mode);
           break;
 
         default:
@@ -1742,29 +1629,21 @@ bool science_set_joint_position_packer(uint8_t* raw, const CANMsgMap* msgMap, si
         case CANSIGNAL::SCIENCE_SET_GENEVA_POSITION:
           msgStruct.science_set_geneva_position =
               uwrt_mars_rover_can_science_set_joint_position_science_set_geneva_position_encode(signalValue);
-          success &= uwrt_mars_rover_can_science_set_joint_position_science_set_geneva_position_is_in_range(
-              msgStruct.science_set_geneva_position);
           break;
 
         case CANSIGNAL::SCIENCE_SET_ELEVATOR_POSITION:
           msgStruct.science_set_elevator_position =
               uwrt_mars_rover_can_science_set_joint_position_science_set_elevator_position_encode(signalValue);
-          success &= uwrt_mars_rover_can_science_set_joint_position_science_set_elevator_position_is_in_range(
-              msgStruct.science_set_elevator_position);
           break;
 
         case CANSIGNAL::SCIENCE_SET_COVER_POSITION:
           msgStruct.science_set_cover_position =
               uwrt_mars_rover_can_science_set_joint_position_science_set_cover_position_encode(signalValue);
-          success &= uwrt_mars_rover_can_science_set_joint_position_science_set_cover_position_is_in_range(
-              msgStruct.science_set_cover_position);
           break;
 
         case CANSIGNAL::SCIENCE_SET_SHOVEL_POSITION:
           msgStruct.science_set_shovel_position =
               uwrt_mars_rover_can_science_set_joint_position_science_set_shovel_position_encode(signalValue);
-          success &= uwrt_mars_rover_can_science_set_joint_position_science_set_shovel_position_is_in_range(
-              msgStruct.science_set_shovel_position);
           break;
 
         default:
@@ -1848,18 +1727,12 @@ bool science_set_joint_angular_velocity_packer(uint8_t* raw, const CANMsgMap* ms
           msgStruct.science_set_geneva_angular_velocity =
               uwrt_mars_rover_can_science_set_joint_angular_velocity_science_set_geneva_angular_velocity_encode(
                   signalValue);
-          success &=
-              uwrt_mars_rover_can_science_set_joint_angular_velocity_science_set_geneva_angular_velocity_is_in_range(
-                  msgStruct.science_set_geneva_angular_velocity);
           break;
 
         case CANSIGNAL::SCIENCE_SET_ELEVATOR_ANGULAR_VELOCITY:
           msgStruct.science_set_elevator_angular_velocity =
               uwrt_mars_rover_can_science_set_joint_angular_velocity_science_set_elevator_angular_velocity_encode(
                   signalValue);
-          success &=
-              uwrt_mars_rover_can_science_set_joint_angular_velocity_science_set_elevator_angular_velocity_is_in_range(
-                  msgStruct.science_set_elevator_angular_velocity);
           break;
 
         default:
@@ -1928,36 +1801,26 @@ bool science_set_joint_pid_params_packer(uint8_t* raw, const CANMsgMap* msgMap, 
         case CANSIGNAL::SCIENCE_JOINT_PIDID:
           msgStruct.science_joint_pidid =
               uwrt_mars_rover_can_science_set_joint_pid_params_science_joint_pidid_encode(signalValue);
-          success &= uwrt_mars_rover_can_science_set_joint_pid_params_science_joint_pidid_is_in_range(
-              msgStruct.science_joint_pidid);
           break;
 
         case CANSIGNAL::SCIENCE_JOINT_PID_PROPORTIONAL_GAIN:
           msgStruct.science_joint_pid_proportional_gain =
               uwrt_mars_rover_can_science_set_joint_pid_params_science_joint_pid_proportional_gain_encode(signalValue);
-          success &= uwrt_mars_rover_can_science_set_joint_pid_params_science_joint_pid_proportional_gain_is_in_range(
-              msgStruct.science_joint_pid_proportional_gain);
           break;
 
         case CANSIGNAL::SCIENCE_JOINT_PID_INTEGRAL_GAIN:
           msgStruct.science_joint_pid_integral_gain =
               uwrt_mars_rover_can_science_set_joint_pid_params_science_joint_pid_integral_gain_encode(signalValue);
-          success &= uwrt_mars_rover_can_science_set_joint_pid_params_science_joint_pid_integral_gain_is_in_range(
-              msgStruct.science_joint_pid_integral_gain);
           break;
 
         case CANSIGNAL::SCIENCE_JOINT_PID_DERIVATIVE_GAIN:
           msgStruct.science_joint_pid_derivative_gain =
               uwrt_mars_rover_can_science_set_joint_pid_params_science_joint_pid_derivative_gain_encode(signalValue);
-          success &= uwrt_mars_rover_can_science_set_joint_pid_params_science_joint_pid_derivative_gain_is_in_range(
-              msgStruct.science_joint_pid_derivative_gain);
           break;
 
         case CANSIGNAL::SCIENCE_JOINT_PID_DEADZONE:
           msgStruct.science_joint_pid_deadzone =
               uwrt_mars_rover_can_science_set_joint_pid_params_science_joint_pid_deadzone_encode(signalValue);
-          success &= uwrt_mars_rover_can_science_set_joint_pid_params_science_joint_pid_deadzone_is_in_range(
-              msgStruct.science_joint_pid_deadzone);
           break;
 
         default:
@@ -2046,30 +1909,22 @@ bool science_report_joint_data_packer(uint8_t* raw, const CANMsgMap* msgMap, siz
         case CANSIGNAL::SCIENCE_REPORT_GENEVA_POSITION:
           msgStruct.science_report_geneva_position =
               uwrt_mars_rover_can_science_report_joint_data_science_report_geneva_position_encode(signalValue);
-          success &= uwrt_mars_rover_can_science_report_joint_data_science_report_geneva_position_is_in_range(
-              msgStruct.science_report_geneva_position);
           break;
 
         case CANSIGNAL::SCIENCE_REPORT_ELEVATOR_POSITION:
           msgStruct.science_report_elevator_position =
               uwrt_mars_rover_can_science_report_joint_data_science_report_elevator_position_encode(signalValue);
-          success &= uwrt_mars_rover_can_science_report_joint_data_science_report_elevator_position_is_in_range(
-              msgStruct.science_report_elevator_position);
           break;
 
         case CANSIGNAL::SCIENCE_REPORT_GENEVA_ANGULAR_VELOCITY:
           msgStruct.science_report_geneva_angular_velocity =
               uwrt_mars_rover_can_science_report_joint_data_science_report_geneva_angular_velocity_encode(signalValue);
-          success &= uwrt_mars_rover_can_science_report_joint_data_science_report_geneva_angular_velocity_is_in_range(
-              msgStruct.science_report_geneva_angular_velocity);
           break;
 
         case CANSIGNAL::SCIENCE_REPORT_ELEVATOR_ANGULAR_VELOCITY:
           msgStruct.science_report_elevator_angular_velocity =
               uwrt_mars_rover_can_science_report_joint_data_science_report_elevator_angular_velocity_encode(
                   signalValue);
-          success &= uwrt_mars_rover_can_science_report_joint_data_science_report_elevator_angular_velocity_is_in_range(
-              msgStruct.science_report_elevator_angular_velocity);
           break;
 
         default:
@@ -2152,15 +2007,11 @@ bool science_report_sensor_data_packer(uint8_t* raw, const CANMsgMap* msgMap, si
         case CANSIGNAL::SCIENCE_MOISTURE_DATA:
           msgStruct.science_moisture_data =
               uwrt_mars_rover_can_science_report_sensor_data_science_moisture_data_encode(signalValue);
-          success &= uwrt_mars_rover_can_science_report_sensor_data_science_moisture_data_is_in_range(
-              msgStruct.science_moisture_data);
           break;
 
         case CANSIGNAL::SCIENCE_TEMPERATURE_DATA:
           msgStruct.science_temperature_data =
               uwrt_mars_rover_can_science_report_sensor_data_science_temperature_data_encode(signalValue);
-          success &= uwrt_mars_rover_can_science_report_sensor_data_science_temperature_data_is_in_range(
-              msgStruct.science_temperature_data);
           break;
 
         default:
@@ -2228,22 +2079,26 @@ bool science_report_faults_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t&
         case CANSIGNAL::SCIENCE_GENEVA_ENCODER_STATE:
           msgStruct.science_geneva_encoder_state =
               uwrt_mars_rover_can_science_report_faults_science_geneva_encoder_state_encode(signalValue);
-          success &= uwrt_mars_rover_can_science_report_faults_science_geneva_encoder_state_is_in_range(
-              msgStruct.science_geneva_encoder_state);
           break;
 
         case CANSIGNAL::SCIENCE_ELEVATOR_ENCODER_STATE:
           msgStruct.science_elevator_encoder_state =
               uwrt_mars_rover_can_science_report_faults_science_elevator_encoder_state_encode(signalValue);
-          success &= uwrt_mars_rover_can_science_report_faults_science_elevator_encoder_state_is_in_range(
-              msgStruct.science_elevator_encoder_state);
           break;
 
         case CANSIGNAL::SCIENCE_MOISTURE_SENSOR_STATE:
           msgStruct.science_moisture_sensor_state =
               uwrt_mars_rover_can_science_report_faults_science_moisture_sensor_state_encode(signalValue);
-          success &= uwrt_mars_rover_can_science_report_faults_science_moisture_sensor_state_is_in_range(
-              msgStruct.science_moisture_sensor_state);
+          break;
+
+        case CANSIGNAL::SCIENCE_NUM_CANRX_FAULTS:
+          msgStruct.science_num_canrx_faults =
+              uwrt_mars_rover_can_science_report_faults_science_num_canrx_faults_encode(signalValue);
+          break;
+
+        case CANSIGNAL::SCIENCE_NUM_CANTX_FAULTS:
+          msgStruct.science_num_cantx_faults =
+              uwrt_mars_rover_can_science_report_faults_science_num_cantx_faults_encode(signalValue);
           break;
 
         default:
@@ -2294,6 +2149,18 @@ bool science_report_faults_unpacker(uint8_t* raw, CANMsgMap* msgMap) {
                                          msgStruct.science_moisture_sensor_state));
           break;
 
+        case CANSIGNAL::SCIENCE_NUM_CANRX_FAULTS:
+          success &= msgMap->setSignalValue(msgID, signalName,
+                                            uwrt_mars_rover_can_science_report_faults_science_num_canrx_faults_decode(
+                                                msgStruct.science_num_canrx_faults));
+          break;
+
+        case CANSIGNAL::SCIENCE_NUM_CANTX_FAULTS:
+          success &= msgMap->setSignalValue(msgID, signalName,
+                                            uwrt_mars_rover_can_science_report_faults_science_num_cantx_faults_decode(
+                                                msgStruct.science_num_cantx_faults));
+          break;
+
         default:
           success = false;
           break;
@@ -2318,7 +2185,6 @@ bool science_report_ack_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& le
       switch (signalName) {
         case CANSIGNAL::SCIENCE_ACK:
           msgStruct.science_ack = uwrt_mars_rover_can_science_report_ack_science_ack_encode(signalValue);
-          success &= uwrt_mars_rover_can_science_report_ack_science_ack_is_in_range(msgStruct.science_ack);
           break;
 
         default:
@@ -2379,18 +2245,12 @@ bool science_report_diagnostics_packer(uint8_t* raw, const CANMsgMap* msgMap, si
           msgStruct.science_report_num_streamed_msgs_received =
               uwrt_mars_rover_can_science_report_diagnostics_science_report_num_streamed_msgs_received_encode(
                   signalValue);
-          success &=
-              uwrt_mars_rover_can_science_report_diagnostics_science_report_num_streamed_msgs_received_is_in_range(
-                  msgStruct.science_report_num_streamed_msgs_received);
           break;
 
         case CANSIGNAL::SCIENCE_REPORT_NUM_ONE_SHOT_MSGS_RECEIVED:
           msgStruct.science_report_num_one_shot_msgs_received =
               uwrt_mars_rover_can_science_report_diagnostics_science_report_num_one_shot_msgs_received_encode(
                   signalValue);
-          success &=
-              uwrt_mars_rover_can_science_report_diagnostics_science_report_num_one_shot_msgs_received_is_in_range(
-                  msgStruct.science_report_num_one_shot_msgs_received);
           break;
 
         default:
@@ -2459,8 +2319,6 @@ bool gimbal_set_control_mode_packer(uint8_t* raw, const CANMsgMap* msgMap, size_
         case CANSIGNAL::GIMBAL_PAN_CONTROL_MODE:
           msgStruct.gimbal_pan_control_mode =
               uwrt_mars_rover_can_gimbal_set_control_mode_gimbal_pan_control_mode_encode(signalValue);
-          success &= uwrt_mars_rover_can_gimbal_set_control_mode_gimbal_pan_control_mode_is_in_range(
-              msgStruct.gimbal_pan_control_mode);
           break;
 
         default:
@@ -2521,22 +2379,16 @@ bool gimbal_set_joint_position_packer(uint8_t* raw, const CANMsgMap* msgMap, siz
         case CANSIGNAL::GIMBAL_SET_PAN_POSITION:
           msgStruct.gimbal_set_pan_position =
               uwrt_mars_rover_can_gimbal_set_joint_position_gimbal_set_pan_position_encode(signalValue);
-          success &= uwrt_mars_rover_can_gimbal_set_joint_position_gimbal_set_pan_position_is_in_range(
-              msgStruct.gimbal_set_pan_position);
           break;
 
         case CANSIGNAL::GIMBAL_SET_PITCH_POSITION:
           msgStruct.gimbal_set_pitch_position =
               uwrt_mars_rover_can_gimbal_set_joint_position_gimbal_set_pitch_position_encode(signalValue);
-          success &= uwrt_mars_rover_can_gimbal_set_joint_position_gimbal_set_pitch_position_is_in_range(
-              msgStruct.gimbal_set_pitch_position);
           break;
 
         case CANSIGNAL::GIMBAL_SET_ROLL_POSITION:
           msgStruct.gimbal_set_roll_position =
               uwrt_mars_rover_can_gimbal_set_joint_position_gimbal_set_roll_position_encode(signalValue);
-          success &= uwrt_mars_rover_can_gimbal_set_joint_position_gimbal_set_roll_position_is_in_range(
-              msgStruct.gimbal_set_roll_position);
           break;
 
         default:
@@ -2612,8 +2464,6 @@ bool gimbal_set_joint_angular_velocity_packer(uint8_t* raw, const CANMsgMap* msg
         case CANSIGNAL::GIMBAL_SET_PAN_ANGULAR_VELOCITY:
           msgStruct.gimbal_set_pan_angular_velocity =
               uwrt_mars_rover_can_gimbal_set_joint_angular_velocity_gimbal_set_pan_angular_velocity_encode(signalValue);
-          success &= uwrt_mars_rover_can_gimbal_set_joint_angular_velocity_gimbal_set_pan_angular_velocity_is_in_range(
-              msgStruct.gimbal_set_pan_angular_velocity);
           break;
 
         default:
@@ -2675,36 +2525,26 @@ bool gimbal_set_joint_pid_params_packer(uint8_t* raw, const CANMsgMap* msgMap, s
         case CANSIGNAL::GIMBAL_JOINT_PIDID:
           msgStruct.gimbal_joint_pidid =
               uwrt_mars_rover_can_gimbal_set_joint_pid_params_gimbal_joint_pidid_encode(signalValue);
-          success &= uwrt_mars_rover_can_gimbal_set_joint_pid_params_gimbal_joint_pidid_is_in_range(
-              msgStruct.gimbal_joint_pidid);
           break;
 
         case CANSIGNAL::GIMBAL_JOINT_PID_PROPORTIONAL_GAIN:
           msgStruct.gimbal_joint_pid_proportional_gain =
               uwrt_mars_rover_can_gimbal_set_joint_pid_params_gimbal_joint_pid_proportional_gain_encode(signalValue);
-          success &= uwrt_mars_rover_can_gimbal_set_joint_pid_params_gimbal_joint_pid_proportional_gain_is_in_range(
-              msgStruct.gimbal_joint_pid_proportional_gain);
           break;
 
         case CANSIGNAL::GIMBAL_JOINT_PID_INTEGRAL_GAIN:
           msgStruct.gimbal_joint_pid_integral_gain =
               uwrt_mars_rover_can_gimbal_set_joint_pid_params_gimbal_joint_pid_integral_gain_encode(signalValue);
-          success &= uwrt_mars_rover_can_gimbal_set_joint_pid_params_gimbal_joint_pid_integral_gain_is_in_range(
-              msgStruct.gimbal_joint_pid_integral_gain);
           break;
 
         case CANSIGNAL::GIMBAL_JOINT_PID_DERIVATIVE_GAIN:
           msgStruct.gimbal_joint_pid_derivative_gain =
               uwrt_mars_rover_can_gimbal_set_joint_pid_params_gimbal_joint_pid_derivative_gain_encode(signalValue);
-          success &= uwrt_mars_rover_can_gimbal_set_joint_pid_params_gimbal_joint_pid_derivative_gain_is_in_range(
-              msgStruct.gimbal_joint_pid_derivative_gain);
           break;
 
         case CANSIGNAL::GIMBAL_JOINT_PID_DEADZONE:
           msgStruct.gimbal_joint_pid_deadzone =
               uwrt_mars_rover_can_gimbal_set_joint_pid_params_gimbal_joint_pid_deadzone_encode(signalValue);
-          success &= uwrt_mars_rover_can_gimbal_set_joint_pid_params_gimbal_joint_pid_deadzone_is_in_range(
-              msgStruct.gimbal_joint_pid_deadzone);
           break;
 
         default:
@@ -2793,15 +2633,11 @@ bool gimbal_report_joint_data_packer(uint8_t* raw, const CANMsgMap* msgMap, size
         case CANSIGNAL::GIMBAL_REPORT_PAN_POSITION:
           msgStruct.gimbal_report_pan_position =
               uwrt_mars_rover_can_gimbal_report_joint_data_gimbal_report_pan_position_encode(signalValue);
-          success &= uwrt_mars_rover_can_gimbal_report_joint_data_gimbal_report_pan_position_is_in_range(
-              msgStruct.gimbal_report_pan_position);
           break;
 
         case CANSIGNAL::GIMBAL_REPORT_PAN_ANGULAR_VELOCITY:
           msgStruct.gimbal_report_pan_angular_velocity =
               uwrt_mars_rover_can_gimbal_report_joint_data_gimbal_report_pan_angular_velocity_encode(signalValue);
-          success &= uwrt_mars_rover_can_gimbal_report_joint_data_gimbal_report_pan_angular_velocity_is_in_range(
-              msgStruct.gimbal_report_pan_angular_velocity);
           break;
 
         default:
@@ -2870,8 +2706,16 @@ bool gimbal_report_faults_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& 
         case CANSIGNAL::GIMBAL_PAN_ENCODER_STATE:
           msgStruct.gimbal_pan_encoder_state =
               uwrt_mars_rover_can_gimbal_report_faults_gimbal_pan_encoder_state_encode(signalValue);
-          success &= uwrt_mars_rover_can_gimbal_report_faults_gimbal_pan_encoder_state_is_in_range(
-              msgStruct.gimbal_pan_encoder_state);
+          break;
+
+        case CANSIGNAL::GIMBAL_NUM_CANRX_FAULTS:
+          msgStruct.gimbal_num_canrx_faults =
+              uwrt_mars_rover_can_gimbal_report_faults_gimbal_num_canrx_faults_encode(signalValue);
+          break;
+
+        case CANSIGNAL::GIMBAL_NUM_CANTX_FAULTS:
+          msgStruct.gimbal_num_cantx_faults =
+              uwrt_mars_rover_can_gimbal_report_faults_gimbal_num_cantx_faults_encode(signalValue);
           break;
 
         default:
@@ -2907,6 +2751,18 @@ bool gimbal_report_faults_unpacker(uint8_t* raw, CANMsgMap* msgMap) {
                                                 msgStruct.gimbal_pan_encoder_state));
           break;
 
+        case CANSIGNAL::GIMBAL_NUM_CANRX_FAULTS:
+          success &= msgMap->setSignalValue(msgID, signalName,
+                                            uwrt_mars_rover_can_gimbal_report_faults_gimbal_num_canrx_faults_decode(
+                                                msgStruct.gimbal_num_canrx_faults));
+          break;
+
+        case CANSIGNAL::GIMBAL_NUM_CANTX_FAULTS:
+          success &= msgMap->setSignalValue(msgID, signalName,
+                                            uwrt_mars_rover_can_gimbal_report_faults_gimbal_num_cantx_faults_decode(
+                                                msgStruct.gimbal_num_cantx_faults));
+          break;
+
         default:
           success = false;
           break;
@@ -2931,7 +2787,6 @@ bool gimbal_report_ack_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len
       switch (signalName) {
         case CANSIGNAL::GIMBAL_ACK:
           msgStruct.gimbal_ack = uwrt_mars_rover_can_gimbal_report_ack_gimbal_ack_encode(signalValue);
-          success &= uwrt_mars_rover_can_gimbal_report_ack_gimbal_ack_is_in_range(msgStruct.gimbal_ack);
           break;
 
         default:
@@ -2992,16 +2847,12 @@ bool gimbal_report_diagnostics_packer(uint8_t* raw, const CANMsgMap* msgMap, siz
           msgStruct.gimbal_report_num_streamed_msgs_received =
               uwrt_mars_rover_can_gimbal_report_diagnostics_gimbal_report_num_streamed_msgs_received_encode(
                   signalValue);
-          success &= uwrt_mars_rover_can_gimbal_report_diagnostics_gimbal_report_num_streamed_msgs_received_is_in_range(
-              msgStruct.gimbal_report_num_streamed_msgs_received);
           break;
 
         case CANSIGNAL::GIMBAL_REPORT_NUM_ONE_SHOT_MSGS_RECEIVED:
           msgStruct.gimbal_report_num_one_shot_msgs_received =
               uwrt_mars_rover_can_gimbal_report_diagnostics_gimbal_report_num_one_shot_msgs_received_encode(
                   signalValue);
-          success &= uwrt_mars_rover_can_gimbal_report_diagnostics_gimbal_report_num_one_shot_msgs_received_is_in_range(
-              msgStruct.gimbal_report_num_one_shot_msgs_received);
           break;
 
         default:
@@ -3070,8 +2921,6 @@ bool pdb_set_led_matrix_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& le
         case CANSIGNAL::PDB_LED_MATRIX_STATE:
           msgStruct.pdb_led_matrix_state =
               uwrt_mars_rover_can_pdb_set_led_matrix_pdb_led_matrix_state_encode(signalValue);
-          success &=
-              uwrt_mars_rover_can_pdb_set_led_matrix_pdb_led_matrix_state_is_in_range(msgStruct.pdb_led_matrix_state);
           break;
 
         default:
@@ -3132,29 +2981,21 @@ bool pdb_report_sensor_data_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t
         case CANSIGNAL::PDB_ULTRASONIC_SENSOR1_DATA:
           msgStruct.pdb_ultrasonic_sensor1_data =
               uwrt_mars_rover_can_pdb_report_sensor_data_pdb_ultrasonic_sensor1_data_encode(signalValue);
-          success &= uwrt_mars_rover_can_pdb_report_sensor_data_pdb_ultrasonic_sensor1_data_is_in_range(
-              msgStruct.pdb_ultrasonic_sensor1_data);
           break;
 
         case CANSIGNAL::PDB_ULTRASONIC_SENSOR2_DATA:
           msgStruct.pdb_ultrasonic_sensor2_data =
               uwrt_mars_rover_can_pdb_report_sensor_data_pdb_ultrasonic_sensor2_data_encode(signalValue);
-          success &= uwrt_mars_rover_can_pdb_report_sensor_data_pdb_ultrasonic_sensor2_data_is_in_range(
-              msgStruct.pdb_ultrasonic_sensor2_data);
           break;
 
         case CANSIGNAL::PDB_ULTRASONIC_SENSOR3_DATA:
           msgStruct.pdb_ultrasonic_sensor3_data =
               uwrt_mars_rover_can_pdb_report_sensor_data_pdb_ultrasonic_sensor3_data_encode(signalValue);
-          success &= uwrt_mars_rover_can_pdb_report_sensor_data_pdb_ultrasonic_sensor3_data_is_in_range(
-              msgStruct.pdb_ultrasonic_sensor3_data);
           break;
 
         case CANSIGNAL::PDB_ULTRASONIC_SENSOR4_DATA:
           msgStruct.pdb_ultrasonic_sensor4_data =
               uwrt_mars_rover_can_pdb_report_sensor_data_pdb_ultrasonic_sensor4_data_encode(signalValue);
-          success &= uwrt_mars_rover_can_pdb_report_sensor_data_pdb_ultrasonic_sensor4_data_is_in_range(
-              msgStruct.pdb_ultrasonic_sensor4_data);
           break;
 
         default:
@@ -3236,48 +3077,45 @@ bool pdb_report_faults_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len
       switch (signalName) {
         case CANSIGNAL::PDB_JETSON_STATUS:
           msgStruct.pdb_jetson_status = uwrt_mars_rover_can_pdb_report_faults_pdb_jetson_status_encode(signalValue);
-          success &= uwrt_mars_rover_can_pdb_report_faults_pdb_jetson_status_is_in_range(msgStruct.pdb_jetson_status);
           break;
 
         case CANSIGNAL::PDB_ARM_POWER_STATUS:
           msgStruct.pdb_arm_power_status =
               uwrt_mars_rover_can_pdb_report_faults_pdb_arm_power_status_encode(signalValue);
-          success &=
-              uwrt_mars_rover_can_pdb_report_faults_pdb_arm_power_status_is_in_range(msgStruct.pdb_arm_power_status);
           break;
 
         case CANSIGNAL::PDB_SCIENCE_POWER_STATUS:
           msgStruct.pdb_science_power_status =
               uwrt_mars_rover_can_pdb_report_faults_pdb_science_power_status_encode(signalValue);
-          success &= uwrt_mars_rover_can_pdb_report_faults_pdb_science_power_status_is_in_range(
-              msgStruct.pdb_science_power_status);
           break;
 
         case CANSIGNAL::PDB_GIMBAL_POWER_STATUS:
           msgStruct.pdb_gimbal_power_status =
               uwrt_mars_rover_can_pdb_report_faults_pdb_gimbal_power_status_encode(signalValue);
-          success &= uwrt_mars_rover_can_pdb_report_faults_pdb_gimbal_power_status_is_in_range(
-              msgStruct.pdb_gimbal_power_status);
           break;
 
         case CANSIGNAL::PDB_VBAT_RAIL_STATUS:
           msgStruct.pdb_vbat_rail_status =
               uwrt_mars_rover_can_pdb_report_faults_pdb_vbat_rail_status_encode(signalValue);
-          success &=
-              uwrt_mars_rover_can_pdb_report_faults_pdb_vbat_rail_status_is_in_range(msgStruct.pdb_vbat_rail_status);
           break;
 
         case CANSIGNAL::PDB_17_V_RAIL_STATUS:
           msgStruct.pdb_17_v_rail_status =
               uwrt_mars_rover_can_pdb_report_faults_pdb_17_v_rail_status_encode(signalValue);
-          success &=
-              uwrt_mars_rover_can_pdb_report_faults_pdb_17_v_rail_status_is_in_range(msgStruct.pdb_17_v_rail_status);
           break;
 
         case CANSIGNAL::PDB_5_V_RAIL_STATUS:
           msgStruct.pdb_5_v_rail_status = uwrt_mars_rover_can_pdb_report_faults_pdb_5_v_rail_status_encode(signalValue);
-          success &=
-              uwrt_mars_rover_can_pdb_report_faults_pdb_5_v_rail_status_is_in_range(msgStruct.pdb_5_v_rail_status);
+          break;
+
+        case CANSIGNAL::PDB_NUM_CANRX_FAULTS:
+          msgStruct.pdb_num_canrx_faults =
+              uwrt_mars_rover_can_pdb_report_faults_pdb_num_canrx_faults_encode(signalValue);
+          break;
+
+        case CANSIGNAL::PDB_NUM_CANTX_FAULTS:
+          msgStruct.pdb_num_cantx_faults =
+              uwrt_mars_rover_can_pdb_report_faults_pdb_num_cantx_faults_encode(signalValue);
           break;
 
         default:
@@ -3349,6 +3187,18 @@ bool pdb_report_faults_unpacker(uint8_t* raw, CANMsgMap* msgMap) {
               uwrt_mars_rover_can_pdb_report_faults_pdb_5_v_rail_status_decode(msgStruct.pdb_5_v_rail_status));
           break;
 
+        case CANSIGNAL::PDB_NUM_CANRX_FAULTS:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_pdb_report_faults_pdb_num_canrx_faults_decode(msgStruct.pdb_num_canrx_faults));
+          break;
+
+        case CANSIGNAL::PDB_NUM_CANTX_FAULTS:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_pdb_report_faults_pdb_num_cantx_faults_decode(msgStruct.pdb_num_cantx_faults));
+          break;
+
         default:
           success = false;
           break;
@@ -3373,7 +3223,6 @@ bool pdb_report_ack_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len) {
       switch (signalName) {
         case CANSIGNAL::PDB_ACK:
           msgStruct.pdb_ack = uwrt_mars_rover_can_pdb_report_ack_pdb_ack_encode(signalValue);
-          success &= uwrt_mars_rover_can_pdb_report_ack_pdb_ack_is_in_range(msgStruct.pdb_ack);
           break;
 
         default:
@@ -3432,15 +3281,11 @@ bool pdb_report_diagnostics_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t
         case CANSIGNAL::PDB_REPORT_NUM_STREAMED_MSGS_RECEIVED:
           msgStruct.pdb_report_num_streamed_msgs_received =
               uwrt_mars_rover_can_pdb_report_diagnostics_pdb_report_num_streamed_msgs_received_encode(signalValue);
-          success &= uwrt_mars_rover_can_pdb_report_diagnostics_pdb_report_num_streamed_msgs_received_is_in_range(
-              msgStruct.pdb_report_num_streamed_msgs_received);
           break;
 
         case CANSIGNAL::PDB_REPORT_NUM_ONE_SHOT_MSGS_RECEIVED:
           msgStruct.pdb_report_num_one_shot_msgs_received =
               uwrt_mars_rover_can_pdb_report_diagnostics_pdb_report_num_one_shot_msgs_received_encode(signalValue);
-          success &= uwrt_mars_rover_can_pdb_report_diagnostics_pdb_report_num_one_shot_msgs_received_is_in_range(
-              msgStruct.pdb_report_num_one_shot_msgs_received);
           break;
 
         default:
@@ -3508,8 +3353,6 @@ bool common_switch_can_bus_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t&
       switch (signalName) {
         case CANSIGNAL::COMMON_CAN_BUS_ID:
           msgStruct.common_can_bus_id = uwrt_mars_rover_can_common_switch_can_bus_common_can_bus_id_encode(signalValue);
-          success &=
-              uwrt_mars_rover_can_common_switch_can_bus_common_can_bus_id_is_in_range(msgStruct.common_can_bus_id);
           break;
 
         default:
@@ -3570,8 +3413,6 @@ bool common_debug_message1_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t&
         case CANSIGNAL::COMMON_DEBUG_SIGNAL1:
           msgStruct.common_debug_signal1 =
               uwrt_mars_rover_can_common_debug_message1_common_debug_signal1_encode(signalValue);
-          success &= uwrt_mars_rover_can_common_debug_message1_common_debug_signal1_is_in_range(
-              msgStruct.common_debug_signal1);
           break;
 
         default:
@@ -3632,8 +3473,6 @@ bool common_debug_message2_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t&
         case CANSIGNAL::COMMON_DEBUG_SIGNAL2:
           msgStruct.common_debug_signal2 =
               uwrt_mars_rover_can_common_debug_message2_common_debug_signal2_encode(signalValue);
-          success &= uwrt_mars_rover_can_common_debug_message2_common_debug_signal2_is_in_range(
-              msgStruct.common_debug_signal2);
           break;
 
         default:
@@ -3694,8 +3533,6 @@ bool common_debug_message3_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t&
         case CANSIGNAL::COMMON_DEBUG_SIGNAL3:
           msgStruct.common_debug_signal3 =
               uwrt_mars_rover_can_common_debug_message3_common_debug_signal3_encode(signalValue);
-          success &= uwrt_mars_rover_can_common_debug_message3_common_debug_signal3_is_in_range(
-              msgStruct.common_debug_signal3);
           break;
 
         default:

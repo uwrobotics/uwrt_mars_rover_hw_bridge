@@ -671,7 +671,7 @@ uwrt_mars_rover_can_bus:
   - ARM_reportFaults:
       comment: Arm fault conditions
       id: 1603
-      size: 3
+      size: 7
       senders:
       - ARM
       receivers:
@@ -834,6 +834,24 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
           min: 0.0
           max: 2.0
+      - ARM_numCANRXFaults:
+          comment: Arm number of CAN RX faults
+          length: 16
+          is_signed: false
+          unit: ''
+          scale: 1.0
+          offset: 0.0
+          min: 0.0
+          max: 65534.0
+      - ARM_numCANTXFaults:
+          comment: Arm number of CAN TX faults
+          length: 16
+          is_signed: false
+          unit: ''
+          scale: 1.0
+          offset: 0.0
+          min: 0.0
+          max: 65534.0
   - ARM_reportACK:
       comment: Arm report ACKs to one-shot commands
       id: 1604
@@ -1167,7 +1185,7 @@ uwrt_mars_rover_can_bus:
   - SCIENCE_reportFaults:
       comment: Science fault conditions
       id: 1666
-      size: 1
+      size: 5
       senders:
       - SCIENCE
       receivers:
@@ -1213,6 +1231,24 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
           min: 0.0
           max: 2.0
+      - SCIENCE_numCANRXFaults:
+          comment: Science number of CAN RX faults
+          length: 16
+          is_signed: false
+          unit: ''
+          scale: 1.0
+          offset: 0.0
+          min: 0.0
+          max: 65534.0
+      - SCIENCE_numCANTXFaults:
+          comment: Science number of CAN TX faults
+          length: 16
+          is_signed: false
+          unit: ''
+          scale: 1.0
+          offset: 0.0
+          min: 0.0
+          max: 65534.0
   - SCIENCE_reportACK:
       comment: Science report ACKs to one-shot commands
       id: 1667
@@ -1454,7 +1490,7 @@ uwrt_mars_rover_can_bus:
   - GIMBAL_reportFaults:
       comment: Gimbal fault conditions
       id: 1729
-      size: 1
+      size: 5
       senders:
       - GIMBAL
       receivers:
@@ -1474,6 +1510,24 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
           min: 0.0
           max: 2.0
+      - GIMBAL_numCANRXFaults:
+          comment: Gimbal number of CAN RX faults
+          length: 16
+          is_signed: false
+          unit: ''
+          scale: 1.0
+          offset: 0.0
+          min: 0.0
+          max: 65534.0
+      - GIMBAL_numCANTXFaults:
+          comment: Gimbal number of CAN TX faults
+          length: 16
+          is_signed: false
+          unit: ''
+          scale: 1.0
+          offset: 0.0
+          min: 0.0
+          max: 65534.0
   - GIMBAL_reportACK:
       comment: Gimbal report ACKs to one-shot commands
       id: 1730
@@ -1608,7 +1662,7 @@ uwrt_mars_rover_can_bus:
   - PDB_reportFaults:
       comment: PDB report fault conditions
       id: 1793
-      size: 2
+      size: 6
       senders:
       - PDB
       receivers:
@@ -1709,6 +1763,24 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
           min: 0.0
           max: 2.0
+      - PDB_numCANRXFaults:
+          comment: PDB number of CAN RX faults
+          length: 16
+          is_signed: false
+          unit: ''
+          scale: 1.0
+          offset: 0.0
+          min: 0.0
+          max: 65534.0
+      - PDB_numCANTXFaults:
+          comment: PDB number of CAN TX faults
+          length: 16
+          is_signed: false
+          unit: ''
+          scale: 1.0
+          offset: 0.0
+          min: 0.0
+          max: 65534.0
   - PDB_reportACK:
       comment: PDB report ACKs to one-shot commands
       id: 1794

@@ -45,29 +45,29 @@ BO_ 1569 ARM_setControlMode: 3 JETSON
  SG_ ARM_turntableControlMode : 0|3@1+ (1.0,0.0) [0.0|6.0] ""  ARM
 
 BO_ 1570 ARM_setJointPosition: 8 JETSON
- SG_ ARM_setToolTipPosition : 57|7@1+ (0.02493325396825397,0) [0|3.14159] "radians"  ARM
- SG_ ARM_setClawPosition : 50|7@1- (0.02493333333333333,0.0) [-1.5708|1.5708] "radians"  ARM
- SG_ ARM_setRightWristPosition : 40|10@1- (0.003073972602739726,0.0) [-1.5708|1.5708] "radians"  ARM
- SG_ ARM_setLeftWristPosition : 30|10@1- (0.003073972602739726,0.0) [-1.5708|1.5708] "radians"  ARM
- SG_ ARM_setElbowPosition : 20|10@1- (0.003073972602739726,0.0) [-1.5708|1.5708] "radians"  ARM
- SG_ ARM_setShoulderPosition : 10|10@1+ (0.0030739628180039137,0.0) [0.0|3.14159] "radians"  ARM
- SG_ ARM_setTurntablePosition : 0|10@1- (0.003073972602739726,0.0) [-1.5708|1.5708] "radians"  ARM
+ SG_ ARM_setToolTipPosition : 57|7@1+ (0.02493325396825397,0) [0|3.14159] "rad"  ARM
+ SG_ ARM_setClawPosition : 50|7@1- (0.02493333333333333,0.0) [-1.5708|1.5708] "rad"  ARM
+ SG_ ARM_setRightWristPosition : 40|10@1- (0.003073972602739726,0.0) [-1.5708|1.5708] "rad"  ARM
+ SG_ ARM_setLeftWristPosition : 30|10@1- (0.003073972602739726,0.0) [-1.5708|1.5708] "rad"  ARM
+ SG_ ARM_setElbowPosition : 20|10@1- (0.003073972602739726,0.0) [-1.5708|1.5708] "rad"  ARM
+ SG_ ARM_setShoulderPosition : 10|10@1+ (0.0030739628180039137,0.0) [0.0|3.14159] "rad"  ARM
+ SG_ ARM_setTurntablePosition : 0|10@1- (0.003073972602739726,0.0) [-1.5708|1.5708] "rad"  ARM
 
 BO_ 1571 ARM_setJointAngularVelocity: 8 JETSON
- SG_ ARM_setClawAngularVelocity : 50|10@1- (0.05870841487279843,0.0) [-30.0|30.0] "radians per second"  ARM
- SG_ ARM_setRightWristAngularVelocity : 40|10@1- (0.013894324853228963,0.0) [-7.1|7.1] "radians per second"  ARM
- SG_ ARM_setLeftWristAngularVelocity : 30|10@1- (0.013894324853228963,0.0) [-7.1|7.1] "radians per second"  ARM
- SG_ ARM_setElbowAngularVelocity : 20|10@1- (0.0035225048923679062,0.0) [-1.8|1.8] "radians per second"  ARM
- SG_ ARM_setShoulderAngularVelocity : 10|10@1- (9.784735812133073e-05,0.0) [-0.05|0.05] "radians per second"  ARM
- SG_ ARM_setTurntableAngularVelocity : 0|10@1- (0.0011741682974559687,0.0) [-0.6|0.6] "radians per second"  ARM
+ SG_ ARM_setClawAngularVelocity : 50|10@1- (0.05870841487279843,0.0) [-30.0|30.0] "rad/s"  ARM
+ SG_ ARM_setRightWristAngularVelocity : 40|10@1- (0.013894324853228963,0.0) [-7.1|7.1] "rad/s"  ARM
+ SG_ ARM_setLeftWristAngularVelocity : 30|10@1- (0.013894324853228963,0.0) [-7.1|7.1] "rad/s"  ARM
+ SG_ ARM_setElbowAngularVelocity : 20|10@1- (0.0035225048923679062,0.0) [-1.8|1.8] "rad/s"  ARM
+ SG_ ARM_setShoulderAngularVelocity : 10|10@1- (9.784735812133073e-05,0.0) [-0.05|0.05] "rad/s"  ARM
+ SG_ ARM_setTurntableAngularVelocity : 0|10@1- (0.0011741682974559687,0.0) [-0.6|0.6] "rad/s"  ARM
 
 BO_ 1572 ARM_setJointCurrent: 8 JETSON
- SG_ ARM_setClawCurrent : 50|10@1- (0.005870841487279843,0.0) [-3.0|3.0] "amperes"  ARM
- SG_ ARM_setRightWristCurrent : 40|10@1- (0.010763209393346379,0.0) [-5.5|5.5] "amperes"  ARM
- SG_ ARM_setLeftWristCurrent : 30|10@1- (0.010763209393346379,0.0) [-5.5|5.5] "amperes"  ARM
- SG_ ARM_setElbowCurrent : 20|10@1- (0.04892367906066536,0.0) [-25.0|25.0] "amperes"  ARM
- SG_ ARM_setShoulderCurrent : 10|10@1- (0.009784735812133072,0.0) [-5.0|5.0] "amperes"  ARM
- SG_ ARM_setTurntableCurrent : 0|10@1- (0.10371819960861056,0.0) [-53.0|53.0] "amperes"  ARM
+ SG_ ARM_setClawCurrent : 50|10@1- (0.005870841487279843,0.0) [-3.0|3.0] "A"  ARM
+ SG_ ARM_setRightWristCurrent : 40|10@1- (0.010763209393346379,0.0) [-5.5|5.5] "A"  ARM
+ SG_ ARM_setLeftWristCurrent : 30|10@1- (0.010763209393346379,0.0) [-5.5|5.5] "A"  ARM
+ SG_ ARM_setElbowCurrent : 20|10@1- (0.04892367906066536,0.0) [-25.0|25.0] "A"  ARM
+ SG_ ARM_setShoulderCurrent : 10|10@1- (0.009784735812133072,0.0) [-5.0|5.0] "A"  ARM
+ SG_ ARM_setTurntableCurrent : 0|10@1- (0.10371819960861056,0.0) [-53.0|53.0] "A"  ARM
 
 BO_ 1573 ARM_setJointPIDParams: 8 JETSON
  SG_ ARM_jointPIDDeadzone : 51|13@1+ (0.01221001221001221,0.0) [0.0|100.0] ""  ARM
@@ -77,30 +77,32 @@ BO_ 1573 ARM_setJointPIDParams: 8 JETSON
  SG_ ARM_jointPIDID : 0|3@1+ (1.0,0.0) [0.0|6.0] ""  ARM
 
 BO_ 1600 ARM_reportJointPosition: 8 ARM
- SG_ ARM_reportClawPosition : 52|8@1- (0.012368503937007874,0.0) [-1.5708|1.5708] "radians"  JETSON
- SG_ ARM_reportRightWristPosition : 44|8@1- (0.012368503937007874,0.0) [-1.5708|1.5708] "radians"  JETSON
- SG_ ARM_reportLeftWristPosition : 36|8@1- (0.012368503937007874,0.0) [-1.5708|1.5708] "radians"  JETSON
- SG_ ARM_reportElbowPosition : 24|12@1- (0.0007673668783585735,0.0) [-1.5708|1.5708] "radians"  JETSON
- SG_ ARM_reportShoulderPosition : 12|12@1+ (0.0007673644357596483,0.0) [0.0|3.14159] "radians"  JETSON
- SG_ ARM_reportTurntablePosition : 0|12@1- (0.0007673668783585735,0.0) [-1.5708|1.5708] "radians"  JETSON
+ SG_ ARM_reportClawPosition : 52|8@1- (0.012368503937007874,0.0) [-1.5708|1.5708] "rad"  JETSON
+ SG_ ARM_reportRightWristPosition : 44|8@1- (0.012368503937007874,0.0) [-1.5708|1.5708] "rad"  JETSON
+ SG_ ARM_reportLeftWristPosition : 36|8@1- (0.012368503937007874,0.0) [-1.5708|1.5708] "rad"  JETSON
+ SG_ ARM_reportElbowPosition : 24|12@1- (0.0007673668783585735,0.0) [-1.5708|1.5708] "rad"  JETSON
+ SG_ ARM_reportShoulderPosition : 12|12@1+ (0.0007673644357596483,0.0) [0.0|3.14159] "rad"  JETSON
+ SG_ ARM_reportTurntablePosition : 0|12@1- (0.0007673668783585735,0.0) [-1.5708|1.5708] "rad"  JETSON
 
 BO_ 1601 ARM_reportJointAngularVelocity: 8 ARM
- SG_ ARM_reportClawAngularVelocity : 50|10@1- (0.05870841487279843,0.0) [-30.0|30.0] "radians"  JETSON
- SG_ ARM_reportRightWristAngularVeloc : 40|10@1- (0.013894324853228963,0.0) [-7.1|7.1] "radians"  JETSON
- SG_ ARM_reportLeftWristAngularVeloci : 30|10@1- (0.013894324853228963,0.0) [-7.1|7.1] "radians"  JETSON
- SG_ ARM_reportElbowAngularVelocity : 20|10@1- (0.0035225048923679062,0.0) [-1.8|1.8] "radians"  JETSON
- SG_ ARM_reportShoulderAngularVelocit : 10|10@1- (9.784735812133073e-05,0.0) [-0.05|0.05] "radians"  JETSON
- SG_ ARM_reportTurntableAngularVeloci : 0|10@1- (0.0011741682974559687,0.0) [-0.6|0.6] "radians"  JETSON
+ SG_ ARM_reportClawAngularVelocity : 50|10@1- (0.05870841487279843,0.0) [-30.0|30.0] "rad"  JETSON
+ SG_ ARM_reportRightWristAngularVeloc : 40|10@1- (0.013894324853228963,0.0) [-7.1|7.1] "rad"  JETSON
+ SG_ ARM_reportLeftWristAngularVeloci : 30|10@1- (0.013894324853228963,0.0) [-7.1|7.1] "rad"  JETSON
+ SG_ ARM_reportElbowAngularVelocity : 20|10@1- (0.0035225048923679062,0.0) [-1.8|1.8] "rad"  JETSON
+ SG_ ARM_reportShoulderAngularVelocit : 10|10@1- (9.784735812133073e-05,0.0) [-0.05|0.05] "rad"  JETSON
+ SG_ ARM_reportTurntableAngularVeloci : 0|10@1- (0.0011741682974559687,0.0) [-0.6|0.6] "rad"  JETSON
 
 BO_ 1602 ARM_reportJointCurrent: 8 ARM
- SG_ ARM_reportClawCurrent : 50|10@1- (0.005870841487279843,0.0) [-3.0|3.0] "radians"  JETSON
- SG_ ARM_reportRightWristCurrent : 40|10@1- (0.010763209393346379,0.0) [-5.5|5.5] "radians"  JETSON
- SG_ ARM_reportLeftWristCurrent : 30|10@1- (0.010763209393346379,0.0) [-5.5|5.5] "radians"  JETSON
- SG_ ARM_reportElbowCurrent : 20|10@1- (0.04892367906066536,0.0) [-25.0|25.0] "radians"  JETSON
- SG_ ARM_reportShoulderCurrent : 10|10@1- (0.009784735812133072,0.0) [-5.0|5.0] "radians"  JETSON
- SG_ ARM_reportTurntableCurrent : 0|10@1- (0.10371819960861056,0.0) [-53.0|53.0] "radians"  JETSON
+ SG_ ARM_reportClawCurrent : 50|10@1- (0.005870841487279843,0.0) [-3.0|3.0] "rad"  JETSON
+ SG_ ARM_reportRightWristCurrent : 40|10@1- (0.010763209393346379,0.0) [-5.5|5.5] "rad"  JETSON
+ SG_ ARM_reportLeftWristCurrent : 30|10@1- (0.010763209393346379,0.0) [-5.5|5.5] "rad"  JETSON
+ SG_ ARM_reportElbowCurrent : 20|10@1- (0.04892367906066536,0.0) [-25.0|25.0] "rad"  JETSON
+ SG_ ARM_reportShoulderCurrent : 10|10@1- (0.009784735812133072,0.0) [-5.0|5.0] "rad"  JETSON
+ SG_ ARM_reportTurntableCurrent : 0|10@1- (0.10371819960861056,0.0) [-53.0|53.0] "rad"  JETSON
 
-BO_ 1603 ARM_reportFaults: 3 ARM
+BO_ 1603 ARM_reportFaults: 7 ARM
+ SG_ ARM_numCANTXFaults : 40|16@1+ (1.0,0.0) [0.0|65534.0] ""  JETSON
+ SG_ ARM_numCANRXFaults : 24|16@1+ (1.0,0.0) [0.0|65534.0] ""  JETSON
  SG_ ARM_clawCurrentSensorState : 22|2@1+ (1.0,0.0) [0.0|2.0] ""  JETSON
  SG_ ARM_clawEncoderState : 20|2@1+ (1.0,0.0) [0.0|2.0] ""  JETSON
  SG_ ARM_rightWristCurrentSensorState : 18|2@1+ (1.0,0.0) [0.0|2.0] ""  JETSON
@@ -126,14 +128,14 @@ BO_ 1632 SCIENCE_setControlMode: 1 JETSON
  SG_ SCIENCE_genevaControlMode : 0|2@1+ (1.0,0.0) [0.0|2.0] ""  SCIENCE
 
 BO_ 1633 SCIENCE_setJointPosition: 8 JETSON
- SG_ SCIENCE_setShovelPosition : 48|16@1+ (4.793832209234901e-05,0.0) [0.0|3.14159] "radians"  SCIENCE
- SG_ SCIENCE_setCoverPosition : 32|16@1+ (4.793832209234901e-05,0.0) [0.0|3.14159] "radians"  SCIENCE
- SG_ SCIENCE_setElevatorPosition : 16|16@1- (0.0003051850947599719,0.0) [-10.0|10.0] "radians"  SCIENCE
- SG_ SCIENCE_setGenevaPosition : 0|16@1- (0.0003051850947599719,0.0) [-10.0|10.0] "radians"  SCIENCE
+ SG_ SCIENCE_setShovelPosition : 48|16@1+ (4.793832209234901e-05,0.0) [0.0|3.14159] "rad"  SCIENCE
+ SG_ SCIENCE_setCoverPosition : 32|16@1+ (4.793832209234901e-05,0.0) [0.0|3.14159] "rad"  SCIENCE
+ SG_ SCIENCE_setElevatorPosition : 16|16@1- (0.0003051850947599719,0.0) [-10.0|10.0] "rad"  SCIENCE
+ SG_ SCIENCE_setGenevaPosition : 0|16@1- (0.0003051850947599719,0.0) [-10.0|10.0] "rad"  SCIENCE
 
 BO_ 1634 SCIENCE_setJointAngularVelocity: 4 JETSON
- SG_ SCIENCE_setElevatorAngularVeloci : 16|16@1- (0.0003051850947599719,0.0) [-10.0|10.0] "radians per second"  SCIENCE
- SG_ SCIENCE_setGenevaAngularVelocity : 0|16@1- (0.0003051850947599719,0.0) [-10.0|10.0] "radians per second"  SCIENCE
+ SG_ SCIENCE_setElevatorAngularVeloci : 16|16@1- (0.0003051850947599719,0.0) [-10.0|10.0] "rad/s"  SCIENCE
+ SG_ SCIENCE_setGenevaAngularVelocity : 0|16@1- (0.0003051850947599719,0.0) [-10.0|10.0] "rad/s"  SCIENCE
 
 BO_ 1635 SCIENCE_setJointPIDParams: 8 JETSON
  SG_ SCIENCE_jointPIDDeadzone : 51|13@1+ (0.01221001221001221,0.0) [0.0|100.0] ""  SCIENCE
@@ -143,16 +145,18 @@ BO_ 1635 SCIENCE_setJointPIDParams: 8 JETSON
  SG_ SCIENCE_jointPIDID : 0|3@1+ (1.0,0.0) [0.0|6.0] ""  SCIENCE
 
 BO_ 1664 SCIENCE_reportJointData: 8 SCIENCE
- SG_ SCIENCE_reportElevatorAngularVel : 48|16@1- (0.0003051850947599719,0.0) [-10.0|10.0] "radians per second"  JETSON
- SG_ SCIENCE_reportGenevaAngularVeloc : 32|16@1- (0.0003051850947599719,0.0) [-10.0|10.0] "radians per second"  JETSON
- SG_ SCIENCE_reportElevatorPosition : 16|16@1- (0.0003051850947599719,0.0) [-10.0|10.0] "radians"  JETSON
- SG_ SCIENCE_reportGenevaPosition : 0|16@1- (0.0003051850947599719,0.0) [-10.0|10.0] "radians"  JETSON
+ SG_ SCIENCE_reportElevatorAngularVel : 48|16@1- (0.0003051850947599719,0.0) [-10.0|10.0] "rad/s"  JETSON
+ SG_ SCIENCE_reportGenevaAngularVeloc : 32|16@1- (0.0003051850947599719,0.0) [-10.0|10.0] "rad/s"  JETSON
+ SG_ SCIENCE_reportElevatorPosition : 16|16@1- (0.0003051850947599719,0.0) [-10.0|10.0] "rad"  JETSON
+ SG_ SCIENCE_reportGenevaPosition : 0|16@1- (0.0003051850947599719,0.0) [-10.0|10.0] "rad"  JETSON
 
 BO_ 1665 SCIENCE_reportSensorData: 32 SCIENCE
  SG_ SCIENCE_temperatureData : 16|16@1- (0.0022888882106997894,25.0) [-50.0|100.0] "Celsius"  JETSON
  SG_ SCIENCE_moistureData : 0|16@1+ (0.0015259254737998596,0.0) [0.0|100.0] ""  JETSON
 
-BO_ 1666 SCIENCE_reportFaults: 1 SCIENCE
+BO_ 1666 SCIENCE_reportFaults: 5 SCIENCE
+ SG_ SCIENCE_numCANTXFaults : 22|16@1+ (1.0,0.0) [0.0|65534.0] ""  JETSON
+ SG_ SCIENCE_numCANRXFaults : 6|16@1+ (1.0,0.0) [0.0|65534.0] ""  JETSON
  SG_ SCIENCE_moistureSensorState : 4|2@1+ (1.0,0.0) [0.0|2.0] ""  JETSON
  SG_ SCIENCE_elevatorEncoderState : 2|2@1+ (1.0,0.0) [0.0|2.0] ""  JETSON
  SG_ SCIENCE_genevaEncoderState : 0|2@1+ (1.0,0.0) [0.0|2.0] ""  JETSON
@@ -168,12 +172,12 @@ BO_ 1696 GIMBAL_setControlMode: 1 JETSON
  SG_ GIMBAL_panControlMode : 0|2@1+ (1.0,0.0) [0.0|2.0] ""  GIMBAL
 
 BO_ 1697 GIMBAL_setJointPosition: 6 JETSON
- SG_ GIMBAL_setRollPosition : 32|16@1+ (4.793832209234901e-05,0.0) [0.0|3.14159] "radians"  GIMBAL
- SG_ GIMBAL_setPitchPosition : 16|16@1+ (4.793832209234901e-05,0.0) [0.0|3.14159] "radians"  GIMBAL
- SG_ GIMBAL_setPanPosition : 0|16@1- (0.0003662221137119663,0.0) [-12.0|12.0] "radians"  GIMBAL
+ SG_ GIMBAL_setRollPosition : 32|16@1+ (4.793832209234901e-05,0.0) [0.0|3.14159] "rad"  GIMBAL
+ SG_ GIMBAL_setPitchPosition : 16|16@1+ (4.793832209234901e-05,0.0) [0.0|3.14159] "rad"  GIMBAL
+ SG_ GIMBAL_setPanPosition : 0|16@1- (0.0003662221137119663,0.0) [-12.0|12.0] "rad"  GIMBAL
 
 BO_ 1698 GIMBAL_setJointAngularVelocity: 2 JETSON
- SG_ GIMBAL_setPanAngularVelocity : 0|16@1- (0.00018311105685598315,0.0) [-6.0|6.0] "radians per second"  GIMBAL
+ SG_ GIMBAL_setPanAngularVelocity : 0|16@1- (0.00018311105685598315,0.0) [-6.0|6.0] "rad/s"  GIMBAL
 
 BO_ 1699 GIMBAL_setJointPIDParams: 8 JETSON
  SG_ GIMBAL_jointPIDDeadzone : 51|13@1+ (0.01221001221001221,0.0) [0.0|100.0] ""  GIMBAL
@@ -183,10 +187,12 @@ BO_ 1699 GIMBAL_setJointPIDParams: 8 JETSON
  SG_ GIMBAL_jointPIDID : 0|3@1+ (1.0,0.0) [0.0|6.0] ""  GIMBAL
 
 BO_ 1728 GIMBAL_reportJointData: 4 GIMBAL
- SG_ GIMBAL_reportPanAngularVelocity : 16|16@1- (0.00018311105685598315,0.0) [-6.0|6.0] "radians per second"  JETSON
- SG_ GIMBAL_reportPanPosition : 0|16@1- (0.0003662221137119663,0.0) [-12.0|12.0] "radians"  JETSON
+ SG_ GIMBAL_reportPanAngularVelocity : 16|16@1- (0.00018311105685598315,0.0) [-6.0|6.0] "rad/s"  JETSON
+ SG_ GIMBAL_reportPanPosition : 0|16@1- (0.0003662221137119663,0.0) [-12.0|12.0] "rad"  JETSON
 
-BO_ 1729 GIMBAL_reportFaults: 1 GIMBAL
+BO_ 1729 GIMBAL_reportFaults: 5 GIMBAL
+ SG_ GIMBAL_numCANTXFaults : 18|16@1+ (1.0,0.0) [0.0|65534.0] ""  JETSON
+ SG_ GIMBAL_numCANRXFaults : 2|16@1+ (1.0,0.0) [0.0|65534.0] ""  JETSON
  SG_ GIMBAL_panEncoderState : 0|2@1+ (1.0,0.0) [0.0|2.0] ""  JETSON
 
 BO_ 1730 GIMBAL_reportACK: 1 GIMBAL
@@ -200,12 +206,14 @@ BO_ 1760 PDB_setLEDMatrix: 1 JETSON
  SG_ PDB_LEDMatrixState : 0|3@1+ (1.0,0.0) [0.0|6.0] ""  PDB
 
 BO_ 1792 PDB_reportSensorData: 8 PDB
- SG_ PDB_ultrasonicSensor4Data : 48|16@1+ (0.007629627368999298,0.0) [0.0|500.0] "meters"  JETSON
- SG_ PDB_ultrasonicSensor3Data : 32|16@1+ (0.007629627368999298,0.0) [0.0|500.0] "meters"  JETSON
- SG_ PDB_ultrasonicSensor2Data : 16|16@1+ (0.007629627368999298,0.0) [0.0|500.0] "meters"  JETSON
- SG_ PDB_ultrasonicSensor1Data : 0|16@1+ (0.007629627368999298,0.0) [0.0|500.0] "meters"  JETSON
+ SG_ PDB_ultrasonicSensor4Data : 48|16@1+ (0.007629627368999298,0.0) [0.0|500.0] "m"  JETSON
+ SG_ PDB_ultrasonicSensor3Data : 32|16@1+ (0.007629627368999298,0.0) [0.0|500.0] "m"  JETSON
+ SG_ PDB_ultrasonicSensor2Data : 16|16@1+ (0.007629627368999298,0.0) [0.0|500.0] "m"  JETSON
+ SG_ PDB_ultrasonicSensor1Data : 0|16@1+ (0.007629627368999298,0.0) [0.0|500.0] "m"  JETSON
 
-BO_ 1793 PDB_reportFaults: 2 PDB
+BO_ 1793 PDB_reportFaults: 6 PDB
+ SG_ PDB_numCANTXFaults : 30|16@1+ (1.0,0.0) [0.0|65534.0] ""  JETSON
+ SG_ PDB_numCANRXFaults : 14|16@1+ (1.0,0.0) [0.0|65534.0] ""  JETSON
  SG_ PDB_5VRailStatus : 12|2@1+ (1.0,0.0) [0.0|2.0] ""  JETSON
  SG_ PDB_17VRailStatus : 10|2@1+ (1.0,0.0) [0.0|2.0] ""  JETSON
  SG_ PDB_VBATRailStatus : 8|2@1+ (1.0,0.0) [0.0|2.0] ""  JETSON
@@ -295,6 +303,8 @@ CM_ SG_ 1602 ARM_reportElbowCurrent "Arm elbow current";
 CM_ SG_ 1602 ARM_reportShoulderCurrent "Arm shoulder current";
 CM_ SG_ 1602 ARM_reportTurntableCurrent "Arm turntable current";
 CM_ BO_ 1603 "Arm fault conditions";
+CM_ SG_ 1603 ARM_numCANTXFaults "Arm number of CAN TX faults";
+CM_ SG_ 1603 ARM_numCANRXFaults "Arm number of CAN RX faults";
 CM_ SG_ 1603 ARM_clawCurrentSensorState "Arm claw current sensor state";
 CM_ SG_ 1603 ARM_clawEncoderState "Arm claw encoder state";
 CM_ SG_ 1603 ARM_rightWristCurrentSensorState "Arm shoulder current sensor state";
@@ -338,6 +348,8 @@ CM_ BO_ 1665 "Science report sensor data";
 CM_ SG_ 1665 SCIENCE_temperatureData "Science temperature sensor data";
 CM_ SG_ 1665 SCIENCE_moistureData "Science moisture sensor data";
 CM_ BO_ 1666 "Science fault conditions";
+CM_ SG_ 1666 SCIENCE_numCANTXFaults "Science number of CAN TX faults";
+CM_ SG_ 1666 SCIENCE_numCANRXFaults "Science number of CAN RX faults";
 CM_ SG_ 1666 SCIENCE_moistureSensorState "Science moisture sensor state";
 CM_ SG_ 1666 SCIENCE_elevatorEncoderState "Science elevator encoder state";
 CM_ SG_ 1666 SCIENCE_genevaEncoderState "Science geneva mechanism encoder state";
@@ -364,6 +376,8 @@ CM_ BO_ 1728 "Gimbal report joint data";
 CM_ SG_ 1728 GIMBAL_reportPanAngularVelocity "Gimbal report pan angular velocity";
 CM_ SG_ 1728 GIMBAL_reportPanPosition "Gimbal report pan position";
 CM_ BO_ 1729 "Gimbal fault conditions";
+CM_ SG_ 1729 GIMBAL_numCANTXFaults "Gimbal number of CAN TX faults";
+CM_ SG_ 1729 GIMBAL_numCANRXFaults "Gimbal number of CAN RX faults";
 CM_ SG_ 1729 GIMBAL_panEncoderState "Gimbal pan encoder state";
 CM_ BO_ 1730 "Gimbal report ACKs to one-shot commands";
 CM_ SG_ 1730 GIMBAL_ACK "Gimbal ACKs";
@@ -378,6 +392,8 @@ CM_ SG_ 1792 PDB_ultrasonicSensor3Data "PDB ultrasonic sensor 3 data";
 CM_ SG_ 1792 PDB_ultrasonicSensor2Data "PDB ultrasonic sensor 2 data";
 CM_ SG_ 1792 PDB_ultrasonicSensor1Data "PDB ultrasonic sensor 1 data";
 CM_ BO_ 1793 "PDB report fault conditions";
+CM_ SG_ 1793 PDB_numCANTXFaults "PDB number of CAN TX faults";
+CM_ SG_ 1793 PDB_numCANRXFaults "PDB number of CAN RX faults";
 CM_ SG_ 1793 PDB_5VRailStatus "PDB 5V rail status";
 CM_ SG_ 1793 PDB_17VRailStatus "PDB 17V rail status";
 CM_ SG_ 1793 PDB_VBATRailStatus "PDB VBAT rail status";

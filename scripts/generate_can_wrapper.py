@@ -104,7 +104,6 @@ bool {msg_name_lower}_unpacker(uint8_t* raw, CANMsgMap* msgMap) {{
 PACKER_SIGNAL_SWITCH_CASE_TEMPLATE = '''
 case CANSIGNAL::{signal_name_upper}:
   msgStruct.{signal_name_lower} = {rover_can_name_lower}_{msg_name_lower}_{signal_name_lower}_encode(signalValue);
-  success &= {rover_can_name_lower}_{msg_name_lower}_{signal_name_lower}_is_in_range(msgStruct.{signal_name_lower});
   break;
 '''
 
