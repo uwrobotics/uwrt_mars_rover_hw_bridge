@@ -123,6 +123,12 @@ BO_ 1605 ARM_reportDiagnostics: 8 ARM
  SG_ ARM_reportNumOneShotMsgsReceived : 32|32@1+ (1.0,0.0) [0.0|4294967294.0] ""  JETSON
  SG_ ARM_reportNumStreamedMsgsReceive : 0|32@1+ (1.0,0.0) [0.0|4294967294.0] ""  JETSON
 
+BO_ 1606 ARM_setJointSafetyCheck: 1 JETSON
+ SG_ ARM_jointLimitSwitchCheck : 5|1@1+ (1.0,0.0) [0.0|0.0] ""  ARM
+ SG_ ARM_jointAngularVelocityCheck : 4|1@1+ (1.0,0.0) [0.0|0.0] ""  ARM
+ SG_ ARM_jointCurrentCheck : 3|1@1+ (1.0,0.0) [0.0|0.0] ""  ARM
+ SG_ ARM_safetyCheckJointID : 0|3@1+ (1.0,0.0) [0.0|6.0] ""  ARM
+
 BO_ 1632 SCIENCE_setControlMode: 1 JETSON
  SG_ SCIENCE_elevatorControlMode : 2|2@1+ (1.0,0.0) [0.0|2.0] ""  SCIENCE
  SG_ SCIENCE_genevaControlMode : 0|2@1+ (1.0,0.0) [0.0|2.0] ""  SCIENCE
@@ -322,6 +328,11 @@ CM_ SG_ 1604 ARM_ACK "Arm ACKs";
 CM_ BO_ 1605 "Arm report diagnostic information";
 CM_ SG_ 1605 ARM_reportNumOneShotMsgsReceived "Arm report number of one-shot CAN messages received";
 CM_ SG_ 1605 ARM_reportNumStreamedMsgsReceive "Arm report number of streamed CAN messages received";
+CM_ BO_ 1606 "Set current limit, angular velocity limit, and limit switch safety checks for an arm joint";
+CM_ SG_ 1606 ARM_jointLimitSwitchCheck "Whether or not to activate limit switch check for this joint";
+CM_ SG_ 1606 ARM_jointAngularVelocityCheck "Whether or not to activate angular velocity check for this joint";
+CM_ SG_ 1606 ARM_jointCurrentCheck "Whether or not to activate current check for this joint";
+CM_ SG_ 1606 ARM_safetyCheckJointID "The joint ID";
 CM_ BO_ 1632 "Set control mode for science joints";
 CM_ SG_ 1632 SCIENCE_elevatorControlMode "Science elevator control mode";
 CM_ SG_ 1632 SCIENCE_genevaControlMode "Science geneva mechanism control mode";
@@ -490,6 +501,10 @@ VAL_ 1603 ARM_shoulderEncoderState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
 VAL_ 1603 ARM_turntableCurrentSensorState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
 VAL_ 1603 ARM_turntableEncoderState 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
 VAL_ 1604 ARM_ACK 0 "ARM_RESET_ACK" 1 "ARM_SET_CONTROL_MODE_ACK" 2 "ARM_SET_JOINT_PID_PARAMS_ACK" 3 "CAN_BUS_SWITCH_ACK" 255 "SNA" ;
+VAL_ 1606 ARM_jointLimitSwitchCheck 0 "CHECK_OFF" 1 "CHECK_ON" ;
+VAL_ 1606 ARM_jointAngularVelocityCheck 0 "CHECK_OFF" 1 "CHECK_ON" ;
+VAL_ 1606 ARM_jointCurrentCheck 0 "CHECK_OFF" 1 "CHECK_ON" ;
+VAL_ 1606 ARM_safetyCheckJointID 0 "TURNTABLE" 1 "SHOULDER" 2 "ELBOW" 3 "LEFT_WRIST" 4 "RIGHT_WRIST" 5 "CLAW" 7 "SNA" ;
 VAL_ 1632 SCIENCE_elevatorControlMode 0 "OPEN_LOOP" 1 "POSITION" 2 "VELOCITY" 3 "SNA" ;
 VAL_ 1632 SCIENCE_genevaControlMode 0 "OPEN_LOOP" 1 "POSITION" 2 "VELOCITY" 3 "SNA" ;
 VAL_ 1633 SCIENCE_setShovelPosition 65535 "SNA" ;
@@ -540,7 +555,7 @@ VAL_ 1793 PDB_sciencePowerStatus 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
 VAL_ 1793 PDB_armPowerStatus 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
 VAL_ 1793 PDB_jetsonStatus 0 "OPERATIONAL" 1 "FAULT" 3 "SNA" ;
 VAL_ 1794 PDB_ACK 0 "PDB_SET_LED_MATRIX_ACK" 1 "CAN_BUS_SWITCH_ACK" 255 "SNA" ;
-VAL_ 1824 COMMON_CANBusID 0 "CAN1" 1 "CAN2" 3 "SNA" ;
+VAL_ 1824 COMMON_CANBusID 0 "CAN_BUS_1" 1 "CAN_BUS_2" 3 "SNA" ;
 VAL_ 1827 COMMON_debugSignal3 0 "DEBUG_VALUE_0" 1 "DEBUG_VALUE_1" 2 "DEBUG_VALUE_2" 3 "DEBUG_VALUE_3" 4 "DEBUG_VALUE_4" 5 "DEBUG_VALUE_5" 6 "DEBUG_VALUE_6" 7 "DEBUG_VALUE_7" 255 "SNA" ;
 
 

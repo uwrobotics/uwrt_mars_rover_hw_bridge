@@ -783,6 +783,57 @@
 
   ------------------------------------------------------------------------
 
+  Name:       ARM_setJointSafetyCheck
+  Id:         0x646
+  Length:     1 bytes
+  Cycle time: - ms
+  Senders:    JETSON
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+     B   0 |   |   |<-x|<-x|<-x|<---------x|
+     y     +---+---+---+---+---+---+---+---+
+     t               |   |   |   +-- ARM_safetyCheckJointID
+     e               |   |   +-- ARM_jointCurrentCheck
+                     |   +-- ARM_jointAngularVelocityCheck
+                     +-- ARM_jointLimitSwitchCheck
+
+  Signal tree:
+
+    -- {root}
+       +-- ARM_safetyCheckJointID
+       +-- ARM_jointCurrentCheck
+       +-- ARM_jointAngularVelocityCheck
+       +-- ARM_jointLimitSwitchCheck
+
+  Signal choices:
+
+    ARM_safetyCheckJointID
+        0 TURNTABLE
+        1 SHOULDER
+        2 ELBOW
+        3 LEFT_WRIST
+        4 RIGHT_WRIST
+        5 CLAW
+        7 SNA
+
+    ARM_jointCurrentCheck
+        0 CHECK_OFF
+        1 CHECK_ON
+
+    ARM_jointAngularVelocityCheck
+        0 CHECK_OFF
+        1 CHECK_ON
+
+    ARM_jointLimitSwitchCheck
+        0 CHECK_OFF
+        1 CHECK_ON
+
+  ------------------------------------------------------------------------
+
   Name:       SCIENCE_setControlMode
   Id:         0x660
   Length:     1 bytes
@@ -1870,8 +1921,8 @@
   Signal choices:
 
     COMMON_CANBusID
-        0 CAN1
-        1 CAN2
+        0 CAN_BUS_1
+        1 CAN_BUS_2
         3 SNA
 
   ------------------------------------------------------------------------

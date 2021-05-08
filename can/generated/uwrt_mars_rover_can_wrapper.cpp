@@ -16,6 +16,7 @@ static bool arm_report_joint_current_packer(uint8_t* raw, const CANMsgMap* msgMa
 static bool arm_report_faults_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len);
 static bool arm_report_ack_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len);
 static bool arm_report_diagnostics_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len);
+static bool arm_set_joint_safety_check_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len);
 static bool science_set_control_mode_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len);
 static bool science_set_joint_position_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len);
 static bool science_set_joint_angular_velocity_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len);
@@ -55,6 +56,7 @@ static bool arm_report_joint_current_unpacker(uint8_t* raw, CANMsgMap* msgMap);
 static bool arm_report_faults_unpacker(uint8_t* raw, CANMsgMap* msgMap);
 static bool arm_report_ack_unpacker(uint8_t* raw, CANMsgMap* msgMap);
 static bool arm_report_diagnostics_unpacker(uint8_t* raw, CANMsgMap* msgMap);
+static bool arm_set_joint_safety_check_unpacker(uint8_t* raw, CANMsgMap* msgMap);
 static bool science_set_control_mode_unpacker(uint8_t* raw, CANMsgMap* msgMap);
 static bool science_set_joint_position_unpacker(uint8_t* raw, CANMsgMap* msgMap);
 static bool science_set_joint_angular_velocity_unpacker(uint8_t* raw, CANMsgMap* msgMap);
@@ -106,6 +108,8 @@ bool HWBRIDGE::packCANMsg(uint8_t* raw, CANID msgID, const CANMsgMap* msgMap, si
       return arm_report_ack_packer(raw, msgMap, len);
     case CANID::ARM_REPORT_DIAGNOSTICS:
       return arm_report_diagnostics_packer(raw, msgMap, len);
+    case CANID::ARM_SET_JOINT_SAFETY_CHECK:
+      return arm_set_joint_safety_check_packer(raw, msgMap, len);
     case CANID::SCIENCE_SET_CONTROL_MODE:
       return science_set_control_mode_packer(raw, msgMap, len);
     case CANID::SCIENCE_SET_JOINT_POSITION:
@@ -188,6 +192,8 @@ bool HWBRIDGE::unpackCANMsg(uint8_t* raw, CANID msgID, CANMsgMap* msgMap) {
       return arm_report_ack_unpacker(raw, msgMap);
     case CANID::ARM_REPORT_DIAGNOSTICS:
       return arm_report_diagnostics_unpacker(raw, msgMap);
+    case CANID::ARM_SET_JOINT_SAFETY_CHECK:
+      return arm_set_joint_safety_check_unpacker(raw, msgMap);
     case CANID::SCIENCE_SET_CONTROL_MODE:
       return science_set_control_mode_unpacker(raw, msgMap);
     case CANID::SCIENCE_SET_JOINT_POSITION:
@@ -1529,6 +1535,103 @@ bool arm_report_diagnostics_unpacker(uint8_t* raw, CANMsgMap* msgMap) {
               msgID, signalName,
               uwrt_mars_rover_can_arm_report_diagnostics_arm_report_num_one_shot_msgs_received_decode(
                   msgStruct.arm_report_num_one_shot_msgs_received));
+          break;
+
+        default:
+          success = false;
+          break;
+      }
+    }
+  }
+
+  return success;
+}
+
+// ARM_setJointSafetyCheck message packer
+bool arm_set_joint_safety_check_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t& len) {
+  bool success = true;
+  CANID msgID  = CANID::ARM_SET_JOINT_SAFETY_CHECK;
+  struct uwrt_mars_rover_can_arm_set_joint_safety_check_t msgStruct;
+
+  if (msgMap->contains(msgID)) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName         = it->first;
+      CANSignalValue_t signalValue = it->second;
+
+      switch (signalName) {
+        case CANSIGNAL::ARM_SAFETY_CHECK_JOINT_ID:
+          msgStruct.arm_safety_check_joint_id =
+              uwrt_mars_rover_can_arm_set_joint_safety_check_arm_safety_check_joint_id_encode(signalValue);
+          break;
+
+        case CANSIGNAL::ARM_JOINT_CURRENT_CHECK:
+          msgStruct.arm_joint_current_check =
+              uwrt_mars_rover_can_arm_set_joint_safety_check_arm_joint_current_check_encode(signalValue);
+          break;
+
+        case CANSIGNAL::ARM_JOINT_ANGULAR_VELOCITY_CHECK:
+          msgStruct.arm_joint_angular_velocity_check =
+              uwrt_mars_rover_can_arm_set_joint_safety_check_arm_joint_angular_velocity_check_encode(signalValue);
+          break;
+
+        case CANSIGNAL::ARM_JOINT_LIMIT_SWITCH_CHECK:
+          msgStruct.arm_joint_limit_switch_check =
+              uwrt_mars_rover_can_arm_set_joint_safety_check_arm_joint_limit_switch_check_encode(signalValue);
+          break;
+
+        default:
+          success = false;
+          break;
+      }
+    }
+    success &= (uwrt_mars_rover_can_arm_set_joint_safety_check_pack(
+                    raw, &msgStruct, UWRT_MARS_ROVER_CAN_ARM_SET_JOINT_SAFETY_CHECK_LENGTH) ==
+                UWRT_MARS_ROVER_CAN_ARM_SET_JOINT_SAFETY_CHECK_LENGTH);
+    len = UWRT_MARS_ROVER_CAN_ARM_SET_JOINT_SAFETY_CHECK_LENGTH;
+  }
+  return success;
+}
+
+// ARM_setJointSafetyCheck message unpacker
+bool arm_set_joint_safety_check_unpacker(uint8_t* raw, CANMsgMap* msgMap) {
+  bool success = false;
+  CANID msgID  = CANID::ARM_SET_JOINT_SAFETY_CHECK;
+  struct uwrt_mars_rover_can_arm_set_joint_safety_check_t msgStruct;
+
+  success = (uwrt_mars_rover_can_arm_set_joint_safety_check_unpack(
+                 &msgStruct, raw, UWRT_MARS_ROVER_CAN_ARM_SET_JOINT_SAFETY_CHECK_LENGTH) == 0);
+
+  if (success && msgMap->contains(msgID)) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName = it->first;
+
+      switch (signalName) {
+        case CANSIGNAL::ARM_SAFETY_CHECK_JOINT_ID:
+          success &=
+              msgMap->setSignalValue(msgID, signalName,
+                                     uwrt_mars_rover_can_arm_set_joint_safety_check_arm_safety_check_joint_id_decode(
+                                         msgStruct.arm_safety_check_joint_id));
+          break;
+
+        case CANSIGNAL::ARM_JOINT_CURRENT_CHECK:
+          success &=
+              msgMap->setSignalValue(msgID, signalName,
+                                     uwrt_mars_rover_can_arm_set_joint_safety_check_arm_joint_current_check_decode(
+                                         msgStruct.arm_joint_current_check));
+          break;
+
+        case CANSIGNAL::ARM_JOINT_ANGULAR_VELOCITY_CHECK:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_arm_set_joint_safety_check_arm_joint_angular_velocity_check_decode(
+                  msgStruct.arm_joint_angular_velocity_check));
+          break;
+
+        case CANSIGNAL::ARM_JOINT_LIMIT_SWITCH_CHECK:
+          success &=
+              msgMap->setSignalValue(msgID, signalName,
+                                     uwrt_mars_rover_can_arm_set_joint_safety_check_arm_joint_limit_switch_check_decode(
+                                         msgStruct.arm_joint_limit_switch_check));
           break;
 
         default:

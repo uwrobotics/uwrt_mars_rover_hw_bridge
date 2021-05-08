@@ -905,6 +905,70 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
           min: 0.0
           max: 4294967294.0
+  - ARM_setJointSafetyCheck:
+      comment: Set current limit, angular velocity limit, and limit switch safety
+        checks for an arm joint
+      id: 1606
+      size: 1
+      senders:
+      - JETSON
+      receivers:
+      - ARM
+      frequency: 0
+      signals:
+      - ARM_safetyCheckJointID:
+          comment: The joint ID
+          length: 3
+          is_signed: false
+          unit: ''
+          values:
+            0: TURNTABLE
+            1: SHOULDER
+            2: ELBOW
+            3: LEFT_WRIST
+            4: RIGHT_WRIST
+            5: CLAW
+            7: SNA
+          scale: 1.0
+          offset: 0.0
+          min: 0.0
+          max: 6.0
+      - ARM_jointCurrentCheck:
+          comment: Whether or not to activate current check for this joint
+          length: 1
+          is_signed: false
+          unit: ''
+          values:
+            0: CHECK_OFF
+            1: CHECK_ON
+          scale: 1.0
+          offset: 0.0
+          min: 0.0
+          max: 0.0
+      - ARM_jointAngularVelocityCheck:
+          comment: Whether or not to activate angular velocity check for this joint
+          length: 1
+          is_signed: false
+          unit: ''
+          values:
+            0: CHECK_OFF
+            1: CHECK_ON
+          scale: 1.0
+          offset: 0.0
+          min: 0.0
+          max: 0.0
+      - ARM_jointLimitSwitchCheck:
+          comment: Whether or not to activate limit switch check for this joint
+          length: 1
+          is_signed: false
+          unit: ''
+          values:
+            0: CHECK_OFF
+            1: CHECK_ON
+          scale: 1.0
+          offset: 0.0
+          min: 0.0
+          max: 0.0
   - SCIENCE_setControlMode:
       comment: Set control mode for science joints
       id: 1632
@@ -1852,8 +1916,8 @@ uwrt_mars_rover_can_bus:
           is_signed: false
           unit: ''
           values:
-            0: CAN1
-            1: CAN2
+            0: CAN_BUS_1
+            1: CAN_BUS_2
             3: SNA
           scale: 1.0
           offset: 0.0

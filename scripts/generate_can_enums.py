@@ -66,15 +66,15 @@ def signal_enums_formatted(signal_enums):
     return ''.join(['\t{},\n'.format(signal_name) for signal_name in sorted(signal_enums)])
 
 
-def signal_enum_choices_formatted(signal_name, signal_enum_choices):
+def signal_enum_choices_formatted(signal_enum_choices):
     if signal_enum_choices is not None:
-        return ''.join(['\t{signal_name}_{choice_name} = {choice_value},\n'.format(signal_name=signal_name, choice_name=choice_name, choice_value=choice_value) for choice_value, choice_name in sorted(signal_enum_choices.items())])
+        return ''.join(['\t{choice_name} = {choice_value},\n'.format(choice_name=choice_name, choice_value=choice_value) for choice_value, choice_name in sorted(signal_enum_choices.items())])
     else:
         return ''
 
 
 def signal_enum_choices_all_formatted(signal_enum_choices_all):
-    return ''.join([CANSIGNAL_ENUM_CHOICES_TEMPLATE.format(signal_name=signal_name, signal_choices=signal_enum_choices_formatted(signal_name, signal_choices)) for signal_name, signal_choices in sorted(signal_enum_choices_all.items())])
+    return ''.join([CANSIGNAL_ENUM_CHOICES_TEMPLATE.format(signal_name=signal_name, signal_choices=signal_enum_choices_formatted(signal_choices)) for signal_name, signal_choices in sorted(signal_enum_choices_all.items())])
 
 
 # input vars fields:

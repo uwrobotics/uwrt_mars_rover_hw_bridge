@@ -9,6 +9,7 @@ import os
 import cantools
 import yaml
 import shutil
+import glob
 import re
 
 import generate_can_enums
@@ -29,6 +30,8 @@ SCRIPT_FOLDER_PATH = os.path.join(HWBRIDGE_ROOT_PATH, 'scripts')
 CAN_FOLDER_PATH = os.path.join(HWBRIDGE_ROOT_PATH, 'can')
 GENERATED_FOLDER_PATH = os.path.join(CAN_FOLDER_PATH, 'generated')
 YAML_FILE_PATH = os.path.join(CAN_FOLDER_PATH, YAML_FILE_NAME)
+
+CLANG_FORMAT_CMD = 'clang-format-11'
 
 
 AUTOGEN_message_enums = {}
@@ -252,6 +255,14 @@ generate_can_wrapper.generate_source(CAN_WRAPPER_SOURCE_FILE_NAME, vars)
 
 print('Successfully generated', CAN_WRAPPER_HEADER_FILE_NAME,
       'and', CAN_WRAPPER_SOURCE_FILE_NAME)
+
+# format generated files
+files = []
+extensions = ['*.c', '*.cpp', '*.h']
+for extension in extensions:
+    files.extend(glob.glob(os.path.join(GENERATED_FOLDER_PATH, extension)))
+for f in files:
+    subprocess.run([CLANG_FORMAT_CMD + ' -i ' + f], shell=True)
 
 # delete pycache folder
 os.chdir(HWBRIDGE_ROOT_PATH)
