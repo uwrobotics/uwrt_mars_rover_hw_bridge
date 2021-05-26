@@ -448,7 +448,7 @@ uwrt_mars_rover_can_bus:
       - ARM
       receivers:
       - JETSON
-      frequency: 0
+      frequency: 100
       signals:
       - ARM_reportTurntablePosition:
           comment: Arm turntable position
@@ -524,7 +524,7 @@ uwrt_mars_rover_can_bus:
       - ARM
       receivers:
       - JETSON
-      frequency: 0
+      frequency: 100
       signals:
       - ARM_reportTurntableAngularVelocity:
           comment: Arm turntable angular velocity
@@ -600,7 +600,7 @@ uwrt_mars_rover_can_bus:
       - ARM
       receivers:
       - JETSON
-      frequency: 0
+      frequency: 100
       signals:
       - ARM_reportTurntableCurrent:
           comment: Arm turntable current
@@ -1731,7 +1731,7 @@ uwrt_mars_rover_can_bus:
       - PDB
       receivers:
       - JETSON
-      frequency: 0
+      frequency: 100
       signals:
       - PDB_jetsonStatus:
           comment: PDB Jetson power status
