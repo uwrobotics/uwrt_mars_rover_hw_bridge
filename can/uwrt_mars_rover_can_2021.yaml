@@ -32,7 +32,7 @@ uwrt_mars_rover_can_bus:
   messages:
   - ARM_setControlMode:
       comment: Set control mode for arm joints
-      id: 1569
+      id: 0x621
       size: 3
       senders:
       - JETSON
@@ -132,7 +132,7 @@ uwrt_mars_rover_can_bus:
           max: 6.0
   - ARM_setJointPosition:
       comment: Set position data for arm joints
-      id: 1570
+      id: 0x622
       size: 8
       senders:
       - JETSON
@@ -219,7 +219,7 @@ uwrt_mars_rover_can_bus:
           offset: 0
   - ARM_setJointAngularVelocity:
       comment: Set velocity data for arm joints
-      id: 1571
+      id: 0x623
       size: 8
       senders:
       - JETSON
@@ -295,7 +295,7 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
   - ARM_setJointCurrent:
       comment: Set current data for arm joints
-      id: 1572
+      id: 0x624
       size: 8
       senders:
       - JETSON
@@ -371,7 +371,7 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
   - ARM_setJointPIDParams:
       comment: Set arm joint PID parameters
-      id: 1573
+      id: 0x625
       size: 8
       senders:
       - JETSON
@@ -442,7 +442,7 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
   - ARM_reportJointPosition:
       comment: Arm report joint position data
-      id: 1600
+      id: 0x640
       size: 8
       senders:
       - ARM
@@ -518,7 +518,7 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
   - ARM_reportJointAngularVelocity:
       comment: Arm report joint angular velocity data
-      id: 1601
+      id: 0x641
       size: 8
       senders:
       - ARM
@@ -594,7 +594,7 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
   - ARM_reportJointCurrent:
       comment: Arm report joint angular current
-      id: 1602
+      id: 0x642
       size: 8
       senders:
       - ARM
@@ -670,7 +670,7 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
   - ARM_reportFaults:
       comment: Arm fault conditions
-      id: 1603
+      id: 0x643
       size: 7
       senders:
       - ARM
@@ -854,7 +854,7 @@ uwrt_mars_rover_can_bus:
           max: 65534.0
   - ARM_reportACK:
       comment: Arm report ACKs to one-shot commands
-      id: 1604
+      id: 0x644
       size: 1
       senders:
       - ARM
@@ -879,7 +879,7 @@ uwrt_mars_rover_can_bus:
           max: 254.0
   - ARM_reportDiagnostics:
       comment: Arm report diagnostic information
-      id: 1605
+      id: 0x645
       size: 8
       senders:
       - ARM
@@ -908,7 +908,7 @@ uwrt_mars_rover_can_bus:
   - ARM_setJointSafetyCheck:
       comment: Set current limit, angular velocity limit, and limit switch safety
         checks for an arm joint
-      id: 1606
+      id: 0x646
       size: 1
       senders:
       - JETSON
@@ -971,7 +971,7 @@ uwrt_mars_rover_can_bus:
           max: 0.0
   - SCIENCE_setControlMode:
       comment: Set control mode for science joints
-      id: 1632
+      id: 0x660
       size: 1
       senders:
       - JETSON
@@ -1009,7 +1009,7 @@ uwrt_mars_rover_can_bus:
           max: 2.0
   - SCIENCE_setJointPosition:
       comment: Science set joint position
-      id: 1633
+      id: 0x661
       size: 8
       senders:
       - JETSON
@@ -1063,7 +1063,7 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
   - SCIENCE_setJointAngularVelocity:
       comment: Science set joint angular velocity
-      id: 1634
+      id: 0x662
       size: 4
       senders:
       - JETSON
@@ -1095,7 +1095,7 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
   - SCIENCE_setJointPIDParams:
       comment: Set science joint PID parameters
-      id: 1635
+      id: 0x663
       size: 8
       senders:
       - JETSON
@@ -1162,7 +1162,7 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
   - SCIENCE_reportJointData:
       comment: Science report joint positions and angular velocities
-      id: 1664
+      id: 0x680
       size: 8
       senders:
       - SCIENCE
@@ -1216,7 +1216,7 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
   - SCIENCE_reportSensorData:
       comment: Science report sensor data
-      id: 1665
+      id: 0x681
       size: 32
       senders:
       - SCIENCE
@@ -1248,7 +1248,7 @@ uwrt_mars_rover_can_bus:
           offset: 25.0
   - SCIENCE_reportFaults:
       comment: Science fault conditions
-      id: 1666
+      id: 0x682
       size: 5
       senders:
       - SCIENCE
@@ -1315,7 +1315,7 @@ uwrt_mars_rover_can_bus:
           max: 65534.0
   - SCIENCE_reportACK:
       comment: Science report ACKs to one-shot commands
-      id: 1667
+      id: 0x683
       size: 1
       senders:
       - SCIENCE
@@ -1339,7 +1339,7 @@ uwrt_mars_rover_can_bus:
           max: 254.0
   - SCIENCE_reportDiagnostics:
       comment: Science report diagnostic information
-      id: 1668
+      id: 0x684
       size: 8
       senders:
       - SCIENCE
@@ -1367,7 +1367,7 @@ uwrt_mars_rover_can_bus:
           max: 4294967294.0
   - GIMBAL_setControlMode:
       comment: Set control mode for gimbal joints
-      id: 1696
+      id: 0x6a0
       size: 1
       senders:
       - JETSON
@@ -1391,7 +1391,7 @@ uwrt_mars_rover_can_bus:
           max: 2.0
   - GIMBAL_setJointPosition:
       comment: Gimbal set joint position
-      id: 1697
+      id: 0x6a1
       size: 6
       senders:
       - JETSON
@@ -1434,7 +1434,7 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
   - GIMBAL_setJointAngularVelocity:
       comment: Gimbal set joint angular velocity
-      id: 1698
+      id: 0x6a2
       size: 2
       senders:
       - JETSON
@@ -1455,7 +1455,7 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
   - GIMBAL_setJointPIDParams:
       comment: Set gimbal joint PID parameters
-      id: 1699
+      id: 0x6a3
       size: 8
       senders:
       - JETSON
@@ -1521,7 +1521,7 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
   - GIMBAL_reportJointData:
       comment: Gimbal report joint data
-      id: 1728
+      id: 0x6c0
       size: 4
       senders:
       - GIMBAL
@@ -1553,7 +1553,7 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
   - GIMBAL_reportFaults:
       comment: Gimbal fault conditions
-      id: 1729
+      id: 0x6c1
       size: 5
       senders:
       - GIMBAL
@@ -1594,7 +1594,7 @@ uwrt_mars_rover_can_bus:
           max: 65534.0
   - GIMBAL_reportACK:
       comment: Gimbal report ACKs to one-shot commands
-      id: 1730
+      id: 0x6c2
       size: 1
       senders:
       - GIMBAL
@@ -1618,7 +1618,7 @@ uwrt_mars_rover_can_bus:
           max: 254.0
   - GIMBAL_reportDiagnostics:
       comment: Gimbal report diagnostic information
-      id: 1731
+      id: 0x6c3
       size: 8
       senders:
       - GIMBAL
@@ -1646,7 +1646,7 @@ uwrt_mars_rover_can_bus:
           max: 4294967294.0
   - PDB_setLEDMatrix:
       comment: PDB set LED matrix state
-      id: 1760
+      id: 0x6e0
       size: 1
       senders:
       - JETSON
@@ -1671,7 +1671,7 @@ uwrt_mars_rover_can_bus:
           max: 6.0
   - PDB_reportSensorData:
       comment: PDB report sensor data
-      id: 1792
+      id: 0x700
       size: 8
       senders:
       - PDB
@@ -1725,7 +1725,7 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
   - PDB_reportFaults:
       comment: PDB report fault conditions
-      id: 1793
+      id: 0x701
       size: 6
       senders:
       - PDB
@@ -1847,7 +1847,7 @@ uwrt_mars_rover_can_bus:
           max: 65534.0
   - PDB_reportACK:
       comment: PDB report ACKs to one-shot commands
-      id: 1794
+      id: 0x702
       size: 1
       senders:
       - PDB
@@ -1870,7 +1870,7 @@ uwrt_mars_rover_can_bus:
           max: 254.0
   - PDB_reportDiagnostics:
       comment: PDB report diagnostic information
-      id: 1795
+      id: 0x703
       size: 8
       senders:
       - PDB
@@ -1899,7 +1899,7 @@ uwrt_mars_rover_can_bus:
   - COMMON_switchCANBus:
       comment: Notifies all boards to switch to the specified CAN bus in the dual-bus
         system
-      id: 1824
+      id: 0x720
       size: 1
       senders:
       - JETSON
@@ -1925,7 +1925,7 @@ uwrt_mars_rover_can_bus:
           max: 2.0
   - COMMON_debugMessage1:
       comment: CAN message for debugging or placeholder purposes
-      id: 1825
+      id: 0x721
       size: 4
       senders:
       - ARM
@@ -1952,7 +1952,7 @@ uwrt_mars_rover_can_bus:
           max: 4294967294.0
   - COMMON_debugMessage2:
       comment: CAN message for debugging or placeholder purposes
-      id: 1826
+      id: 0x722
       size: 1
       senders:
       - ARM
@@ -1979,7 +1979,7 @@ uwrt_mars_rover_can_bus:
           max: 254.0
   - COMMON_debugMessage3:
       comment: CAN message for debugging or placeholder purposes
-      id: 1827
+      id: 0x723
       size: 1
       senders:
       - ARM

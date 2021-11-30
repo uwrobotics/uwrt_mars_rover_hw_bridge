@@ -76,6 +76,28 @@ for year in supported_years:
             cantools.database.can.Node(name=node, comment=None)
         )
 
+    # CAN ID class used to preserve hex format of ID values
+    class CAN_ID(int): pass 
+
+    def hexint_representer(dumper, data):
+        return yaml.ScalarNode('tag:yaml.org,2002:int', hex(data))
+
+    yaml.add_representer(CAN_ID, hexint_representer)
+
+    # if can_yaml[bus_name]['roboteq_canids']:
+
+        # roboteq_canids = can_yaml[bus_name]['roboteq_canids'].keys()
+        # print(roboteq_canids)
+
+        # for i in range(len(roboteq_canids)):
+        #     can_yaml[bus_name]['roboteq_canids'][CAN_ID(roboteq_canids[i])] = can_yaml[bus_name]['roboteq_canids'][roboteq_canids[i]]
+        #     del can_yaml[bus_name]['roboteq_canids'][roboteq_canids[i]]
+
+        # for key in can_yaml[bus_name]['roboteq_canids'].keys():
+        #     can_yaml[bus_name]['roboteq_canids'][CAN_ID(key)] = key
+        #     del can_yaml[bus_name]['roboteq_canids'][key]
+
+
     # if there are CAN messages defined
     if can_yaml[bus_name]['messages']:
 
@@ -192,6 +214,8 @@ for year in supported_years:
                                 == 0 else 1/message['frequency']),
                 )
             )
+            # change value in "id:" section 
+            message['id'] = CAN_ID(message['id'])
 
     can_db = cantools.database.can.Database(
         messages=messages,
