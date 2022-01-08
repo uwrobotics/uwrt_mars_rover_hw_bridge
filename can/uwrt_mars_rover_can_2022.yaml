@@ -10,5 +10,5 @@ uwrt_mars_rover_can_bus:
   - PDB
   - SCIENCE
   roboteq_canids:
-    0: TEMP
+    0x0: TEMP
   messages: null

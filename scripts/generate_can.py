@@ -84,20 +84,6 @@ for year in supported_years:
 
     yaml.add_representer(CAN_ID, hexint_representer)
 
-    # if can_yaml[bus_name]['roboteq_canids']:
-
-        # roboteq_canids = can_yaml[bus_name]['roboteq_canids'].keys()
-        # print(roboteq_canids)
-
-        # for i in range(len(roboteq_canids)):
-        #     can_yaml[bus_name]['roboteq_canids'][CAN_ID(roboteq_canids[i])] = can_yaml[bus_name]['roboteq_canids'][roboteq_canids[i]]
-        #     del can_yaml[bus_name]['roboteq_canids'][roboteq_canids[i]]
-
-        # for key in can_yaml[bus_name]['roboteq_canids'].keys():
-        #     can_yaml[bus_name]['roboteq_canids'][CAN_ID(key)] = key
-        #     del can_yaml[bus_name]['roboteq_canids'][key]
-
-
     # if there are CAN messages defined
     if can_yaml[bus_name]['messages']:
 
@@ -216,6 +202,16 @@ for year in supported_years:
             )
             # change value in "id:" section 
             message['id'] = CAN_ID(message['id'])
+    
+    # converts roboteq CAN IDs to Hex
+    if can_yaml[bus_name]['roboteq_canids']:
+
+        for i in range(len(can_yaml[bus_name]['roboteq_canids'])):
+            
+            # Each iteration, a new key is appended to the bottom,
+            # and the one it replaces (always the first element) gets popped
+            current_id = list(can_yaml[bus_name]['roboteq_canids'].keys())[0]
+            can_yaml[bus_name]['roboteq_canids'][CAN_ID(current_id)] = can_yaml[bus_name]['roboteq_canids'].pop(current_id)
 
     can_db = cantools.database.can.Database(
         messages=messages,

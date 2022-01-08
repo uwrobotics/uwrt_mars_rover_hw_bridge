@@ -19,16 +19,16 @@ uwrt_mars_rover_can_bus:
   - PDB
   - SCIENCE
   roboteq_canids:
-    385: TPDO1
-    641: TPDO2
-    897: TPDO3
-    1153: TPDO4
-    513: RPDO1
-    769: RPDO2
-    1025: RPDO3
-    1281: RPDO4
-    1537: SDO_CMD_QUERY
-    1409: SDO_RESPONSE
+    0x181: TPDO1
+    0x281: TPDO2
+    0x381: TPDO3
+    0x481: TPDO4
+    0x201: RPDO1
+    0x301: RPDO2
+    0x401: RPDO3
+    0x501: RPDO4
+    0x601: SDO_CMD_QUERY
+    0x581: SDO_RESPONSE
   messages:
   - ARM_setControlMode:
       comment: Set control mode for arm joints
