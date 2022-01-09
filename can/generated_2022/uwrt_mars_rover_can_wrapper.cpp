@@ -9,19 +9,16 @@ using namespace HWBRIDGE;
 
 // -- Message unpacker function prototypes ---
 
-bool HWBRIDGE::packCANMsg(uint8_t *raw, CANID msgID, const CANMsgMap *msgMap,
-                          size_t &len) {
+bool HWBRIDGE::packCANMsg(uint8_t *raw, CANID msgID, const CANMsgMap *msgMap, size_t &len) {
   switch (msgID) {
-
-  default:
-    return false;
+    default:
+      return false;
   }
 }
 
 bool HWBRIDGE::unpackCANMsg(uint8_t *raw, CANID msgID, CANMsgMap *msgMap) {
   switch (msgID) {
-
-  default:
-    return false;
+    default:
+      return false;
   }
 }
