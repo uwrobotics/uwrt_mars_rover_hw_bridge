@@ -218,16 +218,6 @@ for year in supported_years:
     int_keys_to_hex('canid_filters')
     int_keys_to_hex('roboteq_canids')
 
-
-    # if can_yaml[bus_name]['roboteq_canids']:
-
-    #     for i in range(len(can_yaml[bus_name]['roboteq_canids'])):
-            
-    #         # Each iteration, a new key is appended to the bottom,
-    #         # and the one it replaces (always the first element) gets popped
-    #         current_id = list(can_yaml[bus_name]['roboteq_canids'].keys())[0]
-    #         can_yaml[bus_name]['roboteq_canids'][CAN_ID(current_id)] = can_yaml[bus_name]['roboteq_canids'].pop(current_id)
-
     can_db = cantools.database.can.Database(
         messages=messages,
         nodes=nodes
