@@ -1,9 +1,9 @@
 uwrt_mars_rover_can_bus:
   bus_frequency: 1000000
-  canid_filter_mask: 2016
+  canid_filter_mask: 0x7e0
   canid_filters:
-    1824: COMMON_FILTER
-    2016: NO_MESSAGES
+    0x720: COMMON_FILTER
+    0x7e0: NO_MESSAGES
   nodes:
   - GIMBAL
   - JETSON

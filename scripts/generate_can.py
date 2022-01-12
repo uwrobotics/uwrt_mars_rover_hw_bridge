@@ -84,6 +84,16 @@ for year in supported_years:
 
     yaml.add_representer(CAN_ID, hexint_representer)
 
+    # Converts integer keys to hex given the section key, e.g. 'roboteq_canids'
+    def int_keys_to_hex(section_key):
+        if can_yaml[bus_name][section_key]:
+            for i in range(len(can_yaml[bus_name][section_key])):
+                
+                # Each iteration, a new key is appended to the bottom,
+                # and the one it replaces (always the first element) gets popped
+                current_id = list(can_yaml[bus_name][section_key].keys())[0]
+                can_yaml[bus_name][section_key][CAN_ID(current_id)] = can_yaml[bus_name][section_key].pop(current_id)
+
     # if there are CAN messages defined
     if can_yaml[bus_name]['messages']:
 
@@ -200,18 +210,23 @@ for year in supported_years:
                                 == 0 else 1/message['frequency']),
                 )
             )
-            # change value in "id:" section 
+            # change value in "id:" section to hex
             message['id'] = CAN_ID(message['id'])
     
-    # converts roboteq CAN IDs to Hex
-    if can_yaml[bus_name]['roboteq_canids']:
+    # converts CANID filter mask, CAN ID filters, and Roboteq CAN IDs to hex.
+    can_yaml[bus_name]['canid_filter_mask'] = CAN_ID(can_yaml[bus_name]['canid_filter_mask'])
+    int_keys_to_hex('canid_filters')
+    int_keys_to_hex('roboteq_canids')
 
-        for i in range(len(can_yaml[bus_name]['roboteq_canids'])):
+
+    # if can_yaml[bus_name]['roboteq_canids']:
+
+    #     for i in range(len(can_yaml[bus_name]['roboteq_canids'])):
             
-            # Each iteration, a new key is appended to the bottom,
-            # and the one it replaces (always the first element) gets popped
-            current_id = list(can_yaml[bus_name]['roboteq_canids'].keys())[0]
-            can_yaml[bus_name]['roboteq_canids'][CAN_ID(current_id)] = can_yaml[bus_name]['roboteq_canids'].pop(current_id)
+    #         # Each iteration, a new key is appended to the bottom,
+    #         # and the one it replaces (always the first element) gets popped
+    #         current_id = list(can_yaml[bus_name]['roboteq_canids'].keys())[0]
+    #         can_yaml[bus_name]['roboteq_canids'][CAN_ID(current_id)] = can_yaml[bus_name]['roboteq_canids'].pop(current_id)
 
     can_db = cantools.database.can.Database(
         messages=messages,
