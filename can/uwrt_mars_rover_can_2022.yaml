@@ -235,6 +235,64 @@ uwrt_mars_rover_can_bus:
           offset: 0.0
           min: 0.0
           max: 1.0
+  - ODRIVE_getEncoderEstimates_axis0:
+      comment: Get encoder estimates
+      id: 9
+      size: 8
+      senders:
+      - JETSON
+      receivers:
+      - ODRIVE
+      frequency: 0
+      signals:
+      - ODRIVE_encoderPosEstimate:
+          comment: Odrive encoder position estimate
+          length: 32
+          is_signed: true
+          unit: turns
+          scale: 1.0
+          offset: 0.0
+          min: 0.0
+          max: 1.0
+      - ODRIVE_encoderVelEstimate:
+          comment: Odrive encoder velocity estimate
+          length: 32
+          is_signed: true
+          unit: turns/s
+          scale: 1.0
+          offset: 0.0
+          min: 0.0
+          max: 1.0
+  - ODRIVE_getEncoderCount_axis0:
+      comment: Get encoder count
+      id: 10
+      size: 8
+      senders:
+      - JETSON
+      receivers:
+      - ODRIVE
+      frequency: 0
+      signals:
+      - ODRIVE_encoderShadowCount:
+          comment: Odrive encoder shadow count
+          length: 32
+          is_signed: true
+          unit: counts
+          values: null
+          scale: 1.0
+          offset: 0.0
+          min: 0.0
+          max: 1.0
+      - ODRIVE_encoderCountinCPR:
+          comment: Odrive encoder count in CPR
+          length: 32
+          is_signed: true
+          unit: counts
+          values: null
+          scale: 1.0
+          offset: 0.0
+          min: 0.0
+          max: 1.0
   - ODRIVE_setControllerModes_axis0:
       comment: Set controller modes
       id: 11
