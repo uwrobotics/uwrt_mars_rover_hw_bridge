@@ -54,7 +54,6 @@ for year in supported_years:
         value = re.sub(r'[^a-zA-Z0-9]', '_', value)
         return value
 
-
     # load yaml file
     with open(YAML_FILE_PATH) as file:
         can_yaml = yaml.load(file, Loader=yaml.FullLoader)
@@ -67,7 +66,7 @@ for year in supported_years:
     # sort nodes in alphabetical order
     can_yaml[bus_name]['nodes'].sort()
 
-    roboteq_enums = can_yaml[bus_name]['roboteq_canids']
+    roboteq_enums = can_yaml[bus_name]['roboteq_canids'] if 'roboteq_canids' in can_yaml[bus_name] else None
 
     # extract CAN nodes
     nodes = []
@@ -94,6 +93,7 @@ for year in supported_years:
                 current_id = list(can_yaml[bus_name][section_key].keys())[0]
                 can_yaml[bus_name][section_key][CAN_ID(current_id)] = can_yaml[bus_name][section_key].pop(current_id)
 
+    messages = []
     # if there are CAN messages defined
     if can_yaml[bus_name]['messages']:
 
@@ -101,7 +101,6 @@ for year in supported_years:
         can_yaml[bus_name]['messages'].sort(key=lambda x: x[list(x.keys())[0]]['id'])
 
         # extract CAN messages
-        messages = []
         for message in can_yaml[bus_name]['messages']:
             message_name = list(message.keys())[0]
             message = message[message_name]
@@ -216,7 +215,8 @@ for year in supported_years:
     # converts CANID filter mask, CAN ID filters, and Roboteq CAN IDs to hex.
     can_yaml[bus_name]['canid_filter_mask'] = CAN_ID(can_yaml[bus_name]['canid_filter_mask'])
     int_keys_to_hex('canid_filters')
-    int_keys_to_hex('roboteq_canids')
+    if 'roboteq_canids' in can_yaml[bus_name]:
+        int_keys_to_hex('roboteq_canids')
 
     can_db = cantools.database.can.Database(
         messages=messages,

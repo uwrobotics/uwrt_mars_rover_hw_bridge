@@ -55,7 +55,10 @@ def canid_filters_formatted(canid_filters):
 
 
 def roboteq_enums_formatted(roboteq_enums):
-    return ''.join(['\t{} = {},\n'.format(roboteqid_name, hex(roboteqid_value).upper().replace('X', 'x')) for roboteqid_value, roboteqid_name in sorted(roboteq_enums.items())])
+    if roboteq_enums:
+        return ''.join(['\t{} = {},\n'.format(roboteqid_name, hex(roboteqid_value).upper().replace('X', 'x')) for roboteqid_value, roboteqid_name in sorted(roboteq_enums.items())])
+    else:
+        return ''
 
 
 def msg_enums_formatted(msg_enums):
