@@ -16,12 +16,18 @@ import generate_can_enums
 import generate_can_wrapper
 
 
+REGEX_PATTERN_1 = re.compile(r'(.)([A-Z][a-z]+)')
+REGEX_PATTERN_2 = re.compile(r'(_+)')
+REGEX_PATTERN_3 = re.compile(r'([a-z0-9])([A-Z])')
+REGEX_PATTERN_4 = re.compile(r'[^a-zA-Z0-9]')
+
+
 # https://github.com/eerimoq/cantools/blob/871581b57785fdbd79c118878f9b9c148984963c/cantools/database/can/c_source.py#L762
 def camel_to_snake_case(value):
-    value = re.sub(r'(.)([A-Z][a-z]+)', r'\1_\2', value)
-    value = re.sub(r'(_+)', '_', value)
-    value = re.sub(r'([a-z0-9])([A-Z])', r'\1_\2', value).lower()
-    value = re.sub(r'[^a-zA-Z0-9]', '_', value)
+    value = REGEX_PATTERN_1.sub(r'\1_\2', value)
+    value = REGEX_PATTERN_2.sub('_', value)
+    value = REGEX_PATTERN_3.sub(r'\1_\2', value).lower()
+    value = REGEX_PATTERN_4.sub('_', value)
     return value
 
 

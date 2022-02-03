@@ -117,11 +117,15 @@ case CANSIGNAL::{signal_name_upper}:
 
 
 def msg_packer_function_prototypes(msg_names):
-    return ''.join([f"static bool {msg_name.lower()}_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t &len);\n" for msg_name in msg_names])
+    return ''.join([
+      f"""static bool {msg_name.lower()}_packer(uint8_t* raw, const CANMsgMap* msgMap, size_t &len);
+       """ for msg_name in msg_names])
 
 
 def msg_unpacker_function_prototypes(msg_names):
-    return ''.join([f"static bool {msg_name.lower()}_unpacker(uint8_t* raw, CANMsgMap* msgMap);\n" for msg_name in msg_names])
+    return ''.join([
+      f"""static bool {msg_name.lower()}_unpacker(uint8_t* raw, CANMsgMap* msgMap);
+       """ for msg_name in msg_names])
 
 
 def packer_msg_switch_cases(msg_names):
