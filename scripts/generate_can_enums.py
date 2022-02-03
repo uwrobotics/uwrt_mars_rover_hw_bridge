@@ -51,24 +51,24 @@ enum class {signal_name}_VALUES {{
 
 
 def format_canid_filters(canid_filters):
-    return ''.join(['\t{} = {},\n'.format(filter_name, hex(filter_value).upper().replace('X', 'x')) for filter_value, filter_name in sorted(canid_filters.items())])
+    return ''.join([f"\t{filter_name} = {hex(filter_value).upper().replace('X', 'x')},\n" for filter_value, filter_name in sorted(canid_filters.items())])
 
 
 def format_roboteq_enums(roboteq_enums):
-    return ''.join(['\t{} = {},\n'.format(roboteqid_name, hex(roboteqid_value).upper().replace('X', 'x')) for roboteqid_value, roboteqid_name in sorted(roboteq_enums.items())])
+    return ''.join([f"\t{roboteqid_name} = {hex(roboteqid_value).upper().replace('X', 'x')},\n" for roboteqid_value, roboteqid_name in sorted(roboteq_enums.items())])
 
 
 def format_msg_enums(msg_enums):
-    return ''.join(['\t{} = {},\n'.format(msg_name, hex(msg_id).upper().replace('X', 'x')) for msg_name, msg_id in sorted(msg_enums.items(), key=lambda x: x[1])])
+    return ''.join([f"\t{msg_name} = {hex(msg_id).upper().replace('X', 'x')},\n" for msg_name, msg_id in sorted(msg_enums.items(), key=lambda x: x[1])])
 
 
 def format_signal_enums(signal_enums):
-    return ''.join(['\t{},\n'.format(signal_name) for signal_name in sorted(signal_enums)])
+    return ''.join([f"\t{signal_name},\n" for signal_name in sorted(signal_enums)])
 
 
 def format_signal_enum_choices(signal_enum_choices):
     if signal_enum_choices is not None:
-        return ''.join(['\t{choice_name} = {choice_value},\n'.format(choice_name=choice_name, choice_value=choice_value) for choice_value, choice_name in sorted(signal_enum_choices.items())])
+        return ''.join([f"\t{choice_name} = {choice_value},\n" for choice_value, choice_name in sorted(signal_enum_choices.items())])
     else:
         return ''
 

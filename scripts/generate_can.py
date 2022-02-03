@@ -25,7 +25,7 @@ def camel_to_snake_case(value):
     return value
 
 
-if __name__ == '__main__':
+def main():
 
     SUPPORTED_YEARS = ['2021', '2022']
 
@@ -305,3 +305,7 @@ if __name__ == '__main__':
     PYCACHE_FOLDER_PATH = os.path.join(SCRIPT_FOLDER_PATH, '__pycache__')
     if os.path.exists(PYCACHE_FOLDER_PATH):
         shutil.rmtree(PYCACHE_FOLDER_PATH)
+
+
+if __name__ == '__main__':
+    main()
