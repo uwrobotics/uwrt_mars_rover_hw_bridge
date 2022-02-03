@@ -125,11 +125,17 @@ def msg_unpacker_function_prototypes(msg_names):
 
 
 def packer_msg_switch_cases(msg_names):
-    return ''.join([f"case CANID::{msg_name.upper()}:\n\treturn {msg_name.lower()}_packer(raw, msgMap, len);\n" for msg_name in msg_names])
+    return ''.join([
+      f"""case CANID::{msg_name.upper()}:
+            return {msg_name.lower()}_packer(raw, msgMap, len);
+       """ for msg_name in msg_names])
 
 
 def unpacker_msg_switch_cases(msg_names):
-    return ''.join([f"case CANID::{msg_name.upper()}:\n\treturn {msg_name.lower()}_unpacker(raw, msgMap);\n" for msg_name in msg_names])
+    return ''.join([
+      f"""case CANID::{msg_name.upper()}:
+            return {msg_name.lower()}_unpacker(raw, msgMap);
+       """ for msg_name in msg_names])
 
 
 def packer_signal_switch_cases(signal_names, rover_can_name, msg_name):
