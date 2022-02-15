@@ -103,82 +103,83 @@ for year in supported_years:
 
             # extract message signals
             signals = []
-            for signal in message['signals']:
-                signal_name = list(signal.keys())[0]
-                signal = signal[signal_name]
+            if 'signals' in message:
+                for signal in message['signals']:
+                    signal_name = list(signal.keys())[0]
+                    signal = signal[signal_name]
 
-                # add to autogen signal enums list and msg map dict
-                signal_snake_upper = camel_to_snake_case(signal_name).upper()
-                if 'values' in signal and signal['values'] is not None:
-                    AUTOGEN_signal_enum_choices[signal_snake_upper] = signal['values']
-                AUTOGEN_signal_enums.append(signal_snake_upper)
-                AUTOGEN_msg_map[msg_snake_upper].append(signal_snake_upper)
+                    # add to autogen signal enums list and msg map dict
+                    signal_snake_upper = camel_to_snake_case(signal_name).upper()
+                    if 'values' in signal and signal['values'] is not None:
+                        AUTOGEN_signal_enum_choices[signal_snake_upper] = signal['values']
+                    AUTOGEN_signal_enums.append(signal_snake_upper)
+                    AUTOGEN_msg_map[msg_snake_upper].append(signal_snake_upper)
 
-                length = signal['length']
-                is_signed = signal['is_signed']
+                    length = signal['length']
+                    is_signed = signal['is_signed']
 
-                # NOTE: it is assumed that min/max bounds do not cover SNA values
+                    # NOTE: it is assumed that min/max bounds do not cover SNA values
 
-                # if given both scale/offset and min/max
-                if 'scale' in signal and 'offset' in signal and 'min' in signal and 'max' in signal:
-                    scale = signal['scale']
-                    offset = signal['offset']
-                    sig_min = signal['min']
-                    sig_max = signal['max']
+                    # if given both scale/offset and min/max
+                    if 'scale' in signal and 'offset' in signal and 'min' in signal and 'max' in signal:
+                        scale = signal['scale']
+                        offset = signal['offset']
+                        sig_min = signal['min']
+                        sig_max = signal['max']
 
-                # else if only given scale/offset (no min/max)
-                elif 'scale' in signal and 'offset' in signal:
-                    scale = signal['scale']
-                    offset = signal['offset']
+                    # else if only given scale/offset (no min/max)
+                    elif 'scale' in signal and 'offset' in signal:
+                        scale = signal['scale']
+                        offset = signal['offset']
 
-                    # calculate min/max based on scale/offset and length
-                    sig_min = - (2**(length-1)-1) * scale + \
-                        offset if is_signed else offset
-                    sig_max = (2**(length-1)-1) * scale + \
-                        offset if is_signed else (2**length-2) * scale + offset
+                        # calculate min/max based on scale/offset and length
+                        sig_min = - (2**(length-1)-1) * scale + \
+                            offset if is_signed else offset
+                        sig_max = (2**(length-1)-1) * scale + \
+                            offset if is_signed else (2**length-2) * scale + offset
 
-                # else if only given min/max (no scale/offset)
-                elif 'min' in signal and 'max' in signal:
-                    sig_min = signal['min']
-                    sig_max = signal['max']
+                    # else if only given min/max (no scale/offset)
+                    elif 'min' in signal and 'max' in signal:
+                        sig_min = signal['min']
+                        sig_max = signal['max']
 
-                    # calculate scale/offset based on min/max and length
-                    scale = (sig_max - sig_min) / (2**length - 2)
-                    offset = sig_min + (2**(length-1)-1) * \
-                        scale if is_signed else sig_min
+                        # calculate scale/offset based on min/max and length
+                        scale = (sig_max - sig_min) / (2**length - 2)
+                        offset = sig_min + (2**(length-1)-1) * \
+                            scale if is_signed else sig_min
 
-                else:
-                    print('Missing fields for signal "' + signal_name +
-                        '" in message "' + message_name + '"!')
-                    print('Supply either signal scale/offset or signal min/max')
-                    print('Script terminated.')
-                    exit()
+                    else:
+                        print('Missing fields for signal "' + signal_name +
+                            '" in message "' + message_name + '"!')
+                        print('Supply either signal scale/offset or signal min/max')
+                        print('Script terminated.')
+                        exit()
 
-                # add these missing fields to the yaml
-                signal['scale'] = scale
-                signal['offset'] = offset
-                signal['min'] = sig_min
-                signal['max'] = sig_max
+                    # add these missing fields to the yaml
+                    signal['scale'] = scale
+                    signal['offset'] = offset
+                    signal['min'] = sig_min
+                    signal['max'] = sig_max
 
-                signals.append(
-                    cantools.database.can.Signal(
-                        name=signal_name,
-                        start=startbit,
-                        length=signal['length'],
-                        byte_order='little_endian',
-                        is_signed=signal['is_signed'],
-                        scale=signal['scale'],
-                        offset=signal['offset'],
-                        minimum=signal['min'],
-                        maximum=signal['max'],
-                        unit=signal['unit'],
-                        choices=signal['values'] if 'values' in signal else None,
-                        comment=signal['comment'],
-                        receivers=message['receivers']
+                    signals.append(
+                        cantools.database.can.Signal(
+                            name=signal_name,
+                            start=startbit,
+                            length=signal['length'],
+                            byte_order='little_endian',
+                            is_signed=signal['is_signed'],
+                            scale=signal['scale'],
+                            offset=signal['offset'],
+                            minimum=signal['min'],
+                            maximum=signal['max'],
+                            unit=signal['unit'],
+                            choices=signal['values'] if 'values' in signal else None,
+                            comment=signal['comment'],
+                            receivers=message['receivers']
+                        )
                     )
-                )
 
-                startbit += signal['length']
+                    startbit += signal['length']
 
             messages.append(
                 cantools.database.can.Message(
