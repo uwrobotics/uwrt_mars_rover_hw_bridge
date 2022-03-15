@@ -16,7 +16,7 @@ uwrt_mars_rover_can_bus:
   - ODRIVE_heartbeatMessage_axis0:
       comment: Heartbeat messages for odrive
       id: 1
-      size: 8
+      size: 6
       senders:
       - ODRIVE
       receivers:
@@ -736,7 +736,7 @@ uwrt_mars_rover_can_bus:
   - ODRIVE_heartbeatMessage_axis1:
       comment: Heartbeat messages for odrive
       id: 33
-      size: 8
+      size: 6
       senders:
       - ODRIVE
       receivers:

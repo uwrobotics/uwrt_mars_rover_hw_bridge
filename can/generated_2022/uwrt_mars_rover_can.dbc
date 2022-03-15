@@ -36,7 +36,7 @@ BS_:
 BU_: GIMBAL JETSON ODRIVE PDB SCIENCE
 
 
-BO_ 1 ODRIVE_heartbeatMessage_axis0: 8 ODRIVE
+BO_ 1 ODRIVE_heartbeatMessage_axis0: 6 ODRIVE
  SG_ ODRIVE_controllerStatus : 40|8@1+ (1.0,0.0) [0.0|254.0] ""  JETSON
  SG_ ODRIVE_axisCurrentState : 32|8@1+ (1.0,0.0) [0.0|254.0] ""  JETSON
  SG_ ODRIVE_axisError : 0|32@1+ (1.0,0.0) [0.0|4294967294.0] ""  JETSON
@@ -123,7 +123,7 @@ BO_ 27 ODRIVE_setVelGain_axis0: 8 JETSON
  SG_ ODRIVE_velIntegratorGain : 32|32@1+ (1.0,0.0) [0.0|1.0] ""  ODRIVE
  SG_ ODRIVE_velGain : 0|32@1+ (1.0,0.0) [0.0|1.0] ""  ODRIVE
 
-BO_ 33 ODRIVE_heartbeatMessage_axis1: 8 ODRIVE
+BO_ 33 ODRIVE_heartbeatMessage_axis1: 6 ODRIVE
  SG_ ODRIVE_controllerStatus : 40|8@1+ (1.0,0.0) [0.0|254.0] ""  JETSON
  SG_ ODRIVE_axisCurrentState : 32|8@1+ (1.0,0.0) [0.0|254.0] ""  JETSON
  SG_ ODRIVE_axisError : 0|32@1+ (1.0,0.0) [0.0|4294967294.0] ""  JETSON
