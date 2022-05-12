@@ -9,9 +9,10 @@
 
 namespace HWBRIDGE {
 
-bool packCANMsg(uint8_t *raw, HWBRIDGE::CANID msgID,
-                const HWBRIDGE::CANMsgMap *msgMap, size_t &len);
-bool unpackCANMsg(uint8_t *raw, HWBRIDGE::CANID msgID,
-                  HWBRIDGE::CANMsgMap *msgMap);
+    bool packCANMsg(uint8_t *raw, HWBRIDGE::CANID msgID,
+                    const HWBRIDGE::CANMsgMap *msgMap, size_t &len);
+
+    bool unpackCANMsg(uint8_t *raw, HWBRIDGE::CANID msgID,
+                      HWBRIDGE::CANMsgMap *msgMap);
 
 } // namespace HWBRIDGE

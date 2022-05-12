@@ -5,1450 +5,1450 @@ uwrt_mars_rover_can_bus:
     1824: COMMON_FILTER
     2016: NO_MESSAGES
   nodes:
-  - GIMBAL
-  - JETSON
-  - ODRIVE
-  - PDB
-  - SCIENCE
+    - GIMBAL
+    - JETSON
+    - ODRIVE
+    - PDB
+    - SCIENCE
   roboteq_canids:
     0: TEMP
   messages:
-  - ODRIVE_heartbeatMessage_axis0:
-      comment: Heartbeat messages for odrive
-      id: 1
-      size: 6
-      senders:
-      - ODRIVE
-      receivers:
-      - JETSON
-      frequency: 0
-      signals:
-      - ODRIVE_axisError:
-          comment: Odrive axis errors
-          length: 32
-          is_signed: false
-          unit: ''
-          values:
-            0: ERROR_NONE
-            1: ERROR_INVALID_STATE
-            2048: ERROR_WATCHDOG_TIMER_EXPIRED
-            4096: ERROR_MIN_ENDSTOP_PRESSED
-            8192: ERROR_MAX_ENDSTOP_PRESSED
-            16384: ERROR_ESTOP_REQUESTED
-            131072: ERROR_HOMING_WITHOUT_ENDSTOP
-            262144: ERROR_OVER_TEMP
-            524288: ERROR_UNKNOWN_POSITION
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 4294967294.0
-      - ODRIVE_axisCurrentState:
-          comment: Odrive axis current state
-          length: 8
-          is_signed: false
-          unit: ''
-          values:
-            0: AXIS_STATE_UNDEFINED
-            1: AXIS_STATE_IDLE
-            2: AXIS_STATE_STARTUP_SEQUENCE
-            3: AXIS_STATE_FULL_CALIBRATION_SEQUENCE
-            4: AXIS_STATE_MOTOR_CALIBRATION
-            6: AXIS_STATE_ENCODER_INDEX_SEARCH
-            7: AXIS_STATE_ENCODER_OFFSET_CALIBRATION
-            8: AXIS_STATE_CLOSED_LOOP_CONTROL
-            9: AXIS_STATE_LOCKIN_SPIN
-            10: AXIS_STATE_ENCODER_DIR_FIND
-            11: AXIS_STATE_HOMING
-            12: AXIS_STATE_ENCODER_HALL_POLARITY_CALIBRATION
-            13: AXIS_STATE_ENCODER_HALL_PHASE_CALIBRATION
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 254.0
-      - ODRIVE_controllerStatus:
-          comment: Odrive controller status
-          length: 8
-          is_signed: false
-          unit: ''
-          values:
-            0: CONTROL_MODE_VOLTAGE_CONTROL
-            1: CONTROL_MODE_TORQUE_CONTROL
-            2: CONTROL_MODE_VELOCITY_CONTROL
-            3: CONTROL_MODE_POSITION_CONTROL
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 254.0
-  - ODRIVE_EstopMessage_axis0:
-      comment: Odrive Estop message
-      id: 2
-      size: 0
-      senders:
-      - JETSON
-      receivers:
-      - ODRIVE
-      frequency: 0
-  - ODRIVE_getMotorError_axis0:
-      comment: Heartbeat messages for odrive
-      id: 3
-      size: 8
-      senders:
-      - ODRIVE
-      receivers:
-      - JETSON
-      frequency: 0
-      signals:
-      - ODRIVE_motorError:
-          comment: Odrive motor errors
-          length: 64
-          is_signed: false
-          unit: ''
-          values:
-            0: ERROR_NONE
-            1: ERROR_PHASE_RESISTANCE_OUT_OF_RANGE
-            2: ERROR_PHASE_INDUCTANCE_OUT_OF_RANGE
-            8: ERROR_DRV_FAULT
-            16: ERROR_CONTROL_DEADLINE_MISSED
-            128: ERROR_MODULATION_MAGNITUDE
-            1024: ERROR_CURRENT_SENSE_SATURATION
-            4096: ERROR_CURRENT_LIMIT_VIOLATION
-            65536: ERROR_MODULATION_IS_NAN
-            131072: ERROR_MOTOR_THERMISTOR_OVER_TEMP
-            262144: ERROR_FET_THERMISTOR_OVER_TEMP
-            524288: ERROR_TIMER_UPDATE_MISSED
-            1048576: ERROR_CURRENT_MEASUREMENT_UNAVAILABLE
-            2097152: ERROR_CONTROLLER_FAILED
-            4194304: ERROR_I_BUS_OUT_OF_RANGE
-            8388608: ERROR_BRAKE_RESISTOR_DISARMED
-            16777216: ERROR_SYSTEM_LEVEL
-            33554432: ERROR_BAD_TIMING
-            67108864: ERROR_UNKNOWN_PHASE_ESTIMATE
-            134217728: ERROR_UNKNOWN_PHASE_VEL
-            268435456: ERROR_UNKNOWN_TORQUE
-            536870912: ERROR_UNKNOWN_CURRENT_COMMAND
-            1073741824: ERROR_UNKNOWN_CURRENT_MEASUREMENT
-            2147483648: ERROR_UNKNOWN_VBUS_VOLTAGE
-            4294967296: ERROR_UNKNOWN_VOLTAGE_COMMAND
-            8589934592: ERROR_UNKNOWN_GAINS
-            17179869184: ERROR_CONTROLLER_INITIALIZING
-            34359738368: ERROR_UNBALANCED_PHASES
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 1.8446744073709552e+19
-  - ODRIVE_getEncoderError_axis0:
-      comment: Encoder error for odrive
-      id: 4
-      size: 4
-      senders:
-      - ODRIVE
-      receivers:
-      - JETSON
-      frequency: 0
-      signals:
-      - ODRIVE_encoderError:
-          comment: Odrive encoder error
-          length: 32
-          is_signed: false
-          unit: ''
-          values:
-            0: ERROR_NONE
-            1: ERROR_UNSTABLE_GAIN
-            2: ERROR_CPR_POLEPAIRS_MISMATCH
-            4: ERROR_NO_RESPONSE
-            8: ERROR_UNSUPPORTED_ENCODER_MODE
-            16: ERROR_ILLEGAL_HALL_STATE
-            32: ERROR_INDEX_NOT_FOUND_YET
-            64: ERROR_ABS_SPI_TIMEOUT
-            128: ERROR_ABS_SPI_COM_FAIL
-            256: ERROR_ABS_SPI_NOT_READY
-            512: ERROR_HALL_NOT_CALIBRATED_YET
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 4294967294.0
-  - ODRIVE_getSensorlessError_axis0:
-      comment: Sesnorless error for odrive
-      id: 5
-      size: 4
-      senders:
-      - ODRIVE
-      receivers:
-      - JETSON
-      frequency: 0
-      signals:
-      - ODRIVE_sensorlessError:
-          comment: Odrive sesnsorless error
-          length: 32
-          is_signed: false
-          unit: ''
-          values:
-            0: ERROR_NONE
-            1: ERROR_UNSTABLE_GAIN
-            2: ERROR_UNKNOWN_CURRENT_MEASUREMENT
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 4294967294.0
-  - ODRIVE_setAxisNodeID_axis0:
-      comment: Sesnorless error for odrive
-      id: 6
-      size: 4
-      senders:
-      - JETSON
-      receivers:
-      - ODRIVE
-      frequency: 0
-      signals:
-      - ODRIVE_axisCanNodeID:
-          comment: Odrive Axis CAN Node ID error
-          length: 32
-          is_signed: false
-          unit: ''
-          values:
-            0: ERROR_NONE
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 4294967294.0
-  - ODRIVE_setAxisRequestedState_axis0:
-      comment: Set axis requested state
-      id: 7
-      size: 4
-      senders:
-      - JETSON
-      receivers:
-      - ODRIVE
-      frequency: 0
-      signals:
-      - ODRIVE_axisRequestedState:
-          comment: Odrive axis requested state
-          length: 32
-          is_signed: false
-          unit: ''
-          values:
-            0: AXIS_STATE_UNDEFINED
-            1: AXIS_STATE_IDLE
-            2: AXIS_STATE_STARTUP_SEQUENCE
-            3: AXIS_STATE_FULL_CALIBRATION_SEQUENCE
-            4: AXIS_STATE_MOTOR_CALIBRATION
-            6: AXIS_STATE_ENCODER_INDEX_SEARCH
-            7: AXIS_STATE_ENCODER_OFFSET_CALIBRATION
-            8: AXIS_STATE_CLOSED_LOOP_CONTROL
-            9: AXIS_STATE_LOCKIN_SPIN
-            10: AXIS_STATE_ENCODER_DIR_FIND
-            11: AXIS_STATE_HOMING
-            12: AXIS_STATE_ENCODER_HALL_POLARITY_CALIBRATION
-            13: AXIS_STATE_ENCODER_HALL_PHASE_CALIBRATION
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 4294967294.0
-  - ODRIVE_getEncoderEstimates_axis0:
-      comment: Get encoder estimates
-      id: 9
-      size: 8
-      senders:
-      - JETSON
-      receivers:
-      - ODRIVE
-      frequency: 0
-      signals:
-      - ODRIVE_encoderPosEstimate:
-          comment: Odrive encoder position estimate
-          length: 32
-          is_signed: false
-          is_float: true
-          unit: turns
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 1.0
-      - ODRIVE_encoderVelEstimate:
-          comment: Odrive encoder velocity estimate
-          length: 32
-          is_signed: false
-          is_float: true
-          unit: turns/s
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 1.0
-  - ODRIVE_getEncoderCount_axis0:
-      comment: Get encoder count
-      id: 10
-      size: 8
-      senders:
-      - JETSON
-      receivers:
-      - ODRIVE
-      frequency: 0
-      signals:
-      - ODRIVE_encoderShadowCount:
-          comment: Odrive encoder shadow count
-          length: 32
-          is_signed: true
-          unit: counts
-          values: null
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 1.0
-      - ODRIVE_encoderCountinCPR:
-          comment: Odrive encoder count in CPR
-          length: 32
-          is_signed: true
-          unit: counts
-          values: null
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 1.0
-  - ODRIVE_setControllerModes_axis0:
-      comment: Set controller modes
-      id: 11
-      size: 8
-      senders:
-      - JETSON
-      receivers:
-      - ODRIVE
-      frequency: 0
-      signals:
-      - ODRIVE_controlMode:
-          comment: Odrive control mode
-          length: 32
-          is_signed: true
-          unit: ''
-          values:
-            0: CONTROL_MODE_VOLTAGE_CONTROL
-            1: CONTROL_MODE_TORQUE_CONTROL
-            2: CONTROL_MODE_VELOCITY_CONTROL
-            3: CONTROL_MODE_POSITION_CONTROL
-          scale: 1.0
-          offset: 0.0
-          min: -2147483647.0
-          max: 2147483647.0
-      - ODRIVE_inputMode:
-          comment: Odrive input mode
-          length: 32
-          is_signed: true
-          unit: ''
-          values:
-            0: INPUT_MODE_INACTIVE
-            1: INPUT_MODE_PASSTHROUGH
-            2: INPUT_MODE_VEL_RAMP
-            3: INPUT_MODE_POS_FILTER
-            4: INPUT_MODE_MIX_CHANNELS
-            5: INPUT_MODE_TRAP_TRAJ
-            6: INPUT_MODE_TORQUE_RAMP
-            7: INPUT_MODE_MIRROR
-            8: INPUT_MODE_Tuning
-          scale: 1.0
-          offset: 0.0
-          min: -2147483647.0
-          max: 2147483647.0
-  - ODRIVE_SetInputPos_axis0:
-      comment: Set input position
-      id: 12
-      size: 8
-      senders:
-      - JETSON
-      receivers:
-      - ODRIVE
-      frequency: 0
-      signals:
-      - ODRIVE_inputPos:
-          comment: Odrive input position
-          length: 32
-          is_signed: false
-          is_float: true
-          unit: ''
-          values: null
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 1.0
-      - ODRIVE_VelFF:
-          comment: Odrive velocity feed forward
-          length: 16
-          is_signed: true
-          unit: ''
-          values: null
-          scale: 0.001
-          offset: 0.0
-          min: 0.0
-          max: 1.0
-      - ODRIVE_TorqueFF:
-          comment: Odrive torque feed forward
-          length: 16
-          is_signed: true
-          unit: ''
-          values: null
-          scale: 0.001
-          offset: 0.0
-          min: 0.0
-          max: 1.0
-  - ODRIVE_setInputVel_axis0:
-      comment: Set input velocity
-      id: 13
-      size: 8
-      senders:
-      - JETSON
-      receivers:
-      - ODRIVE
-      frequency: 0
-      signals:
-      - ODRIVE_inputVel:
-          comment: Odrive input velocity
-          length: 32
-          is_signed: false
-          is_float: true
-          unit: ''
-          values: null
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 1.0
-      - ODRIVE_TorqueFF:
-          comment: Odrive torque feed forward
-          length: 32
-          is_signed: false
-          is_float: true
-          unit: ''
-          values: null
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 1.0
-  - ODRIVE_setInputTorque_axis0:
-      comment: Set input torque
-      id: 14
-      size: 4
-      senders:
-      - JETSON
-      receivers:
-      - ODRIVE
-      frequency: 0
-      signals:
-      - ODRIVE_inputTorque:
-          comment: Odrive input torque
-          length: 32
-          is_signed: false
-          is_float: true
-          unit: ''
-          values: null
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 1.0
-  - ODRIVE_setLimits_axis0:
-      comment: Set limits
-      id: 15
-      size: 8
-      senders:
-      - JETSON
-      receivers:
-      - ODRIVE
-      frequency: 0
-      signals:
-      - ODRIVE_VelocityLimit:
-          comment: Odrive velocity limit
-          length: 32
-          is_signed: false
-          is_float: true
-          unit: ''
-          values: null
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 1.0
-      - ODRIVE_CurrentLimit:
-          comment: Odrive current limit
-          length: 32
-          is_signed: false
-          is_float: true
-          unit: ''
-          values: null
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 1.0
-  - ODRIVE_StartAnticogging_axis0:
-      comment: Start anticogging
-      id: 16
-      size: 0
-      senders:
-      - JETSON
-      receivers:
-      - ODRIVE
-      frequency: 0
-  - ODRIVE_setTrajVelLimit_axis0:
-      comment: Set traj velocity limit
-      id: 17
-      size: 4
-      senders:
-      - JETSON
-      receivers:
-      - ODRIVE
-      frequency: 0
-      signals:
-      - ODRIVE_TrajVelLimit:
-          comment: Odrive traj velocity limit
-          length: 32
-          is_signed: false
-          is_float: true
-          unit: ''
-          values: null
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 1.0
-  - ODRIVE_setTrajAccelLimit_axis0:
-      comment: Set traj accleration limit
-      id: 18
-      size: 8
-      senders:
-      - JETSON
-      receivers:
-      - ODRIVE
-      frequency: 0
-      signals:
-      - ODRIVE_TrajAccelLimit:
-          comment: Odrive traj acceleration limit
-          length: 32
-          is_signed: false
-          is_float: true
-          unit: ''
-          values: null
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 1.0
-      - ODRIVE_TrajDecelLimit:
-          comment: Odrive traj deceleration limit
-          length: 32
-          is_signed: false
-          is_float: true
-          unit: ''
-          values: null
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 1.0
-  - ODRIVE_setTrajInertia_axis0:
-      comment: Set traj inertia
-      id: 19
-      size: 4
-      senders:
-      - JETSON
-      receivers:
-      - ODRIVE
-      frequency: 0
-      signals:
-      - ODRIVE_TrajInertia:
-          comment: Odrive traj inertia
-          length: 32
-          is_signed: false
-          is_float: true
-          unit: ''
-          values: null
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 1.0
-  - ODRIVE_getIQ_axis0:
-      comment: get IQ
-      id: 20
-      size: 8
-      senders:
-      - ODRIVE
-      receivers:
-      - JETSON
-      frequency: 0
-      signals:
-      - ODRIVE_IqSetpoint:
-          comment: Odrive IQ setpoint
-          length: 32
-          is_signed: false
-          is_float: true
-          unit: ''
-          values: null
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 1.0
-      - ODRIVE_IqMeasured:
-          comment: Odrive IQ measured
-          length: 32
-          is_signed: false
-          is_float: true
-          unit: ''
-          values: null
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 1.0
-  - ODRIVE_GetSensorlessEstimates_axis0:
-      comment: get sensorless estimates
-      id: 21
-      size: 8
-      senders:
-      - ODRIVE
-      receivers:
-      - JETSON
-      frequency: 0
-      signals:
-      - ODRIVE_SensorlessPosEstimate:
-          comment: Odrive sensorless position estimate
-          length: 32
-          is_signed: false
-          is_float: true
-          unit: ''
-          values: null
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 1.0
-      - ODRIVE_SensorlessVelEstimate:
-          comment: Odrive sensorless velocity estimate
-          length: 32
-          is_signed: false
-          is_float: true
-          unit: ''
-          values: null
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 1.0
-  - ODRIVE_RebootOdrive_axis0:
-      comment: reboot Odrive
-      id: 22
-      size: 0
-      senders:
-      - JETSON
-      receivers:
-      - ODRIVE
-      frequency: 0
-  - ODRIVE_getVbusVoltage_axis0:
-      comment: get vbus voltage
-      id: 23
-      size: 4
-      senders:
-      - ODRIVE
-      receivers:
-      - JETSON
-      frequency: 0
-      signals:
-      - ODRIVE_vbusVoltage:
-          comment: Odrive vbus voltage
-          length: 32
-          is_signed: false
-          is_float: true
-          unit: V
-          values: null
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 1.0
-  - ODRIVE_ClearErrors_axis0:
-      comment: clear error
-      id: 24
-      size: 0
-      senders:
-      - JETSON
-      receivers:
-      - ODRIVE
-      frequency: 0
-      signal: null
-  - ODRIVE_setLinearCount_axis0:
-      comment: set linear count
-      id: 25
-      size: 4
-      senders:
-      - JETSON
-      receivers:
-      - ODRIVE
-      frequency: 0
-      signals:
-      - ODRIVE_position:
-          comment: Odrive position
-          length: 32
-          is_signed: true
-          unit: ''
-          values: null
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 1.0
-  - ODRIVE_setPositionGain_axis0:
-      comment: set position gain
-      id: 26
-      size: 4
-      senders:
-      - JETSON
-      receivers:
-      - ODRIVE
-      frequency: 0
-      signals:
-      - ODRIVE_posGain:
-          comment: Odrive position gain
-          length: 32
-          is_signed: false
-          is_float: true
-          unit: ''
-          values: null
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 1.0
-  - ODRIVE_setVelGain_axis0:
-      comment: set velocity gain
-      id: 27
-      size: 8
-      senders:
-      - JETSON
-      receivers:
-      - ODRIVE
-      frequency: 0
-      signals:
-      - ODRIVE_velGain:
-          comment: Odrive velocity gain
-          length: 32
-          is_signed: false
-          is_float: true
-          unit: ''
-          values: null
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 1.0
-      - ODRIVE_velIntegratorGain:
-          comment: Odrive velocity integrator gain
-          length: 32
-          is_signed: false
-          is_float: true
-          unit: ''
-          values: null
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 1.0
-  - ODRIVE_heartbeatMessage_axis1:
-      comment: Heartbeat messages for odrive
-      id: 33
-      size: 6
-      senders:
-      - ODRIVE
-      receivers:
-      - JETSON
-      frequency: 0
-      signals:
-      - ODRIVE_axisError:
-          comment: Odrive axis errors
-          length: 32
-          is_signed: false
-          unit: ''
-          values:
-            0: ERROR_NONE
-            1: ERROR_INVALID_STATE
-            2048: ERROR_WATCHDOG_TIMER_EXPIRED
-            4096: ERROR_MIN_ENDSTOP_PRESSED
-            8192: ERROR_MAX_ENDSTOP_PRESSED
-            16384: ERROR_ESTOP_REQUESTED
-            131072: ERROR_HOMING_WITHOUT_ENDSTOP
-            262144: ERROR_OVER_TEMP
-            524288: ERROR_UNKNOWN_POSITION
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 4294967294.0
-      - ODRIVE_axisCurrentState:
-          comment: Odrive axis current state
-          length: 8
-          is_signed: false
-          unit: ''
-          values:
-            0: AXIS_STATE_UNDEFINED
-            1: AXIS_STATE_IDLE
-            2: AXIS_STATE_STARTUP_SEQUENCE
-            3: AXIS_STATE_FULL_CALIBRATION_SEQUENCE
-            4: AXIS_STATE_MOTOR_CALIBRATION
-            6: AXIS_STATE_ENCODER_INDEX_SEARCH
-            7: AXIS_STATE_ENCODER_OFFSET_CALIBRATION
-            8: AXIS_STATE_CLOSED_LOOP_CONTROL
-            9: AXIS_STATE_LOCKIN_SPIN
-            10: AXIS_STATE_ENCODER_DIR_FIND
-            11: AXIS_STATE_HOMING
-            12: AXIS_STATE_ENCODER_HALL_POLARITY_CALIBRATION
-            13: AXIS_STATE_ENCODER_HALL_PHASE_CALIBRATION
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 254.0
-      - ODRIVE_controllerStatus:
-          comment: Odrive controller status
-          length: 8
-          is_signed: false
-          unit: ''
-          values:
-            0: CONTROL_MODE_VOLTAGE_CONTROL
-            1: CONTROL_MODE_TORQUE_CONTROL
-            2: CONTROL_MODE_VELOCITY_CONTROL
-            3: CONTROL_MODE_POSITION_CONTROL
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 254.0
-  - ODRIVE_EstopMessage_axis1:
-      comment: Odrive Estop message
-      id: 34
-      size: 0
-      senders:
-      - JETSON
-      receivers:
-      - ODRIVE
-      frequency: 0
-  - ODRIVE_getMotorError_axis1:
-      comment: Heartbeat messages for odrive
-      id: 35
-      size: 8
-      senders:
-      - ODRIVE
-      receivers:
-      - JETSON
-      frequency: 0
-      signals:
-      - ODRIVE_motorError:
-          comment: Odrive motor errors
-          length: 64
-          is_signed: false
-          unit: ''
-          values:
-            0: ERROR_NONE
-            1: ERROR_PHASE_RESISTANCE_OUT_OF_RANGE
-            2: ERROR_PHASE_INDUCTANCE_OUT_OF_RANGE
-            8: ERROR_DRV_FAULT
-            16: ERROR_CONTROL_DEADLINE_MISSED
-            128: ERROR_MODULATION_MAGNITUDE
-            1024: ERROR_CURRENT_SENSE_SATURATION
-            4096: ERROR_CURRENT_LIMIT_VIOLATION
-            65536: ERROR_MODULATION_IS_NAN
-            131072: ERROR_MOTOR_THERMISTOR_OVER_TEMP
-            262144: ERROR_FET_THERMISTOR_OVER_TEMP
-            524288: ERROR_TIMER_UPDATE_MISSED
-            1048576: ERROR_CURRENT_MEASUREMENT_UNAVAILABLE
-            2097152: ERROR_CONTROLLER_FAILED
-            4194304: ERROR_I_BUS_OUT_OF_RANGE
-            8388608: ERROR_BRAKE_RESISTOR_DISARMED
-            16777216: ERROR_SYSTEM_LEVEL
-            33554432: ERROR_BAD_TIMING
-            67108864: ERROR_UNKNOWN_PHASE_ESTIMATE
-            134217728: ERROR_UNKNOWN_PHASE_VEL
-            268435456: ERROR_UNKNOWN_TORQUE
-            536870912: ERROR_UNKNOWN_CURRENT_COMMAND
-            1073741824: ERROR_UNKNOWN_CURRENT_MEASUREMENT
-            2147483648: ERROR_UNKNOWN_VBUS_VOLTAGE
-            4294967296: ERROR_UNKNOWN_VOLTAGE_COMMAND
-            8589934592: ERROR_UNKNOWN_GAINS
-            17179869184: ERROR_CONTROLLER_INITIALIZING
-            34359738368: ERROR_UNBALANCED_PHASES
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 1.8446744073709552e+19
-  - ODRIVE_getEncoderError_axis1:
-      comment: Encoder error for odrive
-      id: 36
-      size: 4
-      senders:
-      - ODRIVE
-      receivers:
-      - JETSON
-      frequency: 0
-      signals:
-      - ODRIVE_encoderError:
-          comment: Odrive encoder error
-          length: 32
-          is_signed: false
-          unit: ''
-          values:
-            0: ERROR_NONE
-            1: ERROR_UNSTABLE_GAIN
-            2: ERROR_CPR_POLEPAIRS_MISMATCH
-            4: ERROR_NO_RESPONSE
-            8: ERROR_UNSUPPORTED_ENCODER_MODE
-            16: ERROR_ILLEGAL_HALL_STATE
-            32: ERROR_INDEX_NOT_FOUND_YET
-            64: ERROR_ABS_SPI_TIMEOUT
-            128: ERROR_ABS_SPI_COM_FAIL
-            256: ERROR_ABS_SPI_NOT_READY
-            512: ERROR_HALL_NOT_CALIBRATED_YET
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 4294967294.0
-  - ODRIVE_getSensorlessError_axis1:
-      comment: Sesnorless error for odrive
-      id: 37
-      size: 4
-      senders:
-      - ODRIVE
-      receivers:
-      - JETSON
-      frequency: 0
-      signals:
-      - ODRIVE_sensorlessError:
-          comment: Odrive sesnsorless error
-          length: 32
-          is_signed: false
-          unit: ''
-          values:
-            0: ERROR_NONE
-            1: ERROR_UNSTABLE_GAIN
-            2: ERROR_UNKNOWN_CURRENT_MEASUREMENT
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 4294967294.0
-  - ODRIVE_setAxisNodeID_axis1:
-      comment: Sesnorless error for odrive
-      id: 38
-      size: 4
-      senders:
-      - JETSON
-      receivers:
-      - ODRIVE
-      frequency: 0
-      signals:
-      - ODRIVE_axisCanNodeID:
-          comment: Odrive Axis CAN Node ID error
-          length: 32
-          is_signed: false
-          unit: ''
-          values:
-            0: ERROR_NONE
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 4294967294.0
-  - ODRIVE_setAxisRequestedState_axis1:
-      comment: Set axis requested state
-      id: 39
-      size: 4
-      senders:
-      - JETSON
-      receivers:
-      - ODRIVE
-      frequency: 0
-      signals:
-      - ODRIVE_axisRequestedState:
-          comment: Odrive axis requested state
-          length: 32
-          is_signed: false
-          unit: ''
-          values:
-            0: AXIS_STATE_UNDEFINED
-            1: AXIS_STATE_IDLE
-            2: AXIS_STATE_STARTUP_SEQUENCE
-            3: AXIS_STATE_FULL_CALIBRATION_SEQUENCE
-            4: AXIS_STATE_MOTOR_CALIBRATION
-            6: AXIS_STATE_ENCODER_INDEX_SEARCH
-            7: AXIS_STATE_ENCODER_OFFSET_CALIBRATION
-            8: AXIS_STATE_CLOSED_LOOP_CONTROL
-            9: AXIS_STATE_LOCKIN_SPIN
-            10: AXIS_STATE_ENCODER_DIR_FIND
-            11: AXIS_STATE_HOMING
-            12: AXIS_STATE_ENCODER_HALL_POLARITY_CALIBRATION
-            13: AXIS_STATE_ENCODER_HALL_PHASE_CALIBRATION
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 4294967294.0
-  - ODRIVE_getEncoderEstimates_axis1:
-      comment: Get encoder estimates
-      id: 41
-      size: 8
-      senders:
-      - JETSON
-      receivers:
-      - ODRIVE
-      frequency: 0
-      signals:
-      - ODRIVE_encoderPosEstimate:
-          comment: Odrive encoder position estimate
-          length: 32
-          is_signed: false
-          is_float: true
-          unit: turns
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 1.0
-      - ODRIVE_encoderVelEstimate:
-          comment: Odrive encoder velocity estimate
-          length: 32
-          is_signed: false
-          is_float: true
-          unit: turns/s
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 1.0
-  - ODRIVE_getEncoderCount_axis1:
-      comment: Get encoder count
-      id: 42
-      size: 8
-      senders:
-      - JETSON
-      receivers:
-      - ODRIVE
-      frequency: 0
-      signals:
-      - ODRIVE_encoderShadowCount:
-          comment: Odrive encoder shadow count
-          length: 32
-          is_signed: true
-          unit: counts
-          values: null
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 1.0
-      - ODRIVE_encoderCountinCPR:
-          comment: Odrive encoder count in CPR
-          length: 32
-          is_signed: true
-          unit: counts
-          values: null
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 1.0
-  - ODRIVE_setControllerModes_axis1:
-      comment: Set controller modes
-      id: 43
-      size: 8
-      senders:
-      - JETSON
-      receivers:
-      - ODRIVE
-      frequency: 0
-      signals:
-      - ODRIVE_controlMode:
-          comment: Odrive control mode
-          length: 32
-          is_signed: true
-          unit: ''
-          values:
-            0: CONTROL_MODE_VOLTAGE_CONTROL
-            1: CONTROL_MODE_TORQUE_CONTROL
-            2: CONTROL_MODE_VELOCITY_CONTROL
-            3: CONTROL_MODE_POSITION_CONTROL
-          scale: 1.0
-          offset: 0.0
-          min: -2147483647.0
-          max: 2147483647.0
-      - ODRIVE_inputMode:
-          comment: Odrive input mode
-          length: 32
-          is_signed: true
-          unit: ''
-          values:
-            0: INPUT_MODE_INACTIVE
-            1: INPUT_MODE_PASSTHROUGH
-            2: INPUT_MODE_VEL_RAMP
-            3: INPUT_MODE_POS_FILTER
-            4: INPUT_MODE_MIX_CHANNELS
-            5: INPUT_MODE_TRAP_TRAJ
-            6: INPUT_MODE_TORQUE_RAMP
-            7: INPUT_MODE_MIRROR
-            8: INPUT_MODE_Tuning
-          scale: 1.0
-          offset: 0.0
-          min: -2147483647.0
-          max: 2147483647.0
-  - ODRIVE_SetInputPos_axis1:
-      comment: Set input position
-      id: 44
-      size: 8
-      senders:
-      - JETSON
-      receivers:
-      - ODRIVE
-      frequency: 0
-      signals:
-      - ODRIVE_inputPos:
-          comment: Odrive input position
-          length: 32
-          is_signed: false
-          is_float: true
-          unit: ''
-          values: null
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 1.0
-      - ODRIVE_VelFF:
-          comment: Odrive velocity feed forward
-          length: 16
-          is_signed: true
-          unit: ''
-          values: null
-          scale: 0.001
-          offset: 0.0
-          min: 0.0
-          max: 1.0
-      - ODRIVE_TorqueFF:
-          comment: Odrive torque feed forward
-          length: 16
-          is_signed: true
-          unit: ''
-          values: null
-          scale: 0.001
-          offset: 0.0
-          min: 0.0
-          max: 1.0
-  - ODRIVE_setInputVel_axis1:
-      comment: Set input velocity
-      id: 45
-      size: 8
-      senders:
-      - JETSON
-      receivers:
-      - ODRIVE
-      frequency: 0
-      signals:
-      - ODRIVE_inputVel:
-          comment: Odrive input velocity
-          length: 32
-          is_signed: false
-          is_float: true
-          unit: ''
-          values: null
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 1.0
-      - ODRIVE_TorqueFF:
-          comment: Odrive torque feed forward
-          length: 32
-          is_signed: false
-          is_float: true
-          unit: ''
-          values: null
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 1.0
-  - ODRIVE_setInputTorque_axis1:
-      comment: Set input torque
-      id: 46
-      size: 4
-      senders:
-      - JETSON
-      receivers:
-      - ODRIVE
-      frequency: 0
-      signals:
-      - ODRIVE_inputTorque:
-          comment: Odrive input torque
-          length: 32
-          is_signed: false
-          is_float: true
-          unit: ''
-          values: null
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 1.0
-  - ODRIVE_setLimits_axis1:
-      comment: Set limits
-      id: 47
-      size: 8
-      senders:
-      - JETSON
-      receivers:
-      - ODRIVE
-      frequency: 0
-      signals:
-      - ODRIVE_VelocityLimit:
-          comment: Odrive velocity limit
-          length: 32
-          is_signed: false
-          is_float: true
-          unit: ''
-          values: null
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 1.0
-      - ODRIVE_CurrentLimit:
-          comment: Odrive current limit
-          length: 32
-          is_signed: false
-          is_float: true
-          unit: ''
-          values: null
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 1.0
-  - ODRIVE_StartAnticogging_axis1:
-      comment: Start anticogging
-      id: 48
-      size: 0
-      senders:
-      - JETSON
-      receivers:
-      - ODRIVE
-      frequency: 0
-  - ODRIVE_setTrajVelLimit_axis1:
-      comment: Set traj velocity limit
-      id: 49
-      size: 4
-      senders:
-      - JETSON
-      receivers:
-      - ODRIVE
-      frequency: 0
-      signals:
-      - ODRIVE_TrajVelLimit:
-          comment: Odrive traj velocity limit
-          length: 32
-          is_signed: false
-          is_float: true
-          unit: ''
-          values: null
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 1.0
-  - ODRIVE_setTrajAccelLimit_axis1:
-      comment: Set traj accleration limit
-      id: 50
-      size: 8
-      senders:
-      - JETSON
-      receivers:
-      - ODRIVE
-      frequency: 0
-      signals:
-      - ODRIVE_TrajAccelLimit:
-          comment: Odrive traj acceleration limit
-          length: 32
-          is_signed: false
-          is_float: true
-          unit: ''
-          values: null
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 1.0
-      - ODRIVE_TrajDecelLimit:
-          comment: Odrive traj deceleration limit
-          length: 32
-          is_signed: false
-          is_float: true
-          unit: ''
-          values: null
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 1.0
-  - ODRIVE_setTrajInertia_axis1:
-      comment: Set traj inertia
-      id: 51
-      size: 4
-      senders:
-      - JETSON
-      receivers:
-      - ODRIVE
-      frequency: 0
-      signals:
-      - ODRIVE_TrajInertia:
-          comment: Odrive traj inertia
-          length: 32
-          is_signed: false
-          is_float: true
-          unit: ''
-          values: null
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 1.0
-  - ODRIVE_getIQ_axis1:
-      comment: get IQ
-      id: 52
-      size: 8
-      senders:
-      - ODRIVE
-      receivers:
-      - JETSON
-      frequency: 0
-      signals:
-      - ODRIVE_IqSetpoint:
-          comment: Odrive IQ setpoint
-          length: 32
-          is_signed: false
-          is_float: true
-          unit: ''
-          values: null
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 1.0
-      - ODRIVE_IqMeasured:
-          comment: Odrive IQ measured
-          length: 32
-          is_signed: false
-          is_float: true
-          unit: ''
-          values: null
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 1.0
-  - ODRIVE_GetSensorlessEstimates_axis1:
-      comment: get sensorless estimates
-      id: 53
-      size: 8
-      senders:
-      - ODRIVE
-      receivers:
-      - JETSON
-      frequency: 0
-      signals:
-      - ODRIVE_SensorlessPosEstimate:
-          comment: Odrive sensorless position estimate
-          length: 32
-          is_signed: false
-          is_float: true
-          unit: ''
-          values: null
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 1.0
-      - ODRIVE_SensorlessVelEstimate:
-          comment: Odrive sensorless velocity estimate
-          length: 32
-          is_signed: false
-          is_float: true
-          unit: ''
-          values: null
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 1.0
-  - ODRIVE_RebootOdrive_axis1:
-      comment: reboot Odrive
-      id: 54
-      size: 0
-      senders:
-      - JETSON
-      receivers:
-      - ODRIVE
-      frequency: 0
-  - ODRIVE_getVbusVoltage_axis1:
-      comment: get vbus voltage
-      id: 55
-      size: 4
-      senders:
-      - ODRIVE
-      receivers:
-      - JETSON
-      frequency: 0
-      signals:
-      - ODRIVE_vbusVoltage:
-          comment: Odrive vbus voltage
-          length: 32
-          is_signed: false
-          is_float: true
-          unit: V
-          values: null
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 1.0
-  - ODRIVE_ClearErrors_axis1:
-      comment: clear error
-      id: 56
-      size: 0
-      senders:
-      - JETSON
-      receivers:
-      - ODRIVE
-      frequency: 0
-  - ODRIVE_setLinearCount_axis1:
-      comment: set linear count
-      id: 57
-      size: 4
-      senders:
-      - JETSON
-      receivers:
-      - ODRIVE
-      frequency: 0
-      signals:
-      - ODRIVE_position:
-          comment: Odrive position
-          length: 32
-          is_signed: true
-          unit: ''
-          values: null
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 1.0
-  - ODRIVE_setPositionGain_axis1:
-      comment: set position gain
-      id: 58
-      size: 4
-      senders:
-      - JETSON
-      receivers:
-      - ODRIVE
-      frequency: 0
-      signals:
-      - ODRIVE_posGain:
-          comment: Odrive position gain
-          length: 32
-          is_signed: false
-          is_float: true
-          unit: ''
-          values: null
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 1.0
-  - ODRIVE_setVelGain_axis1:
-      comment: set velocity gain
-      id: 59
-      size: 8
-      senders:
-      - JETSON
-      receivers:
-      - ODRIVE
-      frequency: 0
-      signals:
-      - ODRIVE_velGain:
-          comment: Odrive velocity gain
-          length: 32
-          is_signed: false
-          is_float: true
-          unit: ''
-          values: null
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 1.0
-      - ODRIVE_velIntegratorGain:
-          comment: Odrive velocity integrator gain
-          length: 32
-          is_signed: false
-          is_float: true
-          unit: ''
-          values: null
-          scale: 1.0
-          offset: 0.0
-          min: 0.0
-          max: 1.0
+    - ODRIVE_heartbeatMessage_axis0:
+        comment: Heartbeat messages for odrive
+        id: 1
+        size: 6
+        senders:
+          - ODRIVE
+        receivers:
+          - JETSON
+        frequency: 0
+        signals:
+          - ODRIVE_axisError:
+              comment: Odrive axis errors
+              length: 32
+              is_signed: false
+              unit: ''
+              values:
+                0: ERROR_NONE
+                1: ERROR_INVALID_STATE
+                2048: ERROR_WATCHDOG_TIMER_EXPIRED
+                4096: ERROR_MIN_ENDSTOP_PRESSED
+                8192: ERROR_MAX_ENDSTOP_PRESSED
+                16384: ERROR_ESTOP_REQUESTED
+                131072: ERROR_HOMING_WITHOUT_ENDSTOP
+                262144: ERROR_OVER_TEMP
+                524288: ERROR_UNKNOWN_POSITION
+              scale: 1.0
+              offset: 0.0
+              min: 0.0
+              max: 4294967294.0
+          - ODRIVE_axisCurrentState:
+              comment: Odrive axis current state
+              length: 8
+              is_signed: false
+              unit: ''
+              values:
+                0: AXIS_STATE_UNDEFINED
+                1: AXIS_STATE_IDLE
+                2: AXIS_STATE_STARTUP_SEQUENCE
+                3: AXIS_STATE_FULL_CALIBRATION_SEQUENCE
+                4: AXIS_STATE_MOTOR_CALIBRATION
+                6: AXIS_STATE_ENCODER_INDEX_SEARCH
+                7: AXIS_STATE_ENCODER_OFFSET_CALIBRATION
+                8: AXIS_STATE_CLOSED_LOOP_CONTROL
+                9: AXIS_STATE_LOCKIN_SPIN
+                10: AXIS_STATE_ENCODER_DIR_FIND
+                11: AXIS_STATE_HOMING
+                12: AXIS_STATE_ENCODER_HALL_POLARITY_CALIBRATION
+                13: AXIS_STATE_ENCODER_HALL_PHASE_CALIBRATION
+              scale: 1.0
+              offset: 0.0
+              min: 0.0
+              max: 254.0
+          - ODRIVE_controllerStatus:
+              comment: Odrive controller status
+              length: 8
+              is_signed: false
+              unit: ''
+              values:
+                0: CONTROL_MODE_VOLTAGE_CONTROL
+                1: CONTROL_MODE_TORQUE_CONTROL
+                2: CONTROL_MODE_VELOCITY_CONTROL
+                3: CONTROL_MODE_POSITION_CONTROL
+              scale: 1.0
+              offset: 0.0
+              min: 0.0
+              max: 254.0
+    - ODRIVE_EstopMessage_axis0:
+        comment: Odrive Estop message
+        id: 2
+        size: 0
+        senders:
+          - JETSON
+        receivers:
+          - ODRIVE
+        frequency: 0
+    - ODRIVE_getMotorError_axis0:
+        comment: Heartbeat messages for odrive
+        id: 3
+        size: 8
+        senders:
+          - ODRIVE
+        receivers:
+          - JETSON
+        frequency: 0
+        signals:
+          - ODRIVE_motorError:
+              comment: Odrive motor errors
+              length: 64
+              is_signed: false
+              unit: ''
+              values:
+                0: ERROR_NONE
+                1: ERROR_PHASE_RESISTANCE_OUT_OF_RANGE
+                2: ERROR_PHASE_INDUCTANCE_OUT_OF_RANGE
+                8: ERROR_DRV_FAULT
+                16: ERROR_CONTROL_DEADLINE_MISSED
+                128: ERROR_MODULATION_MAGNITUDE
+                1024: ERROR_CURRENT_SENSE_SATURATION
+                4096: ERROR_CURRENT_LIMIT_VIOLATION
+                65536: ERROR_MODULATION_IS_NAN
+                131072: ERROR_MOTOR_THERMISTOR_OVER_TEMP
+                262144: ERROR_FET_THERMISTOR_OVER_TEMP
+                524288: ERROR_TIMER_UPDATE_MISSED
+                1048576: ERROR_CURRENT_MEASUREMENT_UNAVAILABLE
+                2097152: ERROR_CONTROLLER_FAILED
+                4194304: ERROR_I_BUS_OUT_OF_RANGE
+                8388608: ERROR_BRAKE_RESISTOR_DISARMED
+                16777216: ERROR_SYSTEM_LEVEL
+                33554432: ERROR_BAD_TIMING
+                67108864: ERROR_UNKNOWN_PHASE_ESTIMATE
+                134217728: ERROR_UNKNOWN_PHASE_VEL
+                268435456: ERROR_UNKNOWN_TORQUE
+                536870912: ERROR_UNKNOWN_CURRENT_COMMAND
+                1073741824: ERROR_UNKNOWN_CURRENT_MEASUREMENT
+                2147483648: ERROR_UNKNOWN_VBUS_VOLTAGE
+                4294967296: ERROR_UNKNOWN_VOLTAGE_COMMAND
+                8589934592: ERROR_UNKNOWN_GAINS
+                17179869184: ERROR_CONTROLLER_INITIALIZING
+                34359738368: ERROR_UNBALANCED_PHASES
+              scale: 1.0
+              offset: 0.0
+              min: 0.0
+              max: 1.8446744073709552e+19
+    - ODRIVE_getEncoderError_axis0:
+        comment: Encoder error for odrive
+        id: 4
+        size: 4
+        senders:
+          - ODRIVE
+        receivers:
+          - JETSON
+        frequency: 0
+        signals:
+          - ODRIVE_encoderError:
+              comment: Odrive encoder error
+              length: 32
+              is_signed: false
+              unit: ''
+              values:
+                0: ERROR_NONE
+                1: ERROR_UNSTABLE_GAIN
+                2: ERROR_CPR_POLEPAIRS_MISMATCH
+                4: ERROR_NO_RESPONSE
+                8: ERROR_UNSUPPORTED_ENCODER_MODE
+                16: ERROR_ILLEGAL_HALL_STATE
+                32: ERROR_INDEX_NOT_FOUND_YET
+                64: ERROR_ABS_SPI_TIMEOUT
+                128: ERROR_ABS_SPI_COM_FAIL
+                256: ERROR_ABS_SPI_NOT_READY
+                512: ERROR_HALL_NOT_CALIBRATED_YET
+              scale: 1.0
+              offset: 0.0
+              min: 0.0
+              max: 4294967294.0
+    - ODRIVE_getSensorlessError_axis0:
+        comment: Sesnorless error for odrive
+        id: 5
+        size: 4
+        senders:
+          - ODRIVE
+        receivers:
+          - JETSON
+        frequency: 0
+        signals:
+          - ODRIVE_sensorlessError:
+              comment: Odrive sesnsorless error
+              length: 32
+              is_signed: false
+              unit: ''
+              values:
+                0: ERROR_NONE
+                1: ERROR_UNSTABLE_GAIN
+                2: ERROR_UNKNOWN_CURRENT_MEASUREMENT
+              scale: 1.0
+              offset: 0.0
+              min: 0.0
+              max: 4294967294.0
+    - ODRIVE_setAxisNodeID_axis0:
+        comment: Sesnorless error for odrive
+        id: 6
+        size: 4
+        senders:
+          - JETSON
+        receivers:
+          - ODRIVE
+        frequency: 0
+        signals:
+          - ODRIVE_axisCanNodeID:
+              comment: Odrive Axis CAN Node ID error
+              length: 32
+              is_signed: false
+              unit: ''
+              values:
+                0: ERROR_NONE
+              scale: 1.0
+              offset: 0.0
+              min: 0.0
+              max: 4294967294.0
+    - ODRIVE_setAxisRequestedState_axis0:
+        comment: Set axis requested state
+        id: 7
+        size: 4
+        senders:
+          - JETSON
+        receivers:
+          - ODRIVE
+        frequency: 0
+        signals:
+          - ODRIVE_axisRequestedState:
+              comment: Odrive axis requested state
+              length: 32
+              is_signed: false
+              unit: ''
+              values:
+                0: AXIS_STATE_UNDEFINED
+                1: AXIS_STATE_IDLE
+                2: AXIS_STATE_STARTUP_SEQUENCE
+                3: AXIS_STATE_FULL_CALIBRATION_SEQUENCE
+                4: AXIS_STATE_MOTOR_CALIBRATION
+                6: AXIS_STATE_ENCODER_INDEX_SEARCH
+                7: AXIS_STATE_ENCODER_OFFSET_CALIBRATION
+                8: AXIS_STATE_CLOSED_LOOP_CONTROL
+                9: AXIS_STATE_LOCKIN_SPIN
+                10: AXIS_STATE_ENCODER_DIR_FIND
+                11: AXIS_STATE_HOMING
+                12: AXIS_STATE_ENCODER_HALL_POLARITY_CALIBRATION
+                13: AXIS_STATE_ENCODER_HALL_PHASE_CALIBRATION
+              scale: 1.0
+              offset: 0.0
+              min: 0.0
+              max: 4294967294.0
+    - ODRIVE_getEncoderEstimates_axis0:
+        comment: Get encoder estimates
+        id: 9
+        size: 8
+        senders:
+          - JETSON
+        receivers:
+          - ODRIVE
+        frequency: 0
+        signals:
+          - ODRIVE_encoderPosEstimate:
+              comment: Odrive encoder position estimate
+              length: 32
+              is_signed: false
+              is_float: true
+              unit: turns
+              scale: 1.0
+              offset: 0.0
+              min: 0.0
+              max: 1.0
+          - ODRIVE_encoderVelEstimate:
+              comment: Odrive encoder velocity estimate
+              length: 32
+              is_signed: false
+              is_float: true
+              unit: turns/s
+              scale: 1.0
+              offset: 0.0
+              min: 0.0
+              max: 1.0
+    - ODRIVE_getEncoderCount_axis0:
+        comment: Get encoder count
+        id: 10
+        size: 8
+        senders:
+          - JETSON
+        receivers:
+          - ODRIVE
+        frequency: 0
+        signals:
+          - ODRIVE_encoderShadowCount:
+              comment: Odrive encoder shadow count
+              length: 32
+              is_signed: true
+              unit: counts
+              values: null
+              scale: 1.0
+              offset: 0.0
+              min: 0.0
+              max: 1.0
+          - ODRIVE_encoderCountinCPR:
+              comment: Odrive encoder count in CPR
+              length: 32
+              is_signed: true
+              unit: counts
+              values: null
+              scale: 1.0
+              offset: 0.0
+              min: 0.0
+              max: 1.0
+    - ODRIVE_setControllerModes_axis0:
+        comment: Set controller modes
+        id: 11
+        size: 8
+        senders:
+          - JETSON
+        receivers:
+          - ODRIVE
+        frequency: 0
+        signals:
+          - ODRIVE_controlMode:
+              comment: Odrive control mode
+              length: 32
+              is_signed: true
+              unit: ''
+              values:
+                0: CONTROL_MODE_VOLTAGE_CONTROL
+                1: CONTROL_MODE_TORQUE_CONTROL
+                2: CONTROL_MODE_VELOCITY_CONTROL
+                3: CONTROL_MODE_POSITION_CONTROL
+              scale: 1.0
+              offset: 0.0
+              min: -2147483647.0
+              max: 2147483647.0
+          - ODRIVE_inputMode:
+              comment: Odrive input mode
+              length: 32
+              is_signed: true
+              unit: ''
+              values:
+                0: INPUT_MODE_INACTIVE
+                1: INPUT_MODE_PASSTHROUGH
+                2: INPUT_MODE_VEL_RAMP
+                3: INPUT_MODE_POS_FILTER
+                4: INPUT_MODE_MIX_CHANNELS
+                5: INPUT_MODE_TRAP_TRAJ
+                6: INPUT_MODE_TORQUE_RAMP
+                7: INPUT_MODE_MIRROR
+                8: INPUT_MODE_Tuning
+              scale: 1.0
+              offset: 0.0
+              min: -2147483647.0
+              max: 2147483647.0
+    - ODRIVE_SetInputPos_axis0:
+        comment: Set input position
+        id: 12
+        size: 8
+        senders:
+          - JETSON
+        receivers:
+          - ODRIVE
+        frequency: 0
+        signals:
+          - ODRIVE_inputPos:
+              comment: Odrive input position
+              length: 32
+              is_signed: false
+              is_float: true
+              unit: ''
+              values: null
+              scale: 1.0
+              offset: 0.0
+              min: 0.0
+              max: 1.0
+          - ODRIVE_VelFF:
+              comment: Odrive velocity feed forward
+              length: 16
+              is_signed: true
+              unit: ''
+              values: null
+              scale: 0.001
+              offset: 0.0
+              min: 0.0
+              max: 1.0
+          - ODRIVE_TorqueFF:
+              comment: Odrive torque feed forward
+              length: 16
+              is_signed: true
+              unit: ''
+              values: null
+              scale: 0.001
+              offset: 0.0
+              min: 0.0
+              max: 1.0
+    - ODRIVE_setInputVel_axis0:
+        comment: Set input velocity
+        id: 13
+        size: 8
+        senders:
+          - JETSON
+        receivers:
+          - ODRIVE
+        frequency: 0
+        signals:
+          - ODRIVE_inputVel:
+              comment: Odrive input velocity
+              length: 32
+              is_signed: false
+              is_float: true
+              unit: ''
+              values: null
+              scale: 1.0
+              offset: 0.0
+              min: 0.0
+              max: 1.0
+          - ODRIVE_TorqueFF:
+              comment: Odrive torque feed forward
+              length: 32
+              is_signed: false
+              is_float: true
+              unit: ''
+              values: null
+              scale: 1.0
+              offset: 0.0
+              min: 0.0
+              max: 1.0
+    - ODRIVE_setInputTorque_axis0:
+        comment: Set input torque
+        id: 14
+        size: 4
+        senders:
+          - JETSON
+        receivers:
+          - ODRIVE
+        frequency: 0
+        signals:
+          - ODRIVE_inputTorque:
+              comment: Odrive input torque
+              length: 32
+              is_signed: false
+              is_float: true
+              unit: ''
+              values: null
+              scale: 1.0
+              offset: 0.0
+              min: 0.0
+              max: 1.0
+    - ODRIVE_setLimits_axis0:
+        comment: Set limits
+        id: 15
+        size: 8
+        senders:
+          - JETSON
+        receivers:
+          - ODRIVE
+        frequency: 0
+        signals:
+          - ODRIVE_VelocityLimit:
+              comment: Odrive velocity limit
+              length: 32
+              is_signed: false
+              is_float: true
+              unit: ''
+              values: null
+              scale: 1.0
+              offset: 0.0
+              min: 0.0
+              max: 1.0
+          - ODRIVE_CurrentLimit:
+              comment: Odrive current limit
+              length: 32
+              is_signed: false
+              is_float: true
+              unit: ''
+              values: null
+              scale: 1.0
+              offset: 0.0
+              min: 0.0
+              max: 1.0
+    - ODRIVE_StartAnticogging_axis0:
+        comment: Start anticogging
+        id: 16
+        size: 0
+        senders:
+          - JETSON
+        receivers:
+          - ODRIVE
+        frequency: 0
+    - ODRIVE_setTrajVelLimit_axis0:
+        comment: Set traj velocity limit
+        id: 17
+        size: 4
+        senders:
+          - JETSON
+        receivers:
+          - ODRIVE
+        frequency: 0
+        signals:
+          - ODRIVE_TrajVelLimit:
+              comment: Odrive traj velocity limit
+              length: 32
+              is_signed: false
+              is_float: true
+              unit: ''
+              values: null
+              scale: 1.0
+              offset: 0.0
+              min: 0.0
+              max: 1.0
+    - ODRIVE_setTrajAccelLimit_axis0:
+        comment: Set traj accleration limit
+        id: 18
+        size: 8
+        senders:
+          - JETSON
+        receivers:
+          - ODRIVE
+        frequency: 0
+        signals:
+          - ODRIVE_TrajAccelLimit:
+              comment: Odrive traj acceleration limit
+              length: 32
+              is_signed: false
+              is_float: true
+              unit: ''
+              values: null
+              scale: 1.0
+              offset: 0.0
+              min: 0.0
+              max: 1.0
+          - ODRIVE_TrajDecelLimit:
+              comment: Odrive traj deceleration limit
+              length: 32
+              is_signed: false
+              is_float: true
+              unit: ''
+              values: null
+              scale: 1.0
+              offset: 0.0
+              min: 0.0
+              max: 1.0
+    - ODRIVE_setTrajInertia_axis0:
+        comment: Set traj inertia
+        id: 19
+        size: 4
+        senders:
+          - JETSON
+        receivers:
+          - ODRIVE
+        frequency: 0
+        signals:
+          - ODRIVE_TrajInertia:
+              comment: Odrive traj inertia
+              length: 32
+              is_signed: false
+              is_float: true
+              unit: ''
+              values: null
+              scale: 1.0
+              offset: 0.0
+              min: 0.0
+              max: 1.0
+    - ODRIVE_getIQ_axis0:
+        comment: get IQ
+        id: 20
+        size: 8
+        senders:
+          - ODRIVE
+        receivers:
+          - JETSON
+        frequency: 0
+        signals:
+          - ODRIVE_IqSetpoint:
+              comment: Odrive IQ setpoint
+              length: 32
+              is_signed: false
+              is_float: true
+              unit: ''
+              values: null
+              scale: 1.0
+              offset: 0.0
+              min: 0.0
+              max: 1.0
+          - ODRIVE_IqMeasured:
+              comment: Odrive IQ measured
+              length: 32
+              is_signed: false
+              is_float: true
+              unit: ''
+              values: null
+              scale: 1.0
+              offset: 0.0
+              min: 0.0
+              max: 1.0
+    - ODRIVE_GetSensorlessEstimates_axis0:
+        comment: get sensorless estimates
+        id: 21
+        size: 8
+        senders:
+          - ODRIVE
+        receivers:
+          - JETSON
+        frequency: 0
+        signals:
+          - ODRIVE_SensorlessPosEstimate:
+              comment: Odrive sensorless position estimate
+              length: 32
+              is_signed: false
+              is_float: true
+              unit: ''
+              values: null
+              scale: 1.0
+              offset: 0.0
+              min: 0.0
+              max: 1.0
+          - ODRIVE_SensorlessVelEstimate:
+              comment: Odrive sensorless velocity estimate
+              length: 32
+              is_signed: false
+              is_float: true
+              unit: ''
+              values: null
+              scale: 1.0
+              offset: 0.0
+              min: 0.0
+              max: 1.0
+    - ODRIVE_RebootOdrive_axis0:
+        comment: reboot Odrive
+        id: 22
+        size: 0
+        senders:
+          - JETSON
+        receivers:
+          - ODRIVE
+        frequency: 0
+    - ODRIVE_getVbusVoltage_axis0:
+        comment: get vbus voltage
+        id: 23
+        size: 4
+        senders:
+          - ODRIVE
+        receivers:
+          - JETSON
+        frequency: 0
+        signals:
+          - ODRIVE_vbusVoltage:
+              comment: Odrive vbus voltage
+              length: 32
+              is_signed: false
+              is_float: true
+              unit: V
+              values: null
+              scale: 1.0
+              offset: 0.0
+              min: 0.0
+              max: 1.0
+    - ODRIVE_ClearErrors_axis0:
+        comment: clear error
+        id: 24
+        size: 0
+        senders:
+          - JETSON
+        receivers:
+          - ODRIVE
+        frequency: 0
+        signal: null
+    - ODRIVE_setLinearCount_axis0:
+        comment: set linear count
+        id: 25
+        size: 4
+        senders:
+          - JETSON
+        receivers:
+          - ODRIVE
+        frequency: 0
+        signals:
+          - ODRIVE_position:
+              comment: Odrive position
+              length: 32
+              is_signed: true
+              unit: ''
+              values: null
+              scale: 1.0
+              offset: 0.0
+              min: 0.0
+              max: 1.0
+    - ODRIVE_setPositionGain_axis0:
+        comment: set position gain
+        id: 26
+        size: 4
+        senders:
+          - JETSON
+        receivers:
+          - ODRIVE
+        frequency: 0
+        signals:
+          - ODRIVE_posGain:
+              comment: Odrive position gain
+              length: 32
+              is_signed: false
+              is_float: true
+              unit: ''
+              values: null
+              scale: 1.0
+              offset: 0.0
+              min: 0.0
+              max: 1.0
+    - ODRIVE_setVelGain_axis0:
+        comment: set velocity gain
+        id: 27
+        size: 8
+        senders:
+          - JETSON
+        receivers:
+          - ODRIVE
+        frequency: 0
+        signals:
+          - ODRIVE_velGain:
+              comment: Odrive velocity gain
+              length: 32
+              is_signed: false
+              is_float: true
+              unit: ''
+              values: null
+              scale: 1.0
+              offset: 0.0
+              min: 0.0
+              max: 1.0
+          - ODRIVE_velIntegratorGain:
+              comment: Odrive velocity integrator gain
+              length: 32
+              is_signed: false
+              is_float: true
+              unit: ''
+              values: null
+              scale: 1.0
+              offset: 0.0
+              min: 0.0
+              max: 1.0
+    - ODRIVE_heartbeatMessage_axis1:
+        comment: Heartbeat messages for odrive
+        id: 33
+        size: 6
+        senders:
+          - ODRIVE
+        receivers:
+          - JETSON
+        frequency: 0
+        signals:
+          - ODRIVE_axisError:
+              comment: Odrive axis errors
+              length: 32
+              is_signed: false
+              unit: ''
+              values:
+                0: ERROR_NONE
+                1: ERROR_INVALID_STATE
+                2048: ERROR_WATCHDOG_TIMER_EXPIRED
+                4096: ERROR_MIN_ENDSTOP_PRESSED
+                8192: ERROR_MAX_ENDSTOP_PRESSED
+                16384: ERROR_ESTOP_REQUESTED
+                131072: ERROR_HOMING_WITHOUT_ENDSTOP
+                262144: ERROR_OVER_TEMP
+                524288: ERROR_UNKNOWN_POSITION
+              scale: 1.0
+              offset: 0.0
+              min: 0.0
+              max: 4294967294.0
+          - ODRIVE_axisCurrentState:
+              comment: Odrive axis current state
+              length: 8
+              is_signed: false
+              unit: ''
+              values:
+                0: AXIS_STATE_UNDEFINED
+                1: AXIS_STATE_IDLE
+                2: AXIS_STATE_STARTUP_SEQUENCE
+                3: AXIS_STATE_FULL_CALIBRATION_SEQUENCE
+                4: AXIS_STATE_MOTOR_CALIBRATION
+                6: AXIS_STATE_ENCODER_INDEX_SEARCH
+                7: AXIS_STATE_ENCODER_OFFSET_CALIBRATION
+                8: AXIS_STATE_CLOSED_LOOP_CONTROL
+                9: AXIS_STATE_LOCKIN_SPIN
+                10: AXIS_STATE_ENCODER_DIR_FIND
+                11: AXIS_STATE_HOMING
+                12: AXIS_STATE_ENCODER_HALL_POLARITY_CALIBRATION
+                13: AXIS_STATE_ENCODER_HALL_PHASE_CALIBRATION
+              scale: 1.0
+              offset: 0.0
+              min: 0.0
+              max: 254.0
+          - ODRIVE_controllerStatus:
+              comment: Odrive controller status
+              length: 8
+              is_signed: false
+              unit: ''
+              values:
+                0: CONTROL_MODE_VOLTAGE_CONTROL
+                1: CONTROL_MODE_TORQUE_CONTROL
+                2: CONTROL_MODE_VELOCITY_CONTROL
+                3: CONTROL_MODE_POSITION_CONTROL
+              scale: 1.0
+              offset: 0.0
+              min: 0.0
+              max: 254.0
+    - ODRIVE_EstopMessage_axis1:
+        comment: Odrive Estop message
+        id: 34
+        size: 0
+        senders:
+          - JETSON
+        receivers:
+          - ODRIVE
+        frequency: 0
+    - ODRIVE_getMotorError_axis1:
+        comment: Heartbeat messages for odrive
+        id: 35
+        size: 8
+        senders:
+          - ODRIVE
+        receivers:
+          - JETSON
+        frequency: 0
+        signals:
+          - ODRIVE_motorError:
+              comment: Odrive motor errors
+              length: 64
+              is_signed: false
+              unit: ''
+              values:
+                0: ERROR_NONE
+                1: ERROR_PHASE_RESISTANCE_OUT_OF_RANGE
+                2: ERROR_PHASE_INDUCTANCE_OUT_OF_RANGE
+                8: ERROR_DRV_FAULT
+                16: ERROR_CONTROL_DEADLINE_MISSED
+                128: ERROR_MODULATION_MAGNITUDE
+                1024: ERROR_CURRENT_SENSE_SATURATION
+                4096: ERROR_CURRENT_LIMIT_VIOLATION
+                65536: ERROR_MODULATION_IS_NAN
+                131072: ERROR_MOTOR_THERMISTOR_OVER_TEMP
+                262144: ERROR_FET_THERMISTOR_OVER_TEMP
+                524288: ERROR_TIMER_UPDATE_MISSED
+                1048576: ERROR_CURRENT_MEASUREMENT_UNAVAILABLE
+                2097152: ERROR_CONTROLLER_FAILED
+                4194304: ERROR_I_BUS_OUT_OF_RANGE
+                8388608: ERROR_BRAKE_RESISTOR_DISARMED
+                16777216: ERROR_SYSTEM_LEVEL
+                33554432: ERROR_BAD_TIMING
+                67108864: ERROR_UNKNOWN_PHASE_ESTIMATE
+                134217728: ERROR_UNKNOWN_PHASE_VEL
+                268435456: ERROR_UNKNOWN_TORQUE
+                536870912: ERROR_UNKNOWN_CURRENT_COMMAND
+                1073741824: ERROR_UNKNOWN_CURRENT_MEASUREMENT
+                2147483648: ERROR_UNKNOWN_VBUS_VOLTAGE
+                4294967296: ERROR_UNKNOWN_VOLTAGE_COMMAND
+                8589934592: ERROR_UNKNOWN_GAINS
+                17179869184: ERROR_CONTROLLER_INITIALIZING
+                34359738368: ERROR_UNBALANCED_PHASES
+              scale: 1.0
+              offset: 0.0
+              min: 0.0
+              max: 1.8446744073709552e+19
+    - ODRIVE_getEncoderError_axis1:
+        comment: Encoder error for odrive
+        id: 36
+        size: 4
+        senders:
+          - ODRIVE
+        receivers:
+          - JETSON
+        frequency: 0
+        signals:
+          - ODRIVE_encoderError:
+              comment: Odrive encoder error
+              length: 32
+              is_signed: false
+              unit: ''
+              values:
+                0: ERROR_NONE
+                1: ERROR_UNSTABLE_GAIN
+                2: ERROR_CPR_POLEPAIRS_MISMATCH
+                4: ERROR_NO_RESPONSE
+                8: ERROR_UNSUPPORTED_ENCODER_MODE
+                16: ERROR_ILLEGAL_HALL_STATE
+                32: ERROR_INDEX_NOT_FOUND_YET
+                64: ERROR_ABS_SPI_TIMEOUT
+                128: ERROR_ABS_SPI_COM_FAIL
+                256: ERROR_ABS_SPI_NOT_READY
+                512: ERROR_HALL_NOT_CALIBRATED_YET
+              scale: 1.0
+              offset: 0.0
+              min: 0.0
+              max: 4294967294.0
+    - ODRIVE_getSensorlessError_axis1:
+        comment: Sesnorless error for odrive
+        id: 37
+        size: 4
+        senders:
+          - ODRIVE
+        receivers:
+          - JETSON
+        frequency: 0
+        signals:
+          - ODRIVE_sensorlessError:
+              comment: Odrive sesnsorless error
+              length: 32
+              is_signed: false
+              unit: ''
+              values:
+                0: ERROR_NONE
+                1: ERROR_UNSTABLE_GAIN
+                2: ERROR_UNKNOWN_CURRENT_MEASUREMENT
+              scale: 1.0
+              offset: 0.0
+              min: 0.0
+              max: 4294967294.0
+    - ODRIVE_setAxisNodeID_axis1:
+        comment: Sesnorless error for odrive
+        id: 38
+        size: 4
+        senders:
+          - JETSON
+        receivers:
+          - ODRIVE
+        frequency: 0
+        signals:
+          - ODRIVE_axisCanNodeID:
+              comment: Odrive Axis CAN Node ID error
+              length: 32
+              is_signed: false
+              unit: ''
+              values:
+                0: ERROR_NONE
+              scale: 1.0
+              offset: 0.0
+              min: 0.0
+              max: 4294967294.0
+    - ODRIVE_setAxisRequestedState_axis1:
+        comment: Set axis requested state
+        id: 39
+        size: 4
+        senders:
+          - JETSON
+        receivers:
+          - ODRIVE
+        frequency: 0
+        signals:
+          - ODRIVE_axisRequestedState:
+              comment: Odrive axis requested state
+              length: 32
+              is_signed: false
+              unit: ''
+              values:
+                0: AXIS_STATE_UNDEFINED
+                1: AXIS_STATE_IDLE
+                2: AXIS_STATE_STARTUP_SEQUENCE
+                3: AXIS_STATE_FULL_CALIBRATION_SEQUENCE
+                4: AXIS_STATE_MOTOR_CALIBRATION
+                6: AXIS_STATE_ENCODER_INDEX_SEARCH
+                7: AXIS_STATE_ENCODER_OFFSET_CALIBRATION
+                8: AXIS_STATE_CLOSED_LOOP_CONTROL
+                9: AXIS_STATE_LOCKIN_SPIN
+                10: AXIS_STATE_ENCODER_DIR_FIND
+                11: AXIS_STATE_HOMING
+                12: AXIS_STATE_ENCODER_HALL_POLARITY_CALIBRATION
+                13: AXIS_STATE_ENCODER_HALL_PHASE_CALIBRATION
+              scale: 1.0
+              offset: 0.0
+              min: 0.0
+              max: 4294967294.0
+    - ODRIVE_getEncoderEstimates_axis1:
+        comment: Get encoder estimates
+        id: 41
+        size: 8
+        senders:
+          - JETSON
+        receivers:
+          - ODRIVE
+        frequency: 0
+        signals:
+          - ODRIVE_encoderPosEstimate:
+              comment: Odrive encoder position estimate
+              length: 32
+              is_signed: false
+              is_float: true
+              unit: turns
+              scale: 1.0
+              offset: 0.0
+              min: 0.0
+              max: 1.0
+          - ODRIVE_encoderVelEstimate:
+              comment: Odrive encoder velocity estimate
+              length: 32
+              is_signed: false
+              is_float: true
+              unit: turns/s
+              scale: 1.0
+              offset: 0.0
+              min: 0.0
+              max: 1.0
+    - ODRIVE_getEncoderCount_axis1:
+        comment: Get encoder count
+        id: 42
+        size: 8
+        senders:
+          - JETSON
+        receivers:
+          - ODRIVE
+        frequency: 0
+        signals:
+          - ODRIVE_encoderShadowCount:
+              comment: Odrive encoder shadow count
+              length: 32
+              is_signed: true
+              unit: counts
+              values: null
+              scale: 1.0
+              offset: 0.0
+              min: 0.0
+              max: 1.0
+          - ODRIVE_encoderCountinCPR:
+              comment: Odrive encoder count in CPR
+              length: 32
+              is_signed: true
+              unit: counts
+              values: null
+              scale: 1.0
+              offset: 0.0
+              min: 0.0
+              max: 1.0
+    - ODRIVE_setControllerModes_axis1:
+        comment: Set controller modes
+        id: 43
+        size: 8
+        senders:
+          - JETSON
+        receivers:
+          - ODRIVE
+        frequency: 0
+        signals:
+          - ODRIVE_controlMode:
+              comment: Odrive control mode
+              length: 32
+              is_signed: true
+              unit: ''
+              values:
+                0: CONTROL_MODE_VOLTAGE_CONTROL
+                1: CONTROL_MODE_TORQUE_CONTROL
+                2: CONTROL_MODE_VELOCITY_CONTROL
+                3: CONTROL_MODE_POSITION_CONTROL
+              scale: 1.0
+              offset: 0.0
+              min: -2147483647.0
+              max: 2147483647.0
+          - ODRIVE_inputMode:
+              comment: Odrive input mode
+              length: 32
+              is_signed: true
+              unit: ''
+              values:
+                0: INPUT_MODE_INACTIVE
+                1: INPUT_MODE_PASSTHROUGH
+                2: INPUT_MODE_VEL_RAMP
+                3: INPUT_MODE_POS_FILTER
+                4: INPUT_MODE_MIX_CHANNELS
+                5: INPUT_MODE_TRAP_TRAJ
+                6: INPUT_MODE_TORQUE_RAMP
+                7: INPUT_MODE_MIRROR
+                8: INPUT_MODE_Tuning
+              scale: 1.0
+              offset: 0.0
+              min: -2147483647.0
+              max: 2147483647.0
+    - ODRIVE_SetInputPos_axis1:
+        comment: Set input position
+        id: 44
+        size: 8
+        senders:
+          - JETSON
+        receivers:
+          - ODRIVE
+        frequency: 0
+        signals:
+          - ODRIVE_inputPos:
+              comment: Odrive input position
+              length: 32
+              is_signed: false
+              is_float: true
+              unit: ''
+              values: null
+              scale: 1.0
+              offset: 0.0
+              min: 0.0
+              max: 1.0
+          - ODRIVE_VelFF:
+              comment: Odrive velocity feed forward
+              length: 16
+              is_signed: true
+              unit: ''
+              values: null
+              scale: 0.001
+              offset: 0.0
+              min: 0.0
+              max: 1.0
+          - ODRIVE_TorqueFF:
+              comment: Odrive torque feed forward
+              length: 16
+              is_signed: true
+              unit: ''
+              values: null
+              scale: 0.001
+              offset: 0.0
+              min: 0.0
+              max: 1.0
+    - ODRIVE_setInputVel_axis1:
+        comment: Set input velocity
+        id: 45
+        size: 8
+        senders:
+          - JETSON
+        receivers:
+          - ODRIVE
+        frequency: 0
+        signals:
+          - ODRIVE_inputVel:
+              comment: Odrive input velocity
+              length: 32
+              is_signed: false
+              is_float: true
+              unit: ''
+              values: null
+              scale: 1.0
+              offset: 0.0
+              min: 0.0
+              max: 1.0
+          - ODRIVE_TorqueFF:
+              comment: Odrive torque feed forward
+              length: 32
+              is_signed: false
+              is_float: true
+              unit: ''
+              values: null
+              scale: 1.0
+              offset: 0.0
+              min: 0.0
+              max: 1.0
+    - ODRIVE_setInputTorque_axis1:
+        comment: Set input torque
+        id: 46
+        size: 4
+        senders:
+          - JETSON
+        receivers:
+          - ODRIVE
+        frequency: 0
+        signals:
+          - ODRIVE_inputTorque:
+              comment: Odrive input torque
+              length: 32
+              is_signed: false
+              is_float: true
+              unit: ''
+              values: null
+              scale: 1.0
+              offset: 0.0
+              min: 0.0
+              max: 1.0
+    - ODRIVE_setLimits_axis1:
+        comment: Set limits
+        id: 47
+        size: 8
+        senders:
+          - JETSON
+        receivers:
+          - ODRIVE
+        frequency: 0
+        signals:
+          - ODRIVE_VelocityLimit:
+              comment: Odrive velocity limit
+              length: 32
+              is_signed: false
+              is_float: true
+              unit: ''
+              values: null
+              scale: 1.0
+              offset: 0.0
+              min: 0.0
+              max: 1.0
+          - ODRIVE_CurrentLimit:
+              comment: Odrive current limit
+              length: 32
+              is_signed: false
+              is_float: true
+              unit: ''
+              values: null
+              scale: 1.0
+              offset: 0.0
+              min: 0.0
+              max: 1.0
+    - ODRIVE_StartAnticogging_axis1:
+        comment: Start anticogging
+        id: 48
+        size: 0
+        senders:
+          - JETSON
+        receivers:
+          - ODRIVE
+        frequency: 0
+    - ODRIVE_setTrajVelLimit_axis1:
+        comment: Set traj velocity limit
+        id: 49
+        size: 4
+        senders:
+          - JETSON
+        receivers:
+          - ODRIVE
+        frequency: 0
+        signals:
+          - ODRIVE_TrajVelLimit:
+              comment: Odrive traj velocity limit
+              length: 32
+              is_signed: false
+              is_float: true
+              unit: ''
+              values: null
+              scale: 1.0
+              offset: 0.0
+              min: 0.0
+              max: 1.0
+    - ODRIVE_setTrajAccelLimit_axis1:
+        comment: Set traj accleration limit
+        id: 50
+        size: 8
+        senders:
+          - JETSON
+        receivers:
+          - ODRIVE
+        frequency: 0
+        signals:
+          - ODRIVE_TrajAccelLimit:
+              comment: Odrive traj acceleration limit
+              length: 32
+              is_signed: false
+              is_float: true
+              unit: ''
+              values: null
+              scale: 1.0
+              offset: 0.0
+              min: 0.0
+              max: 1.0
+          - ODRIVE_TrajDecelLimit:
+              comment: Odrive traj deceleration limit
+              length: 32
+              is_signed: false
+              is_float: true
+              unit: ''
+              values: null
+              scale: 1.0
+              offset: 0.0
+              min: 0.0
+              max: 1.0
+    - ODRIVE_setTrajInertia_axis1:
+        comment: Set traj inertia
+        id: 51
+        size: 4
+        senders:
+          - JETSON
+        receivers:
+          - ODRIVE
+        frequency: 0
+        signals:
+          - ODRIVE_TrajInertia:
+              comment: Odrive traj inertia
+              length: 32
+              is_signed: false
+              is_float: true
+              unit: ''
+              values: null
+              scale: 1.0
+              offset: 0.0
+              min: 0.0
+              max: 1.0
+    - ODRIVE_getIQ_axis1:
+        comment: get IQ
+        id: 52
+        size: 8
+        senders:
+          - ODRIVE
+        receivers:
+          - JETSON
+        frequency: 0
+        signals:
+          - ODRIVE_IqSetpoint:
+              comment: Odrive IQ setpoint
+              length: 32
+              is_signed: false
+              is_float: true
+              unit: ''
+              values: null
+              scale: 1.0
+              offset: 0.0
+              min: 0.0
+              max: 1.0
+          - ODRIVE_IqMeasured:
+              comment: Odrive IQ measured
+              length: 32
+              is_signed: false
+              is_float: true
+              unit: ''
+              values: null
+              scale: 1.0
+              offset: 0.0
+              min: 0.0
+              max: 1.0
+    - ODRIVE_GetSensorlessEstimates_axis1:
+        comment: get sensorless estimates
+        id: 53
+        size: 8
+        senders:
+          - ODRIVE
+        receivers:
+          - JETSON
+        frequency: 0
+        signals:
+          - ODRIVE_SensorlessPosEstimate:
+              comment: Odrive sensorless position estimate
+              length: 32
+              is_signed: false
+              is_float: true
+              unit: ''
+              values: null
+              scale: 1.0
+              offset: 0.0
+              min: 0.0
+              max: 1.0
+          - ODRIVE_SensorlessVelEstimate:
+              comment: Odrive sensorless velocity estimate
+              length: 32
+              is_signed: false
+              is_float: true
+              unit: ''
+              values: null
+              scale: 1.0
+              offset: 0.0
+              min: 0.0
+              max: 1.0
+    - ODRIVE_RebootOdrive_axis1:
+        comment: reboot Odrive
+        id: 54
+        size: 0
+        senders:
+          - JETSON
+        receivers:
+          - ODRIVE
+        frequency: 0
+    - ODRIVE_getVbusVoltage_axis1:
+        comment: get vbus voltage
+        id: 55
+        size: 4
+        senders:
+          - ODRIVE
+        receivers:
+          - JETSON
+        frequency: 0
+        signals:
+          - ODRIVE_vbusVoltage:
+              comment: Odrive vbus voltage
+              length: 32
+              is_signed: false
+              is_float: true
+              unit: V
+              values: null
+              scale: 1.0
+              offset: 0.0
+              min: 0.0
+              max: 1.0
+    - ODRIVE_ClearErrors_axis1:
+        comment: clear error
+        id: 56
+        size: 0
+        senders:
+          - JETSON
+        receivers:
+          - ODRIVE
+        frequency: 0
+    - ODRIVE_setLinearCount_axis1:
+        comment: set linear count
+        id: 57
+        size: 4
+        senders:
+          - JETSON
+        receivers:
+          - ODRIVE
+        frequency: 0
+        signals:
+          - ODRIVE_position:
+              comment: Odrive position
+              length: 32
+              is_signed: true
+              unit: ''
+              values: null
+              scale: 1.0
+              offset: 0.0
+              min: 0.0
+              max: 1.0
+    - ODRIVE_setPositionGain_axis1:
+        comment: set position gain
+        id: 58
+        size: 4
+        senders:
+          - JETSON
+        receivers:
+          - ODRIVE
+        frequency: 0
+        signals:
+          - ODRIVE_posGain:
+              comment: Odrive position gain
+              length: 32
+              is_signed: false
+              is_float: true
+              unit: ''
+              values: null
+              scale: 1.0
+              offset: 0.0
+              min: 0.0
+              max: 1.0
+    - ODRIVE_setVelGain_axis1:
+        comment: set velocity gain
+        id: 59
+        size: 8
+        senders:
+          - JETSON
+        receivers:
+          - ODRIVE
+        frequency: 0
+        signals:
+          - ODRIVE_velGain:
+              comment: Odrive velocity gain
+              length: 32
+              is_signed: false
+              is_float: true
+              unit: ''
+              values: null
+              scale: 1.0
+              offset: 0.0
+              min: 0.0
+              max: 1.0
+          - ODRIVE_velIntegratorGain:
+              comment: Odrive velocity integrator gain
+              length: 32
+              is_signed: false
+              is_float: true
+              unit: ''
+              values: null
+              scale: 1.0
+              offset: 0.0
+              min: 0.0
+              max: 1.0

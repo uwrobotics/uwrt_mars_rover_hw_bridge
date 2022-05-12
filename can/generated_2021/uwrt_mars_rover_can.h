@@ -771,59 +771,59 @@ extern "C" {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_arm_set_control_mode_t {
-  /**
-   * Arm turntable control mode
-   *
-   * Range: 0..6 (0.0..6.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint8_t arm_turntable_control_mode;
+    /**
+     * Arm turntable control mode
+     *
+     * Range: 0..6 (0.0..6.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint8_t arm_turntable_control_mode;
 
-  /**
-   * Arm shoulder control mode
-   *
-   * Range: 0..6 (0.0..6.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint8_t arm_shoulder_control_mode;
+    /**
+     * Arm shoulder control mode
+     *
+     * Range: 0..6 (0.0..6.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint8_t arm_shoulder_control_mode;
 
-  /**
-   * Arm elbow control mode
-   *
-   * Range: 0..6 (0.0..6.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint8_t arm_elbow_control_mode;
+    /**
+     * Arm elbow control mode
+     *
+     * Range: 0..6 (0.0..6.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint8_t arm_elbow_control_mode;
 
-  /**
-   * Arm left wrist control mode
-   *
-   * Range: 0..6 (0.0..6.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint8_t arm_left_wrist_control_mode;
+    /**
+     * Arm left wrist control mode
+     *
+     * Range: 0..6 (0.0..6.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint8_t arm_left_wrist_control_mode;
 
-  /**
-   * Arm right wrist control mode
-   *
-   * Range: 0..6 (0.0..6.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint8_t arm_right_wrist_control_mode;
+    /**
+     * Arm right wrist control mode
+     *
+     * Range: 0..6 (0.0..6.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint8_t arm_right_wrist_control_mode;
 
-  /**
-   * Arm claw control mode
-   *
-   * Range: 0..6 (0.0..6.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint8_t arm_claw_control_mode;
+    /**
+     * Arm claw control mode
+     *
+     * Range: 0..6 (0.0..6.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint8_t arm_claw_control_mode;
 };
 
 /**
@@ -834,63 +834,63 @@ struct uwrt_mars_rover_can_arm_set_control_mode_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_arm_set_joint_position_t {
-  /**
-   * Arm set turntable position data
-   *
-   * Range: -511.0000000000000045543672014..511.0000000000000045543672014
-   * (-1.5708..1.5708 rad) Scale: 0.003073972602739726 Offset: 0.0
-   */
-  int16_t arm_set_turntable_position;
+    /**
+     * Arm set turntable position data
+     *
+     * Range: -511.0000000000000045543672014..511.0000000000000045543672014
+     * (-1.5708..1.5708 rad) Scale: 0.003073972602739726 Offset: 0.0
+     */
+    int16_t arm_set_turntable_position;
 
-  /**
-   * Arm set shoulder position data
-   *
-   * Range: 0..1022.000000000000064607157522 (0.0..3.14159 rad)
-   * Scale: 0.0030739628180039137
-   * Offset: 0.0
-   */
-  uint16_t arm_set_shoulder_position;
+    /**
+     * Arm set shoulder position data
+     *
+     * Range: 0..1022.000000000000064607157522 (0.0..3.14159 rad)
+     * Scale: 0.0030739628180039137
+     * Offset: 0.0
+     */
+    uint16_t arm_set_shoulder_position;
 
-  /**
-   * Arm set elbow position data
-   *
-   * Range: -511.0000000000000045543672014..511.0000000000000045543672014
-   * (-1.5708..1.5708 rad) Scale: 0.003073972602739726 Offset: 0.0
-   */
-  int16_t arm_set_elbow_position;
+    /**
+     * Arm set elbow position data
+     *
+     * Range: -511.0000000000000045543672014..511.0000000000000045543672014
+     * (-1.5708..1.5708 rad) Scale: 0.003073972602739726 Offset: 0.0
+     */
+    int16_t arm_set_elbow_position;
 
-  /**
-   * Arm set left wrist position data
-   *
-   * Range: -511.0000000000000045543672014..511.0000000000000045543672014
-   * (-1.5708..1.5708 rad) Scale: 0.003073972602739726 Offset: 0.0
-   */
-  int16_t arm_set_left_wrist_position;
+    /**
+     * Arm set left wrist position data
+     *
+     * Range: -511.0000000000000045543672014..511.0000000000000045543672014
+     * (-1.5708..1.5708 rad) Scale: 0.003073972602739726 Offset: 0.0
+     */
+    int16_t arm_set_left_wrist_position;
 
-  /**
-   * Arm set right wrist position data
-   *
-   * Range: -511.0000000000000045543672014..511.0000000000000045543672014
-   * (-1.5708..1.5708 rad) Scale: 0.003073972602739726 Offset: 0.0
-   */
-  int16_t arm_set_right_wrist_position;
+    /**
+     * Arm set right wrist position data
+     *
+     * Range: -511.0000000000000045543672014..511.0000000000000045543672014
+     * (-1.5708..1.5708 rad) Scale: 0.003073972602739726 Offset: 0.0
+     */
+    int16_t arm_set_right_wrist_position;
 
-  /**
-   * Arm set claw position data
-   *
-   * Range: -63.00000000000000842245989305..63.00000000000000842245989305
-   * (-1.5708..1.5708 rad) Scale: 0.02493333333333333 Offset: 0.0
-   */
-  int8_t arm_set_claw_position;
+    /**
+     * Arm set claw position data
+     *
+     * Range: -63.00000000000000842245989305..63.00000000000000842245989305
+     * (-1.5708..1.5708 rad) Scale: 0.02493333333333333 Offset: 0.0
+     */
+    int8_t arm_set_claw_position;
 
-  /**
-   * Arm set tool tip position data
-   *
-   * Range: 0..125.9999999999999911764425020 (0..3.14159 rad)
-   * Scale: 0.02493325396825397
-   * Offset: 0
-   */
-  uint8_t arm_set_tool_tip_position;
+    /**
+     * Arm set tool tip position data
+     *
+     * Range: 0..125.9999999999999911764425020 (0..3.14159 rad)
+     * Scale: 0.02493325396825397
+     * Offset: 0
+     */
+    uint8_t arm_set_tool_tip_position;
 };
 
 /**
@@ -901,53 +901,53 @@ struct uwrt_mars_rover_can_arm_set_joint_position_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_arm_set_joint_angular_velocity_t {
-  /**
-   * Arm set turntable angular velocity
-   *
-   * Range: -510.9999999999999951455000000..510.9999999999999951455000000
-   * (-0.6..0.6 rad/s) Scale: 0.0011741682974559687 Offset: 0.0
-   */
-  int16_t arm_set_turntable_angular_velocity;
+    /**
+     * Arm set turntable angular velocity
+     *
+     * Range: -510.9999999999999951455000000..510.9999999999999951455000000
+     * (-0.6..0.6 rad/s) Scale: 0.0011741682974559687 Offset: 0.0
+     */
+    int16_t arm_set_turntable_angular_velocity;
 
-  /**
-   * Arm set shoulder angular velocity
-   *
-   * Range: -510.9999999999999690334000000..510.9999999999999690334000000
-   * (-0.05..0.05 rad/s) Scale: 9.784735812133073e-05 Offset: 0.0
-   */
-  int16_t arm_set_shoulder_angular_velocity;
+    /**
+     * Arm set shoulder angular velocity
+     *
+     * Range: -510.9999999999999690334000000..510.9999999999999690334000000
+     * (-0.05..0.05 rad/s) Scale: 9.784735812133073e-05 Offset: 0.0
+     */
+    int16_t arm_set_shoulder_angular_velocity;
 
-  /**
-   * Arm set elbow angular velocity
-   *
-   * Range: -510.9999999999999806387777778..510.9999999999999806387777778
-   * (-1.8..1.8 rad/s) Scale: 0.0035225048923679062 Offset: 0.0
-   */
-  int16_t arm_set_elbow_angular_velocity;
+    /**
+     * Arm set elbow angular velocity
+     *
+     * Range: -510.9999999999999806387777778..510.9999999999999806387777778
+     * (-1.8..1.8 rad/s) Scale: 0.0035225048923679062 Offset: 0.0
+     */
+    int16_t arm_set_elbow_angular_velocity;
 
-  /**
-   * Arm set left wrist angular velocity
-   *
-   * Range: -510.9999999999999933066197183..510.9999999999999933066197183
-   * (-7.1..7.1 rad/s) Scale: 0.013894324853228963 Offset: 0.0
-   */
-  int16_t arm_set_left_wrist_angular_velocity;
+    /**
+     * Arm set left wrist angular velocity
+     *
+     * Range: -510.9999999999999933066197183..510.9999999999999933066197183
+     * (-7.1..7.1 rad/s) Scale: 0.013894324853228963 Offset: 0.0
+     */
+    int16_t arm_set_left_wrist_angular_velocity;
 
-  /**
-   * Arm set right wrist angular velocity
-   *
-   * Range: -510.9999999999999933066197183..510.9999999999999933066197183
-   * (-7.1..7.1 rad/s) Scale: 0.013894324853228963 Offset: 0.0
-   */
-  int16_t arm_set_right_wrist_angular_velocity;
+    /**
+     * Arm set right wrist angular velocity
+     *
+     * Range: -510.9999999999999933066197183..510.9999999999999933066197183
+     * (-7.1..7.1 rad/s) Scale: 0.013894324853228963 Offset: 0.0
+     */
+    int16_t arm_set_right_wrist_angular_velocity;
 
-  /**
-   * Arm set claw angular velocity
-   *
-   * Range: -511.0000000000000386656666667..511.0000000000000386656666667
-   * (-30.0..30.0 rad/s) Scale: 0.05870841487279843 Offset: 0.0
-   */
-  int16_t arm_set_claw_angular_velocity;
+    /**
+     * Arm set claw angular velocity
+     *
+     * Range: -511.0000000000000386656666667..511.0000000000000386656666667
+     * (-30.0..30.0 rad/s) Scale: 0.05870841487279843 Offset: 0.0
+     */
+    int16_t arm_set_claw_angular_velocity;
 };
 
 /**
@@ -958,53 +958,53 @@ struct uwrt_mars_rover_can_arm_set_joint_angular_velocity_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_arm_set_joint_current_t {
-  /**
-   * Arm set turntable current
-   *
-   * Range: -511.0000000000000370233962264..511.0000000000000370233962264
-   * (-53.0..53.0 A) Scale: 0.10371819960861056 Offset: 0.0
-   */
-  int16_t arm_set_turntable_current;
+    /**
+     * Arm set turntable current
+     *
+     * Range: -511.0000000000000370233962264..511.0000000000000370233962264
+     * (-53.0..53.0 A) Scale: 0.10371819960861056 Offset: 0.0
+     */
+    int16_t arm_set_turntable_current;
 
-  /**
-   * Arm set shoulder current
-   *
-   * Range: -511.0000000000000212576000000..511.0000000000000212576000000
-   * (-5.0..5.0 A) Scale: 0.009784735812133072 Offset: 0.0
-   */
-  int16_t arm_set_shoulder_current;
+    /**
+     * Arm set shoulder current
+     *
+     * Range: -511.0000000000000212576000000..511.0000000000000212576000000
+     * (-5.0..5.0 A) Scale: 0.009784735812133072 Offset: 0.0
+     */
+    int16_t arm_set_shoulder_current;
 
-  /**
-   * Arm set elbow current
-   *
-   * Range: -511.0000000000000212576000000..511.0000000000000212576000000
-   * (-25.0..25.0 A) Scale: 0.04892367906066536 Offset: 0.0
-   */
-  int16_t arm_set_elbow_current;
+    /**
+     * Arm set elbow current
+     *
+     * Range: -511.0000000000000212576000000..511.0000000000000212576000000
+     * (-25.0..25.0 A) Scale: 0.04892367906066536 Offset: 0.0
+     */
+    int16_t arm_set_elbow_current;
 
-  /**
-   * Arm set left wrist current
-   *
-   * Range: -511.0000000000000307529090909..511.0000000000000307529090909
-   * (-5.5..5.5 A) Scale: 0.010763209393346379 Offset: 0.0
-   */
-  int16_t arm_set_left_wrist_current;
+    /**
+     * Arm set left wrist current
+     *
+     * Range: -511.0000000000000307529090909..511.0000000000000307529090909
+     * (-5.5..5.5 A) Scale: 0.010763209393346379 Offset: 0.0
+     */
+    int16_t arm_set_left_wrist_current;
 
-  /**
-   * Arm set right wrist current
-   *
-   * Range: -511.0000000000000307529090909..511.0000000000000307529090909
-   * (-5.5..5.5 A) Scale: 0.010763209393346379 Offset: 0.0
-   */
-  int16_t arm_set_right_wrist_current;
+    /**
+     * Arm set right wrist current
+     *
+     * Range: -511.0000000000000307529090909..511.0000000000000307529090909
+     * (-5.5..5.5 A) Scale: 0.010763209393346379 Offset: 0.0
+     */
+    int16_t arm_set_right_wrist_current;
 
-  /**
-   * Arm set claw current
-   *
-   * Range: -511.0000000000000386656666667..511.0000000000000386656666667
-   * (-3.0..3.0 A) Scale: 0.005870841487279843 Offset: 0.0
-   */
-  int16_t arm_set_claw_current;
+    /**
+     * Arm set claw current
+     *
+     * Range: -511.0000000000000386656666667..511.0000000000000386656666667
+     * (-3.0..3.0 A) Scale: 0.005870841487279843 Offset: 0.0
+     */
+    int16_t arm_set_claw_current;
 };
 
 /**
@@ -1015,50 +1015,50 @@ struct uwrt_mars_rover_can_arm_set_joint_current_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_arm_set_joint_pid_params_t {
-  /**
-   * Arm joint ID
-   *
-   * Range: 0..6 (0.0..6.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint8_t arm_joint_pidid;
+    /**
+     * Arm joint ID
+     *
+     * Range: 0..6 (0.0..6.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint8_t arm_joint_pidid;
 
-  /**
-   * Arm joint PID proportional gain
-   *
-   * Range: 0..65534.00000000000493274418000 (0.0..10000.0 -)
-   * Scale: 0.15259254737998595
-   * Offset: 0.0
-   */
-  uint16_t arm_joint_pid_proportional_gain;
+    /**
+     * Arm joint PID proportional gain
+     *
+     * Range: 0..65534.00000000000493274418000 (0.0..10000.0 -)
+     * Scale: 0.15259254737998595
+     * Offset: 0.0
+     */
+    uint16_t arm_joint_pid_proportional_gain;
 
-  /**
-   * Arm joint PID integral gain
-   *
-   * Range: 0..65534.00000000000493274418000 (0.0..10000.0 -)
-   * Scale: 0.15259254737998595
-   * Offset: 0.0
-   */
-  uint16_t arm_joint_pid_integral_gain;
+    /**
+     * Arm joint PID integral gain
+     *
+     * Range: 0..65534.00000000000493274418000 (0.0..10000.0 -)
+     * Scale: 0.15259254737998595
+     * Offset: 0.0
+     */
+    uint16_t arm_joint_pid_integral_gain;
 
-  /**
-   * Arm joint PID derivative gain
-   *
-   * Range: 0..65534.00000000000493274418000 (0.0..10000.0 -)
-   * Scale: 0.15259254737998595
-   * Offset: 0.0
-   */
-  uint16_t arm_joint_pid_derivative_gain;
+    /**
+     * Arm joint PID derivative gain
+     *
+     * Range: 0..65534.00000000000493274418000 (0.0..10000.0 -)
+     * Scale: 0.15259254737998595
+     * Offset: 0.0
+     */
+    uint16_t arm_joint_pid_derivative_gain;
 
-  /**
-   * Arm joint PID deadzone
-   *
-   * Range: 0..8190.000000000000008190000000 (0.0..100.0 -)
-   * Scale: 0.01221001221001221
-   * Offset: 0.0
-   */
-  uint16_t arm_joint_pid_deadzone;
+    /**
+     * Arm joint PID deadzone
+     *
+     * Range: 0..8190.000000000000008190000000 (0.0..100.0 -)
+     * Scale: 0.01221001221001221
+     * Offset: 0.0
+     */
+    uint16_t arm_joint_pid_deadzone;
 };
 
 /**
@@ -1069,54 +1069,54 @@ struct uwrt_mars_rover_can_arm_set_joint_pid_params_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_arm_report_joint_position_t {
-  /**
-   * Arm turntable position
-   *
-   * Range: -2047.000000000000059293672014..2047.000000000000059293672014
-   * (-1.5708..1.5708 rad) Scale: 0.0007673668783585735 Offset: 0.0
-   */
-  int16_t arm_report_turntable_position;
+    /**
+     * Arm turntable position
+     *
+     * Range: -2047.000000000000059293672014..2047.000000000000059293672014
+     * (-1.5708..1.5708 rad) Scale: 0.0007673668783585735 Offset: 0.0
+     */
+    int16_t arm_report_turntable_position;
 
-  /**
-   * Arm shoulder position
-   *
-   * Range: 0..4093.999999999999817296719177 (0.0..3.14159 rad)
-   * Scale: 0.0007673644357596483
-   * Offset: 0.0
-   */
-  uint16_t arm_report_shoulder_position;
+    /**
+     * Arm shoulder position
+     *
+     * Range: 0..4093.999999999999817296719177 (0.0..3.14159 rad)
+     * Scale: 0.0007673644357596483
+     * Offset: 0.0
+     */
+    uint16_t arm_report_shoulder_position;
 
-  /**
-   * Arm elbow position
-   *
-   * Range: -2047.000000000000059293672014..2047.000000000000059293672014
-   * (-1.5708..1.5708 rad) Scale: 0.0007673668783585735 Offset: 0.0
-   */
-  int16_t arm_report_elbow_position;
+    /**
+     * Arm elbow position
+     *
+     * Range: -2047.000000000000059293672014..2047.000000000000059293672014
+     * (-1.5708..1.5708 rad) Scale: 0.0007673668783585735 Offset: 0.0
+     */
+    int16_t arm_report_elbow_position;
 
-  /**
-   * Arm left wrist position
-   *
-   * Range: -127.0000000000000001617010441..127.0000000000000001617010441
-   * (-1.5708..1.5708 rad) Scale: 0.012368503937007874 Offset: 0.0
-   */
-  int8_t arm_report_left_wrist_position;
+    /**
+     * Arm left wrist position
+     *
+     * Range: -127.0000000000000001617010441..127.0000000000000001617010441
+     * (-1.5708..1.5708 rad) Scale: 0.012368503937007874 Offset: 0.0
+     */
+    int8_t arm_report_left_wrist_position;
 
-  /**
-   * Arm right wrist position
-   *
-   * Range: -127.0000000000000001617010441..127.0000000000000001617010441
-   * (-1.5708..1.5708 rad) Scale: 0.012368503937007874 Offset: 0.0
-   */
-  int8_t arm_report_right_wrist_position;
+    /**
+     * Arm right wrist position
+     *
+     * Range: -127.0000000000000001617010441..127.0000000000000001617010441
+     * (-1.5708..1.5708 rad) Scale: 0.012368503937007874 Offset: 0.0
+     */
+    int8_t arm_report_right_wrist_position;
 
-  /**
-   * Arm claw position
-   *
-   * Range: -127.0000000000000001617010441..127.0000000000000001617010441
-   * (-1.5708..1.5708 rad) Scale: 0.012368503937007874 Offset: 0.0
-   */
-  int8_t arm_report_claw_position;
+    /**
+     * Arm claw position
+     *
+     * Range: -127.0000000000000001617010441..127.0000000000000001617010441
+     * (-1.5708..1.5708 rad) Scale: 0.012368503937007874 Offset: 0.0
+     */
+    int8_t arm_report_claw_position;
 };
 
 /**
@@ -1127,53 +1127,53 @@ struct uwrt_mars_rover_can_arm_report_joint_position_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_arm_report_joint_angular_velocity_t {
-  /**
-   * Arm turntable angular velocity
-   *
-   * Range: -510.9999999999999951455000000..510.9999999999999951455000000
-   * (-0.6..0.6 rad) Scale: 0.0011741682974559687 Offset: 0.0
-   */
-  int16_t arm_report_turntable_angular_velocity;
+    /**
+     * Arm turntable angular velocity
+     *
+     * Range: -510.9999999999999951455000000..510.9999999999999951455000000
+     * (-0.6..0.6 rad) Scale: 0.0011741682974559687 Offset: 0.0
+     */
+    int16_t arm_report_turntable_angular_velocity;
 
-  /**
-   * Arm shoulder angular velocity
-   *
-   * Range: -510.9999999999999690334000000..510.9999999999999690334000000
-   * (-0.05..0.05 rad) Scale: 9.784735812133073e-05 Offset: 0.0
-   */
-  int16_t arm_report_shoulder_angular_velocity;
+    /**
+     * Arm shoulder angular velocity
+     *
+     * Range: -510.9999999999999690334000000..510.9999999999999690334000000
+     * (-0.05..0.05 rad) Scale: 9.784735812133073e-05 Offset: 0.0
+     */
+    int16_t arm_report_shoulder_angular_velocity;
 
-  /**
-   * Arm elbow angular velocity
-   *
-   * Range: -510.9999999999999806387777778..510.9999999999999806387777778
-   * (-1.8..1.8 rad) Scale: 0.0035225048923679062 Offset: 0.0
-   */
-  int16_t arm_report_elbow_angular_velocity;
+    /**
+     * Arm elbow angular velocity
+     *
+     * Range: -510.9999999999999806387777778..510.9999999999999806387777778
+     * (-1.8..1.8 rad) Scale: 0.0035225048923679062 Offset: 0.0
+     */
+    int16_t arm_report_elbow_angular_velocity;
 
-  /**
-   * Arm left wrist angular velocity
-   *
-   * Range: -510.9999999999999933066197183..510.9999999999999933066197183
-   * (-7.1..7.1 rad) Scale: 0.013894324853228963 Offset: 0.0
-   */
-  int16_t arm_report_left_wrist_angular_velocity;
+    /**
+     * Arm left wrist angular velocity
+     *
+     * Range: -510.9999999999999933066197183..510.9999999999999933066197183
+     * (-7.1..7.1 rad) Scale: 0.013894324853228963 Offset: 0.0
+     */
+    int16_t arm_report_left_wrist_angular_velocity;
 
-  /**
-   * Arm right wrist angular velocity
-   *
-   * Range: -510.9999999999999933066197183..510.9999999999999933066197183
-   * (-7.1..7.1 rad) Scale: 0.013894324853228963 Offset: 0.0
-   */
-  int16_t arm_report_right_wrist_angular_velocity;
+    /**
+     * Arm right wrist angular velocity
+     *
+     * Range: -510.9999999999999933066197183..510.9999999999999933066197183
+     * (-7.1..7.1 rad) Scale: 0.013894324853228963 Offset: 0.0
+     */
+    int16_t arm_report_right_wrist_angular_velocity;
 
-  /**
-   * Arm claw angular velocity
-   *
-   * Range: -511.0000000000000386656666667..511.0000000000000386656666667
-   * (-30.0..30.0 rad) Scale: 0.05870841487279843 Offset: 0.0
-   */
-  int16_t arm_report_claw_angular_velocity;
+    /**
+     * Arm claw angular velocity
+     *
+     * Range: -511.0000000000000386656666667..511.0000000000000386656666667
+     * (-30.0..30.0 rad) Scale: 0.05870841487279843 Offset: 0.0
+     */
+    int16_t arm_report_claw_angular_velocity;
 };
 
 /**
@@ -1184,53 +1184,53 @@ struct uwrt_mars_rover_can_arm_report_joint_angular_velocity_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_arm_report_joint_current_t {
-  /**
-   * Arm turntable current
-   *
-   * Range: -511.0000000000000370233962264..511.0000000000000370233962264
-   * (-53.0..53.0 rad) Scale: 0.10371819960861056 Offset: 0.0
-   */
-  int16_t arm_report_turntable_current;
+    /**
+     * Arm turntable current
+     *
+     * Range: -511.0000000000000370233962264..511.0000000000000370233962264
+     * (-53.0..53.0 rad) Scale: 0.10371819960861056 Offset: 0.0
+     */
+    int16_t arm_report_turntable_current;
 
-  /**
-   * Arm shoulder current
-   *
-   * Range: -511.0000000000000212576000000..511.0000000000000212576000000
-   * (-5.0..5.0 rad) Scale: 0.009784735812133072 Offset: 0.0
-   */
-  int16_t arm_report_shoulder_current;
+    /**
+     * Arm shoulder current
+     *
+     * Range: -511.0000000000000212576000000..511.0000000000000212576000000
+     * (-5.0..5.0 rad) Scale: 0.009784735812133072 Offset: 0.0
+     */
+    int16_t arm_report_shoulder_current;
 
-  /**
-   * Arm elbow current
-   *
-   * Range: -511.0000000000000212576000000..511.0000000000000212576000000
-   * (-25.0..25.0 rad) Scale: 0.04892367906066536 Offset: 0.0
-   */
-  int16_t arm_report_elbow_current;
+    /**
+     * Arm elbow current
+     *
+     * Range: -511.0000000000000212576000000..511.0000000000000212576000000
+     * (-25.0..25.0 rad) Scale: 0.04892367906066536 Offset: 0.0
+     */
+    int16_t arm_report_elbow_current;
 
-  /**
-   * Arm left wrist current
-   *
-   * Range: -511.0000000000000307529090909..511.0000000000000307529090909
-   * (-5.5..5.5 rad) Scale: 0.010763209393346379 Offset: 0.0
-   */
-  int16_t arm_report_left_wrist_current;
+    /**
+     * Arm left wrist current
+     *
+     * Range: -511.0000000000000307529090909..511.0000000000000307529090909
+     * (-5.5..5.5 rad) Scale: 0.010763209393346379 Offset: 0.0
+     */
+    int16_t arm_report_left_wrist_current;
 
-  /**
-   * Arm right wrist current
-   *
-   * Range: -511.0000000000000307529090909..511.0000000000000307529090909
-   * (-5.5..5.5 rad) Scale: 0.010763209393346379 Offset: 0.0
-   */
-  int16_t arm_report_right_wrist_current;
+    /**
+     * Arm right wrist current
+     *
+     * Range: -511.0000000000000307529090909..511.0000000000000307529090909
+     * (-5.5..5.5 rad) Scale: 0.010763209393346379 Offset: 0.0
+     */
+    int16_t arm_report_right_wrist_current;
 
-  /**
-   * Arm claw current
-   *
-   * Range: -511.0000000000000386656666667..511.0000000000000386656666667
-   * (-3.0..3.0 rad) Scale: 0.005870841487279843 Offset: 0.0
-   */
-  int16_t arm_report_claw_current;
+    /**
+     * Arm claw current
+     *
+     * Range: -511.0000000000000386656666667..511.0000000000000386656666667
+     * (-3.0..3.0 rad) Scale: 0.005870841487279843 Offset: 0.0
+     */
+    int16_t arm_report_claw_current;
 };
 
 /**
@@ -1241,131 +1241,131 @@ struct uwrt_mars_rover_can_arm_report_joint_current_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_arm_report_faults_t {
-  /**
-   * Arm turntable encoder state
-   *
-   * Range: 0..2 (0.0..2.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint8_t arm_turntable_encoder_state;
+    /**
+     * Arm turntable encoder state
+     *
+     * Range: 0..2 (0.0..2.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint8_t arm_turntable_encoder_state;
 
-  /**
-   * Arm turntable current sensor state
-   *
-   * Range: 0..2 (0.0..2.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint8_t arm_turntable_current_sensor_state;
+    /**
+     * Arm turntable current sensor state
+     *
+     * Range: 0..2 (0.0..2.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint8_t arm_turntable_current_sensor_state;
 
-  /**
-   * Arm shoulder encoder state
-   *
-   * Range: 0..2 (0.0..2.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint8_t arm_shoulder_encoder_state;
+    /**
+     * Arm shoulder encoder state
+     *
+     * Range: 0..2 (0.0..2.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint8_t arm_shoulder_encoder_state;
 
-  /**
-   * Arm shoulder current sensor state
-   *
-   * Range: 0..2 (0.0..2.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint8_t arm_shoulder_current_sensor_state;
+    /**
+     * Arm shoulder current sensor state
+     *
+     * Range: 0..2 (0.0..2.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint8_t arm_shoulder_current_sensor_state;
 
-  /**
-   * Arm elbow encoder state
-   *
-   * Range: 0..2 (0.0..2.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint8_t arm_elbow_encoder_state;
+    /**
+     * Arm elbow encoder state
+     *
+     * Range: 0..2 (0.0..2.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint8_t arm_elbow_encoder_state;
 
-  /**
-   * Arm elbow current sensor state
-   *
-   * Range: 0..2 (0.0..2.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint8_t arm_elbow_current_sensor_state;
+    /**
+     * Arm elbow current sensor state
+     *
+     * Range: 0..2 (0.0..2.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint8_t arm_elbow_current_sensor_state;
 
-  /**
-   * Arm left wrist encoder state
-   *
-   * Range: 0..2 (0.0..2.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint8_t arm_left_wrist_encoder_state;
+    /**
+     * Arm left wrist encoder state
+     *
+     * Range: 0..2 (0.0..2.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint8_t arm_left_wrist_encoder_state;
 
-  /**
-   * Arm left wrist current sensor state
-   *
-   * Range: 0..2 (0.0..2.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint8_t arm_left_wrist_current_sensor_state;
+    /**
+     * Arm left wrist current sensor state
+     *
+     * Range: 0..2 (0.0..2.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint8_t arm_left_wrist_current_sensor_state;
 
-  /**
-   * Arm right wrist encoder state
-   *
-   * Range: 0..2 (0.0..2.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint8_t arm_right_wrist_encoder_state;
+    /**
+     * Arm right wrist encoder state
+     *
+     * Range: 0..2 (0.0..2.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint8_t arm_right_wrist_encoder_state;
 
-  /**
-   * Arm shoulder current sensor state
-   *
-   * Range: 0..2 (0.0..2.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint8_t arm_right_wrist_current_sensor_state;
+    /**
+     * Arm shoulder current sensor state
+     *
+     * Range: 0..2 (0.0..2.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint8_t arm_right_wrist_current_sensor_state;
 
-  /**
-   * Arm claw encoder state
-   *
-   * Range: 0..2 (0.0..2.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint8_t arm_claw_encoder_state;
+    /**
+     * Arm claw encoder state
+     *
+     * Range: 0..2 (0.0..2.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint8_t arm_claw_encoder_state;
 
-  /**
-   * Arm claw current sensor state
-   *
-   * Range: 0..2 (0.0..2.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint8_t arm_claw_current_sensor_state;
+    /**
+     * Arm claw current sensor state
+     *
+     * Range: 0..2 (0.0..2.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint8_t arm_claw_current_sensor_state;
 
-  /**
-   * Arm number of CAN RX faults
-   *
-   * Range: 0..65534 (0.0..65534.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint16_t arm_num_canrx_faults;
+    /**
+     * Arm number of CAN RX faults
+     *
+     * Range: 0..65534 (0.0..65534.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint16_t arm_num_canrx_faults;
 
-  /**
-   * Arm number of CAN TX faults
-   *
-   * Range: 0..65534 (0.0..65534.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint16_t arm_num_cantx_faults;
+    /**
+     * Arm number of CAN TX faults
+     *
+     * Range: 0..65534 (0.0..65534.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint16_t arm_num_cantx_faults;
 };
 
 /**
@@ -1376,14 +1376,14 @@ struct uwrt_mars_rover_can_arm_report_faults_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_arm_report_ack_t {
-  /**
-   * Arm ACKs
-   *
-   * Range: 0..254 (0.0..254.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint8_t arm_ack;
+    /**
+     * Arm ACKs
+     *
+     * Range: 0..254 (0.0..254.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint8_t arm_ack;
 };
 
 /**
@@ -1394,23 +1394,23 @@ struct uwrt_mars_rover_can_arm_report_ack_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_arm_report_diagnostics_t {
-  /**
-   * Arm report number of streamed CAN messages received
-   *
-   * Range: 0..4294967294 (0.0..4294967294.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint32_t arm_report_num_streamed_msgs_received;
+    /**
+     * Arm report number of streamed CAN messages received
+     *
+     * Range: 0..4294967294 (0.0..4294967294.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint32_t arm_report_num_streamed_msgs_received;
 
-  /**
-   * Arm report number of one-shot CAN messages received
-   *
-   * Range: 0..4294967294 (0.0..4294967294.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint32_t arm_report_num_one_shot_msgs_received;
+    /**
+     * Arm report number of one-shot CAN messages received
+     *
+     * Range: 0..4294967294 (0.0..4294967294.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint32_t arm_report_num_one_shot_msgs_received;
 };
 
 /**
@@ -1422,41 +1422,41 @@ struct uwrt_mars_rover_can_arm_report_diagnostics_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_arm_set_joint_safety_check_t {
-  /**
-   * The joint ID
-   *
-   * Range: 0..6 (0.0..6.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint8_t arm_safety_check_joint_id;
+    /**
+     * The joint ID
+     *
+     * Range: 0..6 (0.0..6.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint8_t arm_safety_check_joint_id;
 
-  /**
-   * Whether or not to activate current check for this joint
-   *
-   * Range: 0..0 (0.0..0.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint8_t arm_joint_current_check;
+    /**
+     * Whether or not to activate current check for this joint
+     *
+     * Range: 0..0 (0.0..0.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint8_t arm_joint_current_check;
 
-  /**
-   * Whether or not to activate angular velocity check for this joint
-   *
-   * Range: 0..0 (0.0..0.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint8_t arm_joint_angular_velocity_check;
+    /**
+     * Whether or not to activate angular velocity check for this joint
+     *
+     * Range: 0..0 (0.0..0.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint8_t arm_joint_angular_velocity_check;
 
-  /**
-   * Whether or not to activate limit switch check for this joint
-   *
-   * Range: 0..0 (0.0..0.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint8_t arm_joint_limit_switch_check;
+    /**
+     * Whether or not to activate limit switch check for this joint
+     *
+     * Range: 0..0 (0.0..0.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint8_t arm_joint_limit_switch_check;
 };
 
 /**
@@ -1467,23 +1467,23 @@ struct uwrt_mars_rover_can_arm_set_joint_safety_check_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_science_set_control_mode_t {
-  /**
-   * Science geneva mechanism control mode
-   *
-   * Range: 0..2 (0.0..2.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint8_t science_geneva_control_mode;
+    /**
+     * Science geneva mechanism control mode
+     *
+     * Range: 0..2 (0.0..2.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint8_t science_geneva_control_mode;
 
-  /**
-   * Science elevator control mode
-   *
-   * Range: 0..2 (0.0..2.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint8_t science_elevator_control_mode;
+    /**
+     * Science elevator control mode
+     *
+     * Range: 0..2 (0.0..2.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint8_t science_elevator_control_mode;
 };
 
 /**
@@ -1494,39 +1494,39 @@ struct uwrt_mars_rover_can_science_set_control_mode_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_science_set_joint_position_t {
-  /**
-   * Set science geneva mechanism position
-   *
-   * Range: -32767.00000000000246637209000..32767.00000000000246637209000
-   * (-10.0..10.0 rad) Scale: 0.0003051850947599719 Offset: 0.0
-   */
-  int16_t science_set_geneva_position;
+    /**
+     * Set science geneva mechanism position
+     *
+     * Range: -32767.00000000000246637209000..32767.00000000000246637209000
+     * (-10.0..10.0 rad) Scale: 0.0003051850947599719 Offset: 0.0
+     */
+    int16_t science_set_geneva_position;
 
-  /**
-   * Set science elevator position
-   *
-   * Range: -32767.00000000000246637209000..32767.00000000000246637209000
-   * (-10.0..10.0 rad) Scale: 0.0003051850947599719 Offset: 0.0
-   */
-  int16_t science_set_elevator_position;
+    /**
+     * Set science elevator position
+     *
+     * Range: -32767.00000000000246637209000..32767.00000000000246637209000
+     * (-10.0..10.0 rad) Scale: 0.0003051850947599719 Offset: 0.0
+     */
+    int16_t science_set_elevator_position;
 
-  /**
-   * Set science cover position
-   *
-   * Range: 0..65533.99999999999955484466146 (0.0..3.14159 rad)
-   * Scale: 4.793832209234901e-05
-   * Offset: 0.0
-   */
-  uint16_t science_set_cover_position;
+    /**
+     * Set science cover position
+     *
+     * Range: 0..65533.99999999999955484466146 (0.0..3.14159 rad)
+     * Scale: 4.793832209234901e-05
+     * Offset: 0.0
+     */
+    uint16_t science_set_cover_position;
 
-  /**
-   * Set science shovel position
-   *
-   * Range: 0..65533.99999999999955484466146 (0.0..3.14159 rad)
-   * Scale: 4.793832209234901e-05
-   * Offset: 0.0
-   */
-  uint16_t science_set_shovel_position;
+    /**
+     * Set science shovel position
+     *
+     * Range: 0..65533.99999999999955484466146 (0.0..3.14159 rad)
+     * Scale: 4.793832209234901e-05
+     * Offset: 0.0
+     */
+    uint16_t science_set_shovel_position;
 };
 
 /**
@@ -1537,21 +1537,21 @@ struct uwrt_mars_rover_can_science_set_joint_position_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_science_set_joint_angular_velocity_t {
-  /**
-   * Science set geneva mechanism angular velocity
-   *
-   * Range: -32767.00000000000246637209000..32767.00000000000246637209000
-   * (-10.0..10.0 rad/s) Scale: 0.0003051850947599719 Offset: 0.0
-   */
-  int16_t science_set_geneva_angular_velocity;
+    /**
+     * Science set geneva mechanism angular velocity
+     *
+     * Range: -32767.00000000000246637209000..32767.00000000000246637209000
+     * (-10.0..10.0 rad/s) Scale: 0.0003051850947599719 Offset: 0.0
+     */
+    int16_t science_set_geneva_angular_velocity;
 
-  /**
-   * Science set elevator angular velocity
-   *
-   * Range: -32767.00000000000246637209000..32767.00000000000246637209000
-   * (-10.0..10.0 rad/s) Scale: 0.0003051850947599719 Offset: 0.0
-   */
-  int16_t science_set_elevator_angular_velocity;
+    /**
+     * Science set elevator angular velocity
+     *
+     * Range: -32767.00000000000246637209000..32767.00000000000246637209000
+     * (-10.0..10.0 rad/s) Scale: 0.0003051850947599719 Offset: 0.0
+     */
+    int16_t science_set_elevator_angular_velocity;
 };
 
 /**
@@ -1562,50 +1562,50 @@ struct uwrt_mars_rover_can_science_set_joint_angular_velocity_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_science_set_joint_pid_params_t {
-  /**
-   * Science joint ID
-   *
-   * Range: 0..6 (0.0..6.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint8_t science_joint_pidid;
+    /**
+     * Science joint ID
+     *
+     * Range: 0..6 (0.0..6.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint8_t science_joint_pidid;
 
-  /**
-   * Science joint PID proportional gain
-   *
-   * Range: 0..65534.00000000000493274418000 (0.0..10000.0 -)
-   * Scale: 0.15259254737998595
-   * Offset: 0.0
-   */
-  uint16_t science_joint_pid_proportional_gain;
+    /**
+     * Science joint PID proportional gain
+     *
+     * Range: 0..65534.00000000000493274418000 (0.0..10000.0 -)
+     * Scale: 0.15259254737998595
+     * Offset: 0.0
+     */
+    uint16_t science_joint_pid_proportional_gain;
 
-  /**
-   * Science joint PID integral gain
-   *
-   * Range: 0..65534.00000000000493274418000 (0.0..10000.0 -)
-   * Scale: 0.15259254737998595
-   * Offset: 0.0
-   */
-  uint16_t science_joint_pid_integral_gain;
+    /**
+     * Science joint PID integral gain
+     *
+     * Range: 0..65534.00000000000493274418000 (0.0..10000.0 -)
+     * Scale: 0.15259254737998595
+     * Offset: 0.0
+     */
+    uint16_t science_joint_pid_integral_gain;
 
-  /**
-   * Science joint PID derivative gain
-   *
-   * Range: 0..65534.00000000000493274418000 (0.0..10000.0 -)
-   * Scale: 0.15259254737998595
-   * Offset: 0.0
-   */
-  uint16_t science_joint_pid_derivative_gain;
+    /**
+     * Science joint PID derivative gain
+     *
+     * Range: 0..65534.00000000000493274418000 (0.0..10000.0 -)
+     * Scale: 0.15259254737998595
+     * Offset: 0.0
+     */
+    uint16_t science_joint_pid_derivative_gain;
 
-  /**
-   * Science joint PID deadzone
-   *
-   * Range: 0..8190.000000000000008190000000 (0.0..100.0 -)
-   * Scale: 0.01221001221001221
-   * Offset: 0.0
-   */
-  uint16_t science_joint_pid_deadzone;
+    /**
+     * Science joint PID deadzone
+     *
+     * Range: 0..8190.000000000000008190000000 (0.0..100.0 -)
+     * Scale: 0.01221001221001221
+     * Offset: 0.0
+     */
+    uint16_t science_joint_pid_deadzone;
 };
 
 /**
@@ -1616,37 +1616,37 @@ struct uwrt_mars_rover_can_science_set_joint_pid_params_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_science_report_joint_data_t {
-  /**
-   * Science report geneva mechanism position
-   *
-   * Range: -32767.00000000000246637209000..32767.00000000000246637209000
-   * (-10.0..10.0 rad) Scale: 0.0003051850947599719 Offset: 0.0
-   */
-  int16_t science_report_geneva_position;
+    /**
+     * Science report geneva mechanism position
+     *
+     * Range: -32767.00000000000246637209000..32767.00000000000246637209000
+     * (-10.0..10.0 rad) Scale: 0.0003051850947599719 Offset: 0.0
+     */
+    int16_t science_report_geneva_position;
 
-  /**
-   * Science report elevator position
-   *
-   * Range: -32767.00000000000246637209000..32767.00000000000246637209000
-   * (-10.0..10.0 rad) Scale: 0.0003051850947599719 Offset: 0.0
-   */
-  int16_t science_report_elevator_position;
+    /**
+     * Science report elevator position
+     *
+     * Range: -32767.00000000000246637209000..32767.00000000000246637209000
+     * (-10.0..10.0 rad) Scale: 0.0003051850947599719 Offset: 0.0
+     */
+    int16_t science_report_elevator_position;
 
-  /**
-   * Science report geneva mechanism angular velocity
-   *
-   * Range: -32767.00000000000246637209000..32767.00000000000246637209000
-   * (-10.0..10.0 rad/s) Scale: 0.0003051850947599719 Offset: 0.0
-   */
-  int16_t science_report_geneva_angular_velocity;
+    /**
+     * Science report geneva mechanism angular velocity
+     *
+     * Range: -32767.00000000000246637209000..32767.00000000000246637209000
+     * (-10.0..10.0 rad/s) Scale: 0.0003051850947599719 Offset: 0.0
+     */
+    int16_t science_report_geneva_angular_velocity;
 
-  /**
-   * Science report elevator angular velocity
-   *
-   * Range: -32767.00000000000246637209000..32767.00000000000246637209000
-   * (-10.0..10.0 rad/s) Scale: 0.0003051850947599719 Offset: 0.0
-   */
-  int16_t science_report_elevator_angular_velocity;
+    /**
+     * Science report elevator angular velocity
+     *
+     * Range: -32767.00000000000246637209000..32767.00000000000246637209000
+     * (-10.0..10.0 rad/s) Scale: 0.0003051850947599719 Offset: 0.0
+     */
+    int16_t science_report_elevator_angular_velocity;
 };
 
 /**
@@ -1657,22 +1657,22 @@ struct uwrt_mars_rover_can_science_report_joint_data_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_science_report_sensor_data_t {
-  /**
-   * Science moisture sensor data
-   *
-   * Range: 0..65534.00000000000063803902400 (0.0..100.0 -)
-   * Scale: 0.0015259254737998596
-   * Offset: 0.0
-   */
-  uint16_t science_moisture_data;
+    /**
+     * Science moisture sensor data
+     *
+     * Range: 0..65534.00000000000063803902400 (0.0..100.0 -)
+     * Scale: 0.0015259254737998596
+     * Offset: 0.0
+     */
+    uint16_t science_moisture_data;
 
-  /**
-   * Science temperature sensor data
-   *
-   * Range: -32767.00000000000031901951200..32767.00000000000031901951200
-   * (-50.0..100.0 Celsius) Scale: 0.0022888882106997894 Offset: 25.0
-   */
-  int16_t science_temperature_data;
+    /**
+     * Science temperature sensor data
+     *
+     * Range: -32767.00000000000031901951200..32767.00000000000031901951200
+     * (-50.0..100.0 Celsius) Scale: 0.0022888882106997894 Offset: 25.0
+     */
+    int16_t science_temperature_data;
 };
 
 /**
@@ -1683,50 +1683,50 @@ struct uwrt_mars_rover_can_science_report_sensor_data_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_science_report_faults_t {
-  /**
-   * Science geneva mechanism encoder state
-   *
-   * Range: 0..2 (0.0..2.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint8_t science_geneva_encoder_state;
+    /**
+     * Science geneva mechanism encoder state
+     *
+     * Range: 0..2 (0.0..2.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint8_t science_geneva_encoder_state;
 
-  /**
-   * Science elevator encoder state
-   *
-   * Range: 0..2 (0.0..2.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint8_t science_elevator_encoder_state;
+    /**
+     * Science elevator encoder state
+     *
+     * Range: 0..2 (0.0..2.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint8_t science_elevator_encoder_state;
 
-  /**
-   * Science moisture sensor state
-   *
-   * Range: 0..2 (0.0..2.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint8_t science_moisture_sensor_state;
+    /**
+     * Science moisture sensor state
+     *
+     * Range: 0..2 (0.0..2.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint8_t science_moisture_sensor_state;
 
-  /**
-   * Science number of CAN RX faults
-   *
-   * Range: 0..65534 (0.0..65534.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint16_t science_num_canrx_faults;
+    /**
+     * Science number of CAN RX faults
+     *
+     * Range: 0..65534 (0.0..65534.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint16_t science_num_canrx_faults;
 
-  /**
-   * Science number of CAN TX faults
-   *
-   * Range: 0..65534 (0.0..65534.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint16_t science_num_cantx_faults;
+    /**
+     * Science number of CAN TX faults
+     *
+     * Range: 0..65534 (0.0..65534.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint16_t science_num_cantx_faults;
 };
 
 /**
@@ -1737,14 +1737,14 @@ struct uwrt_mars_rover_can_science_report_faults_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_science_report_ack_t {
-  /**
-   * Science ACKs
-   *
-   * Range: 0..254 (0.0..254.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint8_t science_ack;
+    /**
+     * Science ACKs
+     *
+     * Range: 0..254 (0.0..254.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint8_t science_ack;
 };
 
 /**
@@ -1755,23 +1755,23 @@ struct uwrt_mars_rover_can_science_report_ack_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_science_report_diagnostics_t {
-  /**
-   * Science report number of streamed CAN messages received
-   *
-   * Range: 0..4294967294 (0.0..4294967294.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint32_t science_report_num_streamed_msgs_received;
+    /**
+     * Science report number of streamed CAN messages received
+     *
+     * Range: 0..4294967294 (0.0..4294967294.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint32_t science_report_num_streamed_msgs_received;
 
-  /**
-   * Science report number of one-shot CAN messages received
-   *
-   * Range: 0..4294967294 (0.0..4294967294.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint32_t science_report_num_one_shot_msgs_received;
+    /**
+     * Science report number of one-shot CAN messages received
+     *
+     * Range: 0..4294967294 (0.0..4294967294.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint32_t science_report_num_one_shot_msgs_received;
 };
 
 /**
@@ -1782,14 +1782,14 @@ struct uwrt_mars_rover_can_science_report_diagnostics_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_gimbal_set_control_mode_t {
-  /**
-   * Gimbal pan control mode
-   *
-   * Range: 0..2 (0.0..2.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint8_t gimbal_pan_control_mode;
+    /**
+     * Gimbal pan control mode
+     *
+     * Range: 0..2 (0.0..2.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint8_t gimbal_pan_control_mode;
 };
 
 /**
@@ -1800,31 +1800,31 @@ struct uwrt_mars_rover_can_gimbal_set_control_mode_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_gimbal_set_joint_position_t {
-  /**
-   * Gimbal set pan position
-   *
-   * Range: -32767.00000000000067691160833..32767.00000000000067691160833
-   * (-12.0..12.0 rad) Scale: 0.0003662221137119663 Offset: 0.0
-   */
-  int16_t gimbal_set_pan_position;
+    /**
+     * Gimbal set pan position
+     *
+     * Range: -32767.00000000000067691160833..32767.00000000000067691160833
+     * (-12.0..12.0 rad) Scale: 0.0003662221137119663 Offset: 0.0
+     */
+    int16_t gimbal_set_pan_position;
 
-  /**
-   * Gimbal set pitch position
-   *
-   * Range: 0..65533.99999999999955484466146 (0.0..3.14159 rad)
-   * Scale: 4.793832209234901e-05
-   * Offset: 0.0
-   */
-  uint16_t gimbal_set_pitch_position;
+    /**
+     * Gimbal set pitch position
+     *
+     * Range: 0..65533.99999999999955484466146 (0.0..3.14159 rad)
+     * Scale: 4.793832209234901e-05
+     * Offset: 0.0
+     */
+    uint16_t gimbal_set_pitch_position;
 
-  /**
-   * Gimbal set roll position
-   *
-   * Range: 0..65533.99999999999955484466146 (0.0..3.14159 rad)
-   * Scale: 4.793832209234901e-05
-   * Offset: 0.0
-   */
-  uint16_t gimbal_set_roll_position;
+    /**
+     * Gimbal set roll position
+     *
+     * Range: 0..65533.99999999999955484466146 (0.0..3.14159 rad)
+     * Scale: 4.793832209234901e-05
+     * Offset: 0.0
+     */
+    uint16_t gimbal_set_roll_position;
 };
 
 /**
@@ -1835,13 +1835,13 @@ struct uwrt_mars_rover_can_gimbal_set_joint_position_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_gimbal_set_joint_angular_velocity_t {
-  /**
-   * Gimbal set pan angular velocity
-   *
-   * Range: -32767.00000000000067691160833..32767.00000000000067691160833
-   * (-6.0..6.0 rad/s) Scale: 0.00018311105685598315 Offset: 0.0
-   */
-  int16_t gimbal_set_pan_angular_velocity;
+    /**
+     * Gimbal set pan angular velocity
+     *
+     * Range: -32767.00000000000067691160833..32767.00000000000067691160833
+     * (-6.0..6.0 rad/s) Scale: 0.00018311105685598315 Offset: 0.0
+     */
+    int16_t gimbal_set_pan_angular_velocity;
 };
 
 /**
@@ -1852,50 +1852,50 @@ struct uwrt_mars_rover_can_gimbal_set_joint_angular_velocity_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_gimbal_set_joint_pid_params_t {
-  /**
-   * Gimbal joint ID
-   *
-   * Range: 0..6 (0.0..6.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint8_t gimbal_joint_pidid;
+    /**
+     * Gimbal joint ID
+     *
+     * Range: 0..6 (0.0..6.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint8_t gimbal_joint_pidid;
 
-  /**
-   * Gimbal joint PID proportional gain
-   *
-   * Range: 0..65534.00000000000493274418000 (0.0..10000.0 -)
-   * Scale: 0.15259254737998595
-   * Offset: 0.0
-   */
-  uint16_t gimbal_joint_pid_proportional_gain;
+    /**
+     * Gimbal joint PID proportional gain
+     *
+     * Range: 0..65534.00000000000493274418000 (0.0..10000.0 -)
+     * Scale: 0.15259254737998595
+     * Offset: 0.0
+     */
+    uint16_t gimbal_joint_pid_proportional_gain;
 
-  /**
-   * Gimbal joint PID integral gain
-   *
-   * Range: 0..65534.00000000000493274418000 (0.0..10000.0 -)
-   * Scale: 0.15259254737998595
-   * Offset: 0.0
-   */
-  uint16_t gimbal_joint_pid_integral_gain;
+    /**
+     * Gimbal joint PID integral gain
+     *
+     * Range: 0..65534.00000000000493274418000 (0.0..10000.0 -)
+     * Scale: 0.15259254737998595
+     * Offset: 0.0
+     */
+    uint16_t gimbal_joint_pid_integral_gain;
 
-  /**
-   * Gimbal joint PID derivative gain
-   *
-   * Range: 0..65534.00000000000493274418000 (0.0..10000.0 -)
-   * Scale: 0.15259254737998595
-   * Offset: 0.0
-   */
-  uint16_t gimbal_joint_pid_derivative_gain;
+    /**
+     * Gimbal joint PID derivative gain
+     *
+     * Range: 0..65534.00000000000493274418000 (0.0..10000.0 -)
+     * Scale: 0.15259254737998595
+     * Offset: 0.0
+     */
+    uint16_t gimbal_joint_pid_derivative_gain;
 
-  /**
-   * Gimbal joint PID deadzone
-   *
-   * Range: 0..8190.000000000000008190000000 (0.0..100.0 -)
-   * Scale: 0.01221001221001221
-   * Offset: 0.0
-   */
-  uint16_t gimbal_joint_pid_deadzone;
+    /**
+     * Gimbal joint PID deadzone
+     *
+     * Range: 0..8190.000000000000008190000000 (0.0..100.0 -)
+     * Scale: 0.01221001221001221
+     * Offset: 0.0
+     */
+    uint16_t gimbal_joint_pid_deadzone;
 };
 
 /**
@@ -1906,21 +1906,21 @@ struct uwrt_mars_rover_can_gimbal_set_joint_pid_params_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_gimbal_report_joint_data_t {
-  /**
-   * Gimbal report pan position
-   *
-   * Range: -32767.00000000000067691160833..32767.00000000000067691160833
-   * (-12.0..12.0 rad) Scale: 0.0003662221137119663 Offset: 0.0
-   */
-  int16_t gimbal_report_pan_position;
+    /**
+     * Gimbal report pan position
+     *
+     * Range: -32767.00000000000067691160833..32767.00000000000067691160833
+     * (-12.0..12.0 rad) Scale: 0.0003662221137119663 Offset: 0.0
+     */
+    int16_t gimbal_report_pan_position;
 
-  /**
-   * Gimbal report pan angular velocity
-   *
-   * Range: -32767.00000000000067691160833..32767.00000000000067691160833
-   * (-6.0..6.0 rad/s) Scale: 0.00018311105685598315 Offset: 0.0
-   */
-  int16_t gimbal_report_pan_angular_velocity;
+    /**
+     * Gimbal report pan angular velocity
+     *
+     * Range: -32767.00000000000067691160833..32767.00000000000067691160833
+     * (-6.0..6.0 rad/s) Scale: 0.00018311105685598315 Offset: 0.0
+     */
+    int16_t gimbal_report_pan_angular_velocity;
 };
 
 /**
@@ -1931,32 +1931,32 @@ struct uwrt_mars_rover_can_gimbal_report_joint_data_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_gimbal_report_faults_t {
-  /**
-   * Gimbal pan encoder state
-   *
-   * Range: 0..2 (0.0..2.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint8_t gimbal_pan_encoder_state;
+    /**
+     * Gimbal pan encoder state
+     *
+     * Range: 0..2 (0.0..2.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint8_t gimbal_pan_encoder_state;
 
-  /**
-   * Gimbal number of CAN RX faults
-   *
-   * Range: 0..65534 (0.0..65534.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint16_t gimbal_num_canrx_faults;
+    /**
+     * Gimbal number of CAN RX faults
+     *
+     * Range: 0..65534 (0.0..65534.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint16_t gimbal_num_canrx_faults;
 
-  /**
-   * Gimbal number of CAN TX faults
-   *
-   * Range: 0..65534 (0.0..65534.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint16_t gimbal_num_cantx_faults;
+    /**
+     * Gimbal number of CAN TX faults
+     *
+     * Range: 0..65534 (0.0..65534.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint16_t gimbal_num_cantx_faults;
 };
 
 /**
@@ -1967,14 +1967,14 @@ struct uwrt_mars_rover_can_gimbal_report_faults_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_gimbal_report_ack_t {
-  /**
-   * Gimbal ACKs
-   *
-   * Range: 0..254 (0.0..254.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint8_t gimbal_ack;
+    /**
+     * Gimbal ACKs
+     *
+     * Range: 0..254 (0.0..254.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint8_t gimbal_ack;
 };
 
 /**
@@ -1985,23 +1985,23 @@ struct uwrt_mars_rover_can_gimbal_report_ack_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_gimbal_report_diagnostics_t {
-  /**
-   * Gimbal report number of streamed CAN messages received
-   *
-   * Range: 0..4294967294 (0.0..4294967294.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint32_t gimbal_report_num_streamed_msgs_received;
+    /**
+     * Gimbal report number of streamed CAN messages received
+     *
+     * Range: 0..4294967294 (0.0..4294967294.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint32_t gimbal_report_num_streamed_msgs_received;
 
-  /**
-   * Gimbal report number of one-shot CAN messages received
-   *
-   * Range: 0..4294967294 (0.0..4294967294.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint32_t gimbal_report_num_one_shot_msgs_received;
+    /**
+     * Gimbal report number of one-shot CAN messages received
+     *
+     * Range: 0..4294967294 (0.0..4294967294.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint32_t gimbal_report_num_one_shot_msgs_received;
 };
 
 /**
@@ -2012,14 +2012,14 @@ struct uwrt_mars_rover_can_gimbal_report_diagnostics_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_pdb_set_led_matrix_t {
-  /**
-   * PDB LED matrix state
-   *
-   * Range: 0..6 (0.0..6.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint8_t pdb_led_matrix_state;
+    /**
+     * PDB LED matrix state
+     *
+     * Range: 0..6 (0.0..6.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint8_t pdb_led_matrix_state;
 };
 
 /**
@@ -2030,41 +2030,41 @@ struct uwrt_mars_rover_can_pdb_set_led_matrix_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_pdb_report_sensor_data_t {
-  /**
-   * PDB ultrasonic sensor 1 data
-   *
-   * Range: 0..65534.00000000000063803902400 (0.0..500.0 m)
-   * Scale: 0.007629627368999298
-   * Offset: 0.0
-   */
-  uint16_t pdb_ultrasonic_sensor1_data;
+    /**
+     * PDB ultrasonic sensor 1 data
+     *
+     * Range: 0..65534.00000000000063803902400 (0.0..500.0 m)
+     * Scale: 0.007629627368999298
+     * Offset: 0.0
+     */
+    uint16_t pdb_ultrasonic_sensor1_data;
 
-  /**
-   * PDB ultrasonic sensor 2 data
-   *
-   * Range: 0..65534.00000000000063803902400 (0.0..500.0 m)
-   * Scale: 0.007629627368999298
-   * Offset: 0.0
-   */
-  uint16_t pdb_ultrasonic_sensor2_data;
+    /**
+     * PDB ultrasonic sensor 2 data
+     *
+     * Range: 0..65534.00000000000063803902400 (0.0..500.0 m)
+     * Scale: 0.007629627368999298
+     * Offset: 0.0
+     */
+    uint16_t pdb_ultrasonic_sensor2_data;
 
-  /**
-   * PDB ultrasonic sensor 3 data
-   *
-   * Range: 0..65534.00000000000063803902400 (0.0..500.0 m)
-   * Scale: 0.007629627368999298
-   * Offset: 0.0
-   */
-  uint16_t pdb_ultrasonic_sensor3_data;
+    /**
+     * PDB ultrasonic sensor 3 data
+     *
+     * Range: 0..65534.00000000000063803902400 (0.0..500.0 m)
+     * Scale: 0.007629627368999298
+     * Offset: 0.0
+     */
+    uint16_t pdb_ultrasonic_sensor3_data;
 
-  /**
-   * PDB ultrasonic sensor 4 data
-   *
-   * Range: 0..65534.00000000000063803902400 (0.0..500.0 m)
-   * Scale: 0.007629627368999298
-   * Offset: 0.0
-   */
-  uint16_t pdb_ultrasonic_sensor4_data;
+    /**
+     * PDB ultrasonic sensor 4 data
+     *
+     * Range: 0..65534.00000000000063803902400 (0.0..500.0 m)
+     * Scale: 0.007629627368999298
+     * Offset: 0.0
+     */
+    uint16_t pdb_ultrasonic_sensor4_data;
 };
 
 /**
@@ -2075,86 +2075,86 @@ struct uwrt_mars_rover_can_pdb_report_sensor_data_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_pdb_report_faults_t {
-  /**
-   * PDB Jetson power status
-   *
-   * Range: 0..2 (0.0..2.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint8_t pdb_jetson_status;
+    /**
+     * PDB Jetson power status
+     *
+     * Range: 0..2 (0.0..2.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint8_t pdb_jetson_status;
 
-  /**
-   * PDB arm power status
-   *
-   * Range: 0..2 (0.0..2.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint8_t pdb_arm_power_status;
+    /**
+     * PDB arm power status
+     *
+     * Range: 0..2 (0.0..2.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint8_t pdb_arm_power_status;
 
-  /**
-   * PDB science power status
-   *
-   * Range: 0..2 (0.0..2.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint8_t pdb_science_power_status;
+    /**
+     * PDB science power status
+     *
+     * Range: 0..2 (0.0..2.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint8_t pdb_science_power_status;
 
-  /**
-   * PDB gmibal power status
-   *
-   * Range: 0..2 (0.0..2.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint8_t pdb_gimbal_power_status;
+    /**
+     * PDB gmibal power status
+     *
+     * Range: 0..2 (0.0..2.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint8_t pdb_gimbal_power_status;
 
-  /**
-   * PDB VBAT rail status
-   *
-   * Range: 0..2 (0.0..2.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint8_t pdb_vbat_rail_status;
+    /**
+     * PDB VBAT rail status
+     *
+     * Range: 0..2 (0.0..2.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint8_t pdb_vbat_rail_status;
 
-  /**
-   * PDB 17V rail status
-   *
-   * Range: 0..2 (0.0..2.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint8_t pdb_17_v_rail_status;
+    /**
+     * PDB 17V rail status
+     *
+     * Range: 0..2 (0.0..2.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint8_t pdb_17_v_rail_status;
 
-  /**
-   * PDB 5V rail status
-   *
-   * Range: 0..2 (0.0..2.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint8_t pdb_5_v_rail_status;
+    /**
+     * PDB 5V rail status
+     *
+     * Range: 0..2 (0.0..2.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint8_t pdb_5_v_rail_status;
 
-  /**
-   * PDB number of CAN RX faults
-   *
-   * Range: 0..65534 (0.0..65534.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint16_t pdb_num_canrx_faults;
+    /**
+     * PDB number of CAN RX faults
+     *
+     * Range: 0..65534 (0.0..65534.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint16_t pdb_num_canrx_faults;
 
-  /**
-   * PDB number of CAN TX faults
-   *
-   * Range: 0..65534 (0.0..65534.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint16_t pdb_num_cantx_faults;
+    /**
+     * PDB number of CAN TX faults
+     *
+     * Range: 0..65534 (0.0..65534.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint16_t pdb_num_cantx_faults;
 };
 
 /**
@@ -2165,14 +2165,14 @@ struct uwrt_mars_rover_can_pdb_report_faults_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_pdb_report_ack_t {
-  /**
-   * PDB ACKs
-   *
-   * Range: 0..254 (0.0..254.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint8_t pdb_ack;
+    /**
+     * PDB ACKs
+     *
+     * Range: 0..254 (0.0..254.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint8_t pdb_ack;
 };
 
 /**
@@ -2183,23 +2183,23 @@ struct uwrt_mars_rover_can_pdb_report_ack_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_pdb_report_diagnostics_t {
-  /**
-   * PDB report number of streamed CAN messages received
-   *
-   * Range: 0..4294967294 (0.0..4294967294.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint32_t pdb_report_num_streamed_msgs_received;
+    /**
+     * PDB report number of streamed CAN messages received
+     *
+     * Range: 0..4294967294 (0.0..4294967294.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint32_t pdb_report_num_streamed_msgs_received;
 
-  /**
-   * PDB report number of one-shot CAN messages received
-   *
-   * Range: 0..4294967294 (0.0..4294967294.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint32_t pdb_report_num_one_shot_msgs_received;
+    /**
+     * PDB report number of one-shot CAN messages received
+     *
+     * Range: 0..4294967294 (0.0..4294967294.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint32_t pdb_report_num_one_shot_msgs_received;
 };
 
 /**
@@ -2210,14 +2210,14 @@ struct uwrt_mars_rover_can_pdb_report_diagnostics_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_common_switch_can_bus_t {
-  /**
-   * CAN bus ID
-   *
-   * Range: 0..2 (0.0..2.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint8_t common_can_bus_id;
+    /**
+     * CAN bus ID
+     *
+     * Range: 0..2 (0.0..2.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint8_t common_can_bus_id;
 };
 
 /**
@@ -2228,14 +2228,14 @@ struct uwrt_mars_rover_can_common_switch_can_bus_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_common_debug_message1_t {
-  /**
-   * CAN debug signal
-   *
-   * Range: 0..4294967294 (0.0..4294967294.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint32_t common_debug_signal1;
+    /**
+     * CAN debug signal
+     *
+     * Range: 0..4294967294 (0.0..4294967294.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint32_t common_debug_signal1;
 };
 
 /**
@@ -2246,14 +2246,14 @@ struct uwrt_mars_rover_can_common_debug_message1_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_common_debug_message2_t {
-  /**
-   * CAN debug signal
-   *
-   * Range: 0..254 (0.0..254.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint8_t common_debug_signal2;
+    /**
+     * CAN debug signal
+     *
+     * Range: 0..254 (0.0..254.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint8_t common_debug_signal2;
 };
 
 /**
@@ -2264,14 +2264,14 @@ struct uwrt_mars_rover_can_common_debug_message2_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_common_debug_message3_t {
-  /**
-   * CAN debug signal
-   *
-   * Range: 0..254 (0.0..254.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint8_t common_debug_signal3;
+    /**
+     * CAN debug signal
+     *
+     * Range: 0..254 (0.0..254.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint8_t common_debug_signal3;
 };
 
 /**
@@ -2284,9 +2284,9 @@ struct uwrt_mars_rover_can_common_debug_message3_t {
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_arm_set_control_mode_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_arm_set_control_mode_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_arm_set_control_mode_t *src_p,
+        size_t size);
 
 /**
  * Unpack message ARM_setControlMode.
@@ -2298,8 +2298,8 @@ int uwrt_mars_rover_can_arm_set_control_mode_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_arm_set_control_mode_unpack(
-    struct uwrt_mars_rover_can_arm_set_control_mode_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_arm_set_control_mode_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -2310,7 +2310,7 @@ int uwrt_mars_rover_can_arm_set_control_mode_unpack(
  */
 uint8_t
 uwrt_mars_rover_can_arm_set_control_mode_arm_turntable_control_mode_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -2321,7 +2321,7 @@ uwrt_mars_rover_can_arm_set_control_mode_arm_turntable_control_mode_encode(
  */
 double
 uwrt_mars_rover_can_arm_set_control_mode_arm_turntable_control_mode_decode(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -2331,7 +2331,7 @@ uwrt_mars_rover_can_arm_set_control_mode_arm_turntable_control_mode_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_set_control_mode_arm_turntable_control_mode_is_in_range(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -2342,7 +2342,7 @@ bool uwrt_mars_rover_can_arm_set_control_mode_arm_turntable_control_mode_is_in_r
  */
 uint8_t
 uwrt_mars_rover_can_arm_set_control_mode_arm_shoulder_control_mode_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -2353,7 +2353,7 @@ uwrt_mars_rover_can_arm_set_control_mode_arm_shoulder_control_mode_encode(
  */
 double
 uwrt_mars_rover_can_arm_set_control_mode_arm_shoulder_control_mode_decode(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -2363,7 +2363,7 @@ uwrt_mars_rover_can_arm_set_control_mode_arm_shoulder_control_mode_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_set_control_mode_arm_shoulder_control_mode_is_in_range(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -2373,7 +2373,7 @@ bool uwrt_mars_rover_can_arm_set_control_mode_arm_shoulder_control_mode_is_in_ra
  * @return Encoded signal.
  */
 uint8_t uwrt_mars_rover_can_arm_set_control_mode_arm_elbow_control_mode_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -2383,7 +2383,7 @@ uint8_t uwrt_mars_rover_can_arm_set_control_mode_arm_elbow_control_mode_encode(
  * @return Decoded signal.
  */
 double uwrt_mars_rover_can_arm_set_control_mode_arm_elbow_control_mode_decode(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -2393,7 +2393,7 @@ double uwrt_mars_rover_can_arm_set_control_mode_arm_elbow_control_mode_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_set_control_mode_arm_elbow_control_mode_is_in_range(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -2404,7 +2404,7 @@ bool uwrt_mars_rover_can_arm_set_control_mode_arm_elbow_control_mode_is_in_range
  */
 uint8_t
 uwrt_mars_rover_can_arm_set_control_mode_arm_left_wrist_control_mode_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -2415,7 +2415,7 @@ uwrt_mars_rover_can_arm_set_control_mode_arm_left_wrist_control_mode_encode(
  */
 double
 uwrt_mars_rover_can_arm_set_control_mode_arm_left_wrist_control_mode_decode(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -2425,7 +2425,7 @@ uwrt_mars_rover_can_arm_set_control_mode_arm_left_wrist_control_mode_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_set_control_mode_arm_left_wrist_control_mode_is_in_range(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -2436,7 +2436,7 @@ bool uwrt_mars_rover_can_arm_set_control_mode_arm_left_wrist_control_mode_is_in_
  */
 uint8_t
 uwrt_mars_rover_can_arm_set_control_mode_arm_right_wrist_control_mode_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -2447,7 +2447,7 @@ uwrt_mars_rover_can_arm_set_control_mode_arm_right_wrist_control_mode_encode(
  */
 double
 uwrt_mars_rover_can_arm_set_control_mode_arm_right_wrist_control_mode_decode(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -2457,7 +2457,7 @@ uwrt_mars_rover_can_arm_set_control_mode_arm_right_wrist_control_mode_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_set_control_mode_arm_right_wrist_control_mode_is_in_range(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -2467,7 +2467,7 @@ bool uwrt_mars_rover_can_arm_set_control_mode_arm_right_wrist_control_mode_is_in
  * @return Encoded signal.
  */
 uint8_t uwrt_mars_rover_can_arm_set_control_mode_arm_claw_control_mode_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -2477,7 +2477,7 @@ uint8_t uwrt_mars_rover_can_arm_set_control_mode_arm_claw_control_mode_encode(
  * @return Decoded signal.
  */
 double uwrt_mars_rover_can_arm_set_control_mode_arm_claw_control_mode_decode(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -2487,7 +2487,7 @@ double uwrt_mars_rover_can_arm_set_control_mode_arm_claw_control_mode_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_set_control_mode_arm_claw_control_mode_is_in_range(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Pack message ARM_setJointPosition.
@@ -2499,9 +2499,9 @@ bool uwrt_mars_rover_can_arm_set_control_mode_arm_claw_control_mode_is_in_range(
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_arm_set_joint_position_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_arm_set_joint_position_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_arm_set_joint_position_t *src_p,
+        size_t size);
 
 /**
  * Unpack message ARM_setJointPosition.
@@ -2513,8 +2513,8 @@ int uwrt_mars_rover_can_arm_set_joint_position_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_arm_set_joint_position_unpack(
-    struct uwrt_mars_rover_can_arm_set_joint_position_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_arm_set_joint_position_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -2525,7 +2525,7 @@ int uwrt_mars_rover_can_arm_set_joint_position_unpack(
  */
 int16_t
 uwrt_mars_rover_can_arm_set_joint_position_arm_set_turntable_position_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -2536,7 +2536,7 @@ uwrt_mars_rover_can_arm_set_joint_position_arm_set_turntable_position_encode(
  */
 double
 uwrt_mars_rover_can_arm_set_joint_position_arm_set_turntable_position_decode(
-    int16_t value);
+        int16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -2546,7 +2546,7 @@ uwrt_mars_rover_can_arm_set_joint_position_arm_set_turntable_position_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_set_joint_position_arm_set_turntable_position_is_in_range(
-    int16_t value);
+        int16_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -2557,7 +2557,7 @@ bool uwrt_mars_rover_can_arm_set_joint_position_arm_set_turntable_position_is_in
  */
 uint16_t
 uwrt_mars_rover_can_arm_set_joint_position_arm_set_shoulder_position_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -2568,7 +2568,7 @@ uwrt_mars_rover_can_arm_set_joint_position_arm_set_shoulder_position_encode(
  */
 double
 uwrt_mars_rover_can_arm_set_joint_position_arm_set_shoulder_position_decode(
-    uint16_t value);
+        uint16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -2578,7 +2578,7 @@ uwrt_mars_rover_can_arm_set_joint_position_arm_set_shoulder_position_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_set_joint_position_arm_set_shoulder_position_is_in_range(
-    uint16_t value);
+        uint16_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -2589,7 +2589,7 @@ bool uwrt_mars_rover_can_arm_set_joint_position_arm_set_shoulder_position_is_in_
  */
 int16_t
 uwrt_mars_rover_can_arm_set_joint_position_arm_set_elbow_position_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -2599,7 +2599,7 @@ uwrt_mars_rover_can_arm_set_joint_position_arm_set_elbow_position_encode(
  * @return Decoded signal.
  */
 double uwrt_mars_rover_can_arm_set_joint_position_arm_set_elbow_position_decode(
-    int16_t value);
+        int16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -2609,7 +2609,7 @@ double uwrt_mars_rover_can_arm_set_joint_position_arm_set_elbow_position_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_set_joint_position_arm_set_elbow_position_is_in_range(
-    int16_t value);
+        int16_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -2620,7 +2620,7 @@ bool uwrt_mars_rover_can_arm_set_joint_position_arm_set_elbow_position_is_in_ran
  */
 int16_t
 uwrt_mars_rover_can_arm_set_joint_position_arm_set_left_wrist_position_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -2631,7 +2631,7 @@ uwrt_mars_rover_can_arm_set_joint_position_arm_set_left_wrist_position_encode(
  */
 double
 uwrt_mars_rover_can_arm_set_joint_position_arm_set_left_wrist_position_decode(
-    int16_t value);
+        int16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -2641,7 +2641,7 @@ uwrt_mars_rover_can_arm_set_joint_position_arm_set_left_wrist_position_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_set_joint_position_arm_set_left_wrist_position_is_in_range(
-    int16_t value);
+        int16_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -2652,7 +2652,7 @@ bool uwrt_mars_rover_can_arm_set_joint_position_arm_set_left_wrist_position_is_i
  */
 int16_t
 uwrt_mars_rover_can_arm_set_joint_position_arm_set_right_wrist_position_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -2663,7 +2663,7 @@ uwrt_mars_rover_can_arm_set_joint_position_arm_set_right_wrist_position_encode(
  */
 double
 uwrt_mars_rover_can_arm_set_joint_position_arm_set_right_wrist_position_decode(
-    int16_t value);
+        int16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -2673,7 +2673,7 @@ uwrt_mars_rover_can_arm_set_joint_position_arm_set_right_wrist_position_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_set_joint_position_arm_set_right_wrist_position_is_in_range(
-    int16_t value);
+        int16_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -2683,7 +2683,7 @@ bool uwrt_mars_rover_can_arm_set_joint_position_arm_set_right_wrist_position_is_
  * @return Encoded signal.
  */
 int8_t uwrt_mars_rover_can_arm_set_joint_position_arm_set_claw_position_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -2693,7 +2693,7 @@ int8_t uwrt_mars_rover_can_arm_set_joint_position_arm_set_claw_position_encode(
  * @return Decoded signal.
  */
 double uwrt_mars_rover_can_arm_set_joint_position_arm_set_claw_position_decode(
-    int8_t value);
+        int8_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -2703,7 +2703,7 @@ double uwrt_mars_rover_can_arm_set_joint_position_arm_set_claw_position_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_set_joint_position_arm_set_claw_position_is_in_range(
-    int8_t value);
+        int8_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -2714,7 +2714,7 @@ bool uwrt_mars_rover_can_arm_set_joint_position_arm_set_claw_position_is_in_rang
  */
 uint8_t
 uwrt_mars_rover_can_arm_set_joint_position_arm_set_tool_tip_position_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -2725,7 +2725,7 @@ uwrt_mars_rover_can_arm_set_joint_position_arm_set_tool_tip_position_encode(
  */
 double
 uwrt_mars_rover_can_arm_set_joint_position_arm_set_tool_tip_position_decode(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -2735,7 +2735,7 @@ uwrt_mars_rover_can_arm_set_joint_position_arm_set_tool_tip_position_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_set_joint_position_arm_set_tool_tip_position_is_in_range(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Pack message ARM_setJointAngularVelocity.
@@ -2747,9 +2747,9 @@ bool uwrt_mars_rover_can_arm_set_joint_position_arm_set_tool_tip_position_is_in_
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_arm_set_joint_angular_velocity_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_arm_set_joint_angular_velocity_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_arm_set_joint_angular_velocity_t *src_p,
+        size_t size);
 
 /**
  * Unpack message ARM_setJointAngularVelocity.
@@ -2761,8 +2761,8 @@ int uwrt_mars_rover_can_arm_set_joint_angular_velocity_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_arm_set_joint_angular_velocity_unpack(
-    struct uwrt_mars_rover_can_arm_set_joint_angular_velocity_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_arm_set_joint_angular_velocity_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -2773,7 +2773,7 @@ int uwrt_mars_rover_can_arm_set_joint_angular_velocity_unpack(
  */
 int16_t
 uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_set_turntable_angular_velocity_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -2784,7 +2784,7 @@ uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_set_turntable_angular_vel
  */
 double
 uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_set_turntable_angular_velocity_decode(
-    int16_t value);
+        int16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -2794,7 +2794,7 @@ uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_set_turntable_angular_vel
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_set_turntable_angular_velocity_is_in_range(
-    int16_t value);
+        int16_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -2805,7 +2805,7 @@ bool uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_set_turntable_angula
  */
 int16_t
 uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_set_shoulder_angular_velocity_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -2816,7 +2816,7 @@ uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_set_shoulder_angular_velo
  */
 double
 uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_set_shoulder_angular_velocity_decode(
-    int16_t value);
+        int16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -2826,7 +2826,7 @@ uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_set_shoulder_angular_velo
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_set_shoulder_angular_velocity_is_in_range(
-    int16_t value);
+        int16_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -2837,7 +2837,7 @@ bool uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_set_shoulder_angular
  */
 int16_t
 uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_set_elbow_angular_velocity_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -2848,7 +2848,7 @@ uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_set_elbow_angular_velocit
  */
 double
 uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_set_elbow_angular_velocity_decode(
-    int16_t value);
+        int16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -2858,7 +2858,7 @@ uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_set_elbow_angular_velocit
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_set_elbow_angular_velocity_is_in_range(
-    int16_t value);
+        int16_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -2869,7 +2869,7 @@ bool uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_set_elbow_angular_ve
  */
 int16_t
 uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_set_left_wrist_angular_velocity_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -2880,7 +2880,7 @@ uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_set_left_wrist_angular_ve
  */
 double
 uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_set_left_wrist_angular_velocity_decode(
-    int16_t value);
+        int16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -2890,7 +2890,7 @@ uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_set_left_wrist_angular_ve
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_set_left_wrist_angular_velocity_is_in_range(
-    int16_t value);
+        int16_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -2901,7 +2901,7 @@ bool uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_set_left_wrist_angul
  */
 int16_t
 uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_set_right_wrist_angular_velocity_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -2912,7 +2912,7 @@ uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_set_right_wrist_angular_v
  */
 double
 uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_set_right_wrist_angular_velocity_decode(
-    int16_t value);
+        int16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -2922,7 +2922,7 @@ uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_set_right_wrist_angular_v
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_set_right_wrist_angular_velocity_is_in_range(
-    int16_t value);
+        int16_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -2933,7 +2933,7 @@ bool uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_set_right_wrist_angu
  */
 int16_t
 uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_set_claw_angular_velocity_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -2944,7 +2944,7 @@ uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_set_claw_angular_velocity
  */
 double
 uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_set_claw_angular_velocity_decode(
-    int16_t value);
+        int16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -2954,7 +2954,7 @@ uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_set_claw_angular_velocity
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_set_claw_angular_velocity_is_in_range(
-    int16_t value);
+        int16_t value);
 
 /**
  * Pack message ARM_setJointCurrent.
@@ -2966,9 +2966,9 @@ bool uwrt_mars_rover_can_arm_set_joint_angular_velocity_arm_set_claw_angular_vel
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_arm_set_joint_current_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_arm_set_joint_current_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_arm_set_joint_current_t *src_p,
+        size_t size);
 
 /**
  * Unpack message ARM_setJointCurrent.
@@ -2980,8 +2980,8 @@ int uwrt_mars_rover_can_arm_set_joint_current_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_arm_set_joint_current_unpack(
-    struct uwrt_mars_rover_can_arm_set_joint_current_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_arm_set_joint_current_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -2992,7 +2992,7 @@ int uwrt_mars_rover_can_arm_set_joint_current_unpack(
  */
 int16_t
 uwrt_mars_rover_can_arm_set_joint_current_arm_set_turntable_current_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -3003,7 +3003,7 @@ uwrt_mars_rover_can_arm_set_joint_current_arm_set_turntable_current_encode(
  */
 double
 uwrt_mars_rover_can_arm_set_joint_current_arm_set_turntable_current_decode(
-    int16_t value);
+        int16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -3013,7 +3013,7 @@ uwrt_mars_rover_can_arm_set_joint_current_arm_set_turntable_current_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_set_joint_current_arm_set_turntable_current_is_in_range(
-    int16_t value);
+        int16_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -3024,7 +3024,7 @@ bool uwrt_mars_rover_can_arm_set_joint_current_arm_set_turntable_current_is_in_r
  */
 int16_t
 uwrt_mars_rover_can_arm_set_joint_current_arm_set_shoulder_current_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -3035,7 +3035,7 @@ uwrt_mars_rover_can_arm_set_joint_current_arm_set_shoulder_current_encode(
  */
 double
 uwrt_mars_rover_can_arm_set_joint_current_arm_set_shoulder_current_decode(
-    int16_t value);
+        int16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -3045,7 +3045,7 @@ uwrt_mars_rover_can_arm_set_joint_current_arm_set_shoulder_current_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_set_joint_current_arm_set_shoulder_current_is_in_range(
-    int16_t value);
+        int16_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -3055,7 +3055,7 @@ bool uwrt_mars_rover_can_arm_set_joint_current_arm_set_shoulder_current_is_in_ra
  * @return Encoded signal.
  */
 int16_t uwrt_mars_rover_can_arm_set_joint_current_arm_set_elbow_current_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -3065,7 +3065,7 @@ int16_t uwrt_mars_rover_can_arm_set_joint_current_arm_set_elbow_current_encode(
  * @return Decoded signal.
  */
 double uwrt_mars_rover_can_arm_set_joint_current_arm_set_elbow_current_decode(
-    int16_t value);
+        int16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -3075,7 +3075,7 @@ double uwrt_mars_rover_can_arm_set_joint_current_arm_set_elbow_current_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_set_joint_current_arm_set_elbow_current_is_in_range(
-    int16_t value);
+        int16_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -3086,7 +3086,7 @@ bool uwrt_mars_rover_can_arm_set_joint_current_arm_set_elbow_current_is_in_range
  */
 int16_t
 uwrt_mars_rover_can_arm_set_joint_current_arm_set_left_wrist_current_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -3097,7 +3097,7 @@ uwrt_mars_rover_can_arm_set_joint_current_arm_set_left_wrist_current_encode(
  */
 double
 uwrt_mars_rover_can_arm_set_joint_current_arm_set_left_wrist_current_decode(
-    int16_t value);
+        int16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -3107,7 +3107,7 @@ uwrt_mars_rover_can_arm_set_joint_current_arm_set_left_wrist_current_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_set_joint_current_arm_set_left_wrist_current_is_in_range(
-    int16_t value);
+        int16_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -3118,7 +3118,7 @@ bool uwrt_mars_rover_can_arm_set_joint_current_arm_set_left_wrist_current_is_in_
  */
 int16_t
 uwrt_mars_rover_can_arm_set_joint_current_arm_set_right_wrist_current_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -3129,7 +3129,7 @@ uwrt_mars_rover_can_arm_set_joint_current_arm_set_right_wrist_current_encode(
  */
 double
 uwrt_mars_rover_can_arm_set_joint_current_arm_set_right_wrist_current_decode(
-    int16_t value);
+        int16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -3139,7 +3139,7 @@ uwrt_mars_rover_can_arm_set_joint_current_arm_set_right_wrist_current_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_set_joint_current_arm_set_right_wrist_current_is_in_range(
-    int16_t value);
+        int16_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -3149,7 +3149,7 @@ bool uwrt_mars_rover_can_arm_set_joint_current_arm_set_right_wrist_current_is_in
  * @return Encoded signal.
  */
 int16_t uwrt_mars_rover_can_arm_set_joint_current_arm_set_claw_current_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -3159,7 +3159,7 @@ int16_t uwrt_mars_rover_can_arm_set_joint_current_arm_set_claw_current_encode(
  * @return Decoded signal.
  */
 double uwrt_mars_rover_can_arm_set_joint_current_arm_set_claw_current_decode(
-    int16_t value);
+        int16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -3169,7 +3169,7 @@ double uwrt_mars_rover_can_arm_set_joint_current_arm_set_claw_current_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_set_joint_current_arm_set_claw_current_is_in_range(
-    int16_t value);
+        int16_t value);
 
 /**
  * Pack message ARM_setJointPIDParams.
@@ -3181,9 +3181,9 @@ bool uwrt_mars_rover_can_arm_set_joint_current_arm_set_claw_current_is_in_range(
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_arm_set_joint_pid_params_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_arm_set_joint_pid_params_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_arm_set_joint_pid_params_t *src_p,
+        size_t size);
 
 /**
  * Unpack message ARM_setJointPIDParams.
@@ -3195,8 +3195,8 @@ int uwrt_mars_rover_can_arm_set_joint_pid_params_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_arm_set_joint_pid_params_unpack(
-    struct uwrt_mars_rover_can_arm_set_joint_pid_params_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_arm_set_joint_pid_params_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -3206,7 +3206,7 @@ int uwrt_mars_rover_can_arm_set_joint_pid_params_unpack(
  * @return Encoded signal.
  */
 uint8_t uwrt_mars_rover_can_arm_set_joint_pid_params_arm_joint_pidid_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -3216,7 +3216,7 @@ uint8_t uwrt_mars_rover_can_arm_set_joint_pid_params_arm_joint_pidid_encode(
  * @return Decoded signal.
  */
 double uwrt_mars_rover_can_arm_set_joint_pid_params_arm_joint_pidid_decode(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -3226,7 +3226,7 @@ double uwrt_mars_rover_can_arm_set_joint_pid_params_arm_joint_pidid_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_set_joint_pid_params_arm_joint_pidid_is_in_range(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -3237,7 +3237,7 @@ bool uwrt_mars_rover_can_arm_set_joint_pid_params_arm_joint_pidid_is_in_range(
  */
 uint16_t
 uwrt_mars_rover_can_arm_set_joint_pid_params_arm_joint_pid_proportional_gain_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -3248,7 +3248,7 @@ uwrt_mars_rover_can_arm_set_joint_pid_params_arm_joint_pid_proportional_gain_enc
  */
 double
 uwrt_mars_rover_can_arm_set_joint_pid_params_arm_joint_pid_proportional_gain_decode(
-    uint16_t value);
+        uint16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -3258,7 +3258,7 @@ uwrt_mars_rover_can_arm_set_joint_pid_params_arm_joint_pid_proportional_gain_dec
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_set_joint_pid_params_arm_joint_pid_proportional_gain_is_in_range(
-    uint16_t value);
+        uint16_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -3269,7 +3269,7 @@ bool uwrt_mars_rover_can_arm_set_joint_pid_params_arm_joint_pid_proportional_gai
  */
 uint16_t
 uwrt_mars_rover_can_arm_set_joint_pid_params_arm_joint_pid_integral_gain_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -3280,7 +3280,7 @@ uwrt_mars_rover_can_arm_set_joint_pid_params_arm_joint_pid_integral_gain_encode(
  */
 double
 uwrt_mars_rover_can_arm_set_joint_pid_params_arm_joint_pid_integral_gain_decode(
-    uint16_t value);
+        uint16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -3290,7 +3290,7 @@ uwrt_mars_rover_can_arm_set_joint_pid_params_arm_joint_pid_integral_gain_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_set_joint_pid_params_arm_joint_pid_integral_gain_is_in_range(
-    uint16_t value);
+        uint16_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -3301,7 +3301,7 @@ bool uwrt_mars_rover_can_arm_set_joint_pid_params_arm_joint_pid_integral_gain_is
  */
 uint16_t
 uwrt_mars_rover_can_arm_set_joint_pid_params_arm_joint_pid_derivative_gain_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -3312,7 +3312,7 @@ uwrt_mars_rover_can_arm_set_joint_pid_params_arm_joint_pid_derivative_gain_encod
  */
 double
 uwrt_mars_rover_can_arm_set_joint_pid_params_arm_joint_pid_derivative_gain_decode(
-    uint16_t value);
+        uint16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -3322,7 +3322,7 @@ uwrt_mars_rover_can_arm_set_joint_pid_params_arm_joint_pid_derivative_gain_decod
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_set_joint_pid_params_arm_joint_pid_derivative_gain_is_in_range(
-    uint16_t value);
+        uint16_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -3333,7 +3333,7 @@ bool uwrt_mars_rover_can_arm_set_joint_pid_params_arm_joint_pid_derivative_gain_
  */
 uint16_t
 uwrt_mars_rover_can_arm_set_joint_pid_params_arm_joint_pid_deadzone_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -3344,7 +3344,7 @@ uwrt_mars_rover_can_arm_set_joint_pid_params_arm_joint_pid_deadzone_encode(
  */
 double
 uwrt_mars_rover_can_arm_set_joint_pid_params_arm_joint_pid_deadzone_decode(
-    uint16_t value);
+        uint16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -3354,7 +3354,7 @@ uwrt_mars_rover_can_arm_set_joint_pid_params_arm_joint_pid_deadzone_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_set_joint_pid_params_arm_joint_pid_deadzone_is_in_range(
-    uint16_t value);
+        uint16_t value);
 
 /**
  * Pack message ARM_reportJointPosition.
@@ -3366,9 +3366,9 @@ bool uwrt_mars_rover_can_arm_set_joint_pid_params_arm_joint_pid_deadzone_is_in_r
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_arm_report_joint_position_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_arm_report_joint_position_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_arm_report_joint_position_t *src_p,
+        size_t size);
 
 /**
  * Unpack message ARM_reportJointPosition.
@@ -3380,8 +3380,8 @@ int uwrt_mars_rover_can_arm_report_joint_position_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_arm_report_joint_position_unpack(
-    struct uwrt_mars_rover_can_arm_report_joint_position_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_arm_report_joint_position_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -3392,7 +3392,7 @@ int uwrt_mars_rover_can_arm_report_joint_position_unpack(
  */
 int16_t
 uwrt_mars_rover_can_arm_report_joint_position_arm_report_turntable_position_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -3403,7 +3403,7 @@ uwrt_mars_rover_can_arm_report_joint_position_arm_report_turntable_position_enco
  */
 double
 uwrt_mars_rover_can_arm_report_joint_position_arm_report_turntable_position_decode(
-    int16_t value);
+        int16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -3413,7 +3413,7 @@ uwrt_mars_rover_can_arm_report_joint_position_arm_report_turntable_position_deco
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_report_joint_position_arm_report_turntable_position_is_in_range(
-    int16_t value);
+        int16_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -3424,7 +3424,7 @@ bool uwrt_mars_rover_can_arm_report_joint_position_arm_report_turntable_position
  */
 uint16_t
 uwrt_mars_rover_can_arm_report_joint_position_arm_report_shoulder_position_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -3435,7 +3435,7 @@ uwrt_mars_rover_can_arm_report_joint_position_arm_report_shoulder_position_encod
  */
 double
 uwrt_mars_rover_can_arm_report_joint_position_arm_report_shoulder_position_decode(
-    uint16_t value);
+        uint16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -3445,7 +3445,7 @@ uwrt_mars_rover_can_arm_report_joint_position_arm_report_shoulder_position_decod
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_report_joint_position_arm_report_shoulder_position_is_in_range(
-    uint16_t value);
+        uint16_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -3456,7 +3456,7 @@ bool uwrt_mars_rover_can_arm_report_joint_position_arm_report_shoulder_position_
  */
 int16_t
 uwrt_mars_rover_can_arm_report_joint_position_arm_report_elbow_position_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -3467,7 +3467,7 @@ uwrt_mars_rover_can_arm_report_joint_position_arm_report_elbow_position_encode(
  */
 double
 uwrt_mars_rover_can_arm_report_joint_position_arm_report_elbow_position_decode(
-    int16_t value);
+        int16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -3477,7 +3477,7 @@ uwrt_mars_rover_can_arm_report_joint_position_arm_report_elbow_position_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_report_joint_position_arm_report_elbow_position_is_in_range(
-    int16_t value);
+        int16_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -3488,7 +3488,7 @@ bool uwrt_mars_rover_can_arm_report_joint_position_arm_report_elbow_position_is_
  */
 int8_t
 uwrt_mars_rover_can_arm_report_joint_position_arm_report_left_wrist_position_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -3499,7 +3499,7 @@ uwrt_mars_rover_can_arm_report_joint_position_arm_report_left_wrist_position_enc
  */
 double
 uwrt_mars_rover_can_arm_report_joint_position_arm_report_left_wrist_position_decode(
-    int8_t value);
+        int8_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -3509,7 +3509,7 @@ uwrt_mars_rover_can_arm_report_joint_position_arm_report_left_wrist_position_dec
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_report_joint_position_arm_report_left_wrist_position_is_in_range(
-    int8_t value);
+        int8_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -3520,7 +3520,7 @@ bool uwrt_mars_rover_can_arm_report_joint_position_arm_report_left_wrist_positio
  */
 int8_t
 uwrt_mars_rover_can_arm_report_joint_position_arm_report_right_wrist_position_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -3531,7 +3531,7 @@ uwrt_mars_rover_can_arm_report_joint_position_arm_report_right_wrist_position_en
  */
 double
 uwrt_mars_rover_can_arm_report_joint_position_arm_report_right_wrist_position_decode(
-    int8_t value);
+        int8_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -3541,7 +3541,7 @@ uwrt_mars_rover_can_arm_report_joint_position_arm_report_right_wrist_position_de
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_report_joint_position_arm_report_right_wrist_position_is_in_range(
-    int8_t value);
+        int8_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -3552,7 +3552,7 @@ bool uwrt_mars_rover_can_arm_report_joint_position_arm_report_right_wrist_positi
  */
 int8_t
 uwrt_mars_rover_can_arm_report_joint_position_arm_report_claw_position_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -3563,7 +3563,7 @@ uwrt_mars_rover_can_arm_report_joint_position_arm_report_claw_position_encode(
  */
 double
 uwrt_mars_rover_can_arm_report_joint_position_arm_report_claw_position_decode(
-    int8_t value);
+        int8_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -3573,7 +3573,7 @@ uwrt_mars_rover_can_arm_report_joint_position_arm_report_claw_position_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_report_joint_position_arm_report_claw_position_is_in_range(
-    int8_t value);
+        int8_t value);
 
 /**
  * Pack message ARM_reportJointAngularVelocity.
@@ -3585,9 +3585,9 @@ bool uwrt_mars_rover_can_arm_report_joint_position_arm_report_claw_position_is_i
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_arm_report_joint_angular_velocity_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_arm_report_joint_angular_velocity_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_arm_report_joint_angular_velocity_t *src_p,
+        size_t size);
 
 /**
  * Unpack message ARM_reportJointAngularVelocity.
@@ -3599,8 +3599,8 @@ int uwrt_mars_rover_can_arm_report_joint_angular_velocity_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_arm_report_joint_angular_velocity_unpack(
-    struct uwrt_mars_rover_can_arm_report_joint_angular_velocity_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_arm_report_joint_angular_velocity_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -3611,7 +3611,7 @@ int uwrt_mars_rover_can_arm_report_joint_angular_velocity_unpack(
  */
 int16_t
 uwrt_mars_rover_can_arm_report_joint_angular_velocity_arm_report_turntable_angular_velocity_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -3622,7 +3622,7 @@ uwrt_mars_rover_can_arm_report_joint_angular_velocity_arm_report_turntable_angul
  */
 double
 uwrt_mars_rover_can_arm_report_joint_angular_velocity_arm_report_turntable_angular_velocity_decode(
-    int16_t value);
+        int16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -3632,7 +3632,7 @@ uwrt_mars_rover_can_arm_report_joint_angular_velocity_arm_report_turntable_angul
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_report_joint_angular_velocity_arm_report_turntable_angular_velocity_is_in_range(
-    int16_t value);
+        int16_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -3643,7 +3643,7 @@ bool uwrt_mars_rover_can_arm_report_joint_angular_velocity_arm_report_turntable_
  */
 int16_t
 uwrt_mars_rover_can_arm_report_joint_angular_velocity_arm_report_shoulder_angular_velocity_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -3654,7 +3654,7 @@ uwrt_mars_rover_can_arm_report_joint_angular_velocity_arm_report_shoulder_angula
  */
 double
 uwrt_mars_rover_can_arm_report_joint_angular_velocity_arm_report_shoulder_angular_velocity_decode(
-    int16_t value);
+        int16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -3664,7 +3664,7 @@ uwrt_mars_rover_can_arm_report_joint_angular_velocity_arm_report_shoulder_angula
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_report_joint_angular_velocity_arm_report_shoulder_angular_velocity_is_in_range(
-    int16_t value);
+        int16_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -3675,7 +3675,7 @@ bool uwrt_mars_rover_can_arm_report_joint_angular_velocity_arm_report_shoulder_a
  */
 int16_t
 uwrt_mars_rover_can_arm_report_joint_angular_velocity_arm_report_elbow_angular_velocity_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -3686,7 +3686,7 @@ uwrt_mars_rover_can_arm_report_joint_angular_velocity_arm_report_elbow_angular_v
  */
 double
 uwrt_mars_rover_can_arm_report_joint_angular_velocity_arm_report_elbow_angular_velocity_decode(
-    int16_t value);
+        int16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -3696,7 +3696,7 @@ uwrt_mars_rover_can_arm_report_joint_angular_velocity_arm_report_elbow_angular_v
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_report_joint_angular_velocity_arm_report_elbow_angular_velocity_is_in_range(
-    int16_t value);
+        int16_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -3707,7 +3707,7 @@ bool uwrt_mars_rover_can_arm_report_joint_angular_velocity_arm_report_elbow_angu
  */
 int16_t
 uwrt_mars_rover_can_arm_report_joint_angular_velocity_arm_report_left_wrist_angular_velocity_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -3718,7 +3718,7 @@ uwrt_mars_rover_can_arm_report_joint_angular_velocity_arm_report_left_wrist_angu
  */
 double
 uwrt_mars_rover_can_arm_report_joint_angular_velocity_arm_report_left_wrist_angular_velocity_decode(
-    int16_t value);
+        int16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -3728,7 +3728,7 @@ uwrt_mars_rover_can_arm_report_joint_angular_velocity_arm_report_left_wrist_angu
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_report_joint_angular_velocity_arm_report_left_wrist_angular_velocity_is_in_range(
-    int16_t value);
+        int16_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -3739,7 +3739,7 @@ bool uwrt_mars_rover_can_arm_report_joint_angular_velocity_arm_report_left_wrist
  */
 int16_t
 uwrt_mars_rover_can_arm_report_joint_angular_velocity_arm_report_right_wrist_angular_velocity_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -3750,7 +3750,7 @@ uwrt_mars_rover_can_arm_report_joint_angular_velocity_arm_report_right_wrist_ang
  */
 double
 uwrt_mars_rover_can_arm_report_joint_angular_velocity_arm_report_right_wrist_angular_velocity_decode(
-    int16_t value);
+        int16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -3760,7 +3760,7 @@ uwrt_mars_rover_can_arm_report_joint_angular_velocity_arm_report_right_wrist_ang
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_report_joint_angular_velocity_arm_report_right_wrist_angular_velocity_is_in_range(
-    int16_t value);
+        int16_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -3771,7 +3771,7 @@ bool uwrt_mars_rover_can_arm_report_joint_angular_velocity_arm_report_right_wris
  */
 int16_t
 uwrt_mars_rover_can_arm_report_joint_angular_velocity_arm_report_claw_angular_velocity_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -3782,7 +3782,7 @@ uwrt_mars_rover_can_arm_report_joint_angular_velocity_arm_report_claw_angular_ve
  */
 double
 uwrt_mars_rover_can_arm_report_joint_angular_velocity_arm_report_claw_angular_velocity_decode(
-    int16_t value);
+        int16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -3792,7 +3792,7 @@ uwrt_mars_rover_can_arm_report_joint_angular_velocity_arm_report_claw_angular_ve
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_report_joint_angular_velocity_arm_report_claw_angular_velocity_is_in_range(
-    int16_t value);
+        int16_t value);
 
 /**
  * Pack message ARM_reportJointCurrent.
@@ -3804,9 +3804,9 @@ bool uwrt_mars_rover_can_arm_report_joint_angular_velocity_arm_report_claw_angul
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_arm_report_joint_current_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_arm_report_joint_current_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_arm_report_joint_current_t *src_p,
+        size_t size);
 
 /**
  * Unpack message ARM_reportJointCurrent.
@@ -3818,8 +3818,8 @@ int uwrt_mars_rover_can_arm_report_joint_current_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_arm_report_joint_current_unpack(
-    struct uwrt_mars_rover_can_arm_report_joint_current_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_arm_report_joint_current_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -3830,7 +3830,7 @@ int uwrt_mars_rover_can_arm_report_joint_current_unpack(
  */
 int16_t
 uwrt_mars_rover_can_arm_report_joint_current_arm_report_turntable_current_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -3841,7 +3841,7 @@ uwrt_mars_rover_can_arm_report_joint_current_arm_report_turntable_current_encode
  */
 double
 uwrt_mars_rover_can_arm_report_joint_current_arm_report_turntable_current_decode(
-    int16_t value);
+        int16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -3851,7 +3851,7 @@ uwrt_mars_rover_can_arm_report_joint_current_arm_report_turntable_current_decode
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_report_joint_current_arm_report_turntable_current_is_in_range(
-    int16_t value);
+        int16_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -3862,7 +3862,7 @@ bool uwrt_mars_rover_can_arm_report_joint_current_arm_report_turntable_current_i
  */
 int16_t
 uwrt_mars_rover_can_arm_report_joint_current_arm_report_shoulder_current_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -3873,7 +3873,7 @@ uwrt_mars_rover_can_arm_report_joint_current_arm_report_shoulder_current_encode(
  */
 double
 uwrt_mars_rover_can_arm_report_joint_current_arm_report_shoulder_current_decode(
-    int16_t value);
+        int16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -3883,7 +3883,7 @@ uwrt_mars_rover_can_arm_report_joint_current_arm_report_shoulder_current_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_report_joint_current_arm_report_shoulder_current_is_in_range(
-    int16_t value);
+        int16_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -3894,7 +3894,7 @@ bool uwrt_mars_rover_can_arm_report_joint_current_arm_report_shoulder_current_is
  */
 int16_t
 uwrt_mars_rover_can_arm_report_joint_current_arm_report_elbow_current_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -3905,7 +3905,7 @@ uwrt_mars_rover_can_arm_report_joint_current_arm_report_elbow_current_encode(
  */
 double
 uwrt_mars_rover_can_arm_report_joint_current_arm_report_elbow_current_decode(
-    int16_t value);
+        int16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -3915,7 +3915,7 @@ uwrt_mars_rover_can_arm_report_joint_current_arm_report_elbow_current_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_report_joint_current_arm_report_elbow_current_is_in_range(
-    int16_t value);
+        int16_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -3926,7 +3926,7 @@ bool uwrt_mars_rover_can_arm_report_joint_current_arm_report_elbow_current_is_in
  */
 int16_t
 uwrt_mars_rover_can_arm_report_joint_current_arm_report_left_wrist_current_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -3937,7 +3937,7 @@ uwrt_mars_rover_can_arm_report_joint_current_arm_report_left_wrist_current_encod
  */
 double
 uwrt_mars_rover_can_arm_report_joint_current_arm_report_left_wrist_current_decode(
-    int16_t value);
+        int16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -3947,7 +3947,7 @@ uwrt_mars_rover_can_arm_report_joint_current_arm_report_left_wrist_current_decod
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_report_joint_current_arm_report_left_wrist_current_is_in_range(
-    int16_t value);
+        int16_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -3958,7 +3958,7 @@ bool uwrt_mars_rover_can_arm_report_joint_current_arm_report_left_wrist_current_
  */
 int16_t
 uwrt_mars_rover_can_arm_report_joint_current_arm_report_right_wrist_current_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -3969,7 +3969,7 @@ uwrt_mars_rover_can_arm_report_joint_current_arm_report_right_wrist_current_enco
  */
 double
 uwrt_mars_rover_can_arm_report_joint_current_arm_report_right_wrist_current_decode(
-    int16_t value);
+        int16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -3979,7 +3979,7 @@ uwrt_mars_rover_can_arm_report_joint_current_arm_report_right_wrist_current_deco
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_report_joint_current_arm_report_right_wrist_current_is_in_range(
-    int16_t value);
+        int16_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -3990,7 +3990,7 @@ bool uwrt_mars_rover_can_arm_report_joint_current_arm_report_right_wrist_current
  */
 int16_t
 uwrt_mars_rover_can_arm_report_joint_current_arm_report_claw_current_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -4001,7 +4001,7 @@ uwrt_mars_rover_can_arm_report_joint_current_arm_report_claw_current_encode(
  */
 double
 uwrt_mars_rover_can_arm_report_joint_current_arm_report_claw_current_decode(
-    int16_t value);
+        int16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -4011,7 +4011,7 @@ uwrt_mars_rover_can_arm_report_joint_current_arm_report_claw_current_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_report_joint_current_arm_report_claw_current_is_in_range(
-    int16_t value);
+        int16_t value);
 
 /**
  * Pack message ARM_reportFaults.
@@ -4023,8 +4023,8 @@ bool uwrt_mars_rover_can_arm_report_joint_current_arm_report_claw_current_is_in_
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_arm_report_faults_pack(
-    uint8_t *dst_p, const struct uwrt_mars_rover_can_arm_report_faults_t *src_p,
-    size_t size);
+        uint8_t *dst_p, const struct uwrt_mars_rover_can_arm_report_faults_t *src_p,
+        size_t size);
 
 /**
  * Unpack message ARM_reportFaults.
@@ -4036,8 +4036,8 @@ int uwrt_mars_rover_can_arm_report_faults_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_arm_report_faults_unpack(
-    struct uwrt_mars_rover_can_arm_report_faults_t *dst_p, const uint8_t *src_p,
-    size_t size);
+        struct uwrt_mars_rover_can_arm_report_faults_t *dst_p, const uint8_t *src_p,
+        size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -4048,7 +4048,7 @@ int uwrt_mars_rover_can_arm_report_faults_unpack(
  */
 uint8_t
 uwrt_mars_rover_can_arm_report_faults_arm_turntable_encoder_state_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -4058,7 +4058,7 @@ uwrt_mars_rover_can_arm_report_faults_arm_turntable_encoder_state_encode(
  * @return Decoded signal.
  */
 double uwrt_mars_rover_can_arm_report_faults_arm_turntable_encoder_state_decode(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -4068,7 +4068,7 @@ double uwrt_mars_rover_can_arm_report_faults_arm_turntable_encoder_state_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_report_faults_arm_turntable_encoder_state_is_in_range(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -4079,7 +4079,7 @@ bool uwrt_mars_rover_can_arm_report_faults_arm_turntable_encoder_state_is_in_ran
  */
 uint8_t
 uwrt_mars_rover_can_arm_report_faults_arm_turntable_current_sensor_state_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -4090,7 +4090,7 @@ uwrt_mars_rover_can_arm_report_faults_arm_turntable_current_sensor_state_encode(
  */
 double
 uwrt_mars_rover_can_arm_report_faults_arm_turntable_current_sensor_state_decode(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -4100,7 +4100,7 @@ uwrt_mars_rover_can_arm_report_faults_arm_turntable_current_sensor_state_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_report_faults_arm_turntable_current_sensor_state_is_in_range(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -4110,7 +4110,7 @@ bool uwrt_mars_rover_can_arm_report_faults_arm_turntable_current_sensor_state_is
  * @return Encoded signal.
  */
 uint8_t uwrt_mars_rover_can_arm_report_faults_arm_shoulder_encoder_state_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -4120,7 +4120,7 @@ uint8_t uwrt_mars_rover_can_arm_report_faults_arm_shoulder_encoder_state_encode(
  * @return Decoded signal.
  */
 double uwrt_mars_rover_can_arm_report_faults_arm_shoulder_encoder_state_decode(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -4130,7 +4130,7 @@ double uwrt_mars_rover_can_arm_report_faults_arm_shoulder_encoder_state_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_report_faults_arm_shoulder_encoder_state_is_in_range(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -4141,7 +4141,7 @@ bool uwrt_mars_rover_can_arm_report_faults_arm_shoulder_encoder_state_is_in_rang
  */
 uint8_t
 uwrt_mars_rover_can_arm_report_faults_arm_shoulder_current_sensor_state_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -4152,7 +4152,7 @@ uwrt_mars_rover_can_arm_report_faults_arm_shoulder_current_sensor_state_encode(
  */
 double
 uwrt_mars_rover_can_arm_report_faults_arm_shoulder_current_sensor_state_decode(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -4162,7 +4162,7 @@ uwrt_mars_rover_can_arm_report_faults_arm_shoulder_current_sensor_state_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_report_faults_arm_shoulder_current_sensor_state_is_in_range(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -4172,7 +4172,7 @@ bool uwrt_mars_rover_can_arm_report_faults_arm_shoulder_current_sensor_state_is_
  * @return Encoded signal.
  */
 uint8_t uwrt_mars_rover_can_arm_report_faults_arm_elbow_encoder_state_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -4182,7 +4182,7 @@ uint8_t uwrt_mars_rover_can_arm_report_faults_arm_elbow_encoder_state_encode(
  * @return Decoded signal.
  */
 double uwrt_mars_rover_can_arm_report_faults_arm_elbow_encoder_state_decode(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -4192,7 +4192,7 @@ double uwrt_mars_rover_can_arm_report_faults_arm_elbow_encoder_state_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_report_faults_arm_elbow_encoder_state_is_in_range(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -4203,7 +4203,7 @@ bool uwrt_mars_rover_can_arm_report_faults_arm_elbow_encoder_state_is_in_range(
  */
 uint8_t
 uwrt_mars_rover_can_arm_report_faults_arm_elbow_current_sensor_state_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -4214,7 +4214,7 @@ uwrt_mars_rover_can_arm_report_faults_arm_elbow_current_sensor_state_encode(
  */
 double
 uwrt_mars_rover_can_arm_report_faults_arm_elbow_current_sensor_state_decode(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -4224,7 +4224,7 @@ uwrt_mars_rover_can_arm_report_faults_arm_elbow_current_sensor_state_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_report_faults_arm_elbow_current_sensor_state_is_in_range(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -4235,7 +4235,7 @@ bool uwrt_mars_rover_can_arm_report_faults_arm_elbow_current_sensor_state_is_in_
  */
 uint8_t
 uwrt_mars_rover_can_arm_report_faults_arm_left_wrist_encoder_state_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -4246,7 +4246,7 @@ uwrt_mars_rover_can_arm_report_faults_arm_left_wrist_encoder_state_encode(
  */
 double
 uwrt_mars_rover_can_arm_report_faults_arm_left_wrist_encoder_state_decode(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -4256,7 +4256,7 @@ uwrt_mars_rover_can_arm_report_faults_arm_left_wrist_encoder_state_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_report_faults_arm_left_wrist_encoder_state_is_in_range(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -4267,7 +4267,7 @@ bool uwrt_mars_rover_can_arm_report_faults_arm_left_wrist_encoder_state_is_in_ra
  */
 uint8_t
 uwrt_mars_rover_can_arm_report_faults_arm_left_wrist_current_sensor_state_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -4278,7 +4278,7 @@ uwrt_mars_rover_can_arm_report_faults_arm_left_wrist_current_sensor_state_encode
  */
 double
 uwrt_mars_rover_can_arm_report_faults_arm_left_wrist_current_sensor_state_decode(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -4288,7 +4288,7 @@ uwrt_mars_rover_can_arm_report_faults_arm_left_wrist_current_sensor_state_decode
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_report_faults_arm_left_wrist_current_sensor_state_is_in_range(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -4299,7 +4299,7 @@ bool uwrt_mars_rover_can_arm_report_faults_arm_left_wrist_current_sensor_state_i
  */
 uint8_t
 uwrt_mars_rover_can_arm_report_faults_arm_right_wrist_encoder_state_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -4310,7 +4310,7 @@ uwrt_mars_rover_can_arm_report_faults_arm_right_wrist_encoder_state_encode(
  */
 double
 uwrt_mars_rover_can_arm_report_faults_arm_right_wrist_encoder_state_decode(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -4320,7 +4320,7 @@ uwrt_mars_rover_can_arm_report_faults_arm_right_wrist_encoder_state_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_report_faults_arm_right_wrist_encoder_state_is_in_range(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -4331,7 +4331,7 @@ bool uwrt_mars_rover_can_arm_report_faults_arm_right_wrist_encoder_state_is_in_r
  */
 uint8_t
 uwrt_mars_rover_can_arm_report_faults_arm_right_wrist_current_sensor_state_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -4342,7 +4342,7 @@ uwrt_mars_rover_can_arm_report_faults_arm_right_wrist_current_sensor_state_encod
  */
 double
 uwrt_mars_rover_can_arm_report_faults_arm_right_wrist_current_sensor_state_decode(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -4352,7 +4352,7 @@ uwrt_mars_rover_can_arm_report_faults_arm_right_wrist_current_sensor_state_decod
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_report_faults_arm_right_wrist_current_sensor_state_is_in_range(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -4362,7 +4362,7 @@ bool uwrt_mars_rover_can_arm_report_faults_arm_right_wrist_current_sensor_state_
  * @return Encoded signal.
  */
 uint8_t uwrt_mars_rover_can_arm_report_faults_arm_claw_encoder_state_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -4372,7 +4372,7 @@ uint8_t uwrt_mars_rover_can_arm_report_faults_arm_claw_encoder_state_encode(
  * @return Decoded signal.
  */
 double uwrt_mars_rover_can_arm_report_faults_arm_claw_encoder_state_decode(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -4382,7 +4382,7 @@ double uwrt_mars_rover_can_arm_report_faults_arm_claw_encoder_state_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_report_faults_arm_claw_encoder_state_is_in_range(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -4393,7 +4393,7 @@ bool uwrt_mars_rover_can_arm_report_faults_arm_claw_encoder_state_is_in_range(
  */
 uint8_t
 uwrt_mars_rover_can_arm_report_faults_arm_claw_current_sensor_state_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -4404,7 +4404,7 @@ uwrt_mars_rover_can_arm_report_faults_arm_claw_current_sensor_state_encode(
  */
 double
 uwrt_mars_rover_can_arm_report_faults_arm_claw_current_sensor_state_decode(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -4414,7 +4414,7 @@ uwrt_mars_rover_can_arm_report_faults_arm_claw_current_sensor_state_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_report_faults_arm_claw_current_sensor_state_is_in_range(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -4434,7 +4434,7 @@ uwrt_mars_rover_can_arm_report_faults_arm_num_canrx_faults_encode(double value);
  * @return Decoded signal.
  */
 double uwrt_mars_rover_can_arm_report_faults_arm_num_canrx_faults_decode(
-    uint16_t value);
+        uint16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -4444,7 +4444,7 @@ double uwrt_mars_rover_can_arm_report_faults_arm_num_canrx_faults_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_report_faults_arm_num_canrx_faults_is_in_range(
-    uint16_t value);
+        uint16_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -4464,7 +4464,7 @@ uwrt_mars_rover_can_arm_report_faults_arm_num_cantx_faults_encode(double value);
  * @return Decoded signal.
  */
 double uwrt_mars_rover_can_arm_report_faults_arm_num_cantx_faults_decode(
-    uint16_t value);
+        uint16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -4474,7 +4474,7 @@ double uwrt_mars_rover_can_arm_report_faults_arm_num_cantx_faults_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_report_faults_arm_num_cantx_faults_is_in_range(
-    uint16_t value);
+        uint16_t value);
 
 /**
  * Pack message ARM_reportACK.
@@ -4486,8 +4486,8 @@ bool uwrt_mars_rover_can_arm_report_faults_arm_num_cantx_faults_is_in_range(
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_arm_report_ack_pack(
-    uint8_t *dst_p, const struct uwrt_mars_rover_can_arm_report_ack_t *src_p,
-    size_t size);
+        uint8_t *dst_p, const struct uwrt_mars_rover_can_arm_report_ack_t *src_p,
+        size_t size);
 
 /**
  * Unpack message ARM_reportACK.
@@ -4499,8 +4499,8 @@ int uwrt_mars_rover_can_arm_report_ack_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_arm_report_ack_unpack(
-    struct uwrt_mars_rover_can_arm_report_ack_t *dst_p, const uint8_t *src_p,
-    size_t size);
+        struct uwrt_mars_rover_can_arm_report_ack_t *dst_p, const uint8_t *src_p,
+        size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -4539,9 +4539,9 @@ bool uwrt_mars_rover_can_arm_report_ack_arm_ack_is_in_range(uint8_t value);
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_arm_report_diagnostics_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_arm_report_diagnostics_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_arm_report_diagnostics_t *src_p,
+        size_t size);
 
 /**
  * Unpack message ARM_reportDiagnostics.
@@ -4553,8 +4553,8 @@ int uwrt_mars_rover_can_arm_report_diagnostics_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_arm_report_diagnostics_unpack(
-    struct uwrt_mars_rover_can_arm_report_diagnostics_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_arm_report_diagnostics_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -4565,7 +4565,7 @@ int uwrt_mars_rover_can_arm_report_diagnostics_unpack(
  */
 uint32_t
 uwrt_mars_rover_can_arm_report_diagnostics_arm_report_num_streamed_msgs_received_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -4576,7 +4576,7 @@ uwrt_mars_rover_can_arm_report_diagnostics_arm_report_num_streamed_msgs_received
  */
 double
 uwrt_mars_rover_can_arm_report_diagnostics_arm_report_num_streamed_msgs_received_decode(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -4586,7 +4586,7 @@ uwrt_mars_rover_can_arm_report_diagnostics_arm_report_num_streamed_msgs_received
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_report_diagnostics_arm_report_num_streamed_msgs_received_is_in_range(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -4597,7 +4597,7 @@ bool uwrt_mars_rover_can_arm_report_diagnostics_arm_report_num_streamed_msgs_rec
  */
 uint32_t
 uwrt_mars_rover_can_arm_report_diagnostics_arm_report_num_one_shot_msgs_received_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -4608,7 +4608,7 @@ uwrt_mars_rover_can_arm_report_diagnostics_arm_report_num_one_shot_msgs_received
  */
 double
 uwrt_mars_rover_can_arm_report_diagnostics_arm_report_num_one_shot_msgs_received_decode(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -4618,7 +4618,7 @@ uwrt_mars_rover_can_arm_report_diagnostics_arm_report_num_one_shot_msgs_received
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_report_diagnostics_arm_report_num_one_shot_msgs_received_is_in_range(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Pack message ARM_setJointSafetyCheck.
@@ -4630,9 +4630,9 @@ bool uwrt_mars_rover_can_arm_report_diagnostics_arm_report_num_one_shot_msgs_rec
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_arm_set_joint_safety_check_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_arm_set_joint_safety_check_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_arm_set_joint_safety_check_t *src_p,
+        size_t size);
 
 /**
  * Unpack message ARM_setJointSafetyCheck.
@@ -4644,8 +4644,8 @@ int uwrt_mars_rover_can_arm_set_joint_safety_check_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_arm_set_joint_safety_check_unpack(
-    struct uwrt_mars_rover_can_arm_set_joint_safety_check_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_arm_set_joint_safety_check_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -4656,7 +4656,7 @@ int uwrt_mars_rover_can_arm_set_joint_safety_check_unpack(
  */
 uint8_t
 uwrt_mars_rover_can_arm_set_joint_safety_check_arm_safety_check_joint_id_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -4667,7 +4667,7 @@ uwrt_mars_rover_can_arm_set_joint_safety_check_arm_safety_check_joint_id_encode(
  */
 double
 uwrt_mars_rover_can_arm_set_joint_safety_check_arm_safety_check_joint_id_decode(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -4677,7 +4677,7 @@ uwrt_mars_rover_can_arm_set_joint_safety_check_arm_safety_check_joint_id_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_set_joint_safety_check_arm_safety_check_joint_id_is_in_range(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -4688,7 +4688,7 @@ bool uwrt_mars_rover_can_arm_set_joint_safety_check_arm_safety_check_joint_id_is
  */
 uint8_t
 uwrt_mars_rover_can_arm_set_joint_safety_check_arm_joint_current_check_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -4699,7 +4699,7 @@ uwrt_mars_rover_can_arm_set_joint_safety_check_arm_joint_current_check_encode(
  */
 double
 uwrt_mars_rover_can_arm_set_joint_safety_check_arm_joint_current_check_decode(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -4709,7 +4709,7 @@ uwrt_mars_rover_can_arm_set_joint_safety_check_arm_joint_current_check_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_set_joint_safety_check_arm_joint_current_check_is_in_range(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -4720,7 +4720,7 @@ bool uwrt_mars_rover_can_arm_set_joint_safety_check_arm_joint_current_check_is_i
  */
 uint8_t
 uwrt_mars_rover_can_arm_set_joint_safety_check_arm_joint_angular_velocity_check_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -4731,7 +4731,7 @@ uwrt_mars_rover_can_arm_set_joint_safety_check_arm_joint_angular_velocity_check_
  */
 double
 uwrt_mars_rover_can_arm_set_joint_safety_check_arm_joint_angular_velocity_check_decode(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -4741,7 +4741,7 @@ uwrt_mars_rover_can_arm_set_joint_safety_check_arm_joint_angular_velocity_check_
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_set_joint_safety_check_arm_joint_angular_velocity_check_is_in_range(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -4752,7 +4752,7 @@ bool uwrt_mars_rover_can_arm_set_joint_safety_check_arm_joint_angular_velocity_c
  */
 uint8_t
 uwrt_mars_rover_can_arm_set_joint_safety_check_arm_joint_limit_switch_check_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -4763,7 +4763,7 @@ uwrt_mars_rover_can_arm_set_joint_safety_check_arm_joint_limit_switch_check_enco
  */
 double
 uwrt_mars_rover_can_arm_set_joint_safety_check_arm_joint_limit_switch_check_decode(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -4773,7 +4773,7 @@ uwrt_mars_rover_can_arm_set_joint_safety_check_arm_joint_limit_switch_check_deco
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_arm_set_joint_safety_check_arm_joint_limit_switch_check_is_in_range(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Pack message SCIENCE_setControlMode.
@@ -4785,9 +4785,9 @@ bool uwrt_mars_rover_can_arm_set_joint_safety_check_arm_joint_limit_switch_check
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_science_set_control_mode_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_science_set_control_mode_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_science_set_control_mode_t *src_p,
+        size_t size);
 
 /**
  * Unpack message SCIENCE_setControlMode.
@@ -4799,8 +4799,8 @@ int uwrt_mars_rover_can_science_set_control_mode_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_science_set_control_mode_unpack(
-    struct uwrt_mars_rover_can_science_set_control_mode_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_science_set_control_mode_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -4811,7 +4811,7 @@ int uwrt_mars_rover_can_science_set_control_mode_unpack(
  */
 uint8_t
 uwrt_mars_rover_can_science_set_control_mode_science_geneva_control_mode_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -4822,7 +4822,7 @@ uwrt_mars_rover_can_science_set_control_mode_science_geneva_control_mode_encode(
  */
 double
 uwrt_mars_rover_can_science_set_control_mode_science_geneva_control_mode_decode(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -4832,7 +4832,7 @@ uwrt_mars_rover_can_science_set_control_mode_science_geneva_control_mode_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_science_set_control_mode_science_geneva_control_mode_is_in_range(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -4843,7 +4843,7 @@ bool uwrt_mars_rover_can_science_set_control_mode_science_geneva_control_mode_is
  */
 uint8_t
 uwrt_mars_rover_can_science_set_control_mode_science_elevator_control_mode_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -4854,7 +4854,7 @@ uwrt_mars_rover_can_science_set_control_mode_science_elevator_control_mode_encod
  */
 double
 uwrt_mars_rover_can_science_set_control_mode_science_elevator_control_mode_decode(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -4864,7 +4864,7 @@ uwrt_mars_rover_can_science_set_control_mode_science_elevator_control_mode_decod
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_science_set_control_mode_science_elevator_control_mode_is_in_range(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Pack message SCIENCE_setJointPosition.
@@ -4876,9 +4876,9 @@ bool uwrt_mars_rover_can_science_set_control_mode_science_elevator_control_mode_
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_science_set_joint_position_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_science_set_joint_position_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_science_set_joint_position_t *src_p,
+        size_t size);
 
 /**
  * Unpack message SCIENCE_setJointPosition.
@@ -4890,8 +4890,8 @@ int uwrt_mars_rover_can_science_set_joint_position_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_science_set_joint_position_unpack(
-    struct uwrt_mars_rover_can_science_set_joint_position_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_science_set_joint_position_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -4902,7 +4902,7 @@ int uwrt_mars_rover_can_science_set_joint_position_unpack(
  */
 int16_t
 uwrt_mars_rover_can_science_set_joint_position_science_set_geneva_position_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -4913,7 +4913,7 @@ uwrt_mars_rover_can_science_set_joint_position_science_set_geneva_position_encod
  */
 double
 uwrt_mars_rover_can_science_set_joint_position_science_set_geneva_position_decode(
-    int16_t value);
+        int16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -4923,7 +4923,7 @@ uwrt_mars_rover_can_science_set_joint_position_science_set_geneva_position_decod
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_science_set_joint_position_science_set_geneva_position_is_in_range(
-    int16_t value);
+        int16_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -4934,7 +4934,7 @@ bool uwrt_mars_rover_can_science_set_joint_position_science_set_geneva_position_
  */
 int16_t
 uwrt_mars_rover_can_science_set_joint_position_science_set_elevator_position_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -4945,7 +4945,7 @@ uwrt_mars_rover_can_science_set_joint_position_science_set_elevator_position_enc
  */
 double
 uwrt_mars_rover_can_science_set_joint_position_science_set_elevator_position_decode(
-    int16_t value);
+        int16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -4955,7 +4955,7 @@ uwrt_mars_rover_can_science_set_joint_position_science_set_elevator_position_dec
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_science_set_joint_position_science_set_elevator_position_is_in_range(
-    int16_t value);
+        int16_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -4966,7 +4966,7 @@ bool uwrt_mars_rover_can_science_set_joint_position_science_set_elevator_positio
  */
 uint16_t
 uwrt_mars_rover_can_science_set_joint_position_science_set_cover_position_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -4977,7 +4977,7 @@ uwrt_mars_rover_can_science_set_joint_position_science_set_cover_position_encode
  */
 double
 uwrt_mars_rover_can_science_set_joint_position_science_set_cover_position_decode(
-    uint16_t value);
+        uint16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -4987,7 +4987,7 @@ uwrt_mars_rover_can_science_set_joint_position_science_set_cover_position_decode
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_science_set_joint_position_science_set_cover_position_is_in_range(
-    uint16_t value);
+        uint16_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -4998,7 +4998,7 @@ bool uwrt_mars_rover_can_science_set_joint_position_science_set_cover_position_i
  */
 uint16_t
 uwrt_mars_rover_can_science_set_joint_position_science_set_shovel_position_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -5009,7 +5009,7 @@ uwrt_mars_rover_can_science_set_joint_position_science_set_shovel_position_encod
  */
 double
 uwrt_mars_rover_can_science_set_joint_position_science_set_shovel_position_decode(
-    uint16_t value);
+        uint16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -5019,7 +5019,7 @@ uwrt_mars_rover_can_science_set_joint_position_science_set_shovel_position_decod
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_science_set_joint_position_science_set_shovel_position_is_in_range(
-    uint16_t value);
+        uint16_t value);
 
 /**
  * Pack message SCIENCE_setJointAngularVelocity.
@@ -5031,10 +5031,10 @@ bool uwrt_mars_rover_can_science_set_joint_position_science_set_shovel_position_
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_science_set_joint_angular_velocity_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_science_set_joint_angular_velocity_t
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_science_set_joint_angular_velocity_t
         *src_p,
-    size_t size);
+        size_t size);
 
 /**
  * Unpack message SCIENCE_setJointAngularVelocity.
@@ -5046,8 +5046,8 @@ int uwrt_mars_rover_can_science_set_joint_angular_velocity_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_science_set_joint_angular_velocity_unpack(
-    struct uwrt_mars_rover_can_science_set_joint_angular_velocity_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_science_set_joint_angular_velocity_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -5058,7 +5058,7 @@ int uwrt_mars_rover_can_science_set_joint_angular_velocity_unpack(
  */
 int16_t
 uwrt_mars_rover_can_science_set_joint_angular_velocity_science_set_geneva_angular_velocity_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -5069,7 +5069,7 @@ uwrt_mars_rover_can_science_set_joint_angular_velocity_science_set_geneva_angula
  */
 double
 uwrt_mars_rover_can_science_set_joint_angular_velocity_science_set_geneva_angular_velocity_decode(
-    int16_t value);
+        int16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -5079,7 +5079,7 @@ uwrt_mars_rover_can_science_set_joint_angular_velocity_science_set_geneva_angula
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_science_set_joint_angular_velocity_science_set_geneva_angular_velocity_is_in_range(
-    int16_t value);
+        int16_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -5090,7 +5090,7 @@ bool uwrt_mars_rover_can_science_set_joint_angular_velocity_science_set_geneva_a
  */
 int16_t
 uwrt_mars_rover_can_science_set_joint_angular_velocity_science_set_elevator_angular_velocity_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -5101,7 +5101,7 @@ uwrt_mars_rover_can_science_set_joint_angular_velocity_science_set_elevator_angu
  */
 double
 uwrt_mars_rover_can_science_set_joint_angular_velocity_science_set_elevator_angular_velocity_decode(
-    int16_t value);
+        int16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -5111,7 +5111,7 @@ uwrt_mars_rover_can_science_set_joint_angular_velocity_science_set_elevator_angu
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_science_set_joint_angular_velocity_science_set_elevator_angular_velocity_is_in_range(
-    int16_t value);
+        int16_t value);
 
 /**
  * Pack message SCIENCE_setJointPIDParams.
@@ -5123,9 +5123,9 @@ bool uwrt_mars_rover_can_science_set_joint_angular_velocity_science_set_elevator
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_science_set_joint_pid_params_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_science_set_joint_pid_params_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_science_set_joint_pid_params_t *src_p,
+        size_t size);
 
 /**
  * Unpack message SCIENCE_setJointPIDParams.
@@ -5137,8 +5137,8 @@ int uwrt_mars_rover_can_science_set_joint_pid_params_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_science_set_joint_pid_params_unpack(
-    struct uwrt_mars_rover_can_science_set_joint_pid_params_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_science_set_joint_pid_params_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -5149,7 +5149,7 @@ int uwrt_mars_rover_can_science_set_joint_pid_params_unpack(
  */
 uint8_t
 uwrt_mars_rover_can_science_set_joint_pid_params_science_joint_pidid_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -5160,7 +5160,7 @@ uwrt_mars_rover_can_science_set_joint_pid_params_science_joint_pidid_encode(
  */
 double
 uwrt_mars_rover_can_science_set_joint_pid_params_science_joint_pidid_decode(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -5170,7 +5170,7 @@ uwrt_mars_rover_can_science_set_joint_pid_params_science_joint_pidid_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_science_set_joint_pid_params_science_joint_pidid_is_in_range(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -5181,7 +5181,7 @@ bool uwrt_mars_rover_can_science_set_joint_pid_params_science_joint_pidid_is_in_
  */
 uint16_t
 uwrt_mars_rover_can_science_set_joint_pid_params_science_joint_pid_proportional_gain_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -5192,7 +5192,7 @@ uwrt_mars_rover_can_science_set_joint_pid_params_science_joint_pid_proportional_
  */
 double
 uwrt_mars_rover_can_science_set_joint_pid_params_science_joint_pid_proportional_gain_decode(
-    uint16_t value);
+        uint16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -5202,7 +5202,7 @@ uwrt_mars_rover_can_science_set_joint_pid_params_science_joint_pid_proportional_
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_science_set_joint_pid_params_science_joint_pid_proportional_gain_is_in_range(
-    uint16_t value);
+        uint16_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -5213,7 +5213,7 @@ bool uwrt_mars_rover_can_science_set_joint_pid_params_science_joint_pid_proporti
  */
 uint16_t
 uwrt_mars_rover_can_science_set_joint_pid_params_science_joint_pid_integral_gain_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -5224,7 +5224,7 @@ uwrt_mars_rover_can_science_set_joint_pid_params_science_joint_pid_integral_gain
  */
 double
 uwrt_mars_rover_can_science_set_joint_pid_params_science_joint_pid_integral_gain_decode(
-    uint16_t value);
+        uint16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -5234,7 +5234,7 @@ uwrt_mars_rover_can_science_set_joint_pid_params_science_joint_pid_integral_gain
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_science_set_joint_pid_params_science_joint_pid_integral_gain_is_in_range(
-    uint16_t value);
+        uint16_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -5245,7 +5245,7 @@ bool uwrt_mars_rover_can_science_set_joint_pid_params_science_joint_pid_integral
  */
 uint16_t
 uwrt_mars_rover_can_science_set_joint_pid_params_science_joint_pid_derivative_gain_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -5256,7 +5256,7 @@ uwrt_mars_rover_can_science_set_joint_pid_params_science_joint_pid_derivative_ga
  */
 double
 uwrt_mars_rover_can_science_set_joint_pid_params_science_joint_pid_derivative_gain_decode(
-    uint16_t value);
+        uint16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -5266,7 +5266,7 @@ uwrt_mars_rover_can_science_set_joint_pid_params_science_joint_pid_derivative_ga
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_science_set_joint_pid_params_science_joint_pid_derivative_gain_is_in_range(
-    uint16_t value);
+        uint16_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -5277,7 +5277,7 @@ bool uwrt_mars_rover_can_science_set_joint_pid_params_science_joint_pid_derivati
  */
 uint16_t
 uwrt_mars_rover_can_science_set_joint_pid_params_science_joint_pid_deadzone_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -5288,7 +5288,7 @@ uwrt_mars_rover_can_science_set_joint_pid_params_science_joint_pid_deadzone_enco
  */
 double
 uwrt_mars_rover_can_science_set_joint_pid_params_science_joint_pid_deadzone_decode(
-    uint16_t value);
+        uint16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -5298,7 +5298,7 @@ uwrt_mars_rover_can_science_set_joint_pid_params_science_joint_pid_deadzone_deco
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_science_set_joint_pid_params_science_joint_pid_deadzone_is_in_range(
-    uint16_t value);
+        uint16_t value);
 
 /**
  * Pack message SCIENCE_reportJointData.
@@ -5310,9 +5310,9 @@ bool uwrt_mars_rover_can_science_set_joint_pid_params_science_joint_pid_deadzone
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_science_report_joint_data_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_science_report_joint_data_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_science_report_joint_data_t *src_p,
+        size_t size);
 
 /**
  * Unpack message SCIENCE_reportJointData.
@@ -5324,8 +5324,8 @@ int uwrt_mars_rover_can_science_report_joint_data_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_science_report_joint_data_unpack(
-    struct uwrt_mars_rover_can_science_report_joint_data_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_science_report_joint_data_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -5336,7 +5336,7 @@ int uwrt_mars_rover_can_science_report_joint_data_unpack(
  */
 int16_t
 uwrt_mars_rover_can_science_report_joint_data_science_report_geneva_position_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -5347,7 +5347,7 @@ uwrt_mars_rover_can_science_report_joint_data_science_report_geneva_position_enc
  */
 double
 uwrt_mars_rover_can_science_report_joint_data_science_report_geneva_position_decode(
-    int16_t value);
+        int16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -5357,7 +5357,7 @@ uwrt_mars_rover_can_science_report_joint_data_science_report_geneva_position_dec
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_science_report_joint_data_science_report_geneva_position_is_in_range(
-    int16_t value);
+        int16_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -5368,7 +5368,7 @@ bool uwrt_mars_rover_can_science_report_joint_data_science_report_geneva_positio
  */
 int16_t
 uwrt_mars_rover_can_science_report_joint_data_science_report_elevator_position_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -5379,7 +5379,7 @@ uwrt_mars_rover_can_science_report_joint_data_science_report_elevator_position_e
  */
 double
 uwrt_mars_rover_can_science_report_joint_data_science_report_elevator_position_decode(
-    int16_t value);
+        int16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -5389,7 +5389,7 @@ uwrt_mars_rover_can_science_report_joint_data_science_report_elevator_position_d
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_science_report_joint_data_science_report_elevator_position_is_in_range(
-    int16_t value);
+        int16_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -5400,7 +5400,7 @@ bool uwrt_mars_rover_can_science_report_joint_data_science_report_elevator_posit
  */
 int16_t
 uwrt_mars_rover_can_science_report_joint_data_science_report_geneva_angular_velocity_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -5411,7 +5411,7 @@ uwrt_mars_rover_can_science_report_joint_data_science_report_geneva_angular_velo
  */
 double
 uwrt_mars_rover_can_science_report_joint_data_science_report_geneva_angular_velocity_decode(
-    int16_t value);
+        int16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -5421,7 +5421,7 @@ uwrt_mars_rover_can_science_report_joint_data_science_report_geneva_angular_velo
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_science_report_joint_data_science_report_geneva_angular_velocity_is_in_range(
-    int16_t value);
+        int16_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -5432,7 +5432,7 @@ bool uwrt_mars_rover_can_science_report_joint_data_science_report_geneva_angular
  */
 int16_t
 uwrt_mars_rover_can_science_report_joint_data_science_report_elevator_angular_velocity_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -5443,7 +5443,7 @@ uwrt_mars_rover_can_science_report_joint_data_science_report_elevator_angular_ve
  */
 double
 uwrt_mars_rover_can_science_report_joint_data_science_report_elevator_angular_velocity_decode(
-    int16_t value);
+        int16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -5453,7 +5453,7 @@ uwrt_mars_rover_can_science_report_joint_data_science_report_elevator_angular_ve
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_science_report_joint_data_science_report_elevator_angular_velocity_is_in_range(
-    int16_t value);
+        int16_t value);
 
 /**
  * Pack message SCIENCE_reportSensorData.
@@ -5465,9 +5465,9 @@ bool uwrt_mars_rover_can_science_report_joint_data_science_report_elevator_angul
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_science_report_sensor_data_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_science_report_sensor_data_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_science_report_sensor_data_t *src_p,
+        size_t size);
 
 /**
  * Unpack message SCIENCE_reportSensorData.
@@ -5479,8 +5479,8 @@ int uwrt_mars_rover_can_science_report_sensor_data_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_science_report_sensor_data_unpack(
-    struct uwrt_mars_rover_can_science_report_sensor_data_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_science_report_sensor_data_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -5491,7 +5491,7 @@ int uwrt_mars_rover_can_science_report_sensor_data_unpack(
  */
 uint16_t
 uwrt_mars_rover_can_science_report_sensor_data_science_moisture_data_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -5502,7 +5502,7 @@ uwrt_mars_rover_can_science_report_sensor_data_science_moisture_data_encode(
  */
 double
 uwrt_mars_rover_can_science_report_sensor_data_science_moisture_data_decode(
-    uint16_t value);
+        uint16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -5512,7 +5512,7 @@ uwrt_mars_rover_can_science_report_sensor_data_science_moisture_data_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_science_report_sensor_data_science_moisture_data_is_in_range(
-    uint16_t value);
+        uint16_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -5523,7 +5523,7 @@ bool uwrt_mars_rover_can_science_report_sensor_data_science_moisture_data_is_in_
  */
 int16_t
 uwrt_mars_rover_can_science_report_sensor_data_science_temperature_data_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -5534,7 +5534,7 @@ uwrt_mars_rover_can_science_report_sensor_data_science_temperature_data_encode(
  */
 double
 uwrt_mars_rover_can_science_report_sensor_data_science_temperature_data_decode(
-    int16_t value);
+        int16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -5544,7 +5544,7 @@ uwrt_mars_rover_can_science_report_sensor_data_science_temperature_data_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_science_report_sensor_data_science_temperature_data_is_in_range(
-    int16_t value);
+        int16_t value);
 
 /**
  * Pack message SCIENCE_reportFaults.
@@ -5556,9 +5556,9 @@ bool uwrt_mars_rover_can_science_report_sensor_data_science_temperature_data_is_
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_science_report_faults_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_science_report_faults_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_science_report_faults_t *src_p,
+        size_t size);
 
 /**
  * Unpack message SCIENCE_reportFaults.
@@ -5570,8 +5570,8 @@ int uwrt_mars_rover_can_science_report_faults_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_science_report_faults_unpack(
-    struct uwrt_mars_rover_can_science_report_faults_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_science_report_faults_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -5582,7 +5582,7 @@ int uwrt_mars_rover_can_science_report_faults_unpack(
  */
 uint8_t
 uwrt_mars_rover_can_science_report_faults_science_geneva_encoder_state_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -5593,7 +5593,7 @@ uwrt_mars_rover_can_science_report_faults_science_geneva_encoder_state_encode(
  */
 double
 uwrt_mars_rover_can_science_report_faults_science_geneva_encoder_state_decode(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -5603,7 +5603,7 @@ uwrt_mars_rover_can_science_report_faults_science_geneva_encoder_state_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_science_report_faults_science_geneva_encoder_state_is_in_range(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -5614,7 +5614,7 @@ bool uwrt_mars_rover_can_science_report_faults_science_geneva_encoder_state_is_i
  */
 uint8_t
 uwrt_mars_rover_can_science_report_faults_science_elevator_encoder_state_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -5625,7 +5625,7 @@ uwrt_mars_rover_can_science_report_faults_science_elevator_encoder_state_encode(
  */
 double
 uwrt_mars_rover_can_science_report_faults_science_elevator_encoder_state_decode(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -5635,7 +5635,7 @@ uwrt_mars_rover_can_science_report_faults_science_elevator_encoder_state_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_science_report_faults_science_elevator_encoder_state_is_in_range(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -5646,7 +5646,7 @@ bool uwrt_mars_rover_can_science_report_faults_science_elevator_encoder_state_is
  */
 uint8_t
 uwrt_mars_rover_can_science_report_faults_science_moisture_sensor_state_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -5657,7 +5657,7 @@ uwrt_mars_rover_can_science_report_faults_science_moisture_sensor_state_encode(
  */
 double
 uwrt_mars_rover_can_science_report_faults_science_moisture_sensor_state_decode(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -5667,7 +5667,7 @@ uwrt_mars_rover_can_science_report_faults_science_moisture_sensor_state_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_science_report_faults_science_moisture_sensor_state_is_in_range(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -5678,7 +5678,7 @@ bool uwrt_mars_rover_can_science_report_faults_science_moisture_sensor_state_is_
  */
 uint16_t
 uwrt_mars_rover_can_science_report_faults_science_num_canrx_faults_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -5689,7 +5689,7 @@ uwrt_mars_rover_can_science_report_faults_science_num_canrx_faults_encode(
  */
 double
 uwrt_mars_rover_can_science_report_faults_science_num_canrx_faults_decode(
-    uint16_t value);
+        uint16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -5699,7 +5699,7 @@ uwrt_mars_rover_can_science_report_faults_science_num_canrx_faults_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_science_report_faults_science_num_canrx_faults_is_in_range(
-    uint16_t value);
+        uint16_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -5710,7 +5710,7 @@ bool uwrt_mars_rover_can_science_report_faults_science_num_canrx_faults_is_in_ra
  */
 uint16_t
 uwrt_mars_rover_can_science_report_faults_science_num_cantx_faults_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -5721,7 +5721,7 @@ uwrt_mars_rover_can_science_report_faults_science_num_cantx_faults_encode(
  */
 double
 uwrt_mars_rover_can_science_report_faults_science_num_cantx_faults_decode(
-    uint16_t value);
+        uint16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -5731,7 +5731,7 @@ uwrt_mars_rover_can_science_report_faults_science_num_cantx_faults_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_science_report_faults_science_num_cantx_faults_is_in_range(
-    uint16_t value);
+        uint16_t value);
 
 /**
  * Pack message SCIENCE_reportACK.
@@ -5743,8 +5743,8 @@ bool uwrt_mars_rover_can_science_report_faults_science_num_cantx_faults_is_in_ra
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_science_report_ack_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_science_report_ack_t *src_p, size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_science_report_ack_t *src_p, size_t size);
 
 /**
  * Unpack message SCIENCE_reportACK.
@@ -5756,8 +5756,8 @@ int uwrt_mars_rover_can_science_report_ack_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_science_report_ack_unpack(
-    struct uwrt_mars_rover_can_science_report_ack_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_science_report_ack_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -5785,7 +5785,7 @@ double uwrt_mars_rover_can_science_report_ack_science_ack_decode(uint8_t value);
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_science_report_ack_science_ack_is_in_range(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Pack message SCIENCE_reportDiagnostics.
@@ -5797,9 +5797,9 @@ bool uwrt_mars_rover_can_science_report_ack_science_ack_is_in_range(
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_science_report_diagnostics_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_science_report_diagnostics_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_science_report_diagnostics_t *src_p,
+        size_t size);
 
 /**
  * Unpack message SCIENCE_reportDiagnostics.
@@ -5811,8 +5811,8 @@ int uwrt_mars_rover_can_science_report_diagnostics_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_science_report_diagnostics_unpack(
-    struct uwrt_mars_rover_can_science_report_diagnostics_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_science_report_diagnostics_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -5823,7 +5823,7 @@ int uwrt_mars_rover_can_science_report_diagnostics_unpack(
  */
 uint32_t
 uwrt_mars_rover_can_science_report_diagnostics_science_report_num_streamed_msgs_received_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -5834,7 +5834,7 @@ uwrt_mars_rover_can_science_report_diagnostics_science_report_num_streamed_msgs_
  */
 double
 uwrt_mars_rover_can_science_report_diagnostics_science_report_num_streamed_msgs_received_decode(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -5844,7 +5844,7 @@ uwrt_mars_rover_can_science_report_diagnostics_science_report_num_streamed_msgs_
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_science_report_diagnostics_science_report_num_streamed_msgs_received_is_in_range(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -5855,7 +5855,7 @@ bool uwrt_mars_rover_can_science_report_diagnostics_science_report_num_streamed_
  */
 uint32_t
 uwrt_mars_rover_can_science_report_diagnostics_science_report_num_one_shot_msgs_received_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -5866,7 +5866,7 @@ uwrt_mars_rover_can_science_report_diagnostics_science_report_num_one_shot_msgs_
  */
 double
 uwrt_mars_rover_can_science_report_diagnostics_science_report_num_one_shot_msgs_received_decode(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -5876,7 +5876,7 @@ uwrt_mars_rover_can_science_report_diagnostics_science_report_num_one_shot_msgs_
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_science_report_diagnostics_science_report_num_one_shot_msgs_received_is_in_range(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Pack message GIMBAL_setControlMode.
@@ -5888,9 +5888,9 @@ bool uwrt_mars_rover_can_science_report_diagnostics_science_report_num_one_shot_
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_gimbal_set_control_mode_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_gimbal_set_control_mode_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_gimbal_set_control_mode_t *src_p,
+        size_t size);
 
 /**
  * Unpack message GIMBAL_setControlMode.
@@ -5902,8 +5902,8 @@ int uwrt_mars_rover_can_gimbal_set_control_mode_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_gimbal_set_control_mode_unpack(
-    struct uwrt_mars_rover_can_gimbal_set_control_mode_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_gimbal_set_control_mode_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -5914,7 +5914,7 @@ int uwrt_mars_rover_can_gimbal_set_control_mode_unpack(
  */
 uint8_t
 uwrt_mars_rover_can_gimbal_set_control_mode_gimbal_pan_control_mode_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -5925,7 +5925,7 @@ uwrt_mars_rover_can_gimbal_set_control_mode_gimbal_pan_control_mode_encode(
  */
 double
 uwrt_mars_rover_can_gimbal_set_control_mode_gimbal_pan_control_mode_decode(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -5935,7 +5935,7 @@ uwrt_mars_rover_can_gimbal_set_control_mode_gimbal_pan_control_mode_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_gimbal_set_control_mode_gimbal_pan_control_mode_is_in_range(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Pack message GIMBAL_setJointPosition.
@@ -5947,9 +5947,9 @@ bool uwrt_mars_rover_can_gimbal_set_control_mode_gimbal_pan_control_mode_is_in_r
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_gimbal_set_joint_position_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_gimbal_set_joint_position_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_gimbal_set_joint_position_t *src_p,
+        size_t size);
 
 /**
  * Unpack message GIMBAL_setJointPosition.
@@ -5961,8 +5961,8 @@ int uwrt_mars_rover_can_gimbal_set_joint_position_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_gimbal_set_joint_position_unpack(
-    struct uwrt_mars_rover_can_gimbal_set_joint_position_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_gimbal_set_joint_position_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -5973,7 +5973,7 @@ int uwrt_mars_rover_can_gimbal_set_joint_position_unpack(
  */
 int16_t
 uwrt_mars_rover_can_gimbal_set_joint_position_gimbal_set_pan_position_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -5984,7 +5984,7 @@ uwrt_mars_rover_can_gimbal_set_joint_position_gimbal_set_pan_position_encode(
  */
 double
 uwrt_mars_rover_can_gimbal_set_joint_position_gimbal_set_pan_position_decode(
-    int16_t value);
+        int16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -5994,7 +5994,7 @@ uwrt_mars_rover_can_gimbal_set_joint_position_gimbal_set_pan_position_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_gimbal_set_joint_position_gimbal_set_pan_position_is_in_range(
-    int16_t value);
+        int16_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -6005,7 +6005,7 @@ bool uwrt_mars_rover_can_gimbal_set_joint_position_gimbal_set_pan_position_is_in
  */
 uint16_t
 uwrt_mars_rover_can_gimbal_set_joint_position_gimbal_set_pitch_position_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -6016,7 +6016,7 @@ uwrt_mars_rover_can_gimbal_set_joint_position_gimbal_set_pitch_position_encode(
  */
 double
 uwrt_mars_rover_can_gimbal_set_joint_position_gimbal_set_pitch_position_decode(
-    uint16_t value);
+        uint16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -6026,7 +6026,7 @@ uwrt_mars_rover_can_gimbal_set_joint_position_gimbal_set_pitch_position_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_gimbal_set_joint_position_gimbal_set_pitch_position_is_in_range(
-    uint16_t value);
+        uint16_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -6037,7 +6037,7 @@ bool uwrt_mars_rover_can_gimbal_set_joint_position_gimbal_set_pitch_position_is_
  */
 uint16_t
 uwrt_mars_rover_can_gimbal_set_joint_position_gimbal_set_roll_position_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -6048,7 +6048,7 @@ uwrt_mars_rover_can_gimbal_set_joint_position_gimbal_set_roll_position_encode(
  */
 double
 uwrt_mars_rover_can_gimbal_set_joint_position_gimbal_set_roll_position_decode(
-    uint16_t value);
+        uint16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -6058,7 +6058,7 @@ uwrt_mars_rover_can_gimbal_set_joint_position_gimbal_set_roll_position_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_gimbal_set_joint_position_gimbal_set_roll_position_is_in_range(
-    uint16_t value);
+        uint16_t value);
 
 /**
  * Pack message GIMBAL_setJointAngularVelocity.
@@ -6070,9 +6070,9 @@ bool uwrt_mars_rover_can_gimbal_set_joint_position_gimbal_set_roll_position_is_i
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_gimbal_set_joint_angular_velocity_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_gimbal_set_joint_angular_velocity_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_gimbal_set_joint_angular_velocity_t *src_p,
+        size_t size);
 
 /**
  * Unpack message GIMBAL_setJointAngularVelocity.
@@ -6084,8 +6084,8 @@ int uwrt_mars_rover_can_gimbal_set_joint_angular_velocity_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_gimbal_set_joint_angular_velocity_unpack(
-    struct uwrt_mars_rover_can_gimbal_set_joint_angular_velocity_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_gimbal_set_joint_angular_velocity_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -6096,7 +6096,7 @@ int uwrt_mars_rover_can_gimbal_set_joint_angular_velocity_unpack(
  */
 int16_t
 uwrt_mars_rover_can_gimbal_set_joint_angular_velocity_gimbal_set_pan_angular_velocity_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -6107,7 +6107,7 @@ uwrt_mars_rover_can_gimbal_set_joint_angular_velocity_gimbal_set_pan_angular_vel
  */
 double
 uwrt_mars_rover_can_gimbal_set_joint_angular_velocity_gimbal_set_pan_angular_velocity_decode(
-    int16_t value);
+        int16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -6117,7 +6117,7 @@ uwrt_mars_rover_can_gimbal_set_joint_angular_velocity_gimbal_set_pan_angular_vel
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_gimbal_set_joint_angular_velocity_gimbal_set_pan_angular_velocity_is_in_range(
-    int16_t value);
+        int16_t value);
 
 /**
  * Pack message GIMBAL_setJointPIDParams.
@@ -6129,9 +6129,9 @@ bool uwrt_mars_rover_can_gimbal_set_joint_angular_velocity_gimbal_set_pan_angula
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_gimbal_set_joint_pid_params_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_gimbal_set_joint_pid_params_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_gimbal_set_joint_pid_params_t *src_p,
+        size_t size);
 
 /**
  * Unpack message GIMBAL_setJointPIDParams.
@@ -6143,8 +6143,8 @@ int uwrt_mars_rover_can_gimbal_set_joint_pid_params_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_gimbal_set_joint_pid_params_unpack(
-    struct uwrt_mars_rover_can_gimbal_set_joint_pid_params_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_gimbal_set_joint_pid_params_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -6155,7 +6155,7 @@ int uwrt_mars_rover_can_gimbal_set_joint_pid_params_unpack(
  */
 uint8_t
 uwrt_mars_rover_can_gimbal_set_joint_pid_params_gimbal_joint_pidid_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -6166,7 +6166,7 @@ uwrt_mars_rover_can_gimbal_set_joint_pid_params_gimbal_joint_pidid_encode(
  */
 double
 uwrt_mars_rover_can_gimbal_set_joint_pid_params_gimbal_joint_pidid_decode(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -6176,7 +6176,7 @@ uwrt_mars_rover_can_gimbal_set_joint_pid_params_gimbal_joint_pidid_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_gimbal_set_joint_pid_params_gimbal_joint_pidid_is_in_range(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -6187,7 +6187,7 @@ bool uwrt_mars_rover_can_gimbal_set_joint_pid_params_gimbal_joint_pidid_is_in_ra
  */
 uint16_t
 uwrt_mars_rover_can_gimbal_set_joint_pid_params_gimbal_joint_pid_proportional_gain_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -6198,7 +6198,7 @@ uwrt_mars_rover_can_gimbal_set_joint_pid_params_gimbal_joint_pid_proportional_ga
  */
 double
 uwrt_mars_rover_can_gimbal_set_joint_pid_params_gimbal_joint_pid_proportional_gain_decode(
-    uint16_t value);
+        uint16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -6208,7 +6208,7 @@ uwrt_mars_rover_can_gimbal_set_joint_pid_params_gimbal_joint_pid_proportional_ga
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_gimbal_set_joint_pid_params_gimbal_joint_pid_proportional_gain_is_in_range(
-    uint16_t value);
+        uint16_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -6219,7 +6219,7 @@ bool uwrt_mars_rover_can_gimbal_set_joint_pid_params_gimbal_joint_pid_proportion
  */
 uint16_t
 uwrt_mars_rover_can_gimbal_set_joint_pid_params_gimbal_joint_pid_integral_gain_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -6230,7 +6230,7 @@ uwrt_mars_rover_can_gimbal_set_joint_pid_params_gimbal_joint_pid_integral_gain_e
  */
 double
 uwrt_mars_rover_can_gimbal_set_joint_pid_params_gimbal_joint_pid_integral_gain_decode(
-    uint16_t value);
+        uint16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -6240,7 +6240,7 @@ uwrt_mars_rover_can_gimbal_set_joint_pid_params_gimbal_joint_pid_integral_gain_d
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_gimbal_set_joint_pid_params_gimbal_joint_pid_integral_gain_is_in_range(
-    uint16_t value);
+        uint16_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -6251,7 +6251,7 @@ bool uwrt_mars_rover_can_gimbal_set_joint_pid_params_gimbal_joint_pid_integral_g
  */
 uint16_t
 uwrt_mars_rover_can_gimbal_set_joint_pid_params_gimbal_joint_pid_derivative_gain_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -6262,7 +6262,7 @@ uwrt_mars_rover_can_gimbal_set_joint_pid_params_gimbal_joint_pid_derivative_gain
  */
 double
 uwrt_mars_rover_can_gimbal_set_joint_pid_params_gimbal_joint_pid_derivative_gain_decode(
-    uint16_t value);
+        uint16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -6272,7 +6272,7 @@ uwrt_mars_rover_can_gimbal_set_joint_pid_params_gimbal_joint_pid_derivative_gain
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_gimbal_set_joint_pid_params_gimbal_joint_pid_derivative_gain_is_in_range(
-    uint16_t value);
+        uint16_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -6283,7 +6283,7 @@ bool uwrt_mars_rover_can_gimbal_set_joint_pid_params_gimbal_joint_pid_derivative
  */
 uint16_t
 uwrt_mars_rover_can_gimbal_set_joint_pid_params_gimbal_joint_pid_deadzone_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -6294,7 +6294,7 @@ uwrt_mars_rover_can_gimbal_set_joint_pid_params_gimbal_joint_pid_deadzone_encode
  */
 double
 uwrt_mars_rover_can_gimbal_set_joint_pid_params_gimbal_joint_pid_deadzone_decode(
-    uint16_t value);
+        uint16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -6304,7 +6304,7 @@ uwrt_mars_rover_can_gimbal_set_joint_pid_params_gimbal_joint_pid_deadzone_decode
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_gimbal_set_joint_pid_params_gimbal_joint_pid_deadzone_is_in_range(
-    uint16_t value);
+        uint16_t value);
 
 /**
  * Pack message GIMBAL_reportJointData.
@@ -6316,9 +6316,9 @@ bool uwrt_mars_rover_can_gimbal_set_joint_pid_params_gimbal_joint_pid_deadzone_i
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_gimbal_report_joint_data_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_gimbal_report_joint_data_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_gimbal_report_joint_data_t *src_p,
+        size_t size);
 
 /**
  * Unpack message GIMBAL_reportJointData.
@@ -6330,8 +6330,8 @@ int uwrt_mars_rover_can_gimbal_report_joint_data_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_gimbal_report_joint_data_unpack(
-    struct uwrt_mars_rover_can_gimbal_report_joint_data_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_gimbal_report_joint_data_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -6342,7 +6342,7 @@ int uwrt_mars_rover_can_gimbal_report_joint_data_unpack(
  */
 int16_t
 uwrt_mars_rover_can_gimbal_report_joint_data_gimbal_report_pan_position_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -6353,7 +6353,7 @@ uwrt_mars_rover_can_gimbal_report_joint_data_gimbal_report_pan_position_encode(
  */
 double
 uwrt_mars_rover_can_gimbal_report_joint_data_gimbal_report_pan_position_decode(
-    int16_t value);
+        int16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -6363,7 +6363,7 @@ uwrt_mars_rover_can_gimbal_report_joint_data_gimbal_report_pan_position_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_gimbal_report_joint_data_gimbal_report_pan_position_is_in_range(
-    int16_t value);
+        int16_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -6374,7 +6374,7 @@ bool uwrt_mars_rover_can_gimbal_report_joint_data_gimbal_report_pan_position_is_
  */
 int16_t
 uwrt_mars_rover_can_gimbal_report_joint_data_gimbal_report_pan_angular_velocity_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -6385,7 +6385,7 @@ uwrt_mars_rover_can_gimbal_report_joint_data_gimbal_report_pan_angular_velocity_
  */
 double
 uwrt_mars_rover_can_gimbal_report_joint_data_gimbal_report_pan_angular_velocity_decode(
-    int16_t value);
+        int16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -6395,7 +6395,7 @@ uwrt_mars_rover_can_gimbal_report_joint_data_gimbal_report_pan_angular_velocity_
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_gimbal_report_joint_data_gimbal_report_pan_angular_velocity_is_in_range(
-    int16_t value);
+        int16_t value);
 
 /**
  * Pack message GIMBAL_reportFaults.
@@ -6407,9 +6407,9 @@ bool uwrt_mars_rover_can_gimbal_report_joint_data_gimbal_report_pan_angular_velo
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_gimbal_report_faults_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_gimbal_report_faults_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_gimbal_report_faults_t *src_p,
+        size_t size);
 
 /**
  * Unpack message GIMBAL_reportFaults.
@@ -6421,8 +6421,8 @@ int uwrt_mars_rover_can_gimbal_report_faults_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_gimbal_report_faults_unpack(
-    struct uwrt_mars_rover_can_gimbal_report_faults_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_gimbal_report_faults_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -6433,7 +6433,7 @@ int uwrt_mars_rover_can_gimbal_report_faults_unpack(
  */
 uint8_t
 uwrt_mars_rover_can_gimbal_report_faults_gimbal_pan_encoder_state_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -6443,7 +6443,7 @@ uwrt_mars_rover_can_gimbal_report_faults_gimbal_pan_encoder_state_encode(
  * @return Decoded signal.
  */
 double uwrt_mars_rover_can_gimbal_report_faults_gimbal_pan_encoder_state_decode(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -6453,7 +6453,7 @@ double uwrt_mars_rover_can_gimbal_report_faults_gimbal_pan_encoder_state_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_gimbal_report_faults_gimbal_pan_encoder_state_is_in_range(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -6464,7 +6464,7 @@ bool uwrt_mars_rover_can_gimbal_report_faults_gimbal_pan_encoder_state_is_in_ran
  */
 uint16_t
 uwrt_mars_rover_can_gimbal_report_faults_gimbal_num_canrx_faults_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -6474,7 +6474,7 @@ uwrt_mars_rover_can_gimbal_report_faults_gimbal_num_canrx_faults_encode(
  * @return Decoded signal.
  */
 double uwrt_mars_rover_can_gimbal_report_faults_gimbal_num_canrx_faults_decode(
-    uint16_t value);
+        uint16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -6484,7 +6484,7 @@ double uwrt_mars_rover_can_gimbal_report_faults_gimbal_num_canrx_faults_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_gimbal_report_faults_gimbal_num_canrx_faults_is_in_range(
-    uint16_t value);
+        uint16_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -6495,7 +6495,7 @@ bool uwrt_mars_rover_can_gimbal_report_faults_gimbal_num_canrx_faults_is_in_rang
  */
 uint16_t
 uwrt_mars_rover_can_gimbal_report_faults_gimbal_num_cantx_faults_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -6505,7 +6505,7 @@ uwrt_mars_rover_can_gimbal_report_faults_gimbal_num_cantx_faults_encode(
  * @return Decoded signal.
  */
 double uwrt_mars_rover_can_gimbal_report_faults_gimbal_num_cantx_faults_decode(
-    uint16_t value);
+        uint16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -6515,7 +6515,7 @@ double uwrt_mars_rover_can_gimbal_report_faults_gimbal_num_cantx_faults_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_gimbal_report_faults_gimbal_num_cantx_faults_is_in_range(
-    uint16_t value);
+        uint16_t value);
 
 /**
  * Pack message GIMBAL_reportACK.
@@ -6527,8 +6527,8 @@ bool uwrt_mars_rover_can_gimbal_report_faults_gimbal_num_cantx_faults_is_in_rang
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_gimbal_report_ack_pack(
-    uint8_t *dst_p, const struct uwrt_mars_rover_can_gimbal_report_ack_t *src_p,
-    size_t size);
+        uint8_t *dst_p, const struct uwrt_mars_rover_can_gimbal_report_ack_t *src_p,
+        size_t size);
 
 /**
  * Unpack message GIMBAL_reportACK.
@@ -6540,8 +6540,8 @@ int uwrt_mars_rover_can_gimbal_report_ack_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_gimbal_report_ack_unpack(
-    struct uwrt_mars_rover_can_gimbal_report_ack_t *dst_p, const uint8_t *src_p,
-    size_t size);
+        struct uwrt_mars_rover_can_gimbal_report_ack_t *dst_p, const uint8_t *src_p,
+        size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -6569,7 +6569,7 @@ double uwrt_mars_rover_can_gimbal_report_ack_gimbal_ack_decode(uint8_t value);
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_gimbal_report_ack_gimbal_ack_is_in_range(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Pack message GIMBAL_reportDiagnostics.
@@ -6581,9 +6581,9 @@ bool uwrt_mars_rover_can_gimbal_report_ack_gimbal_ack_is_in_range(
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_gimbal_report_diagnostics_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_gimbal_report_diagnostics_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_gimbal_report_diagnostics_t *src_p,
+        size_t size);
 
 /**
  * Unpack message GIMBAL_reportDiagnostics.
@@ -6595,8 +6595,8 @@ int uwrt_mars_rover_can_gimbal_report_diagnostics_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_gimbal_report_diagnostics_unpack(
-    struct uwrt_mars_rover_can_gimbal_report_diagnostics_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_gimbal_report_diagnostics_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -6607,7 +6607,7 @@ int uwrt_mars_rover_can_gimbal_report_diagnostics_unpack(
  */
 uint32_t
 uwrt_mars_rover_can_gimbal_report_diagnostics_gimbal_report_num_streamed_msgs_received_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -6618,7 +6618,7 @@ uwrt_mars_rover_can_gimbal_report_diagnostics_gimbal_report_num_streamed_msgs_re
  */
 double
 uwrt_mars_rover_can_gimbal_report_diagnostics_gimbal_report_num_streamed_msgs_received_decode(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -6628,7 +6628,7 @@ uwrt_mars_rover_can_gimbal_report_diagnostics_gimbal_report_num_streamed_msgs_re
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_gimbal_report_diagnostics_gimbal_report_num_streamed_msgs_received_is_in_range(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -6639,7 +6639,7 @@ bool uwrt_mars_rover_can_gimbal_report_diagnostics_gimbal_report_num_streamed_ms
  */
 uint32_t
 uwrt_mars_rover_can_gimbal_report_diagnostics_gimbal_report_num_one_shot_msgs_received_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -6650,7 +6650,7 @@ uwrt_mars_rover_can_gimbal_report_diagnostics_gimbal_report_num_one_shot_msgs_re
  */
 double
 uwrt_mars_rover_can_gimbal_report_diagnostics_gimbal_report_num_one_shot_msgs_received_decode(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -6660,7 +6660,7 @@ uwrt_mars_rover_can_gimbal_report_diagnostics_gimbal_report_num_one_shot_msgs_re
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_gimbal_report_diagnostics_gimbal_report_num_one_shot_msgs_received_is_in_range(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Pack message PDB_setLEDMatrix.
@@ -6672,8 +6672,8 @@ bool uwrt_mars_rover_can_gimbal_report_diagnostics_gimbal_report_num_one_shot_ms
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_pdb_set_led_matrix_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_pdb_set_led_matrix_t *src_p, size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_pdb_set_led_matrix_t *src_p, size_t size);
 
 /**
  * Unpack message PDB_setLEDMatrix.
@@ -6685,8 +6685,8 @@ int uwrt_mars_rover_can_pdb_set_led_matrix_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_pdb_set_led_matrix_unpack(
-    struct uwrt_mars_rover_can_pdb_set_led_matrix_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_pdb_set_led_matrix_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -6696,7 +6696,7 @@ int uwrt_mars_rover_can_pdb_set_led_matrix_unpack(
  * @return Encoded signal.
  */
 uint8_t uwrt_mars_rover_can_pdb_set_led_matrix_pdb_led_matrix_state_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -6706,7 +6706,7 @@ uint8_t uwrt_mars_rover_can_pdb_set_led_matrix_pdb_led_matrix_state_encode(
  * @return Decoded signal.
  */
 double uwrt_mars_rover_can_pdb_set_led_matrix_pdb_led_matrix_state_decode(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -6716,7 +6716,7 @@ double uwrt_mars_rover_can_pdb_set_led_matrix_pdb_led_matrix_state_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_pdb_set_led_matrix_pdb_led_matrix_state_is_in_range(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Pack message PDB_reportSensorData.
@@ -6728,9 +6728,9 @@ bool uwrt_mars_rover_can_pdb_set_led_matrix_pdb_led_matrix_state_is_in_range(
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_pdb_report_sensor_data_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_pdb_report_sensor_data_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_pdb_report_sensor_data_t *src_p,
+        size_t size);
 
 /**
  * Unpack message PDB_reportSensorData.
@@ -6742,8 +6742,8 @@ int uwrt_mars_rover_can_pdb_report_sensor_data_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_pdb_report_sensor_data_unpack(
-    struct uwrt_mars_rover_can_pdb_report_sensor_data_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_pdb_report_sensor_data_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -6754,7 +6754,7 @@ int uwrt_mars_rover_can_pdb_report_sensor_data_unpack(
  */
 uint16_t
 uwrt_mars_rover_can_pdb_report_sensor_data_pdb_ultrasonic_sensor1_data_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -6765,7 +6765,7 @@ uwrt_mars_rover_can_pdb_report_sensor_data_pdb_ultrasonic_sensor1_data_encode(
  */
 double
 uwrt_mars_rover_can_pdb_report_sensor_data_pdb_ultrasonic_sensor1_data_decode(
-    uint16_t value);
+        uint16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -6775,7 +6775,7 @@ uwrt_mars_rover_can_pdb_report_sensor_data_pdb_ultrasonic_sensor1_data_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_pdb_report_sensor_data_pdb_ultrasonic_sensor1_data_is_in_range(
-    uint16_t value);
+        uint16_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -6786,7 +6786,7 @@ bool uwrt_mars_rover_can_pdb_report_sensor_data_pdb_ultrasonic_sensor1_data_is_i
  */
 uint16_t
 uwrt_mars_rover_can_pdb_report_sensor_data_pdb_ultrasonic_sensor2_data_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -6797,7 +6797,7 @@ uwrt_mars_rover_can_pdb_report_sensor_data_pdb_ultrasonic_sensor2_data_encode(
  */
 double
 uwrt_mars_rover_can_pdb_report_sensor_data_pdb_ultrasonic_sensor2_data_decode(
-    uint16_t value);
+        uint16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -6807,7 +6807,7 @@ uwrt_mars_rover_can_pdb_report_sensor_data_pdb_ultrasonic_sensor2_data_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_pdb_report_sensor_data_pdb_ultrasonic_sensor2_data_is_in_range(
-    uint16_t value);
+        uint16_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -6818,7 +6818,7 @@ bool uwrt_mars_rover_can_pdb_report_sensor_data_pdb_ultrasonic_sensor2_data_is_i
  */
 uint16_t
 uwrt_mars_rover_can_pdb_report_sensor_data_pdb_ultrasonic_sensor3_data_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -6829,7 +6829,7 @@ uwrt_mars_rover_can_pdb_report_sensor_data_pdb_ultrasonic_sensor3_data_encode(
  */
 double
 uwrt_mars_rover_can_pdb_report_sensor_data_pdb_ultrasonic_sensor3_data_decode(
-    uint16_t value);
+        uint16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -6839,7 +6839,7 @@ uwrt_mars_rover_can_pdb_report_sensor_data_pdb_ultrasonic_sensor3_data_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_pdb_report_sensor_data_pdb_ultrasonic_sensor3_data_is_in_range(
-    uint16_t value);
+        uint16_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -6850,7 +6850,7 @@ bool uwrt_mars_rover_can_pdb_report_sensor_data_pdb_ultrasonic_sensor3_data_is_i
  */
 uint16_t
 uwrt_mars_rover_can_pdb_report_sensor_data_pdb_ultrasonic_sensor4_data_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -6861,7 +6861,7 @@ uwrt_mars_rover_can_pdb_report_sensor_data_pdb_ultrasonic_sensor4_data_encode(
  */
 double
 uwrt_mars_rover_can_pdb_report_sensor_data_pdb_ultrasonic_sensor4_data_decode(
-    uint16_t value);
+        uint16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -6871,7 +6871,7 @@ uwrt_mars_rover_can_pdb_report_sensor_data_pdb_ultrasonic_sensor4_data_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_pdb_report_sensor_data_pdb_ultrasonic_sensor4_data_is_in_range(
-    uint16_t value);
+        uint16_t value);
 
 /**
  * Pack message PDB_reportFaults.
@@ -6883,8 +6883,8 @@ bool uwrt_mars_rover_can_pdb_report_sensor_data_pdb_ultrasonic_sensor4_data_is_i
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_pdb_report_faults_pack(
-    uint8_t *dst_p, const struct uwrt_mars_rover_can_pdb_report_faults_t *src_p,
-    size_t size);
+        uint8_t *dst_p, const struct uwrt_mars_rover_can_pdb_report_faults_t *src_p,
+        size_t size);
 
 /**
  * Unpack message PDB_reportFaults.
@@ -6896,8 +6896,8 @@ int uwrt_mars_rover_can_pdb_report_faults_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_pdb_report_faults_unpack(
-    struct uwrt_mars_rover_can_pdb_report_faults_t *dst_p, const uint8_t *src_p,
-    size_t size);
+        struct uwrt_mars_rover_can_pdb_report_faults_t *dst_p, const uint8_t *src_p,
+        size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -6927,7 +6927,7 @@ uwrt_mars_rover_can_pdb_report_faults_pdb_jetson_status_decode(uint8_t value);
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_pdb_report_faults_pdb_jetson_status_is_in_range(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -6947,7 +6947,7 @@ uwrt_mars_rover_can_pdb_report_faults_pdb_arm_power_status_encode(double value);
  * @return Decoded signal.
  */
 double uwrt_mars_rover_can_pdb_report_faults_pdb_arm_power_status_decode(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -6957,7 +6957,7 @@ double uwrt_mars_rover_can_pdb_report_faults_pdb_arm_power_status_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_pdb_report_faults_pdb_arm_power_status_is_in_range(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -6967,7 +6967,7 @@ bool uwrt_mars_rover_can_pdb_report_faults_pdb_arm_power_status_is_in_range(
  * @return Encoded signal.
  */
 uint8_t uwrt_mars_rover_can_pdb_report_faults_pdb_science_power_status_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -6977,7 +6977,7 @@ uint8_t uwrt_mars_rover_can_pdb_report_faults_pdb_science_power_status_encode(
  * @return Decoded signal.
  */
 double uwrt_mars_rover_can_pdb_report_faults_pdb_science_power_status_decode(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -6987,7 +6987,7 @@ double uwrt_mars_rover_can_pdb_report_faults_pdb_science_power_status_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_pdb_report_faults_pdb_science_power_status_is_in_range(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -6997,7 +6997,7 @@ bool uwrt_mars_rover_can_pdb_report_faults_pdb_science_power_status_is_in_range(
  * @return Encoded signal.
  */
 uint8_t uwrt_mars_rover_can_pdb_report_faults_pdb_gimbal_power_status_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -7007,7 +7007,7 @@ uint8_t uwrt_mars_rover_can_pdb_report_faults_pdb_gimbal_power_status_encode(
  * @return Decoded signal.
  */
 double uwrt_mars_rover_can_pdb_report_faults_pdb_gimbal_power_status_decode(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -7017,7 +7017,7 @@ double uwrt_mars_rover_can_pdb_report_faults_pdb_gimbal_power_status_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_pdb_report_faults_pdb_gimbal_power_status_is_in_range(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -7037,7 +7037,7 @@ uwrt_mars_rover_can_pdb_report_faults_pdb_vbat_rail_status_encode(double value);
  * @return Decoded signal.
  */
 double uwrt_mars_rover_can_pdb_report_faults_pdb_vbat_rail_status_decode(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -7047,7 +7047,7 @@ double uwrt_mars_rover_can_pdb_report_faults_pdb_vbat_rail_status_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_pdb_report_faults_pdb_vbat_rail_status_is_in_range(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -7067,7 +7067,7 @@ uwrt_mars_rover_can_pdb_report_faults_pdb_17_v_rail_status_encode(double value);
  * @return Decoded signal.
  */
 double uwrt_mars_rover_can_pdb_report_faults_pdb_17_v_rail_status_decode(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -7077,7 +7077,7 @@ double uwrt_mars_rover_can_pdb_report_faults_pdb_17_v_rail_status_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_pdb_report_faults_pdb_17_v_rail_status_is_in_range(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -7107,7 +7107,7 @@ uwrt_mars_rover_can_pdb_report_faults_pdb_5_v_rail_status_decode(uint8_t value);
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_pdb_report_faults_pdb_5_v_rail_status_is_in_range(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -7127,7 +7127,7 @@ uwrt_mars_rover_can_pdb_report_faults_pdb_num_canrx_faults_encode(double value);
  * @return Decoded signal.
  */
 double uwrt_mars_rover_can_pdb_report_faults_pdb_num_canrx_faults_decode(
-    uint16_t value);
+        uint16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -7137,7 +7137,7 @@ double uwrt_mars_rover_can_pdb_report_faults_pdb_num_canrx_faults_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_pdb_report_faults_pdb_num_canrx_faults_is_in_range(
-    uint16_t value);
+        uint16_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -7157,7 +7157,7 @@ uwrt_mars_rover_can_pdb_report_faults_pdb_num_cantx_faults_encode(double value);
  * @return Decoded signal.
  */
 double uwrt_mars_rover_can_pdb_report_faults_pdb_num_cantx_faults_decode(
-    uint16_t value);
+        uint16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -7167,7 +7167,7 @@ double uwrt_mars_rover_can_pdb_report_faults_pdb_num_cantx_faults_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_pdb_report_faults_pdb_num_cantx_faults_is_in_range(
-    uint16_t value);
+        uint16_t value);
 
 /**
  * Pack message PDB_reportACK.
@@ -7179,8 +7179,8 @@ bool uwrt_mars_rover_can_pdb_report_faults_pdb_num_cantx_faults_is_in_range(
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_pdb_report_ack_pack(
-    uint8_t *dst_p, const struct uwrt_mars_rover_can_pdb_report_ack_t *src_p,
-    size_t size);
+        uint8_t *dst_p, const struct uwrt_mars_rover_can_pdb_report_ack_t *src_p,
+        size_t size);
 
 /**
  * Unpack message PDB_reportACK.
@@ -7192,8 +7192,8 @@ int uwrt_mars_rover_can_pdb_report_ack_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_pdb_report_ack_unpack(
-    struct uwrt_mars_rover_can_pdb_report_ack_t *dst_p, const uint8_t *src_p,
-    size_t size);
+        struct uwrt_mars_rover_can_pdb_report_ack_t *dst_p, const uint8_t *src_p,
+        size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -7232,9 +7232,9 @@ bool uwrt_mars_rover_can_pdb_report_ack_pdb_ack_is_in_range(uint8_t value);
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_pdb_report_diagnostics_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_pdb_report_diagnostics_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_pdb_report_diagnostics_t *src_p,
+        size_t size);
 
 /**
  * Unpack message PDB_reportDiagnostics.
@@ -7246,8 +7246,8 @@ int uwrt_mars_rover_can_pdb_report_diagnostics_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_pdb_report_diagnostics_unpack(
-    struct uwrt_mars_rover_can_pdb_report_diagnostics_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_pdb_report_diagnostics_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -7258,7 +7258,7 @@ int uwrt_mars_rover_can_pdb_report_diagnostics_unpack(
  */
 uint32_t
 uwrt_mars_rover_can_pdb_report_diagnostics_pdb_report_num_streamed_msgs_received_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -7269,7 +7269,7 @@ uwrt_mars_rover_can_pdb_report_diagnostics_pdb_report_num_streamed_msgs_received
  */
 double
 uwrt_mars_rover_can_pdb_report_diagnostics_pdb_report_num_streamed_msgs_received_decode(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -7279,7 +7279,7 @@ uwrt_mars_rover_can_pdb_report_diagnostics_pdb_report_num_streamed_msgs_received
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_pdb_report_diagnostics_pdb_report_num_streamed_msgs_received_is_in_range(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -7290,7 +7290,7 @@ bool uwrt_mars_rover_can_pdb_report_diagnostics_pdb_report_num_streamed_msgs_rec
  */
 uint32_t
 uwrt_mars_rover_can_pdb_report_diagnostics_pdb_report_num_one_shot_msgs_received_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -7301,7 +7301,7 @@ uwrt_mars_rover_can_pdb_report_diagnostics_pdb_report_num_one_shot_msgs_received
  */
 double
 uwrt_mars_rover_can_pdb_report_diagnostics_pdb_report_num_one_shot_msgs_received_decode(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -7311,7 +7311,7 @@ uwrt_mars_rover_can_pdb_report_diagnostics_pdb_report_num_one_shot_msgs_received
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_pdb_report_diagnostics_pdb_report_num_one_shot_msgs_received_is_in_range(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Pack message COMMON_switchCANBus.
@@ -7323,9 +7323,9 @@ bool uwrt_mars_rover_can_pdb_report_diagnostics_pdb_report_num_one_shot_msgs_rec
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_common_switch_can_bus_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_common_switch_can_bus_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_common_switch_can_bus_t *src_p,
+        size_t size);
 
 /**
  * Unpack message COMMON_switchCANBus.
@@ -7337,8 +7337,8 @@ int uwrt_mars_rover_can_common_switch_can_bus_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_common_switch_can_bus_unpack(
-    struct uwrt_mars_rover_can_common_switch_can_bus_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_common_switch_can_bus_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -7348,7 +7348,7 @@ int uwrt_mars_rover_can_common_switch_can_bus_unpack(
  * @return Encoded signal.
  */
 uint8_t uwrt_mars_rover_can_common_switch_can_bus_common_can_bus_id_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -7358,7 +7358,7 @@ uint8_t uwrt_mars_rover_can_common_switch_can_bus_common_can_bus_id_encode(
  * @return Decoded signal.
  */
 double uwrt_mars_rover_can_common_switch_can_bus_common_can_bus_id_decode(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -7368,7 +7368,7 @@ double uwrt_mars_rover_can_common_switch_can_bus_common_can_bus_id_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_common_switch_can_bus_common_can_bus_id_is_in_range(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Pack message COMMON_debugMessage1.
@@ -7380,9 +7380,9 @@ bool uwrt_mars_rover_can_common_switch_can_bus_common_can_bus_id_is_in_range(
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_common_debug_message1_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_common_debug_message1_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_common_debug_message1_t *src_p,
+        size_t size);
 
 /**
  * Unpack message COMMON_debugMessage1.
@@ -7394,8 +7394,8 @@ int uwrt_mars_rover_can_common_debug_message1_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_common_debug_message1_unpack(
-    struct uwrt_mars_rover_can_common_debug_message1_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_common_debug_message1_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -7405,7 +7405,7 @@ int uwrt_mars_rover_can_common_debug_message1_unpack(
  * @return Encoded signal.
  */
 uint32_t uwrt_mars_rover_can_common_debug_message1_common_debug_signal1_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -7415,7 +7415,7 @@ uint32_t uwrt_mars_rover_can_common_debug_message1_common_debug_signal1_encode(
  * @return Decoded signal.
  */
 double uwrt_mars_rover_can_common_debug_message1_common_debug_signal1_decode(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -7425,7 +7425,7 @@ double uwrt_mars_rover_can_common_debug_message1_common_debug_signal1_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_common_debug_message1_common_debug_signal1_is_in_range(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Pack message COMMON_debugMessage2.
@@ -7437,9 +7437,9 @@ bool uwrt_mars_rover_can_common_debug_message1_common_debug_signal1_is_in_range(
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_common_debug_message2_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_common_debug_message2_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_common_debug_message2_t *src_p,
+        size_t size);
 
 /**
  * Unpack message COMMON_debugMessage2.
@@ -7451,8 +7451,8 @@ int uwrt_mars_rover_can_common_debug_message2_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_common_debug_message2_unpack(
-    struct uwrt_mars_rover_can_common_debug_message2_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_common_debug_message2_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -7462,7 +7462,7 @@ int uwrt_mars_rover_can_common_debug_message2_unpack(
  * @return Encoded signal.
  */
 uint8_t uwrt_mars_rover_can_common_debug_message2_common_debug_signal2_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -7472,7 +7472,7 @@ uint8_t uwrt_mars_rover_can_common_debug_message2_common_debug_signal2_encode(
  * @return Decoded signal.
  */
 double uwrt_mars_rover_can_common_debug_message2_common_debug_signal2_decode(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -7482,7 +7482,7 @@ double uwrt_mars_rover_can_common_debug_message2_common_debug_signal2_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_common_debug_message2_common_debug_signal2_is_in_range(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Pack message COMMON_debugMessage3.
@@ -7494,9 +7494,9 @@ bool uwrt_mars_rover_can_common_debug_message2_common_debug_signal2_is_in_range(
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_common_debug_message3_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_common_debug_message3_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_common_debug_message3_t *src_p,
+        size_t size);
 
 /**
  * Unpack message COMMON_debugMessage3.
@@ -7508,8 +7508,8 @@ int uwrt_mars_rover_can_common_debug_message3_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_common_debug_message3_unpack(
-    struct uwrt_mars_rover_can_common_debug_message3_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_common_debug_message3_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -7519,7 +7519,7 @@ int uwrt_mars_rover_can_common_debug_message3_unpack(
  * @return Encoded signal.
  */
 uint8_t uwrt_mars_rover_can_common_debug_message3_common_debug_signal3_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -7529,7 +7529,7 @@ uint8_t uwrt_mars_rover_can_common_debug_message3_common_debug_signal3_encode(
  * @return Decoded signal.
  */
 double uwrt_mars_rover_can_common_debug_message3_common_debug_signal3_decode(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -7539,7 +7539,7 @@ double uwrt_mars_rover_can_common_debug_message3_common_debug_signal3_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_common_debug_message3_common_debug_signal3_is_in_range(
-    uint8_t value);
+        uint8_t value);
 
 #ifdef __cplusplus
 }

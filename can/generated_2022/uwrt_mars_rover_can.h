@@ -624,32 +624,32 @@ extern "C" {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_odrive_heartbeat_message_axis0_t {
-  /**
-   * Odrive axis errors
-   *
-   * Range: 0..4294967294 (0.0..4294967294.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint32_t odrive_axis_error;
+    /**
+     * Odrive axis errors
+     *
+     * Range: 0..4294967294 (0.0..4294967294.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint32_t odrive_axis_error;
 
-  /**
-   * Odrive axis current state
-   *
-   * Range: 0..254 (0.0..254.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint8_t odrive_axis_current_state;
+    /**
+     * Odrive axis current state
+     *
+     * Range: 0..254 (0.0..254.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint8_t odrive_axis_current_state;
 
-  /**
-   * Odrive controller status
-   *
-   * Range: 0..254 (0.0..254.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint8_t odrive_controller_status;
+    /**
+     * Odrive controller status
+     *
+     * Range: 0..254 (0.0..254.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint8_t odrive_controller_status;
 };
 
 /**
@@ -660,10 +660,10 @@ struct uwrt_mars_rover_can_odrive_heartbeat_message_axis0_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_odrive_estop_message_axis0_t {
-  /**
-   * Dummy signal in empty message.
-   */
-  uint8_t dummy;
+    /**
+     * Dummy signal in empty message.
+     */
+    uint8_t dummy;
 };
 
 /**
@@ -674,14 +674,14 @@ struct uwrt_mars_rover_can_odrive_estop_message_axis0_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_odrive_get_motor_error_axis0_t {
-  /**
-   * Odrive motor errors
-   *
-   * Range: 0..18446744073709552000 (0.0..1.8446744073709552E+19 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint64_t odrive_motor_error;
+    /**
+     * Odrive motor errors
+     *
+     * Range: 0..18446744073709552000 (0.0..1.8446744073709552E+19 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint64_t odrive_motor_error;
 };
 
 /**
@@ -692,14 +692,14 @@ struct uwrt_mars_rover_can_odrive_get_motor_error_axis0_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_odrive_get_encoder_error_axis0_t {
-  /**
-   * Odrive encoder error
-   *
-   * Range: 0..4294967294 (0.0..4294967294.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint32_t odrive_encoder_error;
+    /**
+     * Odrive encoder error
+     *
+     * Range: 0..4294967294 (0.0..4294967294.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint32_t odrive_encoder_error;
 };
 
 /**
@@ -710,14 +710,14 @@ struct uwrt_mars_rover_can_odrive_get_encoder_error_axis0_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_odrive_get_sensorless_error_axis0_t {
-  /**
-   * Odrive sesnsorless error
-   *
-   * Range: 0..4294967294 (0.0..4294967294.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint32_t odrive_sensorless_error;
+    /**
+     * Odrive sesnsorless error
+     *
+     * Range: 0..4294967294 (0.0..4294967294.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint32_t odrive_sensorless_error;
 };
 
 /**
@@ -728,14 +728,14 @@ struct uwrt_mars_rover_can_odrive_get_sensorless_error_axis0_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_odrive_set_axis_node_id_axis0_t {
-  /**
-   * Odrive Axis CAN Node ID error
-   *
-   * Range: 0..4294967294 (0.0..4294967294.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint32_t odrive_axis_can_node_id;
+    /**
+     * Odrive Axis CAN Node ID error
+     *
+     * Range: 0..4294967294 (0.0..4294967294.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint32_t odrive_axis_can_node_id;
 };
 
 /**
@@ -746,14 +746,14 @@ struct uwrt_mars_rover_can_odrive_set_axis_node_id_axis0_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_odrive_set_axis_requested_state_axis0_t {
-  /**
-   * Odrive axis requested state
-   *
-   * Range: 0..4294967294 (0.0..4294967294.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint32_t odrive_axis_requested_state;
+    /**
+     * Odrive axis requested state
+     *
+     * Range: 0..4294967294 (0.0..4294967294.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint32_t odrive_axis_requested_state;
 };
 
 /**
@@ -764,23 +764,23 @@ struct uwrt_mars_rover_can_odrive_set_axis_requested_state_axis0_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_odrive_get_encoder_estimates_axis0_t {
-  /**
-   * Odrive encoder position estimate
-   *
-   * Range: 0..1 (0.0..1.0 turns)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint32_t odrive_encoder_pos_estimate;
+    /**
+     * Odrive encoder position estimate
+     *
+     * Range: 0..1 (0.0..1.0 turns)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint32_t odrive_encoder_pos_estimate;
 
-  /**
-   * Odrive encoder velocity estimate
-   *
-   * Range: 0..1 (0.0..1.0 turns/s)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint32_t odrive_encoder_vel_estimate;
+    /**
+     * Odrive encoder velocity estimate
+     *
+     * Range: 0..1 (0.0..1.0 turns/s)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint32_t odrive_encoder_vel_estimate;
 };
 
 /**
@@ -791,23 +791,23 @@ struct uwrt_mars_rover_can_odrive_get_encoder_estimates_axis0_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_odrive_get_encoder_count_axis0_t {
-  /**
-   * Odrive encoder shadow count
-   *
-   * Range: 0..1 (0.0..1.0 counts)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  int32_t odrive_encoder_shadow_count;
+    /**
+     * Odrive encoder shadow count
+     *
+     * Range: 0..1 (0.0..1.0 counts)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    int32_t odrive_encoder_shadow_count;
 
-  /**
-   * Odrive encoder count in CPR
-   *
-   * Range: 0..1 (0.0..1.0 counts)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  int32_t odrive_encoder_countin_cpr;
+    /**
+     * Odrive encoder count in CPR
+     *
+     * Range: 0..1 (0.0..1.0 counts)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    int32_t odrive_encoder_countin_cpr;
 };
 
 /**
@@ -818,23 +818,23 @@ struct uwrt_mars_rover_can_odrive_get_encoder_count_axis0_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_odrive_set_controller_modes_axis0_t {
-  /**
-   * Odrive control mode
-   *
-   * Range: -2147483647..2147483647 (-2147483647.0..2147483647.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  int32_t odrive_control_mode;
+    /**
+     * Odrive control mode
+     *
+     * Range: -2147483647..2147483647 (-2147483647.0..2147483647.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    int32_t odrive_control_mode;
 
-  /**
-   * Odrive input mode
-   *
-   * Range: -2147483647..2147483647 (-2147483647.0..2147483647.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  int32_t odrive_input_mode;
+    /**
+     * Odrive input mode
+     *
+     * Range: -2147483647..2147483647 (-2147483647.0..2147483647.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    int32_t odrive_input_mode;
 };
 
 /**
@@ -845,32 +845,32 @@ struct uwrt_mars_rover_can_odrive_set_controller_modes_axis0_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_odrive_set_input_pos_axis0_t {
-  /**
-   * Odrive input position
-   *
-   * Range: 0..1 (0.0..1.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint32_t odrive_input_pos;
+    /**
+     * Odrive input position
+     *
+     * Range: 0..1 (0.0..1.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint32_t odrive_input_pos;
 
-  /**
-   * Odrive velocity feed forward
-   *
-   * Range: 0..1000 (0.0..1.0 -)
-   * Scale: 0.001
-   * Offset: 0.0
-   */
-  int16_t odrive_vel_ff;
+    /**
+     * Odrive velocity feed forward
+     *
+     * Range: 0..1000 (0.0..1.0 -)
+     * Scale: 0.001
+     * Offset: 0.0
+     */
+    int16_t odrive_vel_ff;
 
-  /**
-   * Odrive torque feed forward
-   *
-   * Range: 0..1000 (0.0..1.0 -)
-   * Scale: 0.001
-   * Offset: 0.0
-   */
-  int16_t odrive_torque_ff;
+    /**
+     * Odrive torque feed forward
+     *
+     * Range: 0..1000 (0.0..1.0 -)
+     * Scale: 0.001
+     * Offset: 0.0
+     */
+    int16_t odrive_torque_ff;
 };
 
 /**
@@ -881,23 +881,23 @@ struct uwrt_mars_rover_can_odrive_set_input_pos_axis0_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_odrive_set_input_vel_axis0_t {
-  /**
-   * Odrive input velocity
-   *
-   * Range: 0..1 (0.0..1.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint32_t odrive_input_vel;
+    /**
+     * Odrive input velocity
+     *
+     * Range: 0..1 (0.0..1.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint32_t odrive_input_vel;
 
-  /**
-   * Odrive torque feed forward
-   *
-   * Range: 0..1 (0.0..1.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint32_t odrive_torque_ff;
+    /**
+     * Odrive torque feed forward
+     *
+     * Range: 0..1 (0.0..1.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint32_t odrive_torque_ff;
 };
 
 /**
@@ -908,14 +908,14 @@ struct uwrt_mars_rover_can_odrive_set_input_vel_axis0_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_odrive_set_input_torque_axis0_t {
-  /**
-   * Odrive input torque
-   *
-   * Range: 0..1 (0.0..1.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint32_t odrive_input_torque;
+    /**
+     * Odrive input torque
+     *
+     * Range: 0..1 (0.0..1.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint32_t odrive_input_torque;
 };
 
 /**
@@ -926,23 +926,23 @@ struct uwrt_mars_rover_can_odrive_set_input_torque_axis0_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_odrive_set_limits_axis0_t {
-  /**
-   * Odrive velocity limit
-   *
-   * Range: 0..1 (0.0..1.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint32_t odrive_velocity_limit;
+    /**
+     * Odrive velocity limit
+     *
+     * Range: 0..1 (0.0..1.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint32_t odrive_velocity_limit;
 
-  /**
-   * Odrive current limit
-   *
-   * Range: 0..1 (0.0..1.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint32_t odrive_current_limit;
+    /**
+     * Odrive current limit
+     *
+     * Range: 0..1 (0.0..1.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint32_t odrive_current_limit;
 };
 
 /**
@@ -953,10 +953,10 @@ struct uwrt_mars_rover_can_odrive_set_limits_axis0_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_odrive_start_anticogging_axis0_t {
-  /**
-   * Dummy signal in empty message.
-   */
-  uint8_t dummy;
+    /**
+     * Dummy signal in empty message.
+     */
+    uint8_t dummy;
 };
 
 /**
@@ -967,14 +967,14 @@ struct uwrt_mars_rover_can_odrive_start_anticogging_axis0_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_odrive_set_traj_vel_limit_axis0_t {
-  /**
-   * Odrive traj velocity limit
-   *
-   * Range: 0..1 (0.0..1.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint32_t odrive_traj_vel_limit;
+    /**
+     * Odrive traj velocity limit
+     *
+     * Range: 0..1 (0.0..1.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint32_t odrive_traj_vel_limit;
 };
 
 /**
@@ -985,23 +985,23 @@ struct uwrt_mars_rover_can_odrive_set_traj_vel_limit_axis0_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis0_t {
-  /**
-   * Odrive traj acceleration limit
-   *
-   * Range: 0..1 (0.0..1.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint32_t odrive_traj_accel_limit;
+    /**
+     * Odrive traj acceleration limit
+     *
+     * Range: 0..1 (0.0..1.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint32_t odrive_traj_accel_limit;
 
-  /**
-   * Odrive traj deceleration limit
-   *
-   * Range: 0..1 (0.0..1.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint32_t odrive_traj_decel_limit;
+    /**
+     * Odrive traj deceleration limit
+     *
+     * Range: 0..1 (0.0..1.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint32_t odrive_traj_decel_limit;
 };
 
 /**
@@ -1012,14 +1012,14 @@ struct uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis0_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_odrive_set_traj_inertia_axis0_t {
-  /**
-   * Odrive traj inertia
-   *
-   * Range: 0..1 (0.0..1.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint32_t odrive_traj_inertia;
+    /**
+     * Odrive traj inertia
+     *
+     * Range: 0..1 (0.0..1.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint32_t odrive_traj_inertia;
 };
 
 /**
@@ -1030,23 +1030,23 @@ struct uwrt_mars_rover_can_odrive_set_traj_inertia_axis0_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_odrive_get_iq_axis0_t {
-  /**
-   * Odrive IQ setpoint
-   *
-   * Range: 0..1 (0.0..1.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint32_t odrive_iq_setpoint;
+    /**
+     * Odrive IQ setpoint
+     *
+     * Range: 0..1 (0.0..1.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint32_t odrive_iq_setpoint;
 
-  /**
-   * Odrive IQ measured
-   *
-   * Range: 0..1 (0.0..1.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint32_t odrive_iq_measured;
+    /**
+     * Odrive IQ measured
+     *
+     * Range: 0..1 (0.0..1.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint32_t odrive_iq_measured;
 };
 
 /**
@@ -1057,23 +1057,23 @@ struct uwrt_mars_rover_can_odrive_get_iq_axis0_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis0_t {
-  /**
-   * Odrive sensorless position estimate
-   *
-   * Range: 0..1 (0.0..1.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint32_t odrive_sensorless_pos_estimate;
+    /**
+     * Odrive sensorless position estimate
+     *
+     * Range: 0..1 (0.0..1.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint32_t odrive_sensorless_pos_estimate;
 
-  /**
-   * Odrive sensorless velocity estimate
-   *
-   * Range: 0..1 (0.0..1.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint32_t odrive_sensorless_vel_estimate;
+    /**
+     * Odrive sensorless velocity estimate
+     *
+     * Range: 0..1 (0.0..1.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint32_t odrive_sensorless_vel_estimate;
 };
 
 /**
@@ -1084,10 +1084,10 @@ struct uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis0_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_odrive_reboot_odrive_axis0_t {
-  /**
-   * Dummy signal in empty message.
-   */
-  uint8_t dummy;
+    /**
+     * Dummy signal in empty message.
+     */
+    uint8_t dummy;
 };
 
 /**
@@ -1098,14 +1098,14 @@ struct uwrt_mars_rover_can_odrive_reboot_odrive_axis0_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_odrive_get_vbus_voltage_axis0_t {
-  /**
-   * Odrive vbus voltage
-   *
-   * Range: 0..1 (0.0..1.0 V)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint32_t odrive_vbus_voltage;
+    /**
+     * Odrive vbus voltage
+     *
+     * Range: 0..1 (0.0..1.0 V)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint32_t odrive_vbus_voltage;
 };
 
 /**
@@ -1116,10 +1116,10 @@ struct uwrt_mars_rover_can_odrive_get_vbus_voltage_axis0_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_odrive_clear_errors_axis0_t {
-  /**
-   * Dummy signal in empty message.
-   */
-  uint8_t dummy;
+    /**
+     * Dummy signal in empty message.
+     */
+    uint8_t dummy;
 };
 
 /**
@@ -1130,14 +1130,14 @@ struct uwrt_mars_rover_can_odrive_clear_errors_axis0_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_odrive_set_linear_count_axis0_t {
-  /**
-   * Odrive position
-   *
-   * Range: 0..1 (0.0..1.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  int32_t odrive_position;
+    /**
+     * Odrive position
+     *
+     * Range: 0..1 (0.0..1.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    int32_t odrive_position;
 };
 
 /**
@@ -1148,14 +1148,14 @@ struct uwrt_mars_rover_can_odrive_set_linear_count_axis0_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_odrive_set_position_gain_axis0_t {
-  /**
-   * Odrive position gain
-   *
-   * Range: 0..1 (0.0..1.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint32_t odrive_pos_gain;
+    /**
+     * Odrive position gain
+     *
+     * Range: 0..1 (0.0..1.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint32_t odrive_pos_gain;
 };
 
 /**
@@ -1166,23 +1166,23 @@ struct uwrt_mars_rover_can_odrive_set_position_gain_axis0_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_odrive_set_vel_gain_axis0_t {
-  /**
-   * Odrive velocity gain
-   *
-   * Range: 0..1 (0.0..1.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint32_t odrive_vel_gain;
+    /**
+     * Odrive velocity gain
+     *
+     * Range: 0..1 (0.0..1.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint32_t odrive_vel_gain;
 
-  /**
-   * Odrive velocity integrator gain
-   *
-   * Range: 0..1 (0.0..1.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint32_t odrive_vel_integrator_gain;
+    /**
+     * Odrive velocity integrator gain
+     *
+     * Range: 0..1 (0.0..1.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint32_t odrive_vel_integrator_gain;
 };
 
 /**
@@ -1193,32 +1193,32 @@ struct uwrt_mars_rover_can_odrive_set_vel_gain_axis0_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_odrive_heartbeat_message_axis1_t {
-  /**
-   * Odrive axis errors
-   *
-   * Range: 0..4294967294 (0.0..4294967294.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint32_t odrive_axis_error;
+    /**
+     * Odrive axis errors
+     *
+     * Range: 0..4294967294 (0.0..4294967294.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint32_t odrive_axis_error;
 
-  /**
-   * Odrive axis current state
-   *
-   * Range: 0..254 (0.0..254.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint8_t odrive_axis_current_state;
+    /**
+     * Odrive axis current state
+     *
+     * Range: 0..254 (0.0..254.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint8_t odrive_axis_current_state;
 
-  /**
-   * Odrive controller status
-   *
-   * Range: 0..254 (0.0..254.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint8_t odrive_controller_status;
+    /**
+     * Odrive controller status
+     *
+     * Range: 0..254 (0.0..254.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint8_t odrive_controller_status;
 };
 
 /**
@@ -1229,10 +1229,10 @@ struct uwrt_mars_rover_can_odrive_heartbeat_message_axis1_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_odrive_estop_message_axis1_t {
-  /**
-   * Dummy signal in empty message.
-   */
-  uint8_t dummy;
+    /**
+     * Dummy signal in empty message.
+     */
+    uint8_t dummy;
 };
 
 /**
@@ -1243,14 +1243,14 @@ struct uwrt_mars_rover_can_odrive_estop_message_axis1_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_odrive_get_motor_error_axis1_t {
-  /**
-   * Odrive motor errors
-   *
-   * Range: 0..18446744073709552000 (0.0..1.8446744073709552E+19 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint64_t odrive_motor_error;
+    /**
+     * Odrive motor errors
+     *
+     * Range: 0..18446744073709552000 (0.0..1.8446744073709552E+19 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint64_t odrive_motor_error;
 };
 
 /**
@@ -1261,14 +1261,14 @@ struct uwrt_mars_rover_can_odrive_get_motor_error_axis1_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_odrive_get_encoder_error_axis1_t {
-  /**
-   * Odrive encoder error
-   *
-   * Range: 0..4294967294 (0.0..4294967294.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint32_t odrive_encoder_error;
+    /**
+     * Odrive encoder error
+     *
+     * Range: 0..4294967294 (0.0..4294967294.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint32_t odrive_encoder_error;
 };
 
 /**
@@ -1279,14 +1279,14 @@ struct uwrt_mars_rover_can_odrive_get_encoder_error_axis1_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_odrive_get_sensorless_error_axis1_t {
-  /**
-   * Odrive sesnsorless error
-   *
-   * Range: 0..4294967294 (0.0..4294967294.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint32_t odrive_sensorless_error;
+    /**
+     * Odrive sesnsorless error
+     *
+     * Range: 0..4294967294 (0.0..4294967294.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint32_t odrive_sensorless_error;
 };
 
 /**
@@ -1297,14 +1297,14 @@ struct uwrt_mars_rover_can_odrive_get_sensorless_error_axis1_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_odrive_set_axis_node_id_axis1_t {
-  /**
-   * Odrive Axis CAN Node ID error
-   *
-   * Range: 0..4294967294 (0.0..4294967294.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint32_t odrive_axis_can_node_id;
+    /**
+     * Odrive Axis CAN Node ID error
+     *
+     * Range: 0..4294967294 (0.0..4294967294.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint32_t odrive_axis_can_node_id;
 };
 
 /**
@@ -1315,14 +1315,14 @@ struct uwrt_mars_rover_can_odrive_set_axis_node_id_axis1_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_odrive_set_axis_requested_state_axis1_t {
-  /**
-   * Odrive axis requested state
-   *
-   * Range: 0..4294967294 (0.0..4294967294.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint32_t odrive_axis_requested_state;
+    /**
+     * Odrive axis requested state
+     *
+     * Range: 0..4294967294 (0.0..4294967294.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint32_t odrive_axis_requested_state;
 };
 
 /**
@@ -1333,23 +1333,23 @@ struct uwrt_mars_rover_can_odrive_set_axis_requested_state_axis1_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_odrive_get_encoder_estimates_axis1_t {
-  /**
-   * Odrive encoder position estimate
-   *
-   * Range: 0..1 (0.0..1.0 turns)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint32_t odrive_encoder_pos_estimate;
+    /**
+     * Odrive encoder position estimate
+     *
+     * Range: 0..1 (0.0..1.0 turns)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint32_t odrive_encoder_pos_estimate;
 
-  /**
-   * Odrive encoder velocity estimate
-   *
-   * Range: 0..1 (0.0..1.0 turns/s)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint32_t odrive_encoder_vel_estimate;
+    /**
+     * Odrive encoder velocity estimate
+     *
+     * Range: 0..1 (0.0..1.0 turns/s)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint32_t odrive_encoder_vel_estimate;
 };
 
 /**
@@ -1360,23 +1360,23 @@ struct uwrt_mars_rover_can_odrive_get_encoder_estimates_axis1_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_odrive_get_encoder_count_axis1_t {
-  /**
-   * Odrive encoder shadow count
-   *
-   * Range: 0..1 (0.0..1.0 counts)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  int32_t odrive_encoder_shadow_count;
+    /**
+     * Odrive encoder shadow count
+     *
+     * Range: 0..1 (0.0..1.0 counts)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    int32_t odrive_encoder_shadow_count;
 
-  /**
-   * Odrive encoder count in CPR
-   *
-   * Range: 0..1 (0.0..1.0 counts)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  int32_t odrive_encoder_countin_cpr;
+    /**
+     * Odrive encoder count in CPR
+     *
+     * Range: 0..1 (0.0..1.0 counts)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    int32_t odrive_encoder_countin_cpr;
 };
 
 /**
@@ -1387,23 +1387,23 @@ struct uwrt_mars_rover_can_odrive_get_encoder_count_axis1_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_odrive_set_controller_modes_axis1_t {
-  /**
-   * Odrive control mode
-   *
-   * Range: -2147483647..2147483647 (-2147483647.0..2147483647.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  int32_t odrive_control_mode;
+    /**
+     * Odrive control mode
+     *
+     * Range: -2147483647..2147483647 (-2147483647.0..2147483647.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    int32_t odrive_control_mode;
 
-  /**
-   * Odrive input mode
-   *
-   * Range: -2147483647..2147483647 (-2147483647.0..2147483647.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  int32_t odrive_input_mode;
+    /**
+     * Odrive input mode
+     *
+     * Range: -2147483647..2147483647 (-2147483647.0..2147483647.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    int32_t odrive_input_mode;
 };
 
 /**
@@ -1414,32 +1414,32 @@ struct uwrt_mars_rover_can_odrive_set_controller_modes_axis1_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_odrive_set_input_pos_axis1_t {
-  /**
-   * Odrive input position
-   *
-   * Range: 0..1 (0.0..1.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint32_t odrive_input_pos;
+    /**
+     * Odrive input position
+     *
+     * Range: 0..1 (0.0..1.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint32_t odrive_input_pos;
 
-  /**
-   * Odrive velocity feed forward
-   *
-   * Range: 0..1000 (0.0..1.0 -)
-   * Scale: 0.001
-   * Offset: 0.0
-   */
-  int16_t odrive_vel_ff;
+    /**
+     * Odrive velocity feed forward
+     *
+     * Range: 0..1000 (0.0..1.0 -)
+     * Scale: 0.001
+     * Offset: 0.0
+     */
+    int16_t odrive_vel_ff;
 
-  /**
-   * Odrive torque feed forward
-   *
-   * Range: 0..1000 (0.0..1.0 -)
-   * Scale: 0.001
-   * Offset: 0.0
-   */
-  int16_t odrive_torque_ff;
+    /**
+     * Odrive torque feed forward
+     *
+     * Range: 0..1000 (0.0..1.0 -)
+     * Scale: 0.001
+     * Offset: 0.0
+     */
+    int16_t odrive_torque_ff;
 };
 
 /**
@@ -1450,23 +1450,23 @@ struct uwrt_mars_rover_can_odrive_set_input_pos_axis1_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_odrive_set_input_vel_axis1_t {
-  /**
-   * Odrive input velocity
-   *
-   * Range: 0..1 (0.0..1.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint32_t odrive_input_vel;
+    /**
+     * Odrive input velocity
+     *
+     * Range: 0..1 (0.0..1.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint32_t odrive_input_vel;
 
-  /**
-   * Odrive torque feed forward
-   *
-   * Range: 0..1 (0.0..1.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint32_t odrive_torque_ff;
+    /**
+     * Odrive torque feed forward
+     *
+     * Range: 0..1 (0.0..1.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint32_t odrive_torque_ff;
 };
 
 /**
@@ -1477,14 +1477,14 @@ struct uwrt_mars_rover_can_odrive_set_input_vel_axis1_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_odrive_set_input_torque_axis1_t {
-  /**
-   * Odrive input torque
-   *
-   * Range: 0..1 (0.0..1.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint32_t odrive_input_torque;
+    /**
+     * Odrive input torque
+     *
+     * Range: 0..1 (0.0..1.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint32_t odrive_input_torque;
 };
 
 /**
@@ -1495,23 +1495,23 @@ struct uwrt_mars_rover_can_odrive_set_input_torque_axis1_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_odrive_set_limits_axis1_t {
-  /**
-   * Odrive velocity limit
-   *
-   * Range: 0..1 (0.0..1.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint32_t odrive_velocity_limit;
+    /**
+     * Odrive velocity limit
+     *
+     * Range: 0..1 (0.0..1.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint32_t odrive_velocity_limit;
 
-  /**
-   * Odrive current limit
-   *
-   * Range: 0..1 (0.0..1.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint32_t odrive_current_limit;
+    /**
+     * Odrive current limit
+     *
+     * Range: 0..1 (0.0..1.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint32_t odrive_current_limit;
 };
 
 /**
@@ -1522,10 +1522,10 @@ struct uwrt_mars_rover_can_odrive_set_limits_axis1_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_odrive_start_anticogging_axis1_t {
-  /**
-   * Dummy signal in empty message.
-   */
-  uint8_t dummy;
+    /**
+     * Dummy signal in empty message.
+     */
+    uint8_t dummy;
 };
 
 /**
@@ -1536,14 +1536,14 @@ struct uwrt_mars_rover_can_odrive_start_anticogging_axis1_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_odrive_set_traj_vel_limit_axis1_t {
-  /**
-   * Odrive traj velocity limit
-   *
-   * Range: 0..1 (0.0..1.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint32_t odrive_traj_vel_limit;
+    /**
+     * Odrive traj velocity limit
+     *
+     * Range: 0..1 (0.0..1.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint32_t odrive_traj_vel_limit;
 };
 
 /**
@@ -1554,23 +1554,23 @@ struct uwrt_mars_rover_can_odrive_set_traj_vel_limit_axis1_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis1_t {
-  /**
-   * Odrive traj acceleration limit
-   *
-   * Range: 0..1 (0.0..1.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint32_t odrive_traj_accel_limit;
+    /**
+     * Odrive traj acceleration limit
+     *
+     * Range: 0..1 (0.0..1.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint32_t odrive_traj_accel_limit;
 
-  /**
-   * Odrive traj deceleration limit
-   *
-   * Range: 0..1 (0.0..1.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint32_t odrive_traj_decel_limit;
+    /**
+     * Odrive traj deceleration limit
+     *
+     * Range: 0..1 (0.0..1.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint32_t odrive_traj_decel_limit;
 };
 
 /**
@@ -1581,14 +1581,14 @@ struct uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis1_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_odrive_set_traj_inertia_axis1_t {
-  /**
-   * Odrive traj inertia
-   *
-   * Range: 0..1 (0.0..1.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint32_t odrive_traj_inertia;
+    /**
+     * Odrive traj inertia
+     *
+     * Range: 0..1 (0.0..1.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint32_t odrive_traj_inertia;
 };
 
 /**
@@ -1599,23 +1599,23 @@ struct uwrt_mars_rover_can_odrive_set_traj_inertia_axis1_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_odrive_get_iq_axis1_t {
-  /**
-   * Odrive IQ setpoint
-   *
-   * Range: 0..1 (0.0..1.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint32_t odrive_iq_setpoint;
+    /**
+     * Odrive IQ setpoint
+     *
+     * Range: 0..1 (0.0..1.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint32_t odrive_iq_setpoint;
 
-  /**
-   * Odrive IQ measured
-   *
-   * Range: 0..1 (0.0..1.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint32_t odrive_iq_measured;
+    /**
+     * Odrive IQ measured
+     *
+     * Range: 0..1 (0.0..1.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint32_t odrive_iq_measured;
 };
 
 /**
@@ -1626,23 +1626,23 @@ struct uwrt_mars_rover_can_odrive_get_iq_axis1_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis1_t {
-  /**
-   * Odrive sensorless position estimate
-   *
-   * Range: 0..1 (0.0..1.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint32_t odrive_sensorless_pos_estimate;
+    /**
+     * Odrive sensorless position estimate
+     *
+     * Range: 0..1 (0.0..1.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint32_t odrive_sensorless_pos_estimate;
 
-  /**
-   * Odrive sensorless velocity estimate
-   *
-   * Range: 0..1 (0.0..1.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint32_t odrive_sensorless_vel_estimate;
+    /**
+     * Odrive sensorless velocity estimate
+     *
+     * Range: 0..1 (0.0..1.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint32_t odrive_sensorless_vel_estimate;
 };
 
 /**
@@ -1653,10 +1653,10 @@ struct uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis1_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_odrive_reboot_odrive_axis1_t {
-  /**
-   * Dummy signal in empty message.
-   */
-  uint8_t dummy;
+    /**
+     * Dummy signal in empty message.
+     */
+    uint8_t dummy;
 };
 
 /**
@@ -1667,14 +1667,14 @@ struct uwrt_mars_rover_can_odrive_reboot_odrive_axis1_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_odrive_get_vbus_voltage_axis1_t {
-  /**
-   * Odrive vbus voltage
-   *
-   * Range: 0..1 (0.0..1.0 V)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint32_t odrive_vbus_voltage;
+    /**
+     * Odrive vbus voltage
+     *
+     * Range: 0..1 (0.0..1.0 V)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint32_t odrive_vbus_voltage;
 };
 
 /**
@@ -1685,10 +1685,10 @@ struct uwrt_mars_rover_can_odrive_get_vbus_voltage_axis1_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_odrive_clear_errors_axis1_t {
-  /**
-   * Dummy signal in empty message.
-   */
-  uint8_t dummy;
+    /**
+     * Dummy signal in empty message.
+     */
+    uint8_t dummy;
 };
 
 /**
@@ -1699,14 +1699,14 @@ struct uwrt_mars_rover_can_odrive_clear_errors_axis1_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_odrive_set_linear_count_axis1_t {
-  /**
-   * Odrive position
-   *
-   * Range: 0..1 (0.0..1.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  int32_t odrive_position;
+    /**
+     * Odrive position
+     *
+     * Range: 0..1 (0.0..1.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    int32_t odrive_position;
 };
 
 /**
@@ -1717,14 +1717,14 @@ struct uwrt_mars_rover_can_odrive_set_linear_count_axis1_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_odrive_set_position_gain_axis1_t {
-  /**
-   * Odrive position gain
-   *
-   * Range: 0..1 (0.0..1.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint32_t odrive_pos_gain;
+    /**
+     * Odrive position gain
+     *
+     * Range: 0..1 (0.0..1.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint32_t odrive_pos_gain;
 };
 
 /**
@@ -1735,23 +1735,23 @@ struct uwrt_mars_rover_can_odrive_set_position_gain_axis1_t {
  * All signal values are as on the CAN bus.
  */
 struct uwrt_mars_rover_can_odrive_set_vel_gain_axis1_t {
-  /**
-   * Odrive velocity gain
-   *
-   * Range: 0..1 (0.0..1.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint32_t odrive_vel_gain;
+    /**
+     * Odrive velocity gain
+     *
+     * Range: 0..1 (0.0..1.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint32_t odrive_vel_gain;
 
-  /**
-   * Odrive velocity integrator gain
-   *
-   * Range: 0..1 (0.0..1.0 -)
-   * Scale: 1.0
-   * Offset: 0.0
-   */
-  uint32_t odrive_vel_integrator_gain;
+    /**
+     * Odrive velocity integrator gain
+     *
+     * Range: 0..1 (0.0..1.0 -)
+     * Scale: 1.0
+     * Offset: 0.0
+     */
+    uint32_t odrive_vel_integrator_gain;
 };
 
 /**
@@ -1764,9 +1764,9 @@ struct uwrt_mars_rover_can_odrive_set_vel_gain_axis1_t {
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_odrive_heartbeat_message_axis0_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_odrive_heartbeat_message_axis0_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_odrive_heartbeat_message_axis0_t *src_p,
+        size_t size);
 
 /**
  * Unpack message ODRIVE_heartbeatMessage_axis0.
@@ -1778,8 +1778,8 @@ int uwrt_mars_rover_can_odrive_heartbeat_message_axis0_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_odrive_heartbeat_message_axis0_unpack(
-    struct uwrt_mars_rover_can_odrive_heartbeat_message_axis0_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_odrive_heartbeat_message_axis0_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -1790,7 +1790,7 @@ int uwrt_mars_rover_can_odrive_heartbeat_message_axis0_unpack(
  */
 uint32_t
 uwrt_mars_rover_can_odrive_heartbeat_message_axis0_odrive_axis_error_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -1801,7 +1801,7 @@ uwrt_mars_rover_can_odrive_heartbeat_message_axis0_odrive_axis_error_encode(
  */
 double
 uwrt_mars_rover_can_odrive_heartbeat_message_axis0_odrive_axis_error_decode(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -1811,7 +1811,7 @@ uwrt_mars_rover_can_odrive_heartbeat_message_axis0_odrive_axis_error_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_heartbeat_message_axis0_odrive_axis_error_is_in_range(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -1822,7 +1822,7 @@ bool uwrt_mars_rover_can_odrive_heartbeat_message_axis0_odrive_axis_error_is_in_
  */
 uint8_t
 uwrt_mars_rover_can_odrive_heartbeat_message_axis0_odrive_axis_current_state_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -1833,7 +1833,7 @@ uwrt_mars_rover_can_odrive_heartbeat_message_axis0_odrive_axis_current_state_enc
  */
 double
 uwrt_mars_rover_can_odrive_heartbeat_message_axis0_odrive_axis_current_state_decode(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -1843,7 +1843,7 @@ uwrt_mars_rover_can_odrive_heartbeat_message_axis0_odrive_axis_current_state_dec
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_heartbeat_message_axis0_odrive_axis_current_state_is_in_range(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -1854,7 +1854,7 @@ bool uwrt_mars_rover_can_odrive_heartbeat_message_axis0_odrive_axis_current_stat
  */
 uint8_t
 uwrt_mars_rover_can_odrive_heartbeat_message_axis0_odrive_controller_status_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -1865,7 +1865,7 @@ uwrt_mars_rover_can_odrive_heartbeat_message_axis0_odrive_controller_status_enco
  */
 double
 uwrt_mars_rover_can_odrive_heartbeat_message_axis0_odrive_controller_status_decode(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -1875,7 +1875,7 @@ uwrt_mars_rover_can_odrive_heartbeat_message_axis0_odrive_controller_status_deco
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_heartbeat_message_axis0_odrive_controller_status_is_in_range(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Pack message ODRIVE_EstopMessage_axis0.
@@ -1887,9 +1887,9 @@ bool uwrt_mars_rover_can_odrive_heartbeat_message_axis0_odrive_controller_status
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_odrive_estop_message_axis0_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_odrive_estop_message_axis0_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_odrive_estop_message_axis0_t *src_p,
+        size_t size);
 
 /**
  * Unpack message ODRIVE_EstopMessage_axis0.
@@ -1901,8 +1901,8 @@ int uwrt_mars_rover_can_odrive_estop_message_axis0_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_odrive_estop_message_axis0_unpack(
-    struct uwrt_mars_rover_can_odrive_estop_message_axis0_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_odrive_estop_message_axis0_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Pack message ODRIVE_getMotorError_axis0.
@@ -1914,9 +1914,9 @@ int uwrt_mars_rover_can_odrive_estop_message_axis0_unpack(
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_odrive_get_motor_error_axis0_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_odrive_get_motor_error_axis0_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_odrive_get_motor_error_axis0_t *src_p,
+        size_t size);
 
 /**
  * Unpack message ODRIVE_getMotorError_axis0.
@@ -1928,8 +1928,8 @@ int uwrt_mars_rover_can_odrive_get_motor_error_axis0_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_odrive_get_motor_error_axis0_unpack(
-    struct uwrt_mars_rover_can_odrive_get_motor_error_axis0_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_odrive_get_motor_error_axis0_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -1940,7 +1940,7 @@ int uwrt_mars_rover_can_odrive_get_motor_error_axis0_unpack(
  */
 uint64_t
 uwrt_mars_rover_can_odrive_get_motor_error_axis0_odrive_motor_error_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -1951,7 +1951,7 @@ uwrt_mars_rover_can_odrive_get_motor_error_axis0_odrive_motor_error_encode(
  */
 double
 uwrt_mars_rover_can_odrive_get_motor_error_axis0_odrive_motor_error_decode(
-    uint64_t value);
+        uint64_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -1961,7 +1961,7 @@ uwrt_mars_rover_can_odrive_get_motor_error_axis0_odrive_motor_error_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_get_motor_error_axis0_odrive_motor_error_is_in_range(
-    uint64_t value);
+        uint64_t value);
 
 /**
  * Pack message ODRIVE_getEncoderError_axis0.
@@ -1973,9 +1973,9 @@ bool uwrt_mars_rover_can_odrive_get_motor_error_axis0_odrive_motor_error_is_in_r
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_odrive_get_encoder_error_axis0_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_odrive_get_encoder_error_axis0_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_odrive_get_encoder_error_axis0_t *src_p,
+        size_t size);
 
 /**
  * Unpack message ODRIVE_getEncoderError_axis0.
@@ -1987,8 +1987,8 @@ int uwrt_mars_rover_can_odrive_get_encoder_error_axis0_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_odrive_get_encoder_error_axis0_unpack(
-    struct uwrt_mars_rover_can_odrive_get_encoder_error_axis0_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_odrive_get_encoder_error_axis0_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -1999,7 +1999,7 @@ int uwrt_mars_rover_can_odrive_get_encoder_error_axis0_unpack(
  */
 uint32_t
 uwrt_mars_rover_can_odrive_get_encoder_error_axis0_odrive_encoder_error_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -2010,7 +2010,7 @@ uwrt_mars_rover_can_odrive_get_encoder_error_axis0_odrive_encoder_error_encode(
  */
 double
 uwrt_mars_rover_can_odrive_get_encoder_error_axis0_odrive_encoder_error_decode(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -2020,7 +2020,7 @@ uwrt_mars_rover_can_odrive_get_encoder_error_axis0_odrive_encoder_error_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_get_encoder_error_axis0_odrive_encoder_error_is_in_range(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Pack message ODRIVE_getSensorlessError_axis0.
@@ -2032,9 +2032,9 @@ bool uwrt_mars_rover_can_odrive_get_encoder_error_axis0_odrive_encoder_error_is_
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_odrive_get_sensorless_error_axis0_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_odrive_get_sensorless_error_axis0_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_odrive_get_sensorless_error_axis0_t *src_p,
+        size_t size);
 
 /**
  * Unpack message ODRIVE_getSensorlessError_axis0.
@@ -2046,8 +2046,8 @@ int uwrt_mars_rover_can_odrive_get_sensorless_error_axis0_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_odrive_get_sensorless_error_axis0_unpack(
-    struct uwrt_mars_rover_can_odrive_get_sensorless_error_axis0_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_odrive_get_sensorless_error_axis0_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -2058,7 +2058,7 @@ int uwrt_mars_rover_can_odrive_get_sensorless_error_axis0_unpack(
  */
 uint32_t
 uwrt_mars_rover_can_odrive_get_sensorless_error_axis0_odrive_sensorless_error_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -2069,7 +2069,7 @@ uwrt_mars_rover_can_odrive_get_sensorless_error_axis0_odrive_sensorless_error_en
  */
 double
 uwrt_mars_rover_can_odrive_get_sensorless_error_axis0_odrive_sensorless_error_decode(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -2079,7 +2079,7 @@ uwrt_mars_rover_can_odrive_get_sensorless_error_axis0_odrive_sensorless_error_de
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_get_sensorless_error_axis0_odrive_sensorless_error_is_in_range(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Pack message ODRIVE_setAxisNodeID_axis0.
@@ -2091,9 +2091,9 @@ bool uwrt_mars_rover_can_odrive_get_sensorless_error_axis0_odrive_sensorless_err
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_odrive_set_axis_node_id_axis0_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_odrive_set_axis_node_id_axis0_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_odrive_set_axis_node_id_axis0_t *src_p,
+        size_t size);
 
 /**
  * Unpack message ODRIVE_setAxisNodeID_axis0.
@@ -2105,8 +2105,8 @@ int uwrt_mars_rover_can_odrive_set_axis_node_id_axis0_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_odrive_set_axis_node_id_axis0_unpack(
-    struct uwrt_mars_rover_can_odrive_set_axis_node_id_axis0_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_odrive_set_axis_node_id_axis0_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -2117,7 +2117,7 @@ int uwrt_mars_rover_can_odrive_set_axis_node_id_axis0_unpack(
  */
 uint32_t
 uwrt_mars_rover_can_odrive_set_axis_node_id_axis0_odrive_axis_can_node_id_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -2128,7 +2128,7 @@ uwrt_mars_rover_can_odrive_set_axis_node_id_axis0_odrive_axis_can_node_id_encode
  */
 double
 uwrt_mars_rover_can_odrive_set_axis_node_id_axis0_odrive_axis_can_node_id_decode(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -2138,7 +2138,7 @@ uwrt_mars_rover_can_odrive_set_axis_node_id_axis0_odrive_axis_can_node_id_decode
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_set_axis_node_id_axis0_odrive_axis_can_node_id_is_in_range(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Pack message ODRIVE_setAxisRequestedState_axis0.
@@ -2150,10 +2150,10 @@ bool uwrt_mars_rover_can_odrive_set_axis_node_id_axis0_odrive_axis_can_node_id_i
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_odrive_set_axis_requested_state_axis0_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_odrive_set_axis_requested_state_axis0_t
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_odrive_set_axis_requested_state_axis0_t
         *src_p,
-    size_t size);
+        size_t size);
 
 /**
  * Unpack message ODRIVE_setAxisRequestedState_axis0.
@@ -2165,8 +2165,8 @@ int uwrt_mars_rover_can_odrive_set_axis_requested_state_axis0_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_odrive_set_axis_requested_state_axis0_unpack(
-    struct uwrt_mars_rover_can_odrive_set_axis_requested_state_axis0_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_odrive_set_axis_requested_state_axis0_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -2177,7 +2177,7 @@ int uwrt_mars_rover_can_odrive_set_axis_requested_state_axis0_unpack(
  */
 uint32_t
 uwrt_mars_rover_can_odrive_set_axis_requested_state_axis0_odrive_axis_requested_state_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -2188,7 +2188,7 @@ uwrt_mars_rover_can_odrive_set_axis_requested_state_axis0_odrive_axis_requested_
  */
 double
 uwrt_mars_rover_can_odrive_set_axis_requested_state_axis0_odrive_axis_requested_state_decode(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -2198,7 +2198,7 @@ uwrt_mars_rover_can_odrive_set_axis_requested_state_axis0_odrive_axis_requested_
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_set_axis_requested_state_axis0_odrive_axis_requested_state_is_in_range(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Pack message ODRIVE_getEncoderEstimates_axis0.
@@ -2210,10 +2210,10 @@ bool uwrt_mars_rover_can_odrive_set_axis_requested_state_axis0_odrive_axis_reque
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_odrive_get_encoder_estimates_axis0_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_odrive_get_encoder_estimates_axis0_t
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_odrive_get_encoder_estimates_axis0_t
         *src_p,
-    size_t size);
+        size_t size);
 
 /**
  * Unpack message ODRIVE_getEncoderEstimates_axis0.
@@ -2225,8 +2225,8 @@ int uwrt_mars_rover_can_odrive_get_encoder_estimates_axis0_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_odrive_get_encoder_estimates_axis0_unpack(
-    struct uwrt_mars_rover_can_odrive_get_encoder_estimates_axis0_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_odrive_get_encoder_estimates_axis0_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -2237,7 +2237,7 @@ int uwrt_mars_rover_can_odrive_get_encoder_estimates_axis0_unpack(
  */
 uint32_t
 uwrt_mars_rover_can_odrive_get_encoder_estimates_axis0_odrive_encoder_pos_estimate_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -2248,7 +2248,7 @@ uwrt_mars_rover_can_odrive_get_encoder_estimates_axis0_odrive_encoder_pos_estima
  */
 double
 uwrt_mars_rover_can_odrive_get_encoder_estimates_axis0_odrive_encoder_pos_estimate_decode(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -2258,7 +2258,7 @@ uwrt_mars_rover_can_odrive_get_encoder_estimates_axis0_odrive_encoder_pos_estima
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_get_encoder_estimates_axis0_odrive_encoder_pos_estimate_is_in_range(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -2269,7 +2269,7 @@ bool uwrt_mars_rover_can_odrive_get_encoder_estimates_axis0_odrive_encoder_pos_e
  */
 uint32_t
 uwrt_mars_rover_can_odrive_get_encoder_estimates_axis0_odrive_encoder_vel_estimate_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -2280,7 +2280,7 @@ uwrt_mars_rover_can_odrive_get_encoder_estimates_axis0_odrive_encoder_vel_estima
  */
 double
 uwrt_mars_rover_can_odrive_get_encoder_estimates_axis0_odrive_encoder_vel_estimate_decode(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -2290,7 +2290,7 @@ uwrt_mars_rover_can_odrive_get_encoder_estimates_axis0_odrive_encoder_vel_estima
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_get_encoder_estimates_axis0_odrive_encoder_vel_estimate_is_in_range(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Pack message ODRIVE_getEncoderCount_axis0.
@@ -2302,9 +2302,9 @@ bool uwrt_mars_rover_can_odrive_get_encoder_estimates_axis0_odrive_encoder_vel_e
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_odrive_get_encoder_count_axis0_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_odrive_get_encoder_count_axis0_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_odrive_get_encoder_count_axis0_t *src_p,
+        size_t size);
 
 /**
  * Unpack message ODRIVE_getEncoderCount_axis0.
@@ -2316,8 +2316,8 @@ int uwrt_mars_rover_can_odrive_get_encoder_count_axis0_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_odrive_get_encoder_count_axis0_unpack(
-    struct uwrt_mars_rover_can_odrive_get_encoder_count_axis0_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_odrive_get_encoder_count_axis0_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -2328,7 +2328,7 @@ int uwrt_mars_rover_can_odrive_get_encoder_count_axis0_unpack(
  */
 int32_t
 uwrt_mars_rover_can_odrive_get_encoder_count_axis0_odrive_encoder_shadow_count_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -2339,7 +2339,7 @@ uwrt_mars_rover_can_odrive_get_encoder_count_axis0_odrive_encoder_shadow_count_e
  */
 double
 uwrt_mars_rover_can_odrive_get_encoder_count_axis0_odrive_encoder_shadow_count_decode(
-    int32_t value);
+        int32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -2349,7 +2349,7 @@ uwrt_mars_rover_can_odrive_get_encoder_count_axis0_odrive_encoder_shadow_count_d
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_get_encoder_count_axis0_odrive_encoder_shadow_count_is_in_range(
-    int32_t value);
+        int32_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -2360,7 +2360,7 @@ bool uwrt_mars_rover_can_odrive_get_encoder_count_axis0_odrive_encoder_shadow_co
  */
 int32_t
 uwrt_mars_rover_can_odrive_get_encoder_count_axis0_odrive_encoder_countin_cpr_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -2371,7 +2371,7 @@ uwrt_mars_rover_can_odrive_get_encoder_count_axis0_odrive_encoder_countin_cpr_en
  */
 double
 uwrt_mars_rover_can_odrive_get_encoder_count_axis0_odrive_encoder_countin_cpr_decode(
-    int32_t value);
+        int32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -2381,7 +2381,7 @@ uwrt_mars_rover_can_odrive_get_encoder_count_axis0_odrive_encoder_countin_cpr_de
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_get_encoder_count_axis0_odrive_encoder_countin_cpr_is_in_range(
-    int32_t value);
+        int32_t value);
 
 /**
  * Pack message ODRIVE_setControllerModes_axis0.
@@ -2393,9 +2393,9 @@ bool uwrt_mars_rover_can_odrive_get_encoder_count_axis0_odrive_encoder_countin_c
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_odrive_set_controller_modes_axis0_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_odrive_set_controller_modes_axis0_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_odrive_set_controller_modes_axis0_t *src_p,
+        size_t size);
 
 /**
  * Unpack message ODRIVE_setControllerModes_axis0.
@@ -2407,8 +2407,8 @@ int uwrt_mars_rover_can_odrive_set_controller_modes_axis0_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_odrive_set_controller_modes_axis0_unpack(
-    struct uwrt_mars_rover_can_odrive_set_controller_modes_axis0_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_odrive_set_controller_modes_axis0_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -2419,7 +2419,7 @@ int uwrt_mars_rover_can_odrive_set_controller_modes_axis0_unpack(
  */
 int32_t
 uwrt_mars_rover_can_odrive_set_controller_modes_axis0_odrive_control_mode_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -2430,7 +2430,7 @@ uwrt_mars_rover_can_odrive_set_controller_modes_axis0_odrive_control_mode_encode
  */
 double
 uwrt_mars_rover_can_odrive_set_controller_modes_axis0_odrive_control_mode_decode(
-    int32_t value);
+        int32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -2440,7 +2440,7 @@ uwrt_mars_rover_can_odrive_set_controller_modes_axis0_odrive_control_mode_decode
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_set_controller_modes_axis0_odrive_control_mode_is_in_range(
-    int32_t value);
+        int32_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -2451,7 +2451,7 @@ bool uwrt_mars_rover_can_odrive_set_controller_modes_axis0_odrive_control_mode_i
  */
 int32_t
 uwrt_mars_rover_can_odrive_set_controller_modes_axis0_odrive_input_mode_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -2462,7 +2462,7 @@ uwrt_mars_rover_can_odrive_set_controller_modes_axis0_odrive_input_mode_encode(
  */
 double
 uwrt_mars_rover_can_odrive_set_controller_modes_axis0_odrive_input_mode_decode(
-    int32_t value);
+        int32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -2472,7 +2472,7 @@ uwrt_mars_rover_can_odrive_set_controller_modes_axis0_odrive_input_mode_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_set_controller_modes_axis0_odrive_input_mode_is_in_range(
-    int32_t value);
+        int32_t value);
 
 /**
  * Pack message ODRIVE_SetInputPos_axis0.
@@ -2484,9 +2484,9 @@ bool uwrt_mars_rover_can_odrive_set_controller_modes_axis0_odrive_input_mode_is_
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_odrive_set_input_pos_axis0_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_odrive_set_input_pos_axis0_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_odrive_set_input_pos_axis0_t *src_p,
+        size_t size);
 
 /**
  * Unpack message ODRIVE_SetInputPos_axis0.
@@ -2498,8 +2498,8 @@ int uwrt_mars_rover_can_odrive_set_input_pos_axis0_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_odrive_set_input_pos_axis0_unpack(
-    struct uwrt_mars_rover_can_odrive_set_input_pos_axis0_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_odrive_set_input_pos_axis0_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -2509,7 +2509,7 @@ int uwrt_mars_rover_can_odrive_set_input_pos_axis0_unpack(
  * @return Encoded signal.
  */
 uint32_t uwrt_mars_rover_can_odrive_set_input_pos_axis0_odrive_input_pos_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -2519,7 +2519,7 @@ uint32_t uwrt_mars_rover_can_odrive_set_input_pos_axis0_odrive_input_pos_encode(
  * @return Decoded signal.
  */
 double uwrt_mars_rover_can_odrive_set_input_pos_axis0_odrive_input_pos_decode(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -2529,7 +2529,7 @@ double uwrt_mars_rover_can_odrive_set_input_pos_axis0_odrive_input_pos_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_set_input_pos_axis0_odrive_input_pos_is_in_range(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -2539,7 +2539,7 @@ bool uwrt_mars_rover_can_odrive_set_input_pos_axis0_odrive_input_pos_is_in_range
  * @return Encoded signal.
  */
 int16_t uwrt_mars_rover_can_odrive_set_input_pos_axis0_odrive_vel_ff_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -2549,7 +2549,7 @@ int16_t uwrt_mars_rover_can_odrive_set_input_pos_axis0_odrive_vel_ff_encode(
  * @return Decoded signal.
  */
 double uwrt_mars_rover_can_odrive_set_input_pos_axis0_odrive_vel_ff_decode(
-    int16_t value);
+        int16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -2559,7 +2559,7 @@ double uwrt_mars_rover_can_odrive_set_input_pos_axis0_odrive_vel_ff_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_set_input_pos_axis0_odrive_vel_ff_is_in_range(
-    int16_t value);
+        int16_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -2569,7 +2569,7 @@ bool uwrt_mars_rover_can_odrive_set_input_pos_axis0_odrive_vel_ff_is_in_range(
  * @return Encoded signal.
  */
 int16_t uwrt_mars_rover_can_odrive_set_input_pos_axis0_odrive_torque_ff_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -2579,7 +2579,7 @@ int16_t uwrt_mars_rover_can_odrive_set_input_pos_axis0_odrive_torque_ff_encode(
  * @return Decoded signal.
  */
 double uwrt_mars_rover_can_odrive_set_input_pos_axis0_odrive_torque_ff_decode(
-    int16_t value);
+        int16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -2589,7 +2589,7 @@ double uwrt_mars_rover_can_odrive_set_input_pos_axis0_odrive_torque_ff_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_set_input_pos_axis0_odrive_torque_ff_is_in_range(
-    int16_t value);
+        int16_t value);
 
 /**
  * Pack message ODRIVE_setInputVel_axis0.
@@ -2601,9 +2601,9 @@ bool uwrt_mars_rover_can_odrive_set_input_pos_axis0_odrive_torque_ff_is_in_range
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_odrive_set_input_vel_axis0_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_odrive_set_input_vel_axis0_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_odrive_set_input_vel_axis0_t *src_p,
+        size_t size);
 
 /**
  * Unpack message ODRIVE_setInputVel_axis0.
@@ -2615,8 +2615,8 @@ int uwrt_mars_rover_can_odrive_set_input_vel_axis0_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_odrive_set_input_vel_axis0_unpack(
-    struct uwrt_mars_rover_can_odrive_set_input_vel_axis0_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_odrive_set_input_vel_axis0_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -2626,7 +2626,7 @@ int uwrt_mars_rover_can_odrive_set_input_vel_axis0_unpack(
  * @return Encoded signal.
  */
 uint32_t uwrt_mars_rover_can_odrive_set_input_vel_axis0_odrive_input_vel_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -2636,7 +2636,7 @@ uint32_t uwrt_mars_rover_can_odrive_set_input_vel_axis0_odrive_input_vel_encode(
  * @return Decoded signal.
  */
 double uwrt_mars_rover_can_odrive_set_input_vel_axis0_odrive_input_vel_decode(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -2646,7 +2646,7 @@ double uwrt_mars_rover_can_odrive_set_input_vel_axis0_odrive_input_vel_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_set_input_vel_axis0_odrive_input_vel_is_in_range(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -2656,7 +2656,7 @@ bool uwrt_mars_rover_can_odrive_set_input_vel_axis0_odrive_input_vel_is_in_range
  * @return Encoded signal.
  */
 uint32_t uwrt_mars_rover_can_odrive_set_input_vel_axis0_odrive_torque_ff_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -2666,7 +2666,7 @@ uint32_t uwrt_mars_rover_can_odrive_set_input_vel_axis0_odrive_torque_ff_encode(
  * @return Decoded signal.
  */
 double uwrt_mars_rover_can_odrive_set_input_vel_axis0_odrive_torque_ff_decode(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -2676,7 +2676,7 @@ double uwrt_mars_rover_can_odrive_set_input_vel_axis0_odrive_torque_ff_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_set_input_vel_axis0_odrive_torque_ff_is_in_range(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Pack message ODRIVE_setInputTorque_axis0.
@@ -2688,9 +2688,9 @@ bool uwrt_mars_rover_can_odrive_set_input_vel_axis0_odrive_torque_ff_is_in_range
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_odrive_set_input_torque_axis0_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_odrive_set_input_torque_axis0_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_odrive_set_input_torque_axis0_t *src_p,
+        size_t size);
 
 /**
  * Unpack message ODRIVE_setInputTorque_axis0.
@@ -2702,8 +2702,8 @@ int uwrt_mars_rover_can_odrive_set_input_torque_axis0_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_odrive_set_input_torque_axis0_unpack(
-    struct uwrt_mars_rover_can_odrive_set_input_torque_axis0_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_odrive_set_input_torque_axis0_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -2714,7 +2714,7 @@ int uwrt_mars_rover_can_odrive_set_input_torque_axis0_unpack(
  */
 uint32_t
 uwrt_mars_rover_can_odrive_set_input_torque_axis0_odrive_input_torque_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -2725,7 +2725,7 @@ uwrt_mars_rover_can_odrive_set_input_torque_axis0_odrive_input_torque_encode(
  */
 double
 uwrt_mars_rover_can_odrive_set_input_torque_axis0_odrive_input_torque_decode(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -2735,7 +2735,7 @@ uwrt_mars_rover_can_odrive_set_input_torque_axis0_odrive_input_torque_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_set_input_torque_axis0_odrive_input_torque_is_in_range(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Pack message ODRIVE_setLimits_axis0.
@@ -2747,9 +2747,9 @@ bool uwrt_mars_rover_can_odrive_set_input_torque_axis0_odrive_input_torque_is_in
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_odrive_set_limits_axis0_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_odrive_set_limits_axis0_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_odrive_set_limits_axis0_t *src_p,
+        size_t size);
 
 /**
  * Unpack message ODRIVE_setLimits_axis0.
@@ -2761,8 +2761,8 @@ int uwrt_mars_rover_can_odrive_set_limits_axis0_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_odrive_set_limits_axis0_unpack(
-    struct uwrt_mars_rover_can_odrive_set_limits_axis0_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_odrive_set_limits_axis0_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -2773,7 +2773,7 @@ int uwrt_mars_rover_can_odrive_set_limits_axis0_unpack(
  */
 uint32_t
 uwrt_mars_rover_can_odrive_set_limits_axis0_odrive_velocity_limit_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -2783,7 +2783,7 @@ uwrt_mars_rover_can_odrive_set_limits_axis0_odrive_velocity_limit_encode(
  * @return Decoded signal.
  */
 double uwrt_mars_rover_can_odrive_set_limits_axis0_odrive_velocity_limit_decode(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -2793,7 +2793,7 @@ double uwrt_mars_rover_can_odrive_set_limits_axis0_odrive_velocity_limit_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_set_limits_axis0_odrive_velocity_limit_is_in_range(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -2804,7 +2804,7 @@ bool uwrt_mars_rover_can_odrive_set_limits_axis0_odrive_velocity_limit_is_in_ran
  */
 uint32_t
 uwrt_mars_rover_can_odrive_set_limits_axis0_odrive_current_limit_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -2814,7 +2814,7 @@ uwrt_mars_rover_can_odrive_set_limits_axis0_odrive_current_limit_encode(
  * @return Decoded signal.
  */
 double uwrt_mars_rover_can_odrive_set_limits_axis0_odrive_current_limit_decode(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -2824,7 +2824,7 @@ double uwrt_mars_rover_can_odrive_set_limits_axis0_odrive_current_limit_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_set_limits_axis0_odrive_current_limit_is_in_range(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Pack message ODRIVE_StartAnticogging_axis0.
@@ -2836,9 +2836,9 @@ bool uwrt_mars_rover_can_odrive_set_limits_axis0_odrive_current_limit_is_in_rang
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_odrive_start_anticogging_axis0_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_odrive_start_anticogging_axis0_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_odrive_start_anticogging_axis0_t *src_p,
+        size_t size);
 
 /**
  * Unpack message ODRIVE_StartAnticogging_axis0.
@@ -2850,8 +2850,8 @@ int uwrt_mars_rover_can_odrive_start_anticogging_axis0_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_odrive_start_anticogging_axis0_unpack(
-    struct uwrt_mars_rover_can_odrive_start_anticogging_axis0_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_odrive_start_anticogging_axis0_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Pack message ODRIVE_setTrajVelLimit_axis0.
@@ -2863,9 +2863,9 @@ int uwrt_mars_rover_can_odrive_start_anticogging_axis0_unpack(
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_odrive_set_traj_vel_limit_axis0_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_odrive_set_traj_vel_limit_axis0_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_odrive_set_traj_vel_limit_axis0_t *src_p,
+        size_t size);
 
 /**
  * Unpack message ODRIVE_setTrajVelLimit_axis0.
@@ -2877,8 +2877,8 @@ int uwrt_mars_rover_can_odrive_set_traj_vel_limit_axis0_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_odrive_set_traj_vel_limit_axis0_unpack(
-    struct uwrt_mars_rover_can_odrive_set_traj_vel_limit_axis0_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_odrive_set_traj_vel_limit_axis0_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -2889,7 +2889,7 @@ int uwrt_mars_rover_can_odrive_set_traj_vel_limit_axis0_unpack(
  */
 uint32_t
 uwrt_mars_rover_can_odrive_set_traj_vel_limit_axis0_odrive_traj_vel_limit_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -2900,7 +2900,7 @@ uwrt_mars_rover_can_odrive_set_traj_vel_limit_axis0_odrive_traj_vel_limit_encode
  */
 double
 uwrt_mars_rover_can_odrive_set_traj_vel_limit_axis0_odrive_traj_vel_limit_decode(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -2910,7 +2910,7 @@ uwrt_mars_rover_can_odrive_set_traj_vel_limit_axis0_odrive_traj_vel_limit_decode
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_set_traj_vel_limit_axis0_odrive_traj_vel_limit_is_in_range(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Pack message ODRIVE_setTrajAccelLimit_axis0.
@@ -2922,9 +2922,9 @@ bool uwrt_mars_rover_can_odrive_set_traj_vel_limit_axis0_odrive_traj_vel_limit_i
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis0_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis0_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis0_t *src_p,
+        size_t size);
 
 /**
  * Unpack message ODRIVE_setTrajAccelLimit_axis0.
@@ -2936,8 +2936,8 @@ int uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis0_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis0_unpack(
-    struct uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis0_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis0_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -2948,7 +2948,7 @@ int uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis0_unpack(
  */
 uint32_t
 uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis0_odrive_traj_accel_limit_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -2959,7 +2959,7 @@ uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis0_odrive_traj_accel_limit_en
  */
 double
 uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis0_odrive_traj_accel_limit_decode(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -2969,7 +2969,7 @@ uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis0_odrive_traj_accel_limit_de
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis0_odrive_traj_accel_limit_is_in_range(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -2980,7 +2980,7 @@ bool uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis0_odrive_traj_accel_lim
  */
 uint32_t
 uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis0_odrive_traj_decel_limit_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -2991,7 +2991,7 @@ uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis0_odrive_traj_decel_limit_en
  */
 double
 uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis0_odrive_traj_decel_limit_decode(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -3001,7 +3001,7 @@ uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis0_odrive_traj_decel_limit_de
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis0_odrive_traj_decel_limit_is_in_range(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Pack message ODRIVE_setTrajInertia_axis0.
@@ -3013,9 +3013,9 @@ bool uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis0_odrive_traj_decel_lim
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_odrive_set_traj_inertia_axis0_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_odrive_set_traj_inertia_axis0_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_odrive_set_traj_inertia_axis0_t *src_p,
+        size_t size);
 
 /**
  * Unpack message ODRIVE_setTrajInertia_axis0.
@@ -3027,8 +3027,8 @@ int uwrt_mars_rover_can_odrive_set_traj_inertia_axis0_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_odrive_set_traj_inertia_axis0_unpack(
-    struct uwrt_mars_rover_can_odrive_set_traj_inertia_axis0_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_odrive_set_traj_inertia_axis0_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -3039,7 +3039,7 @@ int uwrt_mars_rover_can_odrive_set_traj_inertia_axis0_unpack(
  */
 uint32_t
 uwrt_mars_rover_can_odrive_set_traj_inertia_axis0_odrive_traj_inertia_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -3050,7 +3050,7 @@ uwrt_mars_rover_can_odrive_set_traj_inertia_axis0_odrive_traj_inertia_encode(
  */
 double
 uwrt_mars_rover_can_odrive_set_traj_inertia_axis0_odrive_traj_inertia_decode(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -3060,7 +3060,7 @@ uwrt_mars_rover_can_odrive_set_traj_inertia_axis0_odrive_traj_inertia_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_set_traj_inertia_axis0_odrive_traj_inertia_is_in_range(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Pack message ODRIVE_getIQ_axis0.
@@ -3072,8 +3072,8 @@ bool uwrt_mars_rover_can_odrive_set_traj_inertia_axis0_odrive_traj_inertia_is_in
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_odrive_get_iq_axis0_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_odrive_get_iq_axis0_t *src_p, size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_odrive_get_iq_axis0_t *src_p, size_t size);
 
 /**
  * Unpack message ODRIVE_getIQ_axis0.
@@ -3085,8 +3085,8 @@ int uwrt_mars_rover_can_odrive_get_iq_axis0_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_odrive_get_iq_axis0_unpack(
-    struct uwrt_mars_rover_can_odrive_get_iq_axis0_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_odrive_get_iq_axis0_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -3106,7 +3106,7 @@ uwrt_mars_rover_can_odrive_get_iq_axis0_odrive_iq_setpoint_encode(double value);
  * @return Decoded signal.
  */
 double uwrt_mars_rover_can_odrive_get_iq_axis0_odrive_iq_setpoint_decode(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -3116,7 +3116,7 @@ double uwrt_mars_rover_can_odrive_get_iq_axis0_odrive_iq_setpoint_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_get_iq_axis0_odrive_iq_setpoint_is_in_range(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -3136,7 +3136,7 @@ uwrt_mars_rover_can_odrive_get_iq_axis0_odrive_iq_measured_encode(double value);
  * @return Decoded signal.
  */
 double uwrt_mars_rover_can_odrive_get_iq_axis0_odrive_iq_measured_decode(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -3146,7 +3146,7 @@ double uwrt_mars_rover_can_odrive_get_iq_axis0_odrive_iq_measured_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_get_iq_axis0_odrive_iq_measured_is_in_range(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Pack message ODRIVE_GetSensorlessEstimates_axis0.
@@ -3158,10 +3158,10 @@ bool uwrt_mars_rover_can_odrive_get_iq_axis0_odrive_iq_measured_is_in_range(
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis0_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis0_t
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis0_t
         *src_p,
-    size_t size);
+        size_t size);
 
 /**
  * Unpack message ODRIVE_GetSensorlessEstimates_axis0.
@@ -3173,8 +3173,8 @@ int uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis0_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis0_unpack(
-    struct uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis0_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis0_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -3185,7 +3185,7 @@ int uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis0_unpack(
  */
 uint32_t
 uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis0_odrive_sensorless_pos_estimate_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -3196,7 +3196,7 @@ uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis0_odrive_sensorless_pos_
  */
 double
 uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis0_odrive_sensorless_pos_estimate_decode(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -3206,7 +3206,7 @@ uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis0_odrive_sensorless_pos_
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis0_odrive_sensorless_pos_estimate_is_in_range(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -3217,7 +3217,7 @@ bool uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis0_odrive_sensorless
  */
 uint32_t
 uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis0_odrive_sensorless_vel_estimate_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -3228,7 +3228,7 @@ uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis0_odrive_sensorless_vel_
  */
 double
 uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis0_odrive_sensorless_vel_estimate_decode(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -3238,7 +3238,7 @@ uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis0_odrive_sensorless_vel_
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis0_odrive_sensorless_vel_estimate_is_in_range(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Pack message ODRIVE_RebootOdrive_axis0.
@@ -3250,9 +3250,9 @@ bool uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis0_odrive_sensorless
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_odrive_reboot_odrive_axis0_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_odrive_reboot_odrive_axis0_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_odrive_reboot_odrive_axis0_t *src_p,
+        size_t size);
 
 /**
  * Unpack message ODRIVE_RebootOdrive_axis0.
@@ -3264,8 +3264,8 @@ int uwrt_mars_rover_can_odrive_reboot_odrive_axis0_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_odrive_reboot_odrive_axis0_unpack(
-    struct uwrt_mars_rover_can_odrive_reboot_odrive_axis0_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_odrive_reboot_odrive_axis0_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Pack message ODRIVE_getVbusVoltage_axis0.
@@ -3277,9 +3277,9 @@ int uwrt_mars_rover_can_odrive_reboot_odrive_axis0_unpack(
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_odrive_get_vbus_voltage_axis0_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_odrive_get_vbus_voltage_axis0_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_odrive_get_vbus_voltage_axis0_t *src_p,
+        size_t size);
 
 /**
  * Unpack message ODRIVE_getVbusVoltage_axis0.
@@ -3291,8 +3291,8 @@ int uwrt_mars_rover_can_odrive_get_vbus_voltage_axis0_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_odrive_get_vbus_voltage_axis0_unpack(
-    struct uwrt_mars_rover_can_odrive_get_vbus_voltage_axis0_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_odrive_get_vbus_voltage_axis0_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -3303,7 +3303,7 @@ int uwrt_mars_rover_can_odrive_get_vbus_voltage_axis0_unpack(
  */
 uint32_t
 uwrt_mars_rover_can_odrive_get_vbus_voltage_axis0_odrive_vbus_voltage_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -3314,7 +3314,7 @@ uwrt_mars_rover_can_odrive_get_vbus_voltage_axis0_odrive_vbus_voltage_encode(
  */
 double
 uwrt_mars_rover_can_odrive_get_vbus_voltage_axis0_odrive_vbus_voltage_decode(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -3324,7 +3324,7 @@ uwrt_mars_rover_can_odrive_get_vbus_voltage_axis0_odrive_vbus_voltage_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_get_vbus_voltage_axis0_odrive_vbus_voltage_is_in_range(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Pack message ODRIVE_ClearErrors_axis0.
@@ -3336,9 +3336,9 @@ bool uwrt_mars_rover_can_odrive_get_vbus_voltage_axis0_odrive_vbus_voltage_is_in
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_odrive_clear_errors_axis0_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_odrive_clear_errors_axis0_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_odrive_clear_errors_axis0_t *src_p,
+        size_t size);
 
 /**
  * Unpack message ODRIVE_ClearErrors_axis0.
@@ -3350,8 +3350,8 @@ int uwrt_mars_rover_can_odrive_clear_errors_axis0_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_odrive_clear_errors_axis0_unpack(
-    struct uwrt_mars_rover_can_odrive_clear_errors_axis0_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_odrive_clear_errors_axis0_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Pack message ODRIVE_setLinearCount_axis0.
@@ -3363,9 +3363,9 @@ int uwrt_mars_rover_can_odrive_clear_errors_axis0_unpack(
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_odrive_set_linear_count_axis0_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_odrive_set_linear_count_axis0_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_odrive_set_linear_count_axis0_t *src_p,
+        size_t size);
 
 /**
  * Unpack message ODRIVE_setLinearCount_axis0.
@@ -3377,8 +3377,8 @@ int uwrt_mars_rover_can_odrive_set_linear_count_axis0_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_odrive_set_linear_count_axis0_unpack(
-    struct uwrt_mars_rover_can_odrive_set_linear_count_axis0_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_odrive_set_linear_count_axis0_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -3389,7 +3389,7 @@ int uwrt_mars_rover_can_odrive_set_linear_count_axis0_unpack(
  */
 int32_t
 uwrt_mars_rover_can_odrive_set_linear_count_axis0_odrive_position_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -3399,7 +3399,7 @@ uwrt_mars_rover_can_odrive_set_linear_count_axis0_odrive_position_encode(
  * @return Decoded signal.
  */
 double uwrt_mars_rover_can_odrive_set_linear_count_axis0_odrive_position_decode(
-    int32_t value);
+        int32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -3409,7 +3409,7 @@ double uwrt_mars_rover_can_odrive_set_linear_count_axis0_odrive_position_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_set_linear_count_axis0_odrive_position_is_in_range(
-    int32_t value);
+        int32_t value);
 
 /**
  * Pack message ODRIVE_setPositionGain_axis0.
@@ -3421,9 +3421,9 @@ bool uwrt_mars_rover_can_odrive_set_linear_count_axis0_odrive_position_is_in_ran
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_odrive_set_position_gain_axis0_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_odrive_set_position_gain_axis0_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_odrive_set_position_gain_axis0_t *src_p,
+        size_t size);
 
 /**
  * Unpack message ODRIVE_setPositionGain_axis0.
@@ -3435,8 +3435,8 @@ int uwrt_mars_rover_can_odrive_set_position_gain_axis0_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_odrive_set_position_gain_axis0_unpack(
-    struct uwrt_mars_rover_can_odrive_set_position_gain_axis0_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_odrive_set_position_gain_axis0_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -3447,7 +3447,7 @@ int uwrt_mars_rover_can_odrive_set_position_gain_axis0_unpack(
  */
 uint32_t
 uwrt_mars_rover_can_odrive_set_position_gain_axis0_odrive_pos_gain_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -3458,7 +3458,7 @@ uwrt_mars_rover_can_odrive_set_position_gain_axis0_odrive_pos_gain_encode(
  */
 double
 uwrt_mars_rover_can_odrive_set_position_gain_axis0_odrive_pos_gain_decode(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -3468,7 +3468,7 @@ uwrt_mars_rover_can_odrive_set_position_gain_axis0_odrive_pos_gain_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_set_position_gain_axis0_odrive_pos_gain_is_in_range(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Pack message ODRIVE_setVelGain_axis0.
@@ -3480,9 +3480,9 @@ bool uwrt_mars_rover_can_odrive_set_position_gain_axis0_odrive_pos_gain_is_in_ra
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_odrive_set_vel_gain_axis0_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_odrive_set_vel_gain_axis0_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_odrive_set_vel_gain_axis0_t *src_p,
+        size_t size);
 
 /**
  * Unpack message ODRIVE_setVelGain_axis0.
@@ -3494,8 +3494,8 @@ int uwrt_mars_rover_can_odrive_set_vel_gain_axis0_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_odrive_set_vel_gain_axis0_unpack(
-    struct uwrt_mars_rover_can_odrive_set_vel_gain_axis0_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_odrive_set_vel_gain_axis0_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -3505,7 +3505,7 @@ int uwrt_mars_rover_can_odrive_set_vel_gain_axis0_unpack(
  * @return Encoded signal.
  */
 uint32_t uwrt_mars_rover_can_odrive_set_vel_gain_axis0_odrive_vel_gain_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -3515,7 +3515,7 @@ uint32_t uwrt_mars_rover_can_odrive_set_vel_gain_axis0_odrive_vel_gain_encode(
  * @return Decoded signal.
  */
 double uwrt_mars_rover_can_odrive_set_vel_gain_axis0_odrive_vel_gain_decode(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -3525,7 +3525,7 @@ double uwrt_mars_rover_can_odrive_set_vel_gain_axis0_odrive_vel_gain_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_set_vel_gain_axis0_odrive_vel_gain_is_in_range(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -3536,7 +3536,7 @@ bool uwrt_mars_rover_can_odrive_set_vel_gain_axis0_odrive_vel_gain_is_in_range(
  */
 uint32_t
 uwrt_mars_rover_can_odrive_set_vel_gain_axis0_odrive_vel_integrator_gain_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -3547,7 +3547,7 @@ uwrt_mars_rover_can_odrive_set_vel_gain_axis0_odrive_vel_integrator_gain_encode(
  */
 double
 uwrt_mars_rover_can_odrive_set_vel_gain_axis0_odrive_vel_integrator_gain_decode(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -3557,7 +3557,7 @@ uwrt_mars_rover_can_odrive_set_vel_gain_axis0_odrive_vel_integrator_gain_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_set_vel_gain_axis0_odrive_vel_integrator_gain_is_in_range(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Pack message ODRIVE_heartbeatMessage_axis1.
@@ -3569,9 +3569,9 @@ bool uwrt_mars_rover_can_odrive_set_vel_gain_axis0_odrive_vel_integrator_gain_is
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_odrive_heartbeat_message_axis1_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_odrive_heartbeat_message_axis1_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_odrive_heartbeat_message_axis1_t *src_p,
+        size_t size);
 
 /**
  * Unpack message ODRIVE_heartbeatMessage_axis1.
@@ -3583,8 +3583,8 @@ int uwrt_mars_rover_can_odrive_heartbeat_message_axis1_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_odrive_heartbeat_message_axis1_unpack(
-    struct uwrt_mars_rover_can_odrive_heartbeat_message_axis1_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_odrive_heartbeat_message_axis1_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -3595,7 +3595,7 @@ int uwrt_mars_rover_can_odrive_heartbeat_message_axis1_unpack(
  */
 uint32_t
 uwrt_mars_rover_can_odrive_heartbeat_message_axis1_odrive_axis_error_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -3606,7 +3606,7 @@ uwrt_mars_rover_can_odrive_heartbeat_message_axis1_odrive_axis_error_encode(
  */
 double
 uwrt_mars_rover_can_odrive_heartbeat_message_axis1_odrive_axis_error_decode(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -3616,7 +3616,7 @@ uwrt_mars_rover_can_odrive_heartbeat_message_axis1_odrive_axis_error_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_heartbeat_message_axis1_odrive_axis_error_is_in_range(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -3627,7 +3627,7 @@ bool uwrt_mars_rover_can_odrive_heartbeat_message_axis1_odrive_axis_error_is_in_
  */
 uint8_t
 uwrt_mars_rover_can_odrive_heartbeat_message_axis1_odrive_axis_current_state_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -3638,7 +3638,7 @@ uwrt_mars_rover_can_odrive_heartbeat_message_axis1_odrive_axis_current_state_enc
  */
 double
 uwrt_mars_rover_can_odrive_heartbeat_message_axis1_odrive_axis_current_state_decode(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -3648,7 +3648,7 @@ uwrt_mars_rover_can_odrive_heartbeat_message_axis1_odrive_axis_current_state_dec
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_heartbeat_message_axis1_odrive_axis_current_state_is_in_range(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -3659,7 +3659,7 @@ bool uwrt_mars_rover_can_odrive_heartbeat_message_axis1_odrive_axis_current_stat
  */
 uint8_t
 uwrt_mars_rover_can_odrive_heartbeat_message_axis1_odrive_controller_status_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -3670,7 +3670,7 @@ uwrt_mars_rover_can_odrive_heartbeat_message_axis1_odrive_controller_status_enco
  */
 double
 uwrt_mars_rover_can_odrive_heartbeat_message_axis1_odrive_controller_status_decode(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -3680,7 +3680,7 @@ uwrt_mars_rover_can_odrive_heartbeat_message_axis1_odrive_controller_status_deco
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_heartbeat_message_axis1_odrive_controller_status_is_in_range(
-    uint8_t value);
+        uint8_t value);
 
 /**
  * Pack message ODRIVE_EstopMessage_axis1.
@@ -3692,9 +3692,9 @@ bool uwrt_mars_rover_can_odrive_heartbeat_message_axis1_odrive_controller_status
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_odrive_estop_message_axis1_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_odrive_estop_message_axis1_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_odrive_estop_message_axis1_t *src_p,
+        size_t size);
 
 /**
  * Unpack message ODRIVE_EstopMessage_axis1.
@@ -3706,8 +3706,8 @@ int uwrt_mars_rover_can_odrive_estop_message_axis1_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_odrive_estop_message_axis1_unpack(
-    struct uwrt_mars_rover_can_odrive_estop_message_axis1_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_odrive_estop_message_axis1_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Pack message ODRIVE_getMotorError_axis1.
@@ -3719,9 +3719,9 @@ int uwrt_mars_rover_can_odrive_estop_message_axis1_unpack(
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_odrive_get_motor_error_axis1_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_odrive_get_motor_error_axis1_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_odrive_get_motor_error_axis1_t *src_p,
+        size_t size);
 
 /**
  * Unpack message ODRIVE_getMotorError_axis1.
@@ -3733,8 +3733,8 @@ int uwrt_mars_rover_can_odrive_get_motor_error_axis1_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_odrive_get_motor_error_axis1_unpack(
-    struct uwrt_mars_rover_can_odrive_get_motor_error_axis1_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_odrive_get_motor_error_axis1_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -3745,7 +3745,7 @@ int uwrt_mars_rover_can_odrive_get_motor_error_axis1_unpack(
  */
 uint64_t
 uwrt_mars_rover_can_odrive_get_motor_error_axis1_odrive_motor_error_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -3756,7 +3756,7 @@ uwrt_mars_rover_can_odrive_get_motor_error_axis1_odrive_motor_error_encode(
  */
 double
 uwrt_mars_rover_can_odrive_get_motor_error_axis1_odrive_motor_error_decode(
-    uint64_t value);
+        uint64_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -3766,7 +3766,7 @@ uwrt_mars_rover_can_odrive_get_motor_error_axis1_odrive_motor_error_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_get_motor_error_axis1_odrive_motor_error_is_in_range(
-    uint64_t value);
+        uint64_t value);
 
 /**
  * Pack message ODRIVE_getEncoderError_axis1.
@@ -3778,9 +3778,9 @@ bool uwrt_mars_rover_can_odrive_get_motor_error_axis1_odrive_motor_error_is_in_r
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_odrive_get_encoder_error_axis1_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_odrive_get_encoder_error_axis1_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_odrive_get_encoder_error_axis1_t *src_p,
+        size_t size);
 
 /**
  * Unpack message ODRIVE_getEncoderError_axis1.
@@ -3792,8 +3792,8 @@ int uwrt_mars_rover_can_odrive_get_encoder_error_axis1_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_odrive_get_encoder_error_axis1_unpack(
-    struct uwrt_mars_rover_can_odrive_get_encoder_error_axis1_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_odrive_get_encoder_error_axis1_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -3804,7 +3804,7 @@ int uwrt_mars_rover_can_odrive_get_encoder_error_axis1_unpack(
  */
 uint32_t
 uwrt_mars_rover_can_odrive_get_encoder_error_axis1_odrive_encoder_error_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -3815,7 +3815,7 @@ uwrt_mars_rover_can_odrive_get_encoder_error_axis1_odrive_encoder_error_encode(
  */
 double
 uwrt_mars_rover_can_odrive_get_encoder_error_axis1_odrive_encoder_error_decode(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -3825,7 +3825,7 @@ uwrt_mars_rover_can_odrive_get_encoder_error_axis1_odrive_encoder_error_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_get_encoder_error_axis1_odrive_encoder_error_is_in_range(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Pack message ODRIVE_getSensorlessError_axis1.
@@ -3837,9 +3837,9 @@ bool uwrt_mars_rover_can_odrive_get_encoder_error_axis1_odrive_encoder_error_is_
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_odrive_get_sensorless_error_axis1_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_odrive_get_sensorless_error_axis1_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_odrive_get_sensorless_error_axis1_t *src_p,
+        size_t size);
 
 /**
  * Unpack message ODRIVE_getSensorlessError_axis1.
@@ -3851,8 +3851,8 @@ int uwrt_mars_rover_can_odrive_get_sensorless_error_axis1_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_odrive_get_sensorless_error_axis1_unpack(
-    struct uwrt_mars_rover_can_odrive_get_sensorless_error_axis1_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_odrive_get_sensorless_error_axis1_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -3863,7 +3863,7 @@ int uwrt_mars_rover_can_odrive_get_sensorless_error_axis1_unpack(
  */
 uint32_t
 uwrt_mars_rover_can_odrive_get_sensorless_error_axis1_odrive_sensorless_error_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -3874,7 +3874,7 @@ uwrt_mars_rover_can_odrive_get_sensorless_error_axis1_odrive_sensorless_error_en
  */
 double
 uwrt_mars_rover_can_odrive_get_sensorless_error_axis1_odrive_sensorless_error_decode(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -3884,7 +3884,7 @@ uwrt_mars_rover_can_odrive_get_sensorless_error_axis1_odrive_sensorless_error_de
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_get_sensorless_error_axis1_odrive_sensorless_error_is_in_range(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Pack message ODRIVE_setAxisNodeID_axis1.
@@ -3896,9 +3896,9 @@ bool uwrt_mars_rover_can_odrive_get_sensorless_error_axis1_odrive_sensorless_err
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_odrive_set_axis_node_id_axis1_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_odrive_set_axis_node_id_axis1_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_odrive_set_axis_node_id_axis1_t *src_p,
+        size_t size);
 
 /**
  * Unpack message ODRIVE_setAxisNodeID_axis1.
@@ -3910,8 +3910,8 @@ int uwrt_mars_rover_can_odrive_set_axis_node_id_axis1_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_odrive_set_axis_node_id_axis1_unpack(
-    struct uwrt_mars_rover_can_odrive_set_axis_node_id_axis1_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_odrive_set_axis_node_id_axis1_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -3922,7 +3922,7 @@ int uwrt_mars_rover_can_odrive_set_axis_node_id_axis1_unpack(
  */
 uint32_t
 uwrt_mars_rover_can_odrive_set_axis_node_id_axis1_odrive_axis_can_node_id_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -3933,7 +3933,7 @@ uwrt_mars_rover_can_odrive_set_axis_node_id_axis1_odrive_axis_can_node_id_encode
  */
 double
 uwrt_mars_rover_can_odrive_set_axis_node_id_axis1_odrive_axis_can_node_id_decode(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -3943,7 +3943,7 @@ uwrt_mars_rover_can_odrive_set_axis_node_id_axis1_odrive_axis_can_node_id_decode
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_set_axis_node_id_axis1_odrive_axis_can_node_id_is_in_range(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Pack message ODRIVE_setAxisRequestedState_axis1.
@@ -3955,10 +3955,10 @@ bool uwrt_mars_rover_can_odrive_set_axis_node_id_axis1_odrive_axis_can_node_id_i
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_odrive_set_axis_requested_state_axis1_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_odrive_set_axis_requested_state_axis1_t
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_odrive_set_axis_requested_state_axis1_t
         *src_p,
-    size_t size);
+        size_t size);
 
 /**
  * Unpack message ODRIVE_setAxisRequestedState_axis1.
@@ -3970,8 +3970,8 @@ int uwrt_mars_rover_can_odrive_set_axis_requested_state_axis1_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_odrive_set_axis_requested_state_axis1_unpack(
-    struct uwrt_mars_rover_can_odrive_set_axis_requested_state_axis1_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_odrive_set_axis_requested_state_axis1_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -3982,7 +3982,7 @@ int uwrt_mars_rover_can_odrive_set_axis_requested_state_axis1_unpack(
  */
 uint32_t
 uwrt_mars_rover_can_odrive_set_axis_requested_state_axis1_odrive_axis_requested_state_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -3993,7 +3993,7 @@ uwrt_mars_rover_can_odrive_set_axis_requested_state_axis1_odrive_axis_requested_
  */
 double
 uwrt_mars_rover_can_odrive_set_axis_requested_state_axis1_odrive_axis_requested_state_decode(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -4003,7 +4003,7 @@ uwrt_mars_rover_can_odrive_set_axis_requested_state_axis1_odrive_axis_requested_
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_set_axis_requested_state_axis1_odrive_axis_requested_state_is_in_range(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Pack message ODRIVE_getEncoderEstimates_axis1.
@@ -4015,10 +4015,10 @@ bool uwrt_mars_rover_can_odrive_set_axis_requested_state_axis1_odrive_axis_reque
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_odrive_get_encoder_estimates_axis1_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_odrive_get_encoder_estimates_axis1_t
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_odrive_get_encoder_estimates_axis1_t
         *src_p,
-    size_t size);
+        size_t size);
 
 /**
  * Unpack message ODRIVE_getEncoderEstimates_axis1.
@@ -4030,8 +4030,8 @@ int uwrt_mars_rover_can_odrive_get_encoder_estimates_axis1_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_odrive_get_encoder_estimates_axis1_unpack(
-    struct uwrt_mars_rover_can_odrive_get_encoder_estimates_axis1_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_odrive_get_encoder_estimates_axis1_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -4042,7 +4042,7 @@ int uwrt_mars_rover_can_odrive_get_encoder_estimates_axis1_unpack(
  */
 uint32_t
 uwrt_mars_rover_can_odrive_get_encoder_estimates_axis1_odrive_encoder_pos_estimate_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -4053,7 +4053,7 @@ uwrt_mars_rover_can_odrive_get_encoder_estimates_axis1_odrive_encoder_pos_estima
  */
 double
 uwrt_mars_rover_can_odrive_get_encoder_estimates_axis1_odrive_encoder_pos_estimate_decode(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -4063,7 +4063,7 @@ uwrt_mars_rover_can_odrive_get_encoder_estimates_axis1_odrive_encoder_pos_estima
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_get_encoder_estimates_axis1_odrive_encoder_pos_estimate_is_in_range(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -4074,7 +4074,7 @@ bool uwrt_mars_rover_can_odrive_get_encoder_estimates_axis1_odrive_encoder_pos_e
  */
 uint32_t
 uwrt_mars_rover_can_odrive_get_encoder_estimates_axis1_odrive_encoder_vel_estimate_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -4085,7 +4085,7 @@ uwrt_mars_rover_can_odrive_get_encoder_estimates_axis1_odrive_encoder_vel_estima
  */
 double
 uwrt_mars_rover_can_odrive_get_encoder_estimates_axis1_odrive_encoder_vel_estimate_decode(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -4095,7 +4095,7 @@ uwrt_mars_rover_can_odrive_get_encoder_estimates_axis1_odrive_encoder_vel_estima
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_get_encoder_estimates_axis1_odrive_encoder_vel_estimate_is_in_range(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Pack message ODRIVE_getEncoderCount_axis1.
@@ -4107,9 +4107,9 @@ bool uwrt_mars_rover_can_odrive_get_encoder_estimates_axis1_odrive_encoder_vel_e
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_odrive_get_encoder_count_axis1_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_odrive_get_encoder_count_axis1_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_odrive_get_encoder_count_axis1_t *src_p,
+        size_t size);
 
 /**
  * Unpack message ODRIVE_getEncoderCount_axis1.
@@ -4121,8 +4121,8 @@ int uwrt_mars_rover_can_odrive_get_encoder_count_axis1_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_odrive_get_encoder_count_axis1_unpack(
-    struct uwrt_mars_rover_can_odrive_get_encoder_count_axis1_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_odrive_get_encoder_count_axis1_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -4133,7 +4133,7 @@ int uwrt_mars_rover_can_odrive_get_encoder_count_axis1_unpack(
  */
 int32_t
 uwrt_mars_rover_can_odrive_get_encoder_count_axis1_odrive_encoder_shadow_count_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -4144,7 +4144,7 @@ uwrt_mars_rover_can_odrive_get_encoder_count_axis1_odrive_encoder_shadow_count_e
  */
 double
 uwrt_mars_rover_can_odrive_get_encoder_count_axis1_odrive_encoder_shadow_count_decode(
-    int32_t value);
+        int32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -4154,7 +4154,7 @@ uwrt_mars_rover_can_odrive_get_encoder_count_axis1_odrive_encoder_shadow_count_d
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_get_encoder_count_axis1_odrive_encoder_shadow_count_is_in_range(
-    int32_t value);
+        int32_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -4165,7 +4165,7 @@ bool uwrt_mars_rover_can_odrive_get_encoder_count_axis1_odrive_encoder_shadow_co
  */
 int32_t
 uwrt_mars_rover_can_odrive_get_encoder_count_axis1_odrive_encoder_countin_cpr_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -4176,7 +4176,7 @@ uwrt_mars_rover_can_odrive_get_encoder_count_axis1_odrive_encoder_countin_cpr_en
  */
 double
 uwrt_mars_rover_can_odrive_get_encoder_count_axis1_odrive_encoder_countin_cpr_decode(
-    int32_t value);
+        int32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -4186,7 +4186,7 @@ uwrt_mars_rover_can_odrive_get_encoder_count_axis1_odrive_encoder_countin_cpr_de
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_get_encoder_count_axis1_odrive_encoder_countin_cpr_is_in_range(
-    int32_t value);
+        int32_t value);
 
 /**
  * Pack message ODRIVE_setControllerModes_axis1.
@@ -4198,9 +4198,9 @@ bool uwrt_mars_rover_can_odrive_get_encoder_count_axis1_odrive_encoder_countin_c
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_odrive_set_controller_modes_axis1_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_odrive_set_controller_modes_axis1_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_odrive_set_controller_modes_axis1_t *src_p,
+        size_t size);
 
 /**
  * Unpack message ODRIVE_setControllerModes_axis1.
@@ -4212,8 +4212,8 @@ int uwrt_mars_rover_can_odrive_set_controller_modes_axis1_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_odrive_set_controller_modes_axis1_unpack(
-    struct uwrt_mars_rover_can_odrive_set_controller_modes_axis1_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_odrive_set_controller_modes_axis1_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -4224,7 +4224,7 @@ int uwrt_mars_rover_can_odrive_set_controller_modes_axis1_unpack(
  */
 int32_t
 uwrt_mars_rover_can_odrive_set_controller_modes_axis1_odrive_control_mode_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -4235,7 +4235,7 @@ uwrt_mars_rover_can_odrive_set_controller_modes_axis1_odrive_control_mode_encode
  */
 double
 uwrt_mars_rover_can_odrive_set_controller_modes_axis1_odrive_control_mode_decode(
-    int32_t value);
+        int32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -4245,7 +4245,7 @@ uwrt_mars_rover_can_odrive_set_controller_modes_axis1_odrive_control_mode_decode
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_set_controller_modes_axis1_odrive_control_mode_is_in_range(
-    int32_t value);
+        int32_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -4256,7 +4256,7 @@ bool uwrt_mars_rover_can_odrive_set_controller_modes_axis1_odrive_control_mode_i
  */
 int32_t
 uwrt_mars_rover_can_odrive_set_controller_modes_axis1_odrive_input_mode_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -4267,7 +4267,7 @@ uwrt_mars_rover_can_odrive_set_controller_modes_axis1_odrive_input_mode_encode(
  */
 double
 uwrt_mars_rover_can_odrive_set_controller_modes_axis1_odrive_input_mode_decode(
-    int32_t value);
+        int32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -4277,7 +4277,7 @@ uwrt_mars_rover_can_odrive_set_controller_modes_axis1_odrive_input_mode_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_set_controller_modes_axis1_odrive_input_mode_is_in_range(
-    int32_t value);
+        int32_t value);
 
 /**
  * Pack message ODRIVE_SetInputPos_axis1.
@@ -4289,9 +4289,9 @@ bool uwrt_mars_rover_can_odrive_set_controller_modes_axis1_odrive_input_mode_is_
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_odrive_set_input_pos_axis1_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_odrive_set_input_pos_axis1_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_odrive_set_input_pos_axis1_t *src_p,
+        size_t size);
 
 /**
  * Unpack message ODRIVE_SetInputPos_axis1.
@@ -4303,8 +4303,8 @@ int uwrt_mars_rover_can_odrive_set_input_pos_axis1_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_odrive_set_input_pos_axis1_unpack(
-    struct uwrt_mars_rover_can_odrive_set_input_pos_axis1_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_odrive_set_input_pos_axis1_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -4314,7 +4314,7 @@ int uwrt_mars_rover_can_odrive_set_input_pos_axis1_unpack(
  * @return Encoded signal.
  */
 uint32_t uwrt_mars_rover_can_odrive_set_input_pos_axis1_odrive_input_pos_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -4324,7 +4324,7 @@ uint32_t uwrt_mars_rover_can_odrive_set_input_pos_axis1_odrive_input_pos_encode(
  * @return Decoded signal.
  */
 double uwrt_mars_rover_can_odrive_set_input_pos_axis1_odrive_input_pos_decode(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -4334,7 +4334,7 @@ double uwrt_mars_rover_can_odrive_set_input_pos_axis1_odrive_input_pos_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_set_input_pos_axis1_odrive_input_pos_is_in_range(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -4344,7 +4344,7 @@ bool uwrt_mars_rover_can_odrive_set_input_pos_axis1_odrive_input_pos_is_in_range
  * @return Encoded signal.
  */
 int16_t uwrt_mars_rover_can_odrive_set_input_pos_axis1_odrive_vel_ff_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -4354,7 +4354,7 @@ int16_t uwrt_mars_rover_can_odrive_set_input_pos_axis1_odrive_vel_ff_encode(
  * @return Decoded signal.
  */
 double uwrt_mars_rover_can_odrive_set_input_pos_axis1_odrive_vel_ff_decode(
-    int16_t value);
+        int16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -4364,7 +4364,7 @@ double uwrt_mars_rover_can_odrive_set_input_pos_axis1_odrive_vel_ff_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_set_input_pos_axis1_odrive_vel_ff_is_in_range(
-    int16_t value);
+        int16_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -4374,7 +4374,7 @@ bool uwrt_mars_rover_can_odrive_set_input_pos_axis1_odrive_vel_ff_is_in_range(
  * @return Encoded signal.
  */
 int16_t uwrt_mars_rover_can_odrive_set_input_pos_axis1_odrive_torque_ff_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -4384,7 +4384,7 @@ int16_t uwrt_mars_rover_can_odrive_set_input_pos_axis1_odrive_torque_ff_encode(
  * @return Decoded signal.
  */
 double uwrt_mars_rover_can_odrive_set_input_pos_axis1_odrive_torque_ff_decode(
-    int16_t value);
+        int16_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -4394,7 +4394,7 @@ double uwrt_mars_rover_can_odrive_set_input_pos_axis1_odrive_torque_ff_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_set_input_pos_axis1_odrive_torque_ff_is_in_range(
-    int16_t value);
+        int16_t value);
 
 /**
  * Pack message ODRIVE_setInputVel_axis1.
@@ -4406,9 +4406,9 @@ bool uwrt_mars_rover_can_odrive_set_input_pos_axis1_odrive_torque_ff_is_in_range
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_odrive_set_input_vel_axis1_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_odrive_set_input_vel_axis1_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_odrive_set_input_vel_axis1_t *src_p,
+        size_t size);
 
 /**
  * Unpack message ODRIVE_setInputVel_axis1.
@@ -4420,8 +4420,8 @@ int uwrt_mars_rover_can_odrive_set_input_vel_axis1_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_odrive_set_input_vel_axis1_unpack(
-    struct uwrt_mars_rover_can_odrive_set_input_vel_axis1_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_odrive_set_input_vel_axis1_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -4431,7 +4431,7 @@ int uwrt_mars_rover_can_odrive_set_input_vel_axis1_unpack(
  * @return Encoded signal.
  */
 uint32_t uwrt_mars_rover_can_odrive_set_input_vel_axis1_odrive_input_vel_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -4441,7 +4441,7 @@ uint32_t uwrt_mars_rover_can_odrive_set_input_vel_axis1_odrive_input_vel_encode(
  * @return Decoded signal.
  */
 double uwrt_mars_rover_can_odrive_set_input_vel_axis1_odrive_input_vel_decode(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -4451,7 +4451,7 @@ double uwrt_mars_rover_can_odrive_set_input_vel_axis1_odrive_input_vel_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_set_input_vel_axis1_odrive_input_vel_is_in_range(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -4461,7 +4461,7 @@ bool uwrt_mars_rover_can_odrive_set_input_vel_axis1_odrive_input_vel_is_in_range
  * @return Encoded signal.
  */
 uint32_t uwrt_mars_rover_can_odrive_set_input_vel_axis1_odrive_torque_ff_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -4471,7 +4471,7 @@ uint32_t uwrt_mars_rover_can_odrive_set_input_vel_axis1_odrive_torque_ff_encode(
  * @return Decoded signal.
  */
 double uwrt_mars_rover_can_odrive_set_input_vel_axis1_odrive_torque_ff_decode(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -4481,7 +4481,7 @@ double uwrt_mars_rover_can_odrive_set_input_vel_axis1_odrive_torque_ff_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_set_input_vel_axis1_odrive_torque_ff_is_in_range(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Pack message ODRIVE_setInputTorque_axis1.
@@ -4493,9 +4493,9 @@ bool uwrt_mars_rover_can_odrive_set_input_vel_axis1_odrive_torque_ff_is_in_range
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_odrive_set_input_torque_axis1_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_odrive_set_input_torque_axis1_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_odrive_set_input_torque_axis1_t *src_p,
+        size_t size);
 
 /**
  * Unpack message ODRIVE_setInputTorque_axis1.
@@ -4507,8 +4507,8 @@ int uwrt_mars_rover_can_odrive_set_input_torque_axis1_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_odrive_set_input_torque_axis1_unpack(
-    struct uwrt_mars_rover_can_odrive_set_input_torque_axis1_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_odrive_set_input_torque_axis1_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -4519,7 +4519,7 @@ int uwrt_mars_rover_can_odrive_set_input_torque_axis1_unpack(
  */
 uint32_t
 uwrt_mars_rover_can_odrive_set_input_torque_axis1_odrive_input_torque_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -4530,7 +4530,7 @@ uwrt_mars_rover_can_odrive_set_input_torque_axis1_odrive_input_torque_encode(
  */
 double
 uwrt_mars_rover_can_odrive_set_input_torque_axis1_odrive_input_torque_decode(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -4540,7 +4540,7 @@ uwrt_mars_rover_can_odrive_set_input_torque_axis1_odrive_input_torque_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_set_input_torque_axis1_odrive_input_torque_is_in_range(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Pack message ODRIVE_setLimits_axis1.
@@ -4552,9 +4552,9 @@ bool uwrt_mars_rover_can_odrive_set_input_torque_axis1_odrive_input_torque_is_in
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_odrive_set_limits_axis1_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_odrive_set_limits_axis1_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_odrive_set_limits_axis1_t *src_p,
+        size_t size);
 
 /**
  * Unpack message ODRIVE_setLimits_axis1.
@@ -4566,8 +4566,8 @@ int uwrt_mars_rover_can_odrive_set_limits_axis1_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_odrive_set_limits_axis1_unpack(
-    struct uwrt_mars_rover_can_odrive_set_limits_axis1_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_odrive_set_limits_axis1_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -4578,7 +4578,7 @@ int uwrt_mars_rover_can_odrive_set_limits_axis1_unpack(
  */
 uint32_t
 uwrt_mars_rover_can_odrive_set_limits_axis1_odrive_velocity_limit_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -4588,7 +4588,7 @@ uwrt_mars_rover_can_odrive_set_limits_axis1_odrive_velocity_limit_encode(
  * @return Decoded signal.
  */
 double uwrt_mars_rover_can_odrive_set_limits_axis1_odrive_velocity_limit_decode(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -4598,7 +4598,7 @@ double uwrt_mars_rover_can_odrive_set_limits_axis1_odrive_velocity_limit_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_set_limits_axis1_odrive_velocity_limit_is_in_range(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -4609,7 +4609,7 @@ bool uwrt_mars_rover_can_odrive_set_limits_axis1_odrive_velocity_limit_is_in_ran
  */
 uint32_t
 uwrt_mars_rover_can_odrive_set_limits_axis1_odrive_current_limit_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -4619,7 +4619,7 @@ uwrt_mars_rover_can_odrive_set_limits_axis1_odrive_current_limit_encode(
  * @return Decoded signal.
  */
 double uwrt_mars_rover_can_odrive_set_limits_axis1_odrive_current_limit_decode(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -4629,7 +4629,7 @@ double uwrt_mars_rover_can_odrive_set_limits_axis1_odrive_current_limit_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_set_limits_axis1_odrive_current_limit_is_in_range(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Pack message ODRIVE_StartAnticogging_axis1.
@@ -4641,9 +4641,9 @@ bool uwrt_mars_rover_can_odrive_set_limits_axis1_odrive_current_limit_is_in_rang
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_odrive_start_anticogging_axis1_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_odrive_start_anticogging_axis1_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_odrive_start_anticogging_axis1_t *src_p,
+        size_t size);
 
 /**
  * Unpack message ODRIVE_StartAnticogging_axis1.
@@ -4655,8 +4655,8 @@ int uwrt_mars_rover_can_odrive_start_anticogging_axis1_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_odrive_start_anticogging_axis1_unpack(
-    struct uwrt_mars_rover_can_odrive_start_anticogging_axis1_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_odrive_start_anticogging_axis1_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Pack message ODRIVE_setTrajVelLimit_axis1.
@@ -4668,9 +4668,9 @@ int uwrt_mars_rover_can_odrive_start_anticogging_axis1_unpack(
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_odrive_set_traj_vel_limit_axis1_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_odrive_set_traj_vel_limit_axis1_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_odrive_set_traj_vel_limit_axis1_t *src_p,
+        size_t size);
 
 /**
  * Unpack message ODRIVE_setTrajVelLimit_axis1.
@@ -4682,8 +4682,8 @@ int uwrt_mars_rover_can_odrive_set_traj_vel_limit_axis1_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_odrive_set_traj_vel_limit_axis1_unpack(
-    struct uwrt_mars_rover_can_odrive_set_traj_vel_limit_axis1_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_odrive_set_traj_vel_limit_axis1_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -4694,7 +4694,7 @@ int uwrt_mars_rover_can_odrive_set_traj_vel_limit_axis1_unpack(
  */
 uint32_t
 uwrt_mars_rover_can_odrive_set_traj_vel_limit_axis1_odrive_traj_vel_limit_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -4705,7 +4705,7 @@ uwrt_mars_rover_can_odrive_set_traj_vel_limit_axis1_odrive_traj_vel_limit_encode
  */
 double
 uwrt_mars_rover_can_odrive_set_traj_vel_limit_axis1_odrive_traj_vel_limit_decode(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -4715,7 +4715,7 @@ uwrt_mars_rover_can_odrive_set_traj_vel_limit_axis1_odrive_traj_vel_limit_decode
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_set_traj_vel_limit_axis1_odrive_traj_vel_limit_is_in_range(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Pack message ODRIVE_setTrajAccelLimit_axis1.
@@ -4727,9 +4727,9 @@ bool uwrt_mars_rover_can_odrive_set_traj_vel_limit_axis1_odrive_traj_vel_limit_i
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis1_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis1_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis1_t *src_p,
+        size_t size);
 
 /**
  * Unpack message ODRIVE_setTrajAccelLimit_axis1.
@@ -4741,8 +4741,8 @@ int uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis1_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis1_unpack(
-    struct uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis1_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis1_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -4753,7 +4753,7 @@ int uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis1_unpack(
  */
 uint32_t
 uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis1_odrive_traj_accel_limit_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -4764,7 +4764,7 @@ uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis1_odrive_traj_accel_limit_en
  */
 double
 uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis1_odrive_traj_accel_limit_decode(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -4774,7 +4774,7 @@ uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis1_odrive_traj_accel_limit_de
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis1_odrive_traj_accel_limit_is_in_range(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -4785,7 +4785,7 @@ bool uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis1_odrive_traj_accel_lim
  */
 uint32_t
 uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis1_odrive_traj_decel_limit_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -4796,7 +4796,7 @@ uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis1_odrive_traj_decel_limit_en
  */
 double
 uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis1_odrive_traj_decel_limit_decode(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -4806,7 +4806,7 @@ uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis1_odrive_traj_decel_limit_de
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis1_odrive_traj_decel_limit_is_in_range(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Pack message ODRIVE_setTrajInertia_axis1.
@@ -4818,9 +4818,9 @@ bool uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis1_odrive_traj_decel_lim
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_odrive_set_traj_inertia_axis1_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_odrive_set_traj_inertia_axis1_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_odrive_set_traj_inertia_axis1_t *src_p,
+        size_t size);
 
 /**
  * Unpack message ODRIVE_setTrajInertia_axis1.
@@ -4832,8 +4832,8 @@ int uwrt_mars_rover_can_odrive_set_traj_inertia_axis1_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_odrive_set_traj_inertia_axis1_unpack(
-    struct uwrt_mars_rover_can_odrive_set_traj_inertia_axis1_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_odrive_set_traj_inertia_axis1_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -4844,7 +4844,7 @@ int uwrt_mars_rover_can_odrive_set_traj_inertia_axis1_unpack(
  */
 uint32_t
 uwrt_mars_rover_can_odrive_set_traj_inertia_axis1_odrive_traj_inertia_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -4855,7 +4855,7 @@ uwrt_mars_rover_can_odrive_set_traj_inertia_axis1_odrive_traj_inertia_encode(
  */
 double
 uwrt_mars_rover_can_odrive_set_traj_inertia_axis1_odrive_traj_inertia_decode(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -4865,7 +4865,7 @@ uwrt_mars_rover_can_odrive_set_traj_inertia_axis1_odrive_traj_inertia_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_set_traj_inertia_axis1_odrive_traj_inertia_is_in_range(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Pack message ODRIVE_getIQ_axis1.
@@ -4877,8 +4877,8 @@ bool uwrt_mars_rover_can_odrive_set_traj_inertia_axis1_odrive_traj_inertia_is_in
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_odrive_get_iq_axis1_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_odrive_get_iq_axis1_t *src_p, size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_odrive_get_iq_axis1_t *src_p, size_t size);
 
 /**
  * Unpack message ODRIVE_getIQ_axis1.
@@ -4890,8 +4890,8 @@ int uwrt_mars_rover_can_odrive_get_iq_axis1_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_odrive_get_iq_axis1_unpack(
-    struct uwrt_mars_rover_can_odrive_get_iq_axis1_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_odrive_get_iq_axis1_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -4911,7 +4911,7 @@ uwrt_mars_rover_can_odrive_get_iq_axis1_odrive_iq_setpoint_encode(double value);
  * @return Decoded signal.
  */
 double uwrt_mars_rover_can_odrive_get_iq_axis1_odrive_iq_setpoint_decode(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -4921,7 +4921,7 @@ double uwrt_mars_rover_can_odrive_get_iq_axis1_odrive_iq_setpoint_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_get_iq_axis1_odrive_iq_setpoint_is_in_range(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -4941,7 +4941,7 @@ uwrt_mars_rover_can_odrive_get_iq_axis1_odrive_iq_measured_encode(double value);
  * @return Decoded signal.
  */
 double uwrt_mars_rover_can_odrive_get_iq_axis1_odrive_iq_measured_decode(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -4951,7 +4951,7 @@ double uwrt_mars_rover_can_odrive_get_iq_axis1_odrive_iq_measured_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_get_iq_axis1_odrive_iq_measured_is_in_range(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Pack message ODRIVE_GetSensorlessEstimates_axis1.
@@ -4963,10 +4963,10 @@ bool uwrt_mars_rover_can_odrive_get_iq_axis1_odrive_iq_measured_is_in_range(
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis1_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis1_t
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis1_t
         *src_p,
-    size_t size);
+        size_t size);
 
 /**
  * Unpack message ODRIVE_GetSensorlessEstimates_axis1.
@@ -4978,8 +4978,8 @@ int uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis1_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis1_unpack(
-    struct uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis1_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis1_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -4990,7 +4990,7 @@ int uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis1_unpack(
  */
 uint32_t
 uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis1_odrive_sensorless_pos_estimate_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -5001,7 +5001,7 @@ uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis1_odrive_sensorless_pos_
  */
 double
 uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis1_odrive_sensorless_pos_estimate_decode(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -5011,7 +5011,7 @@ uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis1_odrive_sensorless_pos_
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis1_odrive_sensorless_pos_estimate_is_in_range(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -5022,7 +5022,7 @@ bool uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis1_odrive_sensorless
  */
 uint32_t
 uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis1_odrive_sensorless_vel_estimate_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -5033,7 +5033,7 @@ uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis1_odrive_sensorless_vel_
  */
 double
 uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis1_odrive_sensorless_vel_estimate_decode(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -5043,7 +5043,7 @@ uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis1_odrive_sensorless_vel_
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis1_odrive_sensorless_vel_estimate_is_in_range(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Pack message ODRIVE_RebootOdrive_axis1.
@@ -5055,9 +5055,9 @@ bool uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis1_odrive_sensorless
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_odrive_reboot_odrive_axis1_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_odrive_reboot_odrive_axis1_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_odrive_reboot_odrive_axis1_t *src_p,
+        size_t size);
 
 /**
  * Unpack message ODRIVE_RebootOdrive_axis1.
@@ -5069,8 +5069,8 @@ int uwrt_mars_rover_can_odrive_reboot_odrive_axis1_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_odrive_reboot_odrive_axis1_unpack(
-    struct uwrt_mars_rover_can_odrive_reboot_odrive_axis1_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_odrive_reboot_odrive_axis1_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Pack message ODRIVE_getVbusVoltage_axis1.
@@ -5082,9 +5082,9 @@ int uwrt_mars_rover_can_odrive_reboot_odrive_axis1_unpack(
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_odrive_get_vbus_voltage_axis1_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_odrive_get_vbus_voltage_axis1_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_odrive_get_vbus_voltage_axis1_t *src_p,
+        size_t size);
 
 /**
  * Unpack message ODRIVE_getVbusVoltage_axis1.
@@ -5096,8 +5096,8 @@ int uwrt_mars_rover_can_odrive_get_vbus_voltage_axis1_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_odrive_get_vbus_voltage_axis1_unpack(
-    struct uwrt_mars_rover_can_odrive_get_vbus_voltage_axis1_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_odrive_get_vbus_voltage_axis1_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -5108,7 +5108,7 @@ int uwrt_mars_rover_can_odrive_get_vbus_voltage_axis1_unpack(
  */
 uint32_t
 uwrt_mars_rover_can_odrive_get_vbus_voltage_axis1_odrive_vbus_voltage_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -5119,7 +5119,7 @@ uwrt_mars_rover_can_odrive_get_vbus_voltage_axis1_odrive_vbus_voltage_encode(
  */
 double
 uwrt_mars_rover_can_odrive_get_vbus_voltage_axis1_odrive_vbus_voltage_decode(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -5129,7 +5129,7 @@ uwrt_mars_rover_can_odrive_get_vbus_voltage_axis1_odrive_vbus_voltage_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_get_vbus_voltage_axis1_odrive_vbus_voltage_is_in_range(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Pack message ODRIVE_ClearErrors_axis1.
@@ -5141,9 +5141,9 @@ bool uwrt_mars_rover_can_odrive_get_vbus_voltage_axis1_odrive_vbus_voltage_is_in
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_odrive_clear_errors_axis1_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_odrive_clear_errors_axis1_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_odrive_clear_errors_axis1_t *src_p,
+        size_t size);
 
 /**
  * Unpack message ODRIVE_ClearErrors_axis1.
@@ -5155,8 +5155,8 @@ int uwrt_mars_rover_can_odrive_clear_errors_axis1_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_odrive_clear_errors_axis1_unpack(
-    struct uwrt_mars_rover_can_odrive_clear_errors_axis1_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_odrive_clear_errors_axis1_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Pack message ODRIVE_setLinearCount_axis1.
@@ -5168,9 +5168,9 @@ int uwrt_mars_rover_can_odrive_clear_errors_axis1_unpack(
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_odrive_set_linear_count_axis1_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_odrive_set_linear_count_axis1_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_odrive_set_linear_count_axis1_t *src_p,
+        size_t size);
 
 /**
  * Unpack message ODRIVE_setLinearCount_axis1.
@@ -5182,8 +5182,8 @@ int uwrt_mars_rover_can_odrive_set_linear_count_axis1_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_odrive_set_linear_count_axis1_unpack(
-    struct uwrt_mars_rover_can_odrive_set_linear_count_axis1_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_odrive_set_linear_count_axis1_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -5194,7 +5194,7 @@ int uwrt_mars_rover_can_odrive_set_linear_count_axis1_unpack(
  */
 int32_t
 uwrt_mars_rover_can_odrive_set_linear_count_axis1_odrive_position_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -5204,7 +5204,7 @@ uwrt_mars_rover_can_odrive_set_linear_count_axis1_odrive_position_encode(
  * @return Decoded signal.
  */
 double uwrt_mars_rover_can_odrive_set_linear_count_axis1_odrive_position_decode(
-    int32_t value);
+        int32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -5214,7 +5214,7 @@ double uwrt_mars_rover_can_odrive_set_linear_count_axis1_odrive_position_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_set_linear_count_axis1_odrive_position_is_in_range(
-    int32_t value);
+        int32_t value);
 
 /**
  * Pack message ODRIVE_setPositionGain_axis1.
@@ -5226,9 +5226,9 @@ bool uwrt_mars_rover_can_odrive_set_linear_count_axis1_odrive_position_is_in_ran
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_odrive_set_position_gain_axis1_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_odrive_set_position_gain_axis1_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_odrive_set_position_gain_axis1_t *src_p,
+        size_t size);
 
 /**
  * Unpack message ODRIVE_setPositionGain_axis1.
@@ -5240,8 +5240,8 @@ int uwrt_mars_rover_can_odrive_set_position_gain_axis1_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_odrive_set_position_gain_axis1_unpack(
-    struct uwrt_mars_rover_can_odrive_set_position_gain_axis1_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_odrive_set_position_gain_axis1_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -5252,7 +5252,7 @@ int uwrt_mars_rover_can_odrive_set_position_gain_axis1_unpack(
  */
 uint32_t
 uwrt_mars_rover_can_odrive_set_position_gain_axis1_odrive_pos_gain_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -5263,7 +5263,7 @@ uwrt_mars_rover_can_odrive_set_position_gain_axis1_odrive_pos_gain_encode(
  */
 double
 uwrt_mars_rover_can_odrive_set_position_gain_axis1_odrive_pos_gain_decode(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -5273,7 +5273,7 @@ uwrt_mars_rover_can_odrive_set_position_gain_axis1_odrive_pos_gain_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_set_position_gain_axis1_odrive_pos_gain_is_in_range(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Pack message ODRIVE_setVelGain_axis1.
@@ -5285,9 +5285,9 @@ bool uwrt_mars_rover_can_odrive_set_position_gain_axis1_odrive_pos_gain_is_in_ra
  * @return Size of packed data, or negative error code.
  */
 int uwrt_mars_rover_can_odrive_set_vel_gain_axis1_pack(
-    uint8_t *dst_p,
-    const struct uwrt_mars_rover_can_odrive_set_vel_gain_axis1_t *src_p,
-    size_t size);
+        uint8_t *dst_p,
+        const struct uwrt_mars_rover_can_odrive_set_vel_gain_axis1_t *src_p,
+        size_t size);
 
 /**
  * Unpack message ODRIVE_setVelGain_axis1.
@@ -5299,8 +5299,8 @@ int uwrt_mars_rover_can_odrive_set_vel_gain_axis1_pack(
  * @return zero(0) or negative error code.
  */
 int uwrt_mars_rover_can_odrive_set_vel_gain_axis1_unpack(
-    struct uwrt_mars_rover_can_odrive_set_vel_gain_axis1_t *dst_p,
-    const uint8_t *src_p, size_t size);
+        struct uwrt_mars_rover_can_odrive_set_vel_gain_axis1_t *dst_p,
+        const uint8_t *src_p, size_t size);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -5310,7 +5310,7 @@ int uwrt_mars_rover_can_odrive_set_vel_gain_axis1_unpack(
  * @return Encoded signal.
  */
 uint32_t uwrt_mars_rover_can_odrive_set_vel_gain_axis1_odrive_vel_gain_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -5320,7 +5320,7 @@ uint32_t uwrt_mars_rover_can_odrive_set_vel_gain_axis1_odrive_vel_gain_encode(
  * @return Decoded signal.
  */
 double uwrt_mars_rover_can_odrive_set_vel_gain_axis1_odrive_vel_gain_decode(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -5330,7 +5330,7 @@ double uwrt_mars_rover_can_odrive_set_vel_gain_axis1_odrive_vel_gain_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_set_vel_gain_axis1_odrive_vel_gain_is_in_range(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Encode given signal by applying scaling and offset.
@@ -5341,7 +5341,7 @@ bool uwrt_mars_rover_can_odrive_set_vel_gain_axis1_odrive_vel_gain_is_in_range(
  */
 uint32_t
 uwrt_mars_rover_can_odrive_set_vel_gain_axis1_odrive_vel_integrator_gain_encode(
-    double value);
+        double value);
 
 /**
  * Decode given signal by applying scaling and offset.
@@ -5352,7 +5352,7 @@ uwrt_mars_rover_can_odrive_set_vel_gain_axis1_odrive_vel_integrator_gain_encode(
  */
 double
 uwrt_mars_rover_can_odrive_set_vel_gain_axis1_odrive_vel_integrator_gain_decode(
-    uint32_t value);
+        uint32_t value);
 
 /**
  * Check that given signal is in allowed range.
@@ -5362,7 +5362,7 @@ uwrt_mars_rover_can_odrive_set_vel_gain_axis1_odrive_vel_integrator_gain_decode(
  * @return true if in range, false otherwise.
  */
 bool uwrt_mars_rover_can_odrive_set_vel_gain_axis1_odrive_vel_integrator_gain_is_in_range(
-    uint32_t value);
+        uint32_t value);
 
 #ifdef __cplusplus
 }
