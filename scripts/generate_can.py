@@ -161,12 +161,17 @@ for year in supported_years:
                     signal['min'] = sig_min
                     signal['max'] = sig_max
 
+                    float_signal = False
+                    if 'is_float' in signal:
+                         float_signal = True
+ 
                     signals.append(
                         cantools.database.can.Signal(
                             name=signal_name,
                             start=startbit,
                             length=signal['length'],
                             byte_order='little_endian',
+                            is_float=float_signal,
                             is_signed=signal['is_signed'],
                             scale=signal['scale'],
                             offset=signal['offset'],
