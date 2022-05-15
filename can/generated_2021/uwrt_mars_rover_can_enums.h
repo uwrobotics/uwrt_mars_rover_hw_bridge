@@ -6,10 +6,9 @@
 namespace HWBRIDGE {
 
 constexpr uint32_t ROVER_CANBUS_FREQUENCY_HZ = 1000000;
-constexpr uint16_t ROVER_CANID_FILTER_MASK =
-    0x7E0; // Use bits 5:10 for addressing, bits 0:4 for message type
+constexpr uint16_t ROVER_CANID_FILTER_MASK   = 0x7E0;  // Use bits 5:10 for addressing, bits 0:4 for message type
 
-typedef double CANSignalValue_t; // Generalize all signal values as double
+typedef double CANSignalValue_t;  // Generalize all signal values as double
 
 typedef struct {
   uint8_t raw[8];
@@ -21,71 +20,71 @@ enum class CANBUSID {
 };
 
 enum class CANFILTER {
-  ARM_RX_FILTER = 0x620,
-  ARM_TX_FILTER = 0x640,
+  ARM_RX_FILTER     = 0x620,
+  ARM_TX_FILTER     = 0x640,
   SCIENCE_RX_FILTER = 0x660,
   SCIENCE_TX_FILTER = 0x680,
-  GIMBAL_RX_FILTER = 0x6A0,
-  GIMBAL_TX_FILTER = 0x6C0,
-  PDB_RX_FILTER = 0x6E0,
-  PDB_TX_FILTER = 0x700,
-  COMMON_FILTER = 0x720,
-  NO_MESSAGES = 0x7E0,
+  GIMBAL_RX_FILTER  = 0x6A0,
+  GIMBAL_TX_FILTER  = 0x6C0,
+  PDB_RX_FILTER     = 0x6E0,
+  PDB_TX_FILTER     = 0x700,
+  COMMON_FILTER     = 0x720,
+  NO_MESSAGES       = 0x7E0,
 
 };
 
 enum class CANID {
   // Roboteq CAN IDs
-  TPDO1 = 0x181,
-  RPDO1 = 0x201,
-  TPDO2 = 0x281,
-  RPDO2 = 0x301,
-  TPDO3 = 0x381,
-  RPDO3 = 0x401,
-  TPDO4 = 0x481,
-  RPDO4 = 0x501,
-  SDO_RESPONSE = 0x581,
+  TPDO1         = 0x181,
+  RPDO1         = 0x201,
+  TPDO2         = 0x281,
+  RPDO2         = 0x301,
+  TPDO3         = 0x381,
+  RPDO3         = 0x401,
+  TPDO4         = 0x481,
+  RPDO4         = 0x501,
+  SDO_RESPONSE  = 0x581,
   SDO_CMD_QUERY = 0x601,
 
   // Rover boards CAN IDs
-  ARM_SET_CONTROL_MODE = 0x621,
-  ARM_SET_JOINT_POSITION = 0x622,
-  ARM_SET_JOINT_ANGULAR_VELOCITY = 0x623,
-  ARM_SET_JOINT_CURRENT = 0x624,
-  ARM_SET_JOINT_PID_PARAMS = 0x625,
-  ARM_REPORT_JOINT_POSITION = 0x640,
-  ARM_REPORT_JOINT_ANGULAR_VELOCITY = 0x641,
-  ARM_REPORT_JOINT_CURRENT = 0x642,
-  ARM_REPORT_FAULTS = 0x643,
-  ARM_REPORT_ACK = 0x644,
-  ARM_REPORT_DIAGNOSTICS = 0x645,
-  ARM_SET_JOINT_SAFETY_CHECK = 0x646,
-  SCIENCE_SET_CONTROL_MODE = 0x660,
-  SCIENCE_SET_JOINT_POSITION = 0x661,
+  ARM_SET_CONTROL_MODE               = 0x621,
+  ARM_SET_JOINT_POSITION             = 0x622,
+  ARM_SET_JOINT_ANGULAR_VELOCITY     = 0x623,
+  ARM_SET_JOINT_CURRENT              = 0x624,
+  ARM_SET_JOINT_PID_PARAMS           = 0x625,
+  ARM_REPORT_JOINT_POSITION          = 0x640,
+  ARM_REPORT_JOINT_ANGULAR_VELOCITY  = 0x641,
+  ARM_REPORT_JOINT_CURRENT           = 0x642,
+  ARM_REPORT_FAULTS                  = 0x643,
+  ARM_REPORT_ACK                     = 0x644,
+  ARM_REPORT_DIAGNOSTICS             = 0x645,
+  ARM_SET_JOINT_SAFETY_CHECK         = 0x646,
+  SCIENCE_SET_CONTROL_MODE           = 0x660,
+  SCIENCE_SET_JOINT_POSITION         = 0x661,
   SCIENCE_SET_JOINT_ANGULAR_VELOCITY = 0x662,
-  SCIENCE_SET_JOINT_PID_PARAMS = 0x663,
-  SCIENCE_REPORT_JOINT_DATA = 0x680,
-  SCIENCE_REPORT_SENSOR_DATA = 0x681,
-  SCIENCE_REPORT_FAULTS = 0x682,
-  SCIENCE_REPORT_ACK = 0x683,
-  SCIENCE_REPORT_DIAGNOSTICS = 0x684,
-  GIMBAL_SET_CONTROL_MODE = 0x6A0,
-  GIMBAL_SET_JOINT_POSITION = 0x6A1,
-  GIMBAL_SET_JOINT_ANGULAR_VELOCITY = 0x6A2,
-  GIMBAL_SET_JOINT_PID_PARAMS = 0x6A3,
-  GIMBAL_REPORT_JOINT_DATA = 0x6C0,
-  GIMBAL_REPORT_FAULTS = 0x6C1,
-  GIMBAL_REPORT_ACK = 0x6C2,
-  GIMBAL_REPORT_DIAGNOSTICS = 0x6C3,
-  PDB_SET_LED_MATRIX = 0x6E0,
-  PDB_REPORT_SENSOR_DATA = 0x700,
-  PDB_REPORT_FAULTS = 0x701,
-  PDB_REPORT_ACK = 0x702,
-  PDB_REPORT_DIAGNOSTICS = 0x703,
-  COMMON_SWITCH_CAN_BUS = 0x720,
-  COMMON_DEBUG_MESSAGE1 = 0x721,
-  COMMON_DEBUG_MESSAGE2 = 0x722,
-  COMMON_DEBUG_MESSAGE3 = 0x723,
+  SCIENCE_SET_JOINT_PID_PARAMS       = 0x663,
+  SCIENCE_REPORT_JOINT_DATA          = 0x680,
+  SCIENCE_REPORT_SENSOR_DATA         = 0x681,
+  SCIENCE_REPORT_FAULTS              = 0x682,
+  SCIENCE_REPORT_ACK                 = 0x683,
+  SCIENCE_REPORT_DIAGNOSTICS         = 0x684,
+  GIMBAL_SET_CONTROL_MODE            = 0x6A0,
+  GIMBAL_SET_JOINT_POSITION          = 0x6A1,
+  GIMBAL_SET_JOINT_ANGULAR_VELOCITY  = 0x6A2,
+  GIMBAL_SET_JOINT_PID_PARAMS        = 0x6A3,
+  GIMBAL_REPORT_JOINT_DATA           = 0x6C0,
+  GIMBAL_REPORT_FAULTS               = 0x6C1,
+  GIMBAL_REPORT_ACK                  = 0x6C2,
+  GIMBAL_REPORT_DIAGNOSTICS          = 0x6C3,
+  PDB_SET_LED_MATRIX                 = 0x6E0,
+  PDB_REPORT_SENSOR_DATA             = 0x700,
+  PDB_REPORT_FAULTS                  = 0x701,
+  PDB_REPORT_ACK                     = 0x702,
+  PDB_REPORT_DIAGNOSTICS             = 0x703,
+  COMMON_SWITCH_CAN_BUS              = 0x720,
+  COMMON_DEBUG_MESSAGE1              = 0x721,
+  COMMON_DEBUG_MESSAGE2              = 0x722,
+  COMMON_DEBUG_MESSAGE3              = 0x723,
 
 };
 
@@ -229,86 +228,86 @@ enum class CANSIGNAL {
 };
 
 enum class ARM_ACK_VALUES {
-  ARM_RESET_ACK = 0,
-  ARM_SET_CONTROL_MODE_ACK = 1,
+  ARM_RESET_ACK                = 0,
+  ARM_SET_CONTROL_MODE_ACK     = 1,
   ARM_SET_JOINT_PID_PARAMS_ACK = 2,
-  CAN_BUS_SWITCH_ACK = 3,
-  SNA = 255,
+  CAN_BUS_SWITCH_ACK           = 3,
+  SNA                          = 255,
 
 };
 
 enum class ARM_CLAW_CONTROL_MODE_VALUES {
   OPEN_LOOP = 0,
-  POSITION = 1,
-  VELOCITY = 2,
-  CURRENT = 3,
-  SNA = 7,
+  POSITION  = 1,
+  VELOCITY  = 2,
+  CURRENT   = 3,
+  SNA       = 7,
 
 };
 
 enum class ARM_CLAW_CURRENT_SENSOR_STATE_VALUES {
   OPERATIONAL = 0,
-  FAULT = 1,
-  SNA = 3,
+  FAULT       = 1,
+  SNA         = 3,
 
 };
 
 enum class ARM_CLAW_ENCODER_STATE_VALUES {
   OPERATIONAL = 0,
-  FAULT = 1,
-  SNA = 3,
+  FAULT       = 1,
+  SNA         = 3,
 
 };
 
 enum class ARM_ELBOW_CONTROL_MODE_VALUES {
   OPEN_LOOP = 0,
-  POSITION = 1,
-  VELOCITY = 2,
-  CURRENT = 3,
-  SNA = 7,
+  POSITION  = 1,
+  VELOCITY  = 2,
+  CURRENT   = 3,
+  SNA       = 7,
 
 };
 
 enum class ARM_ELBOW_CURRENT_SENSOR_STATE_VALUES {
   OPERATIONAL = 0,
-  FAULT = 1,
-  SNA = 3,
+  FAULT       = 1,
+  SNA         = 3,
 
 };
 
 enum class ARM_ELBOW_ENCODER_STATE_VALUES {
   OPERATIONAL = 0,
-  FAULT = 1,
-  SNA = 3,
+  FAULT       = 1,
+  SNA         = 3,
 
 };
 
 enum class ARM_JOINT_ANGULAR_VELOCITY_CHECK_VALUES {
   CHECK_OFF = 0,
-  CHECK_ON = 1,
+  CHECK_ON  = 1,
 
 };
 
 enum class ARM_JOINT_CURRENT_CHECK_VALUES {
   CHECK_OFF = 0,
-  CHECK_ON = 1,
+  CHECK_ON  = 1,
 
 };
 
 enum class ARM_JOINT_LIMIT_SWITCH_CHECK_VALUES {
   CHECK_OFF = 0,
-  CHECK_ON = 1,
+  CHECK_ON  = 1,
 
 };
 
 enum class ARM_JOINT_PIDID_VALUES {
-  TURNTABLE = 0,
-  SHOULDER = 1,
-  ELBOW = 2,
-  LEFT_WRIST = 3,
+  TURNTABLE   = 0,
+  SHOULDER    = 1,
+  ELBOW       = 2,
+  LEFT_WRIST  = 3,
   RIGHT_WRIST = 4,
-  CLAW = 5,
-  SNA = 7,
+  CLAW        = 5,
+  SNA         = 7,
 
 };
 
@@ -334,24 +333,24 @@ enum class ARM_JOINT_PID_PROPORTIONAL_GAIN_VALUES {
 
 enum class ARM_LEFT_WRIST_CONTROL_MODE_VALUES {
   OPEN_LOOP = 0,
-  POSITION = 1,
-  VELOCITY = 2,
-  CURRENT = 3,
-  SNA = 7,
+  POSITION  = 1,
+  VELOCITY  = 2,
+  CURRENT   = 3,
+  SNA       = 7,
 
 };
 
 enum class ARM_LEFT_WRIST_CURRENT_SENSOR_STATE_VALUES {
   OPERATIONAL = 0,
-  FAULT = 1,
-  SNA = 3,
+  FAULT       = 1,
+  SNA         = 3,
 
 };
 
 enum class ARM_LEFT_WRIST_ENCODER_STATE_VALUES {
   OPERATIONAL = 0,
-  FAULT = 1,
-  SNA = 3,
+  FAULT       = 1,
+  SNA         = 3,
 
 };
 
@@ -447,35 +446,35 @@ enum class ARM_REPORT_TURNTABLE_POSITION_VALUES {
 
 enum class ARM_RIGHT_WRIST_CONTROL_MODE_VALUES {
   OPEN_LOOP = 0,
-  POSITION = 1,
-  VELOCITY = 2,
-  CURRENT = 3,
-  SNA = 7,
+  POSITION  = 1,
+  VELOCITY  = 2,
+  CURRENT   = 3,
+  SNA       = 7,
 
 };
 
 enum class ARM_RIGHT_WRIST_CURRENT_SENSOR_STATE_VALUES {
   OPERATIONAL = 0,
-  FAULT = 1,
-  SNA = 3,
+  FAULT       = 1,
+  SNA         = 3,
 
 };
 
 enum class ARM_RIGHT_WRIST_ENCODER_STATE_VALUES {
   OPERATIONAL = 0,
-  FAULT = 1,
-  SNA = 3,
+  FAULT       = 1,
+  SNA         = 3,
 
 };
 
 enum class ARM_SAFETY_CHECK_JOINT_ID_VALUES {
-  TURNTABLE = 0,
-  SHOULDER = 1,
-  ELBOW = 2,
-  LEFT_WRIST = 3,
+  TURNTABLE   = 0,
+  SHOULDER    = 1,
+  ELBOW       = 2,
+  LEFT_WRIST  = 3,
   RIGHT_WRIST = 4,
-  CLAW = 5,
-  SNA = 7,
+  CLAW        = 5,
+  SNA         = 7,
 
 };
 
@@ -576,54 +575,54 @@ enum class ARM_SET_TURNTABLE_POSITION_VALUES {
 
 enum class ARM_SHOULDER_CONTROL_MODE_VALUES {
   OPEN_LOOP = 0,
-  POSITION = 1,
-  VELOCITY = 2,
-  CURRENT = 3,
-  SNA = 7,
+  POSITION  = 1,
+  VELOCITY  = 2,
+  CURRENT   = 3,
+  SNA       = 7,
 
 };
 
 enum class ARM_SHOULDER_CURRENT_SENSOR_STATE_VALUES {
   OPERATIONAL = 0,
-  FAULT = 1,
-  SNA = 3,
+  FAULT       = 1,
+  SNA         = 3,
 
 };
 
 enum class ARM_SHOULDER_ENCODER_STATE_VALUES {
   OPERATIONAL = 0,
-  FAULT = 1,
-  SNA = 3,
+  FAULT       = 1,
+  SNA         = 3,
 
 };
 
 enum class ARM_TURNTABLE_CONTROL_MODE_VALUES {
   OPEN_LOOP = 0,
-  POSITION = 1,
-  VELOCITY = 2,
-  CURRENT = 3,
-  SNA = 7,
+  POSITION  = 1,
+  VELOCITY  = 2,
+  CURRENT   = 3,
+  SNA       = 7,
 
 };
 
 enum class ARM_TURNTABLE_CURRENT_SENSOR_STATE_VALUES {
   OPERATIONAL = 0,
-  FAULT = 1,
-  SNA = 3,
+  FAULT       = 1,
+  SNA         = 3,
 
 };
 
 enum class ARM_TURNTABLE_ENCODER_STATE_VALUES {
   OPERATIONAL = 0,
-  FAULT = 1,
-  SNA = 3,
+  FAULT       = 1,
+  SNA         = 3,
 
 };
 
 enum class COMMON_CAN_BUS_ID_VALUES {
   CAN_BUS_1 = 0,
   CAN_BUS_2 = 1,
-  SNA = 3,
+  SNA       = 3,
 
 };
 
@@ -636,15 +635,15 @@ enum class COMMON_DEBUG_SIGNAL3_VALUES {
   DEBUG_VALUE_5 = 5,
   DEBUG_VALUE_6 = 6,
   DEBUG_VALUE_7 = 7,
-  SNA = 255,
+  SNA           = 255,
 
 };
 
 enum class GIMBAL_ACK_VALUES {
-  GIMBAL_SET_CONTROL_MODE_ACK = 0,
+  GIMBAL_SET_CONTROL_MODE_ACK     = 0,
   GIMBAL_SET_JOINT_PID_PARAMS_ACK = 1,
-  CAN_BUS_SWITCH_ACK = 2,
-  SNA = 255,
+  CAN_BUS_SWITCH_ACK              = 2,
+  SNA                             = 255,
 
 };
 
@@ -676,16 +675,16 @@ enum class GIMBAL_JOINT_PID_PROPORTIONAL_GAIN_VALUES {
 
 enum class GIMBAL_PAN_CONTROL_MODE_VALUES {
   OPEN_LOOP = 0,
-  POSITION = 1,
-  VELOCITY = 2,
-  SNA = 3,
+  POSITION  = 1,
+  VELOCITY  = 2,
+  SNA       = 3,
 
 };
 
 enum class GIMBAL_PAN_ENCODER_STATE_VALUES {
   OPERATIONAL = 0,
-  FAULT = 1,
-  SNA = 3,
+  FAULT       = 1,
+  SNA         = 3,
 
 };
 
@@ -720,62 +719,62 @@ enum class GIMBAL_SET_ROLL_POSITION_VALUES {
 };
 
 enum class PDB_17_V_RAIL_STATUS_VALUES {
-  OPERATIONAL = 0,
-  OVERVOLTAGE = 1,
+  OPERATIONAL  = 0,
+  OVERVOLTAGE  = 1,
   UNDERVOLTAGE = 2,
-  SNA = 3,
+  SNA          = 3,
 
 };
 
 enum class PDB_5_V_RAIL_STATUS_VALUES {
-  OPERATIONAL = 0,
-  OVERVOLTAGE = 1,
+  OPERATIONAL  = 0,
+  OVERVOLTAGE  = 1,
   UNDERVOLTAGE = 2,
-  SNA = 3,
+  SNA          = 3,
 
 };
 
 enum class PDB_ACK_VALUES {
   PDB_SET_LED_MATRIX_ACK = 0,
-  CAN_BUS_SWITCH_ACK = 1,
-  SNA = 255,
+  CAN_BUS_SWITCH_ACK     = 1,
+  SNA                    = 255,
 
 };
 
 enum class PDB_ARM_POWER_STATUS_VALUES {
   OPERATIONAL = 0,
-  FAULT = 1,
-  SNA = 3,
+  FAULT       = 1,
+  SNA         = 3,
 
 };
 
 enum class PDB_GIMBAL_POWER_STATUS_VALUES {
   OPERATIONAL = 0,
-  FAULT = 1,
-  SNA = 3,
+  FAULT       = 1,
+  SNA         = 3,
 
 };
 
 enum class PDB_JETSON_STATUS_VALUES {
   OPERATIONAL = 0,
-  FAULT = 1,
-  SNA = 3,
+  FAULT       = 1,
+  SNA         = 3,
 
 };
 
 enum class PDB_LED_MATRIX_STATE_VALUES {
-  SOLID_RED = 0,
-  SOLID_BLUE = 1,
+  SOLID_RED      = 0,
+  SOLID_BLUE     = 1,
   FLASHING_GREEN = 2,
-  False = 3,
-  SNA = 7,
+  False          = 3,
+  SNA            = 7,
 
 };
 
 enum class PDB_SCIENCE_POWER_STATUS_VALUES {
   OPERATIONAL = 0,
-  FAULT = 1,
-  SNA = 3,
+  FAULT       = 1,
+  SNA         = 3,
 
 };
 
@@ -800,55 +799,55 @@ enum class PDB_ULTRASONIC_SENSOR4_DATA_VALUES {
 };
 
 enum class PDB_VBAT_RAIL_STATUS_VALUES {
-  OPERATIONAL = 0,
-  OVERVOLTAGE = 1,
+  OPERATIONAL  = 0,
+  OVERVOLTAGE  = 1,
   UNDERVOLTAGE = 2,
-  SNA = 3,
+  SNA          = 3,
 
 };
 
 enum class SCIENCE_ACK_VALUES {
-  SCIENCE_SET_CONTROL_MODE_ACK = 0,
+  SCIENCE_SET_CONTROL_MODE_ACK     = 0,
   SCIENCE_SET_JOINT_PID_PARAMS_ACK = 1,
-  CAN_BUS_SWITCH_ACK = 2,
-  SNA = 255,
+  CAN_BUS_SWITCH_ACK               = 2,
+  SNA                              = 255,
 
 };
 
 enum class SCIENCE_ELEVATOR_CONTROL_MODE_VALUES {
   OPEN_LOOP = 0,
-  POSITION = 1,
-  VELOCITY = 2,
-  SNA = 3,
+  POSITION  = 1,
+  VELOCITY  = 2,
+  SNA       = 3,
 
 };
 
 enum class SCIENCE_ELEVATOR_ENCODER_STATE_VALUES {
   OPERATIONAL = 0,
-  FAULT = 1,
-  SNA = 3,
+  FAULT       = 1,
+  SNA         = 3,
 
 };
 
 enum class SCIENCE_GENEVA_CONTROL_MODE_VALUES {
   OPEN_LOOP = 0,
-  POSITION = 1,
-  VELOCITY = 2,
-  SNA = 3,
+  POSITION  = 1,
+  VELOCITY  = 2,
+  SNA       = 3,
 
 };
 
 enum class SCIENCE_GENEVA_ENCODER_STATE_VALUES {
   OPERATIONAL = 0,
-  FAULT = 1,
-  SNA = 3,
+  FAULT       = 1,
+  SNA         = 3,
 
 };
 
 enum class SCIENCE_JOINT_PIDID_VALUES {
-  GENEVA = 0,
+  GENEVA   = 0,
   ELEVATOR = 1,
-  SNA = 7,
+  SNA      = 7,
 
 };
 
@@ -879,8 +878,8 @@ enum class SCIENCE_MOISTURE_DATA_VALUES {
 
 enum class SCIENCE_MOISTURE_SENSOR_STATE_VALUES {
   OPERATIONAL = 0,
-  FAULT = 1,
-  SNA = 3,
+  FAULT       = 1,
+  SNA         = 3,
 
 };
 
@@ -939,4 +938,4 @@ enum class SCIENCE_TEMPERATURE_DATA_VALUES {
 
 };
 
-} // namespace HWBRIDGE
+}  // namespace HWBRIDGE
