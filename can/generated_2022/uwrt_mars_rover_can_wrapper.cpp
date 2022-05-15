@@ -6,524 +6,372 @@
 using namespace HWBRIDGE;
 
 // --- Message packer function prototypes ---
-static bool odrive_heartbeat_message_axis0_packer(uint8_t *raw,
-                                                  const CANMsgMap *msgMap,
-                                                  size_t &len);
-static bool odrive_estop_message_axis0_packer(uint8_t *raw,
-                                              const CANMsgMap *msgMap,
-                                              size_t &len);
-static bool odrive_get_motor_error_axis0_packer(uint8_t *raw,
-                                                const CANMsgMap *msgMap,
-                                                size_t &len);
-static bool odrive_get_encoder_error_axis0_packer(uint8_t *raw,
-                                                  const CANMsgMap *msgMap,
-                                                  size_t &len);
-static bool odrive_get_sensorless_error_axis0_packer(uint8_t *raw,
-                                                     const CANMsgMap *msgMap,
-                                                     size_t &len);
-static bool odrive_set_axis_node_id_axis0_packer(uint8_t *raw,
-                                                 const CANMsgMap *msgMap,
-                                                 size_t &len);
-static bool odrive_set_axis_requested_state_axis0_packer(
-    uint8_t *raw, const CANMsgMap *msgMap, size_t &len);
-static bool odrive_get_encoder_estimates_axis0_packer(uint8_t *raw,
-                                                      const CANMsgMap *msgMap,
-                                                      size_t &len);
-static bool odrive_get_encoder_count_axis0_packer(uint8_t *raw,
-                                                  const CANMsgMap *msgMap,
-                                                  size_t &len);
-static bool odrive_set_controller_modes_axis0_packer(uint8_t *raw,
-                                                     const CANMsgMap *msgMap,
-                                                     size_t &len);
-static bool odrive_set_input_pos_axis0_packer(uint8_t *raw,
-                                              const CANMsgMap *msgMap,
-                                              size_t &len);
-static bool odrive_set_input_vel_axis0_packer(uint8_t *raw,
-                                              const CANMsgMap *msgMap,
-                                              size_t &len);
-static bool odrive_set_input_torque_axis0_packer(uint8_t *raw,
-                                                 const CANMsgMap *msgMap,
-                                                 size_t &len);
-static bool odrive_set_limits_axis0_packer(uint8_t *raw,
-                                           const CANMsgMap *msgMap,
-                                           size_t &len);
-static bool odrive_start_anticogging_axis0_packer(uint8_t *raw,
-                                                  const CANMsgMap *msgMap,
-                                                  size_t &len);
-static bool odrive_set_traj_vel_limit_axis0_packer(uint8_t *raw,
-                                                   const CANMsgMap *msgMap,
-                                                   size_t &len);
-static bool odrive_set_traj_accel_limit_axis0_packer(uint8_t *raw,
-                                                     const CANMsgMap *msgMap,
-                                                     size_t &len);
-static bool odrive_set_traj_inertia_axis0_packer(uint8_t *raw,
-                                                 const CANMsgMap *msgMap,
-                                                 size_t &len);
-static bool odrive_get_iq_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap,
-                                       size_t &len);
-static bool odrive_get_sensorless_estimates_axis0_packer(
-    uint8_t *raw, const CANMsgMap *msgMap, size_t &len);
-static bool odrive_reboot_odrive_axis0_packer(uint8_t *raw,
-                                              const CANMsgMap *msgMap,
-                                              size_t &len);
-static bool odrive_get_vbus_voltage_axis0_packer(uint8_t *raw,
-                                                 const CANMsgMap *msgMap,
-                                                 size_t &len);
-static bool odrive_clear_errors_axis0_packer(uint8_t *raw,
-                                             const CANMsgMap *msgMap,
-                                             size_t &len);
-static bool odrive_set_linear_count_axis0_packer(uint8_t *raw,
-                                                 const CANMsgMap *msgMap,
-                                                 size_t &len);
-static bool odrive_set_position_gain_axis0_packer(uint8_t *raw,
-                                                  const CANMsgMap *msgMap,
-                                                  size_t &len);
-static bool odrive_set_vel_gain_axis0_packer(uint8_t *raw,
-                                             const CANMsgMap *msgMap,
-                                             size_t &len);
-static bool odrive_heartbeat_message_axis1_packer(uint8_t *raw,
-                                                  const CANMsgMap *msgMap,
-                                                  size_t &len);
-static bool odrive_estop_message_axis1_packer(uint8_t *raw,
-                                              const CANMsgMap *msgMap,
-                                              size_t &len);
-static bool odrive_get_motor_error_axis1_packer(uint8_t *raw,
-                                                const CANMsgMap *msgMap,
-                                                size_t &len);
-static bool odrive_get_encoder_error_axis1_packer(uint8_t *raw,
-                                                  const CANMsgMap *msgMap,
-                                                  size_t &len);
-static bool odrive_get_sensorless_error_axis1_packer(uint8_t *raw,
-                                                     const CANMsgMap *msgMap,
-                                                     size_t &len);
-static bool odrive_set_axis_node_id_axis1_packer(uint8_t *raw,
-                                                 const CANMsgMap *msgMap,
-                                                 size_t &len);
-static bool odrive_set_axis_requested_state_axis1_packer(
-    uint8_t *raw, const CANMsgMap *msgMap, size_t &len);
-static bool odrive_get_encoder_estimates_axis1_packer(uint8_t *raw,
-                                                      const CANMsgMap *msgMap,
-                                                      size_t &len);
-static bool odrive_get_encoder_count_axis1_packer(uint8_t *raw,
-                                                  const CANMsgMap *msgMap,
-                                                  size_t &len);
-static bool odrive_set_controller_modes_axis1_packer(uint8_t *raw,
-                                                     const CANMsgMap *msgMap,
-                                                     size_t &len);
-static bool odrive_set_input_pos_axis1_packer(uint8_t *raw,
-                                              const CANMsgMap *msgMap,
-                                              size_t &len);
-static bool odrive_set_input_vel_axis1_packer(uint8_t *raw,
-                                              const CANMsgMap *msgMap,
-                                              size_t &len);
-static bool odrive_set_input_torque_axis1_packer(uint8_t *raw,
-                                                 const CANMsgMap *msgMap,
-                                                 size_t &len);
-static bool odrive_set_limits_axis1_packer(uint8_t *raw,
-                                           const CANMsgMap *msgMap,
-                                           size_t &len);
-static bool odrive_start_anticogging_axis1_packer(uint8_t *raw,
-                                                  const CANMsgMap *msgMap,
-                                                  size_t &len);
-static bool odrive_set_traj_vel_limit_axis1_packer(uint8_t *raw,
-                                                   const CANMsgMap *msgMap,
-                                                   size_t &len);
-static bool odrive_set_traj_accel_limit_axis1_packer(uint8_t *raw,
-                                                     const CANMsgMap *msgMap,
-                                                     size_t &len);
-static bool odrive_set_traj_inertia_axis1_packer(uint8_t *raw,
-                                                 const CANMsgMap *msgMap,
-                                                 size_t &len);
-static bool odrive_get_iq_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap,
-                                       size_t &len);
-static bool odrive_get_sensorless_estimates_axis1_packer(
-    uint8_t *raw, const CANMsgMap *msgMap, size_t &len);
-static bool odrive_reboot_odrive_axis1_packer(uint8_t *raw,
-                                              const CANMsgMap *msgMap,
-                                              size_t &len);
-static bool odrive_get_vbus_voltage_axis1_packer(uint8_t *raw,
-                                                 const CANMsgMap *msgMap,
-                                                 size_t &len);
-static bool odrive_clear_errors_axis1_packer(uint8_t *raw,
-                                             const CANMsgMap *msgMap,
-                                             size_t &len);
-static bool odrive_set_linear_count_axis1_packer(uint8_t *raw,
-                                                 const CANMsgMap *msgMap,
-                                                 size_t &len);
-static bool odrive_set_position_gain_axis1_packer(uint8_t *raw,
-                                                  const CANMsgMap *msgMap,
-                                                  size_t &len);
-static bool odrive_set_vel_gain_axis1_packer(uint8_t *raw,
-                                             const CANMsgMap *msgMap,
-                                             size_t &len);
+static bool odrive_heartbeat_message_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len);
+static bool odrive_estop_message_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len);
+static bool odrive_get_motor_error_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len);
+static bool odrive_get_encoder_error_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len);
+static bool odrive_get_sensorless_error_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len);
+static bool odrive_set_axis_node_id_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len);
+static bool odrive_set_axis_requested_state_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len);
+static bool odrive_get_encoder_estimates_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len);
+static bool odrive_get_encoder_count_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len);
+static bool odrive_set_controller_modes_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len);
+static bool odrive_set_input_pos_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len);
+static bool odrive_set_input_vel_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len);
+static bool odrive_set_input_torque_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len);
+static bool odrive_set_limits_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len);
+static bool odrive_start_anticogging_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len);
+static bool odrive_set_traj_vel_limit_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len);
+static bool odrive_set_traj_accel_limit_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len);
+static bool odrive_set_traj_inertia_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len);
+static bool odrive_get_iq_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len);
+static bool odrive_get_sensorless_estimates_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len);
+static bool odrive_reboot_odrive_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len);
+static bool odrive_get_vbus_voltage_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len);
+static bool odrive_clear_errors_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len);
+static bool odrive_set_linear_count_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len);
+static bool odrive_set_position_gain_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len);
+static bool odrive_set_vel_gain_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len);
+static bool odrive_heartbeat_message_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len);
+static bool odrive_estop_message_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len);
+static bool odrive_get_motor_error_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len);
+static bool odrive_get_encoder_error_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len);
+static bool odrive_get_sensorless_error_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len);
+static bool odrive_set_axis_node_id_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len);
+static bool odrive_set_axis_requested_state_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len);
+static bool odrive_get_encoder_estimates_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len);
+static bool odrive_get_encoder_count_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len);
+static bool odrive_set_controller_modes_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len);
+static bool odrive_set_input_pos_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len);
+static bool odrive_set_input_vel_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len);
+static bool odrive_set_input_torque_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len);
+static bool odrive_set_limits_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len);
+static bool odrive_start_anticogging_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len);
+static bool odrive_set_traj_vel_limit_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len);
+static bool odrive_set_traj_accel_limit_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len);
+static bool odrive_set_traj_inertia_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len);
+static bool odrive_get_iq_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len);
+static bool odrive_get_sensorless_estimates_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len);
+static bool odrive_reboot_odrive_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len);
+static bool odrive_get_vbus_voltage_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len);
+static bool odrive_clear_errors_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len);
+static bool odrive_set_linear_count_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len);
+static bool odrive_set_position_gain_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len);
+static bool odrive_set_vel_gain_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len);
 
 // -- Message unpacker function prototypes ---
-static bool odrive_heartbeat_message_axis0_unpacker(uint8_t *raw,
-                                                    CANMsgMap *msgMap);
-static bool odrive_estop_message_axis0_unpacker(uint8_t *raw,
-                                                CANMsgMap *msgMap);
-static bool odrive_get_motor_error_axis0_unpacker(uint8_t *raw,
-                                                  CANMsgMap *msgMap);
-static bool odrive_get_encoder_error_axis0_unpacker(uint8_t *raw,
-                                                    CANMsgMap *msgMap);
-static bool odrive_get_sensorless_error_axis0_unpacker(uint8_t *raw,
-                                                       CANMsgMap *msgMap);
-static bool odrive_set_axis_node_id_axis0_unpacker(uint8_t *raw,
-                                                   CANMsgMap *msgMap);
-static bool odrive_set_axis_requested_state_axis0_unpacker(uint8_t *raw,
-                                                           CANMsgMap *msgMap);
-static bool odrive_get_encoder_estimates_axis0_unpacker(uint8_t *raw,
-                                                        CANMsgMap *msgMap);
-static bool odrive_get_encoder_count_axis0_unpacker(uint8_t *raw,
-                                                    CANMsgMap *msgMap);
-static bool odrive_set_controller_modes_axis0_unpacker(uint8_t *raw,
-                                                       CANMsgMap *msgMap);
-static bool odrive_set_input_pos_axis0_unpacker(uint8_t *raw,
-                                                CANMsgMap *msgMap);
-static bool odrive_set_input_vel_axis0_unpacker(uint8_t *raw,
-                                                CANMsgMap *msgMap);
-static bool odrive_set_input_torque_axis0_unpacker(uint8_t *raw,
-                                                   CANMsgMap *msgMap);
+static bool odrive_heartbeat_message_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap);
+static bool odrive_estop_message_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap);
+static bool odrive_get_motor_error_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap);
+static bool odrive_get_encoder_error_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap);
+static bool odrive_get_sensorless_error_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap);
+static bool odrive_set_axis_node_id_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap);
+static bool odrive_set_axis_requested_state_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap);
+static bool odrive_get_encoder_estimates_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap);
+static bool odrive_get_encoder_count_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap);
+static bool odrive_set_controller_modes_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap);
+static bool odrive_set_input_pos_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap);
+static bool odrive_set_input_vel_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap);
+static bool odrive_set_input_torque_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap);
 static bool odrive_set_limits_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap);
-static bool odrive_start_anticogging_axis0_unpacker(uint8_t *raw,
-                                                    CANMsgMap *msgMap);
-static bool odrive_set_traj_vel_limit_axis0_unpacker(uint8_t *raw,
-                                                     CANMsgMap *msgMap);
-static bool odrive_set_traj_accel_limit_axis0_unpacker(uint8_t *raw,
-                                                       CANMsgMap *msgMap);
-static bool odrive_set_traj_inertia_axis0_unpacker(uint8_t *raw,
-                                                   CANMsgMap *msgMap);
+static bool odrive_start_anticogging_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap);
+static bool odrive_set_traj_vel_limit_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap);
+static bool odrive_set_traj_accel_limit_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap);
+static bool odrive_set_traj_inertia_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap);
 static bool odrive_get_iq_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap);
-static bool odrive_get_sensorless_estimates_axis0_unpacker(uint8_t *raw,
-                                                           CANMsgMap *msgMap);
-static bool odrive_reboot_odrive_axis0_unpacker(uint8_t *raw,
-                                                CANMsgMap *msgMap);
-static bool odrive_get_vbus_voltage_axis0_unpacker(uint8_t *raw,
-                                                   CANMsgMap *msgMap);
+static bool odrive_get_sensorless_estimates_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap);
+static bool odrive_reboot_odrive_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap);
+static bool odrive_get_vbus_voltage_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap);
 static bool odrive_clear_errors_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap);
-static bool odrive_set_linear_count_axis0_unpacker(uint8_t *raw,
-                                                   CANMsgMap *msgMap);
-static bool odrive_set_position_gain_axis0_unpacker(uint8_t *raw,
-                                                    CANMsgMap *msgMap);
+static bool odrive_set_linear_count_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap);
+static bool odrive_set_position_gain_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap);
 static bool odrive_set_vel_gain_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap);
-static bool odrive_heartbeat_message_axis1_unpacker(uint8_t *raw,
-                                                    CANMsgMap *msgMap);
-static bool odrive_estop_message_axis1_unpacker(uint8_t *raw,
-                                                CANMsgMap *msgMap);
-static bool odrive_get_motor_error_axis1_unpacker(uint8_t *raw,
-                                                  CANMsgMap *msgMap);
-static bool odrive_get_encoder_error_axis1_unpacker(uint8_t *raw,
-                                                    CANMsgMap *msgMap);
-static bool odrive_get_sensorless_error_axis1_unpacker(uint8_t *raw,
-                                                       CANMsgMap *msgMap);
-static bool odrive_set_axis_node_id_axis1_unpacker(uint8_t *raw,
-                                                   CANMsgMap *msgMap);
-static bool odrive_set_axis_requested_state_axis1_unpacker(uint8_t *raw,
-                                                           CANMsgMap *msgMap);
-static bool odrive_get_encoder_estimates_axis1_unpacker(uint8_t *raw,
-                                                        CANMsgMap *msgMap);
-static bool odrive_get_encoder_count_axis1_unpacker(uint8_t *raw,
-                                                    CANMsgMap *msgMap);
-static bool odrive_set_controller_modes_axis1_unpacker(uint8_t *raw,
-                                                       CANMsgMap *msgMap);
-static bool odrive_set_input_pos_axis1_unpacker(uint8_t *raw,
-                                                CANMsgMap *msgMap);
-static bool odrive_set_input_vel_axis1_unpacker(uint8_t *raw,
-                                                CANMsgMap *msgMap);
-static bool odrive_set_input_torque_axis1_unpacker(uint8_t *raw,
-                                                   CANMsgMap *msgMap);
+static bool odrive_heartbeat_message_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap);
+static bool odrive_estop_message_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap);
+static bool odrive_get_motor_error_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap);
+static bool odrive_get_encoder_error_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap);
+static bool odrive_get_sensorless_error_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap);
+static bool odrive_set_axis_node_id_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap);
+static bool odrive_set_axis_requested_state_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap);
+static bool odrive_get_encoder_estimates_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap);
+static bool odrive_get_encoder_count_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap);
+static bool odrive_set_controller_modes_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap);
+static bool odrive_set_input_pos_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap);
+static bool odrive_set_input_vel_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap);
+static bool odrive_set_input_torque_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap);
 static bool odrive_set_limits_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap);
-static bool odrive_start_anticogging_axis1_unpacker(uint8_t *raw,
-                                                    CANMsgMap *msgMap);
-static bool odrive_set_traj_vel_limit_axis1_unpacker(uint8_t *raw,
-                                                     CANMsgMap *msgMap);
-static bool odrive_set_traj_accel_limit_axis1_unpacker(uint8_t *raw,
-                                                       CANMsgMap *msgMap);
-static bool odrive_set_traj_inertia_axis1_unpacker(uint8_t *raw,
-                                                   CANMsgMap *msgMap);
+static bool odrive_start_anticogging_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap);
+static bool odrive_set_traj_vel_limit_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap);
+static bool odrive_set_traj_accel_limit_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap);
+static bool odrive_set_traj_inertia_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap);
 static bool odrive_get_iq_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap);
-static bool odrive_get_sensorless_estimates_axis1_unpacker(uint8_t *raw,
-                                                           CANMsgMap *msgMap);
-static bool odrive_reboot_odrive_axis1_unpacker(uint8_t *raw,
-                                                CANMsgMap *msgMap);
-static bool odrive_get_vbus_voltage_axis1_unpacker(uint8_t *raw,
-                                                   CANMsgMap *msgMap);
+static bool odrive_get_sensorless_estimates_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap);
+static bool odrive_reboot_odrive_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap);
+static bool odrive_get_vbus_voltage_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap);
 static bool odrive_clear_errors_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap);
-static bool odrive_set_linear_count_axis1_unpacker(uint8_t *raw,
-                                                   CANMsgMap *msgMap);
-static bool odrive_set_position_gain_axis1_unpacker(uint8_t *raw,
-                                                    CANMsgMap *msgMap);
+static bool odrive_set_linear_count_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap);
+static bool odrive_set_position_gain_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap);
 static bool odrive_set_vel_gain_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap);
 
-bool HWBRIDGE::packCANMsg(uint8_t *raw, CANID msgID, const CANMsgMap *msgMap,
-                          size_t &len) {
+bool HWBRIDGE::packCANMsg(uint8_t *raw, CANID msgID, const CANMsgMap *msgMap, size_t &len) {
   switch (msgID) {
-  case CANID::ODRIVE_HEARTBEAT_MESSAGE_AXIS0:
-    return odrive_heartbeat_message_axis0_packer(raw, msgMap, len);
-  case CANID::ODRIVE_ESTOP_MESSAGE_AXIS0:
-    return odrive_estop_message_axis0_packer(raw, msgMap, len);
-  case CANID::ODRIVE_GET_MOTOR_ERROR_AXIS0:
-    return odrive_get_motor_error_axis0_packer(raw, msgMap, len);
-  case CANID::ODRIVE_GET_ENCODER_ERROR_AXIS0:
-    return odrive_get_encoder_error_axis0_packer(raw, msgMap, len);
-  case CANID::ODRIVE_GET_SENSORLESS_ERROR_AXIS0:
-    return odrive_get_sensorless_error_axis0_packer(raw, msgMap, len);
-  case CANID::ODRIVE_SET_AXIS_NODE_ID_AXIS0:
-    return odrive_set_axis_node_id_axis0_packer(raw, msgMap, len);
-  case CANID::ODRIVE_SET_AXIS_REQUESTED_STATE_AXIS0:
-    return odrive_set_axis_requested_state_axis0_packer(raw, msgMap, len);
-  case CANID::ODRIVE_GET_ENCODER_ESTIMATES_AXIS0:
-    return odrive_get_encoder_estimates_axis0_packer(raw, msgMap, len);
-  case CANID::ODRIVE_GET_ENCODER_COUNT_AXIS0:
-    return odrive_get_encoder_count_axis0_packer(raw, msgMap, len);
-  case CANID::ODRIVE_SET_CONTROLLER_MODES_AXIS0:
-    return odrive_set_controller_modes_axis0_packer(raw, msgMap, len);
-  case CANID::ODRIVE_SET_INPUT_POS_AXIS0:
-    return odrive_set_input_pos_axis0_packer(raw, msgMap, len);
-  case CANID::ODRIVE_SET_INPUT_VEL_AXIS0:
-    return odrive_set_input_vel_axis0_packer(raw, msgMap, len);
-  case CANID::ODRIVE_SET_INPUT_TORQUE_AXIS0:
-    return odrive_set_input_torque_axis0_packer(raw, msgMap, len);
-  case CANID::ODRIVE_SET_LIMITS_AXIS0:
-    return odrive_set_limits_axis0_packer(raw, msgMap, len);
-  case CANID::ODRIVE_START_ANTICOGGING_AXIS0:
-    return odrive_start_anticogging_axis0_packer(raw, msgMap, len);
-  case CANID::ODRIVE_SET_TRAJ_VEL_LIMIT_AXIS0:
-    return odrive_set_traj_vel_limit_axis0_packer(raw, msgMap, len);
-  case CANID::ODRIVE_SET_TRAJ_ACCEL_LIMIT_AXIS0:
-    return odrive_set_traj_accel_limit_axis0_packer(raw, msgMap, len);
-  case CANID::ODRIVE_SET_TRAJ_INERTIA_AXIS0:
-    return odrive_set_traj_inertia_axis0_packer(raw, msgMap, len);
-  case CANID::ODRIVE_GET_IQ_AXIS0:
-    return odrive_get_iq_axis0_packer(raw, msgMap, len);
-  case CANID::ODRIVE_GET_SENSORLESS_ESTIMATES_AXIS0:
-    return odrive_get_sensorless_estimates_axis0_packer(raw, msgMap, len);
-  case CANID::ODRIVE_REBOOT_ODRIVE_AXIS0:
-    return odrive_reboot_odrive_axis0_packer(raw, msgMap, len);
-  case CANID::ODRIVE_GET_VBUS_VOLTAGE_AXIS0:
-    return odrive_get_vbus_voltage_axis0_packer(raw, msgMap, len);
-  case CANID::ODRIVE_CLEAR_ERRORS_AXIS0:
-    return odrive_clear_errors_axis0_packer(raw, msgMap, len);
-  case CANID::ODRIVE_SET_LINEAR_COUNT_AXIS0:
-    return odrive_set_linear_count_axis0_packer(raw, msgMap, len);
-  case CANID::ODRIVE_SET_POSITION_GAIN_AXIS0:
-    return odrive_set_position_gain_axis0_packer(raw, msgMap, len);
-  case CANID::ODRIVE_SET_VEL_GAIN_AXIS0:
-    return odrive_set_vel_gain_axis0_packer(raw, msgMap, len);
-  case CANID::ODRIVE_HEARTBEAT_MESSAGE_AXIS1:
-    return odrive_heartbeat_message_axis1_packer(raw, msgMap, len);
-  case CANID::ODRIVE_ESTOP_MESSAGE_AXIS1:
-    return odrive_estop_message_axis1_packer(raw, msgMap, len);
-  case CANID::ODRIVE_GET_MOTOR_ERROR_AXIS1:
-    return odrive_get_motor_error_axis1_packer(raw, msgMap, len);
-  case CANID::ODRIVE_GET_ENCODER_ERROR_AXIS1:
-    return odrive_get_encoder_error_axis1_packer(raw, msgMap, len);
-  case CANID::ODRIVE_GET_SENSORLESS_ERROR_AXIS1:
-    return odrive_get_sensorless_error_axis1_packer(raw, msgMap, len);
-  case CANID::ODRIVE_SET_AXIS_NODE_ID_AXIS1:
-    return odrive_set_axis_node_id_axis1_packer(raw, msgMap, len);
-  case CANID::ODRIVE_SET_AXIS_REQUESTED_STATE_AXIS1:
-    return odrive_set_axis_requested_state_axis1_packer(raw, msgMap, len);
-  case CANID::ODRIVE_GET_ENCODER_ESTIMATES_AXIS1:
-    return odrive_get_encoder_estimates_axis1_packer(raw, msgMap, len);
-  case CANID::ODRIVE_GET_ENCODER_COUNT_AXIS1:
-    return odrive_get_encoder_count_axis1_packer(raw, msgMap, len);
-  case CANID::ODRIVE_SET_CONTROLLER_MODES_AXIS1:
-    return odrive_set_controller_modes_axis1_packer(raw, msgMap, len);
-  case CANID::ODRIVE_SET_INPUT_POS_AXIS1:
-    return odrive_set_input_pos_axis1_packer(raw, msgMap, len);
-  case CANID::ODRIVE_SET_INPUT_VEL_AXIS1:
-    return odrive_set_input_vel_axis1_packer(raw, msgMap, len);
-  case CANID::ODRIVE_SET_INPUT_TORQUE_AXIS1:
-    return odrive_set_input_torque_axis1_packer(raw, msgMap, len);
-  case CANID::ODRIVE_SET_LIMITS_AXIS1:
-    return odrive_set_limits_axis1_packer(raw, msgMap, len);
-  case CANID::ODRIVE_START_ANTICOGGING_AXIS1:
-    return odrive_start_anticogging_axis1_packer(raw, msgMap, len);
-  case CANID::ODRIVE_SET_TRAJ_VEL_LIMIT_AXIS1:
-    return odrive_set_traj_vel_limit_axis1_packer(raw, msgMap, len);
-  case CANID::ODRIVE_SET_TRAJ_ACCEL_LIMIT_AXIS1:
-    return odrive_set_traj_accel_limit_axis1_packer(raw, msgMap, len);
-  case CANID::ODRIVE_SET_TRAJ_INERTIA_AXIS1:
-    return odrive_set_traj_inertia_axis1_packer(raw, msgMap, len);
-  case CANID::ODRIVE_GET_IQ_AXIS1:
-    return odrive_get_iq_axis1_packer(raw, msgMap, len);
-  case CANID::ODRIVE_GET_SENSORLESS_ESTIMATES_AXIS1:
-    return odrive_get_sensorless_estimates_axis1_packer(raw, msgMap, len);
-  case CANID::ODRIVE_REBOOT_ODRIVE_AXIS1:
-    return odrive_reboot_odrive_axis1_packer(raw, msgMap, len);
-  case CANID::ODRIVE_GET_VBUS_VOLTAGE_AXIS1:
-    return odrive_get_vbus_voltage_axis1_packer(raw, msgMap, len);
-  case CANID::ODRIVE_CLEAR_ERRORS_AXIS1:
-    return odrive_clear_errors_axis1_packer(raw, msgMap, len);
-  case CANID::ODRIVE_SET_LINEAR_COUNT_AXIS1:
-    return odrive_set_linear_count_axis1_packer(raw, msgMap, len);
-  case CANID::ODRIVE_SET_POSITION_GAIN_AXIS1:
-    return odrive_set_position_gain_axis1_packer(raw, msgMap, len);
-  case CANID::ODRIVE_SET_VEL_GAIN_AXIS1:
-    return odrive_set_vel_gain_axis1_packer(raw, msgMap, len);
+    case CANID::ODRIVE_HEARTBEAT_MESSAGE_AXIS0:
+      return odrive_heartbeat_message_axis0_packer(raw, msgMap, len);
+    case CANID::ODRIVE_ESTOP_MESSAGE_AXIS0:
+      return odrive_estop_message_axis0_packer(raw, msgMap, len);
+    case CANID::ODRIVE_GET_MOTOR_ERROR_AXIS0:
+      return odrive_get_motor_error_axis0_packer(raw, msgMap, len);
+    case CANID::ODRIVE_GET_ENCODER_ERROR_AXIS0:
+      return odrive_get_encoder_error_axis0_packer(raw, msgMap, len);
+    case CANID::ODRIVE_GET_SENSORLESS_ERROR_AXIS0:
+      return odrive_get_sensorless_error_axis0_packer(raw, msgMap, len);
+    case CANID::ODRIVE_SET_AXIS_NODE_ID_AXIS0:
+      return odrive_set_axis_node_id_axis0_packer(raw, msgMap, len);
+    case CANID::ODRIVE_SET_AXIS_REQUESTED_STATE_AXIS0:
+      return odrive_set_axis_requested_state_axis0_packer(raw, msgMap, len);
+    case CANID::ODRIVE_GET_ENCODER_ESTIMATES_AXIS0:
+      return odrive_get_encoder_estimates_axis0_packer(raw, msgMap, len);
+    case CANID::ODRIVE_GET_ENCODER_COUNT_AXIS0:
+      return odrive_get_encoder_count_axis0_packer(raw, msgMap, len);
+    case CANID::ODRIVE_SET_CONTROLLER_MODES_AXIS0:
+      return odrive_set_controller_modes_axis0_packer(raw, msgMap, len);
+    case CANID::ODRIVE_SET_INPUT_POS_AXIS0:
+      return odrive_set_input_pos_axis0_packer(raw, msgMap, len);
+    case CANID::ODRIVE_SET_INPUT_VEL_AXIS0:
+      return odrive_set_input_vel_axis0_packer(raw, msgMap, len);
+    case CANID::ODRIVE_SET_INPUT_TORQUE_AXIS0:
+      return odrive_set_input_torque_axis0_packer(raw, msgMap, len);
+    case CANID::ODRIVE_SET_LIMITS_AXIS0:
+      return odrive_set_limits_axis0_packer(raw, msgMap, len);
+    case CANID::ODRIVE_START_ANTICOGGING_AXIS0:
+      return odrive_start_anticogging_axis0_packer(raw, msgMap, len);
+    case CANID::ODRIVE_SET_TRAJ_VEL_LIMIT_AXIS0:
+      return odrive_set_traj_vel_limit_axis0_packer(raw, msgMap, len);
+    case CANID::ODRIVE_SET_TRAJ_ACCEL_LIMIT_AXIS0:
+      return odrive_set_traj_accel_limit_axis0_packer(raw, msgMap, len);
+    case CANID::ODRIVE_SET_TRAJ_INERTIA_AXIS0:
+      return odrive_set_traj_inertia_axis0_packer(raw, msgMap, len);
+    case CANID::ODRIVE_GET_IQ_AXIS0:
+      return odrive_get_iq_axis0_packer(raw, msgMap, len);
+    case CANID::ODRIVE_GET_SENSORLESS_ESTIMATES_AXIS0:
+      return odrive_get_sensorless_estimates_axis0_packer(raw, msgMap, len);
+    case CANID::ODRIVE_REBOOT_ODRIVE_AXIS0:
+      return odrive_reboot_odrive_axis0_packer(raw, msgMap, len);
+    case CANID::ODRIVE_GET_VBUS_VOLTAGE_AXIS0:
+      return odrive_get_vbus_voltage_axis0_packer(raw, msgMap, len);
+    case CANID::ODRIVE_CLEAR_ERRORS_AXIS0:
+      return odrive_clear_errors_axis0_packer(raw, msgMap, len);
+    case CANID::ODRIVE_SET_LINEAR_COUNT_AXIS0:
+      return odrive_set_linear_count_axis0_packer(raw, msgMap, len);
+    case CANID::ODRIVE_SET_POSITION_GAIN_AXIS0:
+      return odrive_set_position_gain_axis0_packer(raw, msgMap, len);
+    case CANID::ODRIVE_SET_VEL_GAIN_AXIS0:
+      return odrive_set_vel_gain_axis0_packer(raw, msgMap, len);
+    case CANID::ODRIVE_HEARTBEAT_MESSAGE_AXIS1:
+      return odrive_heartbeat_message_axis1_packer(raw, msgMap, len);
+    case CANID::ODRIVE_ESTOP_MESSAGE_AXIS1:
+      return odrive_estop_message_axis1_packer(raw, msgMap, len);
+    case CANID::ODRIVE_GET_MOTOR_ERROR_AXIS1:
+      return odrive_get_motor_error_axis1_packer(raw, msgMap, len);
+    case CANID::ODRIVE_GET_ENCODER_ERROR_AXIS1:
+      return odrive_get_encoder_error_axis1_packer(raw, msgMap, len);
+    case CANID::ODRIVE_GET_SENSORLESS_ERROR_AXIS1:
+      return odrive_get_sensorless_error_axis1_packer(raw, msgMap, len);
+    case CANID::ODRIVE_SET_AXIS_NODE_ID_AXIS1:
+      return odrive_set_axis_node_id_axis1_packer(raw, msgMap, len);
+    case CANID::ODRIVE_SET_AXIS_REQUESTED_STATE_AXIS1:
+      return odrive_set_axis_requested_state_axis1_packer(raw, msgMap, len);
+    case CANID::ODRIVE_GET_ENCODER_ESTIMATES_AXIS1:
+      return odrive_get_encoder_estimates_axis1_packer(raw, msgMap, len);
+    case CANID::ODRIVE_GET_ENCODER_COUNT_AXIS1:
+      return odrive_get_encoder_count_axis1_packer(raw, msgMap, len);
+    case CANID::ODRIVE_SET_CONTROLLER_MODES_AXIS1:
+      return odrive_set_controller_modes_axis1_packer(raw, msgMap, len);
+    case CANID::ODRIVE_SET_INPUT_POS_AXIS1:
+      return odrive_set_input_pos_axis1_packer(raw, msgMap, len);
+    case CANID::ODRIVE_SET_INPUT_VEL_AXIS1:
+      return odrive_set_input_vel_axis1_packer(raw, msgMap, len);
+    case CANID::ODRIVE_SET_INPUT_TORQUE_AXIS1:
+      return odrive_set_input_torque_axis1_packer(raw, msgMap, len);
+    case CANID::ODRIVE_SET_LIMITS_AXIS1:
+      return odrive_set_limits_axis1_packer(raw, msgMap, len);
+    case CANID::ODRIVE_START_ANTICOGGING_AXIS1:
+      return odrive_start_anticogging_axis1_packer(raw, msgMap, len);
+    case CANID::ODRIVE_SET_TRAJ_VEL_LIMIT_AXIS1:
+      return odrive_set_traj_vel_limit_axis1_packer(raw, msgMap, len);
+    case CANID::ODRIVE_SET_TRAJ_ACCEL_LIMIT_AXIS1:
+      return odrive_set_traj_accel_limit_axis1_packer(raw, msgMap, len);
+    case CANID::ODRIVE_SET_TRAJ_INERTIA_AXIS1:
+      return odrive_set_traj_inertia_axis1_packer(raw, msgMap, len);
+    case CANID::ODRIVE_GET_IQ_AXIS1:
+      return odrive_get_iq_axis1_packer(raw, msgMap, len);
+    case CANID::ODRIVE_GET_SENSORLESS_ESTIMATES_AXIS1:
+      return odrive_get_sensorless_estimates_axis1_packer(raw, msgMap, len);
+    case CANID::ODRIVE_REBOOT_ODRIVE_AXIS1:
+      return odrive_reboot_odrive_axis1_packer(raw, msgMap, len);
+    case CANID::ODRIVE_GET_VBUS_VOLTAGE_AXIS1:
+      return odrive_get_vbus_voltage_axis1_packer(raw, msgMap, len);
+    case CANID::ODRIVE_CLEAR_ERRORS_AXIS1:
+      return odrive_clear_errors_axis1_packer(raw, msgMap, len);
+    case CANID::ODRIVE_SET_LINEAR_COUNT_AXIS1:
+      return odrive_set_linear_count_axis1_packer(raw, msgMap, len);
+    case CANID::ODRIVE_SET_POSITION_GAIN_AXIS1:
+      return odrive_set_position_gain_axis1_packer(raw, msgMap, len);
+    case CANID::ODRIVE_SET_VEL_GAIN_AXIS1:
+      return odrive_set_vel_gain_axis1_packer(raw, msgMap, len);
 
-  default:
-    return false;
+    default:
+      return false;
   }
 }
 
 bool HWBRIDGE::unpackCANMsg(uint8_t *raw, CANID msgID, CANMsgMap *msgMap) {
   switch (msgID) {
-  case CANID::ODRIVE_HEARTBEAT_MESSAGE_AXIS0:
-    return odrive_heartbeat_message_axis0_unpacker(raw, msgMap);
-  case CANID::ODRIVE_ESTOP_MESSAGE_AXIS0:
-    return odrive_estop_message_axis0_unpacker(raw, msgMap);
-  case CANID::ODRIVE_GET_MOTOR_ERROR_AXIS0:
-    return odrive_get_motor_error_axis0_unpacker(raw, msgMap);
-  case CANID::ODRIVE_GET_ENCODER_ERROR_AXIS0:
-    return odrive_get_encoder_error_axis0_unpacker(raw, msgMap);
-  case CANID::ODRIVE_GET_SENSORLESS_ERROR_AXIS0:
-    return odrive_get_sensorless_error_axis0_unpacker(raw, msgMap);
-  case CANID::ODRIVE_SET_AXIS_NODE_ID_AXIS0:
-    return odrive_set_axis_node_id_axis0_unpacker(raw, msgMap);
-  case CANID::ODRIVE_SET_AXIS_REQUESTED_STATE_AXIS0:
-    return odrive_set_axis_requested_state_axis0_unpacker(raw, msgMap);
-  case CANID::ODRIVE_GET_ENCODER_ESTIMATES_AXIS0:
-    return odrive_get_encoder_estimates_axis0_unpacker(raw, msgMap);
-  case CANID::ODRIVE_GET_ENCODER_COUNT_AXIS0:
-    return odrive_get_encoder_count_axis0_unpacker(raw, msgMap);
-  case CANID::ODRIVE_SET_CONTROLLER_MODES_AXIS0:
-    return odrive_set_controller_modes_axis0_unpacker(raw, msgMap);
-  case CANID::ODRIVE_SET_INPUT_POS_AXIS0:
-    return odrive_set_input_pos_axis0_unpacker(raw, msgMap);
-  case CANID::ODRIVE_SET_INPUT_VEL_AXIS0:
-    return odrive_set_input_vel_axis0_unpacker(raw, msgMap);
-  case CANID::ODRIVE_SET_INPUT_TORQUE_AXIS0:
-    return odrive_set_input_torque_axis0_unpacker(raw, msgMap);
-  case CANID::ODRIVE_SET_LIMITS_AXIS0:
-    return odrive_set_limits_axis0_unpacker(raw, msgMap);
-  case CANID::ODRIVE_START_ANTICOGGING_AXIS0:
-    return odrive_start_anticogging_axis0_unpacker(raw, msgMap);
-  case CANID::ODRIVE_SET_TRAJ_VEL_LIMIT_AXIS0:
-    return odrive_set_traj_vel_limit_axis0_unpacker(raw, msgMap);
-  case CANID::ODRIVE_SET_TRAJ_ACCEL_LIMIT_AXIS0:
-    return odrive_set_traj_accel_limit_axis0_unpacker(raw, msgMap);
-  case CANID::ODRIVE_SET_TRAJ_INERTIA_AXIS0:
-    return odrive_set_traj_inertia_axis0_unpacker(raw, msgMap);
-  case CANID::ODRIVE_GET_IQ_AXIS0:
-    return odrive_get_iq_axis0_unpacker(raw, msgMap);
-  case CANID::ODRIVE_GET_SENSORLESS_ESTIMATES_AXIS0:
-    return odrive_get_sensorless_estimates_axis0_unpacker(raw, msgMap);
-  case CANID::ODRIVE_REBOOT_ODRIVE_AXIS0:
-    return odrive_reboot_odrive_axis0_unpacker(raw, msgMap);
-  case CANID::ODRIVE_GET_VBUS_VOLTAGE_AXIS0:
-    return odrive_get_vbus_voltage_axis0_unpacker(raw, msgMap);
-  case CANID::ODRIVE_CLEAR_ERRORS_AXIS0:
-    return odrive_clear_errors_axis0_unpacker(raw, msgMap);
-  case CANID::ODRIVE_SET_LINEAR_COUNT_AXIS0:
-    return odrive_set_linear_count_axis0_unpacker(raw, msgMap);
-  case CANID::ODRIVE_SET_POSITION_GAIN_AXIS0:
-    return odrive_set_position_gain_axis0_unpacker(raw, msgMap);
-  case CANID::ODRIVE_SET_VEL_GAIN_AXIS0:
-    return odrive_set_vel_gain_axis0_unpacker(raw, msgMap);
-  case CANID::ODRIVE_HEARTBEAT_MESSAGE_AXIS1:
-    return odrive_heartbeat_message_axis1_unpacker(raw, msgMap);
-  case CANID::ODRIVE_ESTOP_MESSAGE_AXIS1:
-    return odrive_estop_message_axis1_unpacker(raw, msgMap);
-  case CANID::ODRIVE_GET_MOTOR_ERROR_AXIS1:
-    return odrive_get_motor_error_axis1_unpacker(raw, msgMap);
-  case CANID::ODRIVE_GET_ENCODER_ERROR_AXIS1:
-    return odrive_get_encoder_error_axis1_unpacker(raw, msgMap);
-  case CANID::ODRIVE_GET_SENSORLESS_ERROR_AXIS1:
-    return odrive_get_sensorless_error_axis1_unpacker(raw, msgMap);
-  case CANID::ODRIVE_SET_AXIS_NODE_ID_AXIS1:
-    return odrive_set_axis_node_id_axis1_unpacker(raw, msgMap);
-  case CANID::ODRIVE_SET_AXIS_REQUESTED_STATE_AXIS1:
-    return odrive_set_axis_requested_state_axis1_unpacker(raw, msgMap);
-  case CANID::ODRIVE_GET_ENCODER_ESTIMATES_AXIS1:
-    return odrive_get_encoder_estimates_axis1_unpacker(raw, msgMap);
-  case CANID::ODRIVE_GET_ENCODER_COUNT_AXIS1:
-    return odrive_get_encoder_count_axis1_unpacker(raw, msgMap);
-  case CANID::ODRIVE_SET_CONTROLLER_MODES_AXIS1:
-    return odrive_set_controller_modes_axis1_unpacker(raw, msgMap);
-  case CANID::ODRIVE_SET_INPUT_POS_AXIS1:
-    return odrive_set_input_pos_axis1_unpacker(raw, msgMap);
-  case CANID::ODRIVE_SET_INPUT_VEL_AXIS1:
-    return odrive_set_input_vel_axis1_unpacker(raw, msgMap);
-  case CANID::ODRIVE_SET_INPUT_TORQUE_AXIS1:
-    return odrive_set_input_torque_axis1_unpacker(raw, msgMap);
-  case CANID::ODRIVE_SET_LIMITS_AXIS1:
-    return odrive_set_limits_axis1_unpacker(raw, msgMap);
-  case CANID::ODRIVE_START_ANTICOGGING_AXIS1:
-    return odrive_start_anticogging_axis1_unpacker(raw, msgMap);
-  case CANID::ODRIVE_SET_TRAJ_VEL_LIMIT_AXIS1:
-    return odrive_set_traj_vel_limit_axis1_unpacker(raw, msgMap);
-  case CANID::ODRIVE_SET_TRAJ_ACCEL_LIMIT_AXIS1:
-    return odrive_set_traj_accel_limit_axis1_unpacker(raw, msgMap);
-  case CANID::ODRIVE_SET_TRAJ_INERTIA_AXIS1:
-    return odrive_set_traj_inertia_axis1_unpacker(raw, msgMap);
-  case CANID::ODRIVE_GET_IQ_AXIS1:
-    return odrive_get_iq_axis1_unpacker(raw, msgMap);
-  case CANID::ODRIVE_GET_SENSORLESS_ESTIMATES_AXIS1:
-    return odrive_get_sensorless_estimates_axis1_unpacker(raw, msgMap);
-  case CANID::ODRIVE_REBOOT_ODRIVE_AXIS1:
-    return odrive_reboot_odrive_axis1_unpacker(raw, msgMap);
-  case CANID::ODRIVE_GET_VBUS_VOLTAGE_AXIS1:
-    return odrive_get_vbus_voltage_axis1_unpacker(raw, msgMap);
-  case CANID::ODRIVE_CLEAR_ERRORS_AXIS1:
-    return odrive_clear_errors_axis1_unpacker(raw, msgMap);
-  case CANID::ODRIVE_SET_LINEAR_COUNT_AXIS1:
-    return odrive_set_linear_count_axis1_unpacker(raw, msgMap);
-  case CANID::ODRIVE_SET_POSITION_GAIN_AXIS1:
-    return odrive_set_position_gain_axis1_unpacker(raw, msgMap);
-  case CANID::ODRIVE_SET_VEL_GAIN_AXIS1:
-    return odrive_set_vel_gain_axis1_unpacker(raw, msgMap);
+    case CANID::ODRIVE_HEARTBEAT_MESSAGE_AXIS0:
+      return odrive_heartbeat_message_axis0_unpacker(raw, msgMap);
+    case CANID::ODRIVE_ESTOP_MESSAGE_AXIS0:
+      return odrive_estop_message_axis0_unpacker(raw, msgMap);
+    case CANID::ODRIVE_GET_MOTOR_ERROR_AXIS0:
+      return odrive_get_motor_error_axis0_unpacker(raw, msgMap);
+    case CANID::ODRIVE_GET_ENCODER_ERROR_AXIS0:
+      return odrive_get_encoder_error_axis0_unpacker(raw, msgMap);
+    case CANID::ODRIVE_GET_SENSORLESS_ERROR_AXIS0:
+      return odrive_get_sensorless_error_axis0_unpacker(raw, msgMap);
+    case CANID::ODRIVE_SET_AXIS_NODE_ID_AXIS0:
+      return odrive_set_axis_node_id_axis0_unpacker(raw, msgMap);
+    case CANID::ODRIVE_SET_AXIS_REQUESTED_STATE_AXIS0:
+      return odrive_set_axis_requested_state_axis0_unpacker(raw, msgMap);
+    case CANID::ODRIVE_GET_ENCODER_ESTIMATES_AXIS0:
+      return odrive_get_encoder_estimates_axis0_unpacker(raw, msgMap);
+    case CANID::ODRIVE_GET_ENCODER_COUNT_AXIS0:
+      return odrive_get_encoder_count_axis0_unpacker(raw, msgMap);
+    case CANID::ODRIVE_SET_CONTROLLER_MODES_AXIS0:
+      return odrive_set_controller_modes_axis0_unpacker(raw, msgMap);
+    case CANID::ODRIVE_SET_INPUT_POS_AXIS0:
+      return odrive_set_input_pos_axis0_unpacker(raw, msgMap);
+    case CANID::ODRIVE_SET_INPUT_VEL_AXIS0:
+      return odrive_set_input_vel_axis0_unpacker(raw, msgMap);
+    case CANID::ODRIVE_SET_INPUT_TORQUE_AXIS0:
+      return odrive_set_input_torque_axis0_unpacker(raw, msgMap);
+    case CANID::ODRIVE_SET_LIMITS_AXIS0:
+      return odrive_set_limits_axis0_unpacker(raw, msgMap);
+    case CANID::ODRIVE_START_ANTICOGGING_AXIS0:
+      return odrive_start_anticogging_axis0_unpacker(raw, msgMap);
+    case CANID::ODRIVE_SET_TRAJ_VEL_LIMIT_AXIS0:
+      return odrive_set_traj_vel_limit_axis0_unpacker(raw, msgMap);
+    case CANID::ODRIVE_SET_TRAJ_ACCEL_LIMIT_AXIS0:
+      return odrive_set_traj_accel_limit_axis0_unpacker(raw, msgMap);
+    case CANID::ODRIVE_SET_TRAJ_INERTIA_AXIS0:
+      return odrive_set_traj_inertia_axis0_unpacker(raw, msgMap);
+    case CANID::ODRIVE_GET_IQ_AXIS0:
+      return odrive_get_iq_axis0_unpacker(raw, msgMap);
+    case CANID::ODRIVE_GET_SENSORLESS_ESTIMATES_AXIS0:
+      return odrive_get_sensorless_estimates_axis0_unpacker(raw, msgMap);
+    case CANID::ODRIVE_REBOOT_ODRIVE_AXIS0:
+      return odrive_reboot_odrive_axis0_unpacker(raw, msgMap);
+    case CANID::ODRIVE_GET_VBUS_VOLTAGE_AXIS0:
+      return odrive_get_vbus_voltage_axis0_unpacker(raw, msgMap);
+    case CANID::ODRIVE_CLEAR_ERRORS_AXIS0:
+      return odrive_clear_errors_axis0_unpacker(raw, msgMap);
+    case CANID::ODRIVE_SET_LINEAR_COUNT_AXIS0:
+      return odrive_set_linear_count_axis0_unpacker(raw, msgMap);
+    case CANID::ODRIVE_SET_POSITION_GAIN_AXIS0:
+      return odrive_set_position_gain_axis0_unpacker(raw, msgMap);
+    case CANID::ODRIVE_SET_VEL_GAIN_AXIS0:
+      return odrive_set_vel_gain_axis0_unpacker(raw, msgMap);
+    case CANID::ODRIVE_HEARTBEAT_MESSAGE_AXIS1:
+      return odrive_heartbeat_message_axis1_unpacker(raw, msgMap);
+    case CANID::ODRIVE_ESTOP_MESSAGE_AXIS1:
+      return odrive_estop_message_axis1_unpacker(raw, msgMap);
+    case CANID::ODRIVE_GET_MOTOR_ERROR_AXIS1:
+      return odrive_get_motor_error_axis1_unpacker(raw, msgMap);
+    case CANID::ODRIVE_GET_ENCODER_ERROR_AXIS1:
+      return odrive_get_encoder_error_axis1_unpacker(raw, msgMap);
+    case CANID::ODRIVE_GET_SENSORLESS_ERROR_AXIS1:
+      return odrive_get_sensorless_error_axis1_unpacker(raw, msgMap);
+    case CANID::ODRIVE_SET_AXIS_NODE_ID_AXIS1:
+      return odrive_set_axis_node_id_axis1_unpacker(raw, msgMap);
+    case CANID::ODRIVE_SET_AXIS_REQUESTED_STATE_AXIS1:
+      return odrive_set_axis_requested_state_axis1_unpacker(raw, msgMap);
+    case CANID::ODRIVE_GET_ENCODER_ESTIMATES_AXIS1:
+      return odrive_get_encoder_estimates_axis1_unpacker(raw, msgMap);
+    case CANID::ODRIVE_GET_ENCODER_COUNT_AXIS1:
+      return odrive_get_encoder_count_axis1_unpacker(raw, msgMap);
+    case CANID::ODRIVE_SET_CONTROLLER_MODES_AXIS1:
+      return odrive_set_controller_modes_axis1_unpacker(raw, msgMap);
+    case CANID::ODRIVE_SET_INPUT_POS_AXIS1:
+      return odrive_set_input_pos_axis1_unpacker(raw, msgMap);
+    case CANID::ODRIVE_SET_INPUT_VEL_AXIS1:
+      return odrive_set_input_vel_axis1_unpacker(raw, msgMap);
+    case CANID::ODRIVE_SET_INPUT_TORQUE_AXIS1:
+      return odrive_set_input_torque_axis1_unpacker(raw, msgMap);
+    case CANID::ODRIVE_SET_LIMITS_AXIS1:
+      return odrive_set_limits_axis1_unpacker(raw, msgMap);
+    case CANID::ODRIVE_START_ANTICOGGING_AXIS1:
+      return odrive_start_anticogging_axis1_unpacker(raw, msgMap);
+    case CANID::ODRIVE_SET_TRAJ_VEL_LIMIT_AXIS1:
+      return odrive_set_traj_vel_limit_axis1_unpacker(raw, msgMap);
+    case CANID::ODRIVE_SET_TRAJ_ACCEL_LIMIT_AXIS1:
+      return odrive_set_traj_accel_limit_axis1_unpacker(raw, msgMap);
+    case CANID::ODRIVE_SET_TRAJ_INERTIA_AXIS1:
+      return odrive_set_traj_inertia_axis1_unpacker(raw, msgMap);
+    case CANID::ODRIVE_GET_IQ_AXIS1:
+      return odrive_get_iq_axis1_unpacker(raw, msgMap);
+    case CANID::ODRIVE_GET_SENSORLESS_ESTIMATES_AXIS1:
+      return odrive_get_sensorless_estimates_axis1_unpacker(raw, msgMap);
+    case CANID::ODRIVE_REBOOT_ODRIVE_AXIS1:
+      return odrive_reboot_odrive_axis1_unpacker(raw, msgMap);
+    case CANID::ODRIVE_GET_VBUS_VOLTAGE_AXIS1:
+      return odrive_get_vbus_voltage_axis1_unpacker(raw, msgMap);
+    case CANID::ODRIVE_CLEAR_ERRORS_AXIS1:
+      return odrive_clear_errors_axis1_unpacker(raw, msgMap);
+    case CANID::ODRIVE_SET_LINEAR_COUNT_AXIS1:
+      return odrive_set_linear_count_axis1_unpacker(raw, msgMap);
+    case CANID::ODRIVE_SET_POSITION_GAIN_AXIS1:
+      return odrive_set_position_gain_axis1_unpacker(raw, msgMap);
+    case CANID::ODRIVE_SET_VEL_GAIN_AXIS1:
+      return odrive_set_vel_gain_axis1_unpacker(raw, msgMap);
 
-  default:
-    return false;
+    default:
+      return false;
   }
 }
 
 // ODRIVE_heartbeatMessage_axis0 message packer
-bool odrive_heartbeat_message_axis0_packer(uint8_t *raw,
-                                           const CANMsgMap *msgMap,
-                                           size_t &len) {
+bool odrive_heartbeat_message_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len) {
   bool success = true;
-  CANID msgID = CANID::ODRIVE_HEARTBEAT_MESSAGE_AXIS0;
+  CANID msgID  = CANID::ODRIVE_HEARTBEAT_MESSAGE_AXIS0;
   struct uwrt_mars_rover_can_odrive_heartbeat_message_axis0_t msgStruct;
 
   if (msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
-      CANSIGNAL signalName = it->first;
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName         = it->first;
       CANSignalValue_t signalValue = it->second;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_AXIS_ERROR:
+          msgStruct.odrive_axis_error =
+              uwrt_mars_rover_can_odrive_heartbeat_message_axis0_odrive_axis_error_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_AXIS_ERROR:
-        msgStruct.odrive_axis_error =
-            uwrt_mars_rover_can_odrive_heartbeat_message_axis0_odrive_axis_error_encode(
-                signalValue);
-        break;
+        case CANSIGNAL::ODRIVE_AXIS_CURRENT_STATE:
+          msgStruct.odrive_axis_current_state =
+              uwrt_mars_rover_can_odrive_heartbeat_message_axis0_odrive_axis_current_state_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_AXIS_CURRENT_STATE:
-        msgStruct.odrive_axis_current_state =
-            uwrt_mars_rover_can_odrive_heartbeat_message_axis0_odrive_axis_current_state_encode(
-                signalValue);
-        break;
+        case CANSIGNAL::ODRIVE_CONTROLLER_STATUS:
+          msgStruct.odrive_controller_status =
+              uwrt_mars_rover_can_odrive_heartbeat_message_axis0_odrive_controller_status_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_CONTROLLER_STATUS:
-        msgStruct.odrive_controller_status =
-            uwrt_mars_rover_can_odrive_heartbeat_message_axis0_odrive_controller_status_encode(
-                signalValue);
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
-    success &=
-        (uwrt_mars_rover_can_odrive_heartbeat_message_axis0_pack(
-             raw, &msgStruct,
-             UWRT_MARS_ROVER_CAN_ODRIVE_HEARTBEAT_MESSAGE_AXIS0_LENGTH) ==
-         UWRT_MARS_ROVER_CAN_ODRIVE_HEARTBEAT_MESSAGE_AXIS0_LENGTH);
+    success &= (uwrt_mars_rover_can_odrive_heartbeat_message_axis0_pack(
+                    raw, &msgStruct, UWRT_MARS_ROVER_CAN_ODRIVE_HEARTBEAT_MESSAGE_AXIS0_LENGTH) ==
+                UWRT_MARS_ROVER_CAN_ODRIVE_HEARTBEAT_MESSAGE_AXIS0_LENGTH);
     len = UWRT_MARS_ROVER_CAN_ODRIVE_HEARTBEAT_MESSAGE_AXIS0_LENGTH;
   }
   return success;
@@ -532,45 +380,40 @@ bool odrive_heartbeat_message_axis0_packer(uint8_t *raw,
 // ODRIVE_heartbeatMessage_axis0 message unpacker
 bool odrive_heartbeat_message_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
   bool success = false;
-  CANID msgID = CANID::ODRIVE_HEARTBEAT_MESSAGE_AXIS0;
+  CANID msgID  = CANID::ODRIVE_HEARTBEAT_MESSAGE_AXIS0;
   struct uwrt_mars_rover_can_odrive_heartbeat_message_axis0_t msgStruct;
 
-  success =
-      (uwrt_mars_rover_can_odrive_heartbeat_message_axis0_unpack(
-           &msgStruct, raw,
-           UWRT_MARS_ROVER_CAN_ODRIVE_HEARTBEAT_MESSAGE_AXIS0_LENGTH) == 0);
+  success = (uwrt_mars_rover_can_odrive_heartbeat_message_axis0_unpack(
+                 &msgStruct, raw, UWRT_MARS_ROVER_CAN_ODRIVE_HEARTBEAT_MESSAGE_AXIS0_LENGTH) == 0);
 
   if (success && msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
       CANSIGNAL signalName = it->first;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_AXIS_ERROR:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_odrive_heartbeat_message_axis0_odrive_axis_error_decode(msgStruct.odrive_axis_error));
+          break;
 
-      case CANSIGNAL::ODRIVE_AXIS_ERROR:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_heartbeat_message_axis0_odrive_axis_error_decode(
-                msgStruct.odrive_axis_error));
-        break;
+        case CANSIGNAL::ODRIVE_AXIS_CURRENT_STATE:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_odrive_heartbeat_message_axis0_odrive_axis_current_state_decode(
+                  msgStruct.odrive_axis_current_state));
+          break;
 
-      case CANSIGNAL::ODRIVE_AXIS_CURRENT_STATE:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_heartbeat_message_axis0_odrive_axis_current_state_decode(
-                msgStruct.odrive_axis_current_state));
-        break;
+        case CANSIGNAL::ODRIVE_CONTROLLER_STATUS:
+          success &=
+              msgMap->setSignalValue(msgID, signalName,
+                                     uwrt_mars_rover_can_odrive_heartbeat_message_axis0_odrive_controller_status_decode(
+                                         msgStruct.odrive_controller_status));
+          break;
 
-      case CANSIGNAL::ODRIVE_CONTROLLER_STATUS:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_heartbeat_message_axis0_odrive_controller_status_decode(
-                msgStruct.odrive_controller_status));
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
   }
@@ -579,28 +422,24 @@ bool odrive_heartbeat_message_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
 }
 
 // ODRIVE_EstopMessage_axis0 message packer
-bool odrive_estop_message_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap,
-                                       size_t &len) {
+bool odrive_estop_message_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len) {
   bool success = true;
-  CANID msgID = CANID::ODRIVE_ESTOP_MESSAGE_AXIS0;
+  CANID msgID  = CANID::ODRIVE_ESTOP_MESSAGE_AXIS0;
   struct uwrt_mars_rover_can_odrive_estop_message_axis0_t msgStruct;
 
   if (msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
-      CANSIGNAL signalName = it->first;
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName         = it->first;
       CANSignalValue_t signalValue = it->second;
 
       switch (signalName) {
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
     success &= (uwrt_mars_rover_can_odrive_estop_message_axis0_pack(
-                    raw, &msgStruct,
-                    UWRT_MARS_ROVER_CAN_ODRIVE_ESTOP_MESSAGE_AXIS0_LENGTH) ==
+                    raw, &msgStruct, UWRT_MARS_ROVER_CAN_ODRIVE_ESTOP_MESSAGE_AXIS0_LENGTH) ==
                 UWRT_MARS_ROVER_CAN_ODRIVE_ESTOP_MESSAGE_AXIS0_LENGTH);
     len = UWRT_MARS_ROVER_CAN_ODRIVE_ESTOP_MESSAGE_AXIS0_LENGTH;
   }
@@ -610,23 +449,20 @@ bool odrive_estop_message_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap,
 // ODRIVE_EstopMessage_axis0 message unpacker
 bool odrive_estop_message_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
   bool success = false;
-  CANID msgID = CANID::ODRIVE_ESTOP_MESSAGE_AXIS0;
+  CANID msgID  = CANID::ODRIVE_ESTOP_MESSAGE_AXIS0;
   struct uwrt_mars_rover_can_odrive_estop_message_axis0_t msgStruct;
 
   success = (uwrt_mars_rover_can_odrive_estop_message_axis0_unpack(
-                 &msgStruct, raw,
-                 UWRT_MARS_ROVER_CAN_ODRIVE_ESTOP_MESSAGE_AXIS0_LENGTH) == 0);
+                 &msgStruct, raw, UWRT_MARS_ROVER_CAN_ODRIVE_ESTOP_MESSAGE_AXIS0_LENGTH) == 0);
 
   if (success && msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
       CANSIGNAL signalName = it->first;
 
       switch (signalName) {
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
   }
@@ -635,34 +471,29 @@ bool odrive_estop_message_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
 }
 
 // ODRIVE_getMotorError_axis0 message packer
-bool odrive_get_motor_error_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap,
-                                         size_t &len) {
+bool odrive_get_motor_error_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len) {
   bool success = true;
-  CANID msgID = CANID::ODRIVE_GET_MOTOR_ERROR_AXIS0;
+  CANID msgID  = CANID::ODRIVE_GET_MOTOR_ERROR_AXIS0;
   struct uwrt_mars_rover_can_odrive_get_motor_error_axis0_t msgStruct;
 
   if (msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
-      CANSIGNAL signalName = it->first;
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName         = it->first;
       CANSignalValue_t signalValue = it->second;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_MOTOR_ERROR:
+          msgStruct.odrive_motor_error =
+              uwrt_mars_rover_can_odrive_get_motor_error_axis0_odrive_motor_error_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_MOTOR_ERROR:
-        msgStruct.odrive_motor_error =
-            uwrt_mars_rover_can_odrive_get_motor_error_axis0_odrive_motor_error_encode(
-                signalValue);
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
     success &= (uwrt_mars_rover_can_odrive_get_motor_error_axis0_pack(
-                    raw, &msgStruct,
-                    UWRT_MARS_ROVER_CAN_ODRIVE_GET_MOTOR_ERROR_AXIS0_LENGTH) ==
+                    raw, &msgStruct, UWRT_MARS_ROVER_CAN_ODRIVE_GET_MOTOR_ERROR_AXIS0_LENGTH) ==
                 UWRT_MARS_ROVER_CAN_ODRIVE_GET_MOTOR_ERROR_AXIS0_LENGTH);
     len = UWRT_MARS_ROVER_CAN_ODRIVE_GET_MOTOR_ERROR_AXIS0_LENGTH;
   }
@@ -672,30 +503,26 @@ bool odrive_get_motor_error_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap,
 // ODRIVE_getMotorError_axis0 message unpacker
 bool odrive_get_motor_error_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
   bool success = false;
-  CANID msgID = CANID::ODRIVE_GET_MOTOR_ERROR_AXIS0;
+  CANID msgID  = CANID::ODRIVE_GET_MOTOR_ERROR_AXIS0;
   struct uwrt_mars_rover_can_odrive_get_motor_error_axis0_t msgStruct;
 
   success = (uwrt_mars_rover_can_odrive_get_motor_error_axis0_unpack(
-                 &msgStruct, raw,
-                 UWRT_MARS_ROVER_CAN_ODRIVE_GET_MOTOR_ERROR_AXIS0_LENGTH) == 0);
+                 &msgStruct, raw, UWRT_MARS_ROVER_CAN_ODRIVE_GET_MOTOR_ERROR_AXIS0_LENGTH) == 0);
 
   if (success && msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
       CANSIGNAL signalName = it->first;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_MOTOR_ERROR:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_odrive_get_motor_error_axis0_odrive_motor_error_decode(msgStruct.odrive_motor_error));
+          break;
 
-      case CANSIGNAL::ODRIVE_MOTOR_ERROR:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_get_motor_error_axis0_odrive_motor_error_decode(
-                msgStruct.odrive_motor_error));
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
   }
@@ -704,37 +531,30 @@ bool odrive_get_motor_error_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
 }
 
 // ODRIVE_getEncoderError_axis0 message packer
-bool odrive_get_encoder_error_axis0_packer(uint8_t *raw,
-                                           const CANMsgMap *msgMap,
-                                           size_t &len) {
+bool odrive_get_encoder_error_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len) {
   bool success = true;
-  CANID msgID = CANID::ODRIVE_GET_ENCODER_ERROR_AXIS0;
+  CANID msgID  = CANID::ODRIVE_GET_ENCODER_ERROR_AXIS0;
   struct uwrt_mars_rover_can_odrive_get_encoder_error_axis0_t msgStruct;
 
   if (msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
-      CANSIGNAL signalName = it->first;
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName         = it->first;
       CANSignalValue_t signalValue = it->second;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_ENCODER_ERROR:
+          msgStruct.odrive_encoder_error =
+              uwrt_mars_rover_can_odrive_get_encoder_error_axis0_odrive_encoder_error_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_ENCODER_ERROR:
-        msgStruct.odrive_encoder_error =
-            uwrt_mars_rover_can_odrive_get_encoder_error_axis0_odrive_encoder_error_encode(
-                signalValue);
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
-    success &=
-        (uwrt_mars_rover_can_odrive_get_encoder_error_axis0_pack(
-             raw, &msgStruct,
-             UWRT_MARS_ROVER_CAN_ODRIVE_GET_ENCODER_ERROR_AXIS0_LENGTH) ==
-         UWRT_MARS_ROVER_CAN_ODRIVE_GET_ENCODER_ERROR_AXIS0_LENGTH);
+    success &= (uwrt_mars_rover_can_odrive_get_encoder_error_axis0_pack(
+                    raw, &msgStruct, UWRT_MARS_ROVER_CAN_ODRIVE_GET_ENCODER_ERROR_AXIS0_LENGTH) ==
+                UWRT_MARS_ROVER_CAN_ODRIVE_GET_ENCODER_ERROR_AXIS0_LENGTH);
     len = UWRT_MARS_ROVER_CAN_ODRIVE_GET_ENCODER_ERROR_AXIS0_LENGTH;
   }
   return success;
@@ -743,31 +563,27 @@ bool odrive_get_encoder_error_axis0_packer(uint8_t *raw,
 // ODRIVE_getEncoderError_axis0 message unpacker
 bool odrive_get_encoder_error_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
   bool success = false;
-  CANID msgID = CANID::ODRIVE_GET_ENCODER_ERROR_AXIS0;
+  CANID msgID  = CANID::ODRIVE_GET_ENCODER_ERROR_AXIS0;
   struct uwrt_mars_rover_can_odrive_get_encoder_error_axis0_t msgStruct;
 
-  success =
-      (uwrt_mars_rover_can_odrive_get_encoder_error_axis0_unpack(
-           &msgStruct, raw,
-           UWRT_MARS_ROVER_CAN_ODRIVE_GET_ENCODER_ERROR_AXIS0_LENGTH) == 0);
+  success = (uwrt_mars_rover_can_odrive_get_encoder_error_axis0_unpack(
+                 &msgStruct, raw, UWRT_MARS_ROVER_CAN_ODRIVE_GET_ENCODER_ERROR_AXIS0_LENGTH) == 0);
 
   if (success && msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
       CANSIGNAL signalName = it->first;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_ENCODER_ERROR:
+          success &=
+              msgMap->setSignalValue(msgID, signalName,
+                                     uwrt_mars_rover_can_odrive_get_encoder_error_axis0_odrive_encoder_error_decode(
+                                         msgStruct.odrive_encoder_error));
+          break;
 
-      case CANSIGNAL::ODRIVE_ENCODER_ERROR:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_get_encoder_error_axis0_odrive_encoder_error_decode(
-                msgStruct.odrive_encoder_error));
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
   }
@@ -776,71 +592,59 @@ bool odrive_get_encoder_error_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
 }
 
 // ODRIVE_getSensorlessError_axis0 message packer
-bool odrive_get_sensorless_error_axis0_packer(uint8_t *raw,
-                                              const CANMsgMap *msgMap,
-                                              size_t &len) {
+bool odrive_get_sensorless_error_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len) {
   bool success = true;
-  CANID msgID = CANID::ODRIVE_GET_SENSORLESS_ERROR_AXIS0;
+  CANID msgID  = CANID::ODRIVE_GET_SENSORLESS_ERROR_AXIS0;
   struct uwrt_mars_rover_can_odrive_get_sensorless_error_axis0_t msgStruct;
 
   if (msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
-      CANSIGNAL signalName = it->first;
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName         = it->first;
       CANSignalValue_t signalValue = it->second;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_SENSORLESS_ERROR:
+          msgStruct.odrive_sensorless_error =
+              uwrt_mars_rover_can_odrive_get_sensorless_error_axis0_odrive_sensorless_error_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_SENSORLESS_ERROR:
-        msgStruct.odrive_sensorless_error =
-            uwrt_mars_rover_can_odrive_get_sensorless_error_axis0_odrive_sensorless_error_encode(
-                signalValue);
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
-    success &=
-        (uwrt_mars_rover_can_odrive_get_sensorless_error_axis0_pack(
-             raw, &msgStruct,
-             UWRT_MARS_ROVER_CAN_ODRIVE_GET_SENSORLESS_ERROR_AXIS0_LENGTH) ==
-         UWRT_MARS_ROVER_CAN_ODRIVE_GET_SENSORLESS_ERROR_AXIS0_LENGTH);
+    success &= (uwrt_mars_rover_can_odrive_get_sensorless_error_axis0_pack(
+                    raw, &msgStruct, UWRT_MARS_ROVER_CAN_ODRIVE_GET_SENSORLESS_ERROR_AXIS0_LENGTH) ==
+                UWRT_MARS_ROVER_CAN_ODRIVE_GET_SENSORLESS_ERROR_AXIS0_LENGTH);
     len = UWRT_MARS_ROVER_CAN_ODRIVE_GET_SENSORLESS_ERROR_AXIS0_LENGTH;
   }
   return success;
 }
 
 // ODRIVE_getSensorlessError_axis0 message unpacker
-bool odrive_get_sensorless_error_axis0_unpacker(uint8_t *raw,
-                                                CANMsgMap *msgMap) {
+bool odrive_get_sensorless_error_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
   bool success = false;
-  CANID msgID = CANID::ODRIVE_GET_SENSORLESS_ERROR_AXIS0;
+  CANID msgID  = CANID::ODRIVE_GET_SENSORLESS_ERROR_AXIS0;
   struct uwrt_mars_rover_can_odrive_get_sensorless_error_axis0_t msgStruct;
 
-  success =
-      (uwrt_mars_rover_can_odrive_get_sensorless_error_axis0_unpack(
-           &msgStruct, raw,
-           UWRT_MARS_ROVER_CAN_ODRIVE_GET_SENSORLESS_ERROR_AXIS0_LENGTH) == 0);
+  success = (uwrt_mars_rover_can_odrive_get_sensorless_error_axis0_unpack(
+                 &msgStruct, raw, UWRT_MARS_ROVER_CAN_ODRIVE_GET_SENSORLESS_ERROR_AXIS0_LENGTH) == 0);
 
   if (success && msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
       CANSIGNAL signalName = it->first;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_SENSORLESS_ERROR:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_odrive_get_sensorless_error_axis0_odrive_sensorless_error_decode(
+                  msgStruct.odrive_sensorless_error));
+          break;
 
-      case CANSIGNAL::ODRIVE_SENSORLESS_ERROR:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_get_sensorless_error_axis0_odrive_sensorless_error_decode(
-                msgStruct.odrive_sensorless_error));
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
   }
@@ -849,34 +653,29 @@ bool odrive_get_sensorless_error_axis0_unpacker(uint8_t *raw,
 }
 
 // ODRIVE_setAxisNodeID_axis0 message packer
-bool odrive_set_axis_node_id_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap,
-                                          size_t &len) {
+bool odrive_set_axis_node_id_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len) {
   bool success = true;
-  CANID msgID = CANID::ODRIVE_SET_AXIS_NODE_ID_AXIS0;
+  CANID msgID  = CANID::ODRIVE_SET_AXIS_NODE_ID_AXIS0;
   struct uwrt_mars_rover_can_odrive_set_axis_node_id_axis0_t msgStruct;
 
   if (msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
-      CANSIGNAL signalName = it->first;
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName         = it->first;
       CANSignalValue_t signalValue = it->second;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_AXIS_CAN_NODE_ID:
+          msgStruct.odrive_axis_can_node_id =
+              uwrt_mars_rover_can_odrive_set_axis_node_id_axis0_odrive_axis_can_node_id_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_AXIS_CAN_NODE_ID:
-        msgStruct.odrive_axis_can_node_id =
-            uwrt_mars_rover_can_odrive_set_axis_node_id_axis0_odrive_axis_can_node_id_encode(
-                signalValue);
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
     success &= (uwrt_mars_rover_can_odrive_set_axis_node_id_axis0_pack(
-                    raw, &msgStruct,
-                    UWRT_MARS_ROVER_CAN_ODRIVE_SET_AXIS_NODE_ID_AXIS0_LENGTH) ==
+                    raw, &msgStruct, UWRT_MARS_ROVER_CAN_ODRIVE_SET_AXIS_NODE_ID_AXIS0_LENGTH) ==
                 UWRT_MARS_ROVER_CAN_ODRIVE_SET_AXIS_NODE_ID_AXIS0_LENGTH);
     len = UWRT_MARS_ROVER_CAN_ODRIVE_SET_AXIS_NODE_ID_AXIS0_LENGTH;
   }
@@ -886,31 +685,27 @@ bool odrive_set_axis_node_id_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap,
 // ODRIVE_setAxisNodeID_axis0 message unpacker
 bool odrive_set_axis_node_id_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
   bool success = false;
-  CANID msgID = CANID::ODRIVE_SET_AXIS_NODE_ID_AXIS0;
+  CANID msgID  = CANID::ODRIVE_SET_AXIS_NODE_ID_AXIS0;
   struct uwrt_mars_rover_can_odrive_set_axis_node_id_axis0_t msgStruct;
 
-  success =
-      (uwrt_mars_rover_can_odrive_set_axis_node_id_axis0_unpack(
-           &msgStruct, raw,
-           UWRT_MARS_ROVER_CAN_ODRIVE_SET_AXIS_NODE_ID_AXIS0_LENGTH) == 0);
+  success = (uwrt_mars_rover_can_odrive_set_axis_node_id_axis0_unpack(
+                 &msgStruct, raw, UWRT_MARS_ROVER_CAN_ODRIVE_SET_AXIS_NODE_ID_AXIS0_LENGTH) == 0);
 
   if (success && msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
       CANSIGNAL signalName = it->first;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_AXIS_CAN_NODE_ID:
+          success &=
+              msgMap->setSignalValue(msgID, signalName,
+                                     uwrt_mars_rover_can_odrive_set_axis_node_id_axis0_odrive_axis_can_node_id_decode(
+                                         msgStruct.odrive_axis_can_node_id));
+          break;
 
-      case CANSIGNAL::ODRIVE_AXIS_CAN_NODE_ID:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_set_axis_node_id_axis0_odrive_axis_can_node_id_decode(
-                msgStruct.odrive_axis_can_node_id));
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
   }
@@ -919,72 +714,59 @@ bool odrive_set_axis_node_id_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
 }
 
 // ODRIVE_setAxisRequestedState_axis0 message packer
-bool odrive_set_axis_requested_state_axis0_packer(uint8_t *raw,
-                                                  const CANMsgMap *msgMap,
-                                                  size_t &len) {
+bool odrive_set_axis_requested_state_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len) {
   bool success = true;
-  CANID msgID = CANID::ODRIVE_SET_AXIS_REQUESTED_STATE_AXIS0;
+  CANID msgID  = CANID::ODRIVE_SET_AXIS_REQUESTED_STATE_AXIS0;
   struct uwrt_mars_rover_can_odrive_set_axis_requested_state_axis0_t msgStruct;
 
   if (msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
-      CANSIGNAL signalName = it->first;
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName         = it->first;
       CANSignalValue_t signalValue = it->second;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_AXIS_REQUESTED_STATE:
+          msgStruct.odrive_axis_requested_state =
+              uwrt_mars_rover_can_odrive_set_axis_requested_state_axis0_odrive_axis_requested_state_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_AXIS_REQUESTED_STATE:
-        msgStruct.odrive_axis_requested_state =
-            uwrt_mars_rover_can_odrive_set_axis_requested_state_axis0_odrive_axis_requested_state_encode(
-                signalValue);
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
-    success &=
-        (uwrt_mars_rover_can_odrive_set_axis_requested_state_axis0_pack(
-             raw, &msgStruct,
-             UWRT_MARS_ROVER_CAN_ODRIVE_SET_AXIS_REQUESTED_STATE_AXIS0_LENGTH) ==
-         UWRT_MARS_ROVER_CAN_ODRIVE_SET_AXIS_REQUESTED_STATE_AXIS0_LENGTH);
+    success &= (uwrt_mars_rover_can_odrive_set_axis_requested_state_axis0_pack(
+                    raw, &msgStruct, UWRT_MARS_ROVER_CAN_ODRIVE_SET_AXIS_REQUESTED_STATE_AXIS0_LENGTH) ==
+                UWRT_MARS_ROVER_CAN_ODRIVE_SET_AXIS_REQUESTED_STATE_AXIS0_LENGTH);
     len = UWRT_MARS_ROVER_CAN_ODRIVE_SET_AXIS_REQUESTED_STATE_AXIS0_LENGTH;
   }
   return success;
 }
 
 // ODRIVE_setAxisRequestedState_axis0 message unpacker
-bool odrive_set_axis_requested_state_axis0_unpacker(uint8_t *raw,
-                                                    CANMsgMap *msgMap) {
+bool odrive_set_axis_requested_state_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
   bool success = false;
-  CANID msgID = CANID::ODRIVE_SET_AXIS_REQUESTED_STATE_AXIS0;
+  CANID msgID  = CANID::ODRIVE_SET_AXIS_REQUESTED_STATE_AXIS0;
   struct uwrt_mars_rover_can_odrive_set_axis_requested_state_axis0_t msgStruct;
 
-  success =
-      (uwrt_mars_rover_can_odrive_set_axis_requested_state_axis0_unpack(
-           &msgStruct, raw,
-           UWRT_MARS_ROVER_CAN_ODRIVE_SET_AXIS_REQUESTED_STATE_AXIS0_LENGTH) ==
-       0);
+  success = (uwrt_mars_rover_can_odrive_set_axis_requested_state_axis0_unpack(
+                 &msgStruct, raw, UWRT_MARS_ROVER_CAN_ODRIVE_SET_AXIS_REQUESTED_STATE_AXIS0_LENGTH) == 0);
 
   if (success && msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
       CANSIGNAL signalName = it->first;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_AXIS_REQUESTED_STATE:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_odrive_set_axis_requested_state_axis0_odrive_axis_requested_state_decode(
+                  msgStruct.odrive_axis_requested_state));
+          break;
 
-      case CANSIGNAL::ODRIVE_AXIS_REQUESTED_STATE:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_set_axis_requested_state_axis0_odrive_axis_requested_state_decode(
-                msgStruct.odrive_axis_requested_state));
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
   }
@@ -993,84 +775,71 @@ bool odrive_set_axis_requested_state_axis0_unpacker(uint8_t *raw,
 }
 
 // ODRIVE_getEncoderEstimates_axis0 message packer
-bool odrive_get_encoder_estimates_axis0_packer(uint8_t *raw,
-                                               const CANMsgMap *msgMap,
-                                               size_t &len) {
+bool odrive_get_encoder_estimates_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len) {
   bool success = true;
-  CANID msgID = CANID::ODRIVE_GET_ENCODER_ESTIMATES_AXIS0;
+  CANID msgID  = CANID::ODRIVE_GET_ENCODER_ESTIMATES_AXIS0;
   struct uwrt_mars_rover_can_odrive_get_encoder_estimates_axis0_t msgStruct;
 
   if (msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
-      CANSIGNAL signalName = it->first;
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName         = it->first;
       CANSignalValue_t signalValue = it->second;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_ENCODER_POS_ESTIMATE:
+          msgStruct.odrive_encoder_pos_estimate =
+              uwrt_mars_rover_can_odrive_get_encoder_estimates_axis0_odrive_encoder_pos_estimate_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_ENCODER_POS_ESTIMATE:
-        msgStruct.odrive_encoder_pos_estimate =
-            uwrt_mars_rover_can_odrive_get_encoder_estimates_axis0_odrive_encoder_pos_estimate_encode(
-                signalValue);
-        break;
+        case CANSIGNAL::ODRIVE_ENCODER_VEL_ESTIMATE:
+          msgStruct.odrive_encoder_vel_estimate =
+              uwrt_mars_rover_can_odrive_get_encoder_estimates_axis0_odrive_encoder_vel_estimate_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_ENCODER_VEL_ESTIMATE:
-        msgStruct.odrive_encoder_vel_estimate =
-            uwrt_mars_rover_can_odrive_get_encoder_estimates_axis0_odrive_encoder_vel_estimate_encode(
-                signalValue);
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
-    success &=
-        (uwrt_mars_rover_can_odrive_get_encoder_estimates_axis0_pack(
-             raw, &msgStruct,
-             UWRT_MARS_ROVER_CAN_ODRIVE_GET_ENCODER_ESTIMATES_AXIS0_LENGTH) ==
-         UWRT_MARS_ROVER_CAN_ODRIVE_GET_ENCODER_ESTIMATES_AXIS0_LENGTH);
+    success &= (uwrt_mars_rover_can_odrive_get_encoder_estimates_axis0_pack(
+                    raw, &msgStruct, UWRT_MARS_ROVER_CAN_ODRIVE_GET_ENCODER_ESTIMATES_AXIS0_LENGTH) ==
+                UWRT_MARS_ROVER_CAN_ODRIVE_GET_ENCODER_ESTIMATES_AXIS0_LENGTH);
     len = UWRT_MARS_ROVER_CAN_ODRIVE_GET_ENCODER_ESTIMATES_AXIS0_LENGTH;
   }
   return success;
 }
 
 // ODRIVE_getEncoderEstimates_axis0 message unpacker
-bool odrive_get_encoder_estimates_axis0_unpacker(uint8_t *raw,
-                                                 CANMsgMap *msgMap) {
+bool odrive_get_encoder_estimates_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
   bool success = false;
-  CANID msgID = CANID::ODRIVE_GET_ENCODER_ESTIMATES_AXIS0;
+  CANID msgID  = CANID::ODRIVE_GET_ENCODER_ESTIMATES_AXIS0;
   struct uwrt_mars_rover_can_odrive_get_encoder_estimates_axis0_t msgStruct;
 
-  success =
-      (uwrt_mars_rover_can_odrive_get_encoder_estimates_axis0_unpack(
-           &msgStruct, raw,
-           UWRT_MARS_ROVER_CAN_ODRIVE_GET_ENCODER_ESTIMATES_AXIS0_LENGTH) == 0);
+  success = (uwrt_mars_rover_can_odrive_get_encoder_estimates_axis0_unpack(
+                 &msgStruct, raw, UWRT_MARS_ROVER_CAN_ODRIVE_GET_ENCODER_ESTIMATES_AXIS0_LENGTH) == 0);
 
   if (success && msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
       CANSIGNAL signalName = it->first;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_ENCODER_POS_ESTIMATE:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_odrive_get_encoder_estimates_axis0_odrive_encoder_pos_estimate_decode(
+                  msgStruct.odrive_encoder_pos_estimate));
+          break;
 
-      case CANSIGNAL::ODRIVE_ENCODER_POS_ESTIMATE:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_get_encoder_estimates_axis0_odrive_encoder_pos_estimate_decode(
-                msgStruct.odrive_encoder_pos_estimate));
-        break;
+        case CANSIGNAL::ODRIVE_ENCODER_VEL_ESTIMATE:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_odrive_get_encoder_estimates_axis0_odrive_encoder_vel_estimate_decode(
+                  msgStruct.odrive_encoder_vel_estimate));
+          break;
 
-      case CANSIGNAL::ODRIVE_ENCODER_VEL_ESTIMATE:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_get_encoder_estimates_axis0_odrive_encoder_vel_estimate_decode(
-                msgStruct.odrive_encoder_vel_estimate));
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
   }
@@ -1079,43 +848,35 @@ bool odrive_get_encoder_estimates_axis0_unpacker(uint8_t *raw,
 }
 
 // ODRIVE_getEncoderCount_axis0 message packer
-bool odrive_get_encoder_count_axis0_packer(uint8_t *raw,
-                                           const CANMsgMap *msgMap,
-                                           size_t &len) {
+bool odrive_get_encoder_count_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len) {
   bool success = true;
-  CANID msgID = CANID::ODRIVE_GET_ENCODER_COUNT_AXIS0;
+  CANID msgID  = CANID::ODRIVE_GET_ENCODER_COUNT_AXIS0;
   struct uwrt_mars_rover_can_odrive_get_encoder_count_axis0_t msgStruct;
 
   if (msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
-      CANSIGNAL signalName = it->first;
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName         = it->first;
       CANSignalValue_t signalValue = it->second;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_ENCODER_SHADOW_COUNT:
+          msgStruct.odrive_encoder_shadow_count =
+              uwrt_mars_rover_can_odrive_get_encoder_count_axis0_odrive_encoder_shadow_count_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_ENCODER_SHADOW_COUNT:
-        msgStruct.odrive_encoder_shadow_count =
-            uwrt_mars_rover_can_odrive_get_encoder_count_axis0_odrive_encoder_shadow_count_encode(
-                signalValue);
-        break;
+        case CANSIGNAL::ODRIVE_ENCODER_COUNTIN_CPR:
+          msgStruct.odrive_encoder_countin_cpr =
+              uwrt_mars_rover_can_odrive_get_encoder_count_axis0_odrive_encoder_countin_cpr_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_ENCODER_COUNTIN_CPR:
-        msgStruct.odrive_encoder_countin_cpr =
-            uwrt_mars_rover_can_odrive_get_encoder_count_axis0_odrive_encoder_countin_cpr_encode(
-                signalValue);
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
-    success &=
-        (uwrt_mars_rover_can_odrive_get_encoder_count_axis0_pack(
-             raw, &msgStruct,
-             UWRT_MARS_ROVER_CAN_ODRIVE_GET_ENCODER_COUNT_AXIS0_LENGTH) ==
-         UWRT_MARS_ROVER_CAN_ODRIVE_GET_ENCODER_COUNT_AXIS0_LENGTH);
+    success &= (uwrt_mars_rover_can_odrive_get_encoder_count_axis0_pack(
+                    raw, &msgStruct, UWRT_MARS_ROVER_CAN_ODRIVE_GET_ENCODER_COUNT_AXIS0_LENGTH) ==
+                UWRT_MARS_ROVER_CAN_ODRIVE_GET_ENCODER_COUNT_AXIS0_LENGTH);
     len = UWRT_MARS_ROVER_CAN_ODRIVE_GET_ENCODER_COUNT_AXIS0_LENGTH;
   }
   return success;
@@ -1124,38 +885,34 @@ bool odrive_get_encoder_count_axis0_packer(uint8_t *raw,
 // ODRIVE_getEncoderCount_axis0 message unpacker
 bool odrive_get_encoder_count_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
   bool success = false;
-  CANID msgID = CANID::ODRIVE_GET_ENCODER_COUNT_AXIS0;
+  CANID msgID  = CANID::ODRIVE_GET_ENCODER_COUNT_AXIS0;
   struct uwrt_mars_rover_can_odrive_get_encoder_count_axis0_t msgStruct;
 
-  success =
-      (uwrt_mars_rover_can_odrive_get_encoder_count_axis0_unpack(
-           &msgStruct, raw,
-           UWRT_MARS_ROVER_CAN_ODRIVE_GET_ENCODER_COUNT_AXIS0_LENGTH) == 0);
+  success = (uwrt_mars_rover_can_odrive_get_encoder_count_axis0_unpack(
+                 &msgStruct, raw, UWRT_MARS_ROVER_CAN_ODRIVE_GET_ENCODER_COUNT_AXIS0_LENGTH) == 0);
 
   if (success && msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
       CANSIGNAL signalName = it->first;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_ENCODER_SHADOW_COUNT:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_odrive_get_encoder_count_axis0_odrive_encoder_shadow_count_decode(
+                  msgStruct.odrive_encoder_shadow_count));
+          break;
 
-      case CANSIGNAL::ODRIVE_ENCODER_SHADOW_COUNT:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_get_encoder_count_axis0_odrive_encoder_shadow_count_decode(
-                msgStruct.odrive_encoder_shadow_count));
-        break;
+        case CANSIGNAL::ODRIVE_ENCODER_COUNTIN_CPR:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_odrive_get_encoder_count_axis0_odrive_encoder_countin_cpr_decode(
+                  msgStruct.odrive_encoder_countin_cpr));
+          break;
 
-      case CANSIGNAL::ODRIVE_ENCODER_COUNTIN_CPR:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_get_encoder_count_axis0_odrive_encoder_countin_cpr_decode(
-                msgStruct.odrive_encoder_countin_cpr));
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
   }
@@ -1164,84 +921,71 @@ bool odrive_get_encoder_count_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
 }
 
 // ODRIVE_setControllerModes_axis0 message packer
-bool odrive_set_controller_modes_axis0_packer(uint8_t *raw,
-                                              const CANMsgMap *msgMap,
-                                              size_t &len) {
+bool odrive_set_controller_modes_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len) {
   bool success = true;
-  CANID msgID = CANID::ODRIVE_SET_CONTROLLER_MODES_AXIS0;
+  CANID msgID  = CANID::ODRIVE_SET_CONTROLLER_MODES_AXIS0;
   struct uwrt_mars_rover_can_odrive_set_controller_modes_axis0_t msgStruct;
 
   if (msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
-      CANSIGNAL signalName = it->first;
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName         = it->first;
       CANSignalValue_t signalValue = it->second;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_CONTROL_MODE:
+          msgStruct.odrive_control_mode =
+              uwrt_mars_rover_can_odrive_set_controller_modes_axis0_odrive_control_mode_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_CONTROL_MODE:
-        msgStruct.odrive_control_mode =
-            uwrt_mars_rover_can_odrive_set_controller_modes_axis0_odrive_control_mode_encode(
-                signalValue);
-        break;
+        case CANSIGNAL::ODRIVE_INPUT_MODE:
+          msgStruct.odrive_input_mode =
+              uwrt_mars_rover_can_odrive_set_controller_modes_axis0_odrive_input_mode_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_INPUT_MODE:
-        msgStruct.odrive_input_mode =
-            uwrt_mars_rover_can_odrive_set_controller_modes_axis0_odrive_input_mode_encode(
-                signalValue);
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
-    success &=
-        (uwrt_mars_rover_can_odrive_set_controller_modes_axis0_pack(
-             raw, &msgStruct,
-             UWRT_MARS_ROVER_CAN_ODRIVE_SET_CONTROLLER_MODES_AXIS0_LENGTH) ==
-         UWRT_MARS_ROVER_CAN_ODRIVE_SET_CONTROLLER_MODES_AXIS0_LENGTH);
+    success &= (uwrt_mars_rover_can_odrive_set_controller_modes_axis0_pack(
+                    raw, &msgStruct, UWRT_MARS_ROVER_CAN_ODRIVE_SET_CONTROLLER_MODES_AXIS0_LENGTH) ==
+                UWRT_MARS_ROVER_CAN_ODRIVE_SET_CONTROLLER_MODES_AXIS0_LENGTH);
     len = UWRT_MARS_ROVER_CAN_ODRIVE_SET_CONTROLLER_MODES_AXIS0_LENGTH;
   }
   return success;
 }
 
 // ODRIVE_setControllerModes_axis0 message unpacker
-bool odrive_set_controller_modes_axis0_unpacker(uint8_t *raw,
-                                                CANMsgMap *msgMap) {
+bool odrive_set_controller_modes_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
   bool success = false;
-  CANID msgID = CANID::ODRIVE_SET_CONTROLLER_MODES_AXIS0;
+  CANID msgID  = CANID::ODRIVE_SET_CONTROLLER_MODES_AXIS0;
   struct uwrt_mars_rover_can_odrive_set_controller_modes_axis0_t msgStruct;
 
-  success =
-      (uwrt_mars_rover_can_odrive_set_controller_modes_axis0_unpack(
-           &msgStruct, raw,
-           UWRT_MARS_ROVER_CAN_ODRIVE_SET_CONTROLLER_MODES_AXIS0_LENGTH) == 0);
+  success = (uwrt_mars_rover_can_odrive_set_controller_modes_axis0_unpack(
+                 &msgStruct, raw, UWRT_MARS_ROVER_CAN_ODRIVE_SET_CONTROLLER_MODES_AXIS0_LENGTH) == 0);
 
   if (success && msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
       CANSIGNAL signalName = it->first;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_CONTROL_MODE:
+          success &=
+              msgMap->setSignalValue(msgID, signalName,
+                                     uwrt_mars_rover_can_odrive_set_controller_modes_axis0_odrive_control_mode_decode(
+                                         msgStruct.odrive_control_mode));
+          break;
 
-      case CANSIGNAL::ODRIVE_CONTROL_MODE:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_set_controller_modes_axis0_odrive_control_mode_decode(
-                msgStruct.odrive_control_mode));
-        break;
+        case CANSIGNAL::ODRIVE_INPUT_MODE:
+          success &=
+              msgMap->setSignalValue(msgID, signalName,
+                                     uwrt_mars_rover_can_odrive_set_controller_modes_axis0_odrive_input_mode_decode(
+                                         msgStruct.odrive_input_mode));
+          break;
 
-      case CANSIGNAL::ODRIVE_INPUT_MODE:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_set_controller_modes_axis0_odrive_input_mode_decode(
-                msgStruct.odrive_input_mode));
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
   }
@@ -1250,46 +994,38 @@ bool odrive_set_controller_modes_axis0_unpacker(uint8_t *raw,
 }
 
 // ODRIVE_SetInputPos_axis0 message packer
-bool odrive_set_input_pos_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap,
-                                       size_t &len) {
+bool odrive_set_input_pos_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len) {
   bool success = true;
-  CANID msgID = CANID::ODRIVE_SET_INPUT_POS_AXIS0;
+  CANID msgID  = CANID::ODRIVE_SET_INPUT_POS_AXIS0;
   struct uwrt_mars_rover_can_odrive_set_input_pos_axis0_t msgStruct;
 
   if (msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
-      CANSIGNAL signalName = it->first;
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName         = it->first;
       CANSignalValue_t signalValue = it->second;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_INPUT_POS:
+          msgStruct.odrive_input_pos =
+              uwrt_mars_rover_can_odrive_set_input_pos_axis0_odrive_input_pos_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_INPUT_POS:
-        msgStruct.odrive_input_pos =
-            uwrt_mars_rover_can_odrive_set_input_pos_axis0_odrive_input_pos_encode(
-                signalValue);
-        break;
+        case CANSIGNAL::ODRIVE_VEL_FF:
+          msgStruct.odrive_vel_ff = uwrt_mars_rover_can_odrive_set_input_pos_axis0_odrive_vel_ff_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_VEL_FF:
-        msgStruct.odrive_vel_ff =
-            uwrt_mars_rover_can_odrive_set_input_pos_axis0_odrive_vel_ff_encode(
-                signalValue);
-        break;
+        case CANSIGNAL::ODRIVE_TORQUE_FF:
+          msgStruct.odrive_torque_ff =
+              uwrt_mars_rover_can_odrive_set_input_pos_axis0_odrive_torque_ff_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_TORQUE_FF:
-        msgStruct.odrive_torque_ff =
-            uwrt_mars_rover_can_odrive_set_input_pos_axis0_odrive_torque_ff_encode(
-                signalValue);
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
     success &= (uwrt_mars_rover_can_odrive_set_input_pos_axis0_pack(
-                    raw, &msgStruct,
-                    UWRT_MARS_ROVER_CAN_ODRIVE_SET_INPUT_POS_AXIS0_LENGTH) ==
+                    raw, &msgStruct, UWRT_MARS_ROVER_CAN_ODRIVE_SET_INPUT_POS_AXIS0_LENGTH) ==
                 UWRT_MARS_ROVER_CAN_ODRIVE_SET_INPUT_POS_AXIS0_LENGTH);
     len = UWRT_MARS_ROVER_CAN_ODRIVE_SET_INPUT_POS_AXIS0_LENGTH;
   }
@@ -1299,44 +1035,38 @@ bool odrive_set_input_pos_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap,
 // ODRIVE_SetInputPos_axis0 message unpacker
 bool odrive_set_input_pos_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
   bool success = false;
-  CANID msgID = CANID::ODRIVE_SET_INPUT_POS_AXIS0;
+  CANID msgID  = CANID::ODRIVE_SET_INPUT_POS_AXIS0;
   struct uwrt_mars_rover_can_odrive_set_input_pos_axis0_t msgStruct;
 
   success = (uwrt_mars_rover_can_odrive_set_input_pos_axis0_unpack(
-                 &msgStruct, raw,
-                 UWRT_MARS_ROVER_CAN_ODRIVE_SET_INPUT_POS_AXIS0_LENGTH) == 0);
+                 &msgStruct, raw, UWRT_MARS_ROVER_CAN_ODRIVE_SET_INPUT_POS_AXIS0_LENGTH) == 0);
 
   if (success && msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
       CANSIGNAL signalName = it->first;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_INPUT_POS:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_odrive_set_input_pos_axis0_odrive_input_pos_decode(msgStruct.odrive_input_pos));
+          break;
 
-      case CANSIGNAL::ODRIVE_INPUT_POS:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_set_input_pos_axis0_odrive_input_pos_decode(
-                msgStruct.odrive_input_pos));
-        break;
+        case CANSIGNAL::ODRIVE_VEL_FF:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_odrive_set_input_pos_axis0_odrive_vel_ff_decode(msgStruct.odrive_vel_ff));
+          break;
 
-      case CANSIGNAL::ODRIVE_VEL_FF:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_set_input_pos_axis0_odrive_vel_ff_decode(
-                msgStruct.odrive_vel_ff));
-        break;
+        case CANSIGNAL::ODRIVE_TORQUE_FF:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_odrive_set_input_pos_axis0_odrive_torque_ff_decode(msgStruct.odrive_torque_ff));
+          break;
 
-      case CANSIGNAL::ODRIVE_TORQUE_FF:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_set_input_pos_axis0_odrive_torque_ff_decode(
-                msgStruct.odrive_torque_ff));
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
   }
@@ -1345,40 +1075,34 @@ bool odrive_set_input_pos_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
 }
 
 // ODRIVE_setInputVel_axis0 message packer
-bool odrive_set_input_vel_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap,
-                                       size_t &len) {
+bool odrive_set_input_vel_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len) {
   bool success = true;
-  CANID msgID = CANID::ODRIVE_SET_INPUT_VEL_AXIS0;
+  CANID msgID  = CANID::ODRIVE_SET_INPUT_VEL_AXIS0;
   struct uwrt_mars_rover_can_odrive_set_input_vel_axis0_t msgStruct;
 
   if (msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
-      CANSIGNAL signalName = it->first;
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName         = it->first;
       CANSignalValue_t signalValue = it->second;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_INPUT_VEL:
+          msgStruct.odrive_input_vel =
+              uwrt_mars_rover_can_odrive_set_input_vel_axis0_odrive_input_vel_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_INPUT_VEL:
-        msgStruct.odrive_input_vel =
-            uwrt_mars_rover_can_odrive_set_input_vel_axis0_odrive_input_vel_encode(
-                signalValue);
-        break;
+        case CANSIGNAL::ODRIVE_TORQUE_FF:
+          msgStruct.odrive_torque_ff =
+              uwrt_mars_rover_can_odrive_set_input_vel_axis0_odrive_torque_ff_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_TORQUE_FF:
-        msgStruct.odrive_torque_ff =
-            uwrt_mars_rover_can_odrive_set_input_vel_axis0_odrive_torque_ff_encode(
-                signalValue);
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
     success &= (uwrt_mars_rover_can_odrive_set_input_vel_axis0_pack(
-                    raw, &msgStruct,
-                    UWRT_MARS_ROVER_CAN_ODRIVE_SET_INPUT_VEL_AXIS0_LENGTH) ==
+                    raw, &msgStruct, UWRT_MARS_ROVER_CAN_ODRIVE_SET_INPUT_VEL_AXIS0_LENGTH) ==
                 UWRT_MARS_ROVER_CAN_ODRIVE_SET_INPUT_VEL_AXIS0_LENGTH);
     len = UWRT_MARS_ROVER_CAN_ODRIVE_SET_INPUT_VEL_AXIS0_LENGTH;
   }
@@ -1388,37 +1112,32 @@ bool odrive_set_input_vel_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap,
 // ODRIVE_setInputVel_axis0 message unpacker
 bool odrive_set_input_vel_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
   bool success = false;
-  CANID msgID = CANID::ODRIVE_SET_INPUT_VEL_AXIS0;
+  CANID msgID  = CANID::ODRIVE_SET_INPUT_VEL_AXIS0;
   struct uwrt_mars_rover_can_odrive_set_input_vel_axis0_t msgStruct;
 
   success = (uwrt_mars_rover_can_odrive_set_input_vel_axis0_unpack(
-                 &msgStruct, raw,
-                 UWRT_MARS_ROVER_CAN_ODRIVE_SET_INPUT_VEL_AXIS0_LENGTH) == 0);
+                 &msgStruct, raw, UWRT_MARS_ROVER_CAN_ODRIVE_SET_INPUT_VEL_AXIS0_LENGTH) == 0);
 
   if (success && msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
       CANSIGNAL signalName = it->first;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_INPUT_VEL:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_odrive_set_input_vel_axis0_odrive_input_vel_decode(msgStruct.odrive_input_vel));
+          break;
 
-      case CANSIGNAL::ODRIVE_INPUT_VEL:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_set_input_vel_axis0_odrive_input_vel_decode(
-                msgStruct.odrive_input_vel));
-        break;
+        case CANSIGNAL::ODRIVE_TORQUE_FF:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_odrive_set_input_vel_axis0_odrive_torque_ff_decode(msgStruct.odrive_torque_ff));
+          break;
 
-      case CANSIGNAL::ODRIVE_TORQUE_FF:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_set_input_vel_axis0_odrive_torque_ff_decode(
-                msgStruct.odrive_torque_ff));
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
   }
@@ -1427,34 +1146,29 @@ bool odrive_set_input_vel_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
 }
 
 // ODRIVE_setInputTorque_axis0 message packer
-bool odrive_set_input_torque_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap,
-                                          size_t &len) {
+bool odrive_set_input_torque_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len) {
   bool success = true;
-  CANID msgID = CANID::ODRIVE_SET_INPUT_TORQUE_AXIS0;
+  CANID msgID  = CANID::ODRIVE_SET_INPUT_TORQUE_AXIS0;
   struct uwrt_mars_rover_can_odrive_set_input_torque_axis0_t msgStruct;
 
   if (msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
-      CANSIGNAL signalName = it->first;
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName         = it->first;
       CANSignalValue_t signalValue = it->second;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_INPUT_TORQUE:
+          msgStruct.odrive_input_torque =
+              uwrt_mars_rover_can_odrive_set_input_torque_axis0_odrive_input_torque_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_INPUT_TORQUE:
-        msgStruct.odrive_input_torque =
-            uwrt_mars_rover_can_odrive_set_input_torque_axis0_odrive_input_torque_encode(
-                signalValue);
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
     success &= (uwrt_mars_rover_can_odrive_set_input_torque_axis0_pack(
-                    raw, &msgStruct,
-                    UWRT_MARS_ROVER_CAN_ODRIVE_SET_INPUT_TORQUE_AXIS0_LENGTH) ==
+                    raw, &msgStruct, UWRT_MARS_ROVER_CAN_ODRIVE_SET_INPUT_TORQUE_AXIS0_LENGTH) ==
                 UWRT_MARS_ROVER_CAN_ODRIVE_SET_INPUT_TORQUE_AXIS0_LENGTH);
     len = UWRT_MARS_ROVER_CAN_ODRIVE_SET_INPUT_TORQUE_AXIS0_LENGTH;
   }
@@ -1464,31 +1178,27 @@ bool odrive_set_input_torque_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap,
 // ODRIVE_setInputTorque_axis0 message unpacker
 bool odrive_set_input_torque_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
   bool success = false;
-  CANID msgID = CANID::ODRIVE_SET_INPUT_TORQUE_AXIS0;
+  CANID msgID  = CANID::ODRIVE_SET_INPUT_TORQUE_AXIS0;
   struct uwrt_mars_rover_can_odrive_set_input_torque_axis0_t msgStruct;
 
-  success =
-      (uwrt_mars_rover_can_odrive_set_input_torque_axis0_unpack(
-           &msgStruct, raw,
-           UWRT_MARS_ROVER_CAN_ODRIVE_SET_INPUT_TORQUE_AXIS0_LENGTH) == 0);
+  success = (uwrt_mars_rover_can_odrive_set_input_torque_axis0_unpack(
+                 &msgStruct, raw, UWRT_MARS_ROVER_CAN_ODRIVE_SET_INPUT_TORQUE_AXIS0_LENGTH) == 0);
 
   if (success && msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
       CANSIGNAL signalName = it->first;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_INPUT_TORQUE:
+          success &=
+              msgMap->setSignalValue(msgID, signalName,
+                                     uwrt_mars_rover_can_odrive_set_input_torque_axis0_odrive_input_torque_decode(
+                                         msgStruct.odrive_input_torque));
+          break;
 
-      case CANSIGNAL::ODRIVE_INPUT_TORQUE:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_set_input_torque_axis0_odrive_input_torque_decode(
-                msgStruct.odrive_input_torque));
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
   }
@@ -1497,40 +1207,34 @@ bool odrive_set_input_torque_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
 }
 
 // ODRIVE_setLimits_axis0 message packer
-bool odrive_set_limits_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap,
-                                    size_t &len) {
+bool odrive_set_limits_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len) {
   bool success = true;
-  CANID msgID = CANID::ODRIVE_SET_LIMITS_AXIS0;
+  CANID msgID  = CANID::ODRIVE_SET_LIMITS_AXIS0;
   struct uwrt_mars_rover_can_odrive_set_limits_axis0_t msgStruct;
 
   if (msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
-      CANSIGNAL signalName = it->first;
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName         = it->first;
       CANSignalValue_t signalValue = it->second;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_VELOCITY_LIMIT:
+          msgStruct.odrive_velocity_limit =
+              uwrt_mars_rover_can_odrive_set_limits_axis0_odrive_velocity_limit_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_VELOCITY_LIMIT:
-        msgStruct.odrive_velocity_limit =
-            uwrt_mars_rover_can_odrive_set_limits_axis0_odrive_velocity_limit_encode(
-                signalValue);
-        break;
+        case CANSIGNAL::ODRIVE_CURRENT_LIMIT:
+          msgStruct.odrive_current_limit =
+              uwrt_mars_rover_can_odrive_set_limits_axis0_odrive_current_limit_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_CURRENT_LIMIT:
-        msgStruct.odrive_current_limit =
-            uwrt_mars_rover_can_odrive_set_limits_axis0_odrive_current_limit_encode(
-                signalValue);
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
-    success &= (uwrt_mars_rover_can_odrive_set_limits_axis0_pack(
-                    raw, &msgStruct,
-                    UWRT_MARS_ROVER_CAN_ODRIVE_SET_LIMITS_AXIS0_LENGTH) ==
+    success &= (uwrt_mars_rover_can_odrive_set_limits_axis0_pack(raw, &msgStruct,
+                                                                 UWRT_MARS_ROVER_CAN_ODRIVE_SET_LIMITS_AXIS0_LENGTH) ==
                 UWRT_MARS_ROVER_CAN_ODRIVE_SET_LIMITS_AXIS0_LENGTH);
     len = UWRT_MARS_ROVER_CAN_ODRIVE_SET_LIMITS_AXIS0_LENGTH;
   }
@@ -1540,37 +1244,32 @@ bool odrive_set_limits_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap,
 // ODRIVE_setLimits_axis0 message unpacker
 bool odrive_set_limits_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
   bool success = false;
-  CANID msgID = CANID::ODRIVE_SET_LIMITS_AXIS0;
+  CANID msgID  = CANID::ODRIVE_SET_LIMITS_AXIS0;
   struct uwrt_mars_rover_can_odrive_set_limits_axis0_t msgStruct;
 
   success = (uwrt_mars_rover_can_odrive_set_limits_axis0_unpack(
-                 &msgStruct, raw,
-                 UWRT_MARS_ROVER_CAN_ODRIVE_SET_LIMITS_AXIS0_LENGTH) == 0);
+                 &msgStruct, raw, UWRT_MARS_ROVER_CAN_ODRIVE_SET_LIMITS_AXIS0_LENGTH) == 0);
 
   if (success && msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
       CANSIGNAL signalName = it->first;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_VELOCITY_LIMIT:
+          success &= msgMap->setSignalValue(msgID, signalName,
+                                            uwrt_mars_rover_can_odrive_set_limits_axis0_odrive_velocity_limit_decode(
+                                                msgStruct.odrive_velocity_limit));
+          break;
 
-      case CANSIGNAL::ODRIVE_VELOCITY_LIMIT:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_set_limits_axis0_odrive_velocity_limit_decode(
-                msgStruct.odrive_velocity_limit));
-        break;
+        case CANSIGNAL::ODRIVE_CURRENT_LIMIT:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_odrive_set_limits_axis0_odrive_current_limit_decode(msgStruct.odrive_current_limit));
+          break;
 
-      case CANSIGNAL::ODRIVE_CURRENT_LIMIT:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_set_limits_axis0_odrive_current_limit_decode(
-                msgStruct.odrive_current_limit));
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
   }
@@ -1579,31 +1278,25 @@ bool odrive_set_limits_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
 }
 
 // ODRIVE_StartAnticogging_axis0 message packer
-bool odrive_start_anticogging_axis0_packer(uint8_t *raw,
-                                           const CANMsgMap *msgMap,
-                                           size_t &len) {
+bool odrive_start_anticogging_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len) {
   bool success = true;
-  CANID msgID = CANID::ODRIVE_START_ANTICOGGING_AXIS0;
+  CANID msgID  = CANID::ODRIVE_START_ANTICOGGING_AXIS0;
   struct uwrt_mars_rover_can_odrive_start_anticogging_axis0_t msgStruct;
 
   if (msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
-      CANSIGNAL signalName = it->first;
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName         = it->first;
       CANSignalValue_t signalValue = it->second;
 
       switch (signalName) {
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
-    success &=
-        (uwrt_mars_rover_can_odrive_start_anticogging_axis0_pack(
-             raw, &msgStruct,
-             UWRT_MARS_ROVER_CAN_ODRIVE_START_ANTICOGGING_AXIS0_LENGTH) ==
-         UWRT_MARS_ROVER_CAN_ODRIVE_START_ANTICOGGING_AXIS0_LENGTH);
+    success &= (uwrt_mars_rover_can_odrive_start_anticogging_axis0_pack(
+                    raw, &msgStruct, UWRT_MARS_ROVER_CAN_ODRIVE_START_ANTICOGGING_AXIS0_LENGTH) ==
+                UWRT_MARS_ROVER_CAN_ODRIVE_START_ANTICOGGING_AXIS0_LENGTH);
     len = UWRT_MARS_ROVER_CAN_ODRIVE_START_ANTICOGGING_AXIS0_LENGTH;
   }
   return success;
@@ -1612,24 +1305,20 @@ bool odrive_start_anticogging_axis0_packer(uint8_t *raw,
 // ODRIVE_StartAnticogging_axis0 message unpacker
 bool odrive_start_anticogging_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
   bool success = false;
-  CANID msgID = CANID::ODRIVE_START_ANTICOGGING_AXIS0;
+  CANID msgID  = CANID::ODRIVE_START_ANTICOGGING_AXIS0;
   struct uwrt_mars_rover_can_odrive_start_anticogging_axis0_t msgStruct;
 
-  success =
-      (uwrt_mars_rover_can_odrive_start_anticogging_axis0_unpack(
-           &msgStruct, raw,
-           UWRT_MARS_ROVER_CAN_ODRIVE_START_ANTICOGGING_AXIS0_LENGTH) == 0);
+  success = (uwrt_mars_rover_can_odrive_start_anticogging_axis0_unpack(
+                 &msgStruct, raw, UWRT_MARS_ROVER_CAN_ODRIVE_START_ANTICOGGING_AXIS0_LENGTH) == 0);
 
   if (success && msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
       CANSIGNAL signalName = it->first;
 
       switch (signalName) {
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
   }
@@ -1638,37 +1327,30 @@ bool odrive_start_anticogging_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
 }
 
 // ODRIVE_setTrajVelLimit_axis0 message packer
-bool odrive_set_traj_vel_limit_axis0_packer(uint8_t *raw,
-                                            const CANMsgMap *msgMap,
-                                            size_t &len) {
+bool odrive_set_traj_vel_limit_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len) {
   bool success = true;
-  CANID msgID = CANID::ODRIVE_SET_TRAJ_VEL_LIMIT_AXIS0;
+  CANID msgID  = CANID::ODRIVE_SET_TRAJ_VEL_LIMIT_AXIS0;
   struct uwrt_mars_rover_can_odrive_set_traj_vel_limit_axis0_t msgStruct;
 
   if (msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
-      CANSIGNAL signalName = it->first;
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName         = it->first;
       CANSignalValue_t signalValue = it->second;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_TRAJ_VEL_LIMIT:
+          msgStruct.odrive_traj_vel_limit =
+              uwrt_mars_rover_can_odrive_set_traj_vel_limit_axis0_odrive_traj_vel_limit_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_TRAJ_VEL_LIMIT:
-        msgStruct.odrive_traj_vel_limit =
-            uwrt_mars_rover_can_odrive_set_traj_vel_limit_axis0_odrive_traj_vel_limit_encode(
-                signalValue);
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
-    success &=
-        (uwrt_mars_rover_can_odrive_set_traj_vel_limit_axis0_pack(
-             raw, &msgStruct,
-             UWRT_MARS_ROVER_CAN_ODRIVE_SET_TRAJ_VEL_LIMIT_AXIS0_LENGTH) ==
-         UWRT_MARS_ROVER_CAN_ODRIVE_SET_TRAJ_VEL_LIMIT_AXIS0_LENGTH);
+    success &= (uwrt_mars_rover_can_odrive_set_traj_vel_limit_axis0_pack(
+                    raw, &msgStruct, UWRT_MARS_ROVER_CAN_ODRIVE_SET_TRAJ_VEL_LIMIT_AXIS0_LENGTH) ==
+                UWRT_MARS_ROVER_CAN_ODRIVE_SET_TRAJ_VEL_LIMIT_AXIS0_LENGTH);
     len = UWRT_MARS_ROVER_CAN_ODRIVE_SET_TRAJ_VEL_LIMIT_AXIS0_LENGTH;
   }
   return success;
@@ -1677,31 +1359,27 @@ bool odrive_set_traj_vel_limit_axis0_packer(uint8_t *raw,
 // ODRIVE_setTrajVelLimit_axis0 message unpacker
 bool odrive_set_traj_vel_limit_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
   bool success = false;
-  CANID msgID = CANID::ODRIVE_SET_TRAJ_VEL_LIMIT_AXIS0;
+  CANID msgID  = CANID::ODRIVE_SET_TRAJ_VEL_LIMIT_AXIS0;
   struct uwrt_mars_rover_can_odrive_set_traj_vel_limit_axis0_t msgStruct;
 
-  success =
-      (uwrt_mars_rover_can_odrive_set_traj_vel_limit_axis0_unpack(
-           &msgStruct, raw,
-           UWRT_MARS_ROVER_CAN_ODRIVE_SET_TRAJ_VEL_LIMIT_AXIS0_LENGTH) == 0);
+  success = (uwrt_mars_rover_can_odrive_set_traj_vel_limit_axis0_unpack(
+                 &msgStruct, raw, UWRT_MARS_ROVER_CAN_ODRIVE_SET_TRAJ_VEL_LIMIT_AXIS0_LENGTH) == 0);
 
   if (success && msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
       CANSIGNAL signalName = it->first;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_TRAJ_VEL_LIMIT:
+          success &=
+              msgMap->setSignalValue(msgID, signalName,
+                                     uwrt_mars_rover_can_odrive_set_traj_vel_limit_axis0_odrive_traj_vel_limit_decode(
+                                         msgStruct.odrive_traj_vel_limit));
+          break;
 
-      case CANSIGNAL::ODRIVE_TRAJ_VEL_LIMIT:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_set_traj_vel_limit_axis0_odrive_traj_vel_limit_decode(
-                msgStruct.odrive_traj_vel_limit));
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
   }
@@ -1710,84 +1388,71 @@ bool odrive_set_traj_vel_limit_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
 }
 
 // ODRIVE_setTrajAccelLimit_axis0 message packer
-bool odrive_set_traj_accel_limit_axis0_packer(uint8_t *raw,
-                                              const CANMsgMap *msgMap,
-                                              size_t &len) {
+bool odrive_set_traj_accel_limit_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len) {
   bool success = true;
-  CANID msgID = CANID::ODRIVE_SET_TRAJ_ACCEL_LIMIT_AXIS0;
+  CANID msgID  = CANID::ODRIVE_SET_TRAJ_ACCEL_LIMIT_AXIS0;
   struct uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis0_t msgStruct;
 
   if (msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
-      CANSIGNAL signalName = it->first;
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName         = it->first;
       CANSignalValue_t signalValue = it->second;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_TRAJ_ACCEL_LIMIT:
+          msgStruct.odrive_traj_accel_limit =
+              uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis0_odrive_traj_accel_limit_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_TRAJ_ACCEL_LIMIT:
-        msgStruct.odrive_traj_accel_limit =
-            uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis0_odrive_traj_accel_limit_encode(
-                signalValue);
-        break;
+        case CANSIGNAL::ODRIVE_TRAJ_DECEL_LIMIT:
+          msgStruct.odrive_traj_decel_limit =
+              uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis0_odrive_traj_decel_limit_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_TRAJ_DECEL_LIMIT:
-        msgStruct.odrive_traj_decel_limit =
-            uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis0_odrive_traj_decel_limit_encode(
-                signalValue);
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
-    success &=
-        (uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis0_pack(
-             raw, &msgStruct,
-             UWRT_MARS_ROVER_CAN_ODRIVE_SET_TRAJ_ACCEL_LIMIT_AXIS0_LENGTH) ==
-         UWRT_MARS_ROVER_CAN_ODRIVE_SET_TRAJ_ACCEL_LIMIT_AXIS0_LENGTH);
+    success &= (uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis0_pack(
+                    raw, &msgStruct, UWRT_MARS_ROVER_CAN_ODRIVE_SET_TRAJ_ACCEL_LIMIT_AXIS0_LENGTH) ==
+                UWRT_MARS_ROVER_CAN_ODRIVE_SET_TRAJ_ACCEL_LIMIT_AXIS0_LENGTH);
     len = UWRT_MARS_ROVER_CAN_ODRIVE_SET_TRAJ_ACCEL_LIMIT_AXIS0_LENGTH;
   }
   return success;
 }
 
 // ODRIVE_setTrajAccelLimit_axis0 message unpacker
-bool odrive_set_traj_accel_limit_axis0_unpacker(uint8_t *raw,
-                                                CANMsgMap *msgMap) {
+bool odrive_set_traj_accel_limit_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
   bool success = false;
-  CANID msgID = CANID::ODRIVE_SET_TRAJ_ACCEL_LIMIT_AXIS0;
+  CANID msgID  = CANID::ODRIVE_SET_TRAJ_ACCEL_LIMIT_AXIS0;
   struct uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis0_t msgStruct;
 
-  success =
-      (uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis0_unpack(
-           &msgStruct, raw,
-           UWRT_MARS_ROVER_CAN_ODRIVE_SET_TRAJ_ACCEL_LIMIT_AXIS0_LENGTH) == 0);
+  success = (uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis0_unpack(
+                 &msgStruct, raw, UWRT_MARS_ROVER_CAN_ODRIVE_SET_TRAJ_ACCEL_LIMIT_AXIS0_LENGTH) == 0);
 
   if (success && msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
       CANSIGNAL signalName = it->first;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_TRAJ_ACCEL_LIMIT:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis0_odrive_traj_accel_limit_decode(
+                  msgStruct.odrive_traj_accel_limit));
+          break;
 
-      case CANSIGNAL::ODRIVE_TRAJ_ACCEL_LIMIT:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis0_odrive_traj_accel_limit_decode(
-                msgStruct.odrive_traj_accel_limit));
-        break;
+        case CANSIGNAL::ODRIVE_TRAJ_DECEL_LIMIT:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis0_odrive_traj_decel_limit_decode(
+                  msgStruct.odrive_traj_decel_limit));
+          break;
 
-      case CANSIGNAL::ODRIVE_TRAJ_DECEL_LIMIT:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis0_odrive_traj_decel_limit_decode(
-                msgStruct.odrive_traj_decel_limit));
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
   }
@@ -1796,34 +1461,29 @@ bool odrive_set_traj_accel_limit_axis0_unpacker(uint8_t *raw,
 }
 
 // ODRIVE_setTrajInertia_axis0 message packer
-bool odrive_set_traj_inertia_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap,
-                                          size_t &len) {
+bool odrive_set_traj_inertia_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len) {
   bool success = true;
-  CANID msgID = CANID::ODRIVE_SET_TRAJ_INERTIA_AXIS0;
+  CANID msgID  = CANID::ODRIVE_SET_TRAJ_INERTIA_AXIS0;
   struct uwrt_mars_rover_can_odrive_set_traj_inertia_axis0_t msgStruct;
 
   if (msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
-      CANSIGNAL signalName = it->first;
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName         = it->first;
       CANSignalValue_t signalValue = it->second;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_TRAJ_INERTIA:
+          msgStruct.odrive_traj_inertia =
+              uwrt_mars_rover_can_odrive_set_traj_inertia_axis0_odrive_traj_inertia_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_TRAJ_INERTIA:
-        msgStruct.odrive_traj_inertia =
-            uwrt_mars_rover_can_odrive_set_traj_inertia_axis0_odrive_traj_inertia_encode(
-                signalValue);
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
     success &= (uwrt_mars_rover_can_odrive_set_traj_inertia_axis0_pack(
-                    raw, &msgStruct,
-                    UWRT_MARS_ROVER_CAN_ODRIVE_SET_TRAJ_INERTIA_AXIS0_LENGTH) ==
+                    raw, &msgStruct, UWRT_MARS_ROVER_CAN_ODRIVE_SET_TRAJ_INERTIA_AXIS0_LENGTH) ==
                 UWRT_MARS_ROVER_CAN_ODRIVE_SET_TRAJ_INERTIA_AXIS0_LENGTH);
     len = UWRT_MARS_ROVER_CAN_ODRIVE_SET_TRAJ_INERTIA_AXIS0_LENGTH;
   }
@@ -1833,31 +1493,27 @@ bool odrive_set_traj_inertia_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap,
 // ODRIVE_setTrajInertia_axis0 message unpacker
 bool odrive_set_traj_inertia_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
   bool success = false;
-  CANID msgID = CANID::ODRIVE_SET_TRAJ_INERTIA_AXIS0;
+  CANID msgID  = CANID::ODRIVE_SET_TRAJ_INERTIA_AXIS0;
   struct uwrt_mars_rover_can_odrive_set_traj_inertia_axis0_t msgStruct;
 
-  success =
-      (uwrt_mars_rover_can_odrive_set_traj_inertia_axis0_unpack(
-           &msgStruct, raw,
-           UWRT_MARS_ROVER_CAN_ODRIVE_SET_TRAJ_INERTIA_AXIS0_LENGTH) == 0);
+  success = (uwrt_mars_rover_can_odrive_set_traj_inertia_axis0_unpack(
+                 &msgStruct, raw, UWRT_MARS_ROVER_CAN_ODRIVE_SET_TRAJ_INERTIA_AXIS0_LENGTH) == 0);
 
   if (success && msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
       CANSIGNAL signalName = it->first;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_TRAJ_INERTIA:
+          success &=
+              msgMap->setSignalValue(msgID, signalName,
+                                     uwrt_mars_rover_can_odrive_set_traj_inertia_axis0_odrive_traj_inertia_decode(
+                                         msgStruct.odrive_traj_inertia));
+          break;
 
-      case CANSIGNAL::ODRIVE_TRAJ_INERTIA:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_set_traj_inertia_axis0_odrive_traj_inertia_decode(
-                msgStruct.odrive_traj_inertia));
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
   }
@@ -1866,41 +1522,33 @@ bool odrive_set_traj_inertia_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
 }
 
 // ODRIVE_getIQ_axis0 message packer
-bool odrive_get_iq_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap,
-                                size_t &len) {
+bool odrive_get_iq_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len) {
   bool success = true;
-  CANID msgID = CANID::ODRIVE_GET_IQ_AXIS0;
+  CANID msgID  = CANID::ODRIVE_GET_IQ_AXIS0;
   struct uwrt_mars_rover_can_odrive_get_iq_axis0_t msgStruct;
 
   if (msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
-      CANSIGNAL signalName = it->first;
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName         = it->first;
       CANSignalValue_t signalValue = it->second;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_IQ_SETPOINT:
+          msgStruct.odrive_iq_setpoint = uwrt_mars_rover_can_odrive_get_iq_axis0_odrive_iq_setpoint_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_IQ_SETPOINT:
-        msgStruct.odrive_iq_setpoint =
-            uwrt_mars_rover_can_odrive_get_iq_axis0_odrive_iq_setpoint_encode(
-                signalValue);
-        break;
+        case CANSIGNAL::ODRIVE_IQ_MEASURED:
+          msgStruct.odrive_iq_measured = uwrt_mars_rover_can_odrive_get_iq_axis0_odrive_iq_measured_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_IQ_MEASURED:
-        msgStruct.odrive_iq_measured =
-            uwrt_mars_rover_can_odrive_get_iq_axis0_odrive_iq_measured_encode(
-                signalValue);
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
-    success &=
-        (uwrt_mars_rover_can_odrive_get_iq_axis0_pack(
-             raw, &msgStruct, UWRT_MARS_ROVER_CAN_ODRIVE_GET_IQ_AXIS0_LENGTH) ==
-         UWRT_MARS_ROVER_CAN_ODRIVE_GET_IQ_AXIS0_LENGTH);
+    success &= (uwrt_mars_rover_can_odrive_get_iq_axis0_pack(raw, &msgStruct,
+                                                             UWRT_MARS_ROVER_CAN_ODRIVE_GET_IQ_AXIS0_LENGTH) ==
+                UWRT_MARS_ROVER_CAN_ODRIVE_GET_IQ_AXIS0_LENGTH);
     len = UWRT_MARS_ROVER_CAN_ODRIVE_GET_IQ_AXIS0_LENGTH;
   }
   return success;
@@ -1909,37 +1557,32 @@ bool odrive_get_iq_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap,
 // ODRIVE_getIQ_axis0 message unpacker
 bool odrive_get_iq_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
   bool success = false;
-  CANID msgID = CANID::ODRIVE_GET_IQ_AXIS0;
+  CANID msgID  = CANID::ODRIVE_GET_IQ_AXIS0;
   struct uwrt_mars_rover_can_odrive_get_iq_axis0_t msgStruct;
 
-  success = (uwrt_mars_rover_can_odrive_get_iq_axis0_unpack(
-                 &msgStruct, raw,
-                 UWRT_MARS_ROVER_CAN_ODRIVE_GET_IQ_AXIS0_LENGTH) == 0);
+  success = (uwrt_mars_rover_can_odrive_get_iq_axis0_unpack(&msgStruct, raw,
+                                                            UWRT_MARS_ROVER_CAN_ODRIVE_GET_IQ_AXIS0_LENGTH) == 0);
 
   if (success && msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
       CANSIGNAL signalName = it->first;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_IQ_SETPOINT:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_odrive_get_iq_axis0_odrive_iq_setpoint_decode(msgStruct.odrive_iq_setpoint));
+          break;
 
-      case CANSIGNAL::ODRIVE_IQ_SETPOINT:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_get_iq_axis0_odrive_iq_setpoint_decode(
-                msgStruct.odrive_iq_setpoint));
-        break;
+        case CANSIGNAL::ODRIVE_IQ_MEASURED:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_odrive_get_iq_axis0_odrive_iq_measured_decode(msgStruct.odrive_iq_measured));
+          break;
 
-      case CANSIGNAL::ODRIVE_IQ_MEASURED:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_get_iq_axis0_odrive_iq_measured_decode(
-                msgStruct.odrive_iq_measured));
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
   }
@@ -1948,85 +1591,73 @@ bool odrive_get_iq_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
 }
 
 // ODRIVE_GetSensorlessEstimates_axis0 message packer
-bool odrive_get_sensorless_estimates_axis0_packer(uint8_t *raw,
-                                                  const CANMsgMap *msgMap,
-                                                  size_t &len) {
+bool odrive_get_sensorless_estimates_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len) {
   bool success = true;
-  CANID msgID = CANID::ODRIVE_GET_SENSORLESS_ESTIMATES_AXIS0;
+  CANID msgID  = CANID::ODRIVE_GET_SENSORLESS_ESTIMATES_AXIS0;
   struct uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis0_t msgStruct;
 
   if (msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
-      CANSIGNAL signalName = it->first;
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName         = it->first;
       CANSignalValue_t signalValue = it->second;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_SENSORLESS_POS_ESTIMATE:
+          msgStruct.odrive_sensorless_pos_estimate =
+              uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis0_odrive_sensorless_pos_estimate_encode(
+                  signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_SENSORLESS_POS_ESTIMATE:
-        msgStruct.odrive_sensorless_pos_estimate =
-            uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis0_odrive_sensorless_pos_estimate_encode(
-                signalValue);
-        break;
+        case CANSIGNAL::ODRIVE_SENSORLESS_VEL_ESTIMATE:
+          msgStruct.odrive_sensorless_vel_estimate =
+              uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis0_odrive_sensorless_vel_estimate_encode(
+                  signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_SENSORLESS_VEL_ESTIMATE:
-        msgStruct.odrive_sensorless_vel_estimate =
-            uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis0_odrive_sensorless_vel_estimate_encode(
-                signalValue);
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
-    success &=
-        (uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis0_pack(
-             raw, &msgStruct,
-             UWRT_MARS_ROVER_CAN_ODRIVE_GET_SENSORLESS_ESTIMATES_AXIS0_LENGTH) ==
-         UWRT_MARS_ROVER_CAN_ODRIVE_GET_SENSORLESS_ESTIMATES_AXIS0_LENGTH);
+    success &= (uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis0_pack(
+                    raw, &msgStruct, UWRT_MARS_ROVER_CAN_ODRIVE_GET_SENSORLESS_ESTIMATES_AXIS0_LENGTH) ==
+                UWRT_MARS_ROVER_CAN_ODRIVE_GET_SENSORLESS_ESTIMATES_AXIS0_LENGTH);
     len = UWRT_MARS_ROVER_CAN_ODRIVE_GET_SENSORLESS_ESTIMATES_AXIS0_LENGTH;
   }
   return success;
 }
 
 // ODRIVE_GetSensorlessEstimates_axis0 message unpacker
-bool odrive_get_sensorless_estimates_axis0_unpacker(uint8_t *raw,
-                                                    CANMsgMap *msgMap) {
+bool odrive_get_sensorless_estimates_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
   bool success = false;
-  CANID msgID = CANID::ODRIVE_GET_SENSORLESS_ESTIMATES_AXIS0;
+  CANID msgID  = CANID::ODRIVE_GET_SENSORLESS_ESTIMATES_AXIS0;
   struct uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis0_t msgStruct;
 
-  success =
-      (uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis0_unpack(
-           &msgStruct, raw,
-           UWRT_MARS_ROVER_CAN_ODRIVE_GET_SENSORLESS_ESTIMATES_AXIS0_LENGTH) ==
-       0);
+  success = (uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis0_unpack(
+                 &msgStruct, raw, UWRT_MARS_ROVER_CAN_ODRIVE_GET_SENSORLESS_ESTIMATES_AXIS0_LENGTH) == 0);
 
   if (success && msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
       CANSIGNAL signalName = it->first;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_SENSORLESS_POS_ESTIMATE:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis0_odrive_sensorless_pos_estimate_decode(
+                  msgStruct.odrive_sensorless_pos_estimate));
+          break;
 
-      case CANSIGNAL::ODRIVE_SENSORLESS_POS_ESTIMATE:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis0_odrive_sensorless_pos_estimate_decode(
-                msgStruct.odrive_sensorless_pos_estimate));
-        break;
+        case CANSIGNAL::ODRIVE_SENSORLESS_VEL_ESTIMATE:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis0_odrive_sensorless_vel_estimate_decode(
+                  msgStruct.odrive_sensorless_vel_estimate));
+          break;
 
-      case CANSIGNAL::ODRIVE_SENSORLESS_VEL_ESTIMATE:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis0_odrive_sensorless_vel_estimate_decode(
-                msgStruct.odrive_sensorless_vel_estimate));
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
   }
@@ -2035,28 +1666,24 @@ bool odrive_get_sensorless_estimates_axis0_unpacker(uint8_t *raw,
 }
 
 // ODRIVE_RebootOdrive_axis0 message packer
-bool odrive_reboot_odrive_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap,
-                                       size_t &len) {
+bool odrive_reboot_odrive_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len) {
   bool success = true;
-  CANID msgID = CANID::ODRIVE_REBOOT_ODRIVE_AXIS0;
+  CANID msgID  = CANID::ODRIVE_REBOOT_ODRIVE_AXIS0;
   struct uwrt_mars_rover_can_odrive_reboot_odrive_axis0_t msgStruct;
 
   if (msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
-      CANSIGNAL signalName = it->first;
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName         = it->first;
       CANSignalValue_t signalValue = it->second;
 
       switch (signalName) {
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
     success &= (uwrt_mars_rover_can_odrive_reboot_odrive_axis0_pack(
-                    raw, &msgStruct,
-                    UWRT_MARS_ROVER_CAN_ODRIVE_REBOOT_ODRIVE_AXIS0_LENGTH) ==
+                    raw, &msgStruct, UWRT_MARS_ROVER_CAN_ODRIVE_REBOOT_ODRIVE_AXIS0_LENGTH) ==
                 UWRT_MARS_ROVER_CAN_ODRIVE_REBOOT_ODRIVE_AXIS0_LENGTH);
     len = UWRT_MARS_ROVER_CAN_ODRIVE_REBOOT_ODRIVE_AXIS0_LENGTH;
   }
@@ -2066,23 +1693,20 @@ bool odrive_reboot_odrive_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap,
 // ODRIVE_RebootOdrive_axis0 message unpacker
 bool odrive_reboot_odrive_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
   bool success = false;
-  CANID msgID = CANID::ODRIVE_REBOOT_ODRIVE_AXIS0;
+  CANID msgID  = CANID::ODRIVE_REBOOT_ODRIVE_AXIS0;
   struct uwrt_mars_rover_can_odrive_reboot_odrive_axis0_t msgStruct;
 
   success = (uwrt_mars_rover_can_odrive_reboot_odrive_axis0_unpack(
-                 &msgStruct, raw,
-                 UWRT_MARS_ROVER_CAN_ODRIVE_REBOOT_ODRIVE_AXIS0_LENGTH) == 0);
+                 &msgStruct, raw, UWRT_MARS_ROVER_CAN_ODRIVE_REBOOT_ODRIVE_AXIS0_LENGTH) == 0);
 
   if (success && msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
       CANSIGNAL signalName = it->first;
 
       switch (signalName) {
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
   }
@@ -2091,34 +1715,29 @@ bool odrive_reboot_odrive_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
 }
 
 // ODRIVE_getVbusVoltage_axis0 message packer
-bool odrive_get_vbus_voltage_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap,
-                                          size_t &len) {
+bool odrive_get_vbus_voltage_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len) {
   bool success = true;
-  CANID msgID = CANID::ODRIVE_GET_VBUS_VOLTAGE_AXIS0;
+  CANID msgID  = CANID::ODRIVE_GET_VBUS_VOLTAGE_AXIS0;
   struct uwrt_mars_rover_can_odrive_get_vbus_voltage_axis0_t msgStruct;
 
   if (msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
-      CANSIGNAL signalName = it->first;
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName         = it->first;
       CANSignalValue_t signalValue = it->second;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_VBUS_VOLTAGE:
+          msgStruct.odrive_vbus_voltage =
+              uwrt_mars_rover_can_odrive_get_vbus_voltage_axis0_odrive_vbus_voltage_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_VBUS_VOLTAGE:
-        msgStruct.odrive_vbus_voltage =
-            uwrt_mars_rover_can_odrive_get_vbus_voltage_axis0_odrive_vbus_voltage_encode(
-                signalValue);
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
     success &= (uwrt_mars_rover_can_odrive_get_vbus_voltage_axis0_pack(
-                    raw, &msgStruct,
-                    UWRT_MARS_ROVER_CAN_ODRIVE_GET_VBUS_VOLTAGE_AXIS0_LENGTH) ==
+                    raw, &msgStruct, UWRT_MARS_ROVER_CAN_ODRIVE_GET_VBUS_VOLTAGE_AXIS0_LENGTH) ==
                 UWRT_MARS_ROVER_CAN_ODRIVE_GET_VBUS_VOLTAGE_AXIS0_LENGTH);
     len = UWRT_MARS_ROVER_CAN_ODRIVE_GET_VBUS_VOLTAGE_AXIS0_LENGTH;
   }
@@ -2128,31 +1747,27 @@ bool odrive_get_vbus_voltage_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap,
 // ODRIVE_getVbusVoltage_axis0 message unpacker
 bool odrive_get_vbus_voltage_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
   bool success = false;
-  CANID msgID = CANID::ODRIVE_GET_VBUS_VOLTAGE_AXIS0;
+  CANID msgID  = CANID::ODRIVE_GET_VBUS_VOLTAGE_AXIS0;
   struct uwrt_mars_rover_can_odrive_get_vbus_voltage_axis0_t msgStruct;
 
-  success =
-      (uwrt_mars_rover_can_odrive_get_vbus_voltage_axis0_unpack(
-           &msgStruct, raw,
-           UWRT_MARS_ROVER_CAN_ODRIVE_GET_VBUS_VOLTAGE_AXIS0_LENGTH) == 0);
+  success = (uwrt_mars_rover_can_odrive_get_vbus_voltage_axis0_unpack(
+                 &msgStruct, raw, UWRT_MARS_ROVER_CAN_ODRIVE_GET_VBUS_VOLTAGE_AXIS0_LENGTH) == 0);
 
   if (success && msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
       CANSIGNAL signalName = it->first;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_VBUS_VOLTAGE:
+          success &=
+              msgMap->setSignalValue(msgID, signalName,
+                                     uwrt_mars_rover_can_odrive_get_vbus_voltage_axis0_odrive_vbus_voltage_decode(
+                                         msgStruct.odrive_vbus_voltage));
+          break;
 
-      case CANSIGNAL::ODRIVE_VBUS_VOLTAGE:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_get_vbus_voltage_axis0_odrive_vbus_voltage_decode(
-                msgStruct.odrive_vbus_voltage));
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
   }
@@ -2161,28 +1776,24 @@ bool odrive_get_vbus_voltage_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
 }
 
 // ODRIVE_ClearErrors_axis0 message packer
-bool odrive_clear_errors_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap,
-                                      size_t &len) {
+bool odrive_clear_errors_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len) {
   bool success = true;
-  CANID msgID = CANID::ODRIVE_CLEAR_ERRORS_AXIS0;
+  CANID msgID  = CANID::ODRIVE_CLEAR_ERRORS_AXIS0;
   struct uwrt_mars_rover_can_odrive_clear_errors_axis0_t msgStruct;
 
   if (msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
-      CANSIGNAL signalName = it->first;
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName         = it->first;
       CANSignalValue_t signalValue = it->second;
 
       switch (signalName) {
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
     success &= (uwrt_mars_rover_can_odrive_clear_errors_axis0_pack(
-                    raw, &msgStruct,
-                    UWRT_MARS_ROVER_CAN_ODRIVE_CLEAR_ERRORS_AXIS0_LENGTH) ==
+                    raw, &msgStruct, UWRT_MARS_ROVER_CAN_ODRIVE_CLEAR_ERRORS_AXIS0_LENGTH) ==
                 UWRT_MARS_ROVER_CAN_ODRIVE_CLEAR_ERRORS_AXIS0_LENGTH);
     len = UWRT_MARS_ROVER_CAN_ODRIVE_CLEAR_ERRORS_AXIS0_LENGTH;
   }
@@ -2192,23 +1803,20 @@ bool odrive_clear_errors_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap,
 // ODRIVE_ClearErrors_axis0 message unpacker
 bool odrive_clear_errors_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
   bool success = false;
-  CANID msgID = CANID::ODRIVE_CLEAR_ERRORS_AXIS0;
+  CANID msgID  = CANID::ODRIVE_CLEAR_ERRORS_AXIS0;
   struct uwrt_mars_rover_can_odrive_clear_errors_axis0_t msgStruct;
 
   success = (uwrt_mars_rover_can_odrive_clear_errors_axis0_unpack(
-                 &msgStruct, raw,
-                 UWRT_MARS_ROVER_CAN_ODRIVE_CLEAR_ERRORS_AXIS0_LENGTH) == 0);
+                 &msgStruct, raw, UWRT_MARS_ROVER_CAN_ODRIVE_CLEAR_ERRORS_AXIS0_LENGTH) == 0);
 
   if (success && msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
       CANSIGNAL signalName = it->first;
 
       switch (signalName) {
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
   }
@@ -2217,34 +1825,29 @@ bool odrive_clear_errors_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
 }
 
 // ODRIVE_setLinearCount_axis0 message packer
-bool odrive_set_linear_count_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap,
-                                          size_t &len) {
+bool odrive_set_linear_count_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len) {
   bool success = true;
-  CANID msgID = CANID::ODRIVE_SET_LINEAR_COUNT_AXIS0;
+  CANID msgID  = CANID::ODRIVE_SET_LINEAR_COUNT_AXIS0;
   struct uwrt_mars_rover_can_odrive_set_linear_count_axis0_t msgStruct;
 
   if (msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
-      CANSIGNAL signalName = it->first;
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName         = it->first;
       CANSignalValue_t signalValue = it->second;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_POSITION:
+          msgStruct.odrive_position =
+              uwrt_mars_rover_can_odrive_set_linear_count_axis0_odrive_position_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_POSITION:
-        msgStruct.odrive_position =
-            uwrt_mars_rover_can_odrive_set_linear_count_axis0_odrive_position_encode(
-                signalValue);
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
     success &= (uwrt_mars_rover_can_odrive_set_linear_count_axis0_pack(
-                    raw, &msgStruct,
-                    UWRT_MARS_ROVER_CAN_ODRIVE_SET_LINEAR_COUNT_AXIS0_LENGTH) ==
+                    raw, &msgStruct, UWRT_MARS_ROVER_CAN_ODRIVE_SET_LINEAR_COUNT_AXIS0_LENGTH) ==
                 UWRT_MARS_ROVER_CAN_ODRIVE_SET_LINEAR_COUNT_AXIS0_LENGTH);
     len = UWRT_MARS_ROVER_CAN_ODRIVE_SET_LINEAR_COUNT_AXIS0_LENGTH;
   }
@@ -2254,31 +1857,26 @@ bool odrive_set_linear_count_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap,
 // ODRIVE_setLinearCount_axis0 message unpacker
 bool odrive_set_linear_count_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
   bool success = false;
-  CANID msgID = CANID::ODRIVE_SET_LINEAR_COUNT_AXIS0;
+  CANID msgID  = CANID::ODRIVE_SET_LINEAR_COUNT_AXIS0;
   struct uwrt_mars_rover_can_odrive_set_linear_count_axis0_t msgStruct;
 
-  success =
-      (uwrt_mars_rover_can_odrive_set_linear_count_axis0_unpack(
-           &msgStruct, raw,
-           UWRT_MARS_ROVER_CAN_ODRIVE_SET_LINEAR_COUNT_AXIS0_LENGTH) == 0);
+  success = (uwrt_mars_rover_can_odrive_set_linear_count_axis0_unpack(
+                 &msgStruct, raw, UWRT_MARS_ROVER_CAN_ODRIVE_SET_LINEAR_COUNT_AXIS0_LENGTH) == 0);
 
   if (success && msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
       CANSIGNAL signalName = it->first;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_POSITION:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_odrive_set_linear_count_axis0_odrive_position_decode(msgStruct.odrive_position));
+          break;
 
-      case CANSIGNAL::ODRIVE_POSITION:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_set_linear_count_axis0_odrive_position_decode(
-                msgStruct.odrive_position));
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
   }
@@ -2287,37 +1885,30 @@ bool odrive_set_linear_count_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
 }
 
 // ODRIVE_setPositionGain_axis0 message packer
-bool odrive_set_position_gain_axis0_packer(uint8_t *raw,
-                                           const CANMsgMap *msgMap,
-                                           size_t &len) {
+bool odrive_set_position_gain_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len) {
   bool success = true;
-  CANID msgID = CANID::ODRIVE_SET_POSITION_GAIN_AXIS0;
+  CANID msgID  = CANID::ODRIVE_SET_POSITION_GAIN_AXIS0;
   struct uwrt_mars_rover_can_odrive_set_position_gain_axis0_t msgStruct;
 
   if (msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
-      CANSIGNAL signalName = it->first;
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName         = it->first;
       CANSignalValue_t signalValue = it->second;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_POS_GAIN:
+          msgStruct.odrive_pos_gain =
+              uwrt_mars_rover_can_odrive_set_position_gain_axis0_odrive_pos_gain_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_POS_GAIN:
-        msgStruct.odrive_pos_gain =
-            uwrt_mars_rover_can_odrive_set_position_gain_axis0_odrive_pos_gain_encode(
-                signalValue);
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
-    success &=
-        (uwrt_mars_rover_can_odrive_set_position_gain_axis0_pack(
-             raw, &msgStruct,
-             UWRT_MARS_ROVER_CAN_ODRIVE_SET_POSITION_GAIN_AXIS0_LENGTH) ==
-         UWRT_MARS_ROVER_CAN_ODRIVE_SET_POSITION_GAIN_AXIS0_LENGTH);
+    success &= (uwrt_mars_rover_can_odrive_set_position_gain_axis0_pack(
+                    raw, &msgStruct, UWRT_MARS_ROVER_CAN_ODRIVE_SET_POSITION_GAIN_AXIS0_LENGTH) ==
+                UWRT_MARS_ROVER_CAN_ODRIVE_SET_POSITION_GAIN_AXIS0_LENGTH);
     len = UWRT_MARS_ROVER_CAN_ODRIVE_SET_POSITION_GAIN_AXIS0_LENGTH;
   }
   return success;
@@ -2326,31 +1917,26 @@ bool odrive_set_position_gain_axis0_packer(uint8_t *raw,
 // ODRIVE_setPositionGain_axis0 message unpacker
 bool odrive_set_position_gain_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
   bool success = false;
-  CANID msgID = CANID::ODRIVE_SET_POSITION_GAIN_AXIS0;
+  CANID msgID  = CANID::ODRIVE_SET_POSITION_GAIN_AXIS0;
   struct uwrt_mars_rover_can_odrive_set_position_gain_axis0_t msgStruct;
 
-  success =
-      (uwrt_mars_rover_can_odrive_set_position_gain_axis0_unpack(
-           &msgStruct, raw,
-           UWRT_MARS_ROVER_CAN_ODRIVE_SET_POSITION_GAIN_AXIS0_LENGTH) == 0);
+  success = (uwrt_mars_rover_can_odrive_set_position_gain_axis0_unpack(
+                 &msgStruct, raw, UWRT_MARS_ROVER_CAN_ODRIVE_SET_POSITION_GAIN_AXIS0_LENGTH) == 0);
 
   if (success && msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
       CANSIGNAL signalName = it->first;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_POS_GAIN:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_odrive_set_position_gain_axis0_odrive_pos_gain_decode(msgStruct.odrive_pos_gain));
+          break;
 
-      case CANSIGNAL::ODRIVE_POS_GAIN:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_set_position_gain_axis0_odrive_pos_gain_decode(
-                msgStruct.odrive_pos_gain));
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
   }
@@ -2359,40 +1945,33 @@ bool odrive_set_position_gain_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
 }
 
 // ODRIVE_setVelGain_axis0 message packer
-bool odrive_set_vel_gain_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap,
-                                      size_t &len) {
+bool odrive_set_vel_gain_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len) {
   bool success = true;
-  CANID msgID = CANID::ODRIVE_SET_VEL_GAIN_AXIS0;
+  CANID msgID  = CANID::ODRIVE_SET_VEL_GAIN_AXIS0;
   struct uwrt_mars_rover_can_odrive_set_vel_gain_axis0_t msgStruct;
 
   if (msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
-      CANSIGNAL signalName = it->first;
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName         = it->first;
       CANSignalValue_t signalValue = it->second;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_VEL_GAIN:
+          msgStruct.odrive_vel_gain = uwrt_mars_rover_can_odrive_set_vel_gain_axis0_odrive_vel_gain_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_VEL_GAIN:
-        msgStruct.odrive_vel_gain =
-            uwrt_mars_rover_can_odrive_set_vel_gain_axis0_odrive_vel_gain_encode(
-                signalValue);
-        break;
+        case CANSIGNAL::ODRIVE_VEL_INTEGRATOR_GAIN:
+          msgStruct.odrive_vel_integrator_gain =
+              uwrt_mars_rover_can_odrive_set_vel_gain_axis0_odrive_vel_integrator_gain_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_VEL_INTEGRATOR_GAIN:
-        msgStruct.odrive_vel_integrator_gain =
-            uwrt_mars_rover_can_odrive_set_vel_gain_axis0_odrive_vel_integrator_gain_encode(
-                signalValue);
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
     success &= (uwrt_mars_rover_can_odrive_set_vel_gain_axis0_pack(
-                    raw, &msgStruct,
-                    UWRT_MARS_ROVER_CAN_ODRIVE_SET_VEL_GAIN_AXIS0_LENGTH) ==
+                    raw, &msgStruct, UWRT_MARS_ROVER_CAN_ODRIVE_SET_VEL_GAIN_AXIS0_LENGTH) ==
                 UWRT_MARS_ROVER_CAN_ODRIVE_SET_VEL_GAIN_AXIS0_LENGTH);
     len = UWRT_MARS_ROVER_CAN_ODRIVE_SET_VEL_GAIN_AXIS0_LENGTH;
   }
@@ -2402,37 +1981,33 @@ bool odrive_set_vel_gain_axis0_packer(uint8_t *raw, const CANMsgMap *msgMap,
 // ODRIVE_setVelGain_axis0 message unpacker
 bool odrive_set_vel_gain_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
   bool success = false;
-  CANID msgID = CANID::ODRIVE_SET_VEL_GAIN_AXIS0;
+  CANID msgID  = CANID::ODRIVE_SET_VEL_GAIN_AXIS0;
   struct uwrt_mars_rover_can_odrive_set_vel_gain_axis0_t msgStruct;
 
   success = (uwrt_mars_rover_can_odrive_set_vel_gain_axis0_unpack(
-                 &msgStruct, raw,
-                 UWRT_MARS_ROVER_CAN_ODRIVE_SET_VEL_GAIN_AXIS0_LENGTH) == 0);
+                 &msgStruct, raw, UWRT_MARS_ROVER_CAN_ODRIVE_SET_VEL_GAIN_AXIS0_LENGTH) == 0);
 
   if (success && msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
       CANSIGNAL signalName = it->first;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_VEL_GAIN:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_odrive_set_vel_gain_axis0_odrive_vel_gain_decode(msgStruct.odrive_vel_gain));
+          break;
 
-      case CANSIGNAL::ODRIVE_VEL_GAIN:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_set_vel_gain_axis0_odrive_vel_gain_decode(
-                msgStruct.odrive_vel_gain));
-        break;
+        case CANSIGNAL::ODRIVE_VEL_INTEGRATOR_GAIN:
+          success &=
+              msgMap->setSignalValue(msgID, signalName,
+                                     uwrt_mars_rover_can_odrive_set_vel_gain_axis0_odrive_vel_integrator_gain_decode(
+                                         msgStruct.odrive_vel_integrator_gain));
+          break;
 
-      case CANSIGNAL::ODRIVE_VEL_INTEGRATOR_GAIN:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_set_vel_gain_axis0_odrive_vel_integrator_gain_decode(
-                msgStruct.odrive_vel_integrator_gain));
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
   }
@@ -2441,49 +2016,40 @@ bool odrive_set_vel_gain_axis0_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
 }
 
 // ODRIVE_heartbeatMessage_axis1 message packer
-bool odrive_heartbeat_message_axis1_packer(uint8_t *raw,
-                                           const CANMsgMap *msgMap,
-                                           size_t &len) {
+bool odrive_heartbeat_message_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len) {
   bool success = true;
-  CANID msgID = CANID::ODRIVE_HEARTBEAT_MESSAGE_AXIS1;
+  CANID msgID  = CANID::ODRIVE_HEARTBEAT_MESSAGE_AXIS1;
   struct uwrt_mars_rover_can_odrive_heartbeat_message_axis1_t msgStruct;
 
   if (msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
-      CANSIGNAL signalName = it->first;
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName         = it->first;
       CANSignalValue_t signalValue = it->second;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_AXIS_ERROR:
+          msgStruct.odrive_axis_error =
+              uwrt_mars_rover_can_odrive_heartbeat_message_axis1_odrive_axis_error_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_AXIS_ERROR:
-        msgStruct.odrive_axis_error =
-            uwrt_mars_rover_can_odrive_heartbeat_message_axis1_odrive_axis_error_encode(
-                signalValue);
-        break;
+        case CANSIGNAL::ODRIVE_AXIS_CURRENT_STATE:
+          msgStruct.odrive_axis_current_state =
+              uwrt_mars_rover_can_odrive_heartbeat_message_axis1_odrive_axis_current_state_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_AXIS_CURRENT_STATE:
-        msgStruct.odrive_axis_current_state =
-            uwrt_mars_rover_can_odrive_heartbeat_message_axis1_odrive_axis_current_state_encode(
-                signalValue);
-        break;
+        case CANSIGNAL::ODRIVE_CONTROLLER_STATUS:
+          msgStruct.odrive_controller_status =
+              uwrt_mars_rover_can_odrive_heartbeat_message_axis1_odrive_controller_status_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_CONTROLLER_STATUS:
-        msgStruct.odrive_controller_status =
-            uwrt_mars_rover_can_odrive_heartbeat_message_axis1_odrive_controller_status_encode(
-                signalValue);
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
-    success &=
-        (uwrt_mars_rover_can_odrive_heartbeat_message_axis1_pack(
-             raw, &msgStruct,
-             UWRT_MARS_ROVER_CAN_ODRIVE_HEARTBEAT_MESSAGE_AXIS1_LENGTH) ==
-         UWRT_MARS_ROVER_CAN_ODRIVE_HEARTBEAT_MESSAGE_AXIS1_LENGTH);
+    success &= (uwrt_mars_rover_can_odrive_heartbeat_message_axis1_pack(
+                    raw, &msgStruct, UWRT_MARS_ROVER_CAN_ODRIVE_HEARTBEAT_MESSAGE_AXIS1_LENGTH) ==
+                UWRT_MARS_ROVER_CAN_ODRIVE_HEARTBEAT_MESSAGE_AXIS1_LENGTH);
     len = UWRT_MARS_ROVER_CAN_ODRIVE_HEARTBEAT_MESSAGE_AXIS1_LENGTH;
   }
   return success;
@@ -2492,45 +2058,40 @@ bool odrive_heartbeat_message_axis1_packer(uint8_t *raw,
 // ODRIVE_heartbeatMessage_axis1 message unpacker
 bool odrive_heartbeat_message_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
   bool success = false;
-  CANID msgID = CANID::ODRIVE_HEARTBEAT_MESSAGE_AXIS1;
+  CANID msgID  = CANID::ODRIVE_HEARTBEAT_MESSAGE_AXIS1;
   struct uwrt_mars_rover_can_odrive_heartbeat_message_axis1_t msgStruct;
 
-  success =
-      (uwrt_mars_rover_can_odrive_heartbeat_message_axis1_unpack(
-           &msgStruct, raw,
-           UWRT_MARS_ROVER_CAN_ODRIVE_HEARTBEAT_MESSAGE_AXIS1_LENGTH) == 0);
+  success = (uwrt_mars_rover_can_odrive_heartbeat_message_axis1_unpack(
+                 &msgStruct, raw, UWRT_MARS_ROVER_CAN_ODRIVE_HEARTBEAT_MESSAGE_AXIS1_LENGTH) == 0);
 
   if (success && msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
       CANSIGNAL signalName = it->first;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_AXIS_ERROR:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_odrive_heartbeat_message_axis1_odrive_axis_error_decode(msgStruct.odrive_axis_error));
+          break;
 
-      case CANSIGNAL::ODRIVE_AXIS_ERROR:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_heartbeat_message_axis1_odrive_axis_error_decode(
-                msgStruct.odrive_axis_error));
-        break;
+        case CANSIGNAL::ODRIVE_AXIS_CURRENT_STATE:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_odrive_heartbeat_message_axis1_odrive_axis_current_state_decode(
+                  msgStruct.odrive_axis_current_state));
+          break;
 
-      case CANSIGNAL::ODRIVE_AXIS_CURRENT_STATE:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_heartbeat_message_axis1_odrive_axis_current_state_decode(
-                msgStruct.odrive_axis_current_state));
-        break;
+        case CANSIGNAL::ODRIVE_CONTROLLER_STATUS:
+          success &=
+              msgMap->setSignalValue(msgID, signalName,
+                                     uwrt_mars_rover_can_odrive_heartbeat_message_axis1_odrive_controller_status_decode(
+                                         msgStruct.odrive_controller_status));
+          break;
 
-      case CANSIGNAL::ODRIVE_CONTROLLER_STATUS:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_heartbeat_message_axis1_odrive_controller_status_decode(
-                msgStruct.odrive_controller_status));
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
   }
@@ -2539,28 +2100,24 @@ bool odrive_heartbeat_message_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
 }
 
 // ODRIVE_EstopMessage_axis1 message packer
-bool odrive_estop_message_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap,
-                                       size_t &len) {
+bool odrive_estop_message_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len) {
   bool success = true;
-  CANID msgID = CANID::ODRIVE_ESTOP_MESSAGE_AXIS1;
+  CANID msgID  = CANID::ODRIVE_ESTOP_MESSAGE_AXIS1;
   struct uwrt_mars_rover_can_odrive_estop_message_axis1_t msgStruct;
 
   if (msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
-      CANSIGNAL signalName = it->first;
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName         = it->first;
       CANSignalValue_t signalValue = it->second;
 
       switch (signalName) {
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
     success &= (uwrt_mars_rover_can_odrive_estop_message_axis1_pack(
-                    raw, &msgStruct,
-                    UWRT_MARS_ROVER_CAN_ODRIVE_ESTOP_MESSAGE_AXIS1_LENGTH) ==
+                    raw, &msgStruct, UWRT_MARS_ROVER_CAN_ODRIVE_ESTOP_MESSAGE_AXIS1_LENGTH) ==
                 UWRT_MARS_ROVER_CAN_ODRIVE_ESTOP_MESSAGE_AXIS1_LENGTH);
     len = UWRT_MARS_ROVER_CAN_ODRIVE_ESTOP_MESSAGE_AXIS1_LENGTH;
   }
@@ -2570,23 +2127,20 @@ bool odrive_estop_message_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap,
 // ODRIVE_EstopMessage_axis1 message unpacker
 bool odrive_estop_message_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
   bool success = false;
-  CANID msgID = CANID::ODRIVE_ESTOP_MESSAGE_AXIS1;
+  CANID msgID  = CANID::ODRIVE_ESTOP_MESSAGE_AXIS1;
   struct uwrt_mars_rover_can_odrive_estop_message_axis1_t msgStruct;
 
   success = (uwrt_mars_rover_can_odrive_estop_message_axis1_unpack(
-                 &msgStruct, raw,
-                 UWRT_MARS_ROVER_CAN_ODRIVE_ESTOP_MESSAGE_AXIS1_LENGTH) == 0);
+                 &msgStruct, raw, UWRT_MARS_ROVER_CAN_ODRIVE_ESTOP_MESSAGE_AXIS1_LENGTH) == 0);
 
   if (success && msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
       CANSIGNAL signalName = it->first;
 
       switch (signalName) {
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
   }
@@ -2595,34 +2149,29 @@ bool odrive_estop_message_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
 }
 
 // ODRIVE_getMotorError_axis1 message packer
-bool odrive_get_motor_error_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap,
-                                         size_t &len) {
+bool odrive_get_motor_error_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len) {
   bool success = true;
-  CANID msgID = CANID::ODRIVE_GET_MOTOR_ERROR_AXIS1;
+  CANID msgID  = CANID::ODRIVE_GET_MOTOR_ERROR_AXIS1;
   struct uwrt_mars_rover_can_odrive_get_motor_error_axis1_t msgStruct;
 
   if (msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
-      CANSIGNAL signalName = it->first;
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName         = it->first;
       CANSignalValue_t signalValue = it->second;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_MOTOR_ERROR:
+          msgStruct.odrive_motor_error =
+              uwrt_mars_rover_can_odrive_get_motor_error_axis1_odrive_motor_error_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_MOTOR_ERROR:
-        msgStruct.odrive_motor_error =
-            uwrt_mars_rover_can_odrive_get_motor_error_axis1_odrive_motor_error_encode(
-                signalValue);
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
     success &= (uwrt_mars_rover_can_odrive_get_motor_error_axis1_pack(
-                    raw, &msgStruct,
-                    UWRT_MARS_ROVER_CAN_ODRIVE_GET_MOTOR_ERROR_AXIS1_LENGTH) ==
+                    raw, &msgStruct, UWRT_MARS_ROVER_CAN_ODRIVE_GET_MOTOR_ERROR_AXIS1_LENGTH) ==
                 UWRT_MARS_ROVER_CAN_ODRIVE_GET_MOTOR_ERROR_AXIS1_LENGTH);
     len = UWRT_MARS_ROVER_CAN_ODRIVE_GET_MOTOR_ERROR_AXIS1_LENGTH;
   }
@@ -2632,30 +2181,26 @@ bool odrive_get_motor_error_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap,
 // ODRIVE_getMotorError_axis1 message unpacker
 bool odrive_get_motor_error_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
   bool success = false;
-  CANID msgID = CANID::ODRIVE_GET_MOTOR_ERROR_AXIS1;
+  CANID msgID  = CANID::ODRIVE_GET_MOTOR_ERROR_AXIS1;
   struct uwrt_mars_rover_can_odrive_get_motor_error_axis1_t msgStruct;
 
   success = (uwrt_mars_rover_can_odrive_get_motor_error_axis1_unpack(
-                 &msgStruct, raw,
-                 UWRT_MARS_ROVER_CAN_ODRIVE_GET_MOTOR_ERROR_AXIS1_LENGTH) == 0);
+                 &msgStruct, raw, UWRT_MARS_ROVER_CAN_ODRIVE_GET_MOTOR_ERROR_AXIS1_LENGTH) == 0);
 
   if (success && msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
       CANSIGNAL signalName = it->first;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_MOTOR_ERROR:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_odrive_get_motor_error_axis1_odrive_motor_error_decode(msgStruct.odrive_motor_error));
+          break;
 
-      case CANSIGNAL::ODRIVE_MOTOR_ERROR:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_get_motor_error_axis1_odrive_motor_error_decode(
-                msgStruct.odrive_motor_error));
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
   }
@@ -2664,37 +2209,30 @@ bool odrive_get_motor_error_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
 }
 
 // ODRIVE_getEncoderError_axis1 message packer
-bool odrive_get_encoder_error_axis1_packer(uint8_t *raw,
-                                           const CANMsgMap *msgMap,
-                                           size_t &len) {
+bool odrive_get_encoder_error_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len) {
   bool success = true;
-  CANID msgID = CANID::ODRIVE_GET_ENCODER_ERROR_AXIS1;
+  CANID msgID  = CANID::ODRIVE_GET_ENCODER_ERROR_AXIS1;
   struct uwrt_mars_rover_can_odrive_get_encoder_error_axis1_t msgStruct;
 
   if (msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
-      CANSIGNAL signalName = it->first;
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName         = it->first;
       CANSignalValue_t signalValue = it->second;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_ENCODER_ERROR:
+          msgStruct.odrive_encoder_error =
+              uwrt_mars_rover_can_odrive_get_encoder_error_axis1_odrive_encoder_error_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_ENCODER_ERROR:
-        msgStruct.odrive_encoder_error =
-            uwrt_mars_rover_can_odrive_get_encoder_error_axis1_odrive_encoder_error_encode(
-                signalValue);
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
-    success &=
-        (uwrt_mars_rover_can_odrive_get_encoder_error_axis1_pack(
-             raw, &msgStruct,
-             UWRT_MARS_ROVER_CAN_ODRIVE_GET_ENCODER_ERROR_AXIS1_LENGTH) ==
-         UWRT_MARS_ROVER_CAN_ODRIVE_GET_ENCODER_ERROR_AXIS1_LENGTH);
+    success &= (uwrt_mars_rover_can_odrive_get_encoder_error_axis1_pack(
+                    raw, &msgStruct, UWRT_MARS_ROVER_CAN_ODRIVE_GET_ENCODER_ERROR_AXIS1_LENGTH) ==
+                UWRT_MARS_ROVER_CAN_ODRIVE_GET_ENCODER_ERROR_AXIS1_LENGTH);
     len = UWRT_MARS_ROVER_CAN_ODRIVE_GET_ENCODER_ERROR_AXIS1_LENGTH;
   }
   return success;
@@ -2703,31 +2241,27 @@ bool odrive_get_encoder_error_axis1_packer(uint8_t *raw,
 // ODRIVE_getEncoderError_axis1 message unpacker
 bool odrive_get_encoder_error_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
   bool success = false;
-  CANID msgID = CANID::ODRIVE_GET_ENCODER_ERROR_AXIS1;
+  CANID msgID  = CANID::ODRIVE_GET_ENCODER_ERROR_AXIS1;
   struct uwrt_mars_rover_can_odrive_get_encoder_error_axis1_t msgStruct;
 
-  success =
-      (uwrt_mars_rover_can_odrive_get_encoder_error_axis1_unpack(
-           &msgStruct, raw,
-           UWRT_MARS_ROVER_CAN_ODRIVE_GET_ENCODER_ERROR_AXIS1_LENGTH) == 0);
+  success = (uwrt_mars_rover_can_odrive_get_encoder_error_axis1_unpack(
+                 &msgStruct, raw, UWRT_MARS_ROVER_CAN_ODRIVE_GET_ENCODER_ERROR_AXIS1_LENGTH) == 0);
 
   if (success && msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
       CANSIGNAL signalName = it->first;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_ENCODER_ERROR:
+          success &=
+              msgMap->setSignalValue(msgID, signalName,
+                                     uwrt_mars_rover_can_odrive_get_encoder_error_axis1_odrive_encoder_error_decode(
+                                         msgStruct.odrive_encoder_error));
+          break;
 
-      case CANSIGNAL::ODRIVE_ENCODER_ERROR:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_get_encoder_error_axis1_odrive_encoder_error_decode(
-                msgStruct.odrive_encoder_error));
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
   }
@@ -2736,71 +2270,59 @@ bool odrive_get_encoder_error_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
 }
 
 // ODRIVE_getSensorlessError_axis1 message packer
-bool odrive_get_sensorless_error_axis1_packer(uint8_t *raw,
-                                              const CANMsgMap *msgMap,
-                                              size_t &len) {
+bool odrive_get_sensorless_error_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len) {
   bool success = true;
-  CANID msgID = CANID::ODRIVE_GET_SENSORLESS_ERROR_AXIS1;
+  CANID msgID  = CANID::ODRIVE_GET_SENSORLESS_ERROR_AXIS1;
   struct uwrt_mars_rover_can_odrive_get_sensorless_error_axis1_t msgStruct;
 
   if (msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
-      CANSIGNAL signalName = it->first;
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName         = it->first;
       CANSignalValue_t signalValue = it->second;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_SENSORLESS_ERROR:
+          msgStruct.odrive_sensorless_error =
+              uwrt_mars_rover_can_odrive_get_sensorless_error_axis1_odrive_sensorless_error_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_SENSORLESS_ERROR:
-        msgStruct.odrive_sensorless_error =
-            uwrt_mars_rover_can_odrive_get_sensorless_error_axis1_odrive_sensorless_error_encode(
-                signalValue);
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
-    success &=
-        (uwrt_mars_rover_can_odrive_get_sensorless_error_axis1_pack(
-             raw, &msgStruct,
-             UWRT_MARS_ROVER_CAN_ODRIVE_GET_SENSORLESS_ERROR_AXIS1_LENGTH) ==
-         UWRT_MARS_ROVER_CAN_ODRIVE_GET_SENSORLESS_ERROR_AXIS1_LENGTH);
+    success &= (uwrt_mars_rover_can_odrive_get_sensorless_error_axis1_pack(
+                    raw, &msgStruct, UWRT_MARS_ROVER_CAN_ODRIVE_GET_SENSORLESS_ERROR_AXIS1_LENGTH) ==
+                UWRT_MARS_ROVER_CAN_ODRIVE_GET_SENSORLESS_ERROR_AXIS1_LENGTH);
     len = UWRT_MARS_ROVER_CAN_ODRIVE_GET_SENSORLESS_ERROR_AXIS1_LENGTH;
   }
   return success;
 }
 
 // ODRIVE_getSensorlessError_axis1 message unpacker
-bool odrive_get_sensorless_error_axis1_unpacker(uint8_t *raw,
-                                                CANMsgMap *msgMap) {
+bool odrive_get_sensorless_error_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
   bool success = false;
-  CANID msgID = CANID::ODRIVE_GET_SENSORLESS_ERROR_AXIS1;
+  CANID msgID  = CANID::ODRIVE_GET_SENSORLESS_ERROR_AXIS1;
   struct uwrt_mars_rover_can_odrive_get_sensorless_error_axis1_t msgStruct;
 
-  success =
-      (uwrt_mars_rover_can_odrive_get_sensorless_error_axis1_unpack(
-           &msgStruct, raw,
-           UWRT_MARS_ROVER_CAN_ODRIVE_GET_SENSORLESS_ERROR_AXIS1_LENGTH) == 0);
+  success = (uwrt_mars_rover_can_odrive_get_sensorless_error_axis1_unpack(
+                 &msgStruct, raw, UWRT_MARS_ROVER_CAN_ODRIVE_GET_SENSORLESS_ERROR_AXIS1_LENGTH) == 0);
 
   if (success && msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
       CANSIGNAL signalName = it->first;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_SENSORLESS_ERROR:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_odrive_get_sensorless_error_axis1_odrive_sensorless_error_decode(
+                  msgStruct.odrive_sensorless_error));
+          break;
 
-      case CANSIGNAL::ODRIVE_SENSORLESS_ERROR:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_get_sensorless_error_axis1_odrive_sensorless_error_decode(
-                msgStruct.odrive_sensorless_error));
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
   }
@@ -2809,34 +2331,29 @@ bool odrive_get_sensorless_error_axis1_unpacker(uint8_t *raw,
 }
 
 // ODRIVE_setAxisNodeID_axis1 message packer
-bool odrive_set_axis_node_id_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap,
-                                          size_t &len) {
+bool odrive_set_axis_node_id_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len) {
   bool success = true;
-  CANID msgID = CANID::ODRIVE_SET_AXIS_NODE_ID_AXIS1;
+  CANID msgID  = CANID::ODRIVE_SET_AXIS_NODE_ID_AXIS1;
   struct uwrt_mars_rover_can_odrive_set_axis_node_id_axis1_t msgStruct;
 
   if (msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
-      CANSIGNAL signalName = it->first;
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName         = it->first;
       CANSignalValue_t signalValue = it->second;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_AXIS_CAN_NODE_ID:
+          msgStruct.odrive_axis_can_node_id =
+              uwrt_mars_rover_can_odrive_set_axis_node_id_axis1_odrive_axis_can_node_id_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_AXIS_CAN_NODE_ID:
-        msgStruct.odrive_axis_can_node_id =
-            uwrt_mars_rover_can_odrive_set_axis_node_id_axis1_odrive_axis_can_node_id_encode(
-                signalValue);
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
     success &= (uwrt_mars_rover_can_odrive_set_axis_node_id_axis1_pack(
-                    raw, &msgStruct,
-                    UWRT_MARS_ROVER_CAN_ODRIVE_SET_AXIS_NODE_ID_AXIS1_LENGTH) ==
+                    raw, &msgStruct, UWRT_MARS_ROVER_CAN_ODRIVE_SET_AXIS_NODE_ID_AXIS1_LENGTH) ==
                 UWRT_MARS_ROVER_CAN_ODRIVE_SET_AXIS_NODE_ID_AXIS1_LENGTH);
     len = UWRT_MARS_ROVER_CAN_ODRIVE_SET_AXIS_NODE_ID_AXIS1_LENGTH;
   }
@@ -2846,31 +2363,27 @@ bool odrive_set_axis_node_id_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap,
 // ODRIVE_setAxisNodeID_axis1 message unpacker
 bool odrive_set_axis_node_id_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
   bool success = false;
-  CANID msgID = CANID::ODRIVE_SET_AXIS_NODE_ID_AXIS1;
+  CANID msgID  = CANID::ODRIVE_SET_AXIS_NODE_ID_AXIS1;
   struct uwrt_mars_rover_can_odrive_set_axis_node_id_axis1_t msgStruct;
 
-  success =
-      (uwrt_mars_rover_can_odrive_set_axis_node_id_axis1_unpack(
-           &msgStruct, raw,
-           UWRT_MARS_ROVER_CAN_ODRIVE_SET_AXIS_NODE_ID_AXIS1_LENGTH) == 0);
+  success = (uwrt_mars_rover_can_odrive_set_axis_node_id_axis1_unpack(
+                 &msgStruct, raw, UWRT_MARS_ROVER_CAN_ODRIVE_SET_AXIS_NODE_ID_AXIS1_LENGTH) == 0);
 
   if (success && msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
       CANSIGNAL signalName = it->first;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_AXIS_CAN_NODE_ID:
+          success &=
+              msgMap->setSignalValue(msgID, signalName,
+                                     uwrt_mars_rover_can_odrive_set_axis_node_id_axis1_odrive_axis_can_node_id_decode(
+                                         msgStruct.odrive_axis_can_node_id));
+          break;
 
-      case CANSIGNAL::ODRIVE_AXIS_CAN_NODE_ID:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_set_axis_node_id_axis1_odrive_axis_can_node_id_decode(
-                msgStruct.odrive_axis_can_node_id));
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
   }
@@ -2879,72 +2392,59 @@ bool odrive_set_axis_node_id_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
 }
 
 // ODRIVE_setAxisRequestedState_axis1 message packer
-bool odrive_set_axis_requested_state_axis1_packer(uint8_t *raw,
-                                                  const CANMsgMap *msgMap,
-                                                  size_t &len) {
+bool odrive_set_axis_requested_state_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len) {
   bool success = true;
-  CANID msgID = CANID::ODRIVE_SET_AXIS_REQUESTED_STATE_AXIS1;
+  CANID msgID  = CANID::ODRIVE_SET_AXIS_REQUESTED_STATE_AXIS1;
   struct uwrt_mars_rover_can_odrive_set_axis_requested_state_axis1_t msgStruct;
 
   if (msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
-      CANSIGNAL signalName = it->first;
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName         = it->first;
       CANSignalValue_t signalValue = it->second;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_AXIS_REQUESTED_STATE:
+          msgStruct.odrive_axis_requested_state =
+              uwrt_mars_rover_can_odrive_set_axis_requested_state_axis1_odrive_axis_requested_state_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_AXIS_REQUESTED_STATE:
-        msgStruct.odrive_axis_requested_state =
-            uwrt_mars_rover_can_odrive_set_axis_requested_state_axis1_odrive_axis_requested_state_encode(
-                signalValue);
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
-    success &=
-        (uwrt_mars_rover_can_odrive_set_axis_requested_state_axis1_pack(
-             raw, &msgStruct,
-             UWRT_MARS_ROVER_CAN_ODRIVE_SET_AXIS_REQUESTED_STATE_AXIS1_LENGTH) ==
-         UWRT_MARS_ROVER_CAN_ODRIVE_SET_AXIS_REQUESTED_STATE_AXIS1_LENGTH);
+    success &= (uwrt_mars_rover_can_odrive_set_axis_requested_state_axis1_pack(
+                    raw, &msgStruct, UWRT_MARS_ROVER_CAN_ODRIVE_SET_AXIS_REQUESTED_STATE_AXIS1_LENGTH) ==
+                UWRT_MARS_ROVER_CAN_ODRIVE_SET_AXIS_REQUESTED_STATE_AXIS1_LENGTH);
     len = UWRT_MARS_ROVER_CAN_ODRIVE_SET_AXIS_REQUESTED_STATE_AXIS1_LENGTH;
   }
   return success;
 }
 
 // ODRIVE_setAxisRequestedState_axis1 message unpacker
-bool odrive_set_axis_requested_state_axis1_unpacker(uint8_t *raw,
-                                                    CANMsgMap *msgMap) {
+bool odrive_set_axis_requested_state_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
   bool success = false;
-  CANID msgID = CANID::ODRIVE_SET_AXIS_REQUESTED_STATE_AXIS1;
+  CANID msgID  = CANID::ODRIVE_SET_AXIS_REQUESTED_STATE_AXIS1;
   struct uwrt_mars_rover_can_odrive_set_axis_requested_state_axis1_t msgStruct;
 
-  success =
-      (uwrt_mars_rover_can_odrive_set_axis_requested_state_axis1_unpack(
-           &msgStruct, raw,
-           UWRT_MARS_ROVER_CAN_ODRIVE_SET_AXIS_REQUESTED_STATE_AXIS1_LENGTH) ==
-       0);
+  success = (uwrt_mars_rover_can_odrive_set_axis_requested_state_axis1_unpack(
+                 &msgStruct, raw, UWRT_MARS_ROVER_CAN_ODRIVE_SET_AXIS_REQUESTED_STATE_AXIS1_LENGTH) == 0);
 
   if (success && msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
       CANSIGNAL signalName = it->first;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_AXIS_REQUESTED_STATE:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_odrive_set_axis_requested_state_axis1_odrive_axis_requested_state_decode(
+                  msgStruct.odrive_axis_requested_state));
+          break;
 
-      case CANSIGNAL::ODRIVE_AXIS_REQUESTED_STATE:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_set_axis_requested_state_axis1_odrive_axis_requested_state_decode(
-                msgStruct.odrive_axis_requested_state));
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
   }
@@ -2953,84 +2453,71 @@ bool odrive_set_axis_requested_state_axis1_unpacker(uint8_t *raw,
 }
 
 // ODRIVE_getEncoderEstimates_axis1 message packer
-bool odrive_get_encoder_estimates_axis1_packer(uint8_t *raw,
-                                               const CANMsgMap *msgMap,
-                                               size_t &len) {
+bool odrive_get_encoder_estimates_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len) {
   bool success = true;
-  CANID msgID = CANID::ODRIVE_GET_ENCODER_ESTIMATES_AXIS1;
+  CANID msgID  = CANID::ODRIVE_GET_ENCODER_ESTIMATES_AXIS1;
   struct uwrt_mars_rover_can_odrive_get_encoder_estimates_axis1_t msgStruct;
 
   if (msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
-      CANSIGNAL signalName = it->first;
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName         = it->first;
       CANSignalValue_t signalValue = it->second;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_ENCODER_POS_ESTIMATE:
+          msgStruct.odrive_encoder_pos_estimate =
+              uwrt_mars_rover_can_odrive_get_encoder_estimates_axis1_odrive_encoder_pos_estimate_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_ENCODER_POS_ESTIMATE:
-        msgStruct.odrive_encoder_pos_estimate =
-            uwrt_mars_rover_can_odrive_get_encoder_estimates_axis1_odrive_encoder_pos_estimate_encode(
-                signalValue);
-        break;
+        case CANSIGNAL::ODRIVE_ENCODER_VEL_ESTIMATE:
+          msgStruct.odrive_encoder_vel_estimate =
+              uwrt_mars_rover_can_odrive_get_encoder_estimates_axis1_odrive_encoder_vel_estimate_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_ENCODER_VEL_ESTIMATE:
-        msgStruct.odrive_encoder_vel_estimate =
-            uwrt_mars_rover_can_odrive_get_encoder_estimates_axis1_odrive_encoder_vel_estimate_encode(
-                signalValue);
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
-    success &=
-        (uwrt_mars_rover_can_odrive_get_encoder_estimates_axis1_pack(
-             raw, &msgStruct,
-             UWRT_MARS_ROVER_CAN_ODRIVE_GET_ENCODER_ESTIMATES_AXIS1_LENGTH) ==
-         UWRT_MARS_ROVER_CAN_ODRIVE_GET_ENCODER_ESTIMATES_AXIS1_LENGTH);
+    success &= (uwrt_mars_rover_can_odrive_get_encoder_estimates_axis1_pack(
+                    raw, &msgStruct, UWRT_MARS_ROVER_CAN_ODRIVE_GET_ENCODER_ESTIMATES_AXIS1_LENGTH) ==
+                UWRT_MARS_ROVER_CAN_ODRIVE_GET_ENCODER_ESTIMATES_AXIS1_LENGTH);
     len = UWRT_MARS_ROVER_CAN_ODRIVE_GET_ENCODER_ESTIMATES_AXIS1_LENGTH;
   }
   return success;
 }
 
 // ODRIVE_getEncoderEstimates_axis1 message unpacker
-bool odrive_get_encoder_estimates_axis1_unpacker(uint8_t *raw,
-                                                 CANMsgMap *msgMap) {
+bool odrive_get_encoder_estimates_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
   bool success = false;
-  CANID msgID = CANID::ODRIVE_GET_ENCODER_ESTIMATES_AXIS1;
+  CANID msgID  = CANID::ODRIVE_GET_ENCODER_ESTIMATES_AXIS1;
   struct uwrt_mars_rover_can_odrive_get_encoder_estimates_axis1_t msgStruct;
 
-  success =
-      (uwrt_mars_rover_can_odrive_get_encoder_estimates_axis1_unpack(
-           &msgStruct, raw,
-           UWRT_MARS_ROVER_CAN_ODRIVE_GET_ENCODER_ESTIMATES_AXIS1_LENGTH) == 0);
+  success = (uwrt_mars_rover_can_odrive_get_encoder_estimates_axis1_unpack(
+                 &msgStruct, raw, UWRT_MARS_ROVER_CAN_ODRIVE_GET_ENCODER_ESTIMATES_AXIS1_LENGTH) == 0);
 
   if (success && msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
       CANSIGNAL signalName = it->first;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_ENCODER_POS_ESTIMATE:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_odrive_get_encoder_estimates_axis1_odrive_encoder_pos_estimate_decode(
+                  msgStruct.odrive_encoder_pos_estimate));
+          break;
 
-      case CANSIGNAL::ODRIVE_ENCODER_POS_ESTIMATE:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_get_encoder_estimates_axis1_odrive_encoder_pos_estimate_decode(
-                msgStruct.odrive_encoder_pos_estimate));
-        break;
+        case CANSIGNAL::ODRIVE_ENCODER_VEL_ESTIMATE:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_odrive_get_encoder_estimates_axis1_odrive_encoder_vel_estimate_decode(
+                  msgStruct.odrive_encoder_vel_estimate));
+          break;
 
-      case CANSIGNAL::ODRIVE_ENCODER_VEL_ESTIMATE:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_get_encoder_estimates_axis1_odrive_encoder_vel_estimate_decode(
-                msgStruct.odrive_encoder_vel_estimate));
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
   }
@@ -3039,43 +2526,35 @@ bool odrive_get_encoder_estimates_axis1_unpacker(uint8_t *raw,
 }
 
 // ODRIVE_getEncoderCount_axis1 message packer
-bool odrive_get_encoder_count_axis1_packer(uint8_t *raw,
-                                           const CANMsgMap *msgMap,
-                                           size_t &len) {
+bool odrive_get_encoder_count_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len) {
   bool success = true;
-  CANID msgID = CANID::ODRIVE_GET_ENCODER_COUNT_AXIS1;
+  CANID msgID  = CANID::ODRIVE_GET_ENCODER_COUNT_AXIS1;
   struct uwrt_mars_rover_can_odrive_get_encoder_count_axis1_t msgStruct;
 
   if (msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
-      CANSIGNAL signalName = it->first;
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName         = it->first;
       CANSignalValue_t signalValue = it->second;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_ENCODER_SHADOW_COUNT:
+          msgStruct.odrive_encoder_shadow_count =
+              uwrt_mars_rover_can_odrive_get_encoder_count_axis1_odrive_encoder_shadow_count_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_ENCODER_SHADOW_COUNT:
-        msgStruct.odrive_encoder_shadow_count =
-            uwrt_mars_rover_can_odrive_get_encoder_count_axis1_odrive_encoder_shadow_count_encode(
-                signalValue);
-        break;
+        case CANSIGNAL::ODRIVE_ENCODER_COUNTIN_CPR:
+          msgStruct.odrive_encoder_countin_cpr =
+              uwrt_mars_rover_can_odrive_get_encoder_count_axis1_odrive_encoder_countin_cpr_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_ENCODER_COUNTIN_CPR:
-        msgStruct.odrive_encoder_countin_cpr =
-            uwrt_mars_rover_can_odrive_get_encoder_count_axis1_odrive_encoder_countin_cpr_encode(
-                signalValue);
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
-    success &=
-        (uwrt_mars_rover_can_odrive_get_encoder_count_axis1_pack(
-             raw, &msgStruct,
-             UWRT_MARS_ROVER_CAN_ODRIVE_GET_ENCODER_COUNT_AXIS1_LENGTH) ==
-         UWRT_MARS_ROVER_CAN_ODRIVE_GET_ENCODER_COUNT_AXIS1_LENGTH);
+    success &= (uwrt_mars_rover_can_odrive_get_encoder_count_axis1_pack(
+                    raw, &msgStruct, UWRT_MARS_ROVER_CAN_ODRIVE_GET_ENCODER_COUNT_AXIS1_LENGTH) ==
+                UWRT_MARS_ROVER_CAN_ODRIVE_GET_ENCODER_COUNT_AXIS1_LENGTH);
     len = UWRT_MARS_ROVER_CAN_ODRIVE_GET_ENCODER_COUNT_AXIS1_LENGTH;
   }
   return success;
@@ -3084,38 +2563,34 @@ bool odrive_get_encoder_count_axis1_packer(uint8_t *raw,
 // ODRIVE_getEncoderCount_axis1 message unpacker
 bool odrive_get_encoder_count_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
   bool success = false;
-  CANID msgID = CANID::ODRIVE_GET_ENCODER_COUNT_AXIS1;
+  CANID msgID  = CANID::ODRIVE_GET_ENCODER_COUNT_AXIS1;
   struct uwrt_mars_rover_can_odrive_get_encoder_count_axis1_t msgStruct;
 
-  success =
-      (uwrt_mars_rover_can_odrive_get_encoder_count_axis1_unpack(
-           &msgStruct, raw,
-           UWRT_MARS_ROVER_CAN_ODRIVE_GET_ENCODER_COUNT_AXIS1_LENGTH) == 0);
+  success = (uwrt_mars_rover_can_odrive_get_encoder_count_axis1_unpack(
+                 &msgStruct, raw, UWRT_MARS_ROVER_CAN_ODRIVE_GET_ENCODER_COUNT_AXIS1_LENGTH) == 0);
 
   if (success && msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
       CANSIGNAL signalName = it->first;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_ENCODER_SHADOW_COUNT:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_odrive_get_encoder_count_axis1_odrive_encoder_shadow_count_decode(
+                  msgStruct.odrive_encoder_shadow_count));
+          break;
 
-      case CANSIGNAL::ODRIVE_ENCODER_SHADOW_COUNT:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_get_encoder_count_axis1_odrive_encoder_shadow_count_decode(
-                msgStruct.odrive_encoder_shadow_count));
-        break;
+        case CANSIGNAL::ODRIVE_ENCODER_COUNTIN_CPR:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_odrive_get_encoder_count_axis1_odrive_encoder_countin_cpr_decode(
+                  msgStruct.odrive_encoder_countin_cpr));
+          break;
 
-      case CANSIGNAL::ODRIVE_ENCODER_COUNTIN_CPR:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_get_encoder_count_axis1_odrive_encoder_countin_cpr_decode(
-                msgStruct.odrive_encoder_countin_cpr));
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
   }
@@ -3124,84 +2599,71 @@ bool odrive_get_encoder_count_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
 }
 
 // ODRIVE_setControllerModes_axis1 message packer
-bool odrive_set_controller_modes_axis1_packer(uint8_t *raw,
-                                              const CANMsgMap *msgMap,
-                                              size_t &len) {
+bool odrive_set_controller_modes_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len) {
   bool success = true;
-  CANID msgID = CANID::ODRIVE_SET_CONTROLLER_MODES_AXIS1;
+  CANID msgID  = CANID::ODRIVE_SET_CONTROLLER_MODES_AXIS1;
   struct uwrt_mars_rover_can_odrive_set_controller_modes_axis1_t msgStruct;
 
   if (msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
-      CANSIGNAL signalName = it->first;
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName         = it->first;
       CANSignalValue_t signalValue = it->second;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_CONTROL_MODE:
+          msgStruct.odrive_control_mode =
+              uwrt_mars_rover_can_odrive_set_controller_modes_axis1_odrive_control_mode_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_CONTROL_MODE:
-        msgStruct.odrive_control_mode =
-            uwrt_mars_rover_can_odrive_set_controller_modes_axis1_odrive_control_mode_encode(
-                signalValue);
-        break;
+        case CANSIGNAL::ODRIVE_INPUT_MODE:
+          msgStruct.odrive_input_mode =
+              uwrt_mars_rover_can_odrive_set_controller_modes_axis1_odrive_input_mode_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_INPUT_MODE:
-        msgStruct.odrive_input_mode =
-            uwrt_mars_rover_can_odrive_set_controller_modes_axis1_odrive_input_mode_encode(
-                signalValue);
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
-    success &=
-        (uwrt_mars_rover_can_odrive_set_controller_modes_axis1_pack(
-             raw, &msgStruct,
-             UWRT_MARS_ROVER_CAN_ODRIVE_SET_CONTROLLER_MODES_AXIS1_LENGTH) ==
-         UWRT_MARS_ROVER_CAN_ODRIVE_SET_CONTROLLER_MODES_AXIS1_LENGTH);
+    success &= (uwrt_mars_rover_can_odrive_set_controller_modes_axis1_pack(
+                    raw, &msgStruct, UWRT_MARS_ROVER_CAN_ODRIVE_SET_CONTROLLER_MODES_AXIS1_LENGTH) ==
+                UWRT_MARS_ROVER_CAN_ODRIVE_SET_CONTROLLER_MODES_AXIS1_LENGTH);
     len = UWRT_MARS_ROVER_CAN_ODRIVE_SET_CONTROLLER_MODES_AXIS1_LENGTH;
   }
   return success;
 }
 
 // ODRIVE_setControllerModes_axis1 message unpacker
-bool odrive_set_controller_modes_axis1_unpacker(uint8_t *raw,
-                                                CANMsgMap *msgMap) {
+bool odrive_set_controller_modes_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
   bool success = false;
-  CANID msgID = CANID::ODRIVE_SET_CONTROLLER_MODES_AXIS1;
+  CANID msgID  = CANID::ODRIVE_SET_CONTROLLER_MODES_AXIS1;
   struct uwrt_mars_rover_can_odrive_set_controller_modes_axis1_t msgStruct;
 
-  success =
-      (uwrt_mars_rover_can_odrive_set_controller_modes_axis1_unpack(
-           &msgStruct, raw,
-           UWRT_MARS_ROVER_CAN_ODRIVE_SET_CONTROLLER_MODES_AXIS1_LENGTH) == 0);
+  success = (uwrt_mars_rover_can_odrive_set_controller_modes_axis1_unpack(
+                 &msgStruct, raw, UWRT_MARS_ROVER_CAN_ODRIVE_SET_CONTROLLER_MODES_AXIS1_LENGTH) == 0);
 
   if (success && msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
       CANSIGNAL signalName = it->first;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_CONTROL_MODE:
+          success &=
+              msgMap->setSignalValue(msgID, signalName,
+                                     uwrt_mars_rover_can_odrive_set_controller_modes_axis1_odrive_control_mode_decode(
+                                         msgStruct.odrive_control_mode));
+          break;
 
-      case CANSIGNAL::ODRIVE_CONTROL_MODE:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_set_controller_modes_axis1_odrive_control_mode_decode(
-                msgStruct.odrive_control_mode));
-        break;
+        case CANSIGNAL::ODRIVE_INPUT_MODE:
+          success &=
+              msgMap->setSignalValue(msgID, signalName,
+                                     uwrt_mars_rover_can_odrive_set_controller_modes_axis1_odrive_input_mode_decode(
+                                         msgStruct.odrive_input_mode));
+          break;
 
-      case CANSIGNAL::ODRIVE_INPUT_MODE:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_set_controller_modes_axis1_odrive_input_mode_decode(
-                msgStruct.odrive_input_mode));
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
   }
@@ -3210,46 +2672,38 @@ bool odrive_set_controller_modes_axis1_unpacker(uint8_t *raw,
 }
 
 // ODRIVE_SetInputPos_axis1 message packer
-bool odrive_set_input_pos_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap,
-                                       size_t &len) {
+bool odrive_set_input_pos_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len) {
   bool success = true;
-  CANID msgID = CANID::ODRIVE_SET_INPUT_POS_AXIS1;
+  CANID msgID  = CANID::ODRIVE_SET_INPUT_POS_AXIS1;
   struct uwrt_mars_rover_can_odrive_set_input_pos_axis1_t msgStruct;
 
   if (msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
-      CANSIGNAL signalName = it->first;
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName         = it->first;
       CANSignalValue_t signalValue = it->second;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_INPUT_POS:
+          msgStruct.odrive_input_pos =
+              uwrt_mars_rover_can_odrive_set_input_pos_axis1_odrive_input_pos_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_INPUT_POS:
-        msgStruct.odrive_input_pos =
-            uwrt_mars_rover_can_odrive_set_input_pos_axis1_odrive_input_pos_encode(
-                signalValue);
-        break;
+        case CANSIGNAL::ODRIVE_VEL_FF:
+          msgStruct.odrive_vel_ff = uwrt_mars_rover_can_odrive_set_input_pos_axis1_odrive_vel_ff_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_VEL_FF:
-        msgStruct.odrive_vel_ff =
-            uwrt_mars_rover_can_odrive_set_input_pos_axis1_odrive_vel_ff_encode(
-                signalValue);
-        break;
+        case CANSIGNAL::ODRIVE_TORQUE_FF:
+          msgStruct.odrive_torque_ff =
+              uwrt_mars_rover_can_odrive_set_input_pos_axis1_odrive_torque_ff_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_TORQUE_FF:
-        msgStruct.odrive_torque_ff =
-            uwrt_mars_rover_can_odrive_set_input_pos_axis1_odrive_torque_ff_encode(
-                signalValue);
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
     success &= (uwrt_mars_rover_can_odrive_set_input_pos_axis1_pack(
-                    raw, &msgStruct,
-                    UWRT_MARS_ROVER_CAN_ODRIVE_SET_INPUT_POS_AXIS1_LENGTH) ==
+                    raw, &msgStruct, UWRT_MARS_ROVER_CAN_ODRIVE_SET_INPUT_POS_AXIS1_LENGTH) ==
                 UWRT_MARS_ROVER_CAN_ODRIVE_SET_INPUT_POS_AXIS1_LENGTH);
     len = UWRT_MARS_ROVER_CAN_ODRIVE_SET_INPUT_POS_AXIS1_LENGTH;
   }
@@ -3259,44 +2713,38 @@ bool odrive_set_input_pos_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap,
 // ODRIVE_SetInputPos_axis1 message unpacker
 bool odrive_set_input_pos_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
   bool success = false;
-  CANID msgID = CANID::ODRIVE_SET_INPUT_POS_AXIS1;
+  CANID msgID  = CANID::ODRIVE_SET_INPUT_POS_AXIS1;
   struct uwrt_mars_rover_can_odrive_set_input_pos_axis1_t msgStruct;
 
   success = (uwrt_mars_rover_can_odrive_set_input_pos_axis1_unpack(
-                 &msgStruct, raw,
-                 UWRT_MARS_ROVER_CAN_ODRIVE_SET_INPUT_POS_AXIS1_LENGTH) == 0);
+                 &msgStruct, raw, UWRT_MARS_ROVER_CAN_ODRIVE_SET_INPUT_POS_AXIS1_LENGTH) == 0);
 
   if (success && msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
       CANSIGNAL signalName = it->first;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_INPUT_POS:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_odrive_set_input_pos_axis1_odrive_input_pos_decode(msgStruct.odrive_input_pos));
+          break;
 
-      case CANSIGNAL::ODRIVE_INPUT_POS:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_set_input_pos_axis1_odrive_input_pos_decode(
-                msgStruct.odrive_input_pos));
-        break;
+        case CANSIGNAL::ODRIVE_VEL_FF:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_odrive_set_input_pos_axis1_odrive_vel_ff_decode(msgStruct.odrive_vel_ff));
+          break;
 
-      case CANSIGNAL::ODRIVE_VEL_FF:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_set_input_pos_axis1_odrive_vel_ff_decode(
-                msgStruct.odrive_vel_ff));
-        break;
+        case CANSIGNAL::ODRIVE_TORQUE_FF:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_odrive_set_input_pos_axis1_odrive_torque_ff_decode(msgStruct.odrive_torque_ff));
+          break;
 
-      case CANSIGNAL::ODRIVE_TORQUE_FF:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_set_input_pos_axis1_odrive_torque_ff_decode(
-                msgStruct.odrive_torque_ff));
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
   }
@@ -3305,40 +2753,34 @@ bool odrive_set_input_pos_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
 }
 
 // ODRIVE_setInputVel_axis1 message packer
-bool odrive_set_input_vel_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap,
-                                       size_t &len) {
+bool odrive_set_input_vel_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len) {
   bool success = true;
-  CANID msgID = CANID::ODRIVE_SET_INPUT_VEL_AXIS1;
+  CANID msgID  = CANID::ODRIVE_SET_INPUT_VEL_AXIS1;
   struct uwrt_mars_rover_can_odrive_set_input_vel_axis1_t msgStruct;
 
   if (msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
-      CANSIGNAL signalName = it->first;
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName         = it->first;
       CANSignalValue_t signalValue = it->second;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_INPUT_VEL:
+          msgStruct.odrive_input_vel =
+              uwrt_mars_rover_can_odrive_set_input_vel_axis1_odrive_input_vel_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_INPUT_VEL:
-        msgStruct.odrive_input_vel =
-            uwrt_mars_rover_can_odrive_set_input_vel_axis1_odrive_input_vel_encode(
-                signalValue);
-        break;
+        case CANSIGNAL::ODRIVE_TORQUE_FF:
+          msgStruct.odrive_torque_ff =
+              uwrt_mars_rover_can_odrive_set_input_vel_axis1_odrive_torque_ff_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_TORQUE_FF:
-        msgStruct.odrive_torque_ff =
-            uwrt_mars_rover_can_odrive_set_input_vel_axis1_odrive_torque_ff_encode(
-                signalValue);
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
     success &= (uwrt_mars_rover_can_odrive_set_input_vel_axis1_pack(
-                    raw, &msgStruct,
-                    UWRT_MARS_ROVER_CAN_ODRIVE_SET_INPUT_VEL_AXIS1_LENGTH) ==
+                    raw, &msgStruct, UWRT_MARS_ROVER_CAN_ODRIVE_SET_INPUT_VEL_AXIS1_LENGTH) ==
                 UWRT_MARS_ROVER_CAN_ODRIVE_SET_INPUT_VEL_AXIS1_LENGTH);
     len = UWRT_MARS_ROVER_CAN_ODRIVE_SET_INPUT_VEL_AXIS1_LENGTH;
   }
@@ -3348,37 +2790,32 @@ bool odrive_set_input_vel_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap,
 // ODRIVE_setInputVel_axis1 message unpacker
 bool odrive_set_input_vel_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
   bool success = false;
-  CANID msgID = CANID::ODRIVE_SET_INPUT_VEL_AXIS1;
+  CANID msgID  = CANID::ODRIVE_SET_INPUT_VEL_AXIS1;
   struct uwrt_mars_rover_can_odrive_set_input_vel_axis1_t msgStruct;
 
   success = (uwrt_mars_rover_can_odrive_set_input_vel_axis1_unpack(
-                 &msgStruct, raw,
-                 UWRT_MARS_ROVER_CAN_ODRIVE_SET_INPUT_VEL_AXIS1_LENGTH) == 0);
+                 &msgStruct, raw, UWRT_MARS_ROVER_CAN_ODRIVE_SET_INPUT_VEL_AXIS1_LENGTH) == 0);
 
   if (success && msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
       CANSIGNAL signalName = it->first;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_INPUT_VEL:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_odrive_set_input_vel_axis1_odrive_input_vel_decode(msgStruct.odrive_input_vel));
+          break;
 
-      case CANSIGNAL::ODRIVE_INPUT_VEL:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_set_input_vel_axis1_odrive_input_vel_decode(
-                msgStruct.odrive_input_vel));
-        break;
+        case CANSIGNAL::ODRIVE_TORQUE_FF:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_odrive_set_input_vel_axis1_odrive_torque_ff_decode(msgStruct.odrive_torque_ff));
+          break;
 
-      case CANSIGNAL::ODRIVE_TORQUE_FF:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_set_input_vel_axis1_odrive_torque_ff_decode(
-                msgStruct.odrive_torque_ff));
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
   }
@@ -3387,34 +2824,29 @@ bool odrive_set_input_vel_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
 }
 
 // ODRIVE_setInputTorque_axis1 message packer
-bool odrive_set_input_torque_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap,
-                                          size_t &len) {
+bool odrive_set_input_torque_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len) {
   bool success = true;
-  CANID msgID = CANID::ODRIVE_SET_INPUT_TORQUE_AXIS1;
+  CANID msgID  = CANID::ODRIVE_SET_INPUT_TORQUE_AXIS1;
   struct uwrt_mars_rover_can_odrive_set_input_torque_axis1_t msgStruct;
 
   if (msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
-      CANSIGNAL signalName = it->first;
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName         = it->first;
       CANSignalValue_t signalValue = it->second;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_INPUT_TORQUE:
+          msgStruct.odrive_input_torque =
+              uwrt_mars_rover_can_odrive_set_input_torque_axis1_odrive_input_torque_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_INPUT_TORQUE:
-        msgStruct.odrive_input_torque =
-            uwrt_mars_rover_can_odrive_set_input_torque_axis1_odrive_input_torque_encode(
-                signalValue);
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
     success &= (uwrt_mars_rover_can_odrive_set_input_torque_axis1_pack(
-                    raw, &msgStruct,
-                    UWRT_MARS_ROVER_CAN_ODRIVE_SET_INPUT_TORQUE_AXIS1_LENGTH) ==
+                    raw, &msgStruct, UWRT_MARS_ROVER_CAN_ODRIVE_SET_INPUT_TORQUE_AXIS1_LENGTH) ==
                 UWRT_MARS_ROVER_CAN_ODRIVE_SET_INPUT_TORQUE_AXIS1_LENGTH);
     len = UWRT_MARS_ROVER_CAN_ODRIVE_SET_INPUT_TORQUE_AXIS1_LENGTH;
   }
@@ -3424,31 +2856,27 @@ bool odrive_set_input_torque_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap,
 // ODRIVE_setInputTorque_axis1 message unpacker
 bool odrive_set_input_torque_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
   bool success = false;
-  CANID msgID = CANID::ODRIVE_SET_INPUT_TORQUE_AXIS1;
+  CANID msgID  = CANID::ODRIVE_SET_INPUT_TORQUE_AXIS1;
   struct uwrt_mars_rover_can_odrive_set_input_torque_axis1_t msgStruct;
 
-  success =
-      (uwrt_mars_rover_can_odrive_set_input_torque_axis1_unpack(
-           &msgStruct, raw,
-           UWRT_MARS_ROVER_CAN_ODRIVE_SET_INPUT_TORQUE_AXIS1_LENGTH) == 0);
+  success = (uwrt_mars_rover_can_odrive_set_input_torque_axis1_unpack(
+                 &msgStruct, raw, UWRT_MARS_ROVER_CAN_ODRIVE_SET_INPUT_TORQUE_AXIS1_LENGTH) == 0);
 
   if (success && msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
       CANSIGNAL signalName = it->first;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_INPUT_TORQUE:
+          success &=
+              msgMap->setSignalValue(msgID, signalName,
+                                     uwrt_mars_rover_can_odrive_set_input_torque_axis1_odrive_input_torque_decode(
+                                         msgStruct.odrive_input_torque));
+          break;
 
-      case CANSIGNAL::ODRIVE_INPUT_TORQUE:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_set_input_torque_axis1_odrive_input_torque_decode(
-                msgStruct.odrive_input_torque));
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
   }
@@ -3457,40 +2885,34 @@ bool odrive_set_input_torque_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
 }
 
 // ODRIVE_setLimits_axis1 message packer
-bool odrive_set_limits_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap,
-                                    size_t &len) {
+bool odrive_set_limits_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len) {
   bool success = true;
-  CANID msgID = CANID::ODRIVE_SET_LIMITS_AXIS1;
+  CANID msgID  = CANID::ODRIVE_SET_LIMITS_AXIS1;
   struct uwrt_mars_rover_can_odrive_set_limits_axis1_t msgStruct;
 
   if (msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
-      CANSIGNAL signalName = it->first;
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName         = it->first;
       CANSignalValue_t signalValue = it->second;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_VELOCITY_LIMIT:
+          msgStruct.odrive_velocity_limit =
+              uwrt_mars_rover_can_odrive_set_limits_axis1_odrive_velocity_limit_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_VELOCITY_LIMIT:
-        msgStruct.odrive_velocity_limit =
-            uwrt_mars_rover_can_odrive_set_limits_axis1_odrive_velocity_limit_encode(
-                signalValue);
-        break;
+        case CANSIGNAL::ODRIVE_CURRENT_LIMIT:
+          msgStruct.odrive_current_limit =
+              uwrt_mars_rover_can_odrive_set_limits_axis1_odrive_current_limit_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_CURRENT_LIMIT:
-        msgStruct.odrive_current_limit =
-            uwrt_mars_rover_can_odrive_set_limits_axis1_odrive_current_limit_encode(
-                signalValue);
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
-    success &= (uwrt_mars_rover_can_odrive_set_limits_axis1_pack(
-                    raw, &msgStruct,
-                    UWRT_MARS_ROVER_CAN_ODRIVE_SET_LIMITS_AXIS1_LENGTH) ==
+    success &= (uwrt_mars_rover_can_odrive_set_limits_axis1_pack(raw, &msgStruct,
+                                                                 UWRT_MARS_ROVER_CAN_ODRIVE_SET_LIMITS_AXIS1_LENGTH) ==
                 UWRT_MARS_ROVER_CAN_ODRIVE_SET_LIMITS_AXIS1_LENGTH);
     len = UWRT_MARS_ROVER_CAN_ODRIVE_SET_LIMITS_AXIS1_LENGTH;
   }
@@ -3500,37 +2922,32 @@ bool odrive_set_limits_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap,
 // ODRIVE_setLimits_axis1 message unpacker
 bool odrive_set_limits_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
   bool success = false;
-  CANID msgID = CANID::ODRIVE_SET_LIMITS_AXIS1;
+  CANID msgID  = CANID::ODRIVE_SET_LIMITS_AXIS1;
   struct uwrt_mars_rover_can_odrive_set_limits_axis1_t msgStruct;
 
   success = (uwrt_mars_rover_can_odrive_set_limits_axis1_unpack(
-                 &msgStruct, raw,
-                 UWRT_MARS_ROVER_CAN_ODRIVE_SET_LIMITS_AXIS1_LENGTH) == 0);
+                 &msgStruct, raw, UWRT_MARS_ROVER_CAN_ODRIVE_SET_LIMITS_AXIS1_LENGTH) == 0);
 
   if (success && msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
       CANSIGNAL signalName = it->first;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_VELOCITY_LIMIT:
+          success &= msgMap->setSignalValue(msgID, signalName,
+                                            uwrt_mars_rover_can_odrive_set_limits_axis1_odrive_velocity_limit_decode(
+                                                msgStruct.odrive_velocity_limit));
+          break;
 
-      case CANSIGNAL::ODRIVE_VELOCITY_LIMIT:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_set_limits_axis1_odrive_velocity_limit_decode(
-                msgStruct.odrive_velocity_limit));
-        break;
+        case CANSIGNAL::ODRIVE_CURRENT_LIMIT:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_odrive_set_limits_axis1_odrive_current_limit_decode(msgStruct.odrive_current_limit));
+          break;
 
-      case CANSIGNAL::ODRIVE_CURRENT_LIMIT:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_set_limits_axis1_odrive_current_limit_decode(
-                msgStruct.odrive_current_limit));
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
   }
@@ -3539,31 +2956,25 @@ bool odrive_set_limits_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
 }
 
 // ODRIVE_StartAnticogging_axis1 message packer
-bool odrive_start_anticogging_axis1_packer(uint8_t *raw,
-                                           const CANMsgMap *msgMap,
-                                           size_t &len) {
+bool odrive_start_anticogging_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len) {
   bool success = true;
-  CANID msgID = CANID::ODRIVE_START_ANTICOGGING_AXIS1;
+  CANID msgID  = CANID::ODRIVE_START_ANTICOGGING_AXIS1;
   struct uwrt_mars_rover_can_odrive_start_anticogging_axis1_t msgStruct;
 
   if (msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
-      CANSIGNAL signalName = it->first;
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName         = it->first;
       CANSignalValue_t signalValue = it->second;
 
       switch (signalName) {
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
-    success &=
-        (uwrt_mars_rover_can_odrive_start_anticogging_axis1_pack(
-             raw, &msgStruct,
-             UWRT_MARS_ROVER_CAN_ODRIVE_START_ANTICOGGING_AXIS1_LENGTH) ==
-         UWRT_MARS_ROVER_CAN_ODRIVE_START_ANTICOGGING_AXIS1_LENGTH);
+    success &= (uwrt_mars_rover_can_odrive_start_anticogging_axis1_pack(
+                    raw, &msgStruct, UWRT_MARS_ROVER_CAN_ODRIVE_START_ANTICOGGING_AXIS1_LENGTH) ==
+                UWRT_MARS_ROVER_CAN_ODRIVE_START_ANTICOGGING_AXIS1_LENGTH);
     len = UWRT_MARS_ROVER_CAN_ODRIVE_START_ANTICOGGING_AXIS1_LENGTH;
   }
   return success;
@@ -3572,24 +2983,20 @@ bool odrive_start_anticogging_axis1_packer(uint8_t *raw,
 // ODRIVE_StartAnticogging_axis1 message unpacker
 bool odrive_start_anticogging_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
   bool success = false;
-  CANID msgID = CANID::ODRIVE_START_ANTICOGGING_AXIS1;
+  CANID msgID  = CANID::ODRIVE_START_ANTICOGGING_AXIS1;
   struct uwrt_mars_rover_can_odrive_start_anticogging_axis1_t msgStruct;
 
-  success =
-      (uwrt_mars_rover_can_odrive_start_anticogging_axis1_unpack(
-           &msgStruct, raw,
-           UWRT_MARS_ROVER_CAN_ODRIVE_START_ANTICOGGING_AXIS1_LENGTH) == 0);
+  success = (uwrt_mars_rover_can_odrive_start_anticogging_axis1_unpack(
+                 &msgStruct, raw, UWRT_MARS_ROVER_CAN_ODRIVE_START_ANTICOGGING_AXIS1_LENGTH) == 0);
 
   if (success && msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
       CANSIGNAL signalName = it->first;
 
       switch (signalName) {
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
   }
@@ -3598,37 +3005,30 @@ bool odrive_start_anticogging_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
 }
 
 // ODRIVE_setTrajVelLimit_axis1 message packer
-bool odrive_set_traj_vel_limit_axis1_packer(uint8_t *raw,
-                                            const CANMsgMap *msgMap,
-                                            size_t &len) {
+bool odrive_set_traj_vel_limit_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len) {
   bool success = true;
-  CANID msgID = CANID::ODRIVE_SET_TRAJ_VEL_LIMIT_AXIS1;
+  CANID msgID  = CANID::ODRIVE_SET_TRAJ_VEL_LIMIT_AXIS1;
   struct uwrt_mars_rover_can_odrive_set_traj_vel_limit_axis1_t msgStruct;
 
   if (msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
-      CANSIGNAL signalName = it->first;
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName         = it->first;
       CANSignalValue_t signalValue = it->second;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_TRAJ_VEL_LIMIT:
+          msgStruct.odrive_traj_vel_limit =
+              uwrt_mars_rover_can_odrive_set_traj_vel_limit_axis1_odrive_traj_vel_limit_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_TRAJ_VEL_LIMIT:
-        msgStruct.odrive_traj_vel_limit =
-            uwrt_mars_rover_can_odrive_set_traj_vel_limit_axis1_odrive_traj_vel_limit_encode(
-                signalValue);
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
-    success &=
-        (uwrt_mars_rover_can_odrive_set_traj_vel_limit_axis1_pack(
-             raw, &msgStruct,
-             UWRT_MARS_ROVER_CAN_ODRIVE_SET_TRAJ_VEL_LIMIT_AXIS1_LENGTH) ==
-         UWRT_MARS_ROVER_CAN_ODRIVE_SET_TRAJ_VEL_LIMIT_AXIS1_LENGTH);
+    success &= (uwrt_mars_rover_can_odrive_set_traj_vel_limit_axis1_pack(
+                    raw, &msgStruct, UWRT_MARS_ROVER_CAN_ODRIVE_SET_TRAJ_VEL_LIMIT_AXIS1_LENGTH) ==
+                UWRT_MARS_ROVER_CAN_ODRIVE_SET_TRAJ_VEL_LIMIT_AXIS1_LENGTH);
     len = UWRT_MARS_ROVER_CAN_ODRIVE_SET_TRAJ_VEL_LIMIT_AXIS1_LENGTH;
   }
   return success;
@@ -3637,31 +3037,27 @@ bool odrive_set_traj_vel_limit_axis1_packer(uint8_t *raw,
 // ODRIVE_setTrajVelLimit_axis1 message unpacker
 bool odrive_set_traj_vel_limit_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
   bool success = false;
-  CANID msgID = CANID::ODRIVE_SET_TRAJ_VEL_LIMIT_AXIS1;
+  CANID msgID  = CANID::ODRIVE_SET_TRAJ_VEL_LIMIT_AXIS1;
   struct uwrt_mars_rover_can_odrive_set_traj_vel_limit_axis1_t msgStruct;
 
-  success =
-      (uwrt_mars_rover_can_odrive_set_traj_vel_limit_axis1_unpack(
-           &msgStruct, raw,
-           UWRT_MARS_ROVER_CAN_ODRIVE_SET_TRAJ_VEL_LIMIT_AXIS1_LENGTH) == 0);
+  success = (uwrt_mars_rover_can_odrive_set_traj_vel_limit_axis1_unpack(
+                 &msgStruct, raw, UWRT_MARS_ROVER_CAN_ODRIVE_SET_TRAJ_VEL_LIMIT_AXIS1_LENGTH) == 0);
 
   if (success && msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
       CANSIGNAL signalName = it->first;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_TRAJ_VEL_LIMIT:
+          success &=
+              msgMap->setSignalValue(msgID, signalName,
+                                     uwrt_mars_rover_can_odrive_set_traj_vel_limit_axis1_odrive_traj_vel_limit_decode(
+                                         msgStruct.odrive_traj_vel_limit));
+          break;
 
-      case CANSIGNAL::ODRIVE_TRAJ_VEL_LIMIT:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_set_traj_vel_limit_axis1_odrive_traj_vel_limit_decode(
-                msgStruct.odrive_traj_vel_limit));
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
   }
@@ -3670,84 +3066,71 @@ bool odrive_set_traj_vel_limit_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
 }
 
 // ODRIVE_setTrajAccelLimit_axis1 message packer
-bool odrive_set_traj_accel_limit_axis1_packer(uint8_t *raw,
-                                              const CANMsgMap *msgMap,
-                                              size_t &len) {
+bool odrive_set_traj_accel_limit_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len) {
   bool success = true;
-  CANID msgID = CANID::ODRIVE_SET_TRAJ_ACCEL_LIMIT_AXIS1;
+  CANID msgID  = CANID::ODRIVE_SET_TRAJ_ACCEL_LIMIT_AXIS1;
   struct uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis1_t msgStruct;
 
   if (msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
-      CANSIGNAL signalName = it->first;
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName         = it->first;
       CANSignalValue_t signalValue = it->second;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_TRAJ_ACCEL_LIMIT:
+          msgStruct.odrive_traj_accel_limit =
+              uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis1_odrive_traj_accel_limit_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_TRAJ_ACCEL_LIMIT:
-        msgStruct.odrive_traj_accel_limit =
-            uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis1_odrive_traj_accel_limit_encode(
-                signalValue);
-        break;
+        case CANSIGNAL::ODRIVE_TRAJ_DECEL_LIMIT:
+          msgStruct.odrive_traj_decel_limit =
+              uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis1_odrive_traj_decel_limit_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_TRAJ_DECEL_LIMIT:
-        msgStruct.odrive_traj_decel_limit =
-            uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis1_odrive_traj_decel_limit_encode(
-                signalValue);
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
-    success &=
-        (uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis1_pack(
-             raw, &msgStruct,
-             UWRT_MARS_ROVER_CAN_ODRIVE_SET_TRAJ_ACCEL_LIMIT_AXIS1_LENGTH) ==
-         UWRT_MARS_ROVER_CAN_ODRIVE_SET_TRAJ_ACCEL_LIMIT_AXIS1_LENGTH);
+    success &= (uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis1_pack(
+                    raw, &msgStruct, UWRT_MARS_ROVER_CAN_ODRIVE_SET_TRAJ_ACCEL_LIMIT_AXIS1_LENGTH) ==
+                UWRT_MARS_ROVER_CAN_ODRIVE_SET_TRAJ_ACCEL_LIMIT_AXIS1_LENGTH);
     len = UWRT_MARS_ROVER_CAN_ODRIVE_SET_TRAJ_ACCEL_LIMIT_AXIS1_LENGTH;
   }
   return success;
 }
 
 // ODRIVE_setTrajAccelLimit_axis1 message unpacker
-bool odrive_set_traj_accel_limit_axis1_unpacker(uint8_t *raw,
-                                                CANMsgMap *msgMap) {
+bool odrive_set_traj_accel_limit_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
   bool success = false;
-  CANID msgID = CANID::ODRIVE_SET_TRAJ_ACCEL_LIMIT_AXIS1;
+  CANID msgID  = CANID::ODRIVE_SET_TRAJ_ACCEL_LIMIT_AXIS1;
   struct uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis1_t msgStruct;
 
-  success =
-      (uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis1_unpack(
-           &msgStruct, raw,
-           UWRT_MARS_ROVER_CAN_ODRIVE_SET_TRAJ_ACCEL_LIMIT_AXIS1_LENGTH) == 0);
+  success = (uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis1_unpack(
+                 &msgStruct, raw, UWRT_MARS_ROVER_CAN_ODRIVE_SET_TRAJ_ACCEL_LIMIT_AXIS1_LENGTH) == 0);
 
   if (success && msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
       CANSIGNAL signalName = it->first;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_TRAJ_ACCEL_LIMIT:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis1_odrive_traj_accel_limit_decode(
+                  msgStruct.odrive_traj_accel_limit));
+          break;
 
-      case CANSIGNAL::ODRIVE_TRAJ_ACCEL_LIMIT:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis1_odrive_traj_accel_limit_decode(
-                msgStruct.odrive_traj_accel_limit));
-        break;
+        case CANSIGNAL::ODRIVE_TRAJ_DECEL_LIMIT:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis1_odrive_traj_decel_limit_decode(
+                  msgStruct.odrive_traj_decel_limit));
+          break;
 
-      case CANSIGNAL::ODRIVE_TRAJ_DECEL_LIMIT:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_set_traj_accel_limit_axis1_odrive_traj_decel_limit_decode(
-                msgStruct.odrive_traj_decel_limit));
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
   }
@@ -3756,34 +3139,29 @@ bool odrive_set_traj_accel_limit_axis1_unpacker(uint8_t *raw,
 }
 
 // ODRIVE_setTrajInertia_axis1 message packer
-bool odrive_set_traj_inertia_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap,
-                                          size_t &len) {
+bool odrive_set_traj_inertia_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len) {
   bool success = true;
-  CANID msgID = CANID::ODRIVE_SET_TRAJ_INERTIA_AXIS1;
+  CANID msgID  = CANID::ODRIVE_SET_TRAJ_INERTIA_AXIS1;
   struct uwrt_mars_rover_can_odrive_set_traj_inertia_axis1_t msgStruct;
 
   if (msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
-      CANSIGNAL signalName = it->first;
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName         = it->first;
       CANSignalValue_t signalValue = it->second;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_TRAJ_INERTIA:
+          msgStruct.odrive_traj_inertia =
+              uwrt_mars_rover_can_odrive_set_traj_inertia_axis1_odrive_traj_inertia_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_TRAJ_INERTIA:
-        msgStruct.odrive_traj_inertia =
-            uwrt_mars_rover_can_odrive_set_traj_inertia_axis1_odrive_traj_inertia_encode(
-                signalValue);
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
     success &= (uwrt_mars_rover_can_odrive_set_traj_inertia_axis1_pack(
-                    raw, &msgStruct,
-                    UWRT_MARS_ROVER_CAN_ODRIVE_SET_TRAJ_INERTIA_AXIS1_LENGTH) ==
+                    raw, &msgStruct, UWRT_MARS_ROVER_CAN_ODRIVE_SET_TRAJ_INERTIA_AXIS1_LENGTH) ==
                 UWRT_MARS_ROVER_CAN_ODRIVE_SET_TRAJ_INERTIA_AXIS1_LENGTH);
     len = UWRT_MARS_ROVER_CAN_ODRIVE_SET_TRAJ_INERTIA_AXIS1_LENGTH;
   }
@@ -3793,31 +3171,27 @@ bool odrive_set_traj_inertia_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap,
 // ODRIVE_setTrajInertia_axis1 message unpacker
 bool odrive_set_traj_inertia_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
   bool success = false;
-  CANID msgID = CANID::ODRIVE_SET_TRAJ_INERTIA_AXIS1;
+  CANID msgID  = CANID::ODRIVE_SET_TRAJ_INERTIA_AXIS1;
   struct uwrt_mars_rover_can_odrive_set_traj_inertia_axis1_t msgStruct;
 
-  success =
-      (uwrt_mars_rover_can_odrive_set_traj_inertia_axis1_unpack(
-           &msgStruct, raw,
-           UWRT_MARS_ROVER_CAN_ODRIVE_SET_TRAJ_INERTIA_AXIS1_LENGTH) == 0);
+  success = (uwrt_mars_rover_can_odrive_set_traj_inertia_axis1_unpack(
+                 &msgStruct, raw, UWRT_MARS_ROVER_CAN_ODRIVE_SET_TRAJ_INERTIA_AXIS1_LENGTH) == 0);
 
   if (success && msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
       CANSIGNAL signalName = it->first;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_TRAJ_INERTIA:
+          success &=
+              msgMap->setSignalValue(msgID, signalName,
+                                     uwrt_mars_rover_can_odrive_set_traj_inertia_axis1_odrive_traj_inertia_decode(
+                                         msgStruct.odrive_traj_inertia));
+          break;
 
-      case CANSIGNAL::ODRIVE_TRAJ_INERTIA:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_set_traj_inertia_axis1_odrive_traj_inertia_decode(
-                msgStruct.odrive_traj_inertia));
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
   }
@@ -3826,41 +3200,33 @@ bool odrive_set_traj_inertia_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
 }
 
 // ODRIVE_getIQ_axis1 message packer
-bool odrive_get_iq_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap,
-                                size_t &len) {
+bool odrive_get_iq_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len) {
   bool success = true;
-  CANID msgID = CANID::ODRIVE_GET_IQ_AXIS1;
+  CANID msgID  = CANID::ODRIVE_GET_IQ_AXIS1;
   struct uwrt_mars_rover_can_odrive_get_iq_axis1_t msgStruct;
 
   if (msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
-      CANSIGNAL signalName = it->first;
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName         = it->first;
       CANSignalValue_t signalValue = it->second;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_IQ_SETPOINT:
+          msgStruct.odrive_iq_setpoint = uwrt_mars_rover_can_odrive_get_iq_axis1_odrive_iq_setpoint_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_IQ_SETPOINT:
-        msgStruct.odrive_iq_setpoint =
-            uwrt_mars_rover_can_odrive_get_iq_axis1_odrive_iq_setpoint_encode(
-                signalValue);
-        break;
+        case CANSIGNAL::ODRIVE_IQ_MEASURED:
+          msgStruct.odrive_iq_measured = uwrt_mars_rover_can_odrive_get_iq_axis1_odrive_iq_measured_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_IQ_MEASURED:
-        msgStruct.odrive_iq_measured =
-            uwrt_mars_rover_can_odrive_get_iq_axis1_odrive_iq_measured_encode(
-                signalValue);
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
-    success &=
-        (uwrt_mars_rover_can_odrive_get_iq_axis1_pack(
-             raw, &msgStruct, UWRT_MARS_ROVER_CAN_ODRIVE_GET_IQ_AXIS1_LENGTH) ==
-         UWRT_MARS_ROVER_CAN_ODRIVE_GET_IQ_AXIS1_LENGTH);
+    success &= (uwrt_mars_rover_can_odrive_get_iq_axis1_pack(raw, &msgStruct,
+                                                             UWRT_MARS_ROVER_CAN_ODRIVE_GET_IQ_AXIS1_LENGTH) ==
+                UWRT_MARS_ROVER_CAN_ODRIVE_GET_IQ_AXIS1_LENGTH);
     len = UWRT_MARS_ROVER_CAN_ODRIVE_GET_IQ_AXIS1_LENGTH;
   }
   return success;
@@ -3869,37 +3235,32 @@ bool odrive_get_iq_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap,
 // ODRIVE_getIQ_axis1 message unpacker
 bool odrive_get_iq_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
   bool success = false;
-  CANID msgID = CANID::ODRIVE_GET_IQ_AXIS1;
+  CANID msgID  = CANID::ODRIVE_GET_IQ_AXIS1;
   struct uwrt_mars_rover_can_odrive_get_iq_axis1_t msgStruct;
 
-  success = (uwrt_mars_rover_can_odrive_get_iq_axis1_unpack(
-                 &msgStruct, raw,
-                 UWRT_MARS_ROVER_CAN_ODRIVE_GET_IQ_AXIS1_LENGTH) == 0);
+  success = (uwrt_mars_rover_can_odrive_get_iq_axis1_unpack(&msgStruct, raw,
+                                                            UWRT_MARS_ROVER_CAN_ODRIVE_GET_IQ_AXIS1_LENGTH) == 0);
 
   if (success && msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
       CANSIGNAL signalName = it->first;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_IQ_SETPOINT:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_odrive_get_iq_axis1_odrive_iq_setpoint_decode(msgStruct.odrive_iq_setpoint));
+          break;
 
-      case CANSIGNAL::ODRIVE_IQ_SETPOINT:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_get_iq_axis1_odrive_iq_setpoint_decode(
-                msgStruct.odrive_iq_setpoint));
-        break;
+        case CANSIGNAL::ODRIVE_IQ_MEASURED:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_odrive_get_iq_axis1_odrive_iq_measured_decode(msgStruct.odrive_iq_measured));
+          break;
 
-      case CANSIGNAL::ODRIVE_IQ_MEASURED:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_get_iq_axis1_odrive_iq_measured_decode(
-                msgStruct.odrive_iq_measured));
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
   }
@@ -3908,85 +3269,73 @@ bool odrive_get_iq_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
 }
 
 // ODRIVE_GetSensorlessEstimates_axis1 message packer
-bool odrive_get_sensorless_estimates_axis1_packer(uint8_t *raw,
-                                                  const CANMsgMap *msgMap,
-                                                  size_t &len) {
+bool odrive_get_sensorless_estimates_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len) {
   bool success = true;
-  CANID msgID = CANID::ODRIVE_GET_SENSORLESS_ESTIMATES_AXIS1;
+  CANID msgID  = CANID::ODRIVE_GET_SENSORLESS_ESTIMATES_AXIS1;
   struct uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis1_t msgStruct;
 
   if (msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
-      CANSIGNAL signalName = it->first;
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName         = it->first;
       CANSignalValue_t signalValue = it->second;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_SENSORLESS_POS_ESTIMATE:
+          msgStruct.odrive_sensorless_pos_estimate =
+              uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis1_odrive_sensorless_pos_estimate_encode(
+                  signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_SENSORLESS_POS_ESTIMATE:
-        msgStruct.odrive_sensorless_pos_estimate =
-            uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis1_odrive_sensorless_pos_estimate_encode(
-                signalValue);
-        break;
+        case CANSIGNAL::ODRIVE_SENSORLESS_VEL_ESTIMATE:
+          msgStruct.odrive_sensorless_vel_estimate =
+              uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis1_odrive_sensorless_vel_estimate_encode(
+                  signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_SENSORLESS_VEL_ESTIMATE:
-        msgStruct.odrive_sensorless_vel_estimate =
-            uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis1_odrive_sensorless_vel_estimate_encode(
-                signalValue);
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
-    success &=
-        (uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis1_pack(
-             raw, &msgStruct,
-             UWRT_MARS_ROVER_CAN_ODRIVE_GET_SENSORLESS_ESTIMATES_AXIS1_LENGTH) ==
-         UWRT_MARS_ROVER_CAN_ODRIVE_GET_SENSORLESS_ESTIMATES_AXIS1_LENGTH);
+    success &= (uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis1_pack(
+                    raw, &msgStruct, UWRT_MARS_ROVER_CAN_ODRIVE_GET_SENSORLESS_ESTIMATES_AXIS1_LENGTH) ==
+                UWRT_MARS_ROVER_CAN_ODRIVE_GET_SENSORLESS_ESTIMATES_AXIS1_LENGTH);
     len = UWRT_MARS_ROVER_CAN_ODRIVE_GET_SENSORLESS_ESTIMATES_AXIS1_LENGTH;
   }
   return success;
 }
 
 // ODRIVE_GetSensorlessEstimates_axis1 message unpacker
-bool odrive_get_sensorless_estimates_axis1_unpacker(uint8_t *raw,
-                                                    CANMsgMap *msgMap) {
+bool odrive_get_sensorless_estimates_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
   bool success = false;
-  CANID msgID = CANID::ODRIVE_GET_SENSORLESS_ESTIMATES_AXIS1;
+  CANID msgID  = CANID::ODRIVE_GET_SENSORLESS_ESTIMATES_AXIS1;
   struct uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis1_t msgStruct;
 
-  success =
-      (uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis1_unpack(
-           &msgStruct, raw,
-           UWRT_MARS_ROVER_CAN_ODRIVE_GET_SENSORLESS_ESTIMATES_AXIS1_LENGTH) ==
-       0);
+  success = (uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis1_unpack(
+                 &msgStruct, raw, UWRT_MARS_ROVER_CAN_ODRIVE_GET_SENSORLESS_ESTIMATES_AXIS1_LENGTH) == 0);
 
   if (success && msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
       CANSIGNAL signalName = it->first;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_SENSORLESS_POS_ESTIMATE:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis1_odrive_sensorless_pos_estimate_decode(
+                  msgStruct.odrive_sensorless_pos_estimate));
+          break;
 
-      case CANSIGNAL::ODRIVE_SENSORLESS_POS_ESTIMATE:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis1_odrive_sensorless_pos_estimate_decode(
-                msgStruct.odrive_sensorless_pos_estimate));
-        break;
+        case CANSIGNAL::ODRIVE_SENSORLESS_VEL_ESTIMATE:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis1_odrive_sensorless_vel_estimate_decode(
+                  msgStruct.odrive_sensorless_vel_estimate));
+          break;
 
-      case CANSIGNAL::ODRIVE_SENSORLESS_VEL_ESTIMATE:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_get_sensorless_estimates_axis1_odrive_sensorless_vel_estimate_decode(
-                msgStruct.odrive_sensorless_vel_estimate));
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
   }
@@ -3995,28 +3344,24 @@ bool odrive_get_sensorless_estimates_axis1_unpacker(uint8_t *raw,
 }
 
 // ODRIVE_RebootOdrive_axis1 message packer
-bool odrive_reboot_odrive_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap,
-                                       size_t &len) {
+bool odrive_reboot_odrive_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len) {
   bool success = true;
-  CANID msgID = CANID::ODRIVE_REBOOT_ODRIVE_AXIS1;
+  CANID msgID  = CANID::ODRIVE_REBOOT_ODRIVE_AXIS1;
   struct uwrt_mars_rover_can_odrive_reboot_odrive_axis1_t msgStruct;
 
   if (msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
-      CANSIGNAL signalName = it->first;
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName         = it->first;
       CANSignalValue_t signalValue = it->second;
 
       switch (signalName) {
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
     success &= (uwrt_mars_rover_can_odrive_reboot_odrive_axis1_pack(
-                    raw, &msgStruct,
-                    UWRT_MARS_ROVER_CAN_ODRIVE_REBOOT_ODRIVE_AXIS1_LENGTH) ==
+                    raw, &msgStruct, UWRT_MARS_ROVER_CAN_ODRIVE_REBOOT_ODRIVE_AXIS1_LENGTH) ==
                 UWRT_MARS_ROVER_CAN_ODRIVE_REBOOT_ODRIVE_AXIS1_LENGTH);
     len = UWRT_MARS_ROVER_CAN_ODRIVE_REBOOT_ODRIVE_AXIS1_LENGTH;
   }
@@ -4026,23 +3371,20 @@ bool odrive_reboot_odrive_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap,
 // ODRIVE_RebootOdrive_axis1 message unpacker
 bool odrive_reboot_odrive_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
   bool success = false;
-  CANID msgID = CANID::ODRIVE_REBOOT_ODRIVE_AXIS1;
+  CANID msgID  = CANID::ODRIVE_REBOOT_ODRIVE_AXIS1;
   struct uwrt_mars_rover_can_odrive_reboot_odrive_axis1_t msgStruct;
 
   success = (uwrt_mars_rover_can_odrive_reboot_odrive_axis1_unpack(
-                 &msgStruct, raw,
-                 UWRT_MARS_ROVER_CAN_ODRIVE_REBOOT_ODRIVE_AXIS1_LENGTH) == 0);
+                 &msgStruct, raw, UWRT_MARS_ROVER_CAN_ODRIVE_REBOOT_ODRIVE_AXIS1_LENGTH) == 0);
 
   if (success && msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
       CANSIGNAL signalName = it->first;
 
       switch (signalName) {
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
   }
@@ -4051,34 +3393,29 @@ bool odrive_reboot_odrive_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
 }
 
 // ODRIVE_getVbusVoltage_axis1 message packer
-bool odrive_get_vbus_voltage_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap,
-                                          size_t &len) {
+bool odrive_get_vbus_voltage_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len) {
   bool success = true;
-  CANID msgID = CANID::ODRIVE_GET_VBUS_VOLTAGE_AXIS1;
+  CANID msgID  = CANID::ODRIVE_GET_VBUS_VOLTAGE_AXIS1;
   struct uwrt_mars_rover_can_odrive_get_vbus_voltage_axis1_t msgStruct;
 
   if (msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
-      CANSIGNAL signalName = it->first;
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName         = it->first;
       CANSignalValue_t signalValue = it->second;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_VBUS_VOLTAGE:
+          msgStruct.odrive_vbus_voltage =
+              uwrt_mars_rover_can_odrive_get_vbus_voltage_axis1_odrive_vbus_voltage_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_VBUS_VOLTAGE:
-        msgStruct.odrive_vbus_voltage =
-            uwrt_mars_rover_can_odrive_get_vbus_voltage_axis1_odrive_vbus_voltage_encode(
-                signalValue);
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
     success &= (uwrt_mars_rover_can_odrive_get_vbus_voltage_axis1_pack(
-                    raw, &msgStruct,
-                    UWRT_MARS_ROVER_CAN_ODRIVE_GET_VBUS_VOLTAGE_AXIS1_LENGTH) ==
+                    raw, &msgStruct, UWRT_MARS_ROVER_CAN_ODRIVE_GET_VBUS_VOLTAGE_AXIS1_LENGTH) ==
                 UWRT_MARS_ROVER_CAN_ODRIVE_GET_VBUS_VOLTAGE_AXIS1_LENGTH);
     len = UWRT_MARS_ROVER_CAN_ODRIVE_GET_VBUS_VOLTAGE_AXIS1_LENGTH;
   }
@@ -4088,31 +3425,27 @@ bool odrive_get_vbus_voltage_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap,
 // ODRIVE_getVbusVoltage_axis1 message unpacker
 bool odrive_get_vbus_voltage_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
   bool success = false;
-  CANID msgID = CANID::ODRIVE_GET_VBUS_VOLTAGE_AXIS1;
+  CANID msgID  = CANID::ODRIVE_GET_VBUS_VOLTAGE_AXIS1;
   struct uwrt_mars_rover_can_odrive_get_vbus_voltage_axis1_t msgStruct;
 
-  success =
-      (uwrt_mars_rover_can_odrive_get_vbus_voltage_axis1_unpack(
-           &msgStruct, raw,
-           UWRT_MARS_ROVER_CAN_ODRIVE_GET_VBUS_VOLTAGE_AXIS1_LENGTH) == 0);
+  success = (uwrt_mars_rover_can_odrive_get_vbus_voltage_axis1_unpack(
+                 &msgStruct, raw, UWRT_MARS_ROVER_CAN_ODRIVE_GET_VBUS_VOLTAGE_AXIS1_LENGTH) == 0);
 
   if (success && msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
       CANSIGNAL signalName = it->first;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_VBUS_VOLTAGE:
+          success &=
+              msgMap->setSignalValue(msgID, signalName,
+                                     uwrt_mars_rover_can_odrive_get_vbus_voltage_axis1_odrive_vbus_voltage_decode(
+                                         msgStruct.odrive_vbus_voltage));
+          break;
 
-      case CANSIGNAL::ODRIVE_VBUS_VOLTAGE:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_get_vbus_voltage_axis1_odrive_vbus_voltage_decode(
-                msgStruct.odrive_vbus_voltage));
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
   }
@@ -4121,28 +3454,24 @@ bool odrive_get_vbus_voltage_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
 }
 
 // ODRIVE_ClearErrors_axis1 message packer
-bool odrive_clear_errors_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap,
-                                      size_t &len) {
+bool odrive_clear_errors_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len) {
   bool success = true;
-  CANID msgID = CANID::ODRIVE_CLEAR_ERRORS_AXIS1;
+  CANID msgID  = CANID::ODRIVE_CLEAR_ERRORS_AXIS1;
   struct uwrt_mars_rover_can_odrive_clear_errors_axis1_t msgStruct;
 
   if (msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
-      CANSIGNAL signalName = it->first;
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName         = it->first;
       CANSignalValue_t signalValue = it->second;
 
       switch (signalName) {
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
     success &= (uwrt_mars_rover_can_odrive_clear_errors_axis1_pack(
-                    raw, &msgStruct,
-                    UWRT_MARS_ROVER_CAN_ODRIVE_CLEAR_ERRORS_AXIS1_LENGTH) ==
+                    raw, &msgStruct, UWRT_MARS_ROVER_CAN_ODRIVE_CLEAR_ERRORS_AXIS1_LENGTH) ==
                 UWRT_MARS_ROVER_CAN_ODRIVE_CLEAR_ERRORS_AXIS1_LENGTH);
     len = UWRT_MARS_ROVER_CAN_ODRIVE_CLEAR_ERRORS_AXIS1_LENGTH;
   }
@@ -4152,23 +3481,20 @@ bool odrive_clear_errors_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap,
 // ODRIVE_ClearErrors_axis1 message unpacker
 bool odrive_clear_errors_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
   bool success = false;
-  CANID msgID = CANID::ODRIVE_CLEAR_ERRORS_AXIS1;
+  CANID msgID  = CANID::ODRIVE_CLEAR_ERRORS_AXIS1;
   struct uwrt_mars_rover_can_odrive_clear_errors_axis1_t msgStruct;
 
   success = (uwrt_mars_rover_can_odrive_clear_errors_axis1_unpack(
-                 &msgStruct, raw,
-                 UWRT_MARS_ROVER_CAN_ODRIVE_CLEAR_ERRORS_AXIS1_LENGTH) == 0);
+                 &msgStruct, raw, UWRT_MARS_ROVER_CAN_ODRIVE_CLEAR_ERRORS_AXIS1_LENGTH) == 0);
 
   if (success && msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
       CANSIGNAL signalName = it->first;
 
       switch (signalName) {
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
   }
@@ -4177,34 +3503,29 @@ bool odrive_clear_errors_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
 }
 
 // ODRIVE_setLinearCount_axis1 message packer
-bool odrive_set_linear_count_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap,
-                                          size_t &len) {
+bool odrive_set_linear_count_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len) {
   bool success = true;
-  CANID msgID = CANID::ODRIVE_SET_LINEAR_COUNT_AXIS1;
+  CANID msgID  = CANID::ODRIVE_SET_LINEAR_COUNT_AXIS1;
   struct uwrt_mars_rover_can_odrive_set_linear_count_axis1_t msgStruct;
 
   if (msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
-      CANSIGNAL signalName = it->first;
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName         = it->first;
       CANSignalValue_t signalValue = it->second;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_POSITION:
+          msgStruct.odrive_position =
+              uwrt_mars_rover_can_odrive_set_linear_count_axis1_odrive_position_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_POSITION:
-        msgStruct.odrive_position =
-            uwrt_mars_rover_can_odrive_set_linear_count_axis1_odrive_position_encode(
-                signalValue);
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
     success &= (uwrt_mars_rover_can_odrive_set_linear_count_axis1_pack(
-                    raw, &msgStruct,
-                    UWRT_MARS_ROVER_CAN_ODRIVE_SET_LINEAR_COUNT_AXIS1_LENGTH) ==
+                    raw, &msgStruct, UWRT_MARS_ROVER_CAN_ODRIVE_SET_LINEAR_COUNT_AXIS1_LENGTH) ==
                 UWRT_MARS_ROVER_CAN_ODRIVE_SET_LINEAR_COUNT_AXIS1_LENGTH);
     len = UWRT_MARS_ROVER_CAN_ODRIVE_SET_LINEAR_COUNT_AXIS1_LENGTH;
   }
@@ -4214,31 +3535,26 @@ bool odrive_set_linear_count_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap,
 // ODRIVE_setLinearCount_axis1 message unpacker
 bool odrive_set_linear_count_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
   bool success = false;
-  CANID msgID = CANID::ODRIVE_SET_LINEAR_COUNT_AXIS1;
+  CANID msgID  = CANID::ODRIVE_SET_LINEAR_COUNT_AXIS1;
   struct uwrt_mars_rover_can_odrive_set_linear_count_axis1_t msgStruct;
 
-  success =
-      (uwrt_mars_rover_can_odrive_set_linear_count_axis1_unpack(
-           &msgStruct, raw,
-           UWRT_MARS_ROVER_CAN_ODRIVE_SET_LINEAR_COUNT_AXIS1_LENGTH) == 0);
+  success = (uwrt_mars_rover_can_odrive_set_linear_count_axis1_unpack(
+                 &msgStruct, raw, UWRT_MARS_ROVER_CAN_ODRIVE_SET_LINEAR_COUNT_AXIS1_LENGTH) == 0);
 
   if (success && msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
       CANSIGNAL signalName = it->first;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_POSITION:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_odrive_set_linear_count_axis1_odrive_position_decode(msgStruct.odrive_position));
+          break;
 
-      case CANSIGNAL::ODRIVE_POSITION:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_set_linear_count_axis1_odrive_position_decode(
-                msgStruct.odrive_position));
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
   }
@@ -4247,37 +3563,30 @@ bool odrive_set_linear_count_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
 }
 
 // ODRIVE_setPositionGain_axis1 message packer
-bool odrive_set_position_gain_axis1_packer(uint8_t *raw,
-                                           const CANMsgMap *msgMap,
-                                           size_t &len) {
+bool odrive_set_position_gain_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len) {
   bool success = true;
-  CANID msgID = CANID::ODRIVE_SET_POSITION_GAIN_AXIS1;
+  CANID msgID  = CANID::ODRIVE_SET_POSITION_GAIN_AXIS1;
   struct uwrt_mars_rover_can_odrive_set_position_gain_axis1_t msgStruct;
 
   if (msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
-      CANSIGNAL signalName = it->first;
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName         = it->first;
       CANSignalValue_t signalValue = it->second;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_POS_GAIN:
+          msgStruct.odrive_pos_gain =
+              uwrt_mars_rover_can_odrive_set_position_gain_axis1_odrive_pos_gain_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_POS_GAIN:
-        msgStruct.odrive_pos_gain =
-            uwrt_mars_rover_can_odrive_set_position_gain_axis1_odrive_pos_gain_encode(
-                signalValue);
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
-    success &=
-        (uwrt_mars_rover_can_odrive_set_position_gain_axis1_pack(
-             raw, &msgStruct,
-             UWRT_MARS_ROVER_CAN_ODRIVE_SET_POSITION_GAIN_AXIS1_LENGTH) ==
-         UWRT_MARS_ROVER_CAN_ODRIVE_SET_POSITION_GAIN_AXIS1_LENGTH);
+    success &= (uwrt_mars_rover_can_odrive_set_position_gain_axis1_pack(
+                    raw, &msgStruct, UWRT_MARS_ROVER_CAN_ODRIVE_SET_POSITION_GAIN_AXIS1_LENGTH) ==
+                UWRT_MARS_ROVER_CAN_ODRIVE_SET_POSITION_GAIN_AXIS1_LENGTH);
     len = UWRT_MARS_ROVER_CAN_ODRIVE_SET_POSITION_GAIN_AXIS1_LENGTH;
   }
   return success;
@@ -4286,31 +3595,26 @@ bool odrive_set_position_gain_axis1_packer(uint8_t *raw,
 // ODRIVE_setPositionGain_axis1 message unpacker
 bool odrive_set_position_gain_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
   bool success = false;
-  CANID msgID = CANID::ODRIVE_SET_POSITION_GAIN_AXIS1;
+  CANID msgID  = CANID::ODRIVE_SET_POSITION_GAIN_AXIS1;
   struct uwrt_mars_rover_can_odrive_set_position_gain_axis1_t msgStruct;
 
-  success =
-      (uwrt_mars_rover_can_odrive_set_position_gain_axis1_unpack(
-           &msgStruct, raw,
-           UWRT_MARS_ROVER_CAN_ODRIVE_SET_POSITION_GAIN_AXIS1_LENGTH) == 0);
+  success = (uwrt_mars_rover_can_odrive_set_position_gain_axis1_unpack(
+                 &msgStruct, raw, UWRT_MARS_ROVER_CAN_ODRIVE_SET_POSITION_GAIN_AXIS1_LENGTH) == 0);
 
   if (success && msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
       CANSIGNAL signalName = it->first;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_POS_GAIN:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_odrive_set_position_gain_axis1_odrive_pos_gain_decode(msgStruct.odrive_pos_gain));
+          break;
 
-      case CANSIGNAL::ODRIVE_POS_GAIN:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_set_position_gain_axis1_odrive_pos_gain_decode(
-                msgStruct.odrive_pos_gain));
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
   }
@@ -4319,40 +3623,33 @@ bool odrive_set_position_gain_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
 }
 
 // ODRIVE_setVelGain_axis1 message packer
-bool odrive_set_vel_gain_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap,
-                                      size_t &len) {
+bool odrive_set_vel_gain_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap, size_t &len) {
   bool success = true;
-  CANID msgID = CANID::ODRIVE_SET_VEL_GAIN_AXIS1;
+  CANID msgID  = CANID::ODRIVE_SET_VEL_GAIN_AXIS1;
   struct uwrt_mars_rover_can_odrive_set_vel_gain_axis1_t msgStruct;
 
   if (msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
-      CANSIGNAL signalName = it->first;
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
+      CANSIGNAL signalName         = it->first;
       CANSignalValue_t signalValue = it->second;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_VEL_GAIN:
+          msgStruct.odrive_vel_gain = uwrt_mars_rover_can_odrive_set_vel_gain_axis1_odrive_vel_gain_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_VEL_GAIN:
-        msgStruct.odrive_vel_gain =
-            uwrt_mars_rover_can_odrive_set_vel_gain_axis1_odrive_vel_gain_encode(
-                signalValue);
-        break;
+        case CANSIGNAL::ODRIVE_VEL_INTEGRATOR_GAIN:
+          msgStruct.odrive_vel_integrator_gain =
+              uwrt_mars_rover_can_odrive_set_vel_gain_axis1_odrive_vel_integrator_gain_encode(signalValue);
+          break;
 
-      case CANSIGNAL::ODRIVE_VEL_INTEGRATOR_GAIN:
-        msgStruct.odrive_vel_integrator_gain =
-            uwrt_mars_rover_can_odrive_set_vel_gain_axis1_odrive_vel_integrator_gain_encode(
-                signalValue);
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
     success &= (uwrt_mars_rover_can_odrive_set_vel_gain_axis1_pack(
-                    raw, &msgStruct,
-                    UWRT_MARS_ROVER_CAN_ODRIVE_SET_VEL_GAIN_AXIS1_LENGTH) ==
+                    raw, &msgStruct, UWRT_MARS_ROVER_CAN_ODRIVE_SET_VEL_GAIN_AXIS1_LENGTH) ==
                 UWRT_MARS_ROVER_CAN_ODRIVE_SET_VEL_GAIN_AXIS1_LENGTH);
     len = UWRT_MARS_ROVER_CAN_ODRIVE_SET_VEL_GAIN_AXIS1_LENGTH;
   }
@@ -4362,37 +3659,33 @@ bool odrive_set_vel_gain_axis1_packer(uint8_t *raw, const CANMsgMap *msgMap,
 // ODRIVE_setVelGain_axis1 message unpacker
 bool odrive_set_vel_gain_axis1_unpacker(uint8_t *raw, CANMsgMap *msgMap) {
   bool success = false;
-  CANID msgID = CANID::ODRIVE_SET_VEL_GAIN_AXIS1;
+  CANID msgID  = CANID::ODRIVE_SET_VEL_GAIN_AXIS1;
   struct uwrt_mars_rover_can_odrive_set_vel_gain_axis1_t msgStruct;
 
   success = (uwrt_mars_rover_can_odrive_set_vel_gain_axis1_unpack(
-                 &msgStruct, raw,
-                 UWRT_MARS_ROVER_CAN_ODRIVE_SET_VEL_GAIN_AXIS1_LENGTH) == 0);
+                 &msgStruct, raw, UWRT_MARS_ROVER_CAN_ODRIVE_SET_VEL_GAIN_AXIS1_LENGTH) == 0);
 
   if (success && msgMap->contains(msgID)) {
-    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end();
-         it++) {
+    for (auto it = msgMap->at(msgID).begin(); it != msgMap->at(msgID).end(); it++) {
       CANSIGNAL signalName = it->first;
 
       switch (signalName) {
+        case CANSIGNAL::ODRIVE_VEL_GAIN:
+          success &= msgMap->setSignalValue(
+              msgID, signalName,
+              uwrt_mars_rover_can_odrive_set_vel_gain_axis1_odrive_vel_gain_decode(msgStruct.odrive_vel_gain));
+          break;
 
-      case CANSIGNAL::ODRIVE_VEL_GAIN:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_set_vel_gain_axis1_odrive_vel_gain_decode(
-                msgStruct.odrive_vel_gain));
-        break;
+        case CANSIGNAL::ODRIVE_VEL_INTEGRATOR_GAIN:
+          success &=
+              msgMap->setSignalValue(msgID, signalName,
+                                     uwrt_mars_rover_can_odrive_set_vel_gain_axis1_odrive_vel_integrator_gain_decode(
+                                         msgStruct.odrive_vel_integrator_gain));
+          break;
 
-      case CANSIGNAL::ODRIVE_VEL_INTEGRATOR_GAIN:
-        success &= msgMap->setSignalValue(
-            msgID, signalName,
-            uwrt_mars_rover_can_odrive_set_vel_gain_axis1_odrive_vel_integrator_gain_decode(
-                msgStruct.odrive_vel_integrator_gain));
-        break;
-
-      default:
-        success = false;
-        break;
+        default:
+          success = false;
+          break;
       }
     }
   }
