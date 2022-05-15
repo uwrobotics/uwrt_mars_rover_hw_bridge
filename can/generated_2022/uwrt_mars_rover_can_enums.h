@@ -27,7 +27,6 @@ enum class CANFILTER {
 
 enum class CANID {
   // Roboteq CAN IDs
-  TEMP = 0x0,
 
   // Rover boards CAN IDs
   ODRIVE_HEARTBEAT_MESSAGE_AXIS0        = 0x1,
