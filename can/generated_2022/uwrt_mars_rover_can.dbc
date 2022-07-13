@@ -33,19 +33,373 @@ NS_ :
 
 BS_:
 
-BU_: GIMBAL JETSON PDB SCIENCE
+BU_: GIMBAL JETSON ODRIVE PDB SCIENCE
+
+
+BO_ 1 ODRIVE_heartbeatMessage_axis0: 6 ODRIVE
+ SG_ ODRIVE_controllerStatus : 40|8@1+ (1.0,0.0) [0.0|254.0] ""  JETSON
+ SG_ ODRIVE_axisCurrentState : 32|8@1+ (1.0,0.0) [0.0|254.0] ""  JETSON
+ SG_ ODRIVE_axisError : 0|32@1+ (1.0,0.0) [0.0|4294967294.0] ""  JETSON
+
+BO_ 2 ODRIVE_EstopMessage_axis0: 0 JETSON
+
+BO_ 3 ODRIVE_getMotorError_axis0: 8 ODRIVE
+ SG_ ODRIVE_motorError : 0|64@1+ (1.0,0.0) [0.0|1.8446744073709552e+19] ""  JETSON
+
+BO_ 4 ODRIVE_getEncoderError_axis0: 4 ODRIVE
+ SG_ ODRIVE_encoderError : 0|32@1+ (1.0,0.0) [0.0|4294967294.0] ""  JETSON
+
+BO_ 5 ODRIVE_getSensorlessError_axis0: 4 ODRIVE
+ SG_ ODRIVE_sensorlessError : 0|32@1+ (1.0,0.0) [0.0|4294967294.0] ""  JETSON
+
+BO_ 6 ODRIVE_setAxisNodeID_axis0: 4 JETSON
+ SG_ ODRIVE_axisCanNodeID : 0|32@1+ (1.0,0.0) [0.0|4294967294.0] ""  ODRIVE
+
+BO_ 7 ODRIVE_setAxisRequestedState_axi: 4 JETSON
+ SG_ ODRIVE_axisRequestedState : 0|32@1+ (1.0,0.0) [0.0|4294967294.0] ""  ODRIVE
+
+BO_ 9 ODRIVE_getEncoderEstimates_axis0: 8 JETSON
+ SG_ ODRIVE_encoderVelEstimate : 32|32@1+ (1.0,0.0) [0.0|1.0] "turns/s"  ODRIVE
+ SG_ ODRIVE_encoderPosEstimate : 0|32@1+ (1.0,0.0) [0.0|1.0] "turns"  ODRIVE
+
+BO_ 10 ODRIVE_getEncoderCount_axis0: 8 JETSON
+ SG_ ODRIVE_encoderCountinCPR : 32|32@1- (1.0,0.0) [0.0|1.0] "counts"  ODRIVE
+ SG_ ODRIVE_encoderShadowCount : 0|32@1- (1.0,0.0) [0.0|1.0] "counts"  ODRIVE
+
+BO_ 11 ODRIVE_setControllerModes_axis0: 8 JETSON
+ SG_ ODRIVE_inputMode : 32|32@1- (1.0,0.0) [-2147483647.0|2147483647.0] ""  ODRIVE
+ SG_ ODRIVE_controlMode : 0|32@1- (1.0,0.0) [-2147483647.0|2147483647.0] ""  ODRIVE
+
+BO_ 12 ODRIVE_SetInputPos_axis0: 8 JETSON
+ SG_ ODRIVE_TorqueFF : 48|16@1- (0.001,0.0) [0.0|1.0] ""  ODRIVE
+ SG_ ODRIVE_VelFF : 32|16@1- (0.001,0.0) [0.0|1.0] ""  ODRIVE
+ SG_ ODRIVE_inputPos : 0|32@1+ (1.0,0.0) [0.0|1.0] ""  ODRIVE
+
+BO_ 13 ODRIVE_setInputVel_axis0: 8 JETSON
+ SG_ ODRIVE_TorqueFF : 32|32@1+ (1.0,0.0) [0.0|1.0] ""  ODRIVE
+ SG_ ODRIVE_inputVel : 0|32@1+ (1.0,0.0) [0.0|1.0] ""  ODRIVE
+
+BO_ 14 ODRIVE_setInputTorque_axis0: 4 JETSON
+ SG_ ODRIVE_inputTorque : 0|32@1+ (1.0,0.0) [0.0|1.0] ""  ODRIVE
+
+BO_ 15 ODRIVE_setLimits_axis0: 8 JETSON
+ SG_ ODRIVE_CurrentLimit : 32|32@1+ (1.0,0.0) [0.0|1.0] ""  ODRIVE
+ SG_ ODRIVE_VelocityLimit : 0|32@1+ (1.0,0.0) [0.0|1.0] ""  ODRIVE
+
+BO_ 16 ODRIVE_StartAnticogging_axis0: 0 JETSON
+
+BO_ 17 ODRIVE_setTrajVelLimit_axis0: 4 JETSON
+ SG_ ODRIVE_TrajVelLimit : 0|32@1+ (1.0,0.0) [0.0|1.0] ""  ODRIVE
+
+BO_ 18 ODRIVE_setTrajAccelLimit_axis0: 8 JETSON
+ SG_ ODRIVE_TrajDecelLimit : 32|32@1+ (1.0,0.0) [0.0|1.0] ""  ODRIVE
+ SG_ ODRIVE_TrajAccelLimit : 0|32@1+ (1.0,0.0) [0.0|1.0] ""  ODRIVE
+
+BO_ 19 ODRIVE_setTrajInertia_axis0: 4 JETSON
+ SG_ ODRIVE_TrajInertia : 0|32@1+ (1.0,0.0) [0.0|1.0] ""  ODRIVE
+
+BO_ 20 ODRIVE_getIQ_axis0: 8 ODRIVE
+ SG_ ODRIVE_IqMeasured : 32|32@1+ (1.0,0.0) [0.0|1.0] ""  JETSON
+ SG_ ODRIVE_IqSetpoint : 0|32@1+ (1.0,0.0) [0.0|1.0] ""  JETSON
+
+BO_ 21 ODRIVE_GetSensorlessEstimates_ax: 8 ODRIVE
+ SG_ ODRIVE_SensorlessVelEstimate : 32|32@1+ (1.0,0.0) [0.0|1.0] ""  JETSON
+ SG_ ODRIVE_SensorlessPosEstimate : 0|32@1+ (1.0,0.0) [0.0|1.0] ""  JETSON
+
+BO_ 22 ODRIVE_RebootOdrive_axis0: 0 JETSON
+
+BO_ 23 ODRIVE_getVbusVoltage_axis0: 4 ODRIVE
+ SG_ ODRIVE_vbusVoltage : 0|32@1+ (1.0,0.0) [0.0|1.0] "V"  JETSON
+
+BO_ 24 ODRIVE_ClearErrors_axis0: 0 JETSON
+
+BO_ 25 ODRIVE_setLinearCount_axis0: 4 JETSON
+ SG_ ODRIVE_position : 0|32@1- (1.0,0.0) [0.0|1.0] ""  ODRIVE
+
+BO_ 26 ODRIVE_setPositionGain_axis0: 4 JETSON
+ SG_ ODRIVE_posGain : 0|32@1+ (1.0,0.0) [0.0|1.0] ""  ODRIVE
+
+BO_ 27 ODRIVE_setVelGain_axis0: 8 JETSON
+ SG_ ODRIVE_velIntegratorGain : 32|32@1+ (1.0,0.0) [0.0|1.0] ""  ODRIVE
+ SG_ ODRIVE_velGain : 0|32@1+ (1.0,0.0) [0.0|1.0] ""  ODRIVE
+
+BO_ 33 ODRIVE_heartbeatMessage_axis1: 6 ODRIVE
+ SG_ ODRIVE_controllerStatus : 40|8@1+ (1.0,0.0) [0.0|254.0] ""  JETSON
+ SG_ ODRIVE_axisCurrentState : 32|8@1+ (1.0,0.0) [0.0|254.0] ""  JETSON
+ SG_ ODRIVE_axisError : 0|32@1+ (1.0,0.0) [0.0|4294967294.0] ""  JETSON
+
+BO_ 34 ODRIVE_EstopMessage_axis1: 0 JETSON
+
+BO_ 35 ODRIVE_getMotorError_axis1: 8 ODRIVE
+ SG_ ODRIVE_motorError : 0|64@1+ (1.0,0.0) [0.0|1.8446744073709552e+19] ""  JETSON
+
+BO_ 36 ODRIVE_getEncoderError_axis1: 4 ODRIVE
+ SG_ ODRIVE_encoderError : 0|32@1+ (1.0,0.0) [0.0|4294967294.0] ""  JETSON
+
+BO_ 37 ODRIVE_getSensorlessError_axis1: 4 ODRIVE
+ SG_ ODRIVE_sensorlessError : 0|32@1+ (1.0,0.0) [0.0|4294967294.0] ""  JETSON
+
+BO_ 38 ODRIVE_setAxisNodeID_axis1: 4 JETSON
+ SG_ ODRIVE_axisCanNodeID : 0|32@1+ (1.0,0.0) [0.0|4294967294.0] ""  ODRIVE
+
+BO_ 39 ODRIVE_setAxisRequestedStat_0000: 4 JETSON
+ SG_ ODRIVE_axisRequestedState : 0|32@1+ (1.0,0.0) [0.0|4294967294.0] ""  ODRIVE
+
+BO_ 41 ODRIVE_getEncoderEstimates_axis1: 8 JETSON
+ SG_ ODRIVE_encoderVelEstimate : 32|32@1+ (1.0,0.0) [0.0|1.0] "turns/s"  ODRIVE
+ SG_ ODRIVE_encoderPosEstimate : 0|32@1+ (1.0,0.0) [0.0|1.0] "turns"  ODRIVE
+
+BO_ 42 ODRIVE_getEncoderCount_axis1: 8 JETSON
+ SG_ ODRIVE_encoderCountinCPR : 32|32@1- (1.0,0.0) [0.0|1.0] "counts"  ODRIVE
+ SG_ ODRIVE_encoderShadowCount : 0|32@1- (1.0,0.0) [0.0|1.0] "counts"  ODRIVE
+
+BO_ 43 ODRIVE_setControllerModes_axis1: 8 JETSON
+ SG_ ODRIVE_inputMode : 32|32@1- (1.0,0.0) [-2147483647.0|2147483647.0] ""  ODRIVE
+ SG_ ODRIVE_controlMode : 0|32@1- (1.0,0.0) [-2147483647.0|2147483647.0] ""  ODRIVE
+
+BO_ 44 ODRIVE_SetInputPos_axis1: 8 JETSON
+ SG_ ODRIVE_TorqueFF : 48|16@1- (0.001,0.0) [0.0|1.0] ""  ODRIVE
+ SG_ ODRIVE_VelFF : 32|16@1- (0.001,0.0) [0.0|1.0] ""  ODRIVE
+ SG_ ODRIVE_inputPos : 0|32@1+ (1.0,0.0) [0.0|1.0] ""  ODRIVE
+
+BO_ 45 ODRIVE_setInputVel_axis1: 8 JETSON
+ SG_ ODRIVE_TorqueFF : 32|32@1+ (1.0,0.0) [0.0|1.0] ""  ODRIVE
+ SG_ ODRIVE_inputVel : 0|32@1+ (1.0,0.0) [0.0|1.0] ""  ODRIVE
+
+BO_ 46 ODRIVE_setInputTorque_axis1: 4 JETSON
+ SG_ ODRIVE_inputTorque : 0|32@1+ (1.0,0.0) [0.0|1.0] ""  ODRIVE
+
+BO_ 47 ODRIVE_setLimits_axis1: 8 JETSON
+ SG_ ODRIVE_CurrentLimit : 32|32@1+ (1.0,0.0) [0.0|1.0] ""  ODRIVE
+ SG_ ODRIVE_VelocityLimit : 0|32@1+ (1.0,0.0) [0.0|1.0] ""  ODRIVE
+
+BO_ 48 ODRIVE_StartAnticogging_axis1: 0 JETSON
+
+BO_ 49 ODRIVE_setTrajVelLimit_axis1: 4 JETSON
+ SG_ ODRIVE_TrajVelLimit : 0|32@1+ (1.0,0.0) [0.0|1.0] ""  ODRIVE
+
+BO_ 50 ODRIVE_setTrajAccelLimit_axis1: 8 JETSON
+ SG_ ODRIVE_TrajDecelLimit : 32|32@1+ (1.0,0.0) [0.0|1.0] ""  ODRIVE
+ SG_ ODRIVE_TrajAccelLimit : 0|32@1+ (1.0,0.0) [0.0|1.0] ""  ODRIVE
+
+BO_ 51 ODRIVE_setTrajInertia_axis1: 4 JETSON
+ SG_ ODRIVE_TrajInertia : 0|32@1+ (1.0,0.0) [0.0|1.0] ""  ODRIVE
+
+BO_ 52 ODRIVE_getIQ_axis1: 8 ODRIVE
+ SG_ ODRIVE_IqMeasured : 32|32@1+ (1.0,0.0) [0.0|1.0] ""  JETSON
+ SG_ ODRIVE_IqSetpoint : 0|32@1+ (1.0,0.0) [0.0|1.0] ""  JETSON
+
+BO_ 53 ODRIVE_GetSensorlessEstimat_0000: 8 ODRIVE
+ SG_ ODRIVE_SensorlessVelEstimate : 32|32@1+ (1.0,0.0) [0.0|1.0] ""  JETSON
+ SG_ ODRIVE_SensorlessPosEstimate : 0|32@1+ (1.0,0.0) [0.0|1.0] ""  JETSON
+
+BO_ 54 ODRIVE_RebootOdrive_axis1: 0 JETSON
+
+BO_ 55 ODRIVE_getVbusVoltage_axis1: 4 ODRIVE
+ SG_ ODRIVE_vbusVoltage : 0|32@1+ (1.0,0.0) [0.0|1.0] "V"  JETSON
+
+BO_ 56 ODRIVE_ClearErrors_axis1: 0 JETSON
+
+BO_ 57 ODRIVE_setLinearCount_axis1: 4 JETSON
+ SG_ ODRIVE_position : 0|32@1- (1.0,0.0) [0.0|1.0] ""  ODRIVE
+
+BO_ 58 ODRIVE_setPositionGain_axis1: 4 JETSON
+ SG_ ODRIVE_posGain : 0|32@1+ (1.0,0.0) [0.0|1.0] ""  ODRIVE
+
+BO_ 59 ODRIVE_setVelGain_axis1: 8 JETSON
+ SG_ ODRIVE_velIntegratorGain : 32|32@1+ (1.0,0.0) [0.0|1.0] ""  ODRIVE
+ SG_ ODRIVE_velGain : 0|32@1+ (1.0,0.0) [0.0|1.0] ""  ODRIVE
 
 
 
 
-
-
-
-
-BA_DEF_ BO_  "GenMsgCycleTime" INT 0 65535;
-BA_DEF_DEF_  "GenMsgCycleTime" 0;
-
-
-
+CM_ BO_ 1 "Heartbeat messages for odrive";
+CM_ SG_ 1 ODRIVE_controllerStatus "Odrive controller status";
+CM_ SG_ 1 ODRIVE_axisCurrentState "Odrive axis current state";
+CM_ SG_ 1 ODRIVE_axisError "Odrive axis errors";
+CM_ BO_ 2 "Odrive Estop message";
+CM_ BO_ 3 "Heartbeat messages for odrive";
+CM_ SG_ 3 ODRIVE_motorError "Odrive motor errors";
+CM_ BO_ 4 "Encoder error for odrive";
+CM_ SG_ 4 ODRIVE_encoderError "Odrive encoder error";
+CM_ BO_ 5 "Sesnorless error for odrive";
+CM_ SG_ 5 ODRIVE_sensorlessError "Odrive sesnsorless error";
+CM_ BO_ 6 "Sesnorless error for odrive";
+CM_ SG_ 6 ODRIVE_axisCanNodeID "Odrive Axis CAN Node ID error";
+CM_ BO_ 7 "Set axis requested state";
+CM_ SG_ 7 ODRIVE_axisRequestedState "Odrive axis requested state";
+CM_ BO_ 9 "Get encoder estimates";
+CM_ SG_ 9 ODRIVE_encoderVelEstimate "Odrive encoder velocity estimate";
+CM_ SG_ 9 ODRIVE_encoderPosEstimate "Odrive encoder position estimate";
+CM_ BO_ 10 "Get encoder count";
+CM_ SG_ 10 ODRIVE_encoderCountinCPR "Odrive encoder count in CPR";
+CM_ SG_ 10 ODRIVE_encoderShadowCount "Odrive encoder shadow count";
+CM_ BO_ 11 "Set controller modes";
+CM_ SG_ 11 ODRIVE_inputMode "Odrive input mode";
+CM_ SG_ 11 ODRIVE_controlMode "Odrive control mode";
+CM_ BO_ 12 "Set input position";
+CM_ SG_ 12 ODRIVE_TorqueFF "Odrive torque feed forward";
+CM_ SG_ 12 ODRIVE_VelFF "Odrive velocity feed forward";
+CM_ SG_ 12 ODRIVE_inputPos "Odrive input position";
+CM_ BO_ 13 "Set input velocity";
+CM_ SG_ 13 ODRIVE_TorqueFF "Odrive torque feed forward";
+CM_ SG_ 13 ODRIVE_inputVel "Odrive input velocity";
+CM_ BO_ 14 "Set input torque";
+CM_ SG_ 14 ODRIVE_inputTorque "Odrive input torque";
+CM_ BO_ 15 "Set limits";
+CM_ SG_ 15 ODRIVE_CurrentLimit "Odrive current limit";
+CM_ SG_ 15 ODRIVE_VelocityLimit "Odrive velocity limit";
+CM_ BO_ 16 "Start anticogging";
+CM_ BO_ 17 "Set traj velocity limit";
+CM_ SG_ 17 ODRIVE_TrajVelLimit "Odrive traj velocity limit";
+CM_ BO_ 18 "Set traj accleration limit";
+CM_ SG_ 18 ODRIVE_TrajDecelLimit "Odrive traj deceleration limit";
+CM_ SG_ 18 ODRIVE_TrajAccelLimit "Odrive traj acceleration limit";
+CM_ BO_ 19 "Set traj inertia";
+CM_ SG_ 19 ODRIVE_TrajInertia "Odrive traj inertia";
+CM_ BO_ 20 "get IQ";
+CM_ SG_ 20 ODRIVE_IqMeasured "Odrive IQ measured";
+CM_ SG_ 20 ODRIVE_IqSetpoint "Odrive IQ setpoint";
+CM_ BO_ 21 "get sensorless estimates";
+CM_ SG_ 21 ODRIVE_SensorlessVelEstimate "Odrive sensorless velocity estimate";
+CM_ SG_ 21 ODRIVE_SensorlessPosEstimate "Odrive sensorless position estimate";
+CM_ BO_ 22 "reboot Odrive";
+CM_ BO_ 23 "get vbus voltage";
+CM_ SG_ 23 ODRIVE_vbusVoltage "Odrive vbus voltage";
+CM_ BO_ 24 "clear error";
+CM_ BO_ 25 "set linear count";
+CM_ SG_ 25 ODRIVE_position "Odrive position";
+CM_ BO_ 26 "set position gain";
+CM_ SG_ 26 ODRIVE_posGain "Odrive position gain";
+CM_ BO_ 27 "set velocity gain";
+CM_ SG_ 27 ODRIVE_velIntegratorGain "Odrive velocity integrator gain";
+CM_ SG_ 27 ODRIVE_velGain "Odrive velocity gain";
+CM_ BO_ 33 "Heartbeat messages for odrive";
+CM_ SG_ 33 ODRIVE_controllerStatus "Odrive controller status";
+CM_ SG_ 33 ODRIVE_axisCurrentState "Odrive axis current state";
+CM_ SG_ 33 ODRIVE_axisError "Odrive axis errors";
+CM_ BO_ 34 "Odrive Estop message";
+CM_ BO_ 35 "Heartbeat messages for odrive";
+CM_ SG_ 35 ODRIVE_motorError "Odrive motor errors";
+CM_ BO_ 36 "Encoder error for odrive";
+CM_ SG_ 36 ODRIVE_encoderError "Odrive encoder error";
+CM_ BO_ 37 "Sesnorless error for odrive";
+CM_ SG_ 37 ODRIVE_sensorlessError "Odrive sesnsorless error";
+CM_ BO_ 38 "Sesnorless error for odrive";
+CM_ SG_ 38 ODRIVE_axisCanNodeID "Odrive Axis CAN Node ID error";
+CM_ BO_ 39 "Set axis requested state";
+CM_ SG_ 39 ODRIVE_axisRequestedState "Odrive axis requested state";
+CM_ BO_ 41 "Get encoder estimates";
+CM_ SG_ 41 ODRIVE_encoderVelEstimate "Odrive encoder velocity estimate";
+CM_ SG_ 41 ODRIVE_encoderPosEstimate "Odrive encoder position estimate";
+CM_ BO_ 42 "Get encoder count";
+CM_ SG_ 42 ODRIVE_encoderCountinCPR "Odrive encoder count in CPR";
+CM_ SG_ 42 ODRIVE_encoderShadowCount "Odrive encoder shadow count";
+CM_ BO_ 43 "Set controller modes";
+CM_ SG_ 43 ODRIVE_inputMode "Odrive input mode";
+CM_ SG_ 43 ODRIVE_controlMode "Odrive control mode";
+CM_ BO_ 44 "Set input position";
+CM_ SG_ 44 ODRIVE_TorqueFF "Odrive torque feed forward";
+CM_ SG_ 44 ODRIVE_VelFF "Odrive velocity feed forward";
+CM_ SG_ 44 ODRIVE_inputPos "Odrive input position";
+CM_ BO_ 45 "Set input velocity";
+CM_ SG_ 45 ODRIVE_TorqueFF "Odrive torque feed forward";
+CM_ SG_ 45 ODRIVE_inputVel "Odrive input velocity";
+CM_ BO_ 46 "Set input torque";
+CM_ SG_ 46 ODRIVE_inputTorque "Odrive input torque";
+CM_ BO_ 47 "Set limits";
+CM_ SG_ 47 ODRIVE_CurrentLimit "Odrive current limit";
+CM_ SG_ 47 ODRIVE_VelocityLimit "Odrive velocity limit";
+CM_ BO_ 48 "Start anticogging";
+CM_ BO_ 49 "Set traj velocity limit";
+CM_ SG_ 49 ODRIVE_TrajVelLimit "Odrive traj velocity limit";
+CM_ BO_ 50 "Set traj accleration limit";
+CM_ SG_ 50 ODRIVE_TrajDecelLimit "Odrive traj deceleration limit";
+CM_ SG_ 50 ODRIVE_TrajAccelLimit "Odrive traj acceleration limit";
+CM_ BO_ 51 "Set traj inertia";
+CM_ SG_ 51 ODRIVE_TrajInertia "Odrive traj inertia";
+CM_ BO_ 52 "get IQ";
+CM_ SG_ 52 ODRIVE_IqMeasured "Odrive IQ measured";
+CM_ SG_ 52 ODRIVE_IqSetpoint "Odrive IQ setpoint";
+CM_ BO_ 53 "get sensorless estimates";
+CM_ SG_ 53 ODRIVE_SensorlessVelEstimate "Odrive sensorless velocity estimate";
+CM_ SG_ 53 ODRIVE_SensorlessPosEstimate "Odrive sensorless position estimate";
+CM_ BO_ 54 "reboot Odrive";
+CM_ BO_ 55 "get vbus voltage";
+CM_ SG_ 55 ODRIVE_vbusVoltage "Odrive vbus voltage";
+CM_ BO_ 56 "clear error";
+CM_ BO_ 57 "set linear count";
+CM_ SG_ 57 ODRIVE_position "Odrive position";
+CM_ BO_ 58 "set position gain";
+CM_ SG_ 58 ODRIVE_posGain "Odrive position gain";
+CM_ BO_ 59 "set velocity gain";
+CM_ SG_ 59 ODRIVE_velIntegratorGain "Odrive velocity integrator gain";
+CM_ SG_ 59 ODRIVE_velGain "Odrive velocity gain";
+BA_DEF_ BO_  "SystemMessageLongSymbol" STRING ;
+BA_DEF_DEF_  "SystemMessageLongSymbol" "";
+BA_ "SystemMessageLongSymbol" BO_ 7 "ODRIVE_setAxisRequestedState_axis0";
+BA_ "SystemMessageLongSymbol" BO_ 21 "ODRIVE_GetSensorlessEstimates_axis0";
+BA_ "SystemMessageLongSymbol" BO_ 39 "ODRIVE_setAxisRequestedState_axis1";
+BA_ "SystemMessageLongSymbol" BO_ 53 "ODRIVE_GetSensorlessEstimates_axis1";
+VAL_ 1 ODRIVE_controllerStatus 0 "CONTROL_MODE_VOLTAGE_CONTROL" 1 "CONTROL_MODE_TORQUE_CONTROL" 2 "CONTROL_MODE_VELOCITY_CONTROL" 3 "CONTROL_MODE_POSITION_CONTROL" ;
+VAL_ 1 ODRIVE_axisCurrentState 0 "AXIS_STATE_UNDEFINED" 1 "AXIS_STATE_IDLE" 2 "AXIS_STATE_STARTUP_SEQUENCE" 3 "AXIS_STATE_FULL_CALIBRATION_SEQUENCE" 4 "AXIS_STATE_MOTOR_CALIBRATION" 6 "AXIS_STATE_ENCODER_INDEX_SEARCH" 7 "AXIS_STATE_ENCODER_OFFSET_CALIBRATION" 8 "AXIS_STATE_CLOSED_LOOP_CONTROL" 9 "AXIS_STATE_LOCKIN_SPIN" 10 "AXIS_STATE_ENCODER_DIR_FIND" 11 "AXIS_STATE_HOMING" 12 "AXIS_STATE_ENCODER_HALL_POLARITY_CALIBRATION" 13 "AXIS_STATE_ENCODER_HALL_PHASE_CALIBRATION" ;
+VAL_ 1 ODRIVE_axisError 0 "ERROR_NONE" 1 "ERROR_INVALID_STATE" 2048 "ERROR_WATCHDOG_TIMER_EXPIRED" 4096 "ERROR_MIN_ENDSTOP_PRESSED" 8192 "ERROR_MAX_ENDSTOP_PRESSED" 16384 "ERROR_ESTOP_REQUESTED" 131072 "ERROR_HOMING_WITHOUT_ENDSTOP" 262144 "ERROR_OVER_TEMP" 524288 "ERROR_UNKNOWN_POSITION" ;
+VAL_ 3 ODRIVE_motorError 0 "ERROR_NONE" 1 "ERROR_PHASE_RESISTANCE_OUT_OF_RANGE" 2 "ERROR_PHASE_INDUCTANCE_OUT_OF_RANGE" 8 "ERROR_DRV_FAULT" 16 "ERROR_CONTROL_DEADLINE_MISSED" 128 "ERROR_MODULATION_MAGNITUDE" 1024 "ERROR_CURRENT_SENSE_SATURATION" 4096 "ERROR_CURRENT_LIMIT_VIOLATION" 65536 "ERROR_MODULATION_IS_NAN" 131072 "ERROR_MOTOR_THERMISTOR_OVER_TEMP" 262144 "ERROR_FET_THERMISTOR_OVER_TEMP" 524288 "ERROR_TIMER_UPDATE_MISSED" 1048576 "ERROR_CURRENT_MEASUREMENT_UNAVAILABLE" 2097152 "ERROR_CONTROLLER_FAILED" 4194304 "ERROR_I_BUS_OUT_OF_RANGE" 8388608 "ERROR_BRAKE_RESISTOR_DISARMED" 16777216 "ERROR_SYSTEM_LEVEL" 33554432 "ERROR_BAD_TIMING" 67108864 "ERROR_UNKNOWN_PHASE_ESTIMATE" 134217728 "ERROR_UNKNOWN_PHASE_VEL" 268435456 "ERROR_UNKNOWN_TORQUE" 536870912 "ERROR_UNKNOWN_CURRENT_COMMAND" 1073741824 "ERROR_UNKNOWN_CURRENT_MEASUREMENT" 2147483648 "ERROR_UNKNOWN_VBUS_VOLTAGE" 4294967296 "ERROR_UNKNOWN_VOLTAGE_COMMAND" 8589934592 "ERROR_UNKNOWN_GAINS" 17179869184 "ERROR_CONTROLLER_INITIALIZING" 34359738368 "ERROR_UNBALANCED_PHASES" ;
+VAL_ 4 ODRIVE_encoderError 0 "ERROR_NONE" 1 "ERROR_UNSTABLE_GAIN" 2 "ERROR_CPR_POLEPAIRS_MISMATCH" 4 "ERROR_NO_RESPONSE" 8 "ERROR_UNSUPPORTED_ENCODER_MODE" 16 "ERROR_ILLEGAL_HALL_STATE" 32 "ERROR_INDEX_NOT_FOUND_YET" 64 "ERROR_ABS_SPI_TIMEOUT" 128 "ERROR_ABS_SPI_COM_FAIL" 256 "ERROR_ABS_SPI_NOT_READY" 512 "ERROR_HALL_NOT_CALIBRATED_YET" ;
+VAL_ 5 ODRIVE_sensorlessError 0 "ERROR_NONE" 1 "ERROR_UNSTABLE_GAIN" 2 "ERROR_UNKNOWN_CURRENT_MEASUREMENT" ;
+VAL_ 6 ODRIVE_axisCanNodeID 0 "ERROR_NONE" ;
+VAL_ 7 ODRIVE_axisRequestedState 0 "AXIS_STATE_UNDEFINED" 1 "AXIS_STATE_IDLE" 2 "AXIS_STATE_STARTUP_SEQUENCE" 3 "AXIS_STATE_FULL_CALIBRATION_SEQUENCE" 4 "AXIS_STATE_MOTOR_CALIBRATION" 6 "AXIS_STATE_ENCODER_INDEX_SEARCH" 7 "AXIS_STATE_ENCODER_OFFSET_CALIBRATION" 8 "AXIS_STATE_CLOSED_LOOP_CONTROL" 9 "AXIS_STATE_LOCKIN_SPIN" 10 "AXIS_STATE_ENCODER_DIR_FIND" 11 "AXIS_STATE_HOMING" 12 "AXIS_STATE_ENCODER_HALL_POLARITY_CALIBRATION" 13 "AXIS_STATE_ENCODER_HALL_PHASE_CALIBRATION" ;
+VAL_ 11 ODRIVE_inputMode 0 "INPUT_MODE_INACTIVE" 1 "INPUT_MODE_PASSTHROUGH" 2 "INPUT_MODE_VEL_RAMP" 3 "INPUT_MODE_POS_FILTER" 4 "INPUT_MODE_MIX_CHANNELS" 5 "INPUT_MODE_TRAP_TRAJ" 6 "INPUT_MODE_TORQUE_RAMP" 7 "INPUT_MODE_MIRROR" 8 "INPUT_MODE_Tuning" ;
+VAL_ 11 ODRIVE_controlMode 0 "CONTROL_MODE_VOLTAGE_CONTROL" 1 "CONTROL_MODE_TORQUE_CONTROL" 2 "CONTROL_MODE_VELOCITY_CONTROL" 3 "CONTROL_MODE_POSITION_CONTROL" ;
+VAL_ 33 ODRIVE_controllerStatus 0 "CONTROL_MODE_VOLTAGE_CONTROL" 1 "CONTROL_MODE_TORQUE_CONTROL" 2 "CONTROL_MODE_VELOCITY_CONTROL" 3 "CONTROL_MODE_POSITION_CONTROL" ;
+VAL_ 33 ODRIVE_axisCurrentState 0 "AXIS_STATE_UNDEFINED" 1 "AXIS_STATE_IDLE" 2 "AXIS_STATE_STARTUP_SEQUENCE" 3 "AXIS_STATE_FULL_CALIBRATION_SEQUENCE" 4 "AXIS_STATE_MOTOR_CALIBRATION" 6 "AXIS_STATE_ENCODER_INDEX_SEARCH" 7 "AXIS_STATE_ENCODER_OFFSET_CALIBRATION" 8 "AXIS_STATE_CLOSED_LOOP_CONTROL" 9 "AXIS_STATE_LOCKIN_SPIN" 10 "AXIS_STATE_ENCODER_DIR_FIND" 11 "AXIS_STATE_HOMING" 12 "AXIS_STATE_ENCODER_HALL_POLARITY_CALIBRATION" 13 "AXIS_STATE_ENCODER_HALL_PHASE_CALIBRATION" ;
+VAL_ 33 ODRIVE_axisError 0 "ERROR_NONE" 1 "ERROR_INVALID_STATE" 2048 "ERROR_WATCHDOG_TIMER_EXPIRED" 4096 "ERROR_MIN_ENDSTOP_PRESSED" 8192 "ERROR_MAX_ENDSTOP_PRESSED" 16384 "ERROR_ESTOP_REQUESTED" 131072 "ERROR_HOMING_WITHOUT_ENDSTOP" 262144 "ERROR_OVER_TEMP" 524288 "ERROR_UNKNOWN_POSITION" ;
+VAL_ 35 ODRIVE_motorError 0 "ERROR_NONE" 1 "ERROR_PHASE_RESISTANCE_OUT_OF_RANGE" 2 "ERROR_PHASE_INDUCTANCE_OUT_OF_RANGE" 8 "ERROR_DRV_FAULT" 16 "ERROR_CONTROL_DEADLINE_MISSED" 128 "ERROR_MODULATION_MAGNITUDE" 1024 "ERROR_CURRENT_SENSE_SATURATION" 4096 "ERROR_CURRENT_LIMIT_VIOLATION" 65536 "ERROR_MODULATION_IS_NAN" 131072 "ERROR_MOTOR_THERMISTOR_OVER_TEMP" 262144 "ERROR_FET_THERMISTOR_OVER_TEMP" 524288 "ERROR_TIMER_UPDATE_MISSED" 1048576 "ERROR_CURRENT_MEASUREMENT_UNAVAILABLE" 2097152 "ERROR_CONTROLLER_FAILED" 4194304 "ERROR_I_BUS_OUT_OF_RANGE" 8388608 "ERROR_BRAKE_RESISTOR_DISARMED" 16777216 "ERROR_SYSTEM_LEVEL" 33554432 "ERROR_BAD_TIMING" 67108864 "ERROR_UNKNOWN_PHASE_ESTIMATE" 134217728 "ERROR_UNKNOWN_PHASE_VEL" 268435456 "ERROR_UNKNOWN_TORQUE" 536870912 "ERROR_UNKNOWN_CURRENT_COMMAND" 1073741824 "ERROR_UNKNOWN_CURRENT_MEASUREMENT" 2147483648 "ERROR_UNKNOWN_VBUS_VOLTAGE" 4294967296 "ERROR_UNKNOWN_VOLTAGE_COMMAND" 8589934592 "ERROR_UNKNOWN_GAINS" 17179869184 "ERROR_CONTROLLER_INITIALIZING" 34359738368 "ERROR_UNBALANCED_PHASES" ;
+VAL_ 36 ODRIVE_encoderError 0 "ERROR_NONE" 1 "ERROR_UNSTABLE_GAIN" 2 "ERROR_CPR_POLEPAIRS_MISMATCH" 4 "ERROR_NO_RESPONSE" 8 "ERROR_UNSUPPORTED_ENCODER_MODE" 16 "ERROR_ILLEGAL_HALL_STATE" 32 "ERROR_INDEX_NOT_FOUND_YET" 64 "ERROR_ABS_SPI_TIMEOUT" 128 "ERROR_ABS_SPI_COM_FAIL" 256 "ERROR_ABS_SPI_NOT_READY" 512 "ERROR_HALL_NOT_CALIBRATED_YET" ;
+VAL_ 37 ODRIVE_sensorlessError 0 "ERROR_NONE" 1 "ERROR_UNSTABLE_GAIN" 2 "ERROR_UNKNOWN_CURRENT_MEASUREMENT" ;
+VAL_ 38 ODRIVE_axisCanNodeID 0 "ERROR_NONE" ;
+VAL_ 39 ODRIVE_axisRequestedState 0 "AXIS_STATE_UNDEFINED" 1 "AXIS_STATE_IDLE" 2 "AXIS_STATE_STARTUP_SEQUENCE" 3 "AXIS_STATE_FULL_CALIBRATION_SEQUENCE" 4 "AXIS_STATE_MOTOR_CALIBRATION" 6 "AXIS_STATE_ENCODER_INDEX_SEARCH" 7 "AXIS_STATE_ENCODER_OFFSET_CALIBRATION" 8 "AXIS_STATE_CLOSED_LOOP_CONTROL" 9 "AXIS_STATE_LOCKIN_SPIN" 10 "AXIS_STATE_ENCODER_DIR_FIND" 11 "AXIS_STATE_HOMING" 12 "AXIS_STATE_ENCODER_HALL_POLARITY_CALIBRATION" 13 "AXIS_STATE_ENCODER_HALL_PHASE_CALIBRATION" ;
+VAL_ 43 ODRIVE_inputMode 0 "INPUT_MODE_INACTIVE" 1 "INPUT_MODE_PASSTHROUGH" 2 "INPUT_MODE_VEL_RAMP" 3 "INPUT_MODE_POS_FILTER" 4 "INPUT_MODE_MIX_CHANNELS" 5 "INPUT_MODE_TRAP_TRAJ" 6 "INPUT_MODE_TORQUE_RAMP" 7 "INPUT_MODE_MIRROR" 8 "INPUT_MODE_Tuning" ;
+VAL_ 43 ODRIVE_controlMode 0 "CONTROL_MODE_VOLTAGE_CONTROL" 1 "CONTROL_MODE_TORQUE_CONTROL" 2 "CONTROL_MODE_VELOCITY_CONTROL" 3 "CONTROL_MODE_POSITION_CONTROL" ;
+SIG_VALTYPE_ 9 ODRIVE_encoderPosEstimate : 1;
+SIG_VALTYPE_ 9 ODRIVE_encoderVelEstimate : 1;
+SIG_VALTYPE_ 12 ODRIVE_inputPos : 1;
+SIG_VALTYPE_ 13 ODRIVE_inputVel : 1;
+SIG_VALTYPE_ 13 ODRIVE_TorqueFF : 1;
+SIG_VALTYPE_ 14 ODRIVE_inputTorque : 1;
+SIG_VALTYPE_ 15 ODRIVE_VelocityLimit : 1;
+SIG_VALTYPE_ 15 ODRIVE_CurrentLimit : 1;
+SIG_VALTYPE_ 17 ODRIVE_TrajVelLimit : 1;
+SIG_VALTYPE_ 18 ODRIVE_TrajAccelLimit : 1;
+SIG_VALTYPE_ 18 ODRIVE_TrajDecelLimit : 1;
+SIG_VALTYPE_ 19 ODRIVE_TrajInertia : 1;
+SIG_VALTYPE_ 20 ODRIVE_IqSetpoint : 1;
+SIG_VALTYPE_ 20 ODRIVE_IqMeasured : 1;
+SIG_VALTYPE_ 21 ODRIVE_SensorlessPosEstimate : 1;
+SIG_VALTYPE_ 21 ODRIVE_SensorlessVelEstimate : 1;
+SIG_VALTYPE_ 23 ODRIVE_vbusVoltage : 1;
+SIG_VALTYPE_ 26 ODRIVE_posGain : 1;
+SIG_VALTYPE_ 27 ODRIVE_velGain : 1;
+SIG_VALTYPE_ 27 ODRIVE_velIntegratorGain : 1;
+SIG_VALTYPE_ 41 ODRIVE_encoderPosEstimate : 1;
+SIG_VALTYPE_ 41 ODRIVE_encoderVelEstimate : 1;
+SIG_VALTYPE_ 44 ODRIVE_inputPos : 1;
+SIG_VALTYPE_ 45 ODRIVE_inputVel : 1;
+SIG_VALTYPE_ 45 ODRIVE_TorqueFF : 1;
+SIG_VALTYPE_ 46 ODRIVE_inputTorque : 1;
+SIG_VALTYPE_ 47 ODRIVE_VelocityLimit : 1;
+SIG_VALTYPE_ 47 ODRIVE_CurrentLimit : 1;
+SIG_VALTYPE_ 49 ODRIVE_TrajVelLimit : 1;
+SIG_VALTYPE_ 50 ODRIVE_TrajAccelLimit : 1;
+SIG_VALTYPE_ 50 ODRIVE_TrajDecelLimit : 1;
+SIG_VALTYPE_ 51 ODRIVE_TrajInertia : 1;
+SIG_VALTYPE_ 52 ODRIVE_IqSetpoint : 1;
+SIG_VALTYPE_ 52 ODRIVE_IqMeasured : 1;
+SIG_VALTYPE_ 53 ODRIVE_SensorlessPosEstimate : 1;
+SIG_VALTYPE_ 53 ODRIVE_SensorlessVelEstimate : 1;
+SIG_VALTYPE_ 55 ODRIVE_vbusVoltage : 1;
+SIG_VALTYPE_ 58 ODRIVE_posGain : 1;
+SIG_VALTYPE_ 59 ODRIVE_velGain : 1;
+SIG_VALTYPE_ 59 ODRIVE_velIntegratorGain : 1;
 
 
