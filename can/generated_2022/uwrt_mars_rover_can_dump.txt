@@ -1,1 +1,1931 @@
-================================= Messages =================================  ------------------------------------------------------------------------  Name:       ODRIVE_heartbeatMessage_axis0  Id:         0x1  Length:     6 bytes  Cycle time: - ms  Senders:    ODRIVE  Layout:                          Bit             7   6   5   4   3   2   1   0           +---+---+---+---+---+---+---+---+         0 |------------------------------x|           +---+---+---+---+---+---+---+---+         1 |-------------------------------|           +---+---+---+---+---+---+---+---+         2 |-------------------------------|           +---+---+---+---+---+---+---+---+     B   3 |<------------------------------|     y     +---+---+---+---+---+---+---+---+     t       +-- ODRIVE_axisError     e     +---+---+---+---+---+---+---+---+         4 |<-----------------------------x|           +---+---+---+---+---+---+---+---+             +-- ODRIVE_axisCurrentState           +---+---+---+---+---+---+---+---+         5 |<-----------------------------x|           +---+---+---+---+---+---+---+---+             +-- ODRIVE_controllerStatus  Signal tree:    -- {root}       +-- ODRIVE_axisError       +-- ODRIVE_axisCurrentState       +-- ODRIVE_controllerStatus  Signal choices:    ODRIVE_axisError        0 ERROR_NONE        1 ERROR_INVALID_STATE        2048 ERROR_WATCHDOG_TIMER_EXPIRED        4096 ERROR_MIN_ENDSTOP_PRESSED        8192 ERROR_MAX_ENDSTOP_PRESSED        16384 ERROR_ESTOP_REQUESTED        131072 ERROR_HOMING_WITHOUT_ENDSTOP        262144 ERROR_OVER_TEMP        524288 ERROR_UNKNOWN_POSITION    ODRIVE_axisCurrentState        0 AXIS_STATE_UNDEFINED        1 AXIS_STATE_IDLE        2 AXIS_STATE_STARTUP_SEQUENCE        3 AXIS_STATE_FULL_CALIBRATION_SEQUENCE        4 AXIS_STATE_MOTOR_CALIBRATION        6 AXIS_STATE_ENCODER_INDEX_SEARCH        7 AXIS_STATE_ENCODER_OFFSET_CALIBRATION        8 AXIS_STATE_CLOSED_LOOP_CONTROL        9 AXIS_STATE_LOCKIN_SPIN        10 AXIS_STATE_ENCODER_DIR_FIND        11 AXIS_STATE_HOMING        12 AXIS_STATE_ENCODER_HALL_POLARITY_CALIBRATION        13 AXIS_STATE_ENCODER_HALL_PHASE_CALIBRATION    ODRIVE_controllerStatus        0 CONTROL_MODE_VOLTAGE_CONTROL        1 CONTROL_MODE_TORQUE_CONTROL        2 CONTROL_MODE_VELOCITY_CONTROL        3 CONTROL_MODE_POSITION_CONTROL  ------------------------------------------------------------------------  Name:       ODRIVE_EstopMessage_axis0  Id:         0x2  Length:     0 bytes  Cycle time: - ms  Senders:    JETSON  Layout:                          Bit             7   6   5   4   3   2   1   0           +---+---+---+---+---+---+---+---+     B     y     t     e  Signal tree:    -- {root}  ------------------------------------------------------------------------  Name:       ODRIVE_getMotorError_axis0  Id:         0x3  Length:     8 bytes  Cycle time: - ms  Senders:    ODRIVE  Layout:                          Bit             7   6   5   4   3   2   1   0           +---+---+---+---+---+---+---+---+         0 |------------------------------x|           +---+---+---+---+---+---+---+---+         1 |-------------------------------|           +---+---+---+---+---+---+---+---+         2 |-------------------------------|           +---+---+---+---+---+---+---+---+     B   3 |-------------------------------|     y     +---+---+---+---+---+---+---+---+     t   4 |-------------------------------|     e     +---+---+---+---+---+---+---+---+         5 |-------------------------------|           +---+---+---+---+---+---+---+---+         6 |-------------------------------|           +---+---+---+---+---+---+---+---+         7 |<------------------------------|           +---+---+---+---+---+---+---+---+             +-- ODRIVE_motorError  Signal tree:    -- {root}       +-- ODRIVE_motorError  Signal choices:    ODRIVE_motorError        0 ERROR_NONE        1 ERROR_PHASE_RESISTANCE_OUT_OF_RANGE        2 ERROR_PHASE_INDUCTANCE_OUT_OF_RANGE        8 ERROR_DRV_FAULT        16 ERROR_CONTROL_DEADLINE_MISSED        128 ERROR_MODULATION_MAGNITUDE        1024 ERROR_CURRENT_SENSE_SATURATION        4096 ERROR_CURRENT_LIMIT_VIOLATION        65536 ERROR_MODULATION_IS_NAN        131072 ERROR_MOTOR_THERMISTOR_OVER_TEMP        262144 ERROR_FET_THERMISTOR_OVER_TEMP        524288 ERROR_TIMER_UPDATE_MISSED        1048576 ERROR_CURRENT_MEASUREMENT_UNAVAILABLE        2097152 ERROR_CONTROLLER_FAILED        4194304 ERROR_I_BUS_OUT_OF_RANGE        8388608 ERROR_BRAKE_RESISTOR_DISARMED        16777216 ERROR_SYSTEM_LEVEL        33554432 ERROR_BAD_TIMING        67108864 ERROR_UNKNOWN_PHASE_ESTIMATE        134217728 ERROR_UNKNOWN_PHASE_VEL        268435456 ERROR_UNKNOWN_TORQUE        536870912 ERROR_UNKNOWN_CURRENT_COMMAND        1073741824 ERROR_UNKNOWN_CURRENT_MEASUREMENT        2147483648 ERROR_UNKNOWN_VBUS_VOLTAGE        4294967296 ERROR_UNKNOWN_VOLTAGE_COMMAND        8589934592 ERROR_UNKNOWN_GAINS        17179869184 ERROR_CONTROLLER_INITIALIZING        34359738368 ERROR_UNBALANCED_PHASES  ------------------------------------------------------------------------  Name:       ODRIVE_getEncoderError_axis0  Id:         0x4  Length:     4 bytes  Cycle time: - ms  Senders:    ODRIVE  Layout:                          Bit             7   6   5   4   3   2   1   0           +---+---+---+---+---+---+---+---+         0 |------------------------------x|           +---+---+---+---+---+---+---+---+     B   1 |-------------------------------|     y     +---+---+---+---+---+---+---+---+     t   2 |-------------------------------|     e     +---+---+---+---+---+---+---+---+         3 |<------------------------------|           +---+---+---+---+---+---+---+---+             +-- ODRIVE_encoderError  Signal tree:    -- {root}       +-- ODRIVE_encoderError  Signal choices:    ODRIVE_encoderError        0 ERROR_NONE        1 ERROR_UNSTABLE_GAIN        2 ERROR_CPR_POLEPAIRS_MISMATCH        4 ERROR_NO_RESPONSE        8 ERROR_UNSUPPORTED_ENCODER_MODE        16 ERROR_ILLEGAL_HALL_STATE        32 ERROR_INDEX_NOT_FOUND_YET        64 ERROR_ABS_SPI_TIMEOUT        128 ERROR_ABS_SPI_COM_FAIL        256 ERROR_ABS_SPI_NOT_READY        512 ERROR_HALL_NOT_CALIBRATED_YET  ------------------------------------------------------------------------  Name:       ODRIVE_getSensorlessError_axis0  Id:         0x5  Length:     4 bytes  Cycle time: - ms  Senders:    ODRIVE  Layout:                          Bit             7   6   5   4   3   2   1   0           +---+---+---+---+---+---+---+---+         0 |------------------------------x|           +---+---+---+---+---+---+---+---+     B   1 |-------------------------------|     y     +---+---+---+---+---+---+---+---+     t   2 |-------------------------------|     e     +---+---+---+---+---+---+---+---+         3 |<------------------------------|           +---+---+---+---+---+---+---+---+             +-- ODRIVE_sensorlessError  Signal tree:    -- {root}       +-- ODRIVE_sensorlessError  Signal choices:    ODRIVE_sensorlessError        0 ERROR_NONE        1 ERROR_UNSTABLE_GAIN        2 ERROR_UNKNOWN_CURRENT_MEASUREMENT  ------------------------------------------------------------------------  Name:       ODRIVE_setAxisNodeID_axis0  Id:         0x6  Length:     4 bytes  Cycle time: - ms  Senders:    JETSON  Layout:                          Bit             7   6   5   4   3   2   1   0           +---+---+---+---+---+---+---+---+         0 |------------------------------x|           +---+---+---+---+---+---+---+---+     B   1 |-------------------------------|     y     +---+---+---+---+---+---+---+---+     t   2 |-------------------------------|     e     +---+---+---+---+---+---+---+---+         3 |<------------------------------|           +---+---+---+---+---+---+---+---+             +-- ODRIVE_axisCanNodeID  Signal tree:    -- {root}       +-- ODRIVE_axisCanNodeID  Signal choices:    ODRIVE_axisCanNodeID        0 ERROR_NONE  ------------------------------------------------------------------------  Name:       ODRIVE_setAxisRequestedState_axis0  Id:         0x7  Length:     4 bytes  Cycle time: - ms  Senders:    JETSON  Layout:                          Bit             7   6   5   4   3   2   1   0           +---+---+---+---+---+---+---+---+         0 |------------------------------x|           +---+---+---+---+---+---+---+---+     B   1 |-------------------------------|     y     +---+---+---+---+---+---+---+---+     t   2 |-------------------------------|     e     +---+---+---+---+---+---+---+---+         3 |<------------------------------|           +---+---+---+---+---+---+---+---+             +-- ODRIVE_axisRequestedState  Signal tree:    -- {root}       +-- ODRIVE_axisRequestedState  Signal choices:    ODRIVE_axisRequestedState        0 AXIS_STATE_UNDEFINED        1 AXIS_STATE_IDLE        2 AXIS_STATE_STARTUP_SEQUENCE        3 AXIS_STATE_FULL_CALIBRATION_SEQUENCE        4 AXIS_STATE_MOTOR_CALIBRATION        6 AXIS_STATE_ENCODER_INDEX_SEARCH        7 AXIS_STATE_ENCODER_OFFSET_CALIBRATION        8 AXIS_STATE_CLOSED_LOOP_CONTROL        9 AXIS_STATE_LOCKIN_SPIN        10 AXIS_STATE_ENCODER_DIR_FIND        11 AXIS_STATE_HOMING        12 AXIS_STATE_ENCODER_HALL_POLARITY_CALIBRATION        13 AXIS_STATE_ENCODER_HALL_PHASE_CALIBRATION  ------------------------------------------------------------------------  Name:       ODRIVE_getEncoderEstimates_axis0  Id:         0x9  Length:     8 bytes  Cycle time: - ms  Senders:    JETSON  Layout:                          Bit             7   6   5   4   3   2   1   0           +---+---+---+---+---+---+---+---+         0 |------------------------------x|           +---+---+---+---+---+---+---+---+         1 |-------------------------------|           +---+---+---+---+---+---+---+---+         2 |-------------------------------|           +---+---+---+---+---+---+---+---+         3 |<------------------------------|     B     +---+---+---+---+---+---+---+---+     y       +-- ODRIVE_encoderPosEstimate     t     +---+---+---+---+---+---+---+---+     e   4 |------------------------------x|           +---+---+---+---+---+---+---+---+         5 |-------------------------------|           +---+---+---+---+---+---+---+---+         6 |-------------------------------|           +---+---+---+---+---+---+---+---+         7 |<------------------------------|           +---+---+---+---+---+---+---+---+             +-- ODRIVE_encoderVelEstimate  Signal tree:    -- {root}       +-- ODRIVE_encoderPosEstimate       +-- ODRIVE_encoderVelEstimate  ------------------------------------------------------------------------  Name:       ODRIVE_getEncoderCount_axis0  Id:         0xa  Length:     8 bytes  Cycle time: - ms  Senders:    JETSON  Layout:                          Bit             7   6   5   4   3   2   1   0           +---+---+---+---+---+---+---+---+         0 |------------------------------x|           +---+---+---+---+---+---+---+---+         1 |-------------------------------|           +---+---+---+---+---+---+---+---+         2 |-------------------------------|           +---+---+---+---+---+---+---+---+         3 |<------------------------------|     B     +---+---+---+---+---+---+---+---+     y       +-- ODRIVE_encoderShadowCount     t     +---+---+---+---+---+---+---+---+     e   4 |------------------------------x|           +---+---+---+---+---+---+---+---+         5 |-------------------------------|           +---+---+---+---+---+---+---+---+         6 |-------------------------------|           +---+---+---+---+---+---+---+---+         7 |<------------------------------|           +---+---+---+---+---+---+---+---+             +-- ODRIVE_encoderCountinCPR  Signal tree:    -- {root}       +-- ODRIVE_encoderShadowCount       +-- ODRIVE_encoderCountinCPR  ------------------------------------------------------------------------  Name:       ODRIVE_setControllerModes_axis0  Id:         0xb  Length:     8 bytes  Cycle time: - ms  Senders:    JETSON  Layout:                          Bit             7   6   5   4   3   2   1   0           +---+---+---+---+---+---+---+---+         0 |------------------------------x|           +---+---+---+---+---+---+---+---+         1 |-------------------------------|           +---+---+---+---+---+---+---+---+         2 |-------------------------------|           +---+---+---+---+---+---+---+---+         3 |<------------------------------|     B     +---+---+---+---+---+---+---+---+     y       +-- ODRIVE_controlMode     t     +---+---+---+---+---+---+---+---+     e   4 |------------------------------x|           +---+---+---+---+---+---+---+---+         5 |-------------------------------|           +---+---+---+---+---+---+---+---+         6 |-------------------------------|           +---+---+---+---+---+---+---+---+         7 |<------------------------------|           +---+---+---+---+---+---+---+---+             +-- ODRIVE_inputMode  Signal tree:    -- {root}       +-- ODRIVE_controlMode       +-- ODRIVE_inputMode  Signal choices:    ODRIVE_controlMode        0 CONTROL_MODE_VOLTAGE_CONTROL        1 CONTROL_MODE_TORQUE_CONTROL        2 CONTROL_MODE_VELOCITY_CONTROL        3 CONTROL_MODE_POSITION_CONTROL    ODRIVE_inputMode        0 INPUT_MODE_INACTIVE        1 INPUT_MODE_PASSTHROUGH        2 INPUT_MODE_VEL_RAMP        3 INPUT_MODE_POS_FILTER        4 INPUT_MODE_MIX_CHANNELS        5 INPUT_MODE_TRAP_TRAJ        6 INPUT_MODE_TORQUE_RAMP        7 INPUT_MODE_MIRROR        8 INPUT_MODE_Tuning  ------------------------------------------------------------------------  Name:       ODRIVE_SetInputPos_axis0  Id:         0xc  Length:     8 bytes  Cycle time: - ms  Senders:    JETSON  Layout:                          Bit             7   6   5   4   3   2   1   0           +---+---+---+---+---+---+---+---+         0 |------------------------------x|           +---+---+---+---+---+---+---+---+         1 |-------------------------------|           +---+---+---+---+---+---+---+---+         2 |-------------------------------|           +---+---+---+---+---+---+---+---+         3 |<------------------------------|           +---+---+---+---+---+---+---+---+     B       +-- ODRIVE_inputPos     y     +---+---+---+---+---+---+---+---+     t   4 |------------------------------x|     e     +---+---+---+---+---+---+---+---+         5 |<------------------------------|           +---+---+---+---+---+---+---+---+             +-- ODRIVE_VelFF           +---+---+---+---+---+---+---+---+         6 |------------------------------x|           +---+---+---+---+---+---+---+---+         7 |<------------------------------|           +---+---+---+---+---+---+---+---+             +-- ODRIVE_TorqueFF  Signal tree:    -- {root}       +-- ODRIVE_inputPos       +-- ODRIVE_VelFF       +-- ODRIVE_TorqueFF  ------------------------------------------------------------------------  Name:       ODRIVE_setInputVel_axis0  Id:         0xd  Length:     8 bytes  Cycle time: - ms  Senders:    JETSON  Layout:                          Bit             7   6   5   4   3   2   1   0           +---+---+---+---+---+---+---+---+         0 |------------------------------x|           +---+---+---+---+---+---+---+---+         1 |-------------------------------|           +---+---+---+---+---+---+---+---+         2 |-------------------------------|           +---+---+---+---+---+---+---+---+         3 |<------------------------------|     B     +---+---+---+---+---+---+---+---+     y       +-- ODRIVE_inputVel     t     +---+---+---+---+---+---+---+---+     e   4 |------------------------------x|           +---+---+---+---+---+---+---+---+         5 |-------------------------------|           +---+---+---+---+---+---+---+---+         6 |-------------------------------|           +---+---+---+---+---+---+---+---+         7 |<------------------------------|           +---+---+---+---+---+---+---+---+             +-- ODRIVE_TorqueFF  Signal tree:    -- {root}       +-- ODRIVE_inputVel       +-- ODRIVE_TorqueFF  ------------------------------------------------------------------------  Name:       ODRIVE_setInputTorque_axis0  Id:         0xe  Length:     4 bytes  Cycle time: - ms  Senders:    JETSON  Layout:                          Bit             7   6   5   4   3   2   1   0           +---+---+---+---+---+---+---+---+         0 |------------------------------x|           +---+---+---+---+---+---+---+---+     B   1 |-------------------------------|     y     +---+---+---+---+---+---+---+---+     t   2 |-------------------------------|     e     +---+---+---+---+---+---+---+---+         3 |<------------------------------|           +---+---+---+---+---+---+---+---+             +-- ODRIVE_inputTorque  Signal tree:    -- {root}       +-- ODRIVE_inputTorque  ------------------------------------------------------------------------  Name:       ODRIVE_setLimits_axis0  Id:         0xf  Length:     8 bytes  Cycle time: - ms  Senders:    JETSON  Layout:                          Bit             7   6   5   4   3   2   1   0           +---+---+---+---+---+---+---+---+         0 |------------------------------x|           +---+---+---+---+---+---+---+---+         1 |-------------------------------|           +---+---+---+---+---+---+---+---+         2 |-------------------------------|           +---+---+---+---+---+---+---+---+         3 |<------------------------------|     B     +---+---+---+---+---+---+---+---+     y       +-- ODRIVE_VelocityLimit     t     +---+---+---+---+---+---+---+---+     e   4 |------------------------------x|           +---+---+---+---+---+---+---+---+         5 |-------------------------------|           +---+---+---+---+---+---+---+---+         6 |-------------------------------|           +---+---+---+---+---+---+---+---+         7 |<------------------------------|           +---+---+---+---+---+---+---+---+             +-- ODRIVE_CurrentLimit  Signal tree:    -- {root}       +-- ODRIVE_VelocityLimit       +-- ODRIVE_CurrentLimit  ------------------------------------------------------------------------  Name:       ODRIVE_StartAnticogging_axis0  Id:         0x10  Length:     0 bytes  Cycle time: - ms  Senders:    JETSON  Layout:                          Bit             7   6   5   4   3   2   1   0           +---+---+---+---+---+---+---+---+     B     y     t     e  Signal tree:    -- {root}  ------------------------------------------------------------------------  Name:       ODRIVE_setTrajVelLimit_axis0  Id:         0x11  Length:     4 bytes  Cycle time: - ms  Senders:    JETSON  Layout:                          Bit             7   6   5   4   3   2   1   0           +---+---+---+---+---+---+---+---+         0 |------------------------------x|           +---+---+---+---+---+---+---+---+     B   1 |-------------------------------|     y     +---+---+---+---+---+---+---+---+     t   2 |-------------------------------|     e     +---+---+---+---+---+---+---+---+         3 |<------------------------------|           +---+---+---+---+---+---+---+---+             +-- ODRIVE_TrajVelLimit  Signal tree:    -- {root}       +-- ODRIVE_TrajVelLimit  ------------------------------------------------------------------------  Name:       ODRIVE_setTrajAccelLimit_axis0  Id:         0x12  Length:     8 bytes  Cycle time: - ms  Senders:    JETSON  Layout:                          Bit             7   6   5   4   3   2   1   0           +---+---+---+---+---+---+---+---+         0 |------------------------------x|           +---+---+---+---+---+---+---+---+         1 |-------------------------------|           +---+---+---+---+---+---+---+---+         2 |-------------------------------|           +---+---+---+---+---+---+---+---+         3 |<------------------------------|     B     +---+---+---+---+---+---+---+---+     y       +-- ODRIVE_TrajAccelLimit     t     +---+---+---+---+---+---+---+---+     e   4 |------------------------------x|           +---+---+---+---+---+---+---+---+         5 |-------------------------------|           +---+---+---+---+---+---+---+---+         6 |-------------------------------|           +---+---+---+---+---+---+---+---+         7 |<------------------------------|           +---+---+---+---+---+---+---+---+             +-- ODRIVE_TrajDecelLimit  Signal tree:    -- {root}       +-- ODRIVE_TrajAccelLimit       +-- ODRIVE_TrajDecelLimit  ------------------------------------------------------------------------  Name:       ODRIVE_setTrajInertia_axis0  Id:         0x13  Length:     4 bytes  Cycle time: - ms  Senders:    JETSON  Layout:                          Bit             7   6   5   4   3   2   1   0           +---+---+---+---+---+---+---+---+         0 |------------------------------x|           +---+---+---+---+---+---+---+---+     B   1 |-------------------------------|     y     +---+---+---+---+---+---+---+---+     t   2 |-------------------------------|     e     +---+---+---+---+---+---+---+---+         3 |<------------------------------|           +---+---+---+---+---+---+---+---+             +-- ODRIVE_TrajInertia  Signal tree:    -- {root}       +-- ODRIVE_TrajInertia  ------------------------------------------------------------------------  Name:       ODRIVE_getIQ_axis0  Id:         0x14  Length:     8 bytes  Cycle time: - ms  Senders:    ODRIVE  Layout:                          Bit             7   6   5   4   3   2   1   0           +---+---+---+---+---+---+---+---+         0 |------------------------------x|           +---+---+---+---+---+---+---+---+         1 |-------------------------------|           +---+---+---+---+---+---+---+---+         2 |-------------------------------|           +---+---+---+---+---+---+---+---+         3 |<------------------------------|     B     +---+---+---+---+---+---+---+---+     y       +-- ODRIVE_IqSetpoint     t     +---+---+---+---+---+---+---+---+     e   4 |------------------------------x|           +---+---+---+---+---+---+---+---+         5 |-------------------------------|           +---+---+---+---+---+---+---+---+         6 |-------------------------------|           +---+---+---+---+---+---+---+---+         7 |<------------------------------|           +---+---+---+---+---+---+---+---+             +-- ODRIVE_IqMeasured  Signal tree:    -- {root}       +-- ODRIVE_IqSetpoint       +-- ODRIVE_IqMeasured  ------------------------------------------------------------------------  Name:       ODRIVE_GetSensorlessEstimates_axis0  Id:         0x15  Length:     8 bytes  Cycle time: - ms  Senders:    ODRIVE  Layout:                          Bit             7   6   5   4   3   2   1   0           +---+---+---+---+---+---+---+---+         0 |------------------------------x|           +---+---+---+---+---+---+---+---+         1 |-------------------------------|           +---+---+---+---+---+---+---+---+         2 |-------------------------------|           +---+---+---+---+---+---+---+---+         3 |<------------------------------|     B     +---+---+---+---+---+---+---+---+     y       +-- ODRIVE_SensorlessPosEstimate     t     +---+---+---+---+---+---+---+---+     e   4 |------------------------------x|           +---+---+---+---+---+---+---+---+         5 |-------------------------------|           +---+---+---+---+---+---+---+---+         6 |-------------------------------|           +---+---+---+---+---+---+---+---+         7 |<------------------------------|           +---+---+---+---+---+---+---+---+             +-- ODRIVE_SensorlessVelEstimate  Signal tree:    -- {root}       +-- ODRIVE_SensorlessPosEstimate       +-- ODRIVE_SensorlessVelEstimate  ------------------------------------------------------------------------  Name:       ODRIVE_RebootOdrive_axis0  Id:         0x16  Length:     0 bytes  Cycle time: - ms  Senders:    JETSON  Layout:                          Bit             7   6   5   4   3   2   1   0           +---+---+---+---+---+---+---+---+     B     y     t     e  Signal tree:    -- {root}  ------------------------------------------------------------------------  Name:       ODRIVE_getVbusVoltage_axis0  Id:         0x17  Length:     4 bytes  Cycle time: - ms  Senders:    ODRIVE  Layout:                          Bit             7   6   5   4   3   2   1   0           +---+---+---+---+---+---+---+---+         0 |------------------------------x|           +---+---+---+---+---+---+---+---+     B   1 |-------------------------------|     y     +---+---+---+---+---+---+---+---+     t   2 |-------------------------------|     e     +---+---+---+---+---+---+---+---+         3 |<------------------------------|           +---+---+---+---+---+---+---+---+             +-- ODRIVE_vbusVoltage  Signal tree:    -- {root}       +-- ODRIVE_vbusVoltage  ------------------------------------------------------------------------  Name:       ODRIVE_ClearErrors_axis0  Id:         0x18  Length:     0 bytes  Cycle time: - ms  Senders:    JETSON  Layout:                          Bit             7   6   5   4   3   2   1   0           +---+---+---+---+---+---+---+---+     B     y     t     e  Signal tree:    -- {root}  ------------------------------------------------------------------------  Name:       ODRIVE_setLinearCount_axis0  Id:         0x19  Length:     4 bytes  Cycle time: - ms  Senders:    JETSON  Layout:                          Bit             7   6   5   4   3   2   1   0           +---+---+---+---+---+---+---+---+         0 |------------------------------x|           +---+---+---+---+---+---+---+---+     B   1 |-------------------------------|     y     +---+---+---+---+---+---+---+---+     t   2 |-------------------------------|     e     +---+---+---+---+---+---+---+---+         3 |<------------------------------|           +---+---+---+---+---+---+---+---+             +-- ODRIVE_position  Signal tree:    -- {root}       +-- ODRIVE_position  ------------------------------------------------------------------------  Name:       ODRIVE_setPositionGain_axis0  Id:         0x1a  Length:     4 bytes  Cycle time: - ms  Senders:    JETSON  Layout:                          Bit             7   6   5   4   3   2   1   0           +---+---+---+---+---+---+---+---+         0 |------------------------------x|           +---+---+---+---+---+---+---+---+     B   1 |-------------------------------|     y     +---+---+---+---+---+---+---+---+     t   2 |-------------------------------|     e     +---+---+---+---+---+---+---+---+         3 |<------------------------------|           +---+---+---+---+---+---+---+---+             +-- ODRIVE_posGain  Signal tree:    -- {root}       +-- ODRIVE_posGain  ------------------------------------------------------------------------  Name:       ODRIVE_setVelGain_axis0  Id:         0x1b  Length:     8 bytes  Cycle time: - ms  Senders:    JETSON  Layout:                          Bit             7   6   5   4   3   2   1   0           +---+---+---+---+---+---+---+---+         0 |------------------------------x|           +---+---+---+---+---+---+---+---+         1 |-------------------------------|           +---+---+---+---+---+---+---+---+         2 |-------------------------------|           +---+---+---+---+---+---+---+---+         3 |<------------------------------|     B     +---+---+---+---+---+---+---+---+     y       +-- ODRIVE_velGain     t     +---+---+---+---+---+---+---+---+     e   4 |------------------------------x|           +---+---+---+---+---+---+---+---+         5 |-------------------------------|           +---+---+---+---+---+---+---+---+         6 |-------------------------------|           +---+---+---+---+---+---+---+---+         7 |<------------------------------|           +---+---+---+---+---+---+---+---+             +-- ODRIVE_velIntegratorGain  Signal tree:    -- {root}       +-- ODRIVE_velGain       +-- ODRIVE_velIntegratorGain  ------------------------------------------------------------------------  Name:       ODRIVE_heartbeatMessage_axis1  Id:         0x21  Length:     6 bytes  Cycle time: - ms  Senders:    ODRIVE  Layout:                          Bit             7   6   5   4   3   2   1   0           +---+---+---+---+---+---+---+---+         0 |------------------------------x|           +---+---+---+---+---+---+---+---+         1 |-------------------------------|           +---+---+---+---+---+---+---+---+         2 |-------------------------------|           +---+---+---+---+---+---+---+---+     B   3 |<------------------------------|     y     +---+---+---+---+---+---+---+---+     t       +-- ODRIVE_axisError     e     +---+---+---+---+---+---+---+---+         4 |<-----------------------------x|           +---+---+---+---+---+---+---+---+             +-- ODRIVE_axisCurrentState           +---+---+---+---+---+---+---+---+         5 |<-----------------------------x|           +---+---+---+---+---+---+---+---+             +-- ODRIVE_controllerStatus  Signal tree:    -- {root}       +-- ODRIVE_axisError       +-- ODRIVE_axisCurrentState       +-- ODRIVE_controllerStatus  Signal choices:    ODRIVE_axisError        0 ERROR_NONE        1 ERROR_INVALID_STATE        2048 ERROR_WATCHDOG_TIMER_EXPIRED        4096 ERROR_MIN_ENDSTOP_PRESSED        8192 ERROR_MAX_ENDSTOP_PRESSED        16384 ERROR_ESTOP_REQUESTED        131072 ERROR_HOMING_WITHOUT_ENDSTOP        262144 ERROR_OVER_TEMP        524288 ERROR_UNKNOWN_POSITION    ODRIVE_axisCurrentState        0 AXIS_STATE_UNDEFINED        1 AXIS_STATE_IDLE        2 AXIS_STATE_STARTUP_SEQUENCE        3 AXIS_STATE_FULL_CALIBRATION_SEQUENCE        4 AXIS_STATE_MOTOR_CALIBRATION        6 AXIS_STATE_ENCODER_INDEX_SEARCH        7 AXIS_STATE_ENCODER_OFFSET_CALIBRATION        8 AXIS_STATE_CLOSED_LOOP_CONTROL        9 AXIS_STATE_LOCKIN_SPIN        10 AXIS_STATE_ENCODER_DIR_FIND        11 AXIS_STATE_HOMING        12 AXIS_STATE_ENCODER_HALL_POLARITY_CALIBRATION        13 AXIS_STATE_ENCODER_HALL_PHASE_CALIBRATION    ODRIVE_controllerStatus        0 CONTROL_MODE_VOLTAGE_CONTROL        1 CONTROL_MODE_TORQUE_CONTROL        2 CONTROL_MODE_VELOCITY_CONTROL        3 CONTROL_MODE_POSITION_CONTROL  ------------------------------------------------------------------------  Name:       ODRIVE_EstopMessage_axis1  Id:         0x22  Length:     0 bytes  Cycle time: - ms  Senders:    JETSON  Layout:                          Bit             7   6   5   4   3   2   1   0           +---+---+---+---+---+---+---+---+     B     y     t     e  Signal tree:    -- {root}  ------------------------------------------------------------------------  Name:       ODRIVE_getMotorError_axis1  Id:         0x23  Length:     8 bytes  Cycle time: - ms  Senders:    ODRIVE  Layout:                          Bit             7   6   5   4   3   2   1   0           +---+---+---+---+---+---+---+---+         0 |------------------------------x|           +---+---+---+---+---+---+---+---+         1 |-------------------------------|           +---+---+---+---+---+---+---+---+         2 |-------------------------------|           +---+---+---+---+---+---+---+---+     B   3 |-------------------------------|     y     +---+---+---+---+---+---+---+---+     t   4 |-------------------------------|     e     +---+---+---+---+---+---+---+---+         5 |-------------------------------|           +---+---+---+---+---+---+---+---+         6 |-------------------------------|           +---+---+---+---+---+---+---+---+         7 |<------------------------------|           +---+---+---+---+---+---+---+---+             +-- ODRIVE_motorError  Signal tree:    -- {root}       +-- ODRIVE_motorError  Signal choices:    ODRIVE_motorError        0 ERROR_NONE        1 ERROR_PHASE_RESISTANCE_OUT_OF_RANGE        2 ERROR_PHASE_INDUCTANCE_OUT_OF_RANGE        8 ERROR_DRV_FAULT        16 ERROR_CONTROL_DEADLINE_MISSED        128 ERROR_MODULATION_MAGNITUDE        1024 ERROR_CURRENT_SENSE_SATURATION        4096 ERROR_CURRENT_LIMIT_VIOLATION        65536 ERROR_MODULATION_IS_NAN        131072 ERROR_MOTOR_THERMISTOR_OVER_TEMP        262144 ERROR_FET_THERMISTOR_OVER_TEMP        524288 ERROR_TIMER_UPDATE_MISSED        1048576 ERROR_CURRENT_MEASUREMENT_UNAVAILABLE        2097152 ERROR_CONTROLLER_FAILED        4194304 ERROR_I_BUS_OUT_OF_RANGE        8388608 ERROR_BRAKE_RESISTOR_DISARMED        16777216 ERROR_SYSTEM_LEVEL        33554432 ERROR_BAD_TIMING        67108864 ERROR_UNKNOWN_PHASE_ESTIMATE        134217728 ERROR_UNKNOWN_PHASE_VEL        268435456 ERROR_UNKNOWN_TORQUE        536870912 ERROR_UNKNOWN_CURRENT_COMMAND        1073741824 ERROR_UNKNOWN_CURRENT_MEASUREMENT        2147483648 ERROR_UNKNOWN_VBUS_VOLTAGE        4294967296 ERROR_UNKNOWN_VOLTAGE_COMMAND        8589934592 ERROR_UNKNOWN_GAINS        17179869184 ERROR_CONTROLLER_INITIALIZING        34359738368 ERROR_UNBALANCED_PHASES  ------------------------------------------------------------------------  Name:       ODRIVE_getEncoderError_axis1  Id:         0x24  Length:     4 bytes  Cycle time: - ms  Senders:    ODRIVE  Layout:                          Bit             7   6   5   4   3   2   1   0           +---+---+---+---+---+---+---+---+         0 |------------------------------x|           +---+---+---+---+---+---+---+---+     B   1 |-------------------------------|     y     +---+---+---+---+---+---+---+---+     t   2 |-------------------------------|     e     +---+---+---+---+---+---+---+---+         3 |<------------------------------|           +---+---+---+---+---+---+---+---+             +-- ODRIVE_encoderError  Signal tree:    -- {root}       +-- ODRIVE_encoderError  Signal choices:    ODRIVE_encoderError        0 ERROR_NONE        1 ERROR_UNSTABLE_GAIN        2 ERROR_CPR_POLEPAIRS_MISMATCH        4 ERROR_NO_RESPONSE        8 ERROR_UNSUPPORTED_ENCODER_MODE        16 ERROR_ILLEGAL_HALL_STATE        32 ERROR_INDEX_NOT_FOUND_YET        64 ERROR_ABS_SPI_TIMEOUT        128 ERROR_ABS_SPI_COM_FAIL        256 ERROR_ABS_SPI_NOT_READY        512 ERROR_HALL_NOT_CALIBRATED_YET  ------------------------------------------------------------------------  Name:       ODRIVE_getSensorlessError_axis1  Id:         0x25  Length:     4 bytes  Cycle time: - ms  Senders:    ODRIVE  Layout:                          Bit             7   6   5   4   3   2   1   0           +---+---+---+---+---+---+---+---+         0 |------------------------------x|           +---+---+---+---+---+---+---+---+     B   1 |-------------------------------|     y     +---+---+---+---+---+---+---+---+     t   2 |-------------------------------|     e     +---+---+---+---+---+---+---+---+         3 |<------------------------------|           +---+---+---+---+---+---+---+---+             +-- ODRIVE_sensorlessError  Signal tree:    -- {root}       +-- ODRIVE_sensorlessError  Signal choices:    ODRIVE_sensorlessError        0 ERROR_NONE        1 ERROR_UNSTABLE_GAIN        2 ERROR_UNKNOWN_CURRENT_MEASUREMENT  ------------------------------------------------------------------------  Name:       ODRIVE_setAxisNodeID_axis1  Id:         0x26  Length:     4 bytes  Cycle time: - ms  Senders:    JETSON  Layout:                          Bit             7   6   5   4   3   2   1   0           +---+---+---+---+---+---+---+---+         0 |------------------------------x|           +---+---+---+---+---+---+---+---+     B   1 |-------------------------------|     y     +---+---+---+---+---+---+---+---+     t   2 |-------------------------------|     e     +---+---+---+---+---+---+---+---+         3 |<------------------------------|           +---+---+---+---+---+---+---+---+             +-- ODRIVE_axisCanNodeID  Signal tree:    -- {root}       +-- ODRIVE_axisCanNodeID  Signal choices:    ODRIVE_axisCanNodeID        0 ERROR_NONE  ------------------------------------------------------------------------  Name:       ODRIVE_setAxisRequestedState_axis1  Id:         0x27  Length:     4 bytes  Cycle time: - ms  Senders:    JETSON  Layout:                          Bit             7   6   5   4   3   2   1   0           +---+---+---+---+---+---+---+---+         0 |------------------------------x|           +---+---+---+---+---+---+---+---+     B   1 |-------------------------------|     y     +---+---+---+---+---+---+---+---+     t   2 |-------------------------------|     e     +---+---+---+---+---+---+---+---+         3 |<------------------------------|           +---+---+---+---+---+---+---+---+             +-- ODRIVE_axisRequestedState  Signal tree:    -- {root}       +-- ODRIVE_axisRequestedState  Signal choices:    ODRIVE_axisRequestedState        0 AXIS_STATE_UNDEFINED        1 AXIS_STATE_IDLE        2 AXIS_STATE_STARTUP_SEQUENCE        3 AXIS_STATE_FULL_CALIBRATION_SEQUENCE        4 AXIS_STATE_MOTOR_CALIBRATION        6 AXIS_STATE_ENCODER_INDEX_SEARCH        7 AXIS_STATE_ENCODER_OFFSET_CALIBRATION        8 AXIS_STATE_CLOSED_LOOP_CONTROL        9 AXIS_STATE_LOCKIN_SPIN        10 AXIS_STATE_ENCODER_DIR_FIND        11 AXIS_STATE_HOMING        12 AXIS_STATE_ENCODER_HALL_POLARITY_CALIBRATION        13 AXIS_STATE_ENCODER_HALL_PHASE_CALIBRATION  ------------------------------------------------------------------------  Name:       ODRIVE_getEncoderEstimates_axis1  Id:         0x29  Length:     8 bytes  Cycle time: - ms  Senders:    JETSON  Layout:                          Bit             7   6   5   4   3   2   1   0           +---+---+---+---+---+---+---+---+         0 |------------------------------x|           +---+---+---+---+---+---+---+---+         1 |-------------------------------|           +---+---+---+---+---+---+---+---+         2 |-------------------------------|           +---+---+---+---+---+---+---+---+         3 |<------------------------------|     B     +---+---+---+---+---+---+---+---+     y       +-- ODRIVE_encoderPosEstimate     t     +---+---+---+---+---+---+---+---+     e   4 |------------------------------x|           +---+---+---+---+---+---+---+---+         5 |-------------------------------|           +---+---+---+---+---+---+---+---+         6 |-------------------------------|           +---+---+---+---+---+---+---+---+         7 |<------------------------------|           +---+---+---+---+---+---+---+---+             +-- ODRIVE_encoderVelEstimate  Signal tree:    -- {root}       +-- ODRIVE_encoderPosEstimate       +-- ODRIVE_encoderVelEstimate  ------------------------------------------------------------------------  Name:       ODRIVE_getEncoderCount_axis1  Id:         0x2a  Length:     8 bytes  Cycle time: - ms  Senders:    JETSON  Layout:                          Bit             7   6   5   4   3   2   1   0           +---+---+---+---+---+---+---+---+         0 |------------------------------x|           +---+---+---+---+---+---+---+---+         1 |-------------------------------|           +---+---+---+---+---+---+---+---+         2 |-------------------------------|           +---+---+---+---+---+---+---+---+         3 |<------------------------------|     B     +---+---+---+---+---+---+---+---+     y       +-- ODRIVE_encoderShadowCount     t     +---+---+---+---+---+---+---+---+     e   4 |------------------------------x|           +---+---+---+---+---+---+---+---+         5 |-------------------------------|           +---+---+---+---+---+---+---+---+         6 |-------------------------------|           +---+---+---+---+---+---+---+---+         7 |<------------------------------|           +---+---+---+---+---+---+---+---+             +-- ODRIVE_encoderCountinCPR  Signal tree:    -- {root}       +-- ODRIVE_encoderShadowCount       +-- ODRIVE_encoderCountinCPR  ------------------------------------------------------------------------  Name:       ODRIVE_setControllerModes_axis1  Id:         0x2b  Length:     8 bytes  Cycle time: - ms  Senders:    JETSON  Layout:                          Bit             7   6   5   4   3   2   1   0           +---+---+---+---+---+---+---+---+         0 |------------------------------x|           +---+---+---+---+---+---+---+---+         1 |-------------------------------|           +---+---+---+---+---+---+---+---+         2 |-------------------------------|           +---+---+---+---+---+---+---+---+         3 |<------------------------------|     B     +---+---+---+---+---+---+---+---+     y       +-- ODRIVE_controlMode     t     +---+---+---+---+---+---+---+---+     e   4 |------------------------------x|           +---+---+---+---+---+---+---+---+         5 |-------------------------------|           +---+---+---+---+---+---+---+---+         6 |-------------------------------|           +---+---+---+---+---+---+---+---+         7 |<------------------------------|           +---+---+---+---+---+---+---+---+             +-- ODRIVE_inputMode  Signal tree:    -- {root}       +-- ODRIVE_controlMode       +-- ODRIVE_inputMode  Signal choices:    ODRIVE_controlMode        0 CONTROL_MODE_VOLTAGE_CONTROL        1 CONTROL_MODE_TORQUE_CONTROL        2 CONTROL_MODE_VELOCITY_CONTROL        3 CONTROL_MODE_POSITION_CONTROL    ODRIVE_inputMode        0 INPUT_MODE_INACTIVE        1 INPUT_MODE_PASSTHROUGH        2 INPUT_MODE_VEL_RAMP        3 INPUT_MODE_POS_FILTER        4 INPUT_MODE_MIX_CHANNELS        5 INPUT_MODE_TRAP_TRAJ        6 INPUT_MODE_TORQUE_RAMP        7 INPUT_MODE_MIRROR        8 INPUT_MODE_Tuning  ------------------------------------------------------------------------  Name:       ODRIVE_SetInputPos_axis1  Id:         0x2c  Length:     8 bytes  Cycle time: - ms  Senders:    JETSON  Layout:                          Bit             7   6   5   4   3   2   1   0           +---+---+---+---+---+---+---+---+         0 |------------------------------x|           +---+---+---+---+---+---+---+---+         1 |-------------------------------|           +---+---+---+---+---+---+---+---+         2 |-------------------------------|           +---+---+---+---+---+---+---+---+         3 |<------------------------------|           +---+---+---+---+---+---+---+---+     B       +-- ODRIVE_inputPos     y     +---+---+---+---+---+---+---+---+     t   4 |------------------------------x|     e     +---+---+---+---+---+---+---+---+         5 |<------------------------------|           +---+---+---+---+---+---+---+---+             +-- ODRIVE_VelFF           +---+---+---+---+---+---+---+---+         6 |------------------------------x|           +---+---+---+---+---+---+---+---+         7 |<------------------------------|           +---+---+---+---+---+---+---+---+             +-- ODRIVE_TorqueFF  Signal tree:    -- {root}       +-- ODRIVE_inputPos       +-- ODRIVE_VelFF       +-- ODRIVE_TorqueFF  ------------------------------------------------------------------------  Name:       ODRIVE_setInputVel_axis1  Id:         0x2d  Length:     8 bytes  Cycle time: - ms  Senders:    JETSON  Layout:                          Bit             7   6   5   4   3   2   1   0           +---+---+---+---+---+---+---+---+         0 |------------------------------x|           +---+---+---+---+---+---+---+---+         1 |-------------------------------|           +---+---+---+---+---+---+---+---+         2 |-------------------------------|           +---+---+---+---+---+---+---+---+         3 |<------------------------------|     B     +---+---+---+---+---+---+---+---+     y       +-- ODRIVE_inputVel     t     +---+---+---+---+---+---+---+---+     e   4 |------------------------------x|           +---+---+---+---+---+---+---+---+         5 |-------------------------------|           +---+---+---+---+---+---+---+---+         6 |-------------------------------|           +---+---+---+---+---+---+---+---+         7 |<------------------------------|           +---+---+---+---+---+---+---+---+             +-- ODRIVE_TorqueFF  Signal tree:    -- {root}       +-- ODRIVE_inputVel       +-- ODRIVE_TorqueFF  ------------------------------------------------------------------------  Name:       ODRIVE_setInputTorque_axis1  Id:         0x2e  Length:     4 bytes  Cycle time: - ms  Senders:    JETSON  Layout:                          Bit             7   6   5   4   3   2   1   0           +---+---+---+---+---+---+---+---+         0 |------------------------------x|           +---+---+---+---+---+---+---+---+     B   1 |-------------------------------|     y     +---+---+---+---+---+---+---+---+     t   2 |-------------------------------|     e     +---+---+---+---+---+---+---+---+         3 |<------------------------------|           +---+---+---+---+---+---+---+---+             +-- ODRIVE_inputTorque  Signal tree:    -- {root}       +-- ODRIVE_inputTorque  ------------------------------------------------------------------------  Name:       ODRIVE_setLimits_axis1  Id:         0x2f  Length:     8 bytes  Cycle time: - ms  Senders:    JETSON  Layout:                          Bit             7   6   5   4   3   2   1   0           +---+---+---+---+---+---+---+---+         0 |------------------------------x|           +---+---+---+---+---+---+---+---+         1 |-------------------------------|           +---+---+---+---+---+---+---+---+         2 |-------------------------------|           +---+---+---+---+---+---+---+---+         3 |<------------------------------|     B     +---+---+---+---+---+---+---+---+     y       +-- ODRIVE_VelocityLimit     t     +---+---+---+---+---+---+---+---+     e   4 |------------------------------x|           +---+---+---+---+---+---+---+---+         5 |-------------------------------|           +---+---+---+---+---+---+---+---+         6 |-------------------------------|           +---+---+---+---+---+---+---+---+         7 |<------------------------------|           +---+---+---+---+---+---+---+---+             +-- ODRIVE_CurrentLimit  Signal tree:    -- {root}       +-- ODRIVE_VelocityLimit       +-- ODRIVE_CurrentLimit  ------------------------------------------------------------------------  Name:       ODRIVE_StartAnticogging_axis1  Id:         0x30  Length:     0 bytes  Cycle time: - ms  Senders:    JETSON  Layout:                          Bit             7   6   5   4   3   2   1   0           +---+---+---+---+---+---+---+---+     B     y     t     e  Signal tree:    -- {root}  ------------------------------------------------------------------------  Name:       ODRIVE_setTrajVelLimit_axis1  Id:         0x31  Length:     4 bytes  Cycle time: - ms  Senders:    JETSON  Layout:                          Bit             7   6   5   4   3   2   1   0           +---+---+---+---+---+---+---+---+         0 |------------------------------x|           +---+---+---+---+---+---+---+---+     B   1 |-------------------------------|     y     +---+---+---+---+---+---+---+---+     t   2 |-------------------------------|     e     +---+---+---+---+---+---+---+---+         3 |<------------------------------|           +---+---+---+---+---+---+---+---+             +-- ODRIVE_TrajVelLimit  Signal tree:    -- {root}       +-- ODRIVE_TrajVelLimit  ------------------------------------------------------------------------  Name:       ODRIVE_setTrajAccelLimit_axis1  Id:         0x32  Length:     8 bytes  Cycle time: - ms  Senders:    JETSON  Layout:                          Bit             7   6   5   4   3   2   1   0           +---+---+---+---+---+---+---+---+         0 |------------------------------x|           +---+---+---+---+---+---+---+---+         1 |-------------------------------|           +---+---+---+---+---+---+---+---+         2 |-------------------------------|           +---+---+---+---+---+---+---+---+         3 |<------------------------------|     B     +---+---+---+---+---+---+---+---+     y       +-- ODRIVE_TrajAccelLimit     t     +---+---+---+---+---+---+---+---+     e   4 |------------------------------x|           +---+---+---+---+---+---+---+---+         5 |-------------------------------|           +---+---+---+---+---+---+---+---+         6 |-------------------------------|           +---+---+---+---+---+---+---+---+         7 |<------------------------------|           +---+---+---+---+---+---+---+---+             +-- ODRIVE_TrajDecelLimit  Signal tree:    -- {root}       +-- ODRIVE_TrajAccelLimit       +-- ODRIVE_TrajDecelLimit  ------------------------------------------------------------------------  Name:       ODRIVE_setTrajInertia_axis1  Id:         0x33  Length:     4 bytes  Cycle time: - ms  Senders:    JETSON  Layout:                          Bit             7   6   5   4   3   2   1   0           +---+---+---+---+---+---+---+---+         0 |------------------------------x|           +---+---+---+---+---+---+---+---+     B   1 |-------------------------------|     y     +---+---+---+---+---+---+---+---+     t   2 |-------------------------------|     e     +---+---+---+---+---+---+---+---+         3 |<------------------------------|           +---+---+---+---+---+---+---+---+             +-- ODRIVE_TrajInertia  Signal tree:    -- {root}       +-- ODRIVE_TrajInertia  ------------------------------------------------------------------------  Name:       ODRIVE_getIQ_axis1  Id:         0x34  Length:     8 bytes  Cycle time: - ms  Senders:    ODRIVE  Layout:                          Bit             7   6   5   4   3   2   1   0           +---+---+---+---+---+---+---+---+         0 |------------------------------x|           +---+---+---+---+---+---+---+---+         1 |-------------------------------|           +---+---+---+---+---+---+---+---+         2 |-------------------------------|           +---+---+---+---+---+---+---+---+         3 |<------------------------------|     B     +---+---+---+---+---+---+---+---+     y       +-- ODRIVE_IqSetpoint     t     +---+---+---+---+---+---+---+---+     e   4 |------------------------------x|           +---+---+---+---+---+---+---+---+         5 |-------------------------------|           +---+---+---+---+---+---+---+---+         6 |-------------------------------|           +---+---+---+---+---+---+---+---+         7 |<------------------------------|           +---+---+---+---+---+---+---+---+             +-- ODRIVE_IqMeasured  Signal tree:    -- {root}       +-- ODRIVE_IqSetpoint       +-- ODRIVE_IqMeasured  ------------------------------------------------------------------------  Name:       ODRIVE_GetSensorlessEstimates_axis1  Id:         0x35  Length:     8 bytes  Cycle time: - ms  Senders:    ODRIVE  Layout:                          Bit             7   6   5   4   3   2   1   0           +---+---+---+---+---+---+---+---+         0 |------------------------------x|           +---+---+---+---+---+---+---+---+         1 |-------------------------------|           +---+---+---+---+---+---+---+---+         2 |-------------------------------|           +---+---+---+---+---+---+---+---+         3 |<------------------------------|     B     +---+---+---+---+---+---+---+---+     y       +-- ODRIVE_SensorlessPosEstimate     t     +---+---+---+---+---+---+---+---+     e   4 |------------------------------x|           +---+---+---+---+---+---+---+---+         5 |-------------------------------|           +---+---+---+---+---+---+---+---+         6 |-------------------------------|           +---+---+---+---+---+---+---+---+         7 |<------------------------------|           +---+---+---+---+---+---+---+---+             +-- ODRIVE_SensorlessVelEstimate  Signal tree:    -- {root}       +-- ODRIVE_SensorlessPosEstimate       +-- ODRIVE_SensorlessVelEstimate  ------------------------------------------------------------------------  Name:       ODRIVE_RebootOdrive_axis1  Id:         0x36  Length:     0 bytes  Cycle time: - ms  Senders:    JETSON  Layout:                          Bit             7   6   5   4   3   2   1   0           +---+---+---+---+---+---+---+---+     B     y     t     e  Signal tree:    -- {root}  ------------------------------------------------------------------------  Name:       ODRIVE_getVbusVoltage_axis1  Id:         0x37  Length:     4 bytes  Cycle time: - ms  Senders:    ODRIVE  Layout:                          Bit             7   6   5   4   3   2   1   0           +---+---+---+---+---+---+---+---+         0 |------------------------------x|           +---+---+---+---+---+---+---+---+     B   1 |-------------------------------|     y     +---+---+---+---+---+---+---+---+     t   2 |-------------------------------|     e     +---+---+---+---+---+---+---+---+         3 |<------------------------------|           +---+---+---+---+---+---+---+---+             +-- ODRIVE_vbusVoltage  Signal tree:    -- {root}       +-- ODRIVE_vbusVoltage  ------------------------------------------------------------------------  Name:       ODRIVE_ClearErrors_axis1  Id:         0x38  Length:     0 bytes  Cycle time: - ms  Senders:    JETSON  Layout:                          Bit             7   6   5   4   3   2   1   0           +---+---+---+---+---+---+---+---+     B     y     t     e  Signal tree:    -- {root}  ------------------------------------------------------------------------  Name:       ODRIVE_setLinearCount_axis1  Id:         0x39  Length:     4 bytes  Cycle time: - ms  Senders:    JETSON  Layout:                          Bit             7   6   5   4   3   2   1   0           +---+---+---+---+---+---+---+---+         0 |------------------------------x|           +---+---+---+---+---+---+---+---+     B   1 |-------------------------------|     y     +---+---+---+---+---+---+---+---+     t   2 |-------------------------------|     e     +---+---+---+---+---+---+---+---+         3 |<------------------------------|           +---+---+---+---+---+---+---+---+             +-- ODRIVE_position  Signal tree:    -- {root}       +-- ODRIVE_position  ------------------------------------------------------------------------  Name:       ODRIVE_setPositionGain_axis1  Id:         0x3a  Length:     4 bytes  Cycle time: - ms  Senders:    JETSON  Layout:                          Bit             7   6   5   4   3   2   1   0           +---+---+---+---+---+---+---+---+         0 |------------------------------x|           +---+---+---+---+---+---+---+---+     B   1 |-------------------------------|     y     +---+---+---+---+---+---+---+---+     t   2 |-------------------------------|     e     +---+---+---+---+---+---+---+---+         3 |<------------------------------|           +---+---+---+---+---+---+---+---+             +-- ODRIVE_posGain  Signal tree:    -- {root}       +-- ODRIVE_posGain  ------------------------------------------------------------------------  Name:       ODRIVE_setVelGain_axis1  Id:         0x3b  Length:     8 bytes  Cycle time: - ms  Senders:    JETSON  Layout:                          Bit             7   6   5   4   3   2   1   0           +---+---+---+---+---+---+---+---+         0 |------------------------------x|           +---+---+---+---+---+---+---+---+         1 |-------------------------------|           +---+---+---+---+---+---+---+---+         2 |-------------------------------|           +---+---+---+---+---+---+---+---+         3 |<------------------------------|     B     +---+---+---+---+---+---+---+---+     y       +-- ODRIVE_velGain     t     +---+---+---+---+---+---+---+---+     e   4 |------------------------------x|           +---+---+---+---+---+---+---+---+         5 |-------------------------------|           +---+---+---+---+---+---+---+---+         6 |-------------------------------|           +---+---+---+---+---+---+---+---+         7 |<------------------------------|           +---+---+---+---+---+---+---+---+             +-- ODRIVE_velIntegratorGain  Signal tree:    -- {root}       +-- ODRIVE_velGain       +-- ODRIVE_velIntegratorGain  ------------------------------------------------------------------------
+================================= Messages =================================
+
+  ------------------------------------------------------------------------
+
+  Name:       ODRIVE_heartbeatMessage_axis0
+  Id:         0x1
+  Length:     6 bytes
+  Cycle time: - ms
+  Senders:    ODRIVE
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         1 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         2 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+     B   3 |<------------------------------|
+     y     +---+---+---+---+---+---+---+---+
+     t       +-- ODRIVE_axisError
+     e     +---+---+---+---+---+---+---+---+
+         4 |<-----------------------------x|
+           +---+---+---+---+---+---+---+---+
+             +-- ODRIVE_axisCurrentState
+           +---+---+---+---+---+---+---+---+
+         5 |<-----------------------------x|
+           +---+---+---+---+---+---+---+---+
+             +-- ODRIVE_controllerStatus
+
+  Signal tree:
+
+    -- {root}
+       +-- ODRIVE_axisError
+       +-- ODRIVE_axisCurrentState
+       +-- ODRIVE_controllerStatus
+
+  Signal choices:
+
+    ODRIVE_axisError
+        0 ERROR_NONE
+        1 ERROR_INVALID_STATE
+        2048 ERROR_WATCHDOG_TIMER_EXPIRED
+        4096 ERROR_MIN_ENDSTOP_PRESSED
+        8192 ERROR_MAX_ENDSTOP_PRESSED
+        16384 ERROR_ESTOP_REQUESTED
+        131072 ERROR_HOMING_WITHOUT_ENDSTOP
+        262144 ERROR_OVER_TEMP
+        524288 ERROR_UNKNOWN_POSITION
+
+    ODRIVE_axisCurrentState
+        0 AXIS_STATE_UNDEFINED
+        1 AXIS_STATE_IDLE
+        2 AXIS_STATE_STARTUP_SEQUENCE
+        3 AXIS_STATE_FULL_CALIBRATION_SEQUENCE
+        4 AXIS_STATE_MOTOR_CALIBRATION
+        6 AXIS_STATE_ENCODER_INDEX_SEARCH
+        7 AXIS_STATE_ENCODER_OFFSET_CALIBRATION
+        8 AXIS_STATE_CLOSED_LOOP_CONTROL
+        9 AXIS_STATE_LOCKIN_SPIN
+        10 AXIS_STATE_ENCODER_DIR_FIND
+        11 AXIS_STATE_HOMING
+        12 AXIS_STATE_ENCODER_HALL_POLARITY_CALIBRATION
+        13 AXIS_STATE_ENCODER_HALL_PHASE_CALIBRATION
+
+    ODRIVE_controllerStatus
+        0 CONTROL_MODE_VOLTAGE_CONTROL
+        1 CONTROL_MODE_TORQUE_CONTROL
+        2 CONTROL_MODE_VELOCITY_CONTROL
+        3 CONTROL_MODE_POSITION_CONTROL
+
+  ------------------------------------------------------------------------
+
+  Name:       ODRIVE_EstopMessage_axis0
+  Id:         0x2
+  Length:     0 bytes
+  Cycle time: - ms
+  Senders:    JETSON
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+     B
+     y
+     t
+     e
+
+  Signal tree:
+
+    -- {root}
+
+  ------------------------------------------------------------------------
+
+  Name:       ODRIVE_getMotorError_axis0
+  Id:         0x3
+  Length:     8 bytes
+  Cycle time: - ms
+  Senders:    ODRIVE
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         1 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         2 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+     B   3 |-------------------------------|
+     y     +---+---+---+---+---+---+---+---+
+     t   4 |-------------------------------|
+     e     +---+---+---+---+---+---+---+---+
+         5 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         6 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         7 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- ODRIVE_motorError
+
+  Signal tree:
+
+    -- {root}
+       +-- ODRIVE_motorError
+
+  Signal choices:
+
+    ODRIVE_motorError
+        0 ERROR_NONE
+        1 ERROR_PHASE_RESISTANCE_OUT_OF_RANGE
+        2 ERROR_PHASE_INDUCTANCE_OUT_OF_RANGE
+        8 ERROR_DRV_FAULT
+        16 ERROR_CONTROL_DEADLINE_MISSED
+        128 ERROR_MODULATION_MAGNITUDE
+        1024 ERROR_CURRENT_SENSE_SATURATION
+        4096 ERROR_CURRENT_LIMIT_VIOLATION
+        65536 ERROR_MODULATION_IS_NAN
+        131072 ERROR_MOTOR_THERMISTOR_OVER_TEMP
+        262144 ERROR_FET_THERMISTOR_OVER_TEMP
+        524288 ERROR_TIMER_UPDATE_MISSED
+        1048576 ERROR_CURRENT_MEASUREMENT_UNAVAILABLE
+        2097152 ERROR_CONTROLLER_FAILED
+        4194304 ERROR_I_BUS_OUT_OF_RANGE
+        8388608 ERROR_BRAKE_RESISTOR_DISARMED
+        16777216 ERROR_SYSTEM_LEVEL
+        33554432 ERROR_BAD_TIMING
+        67108864 ERROR_UNKNOWN_PHASE_ESTIMATE
+        134217728 ERROR_UNKNOWN_PHASE_VEL
+        268435456 ERROR_UNKNOWN_TORQUE
+        536870912 ERROR_UNKNOWN_CURRENT_COMMAND
+        1073741824 ERROR_UNKNOWN_CURRENT_MEASUREMENT
+        2147483648 ERROR_UNKNOWN_VBUS_VOLTAGE
+        4294967296 ERROR_UNKNOWN_VOLTAGE_COMMAND
+        8589934592 ERROR_UNKNOWN_GAINS
+        17179869184 ERROR_CONTROLLER_INITIALIZING
+        34359738368 ERROR_UNBALANCED_PHASES
+
+  ------------------------------------------------------------------------
+
+  Name:       ODRIVE_getEncoderError_axis0
+  Id:         0x4
+  Length:     4 bytes
+  Cycle time: - ms
+  Senders:    ODRIVE
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+     B   1 |-------------------------------|
+     y     +---+---+---+---+---+---+---+---+
+     t   2 |-------------------------------|
+     e     +---+---+---+---+---+---+---+---+
+         3 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- ODRIVE_encoderError
+
+  Signal tree:
+
+    -- {root}
+       +-- ODRIVE_encoderError
+
+  Signal choices:
+
+    ODRIVE_encoderError
+        0 ERROR_NONE
+        1 ERROR_UNSTABLE_GAIN
+        2 ERROR_CPR_POLEPAIRS_MISMATCH
+        4 ERROR_NO_RESPONSE
+        8 ERROR_UNSUPPORTED_ENCODER_MODE
+        16 ERROR_ILLEGAL_HALL_STATE
+        32 ERROR_INDEX_NOT_FOUND_YET
+        64 ERROR_ABS_SPI_TIMEOUT
+        128 ERROR_ABS_SPI_COM_FAIL
+        256 ERROR_ABS_SPI_NOT_READY
+        512 ERROR_HALL_NOT_CALIBRATED_YET
+
+  ------------------------------------------------------------------------
+
+  Name:       ODRIVE_getSensorlessError_axis0
+  Id:         0x5
+  Length:     4 bytes
+  Cycle time: - ms
+  Senders:    ODRIVE
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+     B   1 |-------------------------------|
+     y     +---+---+---+---+---+---+---+---+
+     t   2 |-------------------------------|
+     e     +---+---+---+---+---+---+---+---+
+         3 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- ODRIVE_sensorlessError
+
+  Signal tree:
+
+    -- {root}
+       +-- ODRIVE_sensorlessError
+
+  Signal choices:
+
+    ODRIVE_sensorlessError
+        0 ERROR_NONE
+        1 ERROR_UNSTABLE_GAIN
+        2 ERROR_UNKNOWN_CURRENT_MEASUREMENT
+
+  ------------------------------------------------------------------------
+
+  Name:       ODRIVE_setAxisNodeID_axis0
+  Id:         0x6
+  Length:     4 bytes
+  Cycle time: - ms
+  Senders:    JETSON
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+     B   1 |-------------------------------|
+     y     +---+---+---+---+---+---+---+---+
+     t   2 |-------------------------------|
+     e     +---+---+---+---+---+---+---+---+
+         3 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- ODRIVE_axisCanNodeID
+
+  Signal tree:
+
+    -- {root}
+       +-- ODRIVE_axisCanNodeID
+
+  Signal choices:
+
+    ODRIVE_axisCanNodeID
+        0 ERROR_NONE
+
+  ------------------------------------------------------------------------
+
+  Name:       ODRIVE_setAxisRequestedState_axis0
+  Id:         0x7
+  Length:     4 bytes
+  Cycle time: - ms
+  Senders:    JETSON
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+     B   1 |-------------------------------|
+     y     +---+---+---+---+---+---+---+---+
+     t   2 |-------------------------------|
+     e     +---+---+---+---+---+---+---+---+
+         3 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- ODRIVE_axisRequestedState
+
+  Signal tree:
+
+    -- {root}
+       +-- ODRIVE_axisRequestedState
+
+  Signal choices:
+
+    ODRIVE_axisRequestedState
+        0 AXIS_STATE_UNDEFINED
+        1 AXIS_STATE_IDLE
+        2 AXIS_STATE_STARTUP_SEQUENCE
+        3 AXIS_STATE_FULL_CALIBRATION_SEQUENCE
+        4 AXIS_STATE_MOTOR_CALIBRATION
+        6 AXIS_STATE_ENCODER_INDEX_SEARCH
+        7 AXIS_STATE_ENCODER_OFFSET_CALIBRATION
+        8 AXIS_STATE_CLOSED_LOOP_CONTROL
+        9 AXIS_STATE_LOCKIN_SPIN
+        10 AXIS_STATE_ENCODER_DIR_FIND
+        11 AXIS_STATE_HOMING
+        12 AXIS_STATE_ENCODER_HALL_POLARITY_CALIBRATION
+        13 AXIS_STATE_ENCODER_HALL_PHASE_CALIBRATION
+
+  ------------------------------------------------------------------------
+
+  Name:       ODRIVE_getEncoderEstimates_axis0
+  Id:         0x9
+  Length:     8 bytes
+  Cycle time: - ms
+  Senders:    JETSON
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         1 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         2 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         3 |<------------------------------|
+     B     +---+---+---+---+---+---+---+---+
+     y       +-- ODRIVE_encoderPosEstimate
+     t     +---+---+---+---+---+---+---+---+
+     e   4 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         5 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         6 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         7 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- ODRIVE_encoderVelEstimate
+
+  Signal tree:
+
+    -- {root}
+       +-- ODRIVE_encoderPosEstimate
+       +-- ODRIVE_encoderVelEstimate
+
+  ------------------------------------------------------------------------
+
+  Name:       ODRIVE_getEncoderCount_axis0
+  Id:         0xa
+  Length:     8 bytes
+  Cycle time: - ms
+  Senders:    JETSON
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         1 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         2 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         3 |<------------------------------|
+     B     +---+---+---+---+---+---+---+---+
+     y       +-- ODRIVE_encoderShadowCount
+     t     +---+---+---+---+---+---+---+---+
+     e   4 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         5 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         6 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         7 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- ODRIVE_encoderCountinCPR
+
+  Signal tree:
+
+    -- {root}
+       +-- ODRIVE_encoderShadowCount
+       +-- ODRIVE_encoderCountinCPR
+
+  ------------------------------------------------------------------------
+
+  Name:       ODRIVE_setControllerModes_axis0
+  Id:         0xb
+  Length:     8 bytes
+  Cycle time: - ms
+  Senders:    JETSON
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         1 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         2 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         3 |<------------------------------|
+     B     +---+---+---+---+---+---+---+---+
+     y       +-- ODRIVE_controlMode
+     t     +---+---+---+---+---+---+---+---+
+     e   4 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         5 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         6 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         7 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- ODRIVE_inputMode
+
+  Signal tree:
+
+    -- {root}
+       +-- ODRIVE_controlMode
+       +-- ODRIVE_inputMode
+
+  Signal choices:
+
+    ODRIVE_controlMode
+        0 CONTROL_MODE_VOLTAGE_CONTROL
+        1 CONTROL_MODE_TORQUE_CONTROL
+        2 CONTROL_MODE_VELOCITY_CONTROL
+        3 CONTROL_MODE_POSITION_CONTROL
+
+    ODRIVE_inputMode
+        0 INPUT_MODE_INACTIVE
+        1 INPUT_MODE_PASSTHROUGH
+        2 INPUT_MODE_VEL_RAMP
+        3 INPUT_MODE_POS_FILTER
+        4 INPUT_MODE_MIX_CHANNELS
+        5 INPUT_MODE_TRAP_TRAJ
+        6 INPUT_MODE_TORQUE_RAMP
+        7 INPUT_MODE_MIRROR
+        8 INPUT_MODE_Tuning
+
+  ------------------------------------------------------------------------
+
+  Name:       ODRIVE_SetInputPos_axis0
+  Id:         0xc
+  Length:     8 bytes
+  Cycle time: - ms
+  Senders:    JETSON
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         1 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         2 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         3 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+     B       +-- ODRIVE_inputPos
+     y     +---+---+---+---+---+---+---+---+
+     t   4 |------------------------------x|
+     e     +---+---+---+---+---+---+---+---+
+         5 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- ODRIVE_VelFF
+           +---+---+---+---+---+---+---+---+
+         6 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         7 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- ODRIVE_TorqueFF
+
+  Signal tree:
+
+    -- {root}
+       +-- ODRIVE_inputPos
+       +-- ODRIVE_VelFF
+       +-- ODRIVE_TorqueFF
+
+  ------------------------------------------------------------------------
+
+  Name:       ODRIVE_setInputVel_axis0
+  Id:         0xd
+  Length:     8 bytes
+  Cycle time: - ms
+  Senders:    JETSON
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         1 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         2 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         3 |<------------------------------|
+     B     +---+---+---+---+---+---+---+---+
+     y       +-- ODRIVE_inputVel
+     t     +---+---+---+---+---+---+---+---+
+     e   4 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         5 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         6 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         7 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- ODRIVE_TorqueFF
+
+  Signal tree:
+
+    -- {root}
+       +-- ODRIVE_inputVel
+       +-- ODRIVE_TorqueFF
+
+  ------------------------------------------------------------------------
+
+  Name:       ODRIVE_setInputTorque_axis0
+  Id:         0xe
+  Length:     4 bytes
+  Cycle time: - ms
+  Senders:    JETSON
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+     B   1 |-------------------------------|
+     y     +---+---+---+---+---+---+---+---+
+     t   2 |-------------------------------|
+     e     +---+---+---+---+---+---+---+---+
+         3 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- ODRIVE_inputTorque
+
+  Signal tree:
+
+    -- {root}
+       +-- ODRIVE_inputTorque
+
+  ------------------------------------------------------------------------
+
+  Name:       ODRIVE_setLimits_axis0
+  Id:         0xf
+  Length:     8 bytes
+  Cycle time: - ms
+  Senders:    JETSON
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         1 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         2 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         3 |<------------------------------|
+     B     +---+---+---+---+---+---+---+---+
+     y       +-- ODRIVE_VelocityLimit
+     t     +---+---+---+---+---+---+---+---+
+     e   4 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         5 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         6 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         7 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- ODRIVE_CurrentLimit
+
+  Signal tree:
+
+    -- {root}
+       +-- ODRIVE_VelocityLimit
+       +-- ODRIVE_CurrentLimit
+
+  ------------------------------------------------------------------------
+
+  Name:       ODRIVE_StartAnticogging_axis0
+  Id:         0x10
+  Length:     0 bytes
+  Cycle time: - ms
+  Senders:    JETSON
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+     B
+     y
+     t
+     e
+
+  Signal tree:
+
+    -- {root}
+
+  ------------------------------------------------------------------------
+
+  Name:       ODRIVE_setTrajVelLimit_axis0
+  Id:         0x11
+  Length:     4 bytes
+  Cycle time: - ms
+  Senders:    JETSON
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+     B   1 |-------------------------------|
+     y     +---+---+---+---+---+---+---+---+
+     t   2 |-------------------------------|
+     e     +---+---+---+---+---+---+---+---+
+         3 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- ODRIVE_TrajVelLimit
+
+  Signal tree:
+
+    -- {root}
+       +-- ODRIVE_TrajVelLimit
+
+  ------------------------------------------------------------------------
+
+  Name:       ODRIVE_setTrajAccelLimit_axis0
+  Id:         0x12
+  Length:     8 bytes
+  Cycle time: - ms
+  Senders:    JETSON
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         1 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         2 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         3 |<------------------------------|
+     B     +---+---+---+---+---+---+---+---+
+     y       +-- ODRIVE_TrajAccelLimit
+     t     +---+---+---+---+---+---+---+---+
+     e   4 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         5 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         6 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         7 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- ODRIVE_TrajDecelLimit
+
+  Signal tree:
+
+    -- {root}
+       +-- ODRIVE_TrajAccelLimit
+       +-- ODRIVE_TrajDecelLimit
+
+  ------------------------------------------------------------------------
+
+  Name:       ODRIVE_setTrajInertia_axis0
+  Id:         0x13
+  Length:     4 bytes
+  Cycle time: - ms
+  Senders:    JETSON
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+     B   1 |-------------------------------|
+     y     +---+---+---+---+---+---+---+---+
+     t   2 |-------------------------------|
+     e     +---+---+---+---+---+---+---+---+
+         3 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- ODRIVE_TrajInertia
+
+  Signal tree:
+
+    -- {root}
+       +-- ODRIVE_TrajInertia
+
+  ------------------------------------------------------------------------
+
+  Name:       ODRIVE_getIQ_axis0
+  Id:         0x14
+  Length:     8 bytes
+  Cycle time: - ms
+  Senders:    ODRIVE
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         1 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         2 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         3 |<------------------------------|
+     B     +---+---+---+---+---+---+---+---+
+     y       +-- ODRIVE_IqSetpoint
+     t     +---+---+---+---+---+---+---+---+
+     e   4 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         5 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         6 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         7 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- ODRIVE_IqMeasured
+
+  Signal tree:
+
+    -- {root}
+       +-- ODRIVE_IqSetpoint
+       +-- ODRIVE_IqMeasured
+
+  ------------------------------------------------------------------------
+
+  Name:       ODRIVE_GetSensorlessEstimates_axis0
+  Id:         0x15
+  Length:     8 bytes
+  Cycle time: - ms
+  Senders:    ODRIVE
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         1 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         2 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         3 |<------------------------------|
+     B     +---+---+---+---+---+---+---+---+
+     y       +-- ODRIVE_SensorlessPosEstimate
+     t     +---+---+---+---+---+---+---+---+
+     e   4 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         5 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         6 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         7 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- ODRIVE_SensorlessVelEstimate
+
+  Signal tree:
+
+    -- {root}
+       +-- ODRIVE_SensorlessPosEstimate
+       +-- ODRIVE_SensorlessVelEstimate
+
+  ------------------------------------------------------------------------
+
+  Name:       ODRIVE_RebootOdrive_axis0
+  Id:         0x16
+  Length:     0 bytes
+  Cycle time: - ms
+  Senders:    JETSON
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+     B
+     y
+     t
+     e
+
+  Signal tree:
+
+    -- {root}
+
+  ------------------------------------------------------------------------
+
+  Name:       ODRIVE_getVbusVoltage_axis0
+  Id:         0x17
+  Length:     4 bytes
+  Cycle time: - ms
+  Senders:    ODRIVE
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+     B   1 |-------------------------------|
+     y     +---+---+---+---+---+---+---+---+
+     t   2 |-------------------------------|
+     e     +---+---+---+---+---+---+---+---+
+         3 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- ODRIVE_vbusVoltage
+
+  Signal tree:
+
+    -- {root}
+       +-- ODRIVE_vbusVoltage
+
+  ------------------------------------------------------------------------
+
+  Name:       ODRIVE_ClearErrors_axis0
+  Id:         0x18
+  Length:     0 bytes
+  Cycle time: - ms
+  Senders:    JETSON
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+     B
+     y
+     t
+     e
+
+  Signal tree:
+
+    -- {root}
+
+  ------------------------------------------------------------------------
+
+  Name:       ODRIVE_setLinearCount_axis0
+  Id:         0x19
+  Length:     4 bytes
+  Cycle time: - ms
+  Senders:    JETSON
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+     B   1 |-------------------------------|
+     y     +---+---+---+---+---+---+---+---+
+     t   2 |-------------------------------|
+     e     +---+---+---+---+---+---+---+---+
+         3 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- ODRIVE_position
+
+  Signal tree:
+
+    -- {root}
+       +-- ODRIVE_position
+
+  ------------------------------------------------------------------------
+
+  Name:       ODRIVE_setPositionGain_axis0
+  Id:         0x1a
+  Length:     4 bytes
+  Cycle time: - ms
+  Senders:    JETSON
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+     B   1 |-------------------------------|
+     y     +---+---+---+---+---+---+---+---+
+     t   2 |-------------------------------|
+     e     +---+---+---+---+---+---+---+---+
+         3 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- ODRIVE_posGain
+
+  Signal tree:
+
+    -- {root}
+       +-- ODRIVE_posGain
+
+  ------------------------------------------------------------------------
+
+  Name:       ODRIVE_setVelGain_axis0
+  Id:         0x1b
+  Length:     8 bytes
+  Cycle time: - ms
+  Senders:    JETSON
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         1 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         2 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         3 |<------------------------------|
+     B     +---+---+---+---+---+---+---+---+
+     y       +-- ODRIVE_velGain
+     t     +---+---+---+---+---+---+---+---+
+     e   4 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         5 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         6 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         7 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- ODRIVE_velIntegratorGain
+
+  Signal tree:
+
+    -- {root}
+       +-- ODRIVE_velGain
+       +-- ODRIVE_velIntegratorGain
+
+  ------------------------------------------------------------------------
+
+  Name:       ODRIVE_heartbeatMessage_axis1
+  Id:         0x21
+  Length:     6 bytes
+  Cycle time: - ms
+  Senders:    ODRIVE
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         1 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         2 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+     B   3 |<------------------------------|
+     y     +---+---+---+---+---+---+---+---+
+     t       +-- ODRIVE_axisError
+     e     +---+---+---+---+---+---+---+---+
+         4 |<-----------------------------x|
+           +---+---+---+---+---+---+---+---+
+             +-- ODRIVE_axisCurrentState
+           +---+---+---+---+---+---+---+---+
+         5 |<-----------------------------x|
+           +---+---+---+---+---+---+---+---+
+             +-- ODRIVE_controllerStatus
+
+  Signal tree:
+
+    -- {root}
+       +-- ODRIVE_axisError
+       +-- ODRIVE_axisCurrentState
+       +-- ODRIVE_controllerStatus
+
+  Signal choices:
+
+    ODRIVE_axisError
+        0 ERROR_NONE
+        1 ERROR_INVALID_STATE
+        2048 ERROR_WATCHDOG_TIMER_EXPIRED
+        4096 ERROR_MIN_ENDSTOP_PRESSED
+        8192 ERROR_MAX_ENDSTOP_PRESSED
+        16384 ERROR_ESTOP_REQUESTED
+        131072 ERROR_HOMING_WITHOUT_ENDSTOP
+        262144 ERROR_OVER_TEMP
+        524288 ERROR_UNKNOWN_POSITION
+
+    ODRIVE_axisCurrentState
+        0 AXIS_STATE_UNDEFINED
+        1 AXIS_STATE_IDLE
+        2 AXIS_STATE_STARTUP_SEQUENCE
+        3 AXIS_STATE_FULL_CALIBRATION_SEQUENCE
+        4 AXIS_STATE_MOTOR_CALIBRATION
+        6 AXIS_STATE_ENCODER_INDEX_SEARCH
+        7 AXIS_STATE_ENCODER_OFFSET_CALIBRATION
+        8 AXIS_STATE_CLOSED_LOOP_CONTROL
+        9 AXIS_STATE_LOCKIN_SPIN
+        10 AXIS_STATE_ENCODER_DIR_FIND
+        11 AXIS_STATE_HOMING
+        12 AXIS_STATE_ENCODER_HALL_POLARITY_CALIBRATION
+        13 AXIS_STATE_ENCODER_HALL_PHASE_CALIBRATION
+
+    ODRIVE_controllerStatus
+        0 CONTROL_MODE_VOLTAGE_CONTROL
+        1 CONTROL_MODE_TORQUE_CONTROL
+        2 CONTROL_MODE_VELOCITY_CONTROL
+        3 CONTROL_MODE_POSITION_CONTROL
+
+  ------------------------------------------------------------------------
+
+  Name:       ODRIVE_EstopMessage_axis1
+  Id:         0x22
+  Length:     0 bytes
+  Cycle time: - ms
+  Senders:    JETSON
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+     B
+     y
+     t
+     e
+
+  Signal tree:
+
+    -- {root}
+
+  ------------------------------------------------------------------------
+
+  Name:       ODRIVE_getMotorError_axis1
+  Id:         0x23
+  Length:     8 bytes
+  Cycle time: - ms
+  Senders:    ODRIVE
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         1 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         2 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+     B   3 |-------------------------------|
+     y     +---+---+---+---+---+---+---+---+
+     t   4 |-------------------------------|
+     e     +---+---+---+---+---+---+---+---+
+         5 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         6 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         7 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- ODRIVE_motorError
+
+  Signal tree:
+
+    -- {root}
+       +-- ODRIVE_motorError
+
+  Signal choices:
+
+    ODRIVE_motorError
+        0 ERROR_NONE
+        1 ERROR_PHASE_RESISTANCE_OUT_OF_RANGE
+        2 ERROR_PHASE_INDUCTANCE_OUT_OF_RANGE
+        8 ERROR_DRV_FAULT
+        16 ERROR_CONTROL_DEADLINE_MISSED
+        128 ERROR_MODULATION_MAGNITUDE
+        1024 ERROR_CURRENT_SENSE_SATURATION
+        4096 ERROR_CURRENT_LIMIT_VIOLATION
+        65536 ERROR_MODULATION_IS_NAN
+        131072 ERROR_MOTOR_THERMISTOR_OVER_TEMP
+        262144 ERROR_FET_THERMISTOR_OVER_TEMP
+        524288 ERROR_TIMER_UPDATE_MISSED
+        1048576 ERROR_CURRENT_MEASUREMENT_UNAVAILABLE
+        2097152 ERROR_CONTROLLER_FAILED
+        4194304 ERROR_I_BUS_OUT_OF_RANGE
+        8388608 ERROR_BRAKE_RESISTOR_DISARMED
+        16777216 ERROR_SYSTEM_LEVEL
+        33554432 ERROR_BAD_TIMING
+        67108864 ERROR_UNKNOWN_PHASE_ESTIMATE
+        134217728 ERROR_UNKNOWN_PHASE_VEL
+        268435456 ERROR_UNKNOWN_TORQUE
+        536870912 ERROR_UNKNOWN_CURRENT_COMMAND
+        1073741824 ERROR_UNKNOWN_CURRENT_MEASUREMENT
+        2147483648 ERROR_UNKNOWN_VBUS_VOLTAGE
+        4294967296 ERROR_UNKNOWN_VOLTAGE_COMMAND
+        8589934592 ERROR_UNKNOWN_GAINS
+        17179869184 ERROR_CONTROLLER_INITIALIZING
+        34359738368 ERROR_UNBALANCED_PHASES
+
+  ------------------------------------------------------------------------
+
+  Name:       ODRIVE_getEncoderError_axis1
+  Id:         0x24
+  Length:     4 bytes
+  Cycle time: - ms
+  Senders:    ODRIVE
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+     B   1 |-------------------------------|
+     y     +---+---+---+---+---+---+---+---+
+     t   2 |-------------------------------|
+     e     +---+---+---+---+---+---+---+---+
+         3 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- ODRIVE_encoderError
+
+  Signal tree:
+
+    -- {root}
+       +-- ODRIVE_encoderError
+
+  Signal choices:
+
+    ODRIVE_encoderError
+        0 ERROR_NONE
+        1 ERROR_UNSTABLE_GAIN
+        2 ERROR_CPR_POLEPAIRS_MISMATCH
+        4 ERROR_NO_RESPONSE
+        8 ERROR_UNSUPPORTED_ENCODER_MODE
+        16 ERROR_ILLEGAL_HALL_STATE
+        32 ERROR_INDEX_NOT_FOUND_YET
+        64 ERROR_ABS_SPI_TIMEOUT
+        128 ERROR_ABS_SPI_COM_FAIL
+        256 ERROR_ABS_SPI_NOT_READY
+        512 ERROR_HALL_NOT_CALIBRATED_YET
+
+  ------------------------------------------------------------------------
+
+  Name:       ODRIVE_getSensorlessError_axis1
+  Id:         0x25
+  Length:     4 bytes
+  Cycle time: - ms
+  Senders:    ODRIVE
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+     B   1 |-------------------------------|
+     y     +---+---+---+---+---+---+---+---+
+     t   2 |-------------------------------|
+     e     +---+---+---+---+---+---+---+---+
+         3 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- ODRIVE_sensorlessError
+
+  Signal tree:
+
+    -- {root}
+       +-- ODRIVE_sensorlessError
+
+  Signal choices:
+
+    ODRIVE_sensorlessError
+        0 ERROR_NONE
+        1 ERROR_UNSTABLE_GAIN
+        2 ERROR_UNKNOWN_CURRENT_MEASUREMENT
+
+  ------------------------------------------------------------------------
+
+  Name:       ODRIVE_setAxisNodeID_axis1
+  Id:         0x26
+  Length:     4 bytes
+  Cycle time: - ms
+  Senders:    JETSON
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+     B   1 |-------------------------------|
+     y     +---+---+---+---+---+---+---+---+
+     t   2 |-------------------------------|
+     e     +---+---+---+---+---+---+---+---+
+         3 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- ODRIVE_axisCanNodeID
+
+  Signal tree:
+
+    -- {root}
+       +-- ODRIVE_axisCanNodeID
+
+  Signal choices:
+
+    ODRIVE_axisCanNodeID
+        0 ERROR_NONE
+
+  ------------------------------------------------------------------------
+
+  Name:       ODRIVE_setAxisRequestedState_axis1
+  Id:         0x27
+  Length:     4 bytes
+  Cycle time: - ms
+  Senders:    JETSON
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+     B   1 |-------------------------------|
+     y     +---+---+---+---+---+---+---+---+
+     t   2 |-------------------------------|
+     e     +---+---+---+---+---+---+---+---+
+         3 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- ODRIVE_axisRequestedState
+
+  Signal tree:
+
+    -- {root}
+       +-- ODRIVE_axisRequestedState
+
+  Signal choices:
+
+    ODRIVE_axisRequestedState
+        0 AXIS_STATE_UNDEFINED
+        1 AXIS_STATE_IDLE
+        2 AXIS_STATE_STARTUP_SEQUENCE
+        3 AXIS_STATE_FULL_CALIBRATION_SEQUENCE
+        4 AXIS_STATE_MOTOR_CALIBRATION
+        6 AXIS_STATE_ENCODER_INDEX_SEARCH
+        7 AXIS_STATE_ENCODER_OFFSET_CALIBRATION
+        8 AXIS_STATE_CLOSED_LOOP_CONTROL
+        9 AXIS_STATE_LOCKIN_SPIN
+        10 AXIS_STATE_ENCODER_DIR_FIND
+        11 AXIS_STATE_HOMING
+        12 AXIS_STATE_ENCODER_HALL_POLARITY_CALIBRATION
+        13 AXIS_STATE_ENCODER_HALL_PHASE_CALIBRATION
+
+  ------------------------------------------------------------------------
+
+  Name:       ODRIVE_getEncoderEstimates_axis1
+  Id:         0x29
+  Length:     8 bytes
+  Cycle time: - ms
+  Senders:    JETSON
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         1 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         2 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         3 |<------------------------------|
+     B     +---+---+---+---+---+---+---+---+
+     y       +-- ODRIVE_encoderPosEstimate
+     t     +---+---+---+---+---+---+---+---+
+     e   4 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         5 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         6 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         7 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- ODRIVE_encoderVelEstimate
+
+  Signal tree:
+
+    -- {root}
+       +-- ODRIVE_encoderPosEstimate
+       +-- ODRIVE_encoderVelEstimate
+
+  ------------------------------------------------------------------------
+
+  Name:       ODRIVE_getEncoderCount_axis1
+  Id:         0x2a
+  Length:     8 bytes
+  Cycle time: - ms
+  Senders:    JETSON
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         1 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         2 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         3 |<------------------------------|
+     B     +---+---+---+---+---+---+---+---+
+     y       +-- ODRIVE_encoderShadowCount
+     t     +---+---+---+---+---+---+---+---+
+     e   4 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         5 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         6 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         7 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- ODRIVE_encoderCountinCPR
+
+  Signal tree:
+
+    -- {root}
+       +-- ODRIVE_encoderShadowCount
+       +-- ODRIVE_encoderCountinCPR
+
+  ------------------------------------------------------------------------
+
+  Name:       ODRIVE_setControllerModes_axis1
+  Id:         0x2b
+  Length:     8 bytes
+  Cycle time: - ms
+  Senders:    JETSON
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         1 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         2 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         3 |<------------------------------|
+     B     +---+---+---+---+---+---+---+---+
+     y       +-- ODRIVE_controlMode
+     t     +---+---+---+---+---+---+---+---+
+     e   4 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         5 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         6 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         7 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- ODRIVE_inputMode
+
+  Signal tree:
+
+    -- {root}
+       +-- ODRIVE_controlMode
+       +-- ODRIVE_inputMode
+
+  Signal choices:
+
+    ODRIVE_controlMode
+        0 CONTROL_MODE_VOLTAGE_CONTROL
+        1 CONTROL_MODE_TORQUE_CONTROL
+        2 CONTROL_MODE_VELOCITY_CONTROL
+        3 CONTROL_MODE_POSITION_CONTROL
+
+    ODRIVE_inputMode
+        0 INPUT_MODE_INACTIVE
+        1 INPUT_MODE_PASSTHROUGH
+        2 INPUT_MODE_VEL_RAMP
+        3 INPUT_MODE_POS_FILTER
+        4 INPUT_MODE_MIX_CHANNELS
+        5 INPUT_MODE_TRAP_TRAJ
+        6 INPUT_MODE_TORQUE_RAMP
+        7 INPUT_MODE_MIRROR
+        8 INPUT_MODE_Tuning
+
+  ------------------------------------------------------------------------
+
+  Name:       ODRIVE_SetInputPos_axis1
+  Id:         0x2c
+  Length:     8 bytes
+  Cycle time: - ms
+  Senders:    JETSON
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         1 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         2 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         3 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+     B       +-- ODRIVE_inputPos
+     y     +---+---+---+---+---+---+---+---+
+     t   4 |------------------------------x|
+     e     +---+---+---+---+---+---+---+---+
+         5 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- ODRIVE_VelFF
+           +---+---+---+---+---+---+---+---+
+         6 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         7 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- ODRIVE_TorqueFF
+
+  Signal tree:
+
+    -- {root}
+       +-- ODRIVE_inputPos
+       +-- ODRIVE_VelFF
+       +-- ODRIVE_TorqueFF
+
+  ------------------------------------------------------------------------
+
+  Name:       ODRIVE_setInputVel_axis1
+  Id:         0x2d
+  Length:     8 bytes
+  Cycle time: - ms
+  Senders:    JETSON
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         1 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         2 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         3 |<------------------------------|
+     B     +---+---+---+---+---+---+---+---+
+     y       +-- ODRIVE_inputVel
+     t     +---+---+---+---+---+---+---+---+
+     e   4 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         5 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         6 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         7 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- ODRIVE_TorqueFF
+
+  Signal tree:
+
+    -- {root}
+       +-- ODRIVE_inputVel
+       +-- ODRIVE_TorqueFF
+
+  ------------------------------------------------------------------------
+
+  Name:       ODRIVE_setInputTorque_axis1
+  Id:         0x2e
+  Length:     4 bytes
+  Cycle time: - ms
+  Senders:    JETSON
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+     B   1 |-------------------------------|
+     y     +---+---+---+---+---+---+---+---+
+     t   2 |-------------------------------|
+     e     +---+---+---+---+---+---+---+---+
+         3 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- ODRIVE_inputTorque
+
+  Signal tree:
+
+    -- {root}
+       +-- ODRIVE_inputTorque
+
+  ------------------------------------------------------------------------
+
+  Name:       ODRIVE_setLimits_axis1
+  Id:         0x2f
+  Length:     8 bytes
+  Cycle time: - ms
+  Senders:    JETSON
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         1 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         2 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         3 |<------------------------------|
+     B     +---+---+---+---+---+---+---+---+
+     y       +-- ODRIVE_VelocityLimit
+     t     +---+---+---+---+---+---+---+---+
+     e   4 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         5 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         6 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         7 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- ODRIVE_CurrentLimit
+
+  Signal tree:
+
+    -- {root}
+       +-- ODRIVE_VelocityLimit
+       +-- ODRIVE_CurrentLimit
+
+  ------------------------------------------------------------------------
+
+  Name:       ODRIVE_StartAnticogging_axis1
+  Id:         0x30
+  Length:     0 bytes
+  Cycle time: - ms
+  Senders:    JETSON
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+     B
+     y
+     t
+     e
+
+  Signal tree:
+
+    -- {root}
+
+  ------------------------------------------------------------------------
+
+  Name:       ODRIVE_setTrajVelLimit_axis1
+  Id:         0x31
+  Length:     4 bytes
+  Cycle time: - ms
+  Senders:    JETSON
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+     B   1 |-------------------------------|
+     y     +---+---+---+---+---+---+---+---+
+     t   2 |-------------------------------|
+     e     +---+---+---+---+---+---+---+---+
+         3 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- ODRIVE_TrajVelLimit
+
+  Signal tree:
+
+    -- {root}
+       +-- ODRIVE_TrajVelLimit
+
+  ------------------------------------------------------------------------
+
+  Name:       ODRIVE_setTrajAccelLimit_axis1
+  Id:         0x32
+  Length:     8 bytes
+  Cycle time: - ms
+  Senders:    JETSON
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         1 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         2 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         3 |<------------------------------|
+     B     +---+---+---+---+---+---+---+---+
+     y       +-- ODRIVE_TrajAccelLimit
+     t     +---+---+---+---+---+---+---+---+
+     e   4 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         5 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         6 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         7 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- ODRIVE_TrajDecelLimit
+
+  Signal tree:
+
+    -- {root}
+       +-- ODRIVE_TrajAccelLimit
+       +-- ODRIVE_TrajDecelLimit
+
+  ------------------------------------------------------------------------
+
+  Name:       ODRIVE_setTrajInertia_axis1
+  Id:         0x33
+  Length:     4 bytes
+  Cycle time: - ms
+  Senders:    JETSON
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+     B   1 |-------------------------------|
+     y     +---+---+---+---+---+---+---+---+
+     t   2 |-------------------------------|
+     e     +---+---+---+---+---+---+---+---+
+         3 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- ODRIVE_TrajInertia
+
+  Signal tree:
+
+    -- {root}
+       +-- ODRIVE_TrajInertia
+
+  ------------------------------------------------------------------------
+
+  Name:       ODRIVE_getIQ_axis1
+  Id:         0x34
+  Length:     8 bytes
+  Cycle time: - ms
+  Senders:    ODRIVE
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         1 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         2 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         3 |<------------------------------|
+     B     +---+---+---+---+---+---+---+---+
+     y       +-- ODRIVE_IqSetpoint
+     t     +---+---+---+---+---+---+---+---+
+     e   4 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         5 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         6 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         7 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- ODRIVE_IqMeasured
+
+  Signal tree:
+
+    -- {root}
+       +-- ODRIVE_IqSetpoint
+       +-- ODRIVE_IqMeasured
+
+  ------------------------------------------------------------------------
+
+  Name:       ODRIVE_GetSensorlessEstimates_axis1
+  Id:         0x35
+  Length:     8 bytes
+  Cycle time: - ms
+  Senders:    ODRIVE
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         1 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         2 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         3 |<------------------------------|
+     B     +---+---+---+---+---+---+---+---+
+     y       +-- ODRIVE_SensorlessPosEstimate
+     t     +---+---+---+---+---+---+---+---+
+     e   4 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         5 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         6 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         7 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- ODRIVE_SensorlessVelEstimate
+
+  Signal tree:
+
+    -- {root}
+       +-- ODRIVE_SensorlessPosEstimate
+       +-- ODRIVE_SensorlessVelEstimate
+
+  ------------------------------------------------------------------------
+
+  Name:       ODRIVE_RebootOdrive_axis1
+  Id:         0x36
+  Length:     0 bytes
+  Cycle time: - ms
+  Senders:    JETSON
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+     B
+     y
+     t
+     e
+
+  Signal tree:
+
+    -- {root}
+
+  ------------------------------------------------------------------------
+
+  Name:       ODRIVE_getVbusVoltage_axis1
+  Id:         0x37
+  Length:     4 bytes
+  Cycle time: - ms
+  Senders:    ODRIVE
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+     B   1 |-------------------------------|
+     y     +---+---+---+---+---+---+---+---+
+     t   2 |-------------------------------|
+     e     +---+---+---+---+---+---+---+---+
+         3 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- ODRIVE_vbusVoltage
+
+  Signal tree:
+
+    -- {root}
+       +-- ODRIVE_vbusVoltage
+
+  ------------------------------------------------------------------------
+
+  Name:       ODRIVE_ClearErrors_axis1
+  Id:         0x38
+  Length:     0 bytes
+  Cycle time: - ms
+  Senders:    JETSON
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+     B
+     y
+     t
+     e
+
+  Signal tree:
+
+    -- {root}
+
+  ------------------------------------------------------------------------
+
+  Name:       ODRIVE_setLinearCount_axis1
+  Id:         0x39
+  Length:     4 bytes
+  Cycle time: - ms
+  Senders:    JETSON
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+     B   1 |-------------------------------|
+     y     +---+---+---+---+---+---+---+---+
+     t   2 |-------------------------------|
+     e     +---+---+---+---+---+---+---+---+
+         3 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- ODRIVE_position
+
+  Signal tree:
+
+    -- {root}
+       +-- ODRIVE_position
+
+  ------------------------------------------------------------------------
+
+  Name:       ODRIVE_setPositionGain_axis1
+  Id:         0x3a
+  Length:     4 bytes
+  Cycle time: - ms
+  Senders:    JETSON
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+     B   1 |-------------------------------|
+     y     +---+---+---+---+---+---+---+---+
+     t   2 |-------------------------------|
+     e     +---+---+---+---+---+---+---+---+
+         3 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- ODRIVE_posGain
+
+  Signal tree:
+
+    -- {root}
+       +-- ODRIVE_posGain
+
+  ------------------------------------------------------------------------
+
+  Name:       ODRIVE_setVelGain_axis1
+  Id:         0x3b
+  Length:     8 bytes
+  Cycle time: - ms
+  Senders:    JETSON
+  Layout:
+
+                          Bit
+
+             7   6   5   4   3   2   1   0
+           +---+---+---+---+---+---+---+---+
+         0 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         1 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         2 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         3 |<------------------------------|
+     B     +---+---+---+---+---+---+---+---+
+     y       +-- ODRIVE_velGain
+     t     +---+---+---+---+---+---+---+---+
+     e   4 |------------------------------x|
+           +---+---+---+---+---+---+---+---+
+         5 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         6 |-------------------------------|
+           +---+---+---+---+---+---+---+---+
+         7 |<------------------------------|
+           +---+---+---+---+---+---+---+---+
+             +-- ODRIVE_velIntegratorGain
+
+  Signal tree:
+
+    -- {root}
+       +-- ODRIVE_velGain
+       +-- ODRIVE_velIntegratorGain
+
+  ------------------------------------------------------------------------
