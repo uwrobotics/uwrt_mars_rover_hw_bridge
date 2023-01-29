@@ -21,22 +21,48 @@ find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(rclcpp_components REQUIRED)
 
-add_library(uwrt-mars-rover-hw-bridge
+include_directories(
+    include
+    include/uwrt_mars_rover_utils
+    can
+    can/generated_${YEAR}
+    )
+
+
+add_library(${PROJECT_NAME} SHARED
     src/hw_bridge.cpp
     can/CANMsgMap.cpp
     can/generated_${YEAR}/uwrt_mars_rover_can_wrapper.cpp
     can/generated_${YEAR}/uwrt_mars_rover_can.c
     )
 
-install(TARGETS
-    uwrt-mars-rover-hw-bridge
-    DESTINATION lib/${PROJECT_NAME}
+# target_include_directories(${PROJECT_NAME} PUBLIC
+#     include
+#     include/uwrt_mars_rover_utils
+#     can
+#     can/generated_${YEAR}
+#     )
+
+ament_export_targets(${PROJECT_NAME}_export HAS_LIBRARY_TARGET)
+
+# install(
+#     DIRECTORY include/
+#     DESTINATION include
+#     )
+# 
+# install(
+#     DIRECTORY can/
+#     DESTINATION can
+#     )
+
+install(TARGETS ${PROJECT_NAME}
+    EXPORT ${PROJECT_NAME}_export
+    RUNTIME DESTINATION lib/${PROJECT_NAME}
+    ARCHIVE DESTINATION lib/${PROJECT_NAME}
+    LIBRARY DESTINATION lib/${PROJECT_NAME}
+    INCLUDES DESTINATION include
+    INCLUDES DESTINATION can
     )
 
-target_include_directories(uwrt-mars-rover-hw-bridge PUBLIC
-    include/uwrt_mars_rover_utils
-    can
-    can/generated_${YEAR}
-    )
 
 ament_package()
